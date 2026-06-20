@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Find Your Health Insurance Plan | Free Quote | The Health Experts Insurance</title>
+<meta name="description" content="Answer 5 quick questions and find out which health insurance plan is right for you — and if you qualify for subsidies. Free, bilingual help from licensed brokers in Miami.">
+<link rel="canonical" href="https://www.healthexps.com/private-health-quote">
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-SJSGF3E9MD"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-SJSGF3E9MD');</script>
+<style>
+html,body{overflow-x:hidden;max-width:100%;min-height:100vh;}
+:root{--purple:#452068;--purple-dark:#311549;--purple-light:#f4eefa;--pink:#ff1090;--pink-hover:#d4006d;--white:#ffffff;--gray-light:#f7f7f7;--gray-mid:#e5e5e5;--gray-text:#555555;--black:#1a1a1a;--font:Arial,Helvetica,sans-serif;--radius:14px;--shadow:0 4px 24px rgba(69,32,104,0.12);--wa:#25D366;--wa-hover:#1da851;--green:#16a34a;}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:var(--font);color:var(--black);line-height:1.6;background:linear-gradient(160deg,#f4eefa 0%,#fff0f8 100%);min-height:100vh;}
+a{color:var(--purple);text-decoration:none;}
+
+/* HEADER — minimal */
+.mini-header{background:white;border-bottom:2px solid #f4eefa;padding:14px 24px;display:flex;align-items:center;justify-content:space-between;gap:16px;}
+.mini-back{color:#452068;font-size:14px;font-weight:700;text-decoration:none;display:flex;align-items:center;gap:6px;transition:color 0.2s;}
+.mini-back:hover{color:#ff1090;}
+.mini-logo{flex:1;text-align:center;}
+.mini-logo img{height:52px;width:auto;display:block;margin:0 auto;}
+.mini-phone{color:#452068;font-size:14px;font-weight:700;text-decoration:none;display:flex;align-items:center;gap:6px;}
+.mini-phone:hover{color:#ff1090;}
+@media(max-width:600px){.mini-header{padding:12px 16px;}.mini-logo img{height:42px;}.mini-back,.mini-phone{font-size:13px;}}
+
+/* QUIZ SHELL */
+.quiz-shell{max-width:600px;margin:0 auto;padding:32px 24px 80px;}
+.quiz-header{text-align:center;margin-bottom:32px;}
+.quiz-eyebrow{font-size:13px;font-weight:700;color:var(--purple);text-transform:uppercase;letter-spacing:0.08em;margin-bottom:8px;}
+.quiz-headline{font-size:clamp(22px,4vw,32px);font-weight:700;color:var(--black);line-height:1.2;margin-bottom:10px;}
+.quiz-subhead{font-size:16px;color:var(--gray-text);line-height:1.6;}
+
+/* PROGRESS */
+.progress-wrap{margin-bottom:28px;}
+.progress-bar-bg{background:var(--gray-mid);border-radius:50px;height:6px;margin-bottom:8px;}
+.progress-bar-fill{background:linear-gradient(90deg,var(--purple),var(--pink));border-radius:50px;height:6px;transition:width 0.4s ease;}
+.progress-label{font-size:13px;color:var(--gray-text);text-align:right;}
+
+/* CARD */
+.quiz-card{background:white;border-radius:20px;padding:32px 28px;box-shadow:var(--shadow);}
+.step-q{font-size:20px;font-weight:700;color:var(--black);margin-bottom:6px;line-height:1.3;}
+.step-hint{font-size:14px;color:var(--gray-text);margin-bottom:22px;line-height:1.5;}
+
+/* OPTIONS */
+.options{display:flex;flex-direction:column;gap:10px;}
+.option{display:flex;align-items:center;gap:14px;padding:15px 18px;border:2px solid var(--gray-mid);border-radius:var(--radius);cursor:pointer;transition:all 0.18s;background:white;text-align:left;width:100%;font-family:var(--font);}
+.option:hover{border-color:var(--purple);background:var(--purple-light);}
+.option.selected{border-color:var(--purple);background:var(--purple-light);}
+
+.option-text{display:flex;flex-direction:column;gap:2px;flex:1;}
+.option-main{font-size:15px;font-weight:700;color:var(--black);}
+.option-sub{font-size:13px;color:var(--gray-text);}
+
+/* GRID OPTIONS (for income/household) */
+.options-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
+.option-grid-btn{padding:14px 12px;border:2px solid var(--gray-mid);border-radius:var(--radius);cursor:pointer;transition:all 0.18s;background:white;font-family:var(--font);text-align:center;}
+.option-grid-btn:hover,.option-grid-btn.selected{border-color:var(--purple);background:var(--purple-light);}
+.ogb-main{font-size:15px;font-weight:700;color:var(--black);}
+.ogb-sub{font-size:12px;color:var(--gray-text);margin-top:2px;}
+
+/* NAV BUTTONS */
+.quiz-nav{display:flex;gap:10px;margin-top:22px;}
+.btn-back{background:none;border:2px solid var(--gray-mid);color:var(--gray-text);padding:12px 22px;border-radius:50px;font-size:15px;font-weight:700;cursor:pointer;font-family:var(--font);transition:all 0.2s;}
+.btn-back:hover{border-color:var(--purple);color:var(--purple);}
+.btn-next{background:var(--purple);color:white;border:none;padding:12px 28px;border-radius:50px;font-size:15px;font-weight:700;cursor:pointer;font-family:var(--font);transition:all 0.2s;flex:1;}
+.btn-next:hover{background:var(--purple-dark);}
+.btn-next:disabled{background:var(--gray-mid);cursor:not-allowed;}
+
+/* RESULT */
+.result-card{background:white;border-radius:20px;padding:32px 28px;box-shadow:var(--shadow);display:none;}
+.result-card.show{display:block;}
+.result-badge{display:inline-flex;align-items:center;gap:8px;padding:8px 18px;border-radius:50px;font-size:13px;font-weight:700;margin-bottom:18px;}
+.result-ico{font-size:48px;margin-bottom:12px;}
+.result-title{font-size:24px;font-weight:700;color:var(--black);margin-bottom:10px;line-height:1.2;}
+.result-desc{font-size:15px;color:var(--gray-text);line-height:1.8;margin-bottom:24px;}
+.result-highlights{display:flex;flex-direction:column;gap:8px;margin-bottom:24px;}
+.result-highlight{display:flex;align-items:flex-start;gap:10px;font-size:15px;color:var(--gray-text);}
+.rh-dot{width:22px;height:22px;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px;}
+.rh-dot svg{width:12px;height:12px;}
+.result-ctas{display:flex;flex-direction:column;gap:10px;}
+.btn-result-primary{display:block;background:var(--pink);color:white;text-align:center;padding:15px;border-radius:50px;font-weight:700;font-size:16px;text-decoration:none;transition:all 0.2s;}
+.btn-result-primary:hover{background:var(--pink-hover);color:white;}
+.btn-result-wa{display:flex;align-items:center;justify-content:center;gap:8px;background:var(--wa);color:white;padding:14px;border-radius:50px;font-weight:700;font-size:15px;text-decoration:none;transition:all 0.2s;}
+.btn-result-wa:hover{background:var(--wa-hover);color:white;}
+.btn-result-wa svg{width:18px;height:18px;}
+.btn-result-call{display:block;background:var(--purple-light);color:var(--purple);text-align:center;padding:14px;border-radius:50px;font-weight:700;font-size:15px;text-decoration:none;transition:all 0.2s;}
+.btn-result-call:hover{background:#e8d8f7;color:var(--purple);}
+.result-restart{display:block;text-align:center;font-size:13px;color:var(--gray-text);margin-top:14px;cursor:pointer;text-decoration:underline;background:none;border:none;font-family:var(--font);width:100%;}
+.result-restart:hover{color:var(--purple);}
+
+/* SAVINGS CALLOUT */
+.savings-callout{background:linear-gradient(135deg,#f0fdf4,#dcfce7);border:2px solid var(--green);border-radius:var(--radius);padding:16px 18px;margin-bottom:20px;display:flex;align-items:center;gap:12px;}
+.sc-ico{font-size:28px;flex-shrink:0;}
+.sc-text{font-size:14px;color:#166534;line-height:1.5;}
+.sc-num{font-size:22px;font-weight:700;color:var(--green);display:block;}
+
+/* TRUST BAR */
+.trust-bar{display:flex;gap:20px;justify-content:center;flex-wrap:wrap;margin-top:20px;}
+.trust-item{display:flex;align-items:center;gap:6px;font-size:13px;color:var(--gray-text);}
+.trust-item::before{content:"✓";color:var(--green);font-weight:700;}
+
+/* FOOTER */
+.quiz-footer{text-align:center;padding:24px;font-size:12px;color:var(--gray-text);line-height:1.6;}
+.quiz-footer a{color:var(--purple);}
+
+@media(max-width:480px){.options-grid{grid-template-columns:1fr;}.quiz-card{padding:24px 18px;}.quiz-nav{flex-direction:column;}.btn-back{order:2;}.btn-next{order:1;}}
+</style>
+</head>
+<body>
+
+<!-- MINIMAL HEADER -->
+<div class="mini-header">
+ <a href="/" class="mini-back">
+ <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#452068" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+ Back
+ </a>
+ <a href="/" class="mini-logo"><img src="/images/logo.png" alt="The Health Experts Insurance"></a>
+ <a href="tel:18003806821" class="mini-phone">
+ <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#452068" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 1.27h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.91a16 16 0 0 0 6.29 6.29l.91-.91a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+ 1-800-380-6821
+ </a>
+</div>
+
+<!-- QUIZ SHELL -->
+<div class="quiz-shell">
+
+ <!-- HEADER -->
+ <div class="quiz-header">
+ <div class="quiz-eyebrow">Free · 2 minutes · No obligation</div>
+ <h1 class="quiz-headline">Find Your Best Health Insurance Plan</h1>
+ <p class="quiz-subhead">Answer 5 quick questions and we'll show you which plan fits your situation — and whether you qualify for subsidies that could lower your cost to $0.</p>
+ </div>
+
+ <!-- PROGRESS -->
+ <div class="progress-wrap" id="progress-wrap">
+ <div class="progress-bar-bg"><div class="progress-bar-fill" id="progress-fill" style="width:20%;"></div></div>
+ <div class="progress-label" id="progress-label">Question 1 of 5</div>
+ </div>
+
+ <!-- QUIZ CARD -->
+ <div class="quiz-card" id="quiz-card">
+
+ <!-- STEP 1: Age -->
+ <div class="step" id="step-1">
+ <div class="step-q">How old are you?</div>
+ <div class="step-hint">This determines which types of plans are available to you.</div>
+ <div class="options">
+ <button class="option" onclick="selectOption(this,'age','under-55')"><div class="option-text"><span class="option-main">Under 55</span><span class="option-sub">ACA Marketplace and private plans available</span></div></button>
+ <button class="option" onclick="selectOption(this,'age','55-63')"><div class="option-text"><span class="option-main">55–63</span><span class="option-sub">ACA plans available — approaching Medicare age</span></div></button>
+ <button class="option" onclick="selectOption(this,'age','64')"><div class="option-text"><span class="option-main">64 — turning 65 soon</span><span class="option-sub">May need a bridge plan before Medicare starts</span></div></button>
+ <button class="option" onclick="selectOption(this,'age','65-plus')"><div class="option-text"><span class="option-main">65 or older</span><span class="option-sub">You're eligible for Medicare — different options apply</span></div></button>
+ </div>
+ </div>
+
+ <!-- STEP 2: Current Coverage -->
+ <div class="step" id="step-2" style="display:none;">
+ <div class="step-q">What's your current health insurance situation?</div>
+ <div class="step-hint">This helps us understand your timeline and urgency.</div>
+ <div class="options">
+ <button class="option" onclick="selectOption(this,'coverage','none')"><div class="option-text"><span class="option-main">I have no coverage right now</span><span class="option-sub">Need coverage as soon as possible</span></div></button>
+ <button class="option" onclick="selectOption(this,'coverage','losing')"><div class="option-text"><span class="option-main">I'm losing coverage soon</span><span class="option-sub">Job loss, COBRA ending, or plan terminating</span></div></button>
+ <button class="option" onclick="selectOption(this,'coverage','cobra')"><div class="option-text"><span class="option-main">I'm on COBRA — it's too expensive</span><span class="option-sub">Looking for a more affordable option</span></div></button>
+ <button class="option" onclick="selectOption(this,'coverage','selfpay')"><div class="option-text"><span class="option-main">I'm paying out of pocket / self-insured</span><span class="option-sub">Want to compare what's available</span></div></button>
+ <button class="option" onclick="selectOption(this,'coverage','employer')"><div class="option-text"><span class="option-main">I have employer coverage but want to compare</span><span class="option-sub">Curious if there's something better or cheaper</span></div></button>
+ </div>
+ </div>
+
+ <!-- STEP 3: Household Size -->
+ <div class="step" id="step-3" style="display:none;">
+ <div class="step-q">How many people need coverage?</div>
+ <div class="step-hint">Include yourself, your spouse, and any dependents.</div>
+ <div class="options-grid">
+ <button class="option-grid-btn" onclick="selectGrid(this,'household','1')"><div class="ogb-main">Just me</div><div class="ogb-sub">Individual plan</div></button>
+ <button class="option-grid-btn" onclick="selectGrid(this,'household','2')"><div class="ogb-main">Me + spouse</div><div class="ogb-sub">2 adults</div></button>
+ <button class="option-grid-btn" onclick="selectGrid(this,'household','3')"><div class="ogb-main">Family of 3</div><div class="ogb-sub">2 adults + 1 child</div></button>
+ <button class="option-grid-btn" onclick="selectGrid(this,'household','4plus')"><div class="ogb-main">Family of 4+</div><div class="ogb-sub">Larger family</div></button>
+ </div>
+ </div>
+
+ <!-- STEP 4: Income -->
+ <div class="step" id="step-4" style="display:none;">
+ <div class="step-q">What is your estimated annual household income?</div>
+ <div class="step-hint">This determines if you qualify for ACA subsidies. Your answer stays private — it never leaves our system.</div>
+ <div class="options-grid">
+ <button class="option-grid-btn" onclick="selectGrid(this,'income','under-30k')"><div class="ogb-main">Under $30,000</div><div class="ogb-sub">May qualify for Medicaid</div></button>
+ <button class="option-grid-btn" onclick="selectGrid(this,'income','30k-60k')"><div class="ogb-main">$30,000–$60,000</div><div class="ogb-sub">Likely qualifies for subsidies</div></button>
+ <button class="option-grid-btn" onclick="selectGrid(this,'income','60k-100k')"><div class="ogb-main">$60,000–$100,000</div><div class="ogb-sub">May qualify for some subsidy</div></button>
+ <button class="option-grid-btn" onclick="selectGrid(this,'income','100k-150k')"><div class="ogb-main">$100,000–$150,000</div><div class="ogb-sub">Small subsidy possible</div></button>
+ <button class="option-grid-btn" onclick="selectGrid(this,'income','over-150k')"><div class="ogb-main">Over $150,000</div><div class="ogb-sub">Full premium, best coverage</div></button>
+ <button class="option-grid-btn" onclick="selectGrid(this,'income','unsure')"><div class="ogb-main">Not sure</div><div class="ogb-sub">We'll help figure it out</div></button>
+ </div>
+ </div>
+
+ <!-- STEP 5: Priority -->
+ <div class="step" id="step-5" style="display:none;">
+ <div class="step-q">What matters most to you in a health plan?</div>
+ <div class="step-hint">Help us match you to the best option.</div>
+ <div class="options">
+ <button class="option" onclick="selectOption(this,'priority','low-premium')"><div class="option-text"><span class="option-main">Lowest monthly premium</span><span class="option-sub">I'd rather pay less monthly, even if I pay more when I use care</span></div></button>
+ <button class="option" onclick="selectOption(this,'priority','best-coverage')"><div class="option-text"><span class="option-main">Most comprehensive coverage</span><span class="option-sub">I want to be covered for everything with low copays</span></div></button>
+ <button class="option" onclick="selectOption(this,'priority','my-doctors')"><div class="option-text"><span class="option-main">Keep my current doctors</span><span class="option-sub">My doctors and specialists matter most</span></div></button>
+ <button class="option" onclick="selectOption(this,'priority','fast-coverage')"><div class="option-text"><span class="option-main">Get covered as fast as possible</span><span class="option-sub">I need coverage to start quickly — minimal paperwork</span></div></button>
+ </div>
+ </div>
+
+ <!-- NAV -->
+ <div class="quiz-nav" id="quiz-nav">
+ <button class="btn-back" id="btn-back" onclick="prevStep()" style="display:none;">← Back</button>
+ <button class="btn-next" id="btn-next" onclick="nextStep()" disabled>Continue →</button>
+ </div>
+
+ </div><!-- /quiz-card -->
+
+ <!-- RESULT CARD -->
+ <div class="result-card" id="result-card">
+ <div id="result-inner"></div>
+ <button class="result-restart" onclick="restartQuiz()">← Start over</button>
+ </div>
+
+ <!-- TRUST BAR -->
+ <div class="trust-bar" id="trust-bar">
+ <div class="trust-item">Licensed brokers</div>
+ <div class="trust-item">English &amp; Spanish</div>
+ <div class="trust-item">No spam — ever</div>
+ <div class="trust-item">100% free</div>
+ </div>
+
+</div><!-- /quiz-shell -->
+
+<div class="quiz-footer">
+ © 2026 The Health Experts Insurance · 1695 NW 110 Ave Ste 224, Doral FL 33172<br>
+ <a href="/privacy">Privacy Policy</a> · <a href="/contact">Contact</a> · <a href="/">Home</a><br><br>
+ We are licensed independent insurance agents. We do not offer every plan available. ACA subsidy estimates are approximate — actual eligibility determined at enrollment.
+</div>
+
+<script>
+const answers = {};
+let currentStep = 1;
+const totalSteps = 5;
+
+function selectOption(btn, key, val) {
+ btn.closest('.step').querySelectorAll('.option').forEach(b => b.classList.remove('selected'));
+ btn.classList.add('selected');
+ answers[key] = val;
+ document.getElementById('btn-next').disabled = false;
+ // Auto-advance on selection for smoother UX
+ setTimeout(() => { if(currentStep < totalSteps) nextStep(); else showResult(); }, 300);
+}
+
+function selectGrid(btn, key, val) {
+ btn.closest('.step').querySelectorAll('.option-grid-btn').forEach(b => b.classList.remove('selected'));
+ btn.classList.add('selected');
+ answers[key] = val;
+ document.getElementById('btn-next').disabled = false;
+ setTimeout(() => { if(currentStep < totalSteps) nextStep(); else showResult(); }, 300);
+}
+
+function nextStep() {
+ if(currentStep >= totalSteps){ showResult(); return; }
+ document.getElementById('step-'+currentStep).style.display = 'none';
+ currentStep++;
+ document.getElementById('step-'+currentStep).style.display = 'block';
+ updateProgress();
+ document.getElementById('btn-next').disabled = !answers[getKeyForStep(currentStep)];
+ document.getElementById('btn-back').style.display = currentStep > 1 ? 'block' : 'none';
+}
+
+function prevStep() {
+ if(currentStep <= 1) return;
+ document.getElementById('step-'+currentStep).style.display = 'none';
+ currentStep--;
+ document.getElementById('step-'+currentStep).style.display = 'block';
+ updateProgress();
+ document.getElementById('btn-next').disabled = false;
+ document.getElementById('btn-back').style.display = currentStep > 1 ? 'block' : 'none';
+}
+
+function getKeyForStep(s){ return ['','age','coverage','household','income','priority'][s]; }
+
+function updateProgress() {
+ const pct = (currentStep / totalSteps) * 100;
+ document.getElementById('progress-fill').style.width = pct + '%';
+ document.getElementById('progress-label').textContent = 'Question ' + currentStep + ' of ' + totalSteps;
+}
+
+function showResult() {
+ // Hide quiz
+ document.getElementById('quiz-card').style.display = 'none';
+ document.getElementById('progress-wrap').style.display = 'none';
+ document.getElementById('trust-bar').style.display = 'none';
+ document.querySelector('.quiz-header').style.display = 'none';
+
+ // Determine result
+ const {age, coverage, household, income, priority} = answers;
+ let result;
+
+ if(age === '65-plus') {
+ result = 'medicare';
+ } else if(age === '64') {
+ result = 'bridge';
+ } else if(income === 'under-30k') {
+ result = 'medicaid';
+ } else if(income === 'over-150k' || income === '100k-150k') {
+ result = 'aca-nosub';
+ } else if(coverage === 'cobra') {
+ result = 'cobra-switch';
+ } else if(income === '30k-60k' || income === '60k-100k' || income === 'unsure') {
+ result = 'aca-subsidy';
+ } else {
+ result = 'aca-compare';
+ }
+
+ const results = {
+ 'aca-subsidy': {
+ badge: '💰 You likely qualify for financial help',
+ badgeColor: '#f0fdf4',
+ badgeBorder: '#16a34a',
+ badgeText: '#166534',
+ ico: '🎉',
+ title: 'Good news — you may qualify for an ACA subsidy',
+ desc: 'Based on your answers, you likely qualify for a Premium Tax Credit that could significantly reduce — or even eliminate — your monthly health insurance premium. Many people in your situation pay $0–$100/month after subsidies are applied.',
+ savings: true,
+ savingsText: 'Estimated monthly subsidy for your household',
+ savingsNum: income === '30k-60k' ? '$200–$600+' : '$50–$300+',
+ highlights: [
+ { text: 'ACA plans cover 10 essential benefits including hospitalization, prescriptions, and preventive care', color: '#16a34a' },
+ { text: 'Silver plans may also qualify you for Cost-Sharing Reductions that lower your deductibles and copays', color: '#16a34a' },
+ { text: 'Coverage can start as soon as the 1st of next month in most cases', color: '#16a34a' }
+ ],
+ cta1: { text: 'Check My Subsidy & Compare Plans', href: 'https://www.healthsherpa.com/?_agent_id=sabri-perez' },
+ cta2: true
+ },
+ 'aca-nosub': {
+ badge: '📋 ACA marketplace plan recommended',
+ badgeColor: '#f4eefa',
+ badgeBorder: '#452068',
+ badgeText: '#452068',
+ ico: '🏥',
+ title: 'An ACA Marketplace plan is likely your best option',
+ desc: 'Based on your income, you may not qualify for subsidies — but ACA Marketplace plans still offer comprehensive coverage with no pre-existing condition exclusions, and often better benefits than comparable private plans.',
+ savings: false,
+ highlights: [
+ { text: 'Gold and Platinum plans offer lower copays and deductibles for higher healthcare users', color: '#452068' },
+ { text: 'No medical underwriting — coverage regardless of pre-existing conditions', color: '#452068' },
+ { text: 'Our brokers compare every carrier at no cost to find your best option', color: '#452068' }
+ ],
+ cta1: { text: 'Compare ACA Plans Free', href: 'https://www.healthsherpa.com/?_agent_id=sabri-perez' },
+ cta2: true
+ },
+ 'cobra-switch': {
+ badge: '💸 COBRA alternative found',
+ badgeColor: '#fff4ef',
+ badgeBorder: '#ff6b35',
+ badgeText: '#7c3d1a',
+ ico: '💡',
+ title: 'You can almost certainly do better than COBRA',
+ desc: 'COBRA is almost always the most expensive option — you\'re paying the full premium your employer was subsidizing, plus an admin fee. In most cases, an ACA plan with subsidies can give you comparable or better coverage for significantly less.',
+ savings: true,
+ savingsText: 'Typical monthly savings vs. COBRA',
+ savingsNum: '$200–$800',
+ highlights: [
+ { text: 'You have 60 days from losing employer coverage to enroll in an ACA plan', color: '#d97706' },
+ { text: 'If your income qualifies, a subsidized ACA plan can cost a fraction of what COBRA charges', color: '#d97706' },
+ { text: 'ACA plans cover the same essential benefits as most employer plans', color: '#d97706' }
+ ],
+ cta1: { text: 'Compare ACA Plans — Beat COBRA', href: 'https://www.healthsherpa.com/?_agent_id=sabri-perez' },
+ cta2: true
+ },
+ 'medicare': {
+ badge: '⭐ Medicare eligible',
+ badgeColor: '#f4eefa',
+ badgeBorder: '#452068',
+ badgeText: '#452068',
+ ico: '',
+ title: 'You\'re eligible for Medicare — let\'s find your best plan',
+ desc: 'At 65 or older, Medicare is your primary coverage path — not a private ACA plan. Medicare Advantage and Medicare Supplement plans in South Florida offer excellent coverage, often with $0 premiums and rich extra benefits.',
+ savings: false,
+ highlights: [
+ { text: 'Many Medicare Advantage plans in Miami-Dade have $0 monthly premiums', color: '#452068' },
+ { text: 'Plans include dental, vision, hearing, OTC allowances, and drug coverage', color: '#452068' },
+ { text: 'Our bilingual Medicare brokers compare 14+ carriers for you at no cost', color: '#452068' }
+ ],
+ cta1: { text: 'Compare Medicare Plans Free', href: 'https://form.typeform.com/to/QUTEC8RR' },
+ cta2: true
+ },
+ 'bridge': {
+ badge: '🎂 Turning 65 soon',
+ badgeColor: '#fff4ef',
+ badgeBorder: '#d97706',
+ badgeText: '#92400e',
+ ico: '🌉',
+ title: 'You may need a bridge plan before Medicare starts',
+ desc: 'At 64, you\'re likely less than a year from Medicare eligibility. Depending on your situation, a short-term ACA plan can cover you until your Medicare coverage begins — avoiding any gap in coverage.',
+ savings: false,
+ highlights: [
+ { text: 'Medicare starts the first of the month you turn 65 — plan your enrollment now', color: '#d97706' },
+ { text: 'A short-term ACA plan can bridge the gap until Medicare begins', color: '#d97706' },
+ { text: 'Our brokers handle both — we\'ll set you up now and transition you to Medicare seamlessly', color: '#d97706' }
+ ],
+ cta1: { text: 'Talk to a Broker — Plan Your Transition', href: 'https://calendly.com/healthexps-info/' },
+ cta2: true
+ },
+ 'medicaid': {
+ badge: '💚 Medicaid may be available',
+ badgeColor: '#f0fdf4',
+ badgeBorder: '#16a34a',
+ badgeText: '#166534',
+ ico: '💚',
+ title: 'You may qualify for Medicaid or a $0 ACA plan',
+ desc: 'At your income level, you may qualify for Florida Medicaid or an ACA plan with very low or no premium. Our team works with both — we\'ll check your eligibility and help you get covered quickly.',
+ savings: true,
+ savingsText: 'Potential monthly premium',
+ savingsNum: '$0 – very low',
+ highlights: [
+ { text: 'Florida Medicaid provides comprehensive coverage for qualifying low-income individuals', color: '#16a34a' },
+ { text: 'ACA Silver plans with Cost-Sharing Reductions can have very low deductibles and copays', color: '#16a34a' },
+ { text: 'Our team can check both Medicaid and ACA eligibility in one conversation', color: '#16a34a' }
+ ],
+ cta1: { text: 'Check My Eligibility Free', href: 'https://form.typeform.com/to/QUTEC8RR' },
+ cta2: true
+ },
+ 'aca-compare': {
+ badge: '📋 Let\'s compare your options',
+ badgeColor: '#f4eefa',
+ badgeBorder: '#452068',
+ badgeText: '#452068',
+ ico: '🔍',
+ title: 'Let\'s find the right plan for your situation',
+ desc: 'Based on your answers, there are a few solid options worth comparing. Our brokers will look at ACA plans, private options, and subsidy eligibility — and show you the best fit for your doctors, medications, and budget.',
+ savings: false,
+ highlights: [
+ { text: 'We compare every plan available in your ZIP code — not just a handful', color: '#452068' },
+ { text: 'We verify your specific doctors are in-network before recommending anything', color: '#452068' },
+ { text: 'No cost, no pressure — just honest guidance in English or Spanish', color: '#452068' }
+ ],
+ cta1: { text: 'Compare Plans Free', href: 'https://form.typeform.com/to/QUTEC8RR' },
+ cta2: true
+ }
+ };
+
+ const r = results[result];
+ let html = `
+ <div style="text-align:center;margin-bottom:20px;">
+ <span class="result-badge" style="background:${r.badgeColor};border:1.5px solid ${r.badgeBorder};color:${r.badgeText};">${r.badge}</span>
+ <div class="result-ico">${r.ico}</div>
+ <h2 class="result-title">${r.title}</h2>
+ </div>`;
+
+ if(r.savings){
+ html += `<div class="savings-callout"><div class="sc-ico">💰</div><div class="sc-text">${r.savingsText}<span class="sc-num">${r.savingsNum}</span>Based on your answers — a broker will confirm the exact amount</div></div>`;
+ }
+
+ html += `<p class="result-desc">${r.desc}</p><div class="result-highlights">`;
+ r.highlights.forEach(h => {
+ html += `<div class="result-highlight"><div class="rh-dot" style="background:${h.color};"><svg viewBox="0 0 12 12" fill="none"><polyline points="2,6 5,9 10,3" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div><div>${h.text}</div></div>`;
+ });
+ html += `</div><div class="result-ctas">
+ <a href="${r.cta1.href}" class="btn-result-primary" target="_blank" rel="noopener">${r.cta1.text}</a>
+ <a href="https://wa.me/13054646888" class="btn-result-wa" target="_blank" rel="noopener">
+ <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.123.556 4.116 1.526 5.845L0 24l6.335-1.508A11.945 11.945 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.818 9.818 0 01-5.006-1.368l-.359-.214-3.728.887.916-3.636-.234-.374A9.818 9.818 0 1112 21.818z"/></svg>
+ 💬 WhatsApp Us — Fastest Response
+ </a>
+ <a href="tel:18003806821" class="btn-result-call">📞 Call 1-800-380-6821</a>
+ </div>`;
+
+ document.getElementById('result-inner').innerHTML = html;
+ document.getElementById('result-card').classList.add('show');
+ window.scrollTo({top:0,behavior:'smooth'});
+}
+
+function restartQuiz() {
+ Object.keys(answers).forEach(k => delete answers[k]);
+ currentStep = 1;
+ for(let i=1;i<=5;i++){
+ const s = document.getElementById('step-'+i);
+ s.style.display = i===1 ? 'block' : 'none';
+ s.querySelectorAll('.option,.option-grid-btn').forEach(b=>b.classList.remove('selected'));
+ }
+ document.getElementById('quiz-card').style.display = 'block';
+ document.getElementById('progress-wrap').style.display = 'block';
+ document.getElementById('trust-bar').style.display = 'flex';
+ document.querySelector('.quiz-header').style.display = 'block';
+ document.getElementById('result-card').classList.remove('show');
+ document.getElementById('btn-next').disabled = true;
+ document.getElementById('btn-back').style.display = 'none';
+ updateProgress();
+ window.scrollTo({top:0,behavior:'smooth'});
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Calculadora IRMAA 2026 | The Health Experts Insurance</title>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:Arial,Helvetica,sans-serif;background:#f4eefa;min-height:100vh;padding-bottom:60px;}
+input{font-family:Arial,Helvetica,sans-serif;}
+button{font-family:Arial,Helvetica,sans-serif;}
+a{text-decoration:none;}
+
+.header{background:#452068;padding:14px 24px;display:flex;justify-content:space-between;align-items:center;}
+.header-brand{color:white;font-weight:700;font-size:15px;}
+.lang-wrap{display:flex;gap:6px;}
+.lang-btn{background:transparent;border:1.5px solid rgba(255,255,255,0.4);border-radius:50px;padding:4px 14px;font-weight:700;font-size:12px;cursor:pointer;color:rgba(255,255,255,0.7);transition:all 0.2s;}
+.lang-btn.active{background:white;color:#452068;}
+
+.hero{background:linear-gradient(135deg,#311549 0%,#452068 70%);padding:40px 24px 56px;text-align:center;position:relative;}
+.hero::after{content:'';position:absolute;bottom:-1px;left:0;right:0;height:40px;background:#f4eefa;clip-path:ellipse(55% 100% at 50% 100%);}
+.hero-tag{display:inline-block;background:rgba(255,255,255,0.12);border:1px solid rgba(255,255,255,0.25);border-radius:50px;padding:5px 16px;color:white;font-size:12px;font-weight:700;margin-bottom:14px;letter-spacing:0.06em;text-transform:uppercase;}
+.hero h1{color:white;font-size:clamp(24px,5vw,32px);font-weight:700;margin-bottom:10px;line-height:1.2;}
+.hero p{color:rgba(255,255,255,0.85);font-size:16px;max-width:480px;margin:0 auto;}
+
+.shell{max-width:680px;margin:0 auto;padding:0 20px;}
+
+.card{background:white;border-radius:16px;padding:28px;box-shadow:0 4px 24px rgba(69,32,104,0.12);margin-top:32px;}
+
+.field{margin-bottom:20px;}
+.field-label{display:block;font-size:13px;font-weight:700;color:#452068;text-transform:uppercase;letter-spacing:0.05em;margin-bottom:8px;}
+.input-wrap{position:relative;}
+.input-prefix{position:absolute;left:14px;top:50%;transform:translateY(-50%);color:#6b7280;font-size:16px;font-weight:600;pointer-events:none;}
+.field input{width:100%;height:48px;padding-left:28px;padding-right:14px;border:2px solid #e8e0f4;border-radius:10px;font-size:16px;outline:none;color:#111827;transition:border-color 0.2s;}
+.field input:focus{border-color:#452068;}
+.field input.no-prefix{padding-left:14px;}
+
+.toggle-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
+.toggle-btn{padding:12px 10px;border:2px solid #e8e0f4;border-radius:10px;background:white;color:#6b7280;font-weight:400;font-size:14px;cursor:pointer;text-align:center;transition:all 0.15s;}
+.toggle-btn.active{border-color:#452068;background:#f4eefa;color:#452068;font-weight:700;}
+
+.calc-btn{width:100%;height:52px;background:#ff1090;color:white;border:none;border-radius:50px;font-size:17px;font-weight:700;cursor:pointer;transition:all 0.2s;letter-spacing:0.01em;margin-top:4px;}
+.calc-btn:hover{background:#d4006d;}
+
+/* RESULTS */
+.result-wrap{margin-top:20px;}
+
+.tier-badge{border-radius:16px;padding:20px 24px;margin-bottom:16px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;border:2px solid;}
+.tier-badge-label{font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;margin-bottom:4px;}
+.tier-badge-income{font-size:15px;color:#6b7280;}
+.tier-badge-amount{font-size:28px;font-weight:700;}
+
+.result-card{background:white;border-radius:14px;padding:20px 24px;box-shadow:0 2px 16px rgba(69,32,104,0.10);margin-bottom:16px;}
+.result-section-title{font-size:13px;font-weight:700;color:#452068;text-transform:uppercase;letter-spacing:0.05em;margin-bottom:16px;}
+.result-row{display:flex;justify-content:space-between;align-items:center;padding:10px 0;border-bottom:1px solid #f4eefa;}
+.result-row:last-child{border-bottom:none;}
+.result-row-label{font-size:15px;color:#6b7280;}
+.result-row-label.highlight{color:#dc2626;}
+.result-row-value{font-size:15px;font-weight:700;color:#111827;}
+.result-row-value.highlight{color:#dc2626;}
+.result-total-row{display:flex;justify-content:space-between;align-items:center;padding:14px 0 0;margin-top:4px;}
+.result-total-label{font-size:16px;font-weight:700;color:#452068;}
+.result-total-value{font-size:26px;font-weight:700;color:#452068;}
+.result-total-unit{font-size:14px;font-weight:400;color:#6b7280;}
+.result-annual-row{display:flex;justify-content:space-between;align-items:center;padding:6px 0 0;}
+.result-annual-label{font-size:14px;color:#6b7280;}
+.result-annual-value{font-size:18px;font-weight:700;color:#6b7280;}
+
+.no-irmaa{background:#f0fdf4;border:1px solid #16a34a;border-radius:14px;padding:20px 24px;margin-bottom:16px;}
+.no-irmaa-title{font-size:18px;font-weight:700;color:#16a34a;margin-bottom:6px;}
+.no-irmaa-desc{font-size:15px;color:#166534;line-height:1.6;}
+
+.appeal-box{background:#fffbeb;border:1px solid #fde68a;border-left:4px solid #d97706;border-radius:14px;padding:18px 20px;margin-bottom:16px;}
+.appeal-title{font-size:15px;font-weight:700;color:#92400e;margin-bottom:6px;}
+.appeal-desc{font-size:14px;color:#78350f;line-height:1.7;margin-bottom:12px;}
+.appeal-btn{display:inline-block;background:#d97706;color:white;padding:10px 20px;border-radius:50px;font-size:14px;font-weight:700;}
+
+.tiers-toggle{width:100%;background:white;border:2px solid #452068;border-radius:12px;padding:12px 20px;color:#452068;font-weight:700;font-size:14px;cursor:pointer;margin-bottom:8px;transition:all 0.2s;}
+.tiers-toggle:hover{background:#f4eefa;}
+
+.tiers-table{background:white;border-radius:14px;padding:20px 24px;box-shadow:0 2px 16px rgba(69,32,104,0.10);margin-bottom:16px;}
+.tier-row{display:flex;justify-content:space-between;align-items:center;padding:12px 14px;border-radius:10px;margin-bottom:8px;background:#f9fafb;border:2px solid transparent;transition:all 0.15s;}
+.tier-row.yours{border-color:var(--tc-border);background:var(--tc-bg);}
+.tier-row-info{}
+.tier-row-name{font-size:13px;font-weight:700;color:#6b7280;margin-bottom:2px;}
+.tier-row-name.yours{color:var(--tc-text);}
+.tier-row-income{font-size:12px;color:#9ca3af;}
+.tier-row-premium{font-size:18px;font-weight:700;color:#111827;}
+.tier-row-premium.yours{color:var(--tc-text);}
+.tier-row-unit{font-size:12px;color:#9ca3af;}
+
+.cta-box{background:linear-gradient(135deg,#311549,#452068);border-radius:16px;padding:24px;text-align:center;margin-bottom:16px;}
+.cta-title{font-size:18px;font-weight:700;color:white;margin-bottom:8px;}
+.cta-desc{font-size:14px;color:rgba(255,255,255,0.85);margin-bottom:20px;line-height:1.6;}
+.cta-btn{display:inline-block;background:#ff1090;color:white;padding:13px 28px;border-radius:50px;font-weight:700;font-size:15px;}
+.cta-btn:hover{background:#d4006d;}
+
+@media(max-width:480px){
+  .hero{padding:32px 20px 48px;}
+  .card{padding:20px 16px;}
+  .toggle-grid{grid-template-columns:1fr;}
+  .tier-badge{flex-direction:column;align-items:flex-start;}
+}
+</style>
+</head>
+<body>
+
+<div class="header">
+  <div class="header-brand">The Health Experts Insurance</div>
+  <div class="lang-wrap">
+    <button class="lang-btn" id="btn-es" onclick="setLang('es')">ES</button>
+    <button class="lang-btn active" id="btn-en" onclick="setLang('en')">EN</button>
+  </div>
+</div>
+
+<div class="hero">
+  <div class="hero-tag" id="hero-tag">Herramienta gratuita · 2026</div>
+  <h1 id="hero-title">2026 IRMAA Calculator</h1>
+  <p id="hero-sub">Descubre exactamente cuánto pagarás por Medicare según tus ingresos.</p>
+</div>
+
+<div class="shell">
+  <div class="card">
+    <div class="field">
+      <label class="field-label" id="lbl-income">2024 Modified Adjusted Gross Income (MAGI)</label>
+      <div style="background:#fff8e7;border:1.5px solid #fcd34d;border-radius:10px;padding:10px 14px;margin-bottom:10px;display:flex;align-items:flex-start;gap:8px;">
+        <span style="font-size:16px;flex-shrink:0;">⚠️</span>
+        <p id="income-note" style="font-size:13px;color:#92400e;line-height:1.6;margin:0;">Medicare usa tu declaración de impuestos de <strong>hace 2 años</strong>. Para el 2026, usan tus ingresos del <strong>2024</strong>. </p>
+      </div>
+      <div class="input-wrap">
+        <span class="input-prefix">$</span>
+        <input type="number" id="input-income" placeholder="e.g. 120000" onkeydown="if(event.key==='Enter')calculate()">
+      </div>
+    </div>
+    <div class="field">
+      <label class="field-label" id="lbl-filing">Tax filing status</label>
+      <div class="toggle-grid">
+        <button class="toggle-btn active" id="btn-single" onclick="setFiling('single')">
+          <span id="lbl-single">Single / Married filing separately</span>
+        </button>
+        <button class="toggle-btn" id="btn-joint" onclick="setFiling('joint')">
+          <span id="lbl-joint">Casado, declaración conjunta</span>
+        </button>
+      </div>
+    </div>
+    <div class="field">
+      <label class="field-label" id="lbl-partd">Your Part D plan monthly premium (optional)</label>
+      <div class="input-wrap">
+        <span class="input-prefix">$</span>
+        <input type="number" id="input-partd" placeholder="e.g. 28.50" onkeydown="if(event.key==='Enter')calculate()">
+      </div>
+    </div>
+    <button class="calc-btn" onclick="calculate()" id="btn-calc">Calcular mi IRMAA →</button>
+  </div>
+
+  <div class="result-wrap" id="result-wrap" style="display:none;"></div>
+</div>
+
+<script>
+const TIERS = [
+  {max_s:106000,max_j:212000,premium:185.00,surcharge:0,label_es:'Estándar',label_en:'Standard',partD:0},
+  {max_s:133000,max_j:266000,premium:259.00,surcharge:74.00,label_es:'Nivel 1',label_en:'Tier 1',partD:13.70},
+  {max_s:167000,max_j:334000,premium:370.00,surcharge:185.00,label_es:'Nivel 2',label_en:'Tier 2',partD:35.30},
+  {max_s:200000,max_j:400000,premium:481.00,surcharge:296.00,label_es:'Nivel 3',label_en:'Tier 3',partD:57.00},
+  {max_s:500000,max_j:750000,premium:592.00,surcharge:407.00,label_es:'Nivel 4',label_en:'Tier 4',partD:78.60},
+  {max_s:Infinity,max_j:Infinity,premium:628.90,surcharge:443.90,label_es:'Nivel 5',label_en:'Tier 5',partD:85.80},
+];
+
+const TC = [
+  {bg:'#f0fdf4',border:'#16a34a',text:'#15803d'},
+  {bg:'#fffbeb',border:'#d97706',text:'#b45309'},
+  {bg:'#fff4ef',border:'#fb923c',text:'#ea580c'},
+  {bg:'#fef2f2',border:'#ef4444',text:'#dc2626'},
+  {bg:'#fdf4ff',border:'#a855f7',text:'#7e22ce'},
+  {bg:'#f0f9ff',border:'#0891b2',text:'#0e7490'},
+];
+
+let lang = 'en';
+let filing = 'single';
+
+const T = {
+  es:{
+    tag:'Herramienta gratuita · 2026',
+    title:'Calculadora IRMAA 2026',
+    sub:'Descubre exactamente cuánto pagarás por Medicare según tus ingresos.',
+    income:'Ingreso bruto ajustado modificado (MAGI) 2024',
+    income_note:'Medicare usa tu declaración de impuestos de <strong>hace 2 años</strong>. Para el 2026, usan tus ingresos del <strong>2024</strong>. ',
+    income_ph:'ej. 120000',
+    filing:'Estado civil para impuestos',
+    single:'Soltero / Casado por separado',
+    joint:'Casado, declaración conjunta',
+    partd:'Prima mensual de tu plan Parte D (opcional)',
+    partd_ph:'ej. 28.50',
+    calc:'Calcular mi IRMAA →',
+    your_tier:'Tu nivel',
+    income_s:'Ingreso individual',
+    income_j:'Ingreso matrimonial',
+    no_irmaa:'No pagas IRMAA',
+    no_irmaa_d:'Tus ingresos están por debajo del umbral. Pagas la prima estándar de la Parte B de $185/mes.',
+    your_result:'Tu resultado 2026',
+    base:'Prima base Parte B',
+    surcharge:'Recargo IRMAA Parte B',
+    partd_sur:'Recargo IRMAA Parte D',
+    partd_plan:'Prima Plan Parte D',
+    total_mo:'Total mensual estimado',
+    total_yr:'Total anual estimado',
+    per_mo:'/mes',
+    per_yr:'/año',
+    appeal_t:'¿Acabas de jubilarte?',
+    appeal_d:'Si tu ingreso bajó recientemente por jubilación, divorcio u otro evento de vida, puedes apelar tu IRMAA con el Formulario SSA-44 y usar tus ingresos actuales en lugar de los de 2024.',
+    appeal_btn:'Hablar sobre mi apelación →',
+    tiers_show:'Ver todos los niveles IRMAA 2026 ↓',
+    tiers_hide:'Ocultar niveles ↑',
+    tiers_title:'Niveles IRMAA 2026 — Parte B',
+    yours_label:'← Tu nivel',
+    cta_t:'¿Quieres reducir tu IRMAA?',
+    cta_d:'Nuestros corredores bilingües te explican tus opciones — incluyendo cómo apelar si tus ingresos han bajado. Gratis, sin obligación.',
+    cta_btn:'Consulta gratuita →',
+  },
+  en:{
+    tag:'Free tool · 2026',
+    title:'2026 IRMAA Calculator',
+    sub:'See exactly what you\'ll pay for Medicare based on your income.',
+    income:'2024 Modified Adjusted Gross Income (MAGI)',
+    income_note:'Medicare uses your tax return from <strong>2 years ago</strong>. For 2026, they use your <strong>2024</strong> income.',
+    income_ph:'e.g. 120000',
+    filing:'Tax filing status',
+    single:'Single / Married filing separately',
+    joint:'Married filing jointly',
+    partd:'Your Part D plan monthly premium (optional)',
+    partd_ph:'e.g. 28.50',
+    calc:'Calculate my IRMAA →',
+    your_tier:'Your tier',
+    income_s:'Individual income',
+    income_j:'Joint income',
+    no_irmaa:'You don\'t pay IRMAA',
+    no_irmaa_d:'Your income is below the threshold. You pay the standard Part B premium of $185/mo.',
+    your_result:'Your 2026 result',
+    base:'Part B base premium',
+    surcharge:'Part B IRMAA surcharge',
+    partd_sur:'Part D IRMAA surcharge',
+    partd_plan:'Part D plan premium',
+    total_mo:'Estimated monthly total',
+    total_yr:'Estimated annual total',
+    per_mo:'/mo',
+    per_yr:'/yr',
+    appeal_t:'Recently retired?',
+    appeal_d:'If your income dropped due to retirement, divorce, or another life event, you can appeal your IRMAA using Form SSA-44 and use your current income instead of your 2024 return.',
+    appeal_btn:'Talk about my appeal →',
+    tiers_show:'View all 2026 IRMAA tiers ↓',
+    tiers_hide:'Hide tiers ↑',
+    tiers_title:'2026 IRMAA Tiers — Part B',
+    yours_label:'← Your tier',
+    cta_t:'Want to reduce your IRMAA?',
+    cta_d:'Our bilingual brokers walk you through your options — including how to appeal if your income has dropped. Free, no obligation.',
+    cta_btn:'Free consultation →',
+  }
+};
+
+function fmt(n){return n.toLocaleString('en-US',{style:'currency',currency:'USD',minimumFractionDigits:2});}
+
+function setLang(l){
+  lang=l;
+  document.getElementById('btn-es').classList.toggle('active',l==='es');
+  document.getElementById('btn-en').classList.toggle('active',l==='en');
+  const t=T[l];
+  document.getElementById('hero-tag').textContent=t.tag;
+  document.getElementById('hero-title').textContent=t.title;
+  document.getElementById('hero-sub').textContent=t.sub;
+  document.getElementById('lbl-income').textContent=t.income;document.getElementById('income-note').innerHTML=t.income_note;
+  document.getElementById('input-income').placeholder=t.income_ph;
+  document.getElementById('lbl-filing').textContent=t.filing;
+  document.getElementById('lbl-single').textContent=t.single;
+  document.getElementById('lbl-joint').textContent=t.joint;
+  document.getElementById('lbl-partd').textContent=t.partd;
+  document.getElementById('input-partd').placeholder=t.partd_ph;
+  document.getElementById('btn-calc').textContent=t.calc;
+  document.documentElement.lang=l;
+  // re-render result if visible
+  if(document.getElementById('result-wrap').style.display!=='none') calculate();
+}
+
+function setFiling(f){
+  filing=f;
+  document.getElementById('btn-single').classList.toggle('active',f==='single');
+  document.getElementById('btn-joint').classList.toggle('active',f==='joint');
+  if(document.getElementById('result-wrap').style.display!=='none') calculate();
+}
+
+function getTierIndex(income){
+  for(let i=0;i<TIERS.length;i++){
+    const max=filing==='single'?TIERS[i].max_s:TIERS[i].max_j;
+    if(income<=max)return i;
+  }
+  return TIERS.length-1;
+}
+
+let showTiers=false;
+
+function calculate(){
+  var inc=parseFloat(document.getElementById('input-income').value);
+  if(!inc||isNaN(inc)||inc<=0){document.getElementById('result-wrap').style.display='none';return;}
+  var partDBase=parseFloat(document.getElementById('input-partd').value)||0;
+  var ti=getTierIndex(inc);
+  var tier=TIERS[ti];
+  var tc2=TC[ti];
+  var t=T[lang];
+  var partDSur=tier.partD;
+  var totalMo=tier.premium+partDSur+partDBase;
+  var totalYr=totalMo*12;
+  var tierLabel=lang==='es'?tier.label_es:tier.label_en;
+  var incomeLabel=filing==='single'?t.income_s:t.income_j;
+
+  var h='';
+
+  // Tier badge
+  h+='<div style="background:'+tc2.bg+';border:2px solid '+tc2.border+';border-radius:16px;padding:20px 24px;margin-bottom:16px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;">';
+  h+='<div><div style="font-size:12px;font-weight:700;color:'+tc2.text+';text-transform:uppercase;letter-spacing:0.08em;margin-bottom:4px;">'+t.your_tier+' - '+tierLabel+'</div>';
+  h+='<div style="font-size:15px;color:#6b7280;">'+incomeLabel+': '+fmt(inc)+'</div></div>';
+  h+='<div style="font-size:28px;font-weight:700;color:'+tc2.text+';">'+(ti===0?'&#10003;':'+'+fmt(tier.surcharge)+t.per_mo)+'</div>';
+  h+='</div>';
+
+  if(ti===0){
+    h+='<div style="background:#f0fdf4;border:1px solid #16a34a;border-radius:14px;padding:20px 24px;margin-bottom:16px;">';
+    h+='<div style="font-size:18px;font-weight:700;color:#16a34a;margin-bottom:6px;">'+t.no_irmaa+'</div>';
+    h+='<div style="font-size:15px;color:#166534;line-height:1.6;">'+t.no_irmaa_d+'</div>';
+    h+='</div>';
+  } else {
+    h+='<div style="background:white;border-radius:14px;padding:20px 24px;box-shadow:0 2px 16px rgba(69,32,104,0.10);margin-bottom:16px;">';
+    h+='<div style="font-size:13px;font-weight:700;color:#452068;text-transform:uppercase;letter-spacing:0.05em;margin-bottom:16px;">'+t.your_result+'</div>';
+    h+='<div style="display:flex;justify-content:space-between;align-items:center;padding:10px 0;border-bottom:1px solid #f4eefa;"><span style="font-size:15px;color:#6b7280;">'+t.base+'</span><span style="font-size:15px;font-weight:700;color:#111827;">'+fmt(185)+'</span></div>';
+    h+='<div style="display:flex;justify-content:space-between;align-items:center;padding:10px 0;border-bottom:1px solid #f4eefa;"><span style="font-size:15px;color:#dc2626;">'+t.surcharge+'</span><span style="font-size:15px;font-weight:700;color:#dc2626;">+'+fmt(tier.surcharge)+'</span></div>';
+    if(partDSur>0){h+='<div style="display:flex;justify-content:space-between;align-items:center;padding:10px 0;border-bottom:1px solid #f4eefa;"><span style="font-size:15px;color:#dc2626;">'+t.partd_sur+'</span><span style="font-size:15px;font-weight:700;color:#dc2626;">+'+fmt(partDSur)+'</span></div>';}
+    if(partDBase>0){h+='<div style="display:flex;justify-content:space-between;align-items:center;padding:10px 0;border-bottom:1px solid #f4eefa;"><span style="font-size:15px;color:#6b7280;">'+t.partd_plan+'</span><span style="font-size:15px;font-weight:700;color:#111827;">+'+fmt(partDBase)+'</span></div>';}
+    h+='<div style="display:flex;justify-content:space-between;align-items:center;padding:14px 0 0;">';
+    h+='<span style="font-size:16px;font-weight:700;color:#452068;">'+t.total_mo+'</span>';
+    h+='<span style="font-size:26px;font-weight:700;color:#452068;">'+fmt(totalMo)+'<span style="font-size:14px;font-weight:400;color:#6b7280;">'+t.per_mo+'</span></span></div>';
+    h+='<div style="display:flex;justify-content:space-between;align-items:center;padding:6px 0 0;">';
+    h+='<span style="font-size:14px;color:#6b7280;">'+t.total_yr+'</span>';
+    h+='<span style="font-size:18px;font-weight:700;color:#6b7280;">'+fmt(totalYr)+'<span style="font-size:13px;font-weight:400;">'+t.per_yr+'</span></span></div>';
+    h+='</div>';
+  }
+
+  // Appeal box
+  h+='<div style="background:#fffbeb;border:1px solid #fde68a;border-left:4px solid #d97706;border-radius:14px;padding:18px 20px;margin-bottom:16px;">';
+  h+='<div style="font-size:15px;font-weight:700;color:#92400e;margin-bottom:6px;">'+t.appeal_t+'</div>';
+  h+='<p style="font-size:14px;color:#78350f;line-height:1.7;margin:0 0 12px;">'+t.appeal_d+'</p>';
+  h+='<a href="https://wa.me/13054646888" target="_blank" style="display:inline-block;background:#d97706;color:white;padding:10px 20px;border-radius:50px;font-size:14px;font-weight:700;text-decoration:none;">'+t.appeal_btn+'</a>';
+  h+='</div>';
+
+  // Tiers toggle button
+
+
+  // Tiers table - hidden initially
+  h+='<div id="tiers-table" style="display:block;background:white;border-radius:14px;padding:20px 24px;box-shadow:0 2px 16px rgba(69,32,104,0.10);margin-bottom:16px;">';
+  h+='<div style="font-size:13px;font-weight:700;color:#452068;text-transform:uppercase;letter-spacing:0.05em;margin-bottom:16px;">'+(lang==='es'?'Niveles IRMAA 2026 - Parte B':'2026 IRMAA Tiers - Part B')+'</div>';
+  for(var i=0;i<TIERS.length;i++){
+    var tier2=TIERS[i];
+    var tc3=TC[i];
+    var isYours=i===ti;
+    var label2=lang==='es'?tier2.label_es:tier2.label_en;
+    var maxVal=filing==='single'?tier2.max_s:tier2.max_j;
+    var incRange=i===5?(lang==='es'?'> $500,000':'> $500,000'):'<= '+fmt(maxVal);
+    var rowBg=isYours?tc3.bg:'#f9fafb';
+    var rowBorder=isYours?'2px solid '+tc3.border:'2px solid transparent';
+    h+='<div style="display:flex;justify-content:space-between;align-items:center;padding:12px 14px;border-radius:10px;margin-bottom:8px;background:'+rowBg+';border:'+rowBorder+';">';
+    h+='<div><div style="font-size:13px;font-weight:700;color:'+(isYours?tc3.text:'#6b7280')+';margin-bottom:2px;">'+label2+(isYours?' <- '+(lang==='es'?'Tu nivel':'Your tier'):'')+'</div>';
+    h+='<div style="font-size:12px;color:#9ca3af;">'+incRange+'</div></div>';
+    h+='<div style="text-align:right;"><div style="font-size:18px;font-weight:700;color:'+(isYours?tc3.text:'#111827')+';">'+fmt(tier2.premium)+'</div>';
+    h+='<div style="font-size:12px;color:#9ca3af;">'+(lang==='es'?'/mes':'/mo')+'</div></div>';
+    h+='</div>';
+  }
+  h+='</div>';
+
+  // CTA box
+  h+='<div style="border-top:2px dashed #e8e0f4;margin:8px 0 20px;padding-top:20px;text-align:center;">';
+  h+='<div style="font-size:13px;font-weight:700;color:#9ca3af;text-transform:uppercase;letter-spacing:0.08em;margin-bottom:8px;">'+(lang==='es'?'Conoces a alguien que necesita saber esto?':'Know someone who needs to see this?')+'</div>';
+  h+='<div style="font-size:16px;font-weight:700;color:#452068;margin-bottom:16px;">'+(lang==='es'?'Comparte esta calculadora gratuita':'Share this free calculator')+'</div>';
+  h+='<div style="display:flex;gap:10px;justify-content:center;flex-wrap:wrap;">';
+  var irmaaWaText=lang==='es'?'Usa esta calculadora gratuita para ver cuanto pagas de IRMAA en Medicare 2026: ':'Use this free calculator to see your 2026 Medicare IRMAA costs: ';
+  var irmaaWaURL='https://wa.me/?text='+encodeURIComponent(irmaaWaText+window.location.href);
+  var irmaaSVG='<svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.123.556 4.116 1.526 5.845L0 24l6.335-1.508A11.945 11.945 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.818 9.818 0 01-5.006-1.368l-.359-.214-3.728.887.916-3.636-.234-.374A9.818 9.818 0 1112 21.818z"/></svg>';
+  var irmaaWaLabel=lang==='es'?'Enviar por WhatsApp':'Share via WhatsApp';
+  h+='<a href="'+irmaaWaURL+'" target="_blank" style="display:inline-flex;align-items:center;gap:8px;background:#25D366;color:white;padding:13px 24px;border-radius:50px;font-weight:700;font-size:15px;text-decoration:none;">'+irmaaSVG+irmaaWaLabel+'</a>';
+  h+='<button id="copy-link-btn" style="display:inline-flex;align-items:center;gap:8px;background:white;color:#452068;padding:13px 24px;border-radius:50px;font-weight:700;font-size:15px;border:2px solid #e8e0f4;cursor:pointer;font-family:Arial;box-shadow:0 2px 8px rgba(0,0,0,0.06);">&#128279; '+(lang==='es'?'Copiar enlace':'Copy link')+'</button>';
+  h+='</div></div>';
+
+  h+='<div style="background:linear-gradient(135deg,#311549,#452068);border-radius:16px;padding:24px;text-align:center;margin-bottom:16px;">';
+  h+='<div style="font-size:18px;font-weight:700;color:white;margin-bottom:8px;">'+t.cta_t+'</div>';
+  h+='<p style="font-size:14px;color:rgba(255,255,255,0.85);margin-bottom:20px;line-height:1.6;">'+t.cta_d+'</p>';
+  h+='<a href="https://calendly.com/healthexps-info/" target="_blank" style="display:inline-block;background:#ff1090;color:white;padding:13px 28px;border-radius:50px;font-weight:700;font-size:15px;text-decoration:none;">'+t.cta_btn+'</a>';
+  h+='</div>';
+
+  // Share section
+  var shareURL=window.location.href;
+  var shareTextES='Calcula tu IRMAA de Medicare 2026 gratis - herramienta bilingue de The Health Experts Insurance';
+  var shareTextEN='Calculate your 2026 Medicare IRMAA for free - bilingual tool by The Health Experts Insurance';
+  var shareText=lang==='es'?shareTextES:shareTextEN;
+  var shareTitleES='Comparte esta herramienta';
+  var shareTitleEN='Share this calculator';
+  var shareDescES='Ayuda a tus amigos y familiares a evitar sorpresas costosas con Medicare.';
+  var shareDescEN='Help your friends and family avoid costly Medicare surprises.';
+  var wrap=document.getElementById('result-wrap');
+  wrap.innerHTML=h;
+  wrap.style.display='block';
+  try{wrap.scrollIntoView({behavior:'smooth',block:'start'});}catch(e){wrap.scrollIntoView(true);}
+  var cpBtn=document.getElementById('copy-link-btn');
+  if(cpBtn){cpBtn.onclick=function(){navigator.clipboard.writeText(window.location.href).then(function(){cpBtn.textContent=lang==='es'?'✓ Copiado!':'✓ Copied!';setTimeout(function(){cpBtn.textContent=lang==='es'?'Copiar enlace':'Copy link';},2000);});};}
+
+
+}
+
+
+setLang('en');
+</script>
+</body>
+</html>

@@ -1,0 +1,9 @@
+[build]
+  publish = "src"
+  command = "echo 'Static site - no build needed'"
+
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
+  force = false
