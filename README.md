@@ -6,26 +6,25 @@
 
 ```
 healthexps-www/
-├── src/               # English site (root)
-│   ├── index.html
-│   ├── medicare-plans-miami.html
-│   ├── medigap-calculator.html
-│   ├── irmaa-calculator.html
-│   └── ... (all EN pages)
+├── index.html              # English homepage
+├── medicare-plans-miami.html
+├── medigap-calculator.html
+├── irmaa-calculator.html
+├── ... (all EN pages)
 │
-├── es/                # Spanish site (subfolder)
-│   ├── index.html
+├── es/                     # Spanish site (subfolder)
+│   ├── index.html          # Spanish homepage
 │   ├── planes-de-medicare-miami.html
 │   ├── agente-de-medicare-miami.html
 │   └── ... (all ES pages)
 │
-└── netlify.toml       # Netlify configuration
+└── netlify.toml            # Netlify configuration
 ```
 
 ## URLs
 
-- **English:** `https://healthexps.com/` → serves from `src/`
-- **Spanish:** `https://healthexps.com/es/` → serves from `es/`
+- **English:** `https://healthexps.com/` → serves from root
+- **Spanish:** `https://healthexps.com/es/` → serves from `es/` subfolder
 
 ## Deployment
 
@@ -35,7 +34,7 @@ This repo consolidates:
 
 Deploy to Netlify with:
 - Build command: (none - static site)
-- Publish directory: `/` (root, since `src/` and `es/` are at root level)
+- Publish directory: `.` (root)
 
 ## Migration Notes
 
