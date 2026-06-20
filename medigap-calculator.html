@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="en"><!-- medigap-v12 -->
 <head>
-<link rel="icon" href="/favicon.ico" type="image/x-icon">
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Medicare Advantage vs. Suplementario | The Health Experts Insurance</title>
@@ -94,6 +93,12 @@ a{text-decoration:none;}
     <button class="lb" onclick="setLang('es')">ES</button>
     <button class="lb active" onclick="setLang('en')">EN</button>
   </div>
+</div>
+<div style="background:white;border-bottom:1px solid #f0ecf8;padding:10px 24px;">
+  <a href="/" style="display:inline-flex;align-items:center;gap:6px;font-size:14px;font-weight:600;color:#452068;text-decoration:none;">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 5l-7 7 7 7"/></svg>
+    Back to Home
+  </a>
 </div>
 <div class="hero">
   
@@ -368,6 +373,60 @@ function calc(){
   if(ph){ph.parentNode.replaceChild(shareDiv,ph);}
   // Attach year selector button listeners after DOM is set
 
+  var selBtns=document.querySelectorAll('[data-sel-yr]');
+  for(var si2=0;si2<selBtns.length;si2++){
+    (function(btn){
+      btn.onclick=function(){
+        var yr=parseInt(btn.getAttribute('data-sel-yr'));
+        for(var sj=0;sj<selBtns.length;sj++){
+          selBtns[sj].style.background=selBtns[sj]===btn?'#452068':'white';
+          selBtns[sj].style.color=selBtns[sj]===btn?'white':'#6b7280';
+          selBtns[sj].style.borderColor=selBtns[sj]===btn?'#452068':'#e8e0f4';
+        }
+        var idx4=yr===1?0:yr===5?4:yr===10?9:19;
+        var yrsW=L==='es'?(yr===1?'1 ano':yr+' anos'):(yr===1?'1 yr':yr+' yrs');
+        var maCard=document.getElementById('ma-total');
+        var mgCard=document.getElementById('mg-total');
+        var maLbl=document.getElementById('ma-total-lbl');
+        var mgLbl=document.getElementById('mg-total-lbl');
+        var maSuf=document.getElementById('ma-total-yw');
+        var mgSuf=document.getElementById('mg-total-yw');
+        if(maCard&&window._maCum) maCard.textContent='$'+Math.round(window._maCum[idx4]).toLocaleString('en-US');
+        if(mgCard&&window._mgCum) mgCard.textContent='$'+Math.round(window._mgCum[idx4]).toLocaleString('en-US');
+        if(maLbl) maLbl.textContent=L==='es'?'Total '+yrsW:'Total '+yrsW;
+        if(mgLbl) mgLbl.textContent=L==='es'?'Total '+yrsW:'Total '+yrsW;
+        if(maSuf) maSuf.textContent=' / '+yrsW;
+        if(mgSuf) mgSuf.textContent=' / '+yrsW;
+      };
+    })(selBtns[si2]);
+  }
+  // Auto-trigger year 1 on load
+  if(selBtns.length>0){
+    selBtns[0].onclick();
+  }
+}
+setLang('en');
+</script>
+</body>
+</html>  h+='<div style="border-top:2px dashed #e8e0f4;margin:8px 0 20px;padding-top:20px;text-align:center;">';
+  h+='<div style="font-size:13px;font-weight:700;color:#9ca3af;text-transform:uppercase;letter-spacing:0.08em;margin-bottom:8px;">'+(L==='es'?'Conoces a alguien que necesita saber esto?':'Know someone who needs to see this?')+'</div>';
+  h+='<div style="font-size:16px;font-weight:700;color:#452068;margin-bottom:16px;">'+(L==='es'?'Comparte esta calculadora gratuita':'Share this free calculator')+'</div>';
+  h+='<div style="display:flex;gap:10px;justify-content:center;flex-wrap:wrap;">';
+  var waShareText2=L==='es'?'Compara Medicare Advantage vs. Suplementario - herramienta gratuita de The Health Experts Insurance: ':'Compare Medicare Advantage vs Supplement 20-year costs - free tool by The Health Experts Insurance: ';
+    var waURL2='https://wa.me/?text='+encodeURIComponent(waShareText2+window.location.href);
+  var waSVG2='<svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.123.556 4.116 1.526 5.845L0 24l6.335-1.508A11.945 11.945 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.818 9.818 0 01-5.006-1.368l-.359-.214-3.728.887.916-3.636-.234-.374A9.818 9.818 0 1112 21.818z"/></svg>';
+  h+='<a href="'+waURL2+'" target="_blank" style="display:inline-flex;align-items:center;gap:8px;background:#25D366;color:white;padding:13px 24px;border-radius:50px;font-weight:700;font-size:15px;text-decoration:none;">'+waSVG2+(L==='es'?'Enviar por WhatsApp':'Share via WhatsApp')+'</a>';
+  h+='<button id="copy-btn" style="display:inline-flex;align-items:center;gap:8px;background:white;color:#452068;padding:13px 24px;border-radius:50px;font-weight:700;font-size:15px;border:2px solid #e8e0f4;cursor:pointer;font-family:Arial;box-shadow:0 2px 8px rgba(0,0,0,0.06);">&#128279; '+(L==='es'?'Copiar enlace':'Copy link')+'</button>';
+  h+='</div></div>';
+
+  window._maCum=mC; window._mgCum=gC;
+  g('rw').innerHTML=h;
+
+  try{g('rw').scrollIntoView({behavior:'smooth',block:'start'});}catch(e){g('rw').scrollIntoView(true);}
+  // Attach year selector button listeners after DOM is set
+  // Copy link button
+  var copyBtn=document.getElementById('copy-btn');
+  if(copyBtn){copyBtn.onclick=function(){navigator.clipboard.writeText(window.location.href).then(function(){copyBtn.innerHTML='&#10003; '+(L==='es'?'Copiado!':'Copied!');setTimeout(function(){copyBtn.innerHTML='&#128279; '+(L==='es'?'Copiar enlace':'Copy link');},2000);});};}
   var selBtns=document.querySelectorAll('[data-sel-yr]');
   for(var si2=0;si2<selBtns.length;si2++){
     (function(btn){
