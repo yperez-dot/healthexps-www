@@ -159,10 +159,38 @@ tr:last-child td{border-bottom:none;}
     </div>
   </div>
 </header>
-<style>.dropdown a:hover{background:#f4eefa !important;color:#452068 !important;}li:hover>.dropdown{display:block !important;}</style>
+<style>
+ .dropdown a:hover{background:#f4eefa !important;color:#452068 !important;}
+ li:hover > .dropdown{display:block !important;}
+ @media(max-width:768px){
+ #nav-links{display:none !important;}
+ #nav-links a{white-space:nowrap;font-size:18px;font-weight:600;color:#452068;}
+ #nav-links.open{display:flex !important;flex-direction:column;position:fixed;top:0;right:0;bottom:0;width:100%;min-width:320px;max-width:400px;background:white;padding:56px 24px 24px;box-shadow:0 8px 24px rgba(0,0,0,0.12);border-radius:0 0 0 12px;gap:12px;z-index:999;text-align:left;align-items:stretch;overflow-y:auto;}
+ #nav-links.open > li{width:100%;text-align:left;}
+ #nav-links.open > li > a{display:block;text-align:left;padding:12px 16px;border-radius:8px;transition:background 0.2s;}
+ #nav-links.open > li > a:hover{background:#f4eefa;}
+ #nav-links.open #nav-close-btn{display:block !important;position:absolute;top:12px;right:16px;width:32px;height:32px;font-size:32px;font-weight:300;line-height:32px;text-align:center;cursor:pointer;color:#452068;background:none;border:none;padding:0;}
+ #nav-links .dropdown{display:none !important;position:static !important;box-shadow:none !important;border:none !important;padding:8px 0 8px 24px !important;margin-top:8px;background:#f9f7fc;border-radius:8px;}
+ #nav-links .dropdown a{font-size:16px !important;padding:8px 12px !important;display:block !important;}
+ #nav-links li:hover .dropdown,#nav-links li.open .dropdown{display:block !important;}
+ #nav-toggle{display:block !important;}
+ }
+</style>
 <script>
-  const _nt=document.getElementById('nav-toggle'),_nl=document.getElementById('nav-links'),_nc=document.getElementById('nav-close-btn');
-  if(_nt&&_nl){_nt.addEventListener('click',(e)=>{e.stopPropagation();_nl.classList.toggle('open');});if(_nc){_nc.addEventListener('click',(e)=>{e.stopPropagation();_nl.classList.remove('open');});}document.addEventListener('click',(e)=>{if(_nl.classList.contains('open')&&!_nl.contains(e.target)&&!_nt.contains(e.target)){_nl.classList.remove('open');}});_nl.querySelectorAll('a').forEach(link=>{link.addEventListener('click',()=>{_nl.classList.remove('open');});});}
+ const _nt = document.getElementById('nav-toggle');
+ const _nl = document.getElementById('nav-links');
+ const _nc = document.getElementById('nav-close-btn');
+ if(_nt && _nl){
+   _nt.addEventListener('click',(e)=>{e.stopPropagation();_nl.classList.toggle('open');});
+   if(_nc){_nc.addEventListener('click',(e)=>{e.stopPropagation();_nl.classList.remove('open');});}
+   document.addEventListener('click',(e)=>{if(_nl.classList.contains('open')&&!_nl.contains(e.target)&&!_nt.contains(e.target)){_nl.classList.remove('open');}});
+   _nl.querySelectorAll('a').forEach(link=>{link.addEventListener('click',()=>{_nl.classList.remove('open');});});
+ }
+ document.querySelectorAll('#nav-links > li > a').forEach(link=>{
+   const parentLi=link.parentElement;
+   const dropdown=parentLi.querySelector('.dropdown');
+   if(dropdown){link.addEventListener('click',(e)=>{if(window.innerWidth<=768&&_nl.classList.contains('open')){e.preventDefault();parentLi.classList.toggle('open');}});}
+ });
 </script>
 
 <div class="breadcrumb"><nav aria-label="Breadcrumb"><a href="/">Home</a><span>›</span>IRMAA &amp; Medicare Penalties</nav></div>
@@ -380,7 +408,7 @@ tr:last-child td{border-bottom:none;}
       </div>
     </div>
     <div style="border-top:1px solid #e5e5e5;padding-top:20px;">
-      <p style="font-size:12px;color:#666;margin:0;">© 2026 The Health Experts Insurance. <a href="#" style="color:#452068;text-decoration:none;">Privacy Policy &amp; Terms</a></p>
+      <p style="font-size:12px;color:#666;margin:0;">© 2026 The Health Experts Insurance. <a href="/privacy" style="color:#452068;text-decoration:none;">Privacy Policy &amp; Terms</a></p>
       <p style="font-size:11px;color:#aaa;margin-top:10px;line-height:1.7;">Medicare has not reviewed or endorsed this information. We do not offer every plan available in your area. We currently represent 14 organizations offering 82 products in your area. Please contact Medicare.gov, 1-800-MEDICARE, or your local SHIP program for information about all your options.</p>
     </div>
   </div>
