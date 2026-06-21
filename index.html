@@ -294,16 +294,16 @@ a:hover{color:var(--pink);}
    bottom:0;
    background:white;
    z-index:999;
-   padding:56px 24px 24px;
+   padding:56px 16px 24px;
    gap:12px;
    overflow-y:auto;
   }
   #nav-links.open > li{width:100%;text-align:left;}
-  #nav-links.open > li > a{display:block;text-align:left;padding:12px 16px;border-radius:8px;transition:background 0.2s;}
+  #nav-links.open > li > a{display:block;text-align:left;padding:12px 12px;border-radius:8px;transition:background 0.2s;}
   #nav-links.open > li > a:hover{background:#f4eefa;}
-  #nav-links.open #nav-close-btn{display:block !important;position:absolute;top:16px;right:16px;width:32px;height:32px;font-size:24px;font-weight:300;line-height:32px;text-align:center;cursor:pointer;color:#452068;background:none;border:none;padding:0;z-index:1000;}
-  #nav-links .dropdown{display:none !important;position:static !important;box-shadow:none !important;border:none !important;padding:4px 0 !important;margin-top:4px;background:#f9f7fc;border-radius:8px;margin-left:8px !important;}
-  #nav-links .dropdown a{font-size:15px !important;padding:10px 12px !important;display:block !important;text-align:left !important;white-space:normal !important;word-wrap:break-word !important;line-height:1.4 !important;}
+  #nav-links.open #nav-close-btn{display:block !important;position:absolute;top:16px;right:12px;width:32px;height:32px;font-size:24px;font-weight:300;line-height:32px;text-align:center;cursor:pointer;color:#452068;background:none;border:none;padding:0;z-index:1000;}
+  #nav-links .dropdown{display:none !important;position:static !important;box-shadow:none !important;border:none !important;padding:4px 0 !important;margin-top:4px;background:#f9f7fc;border-radius:8px;margin-left:0 !important;}
+  #nav-links .dropdown a{font-size:14px !important;padding:10px 8px !important;display:block !important;text-align:left !important;white-space:normal !important;word-wrap:break-word !important;line-height:1.4 !important;overflow:visible !important;text-overflow:clip !important;max-width:none !important;}
   #nav-links li:hover .dropdown,#nav-links li.open .dropdown{display:block !important;}
  }
  @media(min-width:769px){
