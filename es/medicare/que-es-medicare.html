@@ -216,16 +216,6 @@ tr:last-child td { border-bottom: none; }
  .compare-grid { grid-template-columns: 1fr; }
  .guides-grid { grid-template-columns: 1fr; }
 }
-@media (max-width: 768px) {
- #nav-links { display: none !important; }
- #nav-links.open { display: flex !important; flex-direction: column; position: absolute; top: 100%; right: 0; width: 290px; background: white; padding: 50px 16px 16px; box-shadow: 0 8px 24px rgba(0,0,0,0.12); border-radius: 0 0 0 12px; gap: 4px; z-index: 99; text-align: center; align-items: center; }
- #nav-links.open > li { width: 100%; text-align: center; }
- #nav-links.open > li > a { display: block; text-align: center; }
- #nav-links.open #nav-close-btn { display: block !important; }
- #nav-links .dropdown { display: none !important; position: static !important; box-shadow: none !important; border: none !important; padding: 0 0 0 16px !important; }
- #nav-links li:hover .dropdown, #nav-links li.open .dropdown { display: block !important; }
- #nav-toggle { display: block !important; }
-}
 </style>
 </head>
 <body>
@@ -302,8 +292,6 @@ Encuentra Mi Plan →
 </div>
 </header>
 
-<link rel="alternate" hreflang="en" href="https://www.healthexps.com/">
-<link rel="alternate" hreflang="es" href="https://www.healthexps.com/es/">
 <style>
  .dropdown a:hover{background:#f4eefa !important;color:#452068 !important;}
  li:hover > .dropdown{display:block !important;}
@@ -428,6 +416,11 @@ for(var k=0;k<_navLinks.length;k++){
  });
 }
 </script>
+
+<link rel="alternate" hreflang="en" href="https://www.healthexps.com/">
+<link rel="alternate" hreflang="es" href="https://www.healthexps.com/es/">
+
+
 <!-- ===== END MASTER NAV ===== -->
 
 

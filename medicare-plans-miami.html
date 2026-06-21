@@ -197,20 +197,6 @@ a:hover { color: var(--pink); }
   .float-card { display: none; }
   .edu-grid { grid-template-columns: 1fr 1fr; }
 }
-@media (max-width: 768px) {
-  .stats { grid-template-columns: repeat(2,1fr); }
-  .st { border-right: none; border-bottom: 1px solid rgba(255,255,255,0.12); padding: 12px; }
-  .st:nth-child(odd) { border-right: 1px solid rgba(255,255,255,0.12); }
-  .st:nth-child(3), .st:nth-child(4) { border-bottom: none; }
-  #nav-links { display: none !important; }
-  #nav-links.open { display: flex !important; flex-direction: column; position: absolute; top: 100%; right: 0; width: 290px; background: white; padding: 50px 16px 16px; box-shadow: 0 8px 24px rgba(0,0,0,0.12); border-radius: 0 0 0 12px; gap: 4px; z-index: 99; text-align: center; align-items: center; }
-  #nav-links.open > li { width: 100%; }
-  #nav-links.open > li > a { display: block; text-align: center; }
-  #nav-links.open #nav-close-btn { display: block !important; }
-  #nav-links .dropdown { display: none !important; position: static !important; box-shadow: none !important; border: none !important; padding: 0 0 0 16px !important; }
-  #nav-links li:hover .dropdown, #nav-links li.open .dropdown { display: block !important; }
-  #nav-toggle { display: block !important; }
-}
 @media (max-width: 560px) {
   .edu-grid { grid-template-columns: 1fr; }
 }
@@ -286,6 +272,7 @@ a:hover { color: var(--pink); }
     </div>
   </div>
 </header>
+
 <style>
  .dropdown a:hover{background:#f4eefa !important;color:#452068 !important;}
  li:hover > .dropdown{display:block !important;}
@@ -410,6 +397,8 @@ for(var k=0;k<_navLinks.length;k++){
  });
 }
 </script>
+
+
 
 <!-- BREADCRUMB -->
 <div class="breadcrumb">
