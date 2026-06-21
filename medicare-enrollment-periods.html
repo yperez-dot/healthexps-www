@@ -178,7 +178,40 @@ a{color:var(--purple);text-decoration:none;}a:hover{color:var(--pink);}
  </div>
 </section>
 
-<!-- ENROLLMENT PERIODS -->
+
+
+<!-- PENALTY CALCULATOR - FEATURED TOOL -->
+<section style="background:linear-gradient(135deg,#fff0f8 0%,#f4eefa 100%);padding:56px 0;border-top:3px solid #ff1090;border-bottom:3px solid #452068;">
+ <div class="container">
+ <div style="text-align:center;margin-bottom:32px;">
+ <div style="display:inline-block;background:rgba(255,16,144,0.15);border:2px solid #ff1090;border-radius:50px;padding:6px 18px;font-size:13px;font-weight:700;color:#ff1090;letter-spacing:0.08em;text-transform:uppercase;margin-bottom:16px;">🧮 FREE TOOL</div>
+ <h2 style="font-family:Arial,sans-serif;font-size:clamp(24px,4vw,36px);font-weight:700;color:#452068;margin-bottom:12px;line-height:1.2;">Late Enrollment Penalty Calculator</h2>
+ <p style="font-size:18px;color:#6b7280;max-width:620px;margin:0 auto;line-height:1.7;">See how much a delayed enrollment could cost you — <strong>before it's too late.</strong></p>
+ </div>
+ <div class="calc-wrap" style="max-width:680px;margin:0 auto;background:white;border-radius:20px;padding:36px;box-shadow:0 8px 32px rgba(69,32,104,0.12);border:2px solid #f0ecf8;">
+ <div class="calc-title" style="font-size:20px;font-weight:700;color:#452068;margin-bottom:8px;">Medicare Late Penalty Estimator</div>
+ <div class="calc-sub" style="font-size:15px;color:#6b7280;margin-bottom:24px;">Enter how many months you delayed enrollment to see your estimated penalty.</div>
+ <div class="calc-grid" style="display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:20px;">
+ <div class="calc-group">
+ <label for="penalty-part" style="display:block;font-size:13px;font-weight:700;color:#452068;margin-bottom:6px;text-transform:uppercase;letter-spacing:0.05em;">Which part?</label>
+ <select id="penalty-part" style="width:100%;height:48px;border:2px solid #e8e0f4;border-radius:10px;padding:0 14px;font-size:15px;font-family:Arial;color:#1a1a2e;background:white;">
+ <option value="B">Part B (Medical)</option>
+ <option value="D">Part D (Drug)</option>
+ </select>
+ </div>
+ <div class="calc-group">
+ <label for="penalty-months" style="display:block;font-size:13px;font-weight:700;color:#452068;margin-bottom:6px;text-transform:uppercase;letter-spacing:0.05em;">Months delayed</label>
+ <input type="number" id="penalty-months" placeholder="e.g. 24" min="1" max="240" style="width:100%;height:48px;border:2px solid #e8e0f4;border-radius:10px;padding:0 14px;font-size:15px;font-family:Arial;color:#1a1a2e;">
+ </div>
+ </div>
+ <button class="calc-btn" onclick="calcPenalty()" style="width:100%;height:54px;background:#ff1090;color:white;border:none;border-radius:50px;font-weight:700;font-size:17px;cursor:pointer;transition:background 0.2s;box-shadow:0 4px 16px rgba(255,16,144,0.25);">Calculate My Penalty →</button>
+ <div class="calc-result" id="penalty-result" style="margin-top:24px;padding:20px;background:#f4eefa;border-radius:12px;border-left:4px solid #ff1090;display:none;">
+ <div class="calc-result-title" id="penalty-title" style="font-size:18px;font-weight:700;color:#d4006d;margin-bottom:8px;"></div>
+ <div class="calc-result-desc" id="penalty-desc" style="font-size:15px;color:#452068;line-height:1.7;"></div>
+ </div>
+ </div>
+ </div>
+</section>
 <section class="section">
  <div class="container">
  <h2 class="section-title">Every Medicare enrollment period explained</h2>
@@ -306,36 +339,6 @@ a{color:var(--purple);text-decoration:none;}a:hover{color:var(--pink);}
  <div class="info-box" style="margin-top:28px;">
  <div class="info-box-title">Not sure if you qualify for an SEP?</div>
  <p>SEP rules can be complex. Call us or WhatsApp us — our brokers will review your situation and tell you exactly what windows are available to you, at no cost. <a href="tel:18003806821" style="color:var(--purple);font-weight:700;">1-800-380-6821</a></p>
- </div>
- </div>
-</section>
-
-<!-- PENALTY CALCULATOR -->
-<section class="section section-alt">
- <div class="container">
- <h2 class="section-title">Late enrollment penalty calculator</h2>
- <p class="section-sub">See how much a delayed enrollment could cost you — before it's too late.</p>
- <div class="calc-wrap" style="max-width:640px;">
- <div class="calc-title">Medicare Late Penalty Estimator</div>
- <div class="calc-sub">Enter how many months you delayed enrollment to see your estimated penalty.</div>
- <div class="calc-grid">
- <div class="calc-group">
- <label for="penalty-part">Which part?</label>
- <select id="penalty-part">
- <option value="B">Part B (Medical)</option>
- <option value="D">Part D (Drug)</option>
- </select>
- </div>
- <div class="calc-group">
- <label for="penalty-months">Months delayed</label>
- <input type="number" id="penalty-months" placeholder="e.g. 24" min="1" max="240">
- </div>
- </div>
- <button class="calc-btn" onclick="calcPenalty()">Calculate My Penalty</button>
- <div class="calc-result" id="penalty-result">
- <div class="calc-result-title" id="penalty-title"></div>
- <div class="calc-result-desc" id="penalty-desc"></div>
- </div>
  </div>
  </div>
 </section>
