@@ -88,322 +88,322 @@ a{text-decoration:none;}
 </head>
 <body>
 <div class="header">
- <div class="hb">The Health Experts Insurance</div>
- <div class="lw">
- <button class="lb" onclick="setLang('es')">ES</button>
- <button class="lb active" onclick="setLang('en')">EN</button>
- </div>
+  <div class="hb">The Health Experts Insurance</div>
+  <div class="lw">
+    <button class="lb" onclick="setLang('es')">ES</button>
+    <button class="lb active" onclick="setLang('en')">EN</button>
+  </div>
 </div>
 <div style="background:white;border-bottom:1px solid #f0ecf8;padding:10px 24px;">
- <a href="/" style="display:inline-flex;align-items:center;gap:6px;font-size:14px;font-weight:600;color:#452068;text-decoration:none;">
- <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 5l-7 7 7 7"/></svg>
- Back to Home
- </a>
+  <a href="/" style="display:inline-flex;align-items:center;gap:6px;font-size:14px;font-weight:600;color:#452068;text-decoration:none;">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 5l-7 7 7 7"/></svg>
+    Back to Home
+  </a>
 </div>
 <div class="hero">
-
+  
 <div class="htag" id="htag">Herramienta gratuita &middot; v7</div>
- <h1 id="htitle">Medicare Advantage vs. Supplement</h1>
- <p id="hsub">Ingresa tus datos y ve el costo total a 5, 10 y 20 anos.</p>
+  <h1 id="htitle">Medicare Advantage vs. Supplement</h1>
+  <p id="hsub">Ingresa tus datos y ve el costo total a 5, 10 y 20 anos.</p>
 </div>
 <div class="shell">
- <div class="card">
- <div class="ct" id="ct">Your details</div>
- <div class="fg">
- <div class="field">
- <label class="fl" id="la">Your current age</label>
- <input type="number" id="ia" placeholder="65" min="60" max="85" oninput="updRange()">
- </div>
- <div class="field">
- <label class="fl" id="lb2">Monthly Part B premium</label>
- <div class="iw"><span class="ip">$</span><input type="number" id="ib" value="185" class="hp"></div>
- <div class="fn" id="nb">$185 is the standard 2026 premium.</div>
- </div>
- </div>
- <div class="sl" id="sma">Medicare Advantage Plan</div>
- <div class="fg">
- <div class="field">
- <label class="fl" id="lmp">Monthly plan premium</label>
- <div class="iw"><span class="ip">$</span><input type="number" id="imp" value="0" class="hp" placeholder="0"></div>
- <div class="fn" id="nmp">Many plans in South Florida have $0 premium</div>
- </div>
- <div class="field">
- <label class="fl" id="lmo">Annual out-of-pocket maximum</label>
- <div class="iw"><span class="ip">$</span><input type="number" id="imo" value="5000" class="hp"></div>
- <div class="fn" id="nmo">2026 limit: $9,350. Typical: $4,000-$6,000</div>
- </div>
- </div>
- <div class="sl" id="smg">Medicare Supplement (Medigap) Plan</div>
- <div class="fg">
- <div class="field">
- <label class="fl" id="lgp">Monthly Plan G premium</label>
- <div class="iw"><span class="ip">$</span><input type="number" id="igp" value="135" class="hp"></div>
- <div class="fn" id="ngp">Typical Florida range: $148-$355/mo depending on age</div>
- <div class="pr" id="pr"></div>
- </div>
- <div class="field">
- <label class="fl" id="lpd">Part D plan premium</label>
- <div class="iw"><span class="ip">$</span><input type="number" id="ipd" value="35" class="hp"></div>
- <div class="fn" id="npd">You need Part D with Medigap. Average: $25-$60/mo</div>
- </div>
- </div>
- <div class="sl" id="sus">How much healthcare do you typically use?</div>
- <div class="ub">
- <button class="ubtn active" id="blo" onclick="setU('low')">
- <div class="ut" id="ult">Light</div>
- <div class="ud" id="uld">Routine visits, generally healthy</div>
- </button>
- <button class="ubtn" id="bme" onclick="setU('med')">
- <div class="ut" id="umt">Moderate</div>
- <div class="ud" id="umd">Some specialists, medications</div>
- </button>
- <button class="ubtn" id="bhi" onclick="setU('high')">
- <div class="ut" id="uht">Frequent</div>
- <div class="ud" id="uhd">Multiple specialists, chronic conditions</div>
- </button>
- </div>
- <button class="cbtn" id="cbc" onclick="calc()">Ver mi comparacion</button>
- </div>
- <div id="rw"></div>
+  <div class="card">
+    <div class="ct" id="ct">Your details</div>
+    <div class="fg">
+      <div class="field">
+        <label class="fl" id="la">Your current age</label>
+        <input type="number" id="ia" placeholder="65" min="60" max="85" oninput="updRange()">
+      </div>
+      <div class="field">
+        <label class="fl" id="lb2">Monthly Part B premium</label>
+        <div class="iw"><span class="ip">$</span><input type="number" id="ib" value="185" class="hp"></div>
+        <div class="fn" id="nb">$185 is the standard 2026 premium.</div>
+      </div>
+    </div>
+    <div class="sl" id="sma">Medicare Advantage Plan</div>
+    <div class="fg">
+      <div class="field">
+        <label class="fl" id="lmp">Monthly plan premium</label>
+        <div class="iw"><span class="ip">$</span><input type="number" id="imp" value="0" class="hp" placeholder="0"></div>
+        <div class="fn" id="nmp">Many plans in South Florida have $0 premium</div>
+      </div>
+      <div class="field">
+        <label class="fl" id="lmo">Annual out-of-pocket maximum</label>
+        <div class="iw"><span class="ip">$</span><input type="number" id="imo" value="5000" class="hp"></div>
+        <div class="fn" id="nmo">2026 limit: $9,350. Typical: $4,000-$6,000</div>
+      </div>
+    </div>
+    <div class="sl" id="smg">Medicare Supplement (Medigap) Plan</div>
+    <div class="fg">
+      <div class="field">
+        <label class="fl" id="lgp">Monthly Plan G premium</label>
+        <div class="iw"><span class="ip">$</span><input type="number" id="igp" value="135" class="hp"></div>
+        <div class="fn" id="ngp">Typical Florida range: $148-$355/mo depending on age</div>
+        <div class="pr" id="pr"></div>
+      </div>
+      <div class="field">
+        <label class="fl" id="lpd">Part D plan premium</label>
+        <div class="iw"><span class="ip">$</span><input type="number" id="ipd" value="35" class="hp"></div>
+        <div class="fn" id="npd">You need Part D with Medigap. Average: $25-$60/mo</div>
+      </div>
+    </div>
+    <div class="sl" id="sus">How much healthcare do you typically use?</div>
+    <div class="ub">
+      <button class="ubtn active" id="blo" onclick="setU('low')">
+        <div class="ut" id="ult">Light</div>
+        <div class="ud" id="uld">Routine visits, generally healthy</div>
+      </button>
+      <button class="ubtn" id="bme" onclick="setU('med')">
+        <div class="ut" id="umt">Moderate</div>
+        <div class="ud" id="umd">Some specialists, medications</div>
+      </button>
+      <button class="ubtn" id="bhi" onclick="setU('high')">
+        <div class="ut" id="uht">Frequent</div>
+        <div class="ud" id="uhd">Multiple specialists, chronic conditions</div>
+      </button>
+    </div>
+    <button class="cbtn" id="cbc" onclick="calc()">Ver mi comparacion</button>
+  </div>
+  <div id="rw"></div>
 </div>
 <script>
 var L='en', U='low', PBD=257;
 var UF={low:0.15,med:0.40,high:0.85};
 var PG={
- es:{60:{l:130,h:165,n:'Edad 60-64: primas mas bajas - buen momento para asegurarte'},61:{l:133,h:168,n:'Edad 60-64: primas mas bajas - buen momento para asegurarte'},62:{l:136,h:172,n:'Edad 60-64: primas mas bajas - buen momento para asegurarte'},63:{l:139,h:176,n:'Edad 60-64: primas mas bajas - buen momento para asegurarte'},64:{l:142,h:180,n:'Edad 64: un ano antes de Medicare - planifica tu inscripcion'},65:{l:148,h:192,n:'Edad 65: inscripcion abierta - mejor precio garantizado sin preguntas medicas'},66:{l:155,h:200,n:'Edad 66-67: primas competitivas si calificaste medicamente'},67:{l:160,h:207,n:'Edad 66-67: primas competitivas si calificaste medicamente'},68:{l:166,h:215,n:'Edad 68-69: compara portadoras para mejores tarifas'},69:{l:172,h:222,n:'Edad 68-69: compara portadoras para mejores tarifas'},70:{l:180,h:232,n:'Edad 70-74: primas aumentan - comparar portadoras es clave'},71:{l:188,h:242,n:'Edad 70-74: primas aumentan - comparar portadoras es clave'},72:{l:196,h:252,n:'Edad 70-74: primas aumentan - comparar portadoras es clave'},73:{l:204,h:262,n:'Edad 70-74: primas aumentan - comparar portadoras es clave'},74:{l:212,h:272,n:'Edad 70-74: primas aumentan - comparar portadoras es clave'},75:{l:222,h:285,n:'Edad 75+: diferencias entre portadoras pueden ser de $80+/mes'},76:{l:232,h:298,n:'Edad 75+: diferencias entre portadoras pueden ser de $80+/mes'},77:{l:242,h:310,n:'Edad 75+: diferencias entre portadoras pueden ser de $80+/mes'},78:{l:252,h:322,n:'Edad 75+: diferencias entre portadoras pueden ser de $80+/mes'},79:{l:262,h:335,n:'Edad 75+: diferencias entre portadoras pueden ser de $80+/mes'},80:{l:275,h:355,n:'Edad 80+: nuestros corredores encuentran las tarifas mas bajas disponibles'}},
- en:{60:{l:130,h:165,n:'Age 60-64: lowest premiums - great time to lock in coverage'},61:{l:133,h:168,n:'Age 60-64: lowest premiums - great time to lock in coverage'},62:{l:136,h:172,n:'Age 60-64: lowest premiums - great time to lock in coverage'},63:{l:139,h:176,n:'Age 60-64: lowest premiums - great time to lock in coverage'},64:{l:142,h:180,n:'Age 64: one year before Medicare - start planning now'},65:{l:148,h:192,n:'Age 65: open enrollment - best price guaranteed, no health questions'},66:{l:155,h:200,n:'Age 66-67: competitive rates if you medically qualified'},67:{l:160,h:207,n:'Age 66-67: competitive rates if you medically qualified'},68:{l:166,h:215,n:'Age 68-69: compare carriers for best rates'},69:{l:172,h:222,n:'Age 68-69: compare carriers for best rates'},70:{l:180,h:232,n:'Age 70-74: premiums rising - comparing carriers is key'},71:{l:188,h:242,n:'Age 70-74: premiums rising - comparing carriers is key'},72:{l:196,h:252,n:'Age 70-74: premiums rising - comparing carriers is key'},73:{l:204,h:262,n:'Age 70-74: premiums rising - comparing carriers is key'},74:{l:212,h:272,n:'Age 70-74: premiums rising - comparing carriers is key'},75:{l:222,h:285,n:'Age 75+: carrier differences can be $80+/mo - shop carefully'},76:{l:232,h:298,n:'Age 75+: carrier differences can be $80+/mo - shop carefully'},77:{l:242,h:310,n:'Age 75+: carrier differences can be $80+/mo - shop carefully'},78:{l:252,h:322,n:'Age 75+: carrier differences can be $80+/mo - shop carefully'},79:{l:262,h:335,n:'Age 75+: carrier differences can be $80+/mo - shop carefully'},80:{l:275,h:355,n:'Age 80+: our brokers find the lowest available rates for you'}}
+  es:{60:{l:130,h:165,n:'Edad 60-64: primas mas bajas - buen momento para asegurarte'},61:{l:133,h:168,n:'Edad 60-64: primas mas bajas - buen momento para asegurarte'},62:{l:136,h:172,n:'Edad 60-64: primas mas bajas - buen momento para asegurarte'},63:{l:139,h:176,n:'Edad 60-64: primas mas bajas - buen momento para asegurarte'},64:{l:142,h:180,n:'Edad 64: un ano antes de Medicare - planifica tu inscripcion'},65:{l:148,h:192,n:'Edad 65: inscripcion abierta - mejor precio garantizado sin preguntas medicas'},66:{l:155,h:200,n:'Edad 66-67: primas competitivas si calificaste medicamente'},67:{l:160,h:207,n:'Edad 66-67: primas competitivas si calificaste medicamente'},68:{l:166,h:215,n:'Edad 68-69: compara portadoras para mejores tarifas'},69:{l:172,h:222,n:'Edad 68-69: compara portadoras para mejores tarifas'},70:{l:180,h:232,n:'Edad 70-74: primas aumentan - comparar portadoras es clave'},71:{l:188,h:242,n:'Edad 70-74: primas aumentan - comparar portadoras es clave'},72:{l:196,h:252,n:'Edad 70-74: primas aumentan - comparar portadoras es clave'},73:{l:204,h:262,n:'Edad 70-74: primas aumentan - comparar portadoras es clave'},74:{l:212,h:272,n:'Edad 70-74: primas aumentan - comparar portadoras es clave'},75:{l:222,h:285,n:'Edad 75+: diferencias entre portadoras pueden ser de $80+/mes'},76:{l:232,h:298,n:'Edad 75+: diferencias entre portadoras pueden ser de $80+/mes'},77:{l:242,h:310,n:'Edad 75+: diferencias entre portadoras pueden ser de $80+/mes'},78:{l:252,h:322,n:'Edad 75+: diferencias entre portadoras pueden ser de $80+/mes'},79:{l:262,h:335,n:'Edad 75+: diferencias entre portadoras pueden ser de $80+/mes'},80:{l:275,h:355,n:'Edad 80+: nuestros corredores encuentran las tarifas mas bajas disponibles'}},
+  en:{60:{l:130,h:165,n:'Age 60-64: lowest premiums - great time to lock in coverage'},61:{l:133,h:168,n:'Age 60-64: lowest premiums - great time to lock in coverage'},62:{l:136,h:172,n:'Age 60-64: lowest premiums - great time to lock in coverage'},63:{l:139,h:176,n:'Age 60-64: lowest premiums - great time to lock in coverage'},64:{l:142,h:180,n:'Age 64: one year before Medicare - start planning now'},65:{l:148,h:192,n:'Age 65: open enrollment - best price guaranteed, no health questions'},66:{l:155,h:200,n:'Age 66-67: competitive rates if you medically qualified'},67:{l:160,h:207,n:'Age 66-67: competitive rates if you medically qualified'},68:{l:166,h:215,n:'Age 68-69: compare carriers for best rates'},69:{l:172,h:222,n:'Age 68-69: compare carriers for best rates'},70:{l:180,h:232,n:'Age 70-74: premiums rising - comparing carriers is key'},71:{l:188,h:242,n:'Age 70-74: premiums rising - comparing carriers is key'},72:{l:196,h:252,n:'Age 70-74: premiums rising - comparing carriers is key'},73:{l:204,h:262,n:'Age 70-74: premiums rising - comparing carriers is key'},74:{l:212,h:272,n:'Age 70-74: premiums rising - comparing carriers is key'},75:{l:222,h:285,n:'Age 75+: carrier differences can be $80+/mo - shop carefully'},76:{l:232,h:298,n:'Age 75+: carrier differences can be $80+/mo - shop carefully'},77:{l:242,h:310,n:'Age 75+: carrier differences can be $80+/mo - shop carefully'},78:{l:252,h:322,n:'Age 75+: carrier differences can be $80+/mo - shop carefully'},79:{l:262,h:335,n:'Age 75+: carrier differences can be $80+/mo - shop carefully'},80:{l:275,h:355,n:'Age 80+: our brokers find the lowest available rates for you'}}
 };
 var TL={
- es:{tag:'Herramienta gratuita',title:'Medicare Advantage vs. Suplementario',sub:'Ve el costo total a 5, 10 y 20 anos.',card:'Tus datos',age:'Tu edad actual',pb:'Prima Parte B mensual',npb:'$185 es la prima estandar 2026.',mas:'Plan Medicare Advantage',map:'Prima mensual del plan',nmp:'Muchos planes en FL tienen $0 de prima',mao:'Maximo anual de bolsillo',nmo:'Limite 2026: $9,350. Promedio: $4,000-$6,000',mgs:'Plan Medicare Suplementario (Medigap)',mgp:'Prima mensual Plan G',ngp:'Rango tipico en Florida: $148-$355/mes segun edad',mpd:'Prima Plan Parte D',npd:'Necesitas Parte D con Medigap. Promedio: $25-$60/mes',us:'Cuanta atencion medica usas normalmente?',lt:'Poca',ld:'Visitas rutinarias, generalmente sano',mt:'Moderada',md:'Algunos especialistas, medicamentos',ht:'Frecuente',hd:'Multiples especialistas, condiciones cronicas',btn:'Ver mi comparacion',wma:'Medicare Advantage podria ser mejor para ti',wmg:'Medicare Suplementario podria ser mejor para ti',wtie:'Los costos son muy similares',dma:'Basado en tu uso, Medicare Advantage tiene costos mas bajos proyectados. Verifica que tus medicos esten en la red.',dmg:'Basado en tu uso, Medicare Suplementario tiene costos mas bajos proyectados - y sin restricciones de red.',dtie:'Los costos son muy parecidos. La decision depende de tus medicos y preferencias.',mal:'Medicare Advantage',mgl:'Medicare Suplementario',mo:'Mensual total',oop:'Costo de bolsillo estimado',y5:'Total 5 anos',y10:'Total 10 anos',y20:'Total 20 anos',ch:'Costo acumulado proyectado',yr:'Ano',be:'Punto de equilibrio',bya:'En el ano ',byb:' los costos se igualan. Despues Medigap generalmente cuesta menos.',bnma:'Con uso bajo y prima de Medigap mas alta, Medicare Advantage mantiene costos mas bajos durante el periodo proyectado.',bnmg:'Con uso frecuente, Medigap mantiene costos mas bajos durante el periodo proyectado.',as:'Supuestos',ast:'Prima Parte B aplicada a ambas opciones. Aumentos anuales: 5% Advantage, 4% Medigap. Resultados son estimaciones.',ct:'Quieres una comparacion personalizada?',cd:'Nuestros corredores verifican tus medicos y medicamentos antes de recomendar cualquier plan. Gratis, en espanol.',co:'Consulta gratuita',wa:'WhatsApp'},
- en:{tag:'Free tool',title:'Medicare Advantage vs. Supplement',sub:'See total cost at 5, 10, and 20 years.',card:'Your details',age:'Your current age',pb:'Monthly Part B premium',npb:'$185 is the standard 2026 premium.',mas:'Medicare Advantage Plan',map:'Monthly plan premium',nmp:'Many plans in South Florida have $0 premium',mao:'Annual out-of-pocket maximum',nmo:'2026 limit: $9,350. Typical: $4,000-$6,000',mgs:'Medicare Supplement (Medigap) Plan',mgp:'Monthly Plan G premium',ngp:'Typical Florida range: $100-$220/mo',mpd:'Part D plan premium',npd:'You need Part D with Medigap. Average: $25-$60/mo',us:'How much healthcare do you typically use?',lt:'Light',ld:'Routine visits, generally healthy',mt:'Moderate',md:'Some specialists, medications',ht:'Frequent',hd:'Multiple specialists, chronic conditions',btn:'See my comparison',wma:'Medicare Advantage may be better for you',wmg:'Medicare Supplement may be better for you',wtie:'Costs are very similar',dma:'Based on your usage, Medicare Advantage has lower projected total costs. Always verify your doctors are in-network first.',dmg:'Based on your usage, Medicare Supplement has lower projected total costs - with no network restrictions.',dtie:'Costs are very close. The decision comes down to your doctors and preferences.',mal:'Medicare Advantage',mgl:'Medicare Supplement',mo:'Monthly total',oop:'Estimated out-of-pocket',y5:'5-year total',y10:'10-year total',y20:'20-year total',ch:'Projected cumulative cost',yr:'Year',be:'Break-even point',bya:'At year ',byb:', costs equalize. After that Medigap generally costs less.',bnma:'With light usage and higher Medigap premium, Medicare Advantage maintains lower costs throughout.',bnmg:'With frequent usage, Medigap maintains lower costs throughout.',as:'Assumptions',ast:'Part B applied to both options. Annual increases: 5% Advantage, 4% Medigap. Results are estimates.',ct:'Want a personalized comparison?',cd:'Our brokers verify your doctors and medications before recommending any plan. Free, bilingual, no pressure.',co:'Free consultation',wa:'WhatsApp'}
+  es:{tag:'Herramienta gratuita',title:'Medicare Advantage vs. Suplementario',sub:'Ve el costo total a 5, 10 y 20 anos.',card:'Tus datos',age:'Tu edad actual',pb:'Prima Parte B mensual',npb:'$185 es la prima estandar 2026.',mas:'Plan Medicare Advantage',map:'Prima mensual del plan',nmp:'Muchos planes en FL tienen $0 de prima',mao:'Maximo anual de bolsillo',nmo:'Limite 2026: $9,350. Promedio: $4,000-$6,000',mgs:'Plan Medicare Suplementario (Medigap)',mgp:'Prima mensual Plan G',ngp:'Rango tipico en Florida: $148-$355/mes segun edad',mpd:'Prima Plan Parte D',npd:'Necesitas Parte D con Medigap. Promedio: $25-$60/mes',us:'Cuanta atencion medica usas normalmente?',lt:'Poca',ld:'Visitas rutinarias, generalmente sano',mt:'Moderada',md:'Algunos especialistas, medicamentos',ht:'Frecuente',hd:'Multiples especialistas, condiciones cronicas',btn:'Ver mi comparacion',wma:'Medicare Advantage podria ser mejor para ti',wmg:'Medicare Suplementario podria ser mejor para ti',wtie:'Los costos son muy similares',dma:'Basado en tu uso, Medicare Advantage tiene costos mas bajos proyectados. Verifica que tus medicos esten en la red.',dmg:'Basado en tu uso, Medicare Suplementario tiene costos mas bajos proyectados - y sin restricciones de red.',dtie:'Los costos son muy parecidos. La decision depende de tus medicos y preferencias.',mal:'Medicare Advantage',mgl:'Medicare Suplementario',mo:'Mensual total',oop:'Costo de bolsillo estimado',y5:'Total 5 anos',y10:'Total 10 anos',y20:'Total 20 anos',ch:'Costo acumulado proyectado',yr:'Ano',be:'Punto de equilibrio',bya:'En el ano ',byb:' los costos se igualan. Despues Medigap generalmente cuesta menos.',bnma:'Con uso bajo y prima de Medigap mas alta, Medicare Advantage mantiene costos mas bajos durante el periodo proyectado.',bnmg:'Con uso frecuente, Medigap mantiene costos mas bajos durante el periodo proyectado.',as:'Supuestos',ast:'Prima Parte B aplicada a ambas opciones. Aumentos anuales: 5% Advantage, 4% Medigap. Resultados son estimaciones.',ct:'Quieres una comparacion personalizada?',cd:'Nuestros corredores verifican tus medicos y medicamentos antes de recomendar cualquier plan. Gratis, en espanol.',co:'Consulta gratuita',wa:'WhatsApp'},
+  en:{tag:'Free tool',title:'Medicare Advantage vs. Supplement',sub:'See total cost at 5, 10, and 20 years.',card:'Your details',age:'Your current age',pb:'Monthly Part B premium',npb:'$185 is the standard 2026 premium.',mas:'Medicare Advantage Plan',map:'Monthly plan premium',nmp:'Many plans in South Florida have $0 premium',mao:'Annual out-of-pocket maximum',nmo:'2026 limit: $9,350. Typical: $4,000-$6,000',mgs:'Medicare Supplement (Medigap) Plan',mgp:'Monthly Plan G premium',ngp:'Typical Florida range: $100-$220/mo',mpd:'Part D plan premium',npd:'You need Part D with Medigap. Average: $25-$60/mo',us:'How much healthcare do you typically use?',lt:'Light',ld:'Routine visits, generally healthy',mt:'Moderate',md:'Some specialists, medications',ht:'Frequent',hd:'Multiple specialists, chronic conditions',btn:'See my comparison',wma:'Medicare Advantage may be better for you',wmg:'Medicare Supplement may be better for you',wtie:'Costs are very similar',dma:'Based on your usage, Medicare Advantage has lower projected total costs. Always verify your doctors are in-network first.',dmg:'Based on your usage, Medicare Supplement has lower projected total costs - with no network restrictions.',dtie:'Costs are very close. The decision comes down to your doctors and preferences.',mal:'Medicare Advantage',mgl:'Medicare Supplement',mo:'Monthly total',oop:'Estimated out-of-pocket',y5:'5-year total',y10:'10-year total',y20:'20-year total',ch:'Projected cumulative cost',yr:'Year',be:'Break-even point',bya:'At year ',byb:', costs equalize. After that Medigap generally costs less.',bnma:'With light usage and higher Medigap premium, Medicare Advantage maintains lower costs throughout.',bnmg:'With frequent usage, Medigap maintains lower costs throughout.',as:'Assumptions',ast:'Part B applied to both options. Annual increases: 5% Advantage, 4% Medigap. Results are estimates.',ct:'Want a personalized comparison?',cd:'Our brokers verify your doctors and medications before recommending any plan. Free, bilingual, no pressure.',co:'Free consultation',wa:'WhatsApp'}
 };
 function f(n){return '$'+Math.round(n).toLocaleString('en-US');}
 function g(id){return document.getElementById(id);}
 function setLang(l){
- L=l;
- var lbs=document.querySelectorAll('.lb');for(var li=0;li<lbs.length;li++){lbs[li].classList.toggle('active',li===(l==='es'?0:1));}
- var t=TL[l];
- g('htag').textContent=t.tag; g('htitle').textContent=t.title; g('hsub').textContent=t.sub;
- g('ct').textContent=t.card; g('la').textContent=t.age; g('lb2').textContent=t.pb; g('nb').textContent=t.npb;
- g('sma').textContent=t.mas; g('lmp').textContent=t.map; g('nmp').textContent=t.nmp;
- g('lmo').textContent=t.mao; g('nmo').textContent=t.nmo;
- g('smg').textContent=t.mgs; g('lgp').textContent=t.mgp; g('ngp').textContent=t.ngp;
- g('lpd').textContent=t.mpd; g('npd').textContent=t.npd;
- g('sus').textContent=t.us; g('ult').textContent=t.lt; g('uld').textContent=t.ld;
- g('umt').textContent=t.mt; g('umd').textContent=t.md; g('uht').textContent=t.ht; g('uhd').textContent=t.hd;
- g('cbc').textContent=t.btn;
- document.documentElement.lang=l;
- updRange();
- if(g('rw').innerHTML) calc();
+  L=l;
+  var lbs=document.querySelectorAll('.lb');for(var li=0;li<lbs.length;li++){lbs[li].classList.toggle('active',li===(l==='es'?0:1));}
+  var t=TL[l];
+  g('htag').textContent=t.tag; g('htitle').textContent=t.title; g('hsub').textContent=t.sub;
+  g('ct').textContent=t.card; g('la').textContent=t.age; g('lb2').textContent=t.pb; g('nb').textContent=t.npb;
+  g('sma').textContent=t.mas; g('lmp').textContent=t.map; g('nmp').textContent=t.nmp;
+  g('lmo').textContent=t.mao; g('nmo').textContent=t.nmo;
+  g('smg').textContent=t.mgs; g('lgp').textContent=t.mgp; g('ngp').textContent=t.ngp;
+  g('lpd').textContent=t.mpd; g('npd').textContent=t.npd;
+  g('sus').textContent=t.us; g('ult').textContent=t.lt; g('uld').textContent=t.ld;
+  g('umt').textContent=t.mt; g('umd').textContent=t.md; g('uht').textContent=t.ht; g('uhd').textContent=t.hd;
+  g('cbc').textContent=t.btn;
+  document.documentElement.lang=l;
+  updRange();
+  if(g('rw').innerHTML) calc();
 }
 function setU(u){
- U=u;
- var uids=['lo','me','hi'],uvals=['low','med','high'];for(var ui=0;ui<uids.length;ui++){g('b'+uids[ui]).classList.toggle('active',uvals[ui]===u);}
+  U=u;
+  var uids=['lo','me','hi'],uvals=['low','med','high'];for(var ui=0;ui<uids.length;ui++){g('b'+uids[ui]).classList.toggle('active',uvals[ui]===u);}
 }
 function updRange(){
- var age=parseInt(g('ia').value);
- var box=g('pr');
- if(!age||age<60||age>90){box.style.display='none';return;}
- var rates=PG[L];
- var key=age>=80?80:age;
- var r=rates[key]||rates[65];
- var mid=Math.round((r.l+r.h)/2);
- g('igp').value=mid;
- var pw=L==='es'?'/mes':'/mo';
- var aw=L==='es'?'a los '+age+' anos':'at age '+age;
- box.textContent='Plan G en Florida '+aw+': $'+r.l+'-$'+r.h+pw+'. '+r.n+'.';
- box.style.display='block';
+  var age=parseInt(g('ia').value);
+  var box=g('pr');
+  if(!age||age<60||age>90){box.style.display='none';return;}
+  var rates=PG[L];
+  var key=age>=80?80:age;
+  var r=rates[key]||rates[65];
+  var mid=Math.round((r.l+r.h)/2);
+  g('igp').value=mid;
+  var pw=L==='es'?'/mes':'/mo';
+  var aw=L==='es'?'a los '+age+' anos':'at age '+age;
+  box.textContent='Plan G en Florida '+aw+': $'+r.l+'-$'+r.h+pw+'. '+r.n+'.';
+  box.style.display='block';
 }
 
 function calc(){
- var t=TL[L];
- var pb=parseFloat(g('ib').value)||185;
- var mp=parseFloat(g('imp').value)||0;
- var mo=parseFloat(g('imo').value)||5000;
- var gp=parseFloat(g('igp').value)||135;
- var pd=parseFloat(g('ipd').value)||35;
- var fac=UF[U];
- var maOP=mo*fac;
- var mgOP=PBD;
- var maA1=(pb+mp)*12+maOP;
- var mgA1=(pb+gp+pd)*12+mgOP;
- var mC=[],gC=[],mt=0,gt=0;
- for(var i=1;i<=20;i++){
- var my=(pb*Math.pow(1.05,i-1)+mp*Math.pow(1.05,i-1))*12+maOP*Math.pow(1.03,i-1);
- var gy=(pb*Math.pow(1.04,i-1)+gp*Math.pow(1.04,i-1)+pd*Math.pow(1.04,i-1))*12+mgOP;
- mt+=my; gt+=gy; mC.push(Math.round(mt)); gC.push(Math.round(gt));
- }
- var ma5=mC[4],ma10=mC[9],ma20=mC[19],mg5=gC[4],mg10=gC[9],mg20=gC[19];
- var maMo=Math.round(pb+mp),mgMo=Math.round(pb+gp+pd);
- var cmax=Math.max.apply(null,mC.concat(gC));
- var bev=null;
- for(var j=0;j<20;j++){if(mC[j]>gC[j]&&(j===0||mC[j-1]<=gC[j-1])){bev=j+1;break;}}
- var diff=Math.abs(ma20-mg20);
- var tie=diff<1000, maW=ma20<mg20&&!tie, mgW=mg20<ma20&&!tie;
- var yw=L==='es'?'anos':'yrs', yr=L==='es'?'Ano':'Year';
- var wBg=maW?'#fff0f8':mgW?'#f0fdf4':'#f4eefa';
- var wBo=maW?'#ff1090':mgW?'#16a34a':'#452068';
- var wTx=maW?'#ff1090':mgW?'#16a34a':'#452068';
- var wI='';
- var wTt=maW?t.wma:mgW?t.wmg:t.wtie;
- var wD=maW?t.dma:mgW?t.dmg:t.dtie;
- var h='';
- // Disclaimer - always show at top of results
+  var t=TL[L];
+  var pb=parseFloat(g('ib').value)||185;
+  var mp=parseFloat(g('imp').value)||0;
+  var mo=parseFloat(g('imo').value)||5000;
+  var gp=parseFloat(g('igp').value)||135;
+  var pd=parseFloat(g('ipd').value)||35;
+  var fac=UF[U];
+  var maOP=mo*fac;
+  var mgOP=PBD;
+  var maA1=(pb+mp)*12+maOP;
+  var mgA1=(pb+gp+pd)*12+mgOP;
+  var mC=[],gC=[],mt=0,gt=0;
+  for(var i=1;i<=20;i++){
+    var my=(pb*Math.pow(1.05,i-1)+mp*Math.pow(1.05,i-1))*12+maOP*Math.pow(1.03,i-1);
+    var gy=(pb*Math.pow(1.04,i-1)+gp*Math.pow(1.04,i-1)+pd*Math.pow(1.04,i-1))*12+mgOP;
+    mt+=my; gt+=gy; mC.push(Math.round(mt)); gC.push(Math.round(gt));
+  }
+  var ma5=mC[4],ma10=mC[9],ma20=mC[19],mg5=gC[4],mg10=gC[9],mg20=gC[19];
+  var maMo=Math.round(pb+mp),mgMo=Math.round(pb+gp+pd);
+  var cmax=Math.max.apply(null,mC.concat(gC));
+  var bev=null;
+  for(var j=0;j<20;j++){if(mC[j]>gC[j]&&(j===0||mC[j-1]<=gC[j-1])){bev=j+1;break;}}
+  var diff=Math.abs(ma20-mg20);
+  var tie=diff<1000, maW=ma20<mg20&&!tie, mgW=mg20<ma20&&!tie;
+  var yw=L==='es'?'anos':'yrs', yr=L==='es'?'Ano':'Year';
+  var wBg=maW?'#fff0f8':mgW?'#f0fdf4':'#f4eefa';
+  var wBo=maW?'#ff1090':mgW?'#16a34a':'#452068';
+  var wTx=maW?'#ff1090':mgW?'#16a34a':'#452068';
+  var wI='';
+  var wTt=maW?t.wma:mgW?t.wmg:t.wtie;
+  var wD=maW?t.dma:mgW?t.dmg:t.dtie;
+  var h='';
+  // Disclaimer - always show at top of results
 
- h+='<div class="wb" style="background:'+wBg+';border-color:'+wBo+';">';
- h+='<div class="wi">'+wI+'</div><div class="wt" style="color:'+wTx+';">'+wTt+'</div>';
- h+='<div class="wd" style="color:'+wTx+';">'+wD+'</div></div>';
- // Year selector for card totals
- var selLabel = L==='es' ? 'Ver total a:' : 'Show total for:';
- h+='<div style="display:flex;align-items:center;gap:10px;margin-bottom:14px;flex-wrap:wrap;">';
- h+='<span style="font-size:13px;color:#6b7280;font-weight:600;">'+selLabel+'</span>';
- var selYrs = [1,5,10,20];
- for(var si=0;si<selYrs.length;si++){
- var sv=selYrs[si];
- var sl=L==='es'?(sv===1?'1 ano':sv+' anos'):(sv===1?'1 yr':sv+' yrs');
- var isSelAct=sv===1;
- h+='<button data-sel-yr="'+sv+'" style="padding:5px 14px;border-radius:50px;border:2px solid '+(isSelAct?'#452068':'#e8e0f4')+';background:'+(isSelAct?'#452068':'white')+';color:'+(isSelAct?'white':'#6b7280')+';font-size:13px;font-weight:700;cursor:pointer;font-family:Arial;">'+sl+'</button>';
- }
- h+='</div>';
- h+='<div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:20px;">';
- h+='<div style="background:white;border-radius:14px;padding:20px;box-shadow:0 2px 16px rgba(69,32,104,0.10);border-top:4px solid #ff1090;"><div style="font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:0.05em;color:#ff1090;margin-bottom:14px;">'+t.mal+'</div>';
- h+='<div style="display:flex;justify-content:space-between;padding:7px 0;border-bottom:1px solid #f4eefa;font-size:13px;"><span style="color:#6b7280;">'+t.mo+'</span><span style="font-weight:700;">'+f(maMo)+'/mo</span></div>';
- h+='<div style="display:flex;justify-content:space-between;padding:7px 0;border-bottom:1px solid #f4eefa;font-size:13px;"><span style="color:#6b7280;">'+(L==='es'?'Copagos estimados (uso '+(['bajo','moderado','frecuente'][['low','med','high'].indexOf(U)]||'bajo')+')':'Est. copays ('+U+' usage)')+'</span><span style="font-weight:700;">'+f(maOP)+'/yr</span></div>';
+  h+='<div class="wb" style="background:'+wBg+';border-color:'+wBo+';">';
+  h+='<div class="wi">'+wI+'</div><div class="wt" style="color:'+wTx+';">'+wTt+'</div>';
+  h+='<div class="wd" style="color:'+wTx+';">'+wD+'</div></div>';
+  // Year selector for card totals
+  var selLabel = L==='es' ? 'Ver total a:' : 'Show total for:';
+  h+='<div style="display:flex;align-items:center;gap:10px;margin-bottom:14px;flex-wrap:wrap;">';
+  h+='<span style="font-size:13px;color:#6b7280;font-weight:600;">'+selLabel+'</span>';
+  var selYrs = [1,5,10,20];
+  for(var si=0;si<selYrs.length;si++){
+    var sv=selYrs[si];
+    var sl=L==='es'?(sv===1?'1 ano':sv+' anos'):(sv===1?'1 yr':sv+' yrs');
+    var isSelAct=sv===1;
+    h+='<button data-sel-yr="'+sv+'" style="padding:5px 14px;border-radius:50px;border:2px solid '+(isSelAct?'#452068':'#e8e0f4')+';background:'+(isSelAct?'#452068':'white')+';color:'+(isSelAct?'white':'#6b7280')+';font-size:13px;font-weight:700;cursor:pointer;font-family:Arial;">'+sl+'</button>';
+  }
+  h+='</div>';
+  h+='<div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:20px;">';
+  h+='<div style="background:white;border-radius:14px;padding:20px;box-shadow:0 2px 16px rgba(69,32,104,0.10);border-top:4px solid #ff1090;"><div style="font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:0.05em;color:#ff1090;margin-bottom:14px;">'+t.mal+'</div>';
+  h+='<div style="display:flex;justify-content:space-between;padding:7px 0;border-bottom:1px solid #f4eefa;font-size:13px;"><span style="color:#6b7280;">'+t.mo+'</span><span style="font-weight:700;">'+f(maMo)+'/mo</span></div>';
+  h+='<div style="display:flex;justify-content:space-between;padding:7px 0;border-bottom:1px solid #f4eefa;font-size:13px;"><span style="color:#6b7280;">'+(L==='es'?'Copagos estimados (uso '+(['bajo','moderado','frecuente'][['low','med','high'].indexOf(U)]||'bajo')+')':'Est. copays ('+U+' usage)')+'</span><span style="font-weight:700;">'+f(maOP)+'/yr</span></div>';
+  
+  h+='<div class="cto"><div class="ctl" id="ma-total-lbl">'+t.y20+'</div><div class="ctv" style="color:#ff1090;"><span id="ma-total">'+f(ma20)+'</span><span class="ctp" id="ma-total-yw"> / 20 '+yw+'</span></div></div></div>';
+  h+='<div style="background:white;border-radius:14px;padding:20px;box-shadow:0 2px 16px rgba(69,32,104,0.10);border-top:4px solid #16a34a;"><div style="font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:0.05em;color:#16a34a;margin-bottom:14px;">'+t.mgl+'</div>';
+  h+='<div style="display:flex;justify-content:space-between;padding:7px 0;border-bottom:1px solid #f4eefa;font-size:13px;"><span style="color:#6b7280;">'+t.mo+'</span><span style="font-weight:700;">'+f(mgMo)+'/mo</span></div>';
+  h+='<div style="display:flex;justify-content:space-between;padding:7px 0;border-bottom:1px solid #f4eefa;font-size:13px;"><span style="color:#6b7280;">'+(L==='es'?'Deducible Parte B':'Part B Deductible')+'</span><span style="font-weight:700;">$257/yr</span></div>';
+  
+  h+='<div class="cto"><div class="ctl" id="mg-total-lbl">'+t.y20+'</div><div class="ctv" style="color:#16a34a;"><span id="mg-total">'+f(mg20)+'</span><span class="ctp" id="mg-total-yw"> / 20 '+yw+'</span></div></div></div>';
+  h+='</div>';
+  if(bev){
+    h+='<div class="bev"><div class="bevt">'+t.be+': '+yr+' '+bev+'</div>';
+    h+='<div class="bevd">'+t.bya+bev+t.byb+'</div></div>';
+  } else {
+    h+='<div style="background:#fffbeb;border:1px solid #fde68a;border-left:4px solid #d97706;border-radius:14px;padding:18px 20px;margin-bottom:20px;"><div style="font-size:15px;font-weight:700;color:#92400e;margin-bottom:6px;">'+t.be+'</div>';
+    h+='<div style="font-size:14px;color:#78350f;line-height:1.7;">'+(maW?t.bnma:t.bnmg)+'</div></div>';
+  }
+  h+='<div style="background:#fff8e7;border:2px solid #d97706;border-left:6px solid #d97706;border-radius:14px;padding:20px 22px;margin-bottom:20px;">';
+  var combES='<strong style="color:#92400e;font-size:16px;">Supuestos y aviso importante:</strong><br><span style="font-size:16px;color:#78350f;line-height:1.8;">Prima Parte B aplicada a ambas opciones. Aumentos anuales estimados: 5% Advantage, 4% Medigap. Los resultados son <strong>estimaciones educativas, no cotizaciones oficiales.</strong> Los costos reales varian segun la aseguradora, edad, ubicacion y plan. Para cifras exactas:</span>';
+  var combEN='<strong style="color:#92400e;font-size:16px;">Assumptions & important notice:</strong><br><span style="font-size:16px;color:#78350f;line-height:1.8;">Part B premium applied to both options. Estimated annual increases: 5% Advantage, 4% Medigap. Results are <strong>educational estimates, not official quotes.</strong> Actual costs vary by carrier, age, location and plan. For accurate figures:</span>';
+  h+=(L==='es'?combES:combEN);
+  h+='<div style="margin-top:14px;padding-top:14px;border-top:1px solid #fde68a;display:flex;gap:10px;flex-wrap:wrap;">';
+  h+='<a href="tel:18003806821" style="display:inline-block;background:#d97706;color:white;padding:11px 22px;border-radius:50px;font-weight:700;font-size:15px;text-decoration:none;">'+(L==='es'?'Llamar: 1-800-380-6821':'Call: 1-800-380-6821')+'</a>';
+  h+='<a href="'+(L==='es'?'/es/buscador-de-planes':'/medicare-plan-finder')+'" style="display:inline-block;background:white;color:#92400e;border:2px solid #d97706;padding:11px 22px;border-radius:50px;font-weight:700;font-size:15px;text-decoration:none;">'+(L==='es'?'Ver planes reales':'See real plans')+'</a>';
+  h+='</div></div>';
 
- h+='<div class="cto"><div class="ctl" id="ma-total-lbl">'+t.y20+'</div><div class="ctv" style="color:#ff1090;"><span id="ma-total">'+f(ma20)+'</span><span class="ctp" id="ma-total-yw"> / 20 '+yw+'</span></div></div></div>';
- h+='<div style="background:white;border-radius:14px;padding:20px;box-shadow:0 2px 16px rgba(69,32,104,0.10);border-top:4px solid #16a34a;"><div style="font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:0.05em;color:#16a34a;margin-bottom:14px;">'+t.mgl+'</div>';
- h+='<div style="display:flex;justify-content:space-between;padding:7px 0;border-bottom:1px solid #f4eefa;font-size:13px;"><span style="color:#6b7280;">'+t.mo+'</span><span style="font-weight:700;">'+f(mgMo)+'/mo</span></div>';
- h+='<div style="display:flex;justify-content:space-between;padding:7px 0;border-bottom:1px solid #f4eefa;font-size:13px;"><span style="color:#6b7280;">'+(L==='es'?'Deducible Parte B':'Part B Deductible')+'</span><span style="font-weight:700;">$257/yr</span></div>';
+  // Comparison table - inline styles only, no grid, no classes
+  h+='<div style="background:white;border-radius:14px;padding:20px;box-shadow:0 2px 16px rgba(69,32,104,0.10);margin-bottom:20px;overflow-x:auto;">';
+  h+='<p style="font-size:13px;font-weight:700;color:#452068;text-transform:uppercase;letter-spacing:0.05em;margin:0 0 14px 0;">'+(L==='es'?'Costos Acumulados Proyectados':'Projected Cumulative Costs')+'</p>';
+  var colA='font-size:12px;display:inline-block;padding:6px 0;';
+  var tblYrs=[1,2,3,5,7,10,15,20];
+  for(var ti2=0;ti2<tblYrs.length;ti2++){
+    var ty=tblYrs[ti2];
+    var tma=mC[ty-1];
+    var tmg=gC[ty-1];
+    var tdiff=tmg-tma;
+    var tcolor='#452068';
+    var tsign=tdiff>0?'+':'-';
+    var tbg=ti2%2===0?'#f4eefa':'white';
+    var yrLabel=L==='es'?'Ano '+ty:'Year '+ty;
+    h+='<div style="background:'+tbg+';border-radius:8px;padding:10px 12px;margin-bottom:4px;">';
+    h+='<span style="font-size:12px;font-weight:700;color:#6b7280;display:inline-block;width:56px;">'+yrLabel+'</span>';
+    h+='<span style="font-size:13px;font-weight:700;color:#ff1090;display:inline-block;width:90px;text-align:right;">$'+Math.round(tma).toLocaleString('en-US')+'</span>';
+    h+='<span style="font-size:13px;font-weight:700;color:#16a34a;display:inline-block;width:90px;text-align:right;">$'+Math.round(tmg).toLocaleString('en-US')+'</span>';
+    h+='<span style="font-size:13px;font-weight:700;color:'+tcolor+';display:inline-block;width:80px;text-align:right;">'+tsign+'$'+Math.round(Math.abs(tdiff)).toLocaleString('en-US')+'</span>';
+    h+='</div>';
+  }
+  h+='<div style="margin-top:10px;padding-top:8px;border-top:1px solid #f4eefa;">';
+  h+='<span style="font-size:11px;color:#ff1090;font-weight:700;margin-right:12px;">&#9679; '+t.mal+'</span>';
+  h+='<span style="font-size:11px;color:#16a34a;font-weight:700;margin-right:12px;">&#9679; '+t.mgl+'</span>';
+  h+='<span style="font-size:11px;color:#452068;font-weight:700;">'+(L==='es'?'Dif.':'Diff.')+'</span>';
+  h+='</div>';
+  h+='</div>';
 
- h+='<div class="cto"><div class="ctl" id="mg-total-lbl">'+t.y20+'</div><div class="ctv" style="color:#16a34a;"><span id="mg-total">'+f(mg20)+'</span><span class="ctp" id="mg-total-yw"> / 20 '+yw+'</span></div></div></div>';
- h+='</div>';
- if(bev){
- h+='<div class="bev"><div class="bevt">'+t.be+': '+yr+' '+bev+'</div>';
- h+='<div class="bevd">'+t.bya+bev+t.byb+'</div></div>';
- } else {
- h+='<div style="background:#fffbeb;border:1px solid #fde68a;border-left:4px solid #d97706;border-radius:14px;padding:18px 20px;margin-bottom:20px;"><div style="font-size:15px;font-weight:700;color:#92400e;margin-bottom:6px;">'+t.be+'</div>';
- h+='<div style="font-size:14px;color:#78350f;line-height:1.7;">'+(maW?t.bnma:t.bnmg)+'</div></div>';
- }
- h+='<div style="background:#fff8e7;border:2px solid #d97706;border-left:6px solid #d97706;border-radius:14px;padding:20px 22px;margin-bottom:20px;">';
- var combES='<strong style="color:#92400e;font-size:16px;">Supuestos y aviso importante:</strong><br><span style="font-size:16px;color:#78350f;line-height:1.8;">Prima Parte B aplicada a ambas opciones. Aumentos anuales estimados: 5% Advantage, 4% Medigap. Los resultados son <strong>estimaciones educativas, no cotizaciones oficiales.</strong> Los costos reales varian segun la aseguradora, edad, ubicacion y plan. Para cifras exactas:</span>';
- var combEN='<strong style="color:#92400e;font-size:16px;">Assumptions & important notice:</strong><br><span style="font-size:16px;color:#78350f;line-height:1.8;">Part B premium applied to both options. Estimated annual increases: 5% Advantage, 4% Medigap. Results are <strong>educational estimates, not official quotes.</strong> Actual costs vary by carrier, age, location and plan. For accurate figures:</span>';
- h+=(L==='es'?combES:combEN);
- h+='<div style="margin-top:14px;padding-top:14px;border-top:1px solid #fde68a;display:flex;gap:10px;flex-wrap:wrap;">';
- h+='<a href="tel:18003806821" style="display:inline-block;background:#d97706;color:white;padding:11px 22px;border-radius:50px;font-weight:700;font-size:15px;text-decoration:none;">'+(L==='es'?'Llamar: 1-800-380-6821':'Call: 1-800-380-6821')+'</a>';
- h+='<a href="'+(L==='es'?'/es/buscador-de-planes':'/medicare-plan-finder')+'" style="display:inline-block;background:white;color:#92400e;border:2px solid #d97706;padding:11px 22px;border-radius:50px;font-weight:700;font-size:15px;text-decoration:none;">'+(L==='es'?'Ver planes reales':'See real plans')+'</a>';
- h+='</div></div>';
+    var svg='<svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.123.556 4.116 1.526 5.845L0 24l6.335-1.508A11.945 11.945 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.818 9.818 0 01-5.006-1.368l-.359-.214-3.728.887.916-3.636-.234-.374A9.818 9.818 0 1112 21.818z"/></svg>';
+  // Share section
+  var shareDiv=document.createElement('div');
+  shareDiv.style.cssText='border-top:2px dashed #e8e0f4;margin:8px 0 20px;padding-top:20px;text-align:center;';
+  var shareLabel=document.createElement('div');
+  shareLabel.style.cssText='font-size:13px;font-weight:700;color:#9ca3af;text-transform:uppercase;letter-spacing:0.08em;margin-bottom:8px;';
+  shareLabel.textContent=L==='es'?'Conoces a alguien que necesita saber esto?':'Know someone who needs to see this?';
+  var shareTitle=document.createElement('div');
+  shareTitle.style.cssText='font-size:16px;font-weight:700;color:#452068;margin-bottom:16px;';
+  shareTitle.textContent=L==='es'?'Comparte esta calculadora gratuita':'Share this free calculator';
+  var shareBtns=document.createElement('div');
+  shareBtns.style.cssText='display:flex;gap:10px;justify-content:center;flex-wrap:wrap;';
+  var waShareMsg=L==='es'?'Compara costos de Medicare gratis: ':'Compare Medicare costs free: ';
+  var waShareURL='https://wa.me/?text='+encodeURIComponent(waShareMsg+window.location.href);
+  var waBtn=document.createElement('a');
+  waBtn.href=waShareURL;
+  waBtn.target='_blank';
+  waBtn.style.cssText='display:inline-flex;align-items:center;gap:8px;background:#25D366;color:white;padding:13px 24px;border-radius:50px;font-weight:700;font-size:15px;text-decoration:none;';
+  waBtn.textContent=L==='es'?'Enviar por WhatsApp':'Share via WhatsApp';
+  var cpBtn2=document.createElement('button');
+  cpBtn2.style.cssText='display:inline-flex;align-items:center;gap:8px;background:white;color:#452068;padding:13px 24px;border-radius:50px;font-weight:700;font-size:15px;border:2px solid #e8e0f4;cursor:pointer;font-family:Arial;';
+  cpBtn2.textContent=L==='es'?'Copiar enlace':'Copy link';
+  cpBtn2.onclick=function(){
+    navigator.clipboard.writeText(window.location.href).then(function(){
+      cpBtn2.textContent=L==='es'?'Copiado!':'Copied!';
+      setTimeout(function(){cpBtn2.textContent=L==='es'?'Copiar enlace':'Copy link';},2000);
+    });
+  };
+  shareBtns.appendChild(waBtn);
+  shareBtns.appendChild(cpBtn2);
+  shareDiv.appendChild(shareLabel);
+  shareDiv.appendChild(shareTitle);
+  shareDiv.appendChild(shareBtns);
+  h+='<div id="share-placeholder"></div>';
 
- // Comparison table - inline styles only, no grid, no classes
- h+='<div style="background:white;border-radius:14px;padding:20px;box-shadow:0 2px 16px rgba(69,32,104,0.10);margin-bottom:20px;overflow-x:auto;">';
- h+='<p style="font-size:13px;font-weight:700;color:#452068;text-transform:uppercase;letter-spacing:0.05em;margin:0 0 14px 0;">'+(L==='es'?'Costos Acumulados Proyectados':'Projected Cumulative Costs')+'</p>';
- var colA='font-size:12px;display:inline-block;padding:6px 0;';
- var tblYrs=[1,2,3,5,7,10,15,20];
- for(var ti2=0;ti2<tblYrs.length;ti2++){
- var ty=tblYrs[ti2];
- var tma=mC[ty-1];
- var tmg=gC[ty-1];
- var tdiff=tmg-tma;
- var tcolor='#452068';
- var tsign=tdiff>0?'+':'-';
- var tbg=ti2%2===0?'#f4eefa':'white';
- var yrLabel=L==='es'?'Ano '+ty:'Year '+ty;
- h+='<div style="background:'+tbg+';border-radius:8px;padding:10px 12px;margin-bottom:4px;">';
- h+='<span style="font-size:12px;font-weight:700;color:#6b7280;display:inline-block;width:56px;">'+yrLabel+'</span>';
- h+='<span style="font-size:13px;font-weight:700;color:#ff1090;display:inline-block;width:90px;text-align:right;">$'+Math.round(tma).toLocaleString('en-US')+'</span>';
- h+='<span style="font-size:13px;font-weight:700;color:#16a34a;display:inline-block;width:90px;text-align:right;">$'+Math.round(tmg).toLocaleString('en-US')+'</span>';
- h+='<span style="font-size:13px;font-weight:700;color:'+tcolor+';display:inline-block;width:80px;text-align:right;">'+tsign+'$'+Math.round(Math.abs(tdiff)).toLocaleString('en-US')+'</span>';
- h+='</div>';
- }
- h+='<div style="margin-top:10px;padding-top:8px;border-top:1px solid #f4eefa;">';
- h+='<span style="font-size:11px;color:#ff1090;font-weight:700;margin-right:12px;">&#9679; '+t.mal+'</span>';
- h+='<span style="font-size:11px;color:#16a34a;font-weight:700;margin-right:12px;">&#9679; '+t.mgl+'</span>';
- h+='<span style="font-size:11px;color:#452068;font-weight:700;">'+(L==='es'?'Dif.':'Diff.')+'</span>';
- h+='</div>';
- h+='</div>';
+  // CTA box
+  h+='<div style="background:linear-gradient(135deg,#311549,#452068);border-radius:16px;padding:24px;text-align:center;margin-bottom:16px;">';
+  h+='<div style="font-size:18px;font-weight:700;color:white;margin-bottom:8px;">'+t.ct+'</div>';
+  h+='<p style="font-size:14px;color:rgba(255,255,255,0.85);margin-bottom:20px;line-height:1.6;">'+t.cd+'</p>';
+  h+='<div style="display:flex;gap:10px;justify-content:center;flex-wrap:wrap;">';
+  h+='<a href="https://calendly.com/healthexps-info/" target="_blank" style="display:inline-block;background:#ff1090;color:white;padding:13px 24px;border-radius:50px;font-weight:700;font-size:15px;text-decoration:none;">'+t.co+'</a>';
+  h+='<a href="https://wa.me/13054646888" target="_blank" style="display:inline-flex;align-items:center;gap:6px;background:#25D366;color:white;padding:13px 24px;border-radius:50px;font-weight:700;font-size:15px;text-decoration:none;">'+t.wa+'</a>';
+  h+='</div></div>';
 
- var svg='<svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.123.556 4.116 1.526 5.845L0 24l6.335-1.508A11.945 11.945 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.818 9.818 0 01-5.006-1.368l-.359-.214-3.728.887.916-3.636-.234-.374A9.818 9.818 0 1112 21.818z"/></svg>';
- // Share section
- var shareDiv=document.createElement('div');
- shareDiv.style.cssText='border-top:2px dashed #e8e0f4;margin:8px 0 20px;padding-top:20px;text-align:center;';
- var shareLabel=document.createElement('div');
- shareLabel.style.cssText='font-size:13px;font-weight:700;color:#9ca3af;text-transform:uppercase;letter-spacing:0.08em;margin-bottom:8px;';
- shareLabel.textContent=L==='es'?'Conoces a alguien que necesita saber esto?':'Know someone who needs to see this?';
- var shareTitle=document.createElement('div');
- shareTitle.style.cssText='font-size:16px;font-weight:700;color:#452068;margin-bottom:16px;';
- shareTitle.textContent=L==='es'?'Comparte esta calculadora gratuita':'Share this free calculator';
- var shareBtns=document.createElement('div');
- shareBtns.style.cssText='display:flex;gap:10px;justify-center;flex-wrap:wrap;';
- var waShareMsg=L==='es'?'Compara costos de Medicare gratis: ':'Compare Medicare costs free: ';
- var waShareURL='https://wa.me/?text='+encodeURIComponent(waShareMsg+window.location.href);
- var waBtn=document.createElement('a');
- waBtn.href=waShareURL;
- waBtn.target='_blank';
- waBtn.style.cssText='display:inline-flex;align-items:center;gap:8px;background:#25D366;color:white;padding:13px 24px;border-radius:50px;font-weight:700;font-size:15px;text-decoration:none;';
- waBtn.textContent=L==='es'?'Enviar por WhatsApp':'Share via WhatsApp';
- var cpBtn2=document.createElement('button');
- cpBtn2.style.cssText='display:inline-flex;align-items:center;gap:8px;background:white;color:#452068;padding:13px 24px;border-radius:50px;font-weight:700;font-size:15px;border:2px solid #e8e0f4;cursor:pointer;font-family:Arial;';
- cpBtn2.textContent=L==='es'?'Copiar enlace':'Copy link';
- cpBtn2.onclick=function(){
- navigator.clipboard.writeText(window.location.href).then(function(){
- cpBtn2.textContent=L==='es'?'Copiado!':'Copied!';
- setTimeout(function(){cpBtn2.textContent=L==='es'?'Copiar enlace':'Copy link';},2000);
- });
- };
- shareBtns.appendChild(waBtn);
- shareBtns.appendChild(cpBtn2);
- shareDiv.appendChild(shareLabel);
- shareDiv.appendChild(shareTitle);
- shareDiv.appendChild(shareBtns);
- h+='<div id="share-placeholder"></div>';
+  window._maCum=mC; window._mgCum=gC;
+  g('rw').innerHTML=h;
 
- // CTA box
- h+='<div style="background:linear-gradient(135deg,#311549,#452068);border-radius:16px;padding:24px;text-align:center;margin-bottom:16px;">';
- h+='<div style="font-size:18px;font-weight:700;color:white;margin-bottom:8px;">'+t.ct+'</div>';
- h+='<p style="font-size:14px;color:rgba(255,255,255,0.85);margin-bottom:20px;line-height:1.6;">'+t.cd+'</p>';
- h+='<div style="display:flex;gap:10px;justify-content:center;flex-wrap:wrap;">';
- h+='<a href="https://calendly.com/healthexps-info/" target="_blank" style="display:inline-block;background:#ff1090;color:white;padding:13px 24px;border-radius:50px;font-weight:700;font-size:15px;text-decoration:none;">'+t.co+'</a>';
- h+='<a href="https://wa.me/13054646888" target="_blank" style="display:inline-flex;align-items:center;gap:6px;background:#25D366;color:white;padding:13px 24px;border-radius:50px;font-weight:700;font-size:15px;text-decoration:none;">'+t.wa+'</a>';
- h+='</div></div>';
+  try{g('rw').scrollIntoView({behavior:'smooth',block:'start'});}catch(e){g('rw').scrollIntoView(true);}
+  var ph=document.getElementById('share-placeholder');
+  if(ph){ph.parentNode.replaceChild(shareDiv,ph);}
+  // Attach year selector button listeners after DOM is set
 
- window._maCum=mC; window._mgCum=gC;
- g('rw').innerHTML=h;
-
- try{g('rw').scrollIntoView({behavior:'smooth',block:'start'});}catch(e){g('rw').scrollIntoView(true);}
- var ph=document.getElementById('share-placeholder');
- if(ph){ph.parentNode.replaceChild(shareDiv,ph);}
- // Attach year selector button listeners after DOM is set
-
- var selBtns=document.querySelectorAll('[data-sel-yr]');
- for(var si2=0;si2<selBtns.length;si2++){
- (function(btn){
- btn.onclick=function(){
- var yr=parseInt(btn.getAttribute('data-sel-yr'));
- for(var sj=0;sj<selBtns.length;sj++){
- selBtns[sj].style.background=selBtns[sj]===btn?'#452068':'white';
- selBtns[sj].style.color=selBtns[sj]===btn?'white':'#6b7280';
- selBtns[sj].style.borderColor=selBtns[sj]===btn?'#452068':'#e8e0f4';
- }
- var idx4=yr===1?0:yr===5?4:yr===10?9:19;
- var yrsW=L==='es'?(yr===1?'1 ano':yr+' anos'):(yr===1?'1 yr':yr+' yrs');
- var maCard=document.getElementById('ma-total');
- var mgCard=document.getElementById('mg-total');
- var maLbl=document.getElementById('ma-total-lbl');
- var mgLbl=document.getElementById('mg-total-lbl');
- var maSuf=document.getElementById('ma-total-yw');
- var mgSuf=document.getElementById('mg-total-yw');
- if(maCard&&window._maCum) maCard.textContent='$'+Math.round(window._maCum[idx4]).toLocaleString('en-US');
- if(mgCard&&window._mgCum) mgCard.textContent='$'+Math.round(window._mgCum[idx4]).toLocaleString('en-US');
- if(maLbl) maLbl.textContent=L==='es'?'Total '+yrsW:'Total '+yrsW;
- if(mgLbl) mgLbl.textContent=L==='es'?'Total '+yrsW:'Total '+yrsW;
- if(maSuf) maSuf.textContent=' / '+yrsW;
- if(mgSuf) mgSuf.textContent=' / '+yrsW;
- };
- })(selBtns[si2]);
- }
- // Auto-trigger year 1 on load
- if(selBtns.length>0){
- selBtns[0].onclick();
- }
+  var selBtns=document.querySelectorAll('[data-sel-yr]');
+  for(var si2=0;si2<selBtns.length;si2++){
+    (function(btn){
+      btn.onclick=function(){
+        var yr=parseInt(btn.getAttribute('data-sel-yr'));
+        for(var sj=0;sj<selBtns.length;sj++){
+          selBtns[sj].style.background=selBtns[sj]===btn?'#452068':'white';
+          selBtns[sj].style.color=selBtns[sj]===btn?'white':'#6b7280';
+          selBtns[sj].style.borderColor=selBtns[sj]===btn?'#452068':'#e8e0f4';
+        }
+        var idx4=yr===1?0:yr===5?4:yr===10?9:19;
+        var yrsW=L==='es'?(yr===1?'1 ano':yr+' anos'):(yr===1?'1 yr':yr+' yrs');
+        var maCard=document.getElementById('ma-total');
+        var mgCard=document.getElementById('mg-total');
+        var maLbl=document.getElementById('ma-total-lbl');
+        var mgLbl=document.getElementById('mg-total-lbl');
+        var maSuf=document.getElementById('ma-total-yw');
+        var mgSuf=document.getElementById('mg-total-yw');
+        if(maCard&&window._maCum) maCard.textContent='$'+Math.round(window._maCum[idx4]).toLocaleString('en-US');
+        if(mgCard&&window._mgCum) mgCard.textContent='$'+Math.round(window._mgCum[idx4]).toLocaleString('en-US');
+        if(maLbl) maLbl.textContent=L==='es'?'Total '+yrsW:'Total '+yrsW;
+        if(mgLbl) mgLbl.textContent=L==='es'?'Total '+yrsW:'Total '+yrsW;
+        if(maSuf) maSuf.textContent=' / '+yrsW;
+        if(mgSuf) mgSuf.textContent=' / '+yrsW;
+      };
+    })(selBtns[si2]);
+  }
+  // Auto-trigger year 1 on load
+  if(selBtns.length>0){
+    selBtns[0].onclick();
+  }
 }
 setLang('en');
 </script>
