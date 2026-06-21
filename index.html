@@ -316,51 +316,74 @@ a:hover{color:var(--pink);}
  const _nt = document.getElementById('nav-toggle');
  const _nl = document.getElementById('nav-links');
  const _nc = document.getElementById('nav-close-btn');
+ let justClickedDropdown = false;
  
  // Open/close main menu
  if(_nt && _nl){
-   _nt.addEventListener('click',(e)=>{e.stopPropagation();_nl.classList.toggle('open');});
-   if(_nc){_nc.addEventListener('click',(e)=>{e.stopPropagation();_nl.classList.remove('open');});}
-}
- 
- // Mobile dropdown toggle - NEW APPROACH
- var dropdownToggles = document.querySelectorAll('#nav-links > li > a');
- dropdownToggles.forEach(function(toggle){
-   var parent = toggle.parentElement;
-   var dropdown = parent.querySelector('.dropdown');
-   if(dropdown){
-     toggle.addEventListener('click', function(e){
-       if(window.innerWidth <= 768 && _nl.classList.contains('open')){
-         e.preventDefault();
-         e.stopPropagation();
-         var wasOpen = parent.classList.contains('open');
-         // Close all dropdowns first
-         document.querySelectorAll('#nav-links > li').forEach(function(li){
-           li.classList.remove('open');
-         });
-         // Toggle this one
-         if(!wasOpen){
-           parent.classList.add('open');
-         }
-       }
-     });
-   } else {
-     // Regular link - close menu when clicked
-     toggle.addEventListener('click', function(){
-       if(window.innerWidth <= 768){
-         _nl.classList.remove('open');
-       }
+   _nt.addEventListener('click',(e)=>{
+     e.stopPropagation();
+     _nl.classList.toggle('open');
+   });
+   
+   // Close button
+   if(_nc){
+     _nc.addEventListener('click',(e)=>{
+       e.stopPropagation();
+       _nl.classList.remove('open');
+       // Close all dropdowns too
+       document.querySelectorAll('#nav-links > li').forEach(li=>li.classList.remove('open'));
      });
    }
- });
+ }
  
- // Only close menu on outside click when NOT clicking a dropdown
- document.addEventListener('click', function(e){
-   if(window.innerWidth <= 768){
-     if(_nl && _nl.classList.contains('open')){
-       if(!_nl.contains(e.target) && !_nt.contains(e.target)){
-         _nl.classList.remove('open');
+ // Mobile dropdown handling - FRESH START
+ if(_nl){
+   _nl.addEventListener('click', function(e){
+     if(window.innerWidth > 768) return; // Desktop - do nothing
+     
+     // Find if click was on a dropdown parent link
+     let clickedLink = e.target.closest('#nav-links > li > a');
+     if(!clickedLink) return;
+     
+     let parentLi = clickedLink.parentElement;
+     let dropdown = parentLi.querySelector('.dropdown');
+     
+     if(dropdown){
+       // Clicked a dropdown parent - toggle it
+       e.preventDefault();
+       e.stopPropagation();
+       justClickedDropdown = true;
+       
+       let wasOpen = parentLi.classList.contains('open');
+       
+       // Close all dropdowns
+       document.querySelectorAll('#nav-links > li').forEach(li=>{
+         li.classList.remove('open');
+       });
+       
+       // Open this one if it wasn't open
+       if(!wasOpen){
+         parentLi.classList.add('open');
        }
+       
+       // Reset flag after a moment
+       setTimeout(()=>{ justClickedDropdown = false; }, 100);
+     } else {
+       // Clicked a regular link - close menu
+       _nl.classList.remove('open');
+     }
+   });
+ }
+ 
+ // Outside click - close menu (with flag check to prevent flicker)
+ document.addEventListener('click', function(e){
+   if(window.innerWidth > 768) return; // Desktop only
+   if(justClickedDropdown) return; // Just clicked dropdown - don't close
+   
+   if(_nl && _nl.classList.contains('open')){
+     if(!_nl.contains(e.target) && !_nt.contains(e.target)){
+       _nl.classList.remove('open');
+       document.querySelectorAll('#nav-links > li').forEach(li=>li.classList.remove('open'));
      }
    }
  });
