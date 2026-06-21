@@ -4,7 +4,7 @@
 <link rel="icon" href="/favicon.ico" type="image/x-icon">
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<!-- Mobile nav fix v3 - with debugging - deployed 21:00 -->
+
 <title>Medicare Agents in Miami | The Health Experts Insurance</title>
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-SJSGF3E9MD"></script>
@@ -275,71 +275,55 @@ a:hover{color:var(--pink);}
     </div>
   </div>
 </header>
-<div id="nav-overlay" style="display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.5);z-index:998;"></div>
 <style>
  .dropdown a:hover{background:#f4eefa !important;color:#452068 !important;}
  li:hover > .dropdown{display:block !important;}
  @media(max-width:768px){
- #nav-links{display:none !important;}
- #nav-links a{white-space:nowrap;font-size:18px;font-weight:600;color:#452068;}
- #nav-links.open{display:flex !important;flex-direction:column;position:fixed;top:0;right:0;bottom:0;width:85%;background:white;padding:56px 24px 24px;box-shadow:-4px 0 24px rgba(0,0,0,0.2);gap:12px;z-index:999;text-align:left;align-items:stretch;overflow-y:auto;}
- #nav-links.open > li{width:100%;text-align:left;}
- #nav-links.open > li > a{display:block;text-align:left;padding:12px 16px;border-radius:8px;transition:background 0.2s;}
- #nav-links.open > li > a:hover{background:#f4eefa;}
- #nav-links.open #nav-close-btn{display:block !important;position:absolute;top:16px;right:16px;width:32px;height:32px;font-size:24px;font-weight:300;line-height:32px;text-align:center;cursor:pointer;color:#452068;background:none;border:none;padding:0;z-index:1000;}
- #nav-links .dropdown{display:none !important;position:static !important;box-shadow:none !important;border:none !important;padding:8px 0 8px 24px !important;margin-top:8px;background:#f9f7fc;border-radius:8px;}
- #nav-links .dropdown a{font-size:16px !important;padding:8px 12px !important;display:block !important;}
- #nav-links li:hover .dropdown,#nav-links li.open .dropdown{display:block !important;}
- #nav-toggle{display:block !important;}
- #nav-overlay.show{display:block !important;}
+  /* Hide desktop nav */
+  #nav-links{display:none !important;}
+  /* Show hamburger */
+  #nav-toggle{display:block !important;}
+  /* Mobile drawer */
+  #nav-links.open{
+   display:flex !important;
+   flex-direction:column;
+   position:fixed;
+   top:0;
+   right:0;
+   bottom:0;
+   width:85%;
+   background:white;
+   z-index:999;
+   padding:56px 24px 24px;
+   gap:12px;
+   overflow-y:auto;
+  }
+  #nav-links.open > li{width:100%;text-align:left;}
+  #nav-links.open > li > a{display:block;text-align:left;padding:12px 16px;border-radius:8px;transition:background 0.2s;}
+  #nav-links.open > li > a:hover{background:#f4eefa;}
+  #nav-links.open #nav-close-btn{display:block !important;position:absolute;top:16px;right:16px;width:32px;height:32px;font-size:24px;font-weight:300;line-height:32px;text-align:center;cursor:pointer;color:#452068;background:none;border:none;padding:0;z-index:1000;}
+  #nav-links .dropdown{display:none !important;position:static !important;box-shadow:none !important;border:none !important;padding:8px 0 8px 24px !important;margin-top:8px;background:#f9f7fc;border-radius:8px;}
+  #nav-links .dropdown a{font-size:16px !important;padding:8px 12px !important;display:block !important;}
+  #nav-links li:hover .dropdown,#nav-links li.open .dropdown{display:block !important;}
+ }
+ @media(min-width:769px){
+  /* Desktop nav untouched */
+  #nav-toggle{display:none !important;}
+  #nav-links{display:flex !important;}
  }
 </style>
 <script>
- console.log('Mobile nav v3 loaded - 21:00');
  const _nt = document.getElementById('nav-toggle');
  const _nl = document.getElementById('nav-links');
  const _nc = document.getElementById('nav-close-btn');
- const _no = document.getElementById('nav-overlay');
- 
- console.log('Nav elements:', {toggle: !!_nt, links: !!_nl, close: !!_nc, overlay: !!_no});
- 
- function openMenu(){
-   console.log('openMenu() called');
-   _nl.classList.add('open');
-   if(_no){
-     _no.classList.add('show');
-     console.log('Overlay shown');
-   } else {
-     console.log('ERROR: Overlay element not found!');
-   }
-   document.body.style.overflow = 'hidden';
- }
- 
- function closeMenu(){
-   console.log('closeMenu() called');
-   _nl.classList.remove('open');
-   if(_no){_no.classList.remove('show');}
-   document.body.style.overflow = '';
- }
  
  if(_nt && _nl){
-   // Open menu on hamburger click
-   _nt.addEventListener('click',(e)=>{e.stopPropagation();openMenu();});
-   
-   // Close menu on X button click
-   if(_nc){_nc.addEventListener('click',(e)=>{e.stopPropagation();closeMenu();});}
-   
-   // Close menu on overlay click
-   if(_no){_no.addEventListener('click',closeMenu);}
-   
-   // Close menu on outside click
-   document.addEventListener('click',(e)=>{if(_nl.classList.contains('open')&&!_nl.contains(e.target)&&!_nt.contains(e.target)){closeMenu();}});
-   
-   // Close menu when any link clicked
-   _nl.querySelectorAll('a').forEach(link=>{link.addEventListener('click',()=>{closeMenu();});});
+   _nt.addEventListener('click',(e)=>{e.stopPropagation();_nl.classList.toggle('open');});
+   if(_nc){_nc.addEventListener('click',(e)=>{e.stopPropagation();_nl.classList.remove('open');});}
+   document.addEventListener('click',(e)=>{if(_nl.classList.contains('open')&&!_nl.contains(e.target)&&!_nt.contains(e.target)){_nl.classList.remove('open');}});
+   _nl.querySelectorAll('a').forEach(link=>{link.addEventListener('click',()=>{_nl.classList.remove('open');});});
  }
  
- // Dropdown toggle for mobile
  document.querySelectorAll('#nav-links > li > a').forEach(link=>{
    const parentLi=link.parentElement;
    const dropdown=parentLi.querySelector('.dropdown');
