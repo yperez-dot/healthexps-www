@@ -195,7 +195,7 @@ Encuentra Mi Plan →
 <ul id="nav-links" style="display:flex;align-items:center;gap:4px;list-style:none;margin:0;padding:0;position:relative;">
 <button id="nav-close-btn" style="display:none;position:absolute;top:50px;right:16px;background:none;border:none;font-size:28px;font-weight:400;color:#452068;cursor:pointer;line-height:1;padding:4px 8px;" aria-label="Cerrar menú">×</button>
 <li><a href="/es/" style="padding:8px 12px;color:#452068;font-weight:600;font-size:14px;border-radius:6px;text-decoration:none;">Inicio</a></li>
-<li style="position:relative;">
+<li style="position:relative;" class="has-dropdown">
 <a href="/es/planes-de-medicare-miami" style="padding:8px 12px;color:#452068;font-weight:600;font-size:14px;border-radius:6px;text-decoration:none;">Seguros ▾</a>
 <ul style="display:none;position:absolute;top:100%;left:0;min-width:220px;background:white;border-radius:12px;box-shadow:0 8px 24px rgba(0,0,0,0.12);border-top:3px solid #ff1090;padding:8px 0;z-index:200;list-style:none;margin:0;" class="dropdown">
 <li><a href="/es/planes-de-medicare-miami" style="display:block;padding:10px 18px;color:#555;font-size:14px;text-decoration:none;">Planes de Medicare</a></li>
@@ -204,8 +204,8 @@ Encuentra Mi Plan →
 <li><a href="/es/dental-vision-miami" style="display:block;padding:10px 18px;color:#555;font-size:14px;text-decoration:none;">Dental y Visión</a></li>
 </ul>
 </li>
-<li style="position:relative;">
-<a href="#" style="padding:8px 12px;color:#452068;font-weight:600;font-size:14px;border-radius:6px;text-decoration:none;">Guías ▾</a>
+<li style="position:relative;" class="has-dropdown">
+<a href="/es/medicare/que-es-medicare" style="padding:8px 12px;color:#452068;font-weight:600;font-size:14px;border-radius:6px;text-decoration:none;">Guías ▾</a>
 <ul style="display:none;position:absolute;top:100%;left:0;min-width:220px;background:white;border-radius:12px;box-shadow:0 8px 24px rgba(0,0,0,0.12);border-top:3px solid #ff1090;padding:8px 0;z-index:200;list-style:none;margin:0;" class="dropdown">
 <li><a href="/es/medicare/que-es-medicare" style="display:block;padding:10px 18px;color:#555;font-size:14px;text-decoration:none;">¿Qué es Medicare?</a></li>
 <li><a href="/es/medicare/nuevo-en-medicare" style="display:block;padding:10px 18px;color:#555;font-size:14px;text-decoration:none;">Nuevo en Medicare</a></li>
@@ -236,68 +236,126 @@ Encuentra Mi Plan →
 <style>
  .dropdown a:hover{background:#f4eefa !important;color:#452068 !important;}
  li:hover > .dropdown{display:block !important;}
- @media(max-width:768px){
-  /* Hide desktop nav */
-  #nav-links{display:none !important;}
-  /* Show hamburger */
-  #nav-toggle{display:block !important;}
-  /* Mobile drawer */
-  #nav-links.open{
-   display:flex !important;
-   flex-direction:column;
-   position:fixed;
-   top:0;
-   right:0;
-   bottom:0;
-   width:85%;
-   background:white;
-   z-index:999;
-   padding:56px 24px 24px;
-   gap:12px;
-   overflow-y:auto;
+ @media (max-width: 768px) {
+  #nav-toggle { display: block !important; }
+  #nav-links { display: none !important; }
+  #nav-links.open {
+    display: flex !important;
+    flex-direction: column;
+    position: fixed !important;
+    top: 0 !important;
+    right: 0 !important;
+    bottom: auto;
+    left: 15% !important;
+    width: 85% !important;
+    max-width: none !important;
+    height: auto;
+    min-height: auto;
+    max-height: 100vh;
+    background: white;
+    padding: 56px 24px 24px;
+    box-shadow: -4px 0 24px rgba(0,0,0,0.15);
+    gap: 12px;
+    z-index: 999;
+    text-align: left;
+    align-items: flex-start;
+    overflow-y: auto;
   }
-  #nav-links.open > li{width:100%;text-align:left;}
-  #nav-links.open > li > a{display:block;text-align:left;padding:12px 16px;border-radius:8px;transition:background 0.2s;}
-  #nav-links.open > li > a:hover{background:#f4eefa;}
-  #nav-links.open #nav-close-btn{display:block !important;position:absolute;top:16px;right:16px;width:32px;height:32px;font-size:24px;font-weight:300;line-height:32px;text-align:center;cursor:pointer;color:#452068;background:none;border:none;padding:0;z-index:1000;}
-  #nav-links .dropdown{display:none !important;position:static !important;box-shadow:none !important;border:none !important;padding:8px 0 8px 24px !important;margin-top:8px;background:#f9f7fc;border-radius:8px;}
-  #nav-links .dropdown a{font-size:16px !important;padding:8px 12px !important;display:block !important;}
-  #nav-links li:hover .dropdown,#nav-links li.open .dropdown{display:block !important;}
+  #nav-links.open > li { width: 100%; }
+  #nav-links.open > li > a {
+    display: block;
+    text-align: left;
+    font-size: 18px;
+    font-weight: 700;
+    color: #452068;
+    padding: 8px 0;
+    width: 100%;
+    white-space: nowrap;
+    overflow: visible;
+  }
+  #nav-links.open #nav-close-btn {
+    display: block !important;
+    position: fixed;
+    top: 12px;
+    right: 16px;
+    z-index: 1000;
+    font-size: 28px;
+    font-weight: 300;
+    color: #452068;
+    background: none;
+    border: none;
+    cursor: pointer;
+  }
+  #nav-links .dropdown {
+    display: none !important;
+    position: static !important;
+    box-shadow: none !important;
+    border: none !important;
+    padding: 4px 0 4px 16px !important;
+    background: #f9f7fc;
+    border-radius: 8px;
+    margin-top: 4px;
+  }
+  #nav-links .dropdown a {
+    font-size: 16px !important;
+    font-weight: 500 !important;
+    padding: 6px 12px !important;
+    white-space: nowrap !important;
+    overflow: visible !important;
+    display: block !important;
+    color: #452068 !important;
+  }
+  #nav-links li.open .dropdown { display: block !important; }
  }
- @media(min-width:769px){
-  /* Desktop nav untouched */
-  #nav-toggle{display:none !important;}
-  #nav-links{display:flex !important;}
+ @media (min-width: 769px) {
+  #nav-toggle { display: none !important; }
+  #nav-links { display: flex !important; }
  }
 </style>
 <script>
- const _nt = document.getElementById('nav-toggle');
- const _nl = document.getElementById('nav-links');
- const _nc = document.getElementById('nav-close-btn');
- if(_nt && _nl){
- _nt.addEventListener('click', () => { _nl.classList.toggle('open'); });
- if(_nc){ _nc.addEventListener('click', () => { _nl.classList.remove('open'); }); }
- document.addEventListener('click', (e) => {
- if(_nl.classList.contains('open') && !_nl.contains(e.target) && !_nt.contains(e.target)){
- _nl.classList.remove('open');
- }
- });
- }
+var _nt=document.getElementById('nav-toggle');
+var _nl=document.getElementById('nav-links');
+var _nc=document.getElementById('nav-close-btn');
+if(_nt){_nt.addEventListener('click',function(){_nl.classList.toggle('open');});}
+if(_nc){_nc.addEventListener('click',function(){_nl.classList.remove('open');});}
 
- // Mobile dropdown toggle
- document.querySelectorAll('#nav-links > li > a').forEach(link => {
- const parentLi = link.parentElement;
- const dropdown = parentLi.querySelector('.dropdown');
- if(dropdown) {
- link.addEventListener('click', (e) => {
- if(window.innerWidth <= 768 && _nl.classList.contains('open')) {
- e.preventDefault();
- e.stopPropagation();
- parentLi.classList.toggle('open');
- }
+var dropItems=document.querySelectorAll('#nav-links li.has-dropdown > a');
+for(var i=0;i<dropItems.length;i++){
+ dropItems[i].addEventListener('click',function(e){
+  if(window.innerWidth<=768){
+   e.preventDefault();
+   e.stopPropagation();
+   var par=this.parentElement;
+   var wasOpen=par.classList.contains('open');
+   var allItems=document.querySelectorAll('#nav-links li.has-dropdown');
+   for(var j=0;j<allItems.length;j++){allItems[j].classList.remove('open');}
+   if(!wasOpen){par.classList.add('open');}
+  }
  });
+}
+
+document.addEventListener('click',function(e){
+ if(_nl && _nl.classList.contains('open')){
+  if(!_nl.contains(e.target) && _nt && !_nt.contains(e.target)){
+   _nl.classList.remove('open');
+  }
  }
+});
+
+var _st=document.getElementById('scrollToTop');
+if(_st){
+ window.addEventListener('scroll',function(){_st.style.display=window.scrollY>400?'flex':'none';});
+ _st.addEventListener('click',function(){window.scrollTo({top:0,behavior:'smooth'});});
+}
+
+var _navLinks=document.querySelectorAll('#nav-links a');
+for(var k=0;k<_navLinks.length;k++){
+ _navLinks[k].addEventListener('click',function(){
+  if(window.innerWidth<=768 && !this.parentElement.classList.contains('has-dropdown')){
+   _nl.classList.remove('open');
+  }
  });
+}
 </script>
 <!-- ===== END MASTER NAV ===== -->
 
