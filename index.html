@@ -303,7 +303,7 @@ a:hover{color:var(--pink);}
   #nav-links.open > li > a:hover{background:#f4eefa;}
   #nav-links.open #nav-close-btn{display:block !important;position:absolute;top:16px;right:16px;width:32px;height:32px;font-size:24px;font-weight:300;line-height:32px;text-align:center;cursor:pointer;color:#452068;background:none;border:none;padding:0;z-index:1000;}
   #nav-links .dropdown{display:none !important;position:static !important;box-shadow:none !important;border:none !important;padding:8px 0 8px 24px !important;margin-top:8px;background:#f9f7fc;border-radius:8px;}
-  #nav-links .dropdown a{font-size:16px !important;padding:8px 12px !important;display:block !important;}
+  #nav-links .dropdown a{font-size:16px !important;padding:8px 12px !important;display:block !important;text-align:left !important;}
   #nav-links li:hover .dropdown,#nav-links li.open .dropdown{display:block !important;}
  }
  @media(min-width:769px){
@@ -338,21 +338,40 @@ a:hover{color:var(--pink);}
    });
  }
  
- // Dropdown toggles - SIMPLEST approach
+ // Dropdown toggles - ONLY OPEN, never close on tap
  document.querySelectorAll('#nav-links > li').forEach(function(li){
    var link = li.querySelector(':scope > a');
    var dropdown = li.querySelector('.dropdown');
    
    if(link && dropdown){
-     // Has dropdown - toggle on click
+     // Has dropdown - ONLY open it, never toggle
      link.addEventListener('click', function(e){
        if(window.innerWidth <= 768){
          e.preventDefault();
+         e.stopPropagation();
          
-         // Just toggle this dropdown, don't close others
-         li.classList.toggle('open');
+         // Close all other dropdowns first
+         document.querySelectorAll('#nav-links > li').forEach(function(otherLi){
+           if(otherLi !== li){
+             otherLi.classList.remove('open');
+           }
+         });
+         
+         // Open this one (don't toggle - only ADD)
+         li.classList.add('open');
        }
      });
+     
+     // Dropdown item clicks should close the menu
+     if(dropdown){
+       dropdown.querySelectorAll('a').forEach(function(dropdownLink){
+         dropdownLink.addEventListener('click', function(){
+           if(window.innerWidth <= 768 && _nl){
+             _nl.classList.remove('open');
+           }
+         });
+       });
+     }
    } else if(link){
      // Regular link - close menu when clicked
      link.addEventListener('click', function(){
