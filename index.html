@@ -4,7 +4,7 @@
 <link rel="icon" href="/favicon.ico" type="image/x-icon">
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<!-- Mobile nav fix v2 - deployed 20:56 -->
+<!-- Mobile nav fix v3 - with debugging - deployed 21:00 -->
 <title>Medicare Agents in Miami | The Health Experts Insurance</title>
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-SJSGF3E9MD"></script>
@@ -295,18 +295,28 @@ a:hover{color:var(--pink);}
  }
 </style>
 <script>
+ console.log('Mobile nav v3 loaded - 21:00');
  const _nt = document.getElementById('nav-toggle');
  const _nl = document.getElementById('nav-links');
  const _nc = document.getElementById('nav-close-btn');
  const _no = document.getElementById('nav-overlay');
  
+ console.log('Nav elements:', {toggle: !!_nt, links: !!_nl, close: !!_nc, overlay: !!_no});
+ 
  function openMenu(){
+   console.log('openMenu() called');
    _nl.classList.add('open');
-   if(_no){_no.classList.add('show');}
+   if(_no){
+     _no.classList.add('show');
+     console.log('Overlay shown');
+   } else {
+     console.log('ERROR: Overlay element not found!');
+   }
    document.body.style.overflow = 'hidden';
  }
  
  function closeMenu(){
+   console.log('closeMenu() called');
    _nl.classList.remove('open');
    if(_no){_no.classList.remove('show');}
    document.body.style.overflow = '';
