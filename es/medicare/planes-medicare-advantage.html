@@ -168,7 +168,7 @@ WhatsApp
 Encuentra Mi Plan →
 </a>
 <div style="display:flex;align-items:center;border:1.5px solid rgba(255,255,255,0.4);border-radius:50px;overflow:hidden;">
-<a href="/medicare-advantage-miami" style="font-size:12px;font-weight:700;padding:3px 10px;color:rgba(255,255,255,0.75);text-decoration:none;">EN</a>
+<a href="/" style="font-size:12px;font-weight:700;padding:3px 10px;color:rgba(255,255,255,0.75);text-decoration:none;">EN</a>
 <span style="background:white;color:#452068;font-size:12px;font-weight:700;padding:3px 10px;">ES</span>
 </div>
 </div>
@@ -203,7 +203,7 @@ Encuentra Mi Plan →
 </li>
 <li><a href="/es/recursos" style="padding:8px 12px;color:#452068;font-weight:600;font-size:14px;border-radius:6px;text-decoration:none;">Recursos</a></li>
 <li><a href="/es/preguntas-frecuentes" style="padding:8px 12px;color:#452068;font-weight:700;font-size:14px;border-radius:6px;text-decoration:none;background:#f4eefa;">FAQ</a></li>
-<li><a href="/es/agente-de-medicare-miami" style="padding:8px 12px;color:#452068;font-weight:600;font-size:14px;border-radius:6px;text-decoration:none;">Nosotros</a></li>
+<li><a href="/es/agente-de-medicare-miami" style="padding:8px 12px;color:#452068;font-weight:600;font-size:14px;border-radius:6px;text-decoration:none;">Conócenos</a></li>
 <li><a href="/es/contacto" style="padding:8px 12px;color:#452068;font-weight:600;font-size:14px;border-radius:6px;text-decoration:none;">Contacto</a></li>
 </ul>
 
@@ -217,21 +217,58 @@ Encuentra Mi Plan →
 </div>
 </header>
 
+<link rel="alternate" hreflang="en" href="https://www.healthexps.com/">
+<link rel="alternate" hreflang="es" href="https://www.healthexps.com/es/">
 <style>
  .dropdown a:hover { background:#f4eefa !important; color:#452068 !important; }
  li:hover > .dropdown { display:block !important; }
  @media(max-width:768px){
- #nav-links { display:none !important; }
- #nav-links a { white-space:nowrap; font-size:16px; }
- #nav-links.open { display:flex !important; flex-direction:column; position:absolute; top:100%; right:0; width:290px; background:white; padding:50px 16px 16px; box-shadow:0 8px 24px rgba(0,0,0,0.12); border-radius:0 0 0 12px; gap:4px; z-index:99; text-align:center; align-items:center; }
- #nav-links.open > li { width:100%; text-align:center; }
- #nav-links.open > li > a { display:block; text-align:center; white-space:nowrap; }
- #nav-links.open #nav-close-btn { display:block !important; position:absolute; top:50px; right:20px; font-weight:300; font-size:32px; line-height:1; z-index:10; }
- #nav-links .dropdown { display:none !important; position:static !important; box-shadow:none !important; border:none !important; padding:0 0 0 16px !important; }
- #nav-links li:hover .dropdown, #nav-links li.open .dropdown { display:block !important; }
- #nav-toggle { display:block !important; }
+ #nav-toggle{display:block !important;}
+ #nav-links{display:none !important;}
+ #nav-links.open{
+ display:flex !important;
+ flex-direction:column;
+ position:fixed !important;
+ top:0 !important;
+ right:0 !important;
+ width:280px;
+ height:100vh;
+ background:white;
+ padding:70px 24px 24px;
+ box-shadow:-4px 0 24px rgba(0,0,0,0.15);
+ z-index:9999;
+ overflow-y:auto;
+ align-items:flex-start;
+ gap:4px;
  }
-</style>
+ #nav-links.open>li{width:100%;}
+ #nav-links.open>li>a{
+ display:block;
+ font-size:18px;
+ font-weight:600;
+ color:#452068;
+ padding:12px 0;
+ border-bottom:1px solid #f4eefa;
+ }
+ #nav-links.open .dropdown{
+ display:none !important;
+ position:static !important;
+ box-shadow:none !important;
+ border:none !important;
+ background:#f4eefa;
+ border-radius:8px;
+ padding:8px 16px !important;
+ margin-top:4px;
+ }
+ #nav-links li.open .dropdown{display:block !important;}
+ #nav-links.open #nav-close-btn{
+ display:block !important;
+ position:fixed !important;
+ top:16px !important;
+ right:16px !important;
+ z-index:10000;
+ }
+}</style>
 <script>
  const _nt = document.getElementById('nav-toggle');
  const _nl = document.getElementById('nav-links');
@@ -261,8 +298,17 @@ Encuentra Mi Plan →
  });
 </script>
 <!-- ===== END MASTER NAV ===== -->
-<style>.dropdown a:hover{background:#f4eefa !important;color:#452068 !important;}li:hover>.dropdown{display:block !important;}</style>
-<script>const _nt=document.getElementById('nav-toggle'),_nl=document.getElementById('nav-links'),_nc=document.getElementById('nav-close-btn');if(_nt&&_nl){_nt.addEventListener('click',(e)=>{e.stopPropagation();_nl.classList.toggle('open');});if(_nc){_nc.addEventListener('click',(e)=>{e.stopPropagation();_nl.classList.remove('open');});}document.addEventListener('click',(e)=>{if(_nl.classList.contains('open')&&!_nl.contains(e.target)&&!_nt.contains(e.target)){_nl.classList.remove('open');}});_nl.querySelectorAll('a').forEach(link=>{link.addEventListener('click',()=>{_nl.classList.remove('open');});});}</script>
+
+
+
+
+
+
+
+
+
+
+
 
 <div class="breadcrumb"><nav aria-label="Miga de pan"><a href="/es/">Inicio</a><span>›</span><a href="/es/planes-de-medicare-miami">Medicare</a><span>›</span>Planes Medicare Advantage</nav></div>
 
@@ -423,7 +469,7 @@ Encuentra Mi Plan →
 <div>
 <h3 style="color:#452068;font-size:13px;text-transform:uppercase;letter-spacing:1px;margin:0 0 14px;">También</h3>
 <ul style="list-style:none;padding:0;margin:0;">
-<li style="margin-bottom:8px;"><a href="/es/agente-de-medicare-miami" style="color:#555;font-size:15px;text-decoration:none;">Nosotros</a></li>
+<li style="margin-bottom:8px;"><a href="/es/agente-de-medicare-miami" style="color:#555;font-size:15px;text-decoration:none;">Conócenos</a></li>
 <li style="margin-bottom:8px;"><a href="/es/contacto" style="color:#555;font-size:15px;text-decoration:none;">Contacto</a></li>
 <li style="margin-bottom:8px;"><a href="/es/recursos" style="color:#555;font-size:15px;text-decoration:none;">Recursos</a></li>
 <li style="margin-bottom:8px;"><a href="/es/privacidad" style="color:#555;font-size:15px;text-decoration:none;">Privacidad</a></li>
