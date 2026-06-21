@@ -316,14 +316,12 @@ a:hover{color:var(--pink);}
  const _nt = document.getElementById('nav-toggle');
  const _nl = document.getElementById('nav-links');
  const _nc = document.getElementById('nav-close-btn');
- 
  if(_nt && _nl){
    _nt.addEventListener('click',(e)=>{e.stopPropagation();_nl.classList.toggle('open');});
    if(_nc){_nc.addEventListener('click',(e)=>{e.stopPropagation();_nl.classList.remove('open');});}
    document.addEventListener('click',(e)=>{if(_nl.classList.contains('open')&&!_nl.contains(e.target)&&!_nt.contains(e.target)){_nl.classList.remove('open');}});
    _nl.querySelectorAll('a').forEach(link=>{link.addEventListener('click',()=>{_nl.classList.remove('open');});});
  }
- 
  document.querySelectorAll('#nav-links > li > a').forEach(link=>{
    const parentLi=link.parentElement;
    const dropdown=parentLi.querySelector('.dropdown');
