@@ -187,7 +187,7 @@ a{color:var(--purple);text-decoration:none;}a:hover{color:var(--pink);}
  document.querySelectorAll('#nav-links > li > a').forEach(link=>{
    const parentLi=link.parentElement;
    const dropdown=parentLi.querySelector('.dropdown');
-   if(dropdown){link.addEventListener('click',(e)=>{if(window.innerWidth<=768&&_nl.classList.contains('open')){e.preventDefault();parentLi.classList.toggle('open');}});}
+   if(dropdown){link.addEventListener('click',(e)=>{if(window.innerWidth<=768&&_nl.classList.contains('open')){e.preventDefault();e.stopPropagation();parentLi.classList.toggle('open');}});}
  });
 </script>
 

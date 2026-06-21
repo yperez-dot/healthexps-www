@@ -270,6 +270,7 @@ Encuentra Mi Plan →
  link.addEventListener('click', (e) => {
  if(window.innerWidth <= 768 && _nl.classList.contains('open')) {
  e.preventDefault();
+ e.stopPropagation();
  parentLi.classList.toggle('open');
  }
  });
