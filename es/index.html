@@ -725,6 +725,17 @@ for(var k=0;k<_navLinks.length;k++){
     </select>
   </div>
 
+  <!-- TCPA Consent -->
+  <div style="display:flex;align-items:start;gap:10px;margin-top:6px;">
+    <input type="checkbox" id="form-consent" required 
+           style="width:18px;height:18px;margin-top:2px;flex-shrink:0;cursor:pointer;">
+    <label for="form-consent" style="font-size:13px;color:#6b5a7d;line-height:1.5;cursor:pointer;" 
+           data-en="By checking this box, you consent to receive text messages sent via an autodialer from The Health Experts Insurance regarding insurance services, appointments, and updates. Consent is not a condition of purchase. Message and data rates may apply. You can opt out anytime by replying STOP. View our Terms and Privacy Policy."
+           data-es="Al marcar esta casilla, usted acepta recibir mensajes de texto enviados por un marcador automático de The Health Experts Insurance sobre servicios de seguros, citas y actualizaciones. El consentimiento no es una condición de compra. Pueden aplicarse tarifas de mensajes y datos. Puede optar por no participar en cualquier momento respondiendo STOP. Vea nuestros Términos y Política de Privacidad.">
+      By checking this box, you consent to receive text messages sent via an autodialer from The Health Experts Insurance regarding insurance services, appointments, and updates. Consent is not a condition of purchase. Message and data rates may apply. You can opt out anytime by replying STOP. View our <a href="/terms" style="color:#452068;text-decoration:underline;">Terms and Privacy Policy</a>.
+    </label>
+  </div>
+
   <!-- Submit Button -->
   <button type="submit" id="form-submit-btn"
           style="background:#ff1090;color:white;padding:14px;border:none;border-radius:50px;font-size:16px;font-weight:700;cursor:pointer;margin-top:8px;transition:all 0.2s;font-family:Arial,sans-serif;"
@@ -781,10 +792,19 @@ document.getElementById('homepage-lead-form').addEventListener('submit', async f
   const coverageType = document.getElementById('form-coverage-type').value;
   
   // Validate
+  const consent = document.getElementById('form-consent').checked;
+  
   if (!firstName || !lastName || !phone || !email || !coverageType) {
     alert(window.location.pathname.includes('/es/') 
       ? 'Por favor completa todos los campos.' 
       : 'Please fill in all fields.');
+    return;
+  }
+  
+  if (!consent) {
+    alert(window.location.pathname.includes('/es/') 
+      ? 'Por favor acepta los términos de consentimiento para continuar.' 
+      : 'Please agree to the consent terms to continue.');
     return;
   }
   
