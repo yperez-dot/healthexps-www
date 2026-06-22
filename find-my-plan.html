@@ -567,7 +567,7 @@ async function submitContact() {
    last_name: lastName,
    email: email,
    phone: phone,
-   lang: 'english',
+   lang: window.location.pathname.includes('/es/') ? 'spanish' : 'english',
    age_band: answers.age === '65-plus' ? '65+' : answers.age === '64' ? '64' : answers.age === '55-63' ? '55-63' : answers.age === '26-54' ? '26-54' : '18-25',
    coverage_situation: answers.coverage === 'none' ? 'I have no coverage right now' : answers.coverage === 'employer' ? 'I have employer coverage ending soon' : answers.coverage === 'marketplace' ? "I'm renewing marketplace coverage" : 'I have COBRA (from a former employer)',
    household_size: answers.household === '1' ? 'Just me' : answers.household === '2' ? 'Me + spouse/partner' : answers.household === '3' ? 'Family of 3' : 'Family of 4+',
@@ -580,7 +580,7 @@ async function submitContact() {
 
  try {
    // POST to GHL webhook
-   const response = await fetch('https://services.leadconnectorhq.com/hooks/RINM4TCnM4hN06UA1aK0/webhook-trigger/c3ed8125-4847-4ebb-aca6-a5aa7817b557', {
+   const response = await fetch('https://services.leadconnectorhq.com/hooks/RINM4TCnM4hN06UA1aK0/webhook-trigger/dc5f8ba7-c38a-4377-a027-2ebffd37d4ab', {
      method: 'POST',
      headers: { 'Content-Type': 'application/json' },
      body: JSON.stringify(payload)
