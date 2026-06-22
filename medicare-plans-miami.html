@@ -57,6 +57,7 @@ html, body { overflow-x: hidden; max-width: 100%; }
   --purple: #452068;
   --purple-dark: #311549;
   --purple-light: #f4eefa;
+  --purple-light-grad: #6a3a9a;
   --pink: #ff1090;
   --pink-hover: #d4006d;
   --white: #ffffff;
@@ -84,36 +85,34 @@ a:hover { color: var(--pink); }
 .breadcrumb span { margin: 0 6px; color: #bbb; }
 
 /* HERO */
-.hero { background: linear-gradient(135deg, var(--purple-dark) 0%, var(--purple) 55%, #6b3a9e 100%); color: white; padding: 64px 0 108px; position: relative; overflow: hidden; }
-.hero::before { content: ''; position: absolute; inset: 0; background-image: radial-gradient(rgba(255,255,255,0.10) 1.5px, transparent 1.5px); background-size: 24px 24px; pointer-events: none; }
-.hero::after { content: ''; position: absolute; bottom: -1px; left: 0; right: 0; height: 56px; background: white; clip-path: ellipse(55% 100% at 50% 100%); }
-.hero-grid { position: relative; z-index: 2; display: grid; grid-template-columns: 1.1fr 1fr; gap: 52px; align-items: start; }
-.location-pill { display: inline-flex; align-items: center; gap: 6px; background: rgba(255,255,255,0.14); border: 1px solid rgba(255,255,255,0.22); color: white; padding: 6px 16px; border-radius: 50px; font-size: 13px; font-weight: 600; margin-bottom: 22px; }
-.hero h1 { font-size: clamp(28px, 4vw, 44px); font-weight: 700; color: white; line-height: 1.12; margin-bottom: 18px; }
-.hero h1 span { color: var(--pink); }
-.hero-sub { color: rgba(255,255,255,0.88); font-size: 17px; line-height: 1.75; margin-bottom: 28px; max-width: 460px; }
-.hero-btns { display: flex; gap: 12px; flex-wrap: wrap; margin-bottom: 24px; }
-.btn-hero-pink { background: var(--pink); color: white; padding: 14px 28px; border-radius: 50px; font-weight: 700; font-size: 16px; transition: all 0.2s; text-decoration: none; display: inline-block; }
+/* HERO - Centered Layout with Plan Tiles */
+.hero { background: radial-gradient(circle at 70% 20%, var(--purple-light-grad), var(--purple) 45%, var(--purple-dark) 100%); color: white; padding: 50px 0 54px; position: relative; }
+.hero .container { max-width: 960px; text-align: center; }
+.location-pill { display: inline-flex; align-items: center; gap: 6px; background: rgba(255,255,255,0.14); color: white; padding: 7px 15px; border-radius: 999px; font-size: 12px; font-weight: 700; margin-bottom: 20px; letter-spacing: 0.3px; }
+.hero h1 { font-size: clamp(28px, 4vw, 36px); font-weight: 700; color: white; line-height: 1.14; margin-bottom: 16px; }
+.hero h1 .pk { color: var(--pink); }
+.hero-sub { color: rgba(255,255,255,0.9); font-size: 16px; line-height: 1.6; margin: 0 auto 24px; max-width: 600px; }
+.hero-btns { display: flex; gap: 13px; flex-wrap: wrap; justify-content: center; }
+.btn-hero-pink { background: var(--pink); color: white; padding: 14px 24px; border-radius: 11px; font-weight: 700; font-size: 14px; transition: all 0.2s; text-decoration: none; display: inline-flex; align-items: center; gap: 7px; }
 .btn-hero-pink:hover { background: var(--pink-hover); transform: translateY(-2px); color: white; }
-.btn-hero-outline { background: rgba(255,255,255,0.12); color: white; border: 2px solid rgba(255,255,255,0.4); padding: 12px 22px; border-radius: 50px; font-weight: 700; font-size: 15px; transition: all 0.2s; display: inline-block; text-decoration: none; }
+.btn-hero-outline { background: rgba(255,255,255,0.12); color: white; border: 1px solid rgba(255,255,255,0.4); padding: 14px 24px; border-radius: 11px; font-weight: 700; font-size: 14px; transition: all 0.2s; display: inline-flex; align-items: center; gap: 7px; text-decoration: none; }
 .btn-hero-outline:hover { background: rgba(255,255,255,0.2); color: white; }
-.hero-badges { display: flex; gap: 8px; flex-wrap: wrap; }
-.hero-badge { background: rgba(255,255,255,0.12); border: 1px solid rgba(255,255,255,0.22); color: rgba(255,255,255,0.92); padding: 5px 14px; border-radius: 50px; font-size: 13px; font-weight: 600; }
-
-/* FLOAT CARD */
-.float-card { background: white; border-radius: 20px; padding: 24px; box-shadow: 0 20px 56px rgba(0,0,0,0.28); }
-.card-hdr { display: flex; align-items: center; margin-bottom: 18px; }
-.card-dot { width: 9px; height: 9px; border-radius: 50%; background: var(--pink); display: inline-block; margin-right: 8px; }
-.card-hdr-txt { font-size: 11px; color: #888; font-weight: 700; text-transform: uppercase; letter-spacing: 0.6px; }
-.check-row { display: flex; align-items: flex-start; gap: 12px; padding: 10px 0; border-bottom: 1px solid #f4eefa; }
-.check-row:last-of-type { border-bottom: none; }
-.chk { width: 22px; height: 22px; border-radius: 50%; background: linear-gradient(135deg, var(--purple), var(--pink)); display: flex; align-items: center; justify-content: center; flex-shrink: 0; margin-top: 2px; }
-.chk svg { width: 12px; height: 12px; }
-.chk-text { font-size: 14px; color: #333; font-weight: 600; line-height: 1.3; }
-.chk-sub { font-size: 12px; color: #888; margin-top: 2px; }
-.card-footer { margin-top: 14px; background: linear-gradient(135deg, #f4eefa, #fff0f7); border-radius: 10px; padding: 11px 14px; display: flex; justify-content: space-between; align-items: center; }
-.cf-label { font-size: 13px; color: #452068; font-weight: 700; }
-.cf-val { font-size: 13px; color: #16a34a; font-weight: 700; }
+.hero-tiles { display: grid; grid-template-columns: repeat(3, 1fr); gap: 15px; margin-top: 32px; text-align: left; }
+.hero-tile { background: rgba(255,255,255,0.97); border-radius: 16px; padding: 22px; transition: transform 0.15s, box-shadow 0.15s; text-decoration: none; color: var(--black); display: block; }
+.hero-tile:hover { transform: translateY(-3px); box-shadow: 0 14px 32px rgba(0,0,0,0.22); color: var(--black); }
+.tile-pic { width: 44px; height: 44px; border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 22px; margin-bottom: 13px; }
+.tile-pic.adv { background: #eaf1ff; }
+.tile-pic.sup { background: #e9faf2; }
+.tile-pic.pd { background: #fff1e6; }
+.hero-tile h3 { font-size: 16px; margin-bottom: 6px; color: var(--black); }
+.hero-tile p { font-size: 13px; color: var(--gray-text); line-height: 1.5; }
+.hero-tile .tile-tag { display: inline-block; margin-top: 12px; font-size: 12.5px; font-weight: 700; color: var(--purple); }
+.hero-tile:hover .tile-tag { color: var(--pink); }
+@media (max-width: 820px) {
+  .hero-tiles { grid-template-columns: 1fr; }
+  .hero h1 { font-size: 28px; }
+  .hero { padding: 38px 0 42px; }
+}
 
 /* STAT BAR */
 .stat-bar { background: var(--purple); padding: 32px 0; }
@@ -411,42 +410,32 @@ for(var k=0;k<_navLinks.length;k++){
 <!-- HERO -->
 <section class="hero">
   <div class="container">
-    <div class="hero-grid">
-      <div>
-        <div class="location-pill">Doral, FL — South Florida</div>
-        <h1>Medicare Plans in Miami.<br><span>Compared. Explained.</span><br>At No Cost to You.</h1>
-        <p class="hero-sub">We compare Medicare Advantage, Supplement, and Part D plans from 14+ carriers to find the right fit for your doctors, your medications, and your budget.</p>
-        <div class="hero-btns">
-          <a href="/medicare-plan-finder" class="btn-hero-pink" target="_blank" rel="noopener">Compare Plans Free</a>
-          <a href="https://wa.me/13054646888" class="btn-hero-outline" target="_blank" rel="noopener">💬 WhatsApp Us</a>
-        </div>
-        <div class="hero-badges">
-          <span class="hero-badge">✓ 14+ Carriers</span>
-          <span class="hero-badge">✓ Doral Office</span>
-          <span class="hero-badge">✓ English &amp; Spanish</span>
-          <span class="hero-badge">✓ No Cost</span>
-        </div>
-      </div>
-      <div class="float-card">
-        <div class="card-hdr"><span class="card-dot"></span><span class="card-hdr-txt">What we compare for you</span></div>
-        <div class="check-row">
-          <div class="chk"><svg viewBox="0 0 12 12" fill="none"><polyline points="2,6 5,9 10,3" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
-          <div><div class="chk-text">Your current doctors</div><div class="chk-sub">We verify network coverage before recommending any plan</div></div>
-        </div>
-        <div class="check-row">
-          <div class="chk"><svg viewBox="0 0 12 12" fill="none"><polyline points="2,6 5,9 10,3" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
-          <div><div class="chk-text">Your medications</div><div class="chk-sub">Full formulary reviewed plan by plan</div></div>
-        </div>
-        <div class="check-row">
-          <div class="chk"><svg viewBox="0 0 12 12" fill="none"><polyline points="2,6 5,9 10,3" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
-          <div><div class="chk-text">Your real budget</div><div class="chk-sub">Premium, copays, and out-of-pocket maximum</div></div>
-        </div>
-        <div class="check-row">
-          <div class="chk"><svg viewBox="0 0 12 12" fill="none"><polyline points="2,6 5,9 10,3" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
-          <div><div class="chk-text">Extra benefits</div><div class="chk-sub">Dental, vision, give-back, transportation &amp; more</div></div>
-        </div>
-        <div class="card-footer"><span class="cf-label">Our service</span><span class="cf-val">✓ Always 100% free</span></div>
-      </div>
+    <span class="location-pill">📍 Serving all of Florida</span>
+    <h1>Medicare in Miami, <span class="pk">made simple.</span></h1>
+    <p class="hero-sub">Advantage, Supplement, or Part D — we compare all three across 14+ carriers based on your doctors, your medications, and your budget. Always free.</p>
+    <div class="hero-btns">
+      <a class="btn-hero-pink" href="/medicare-plan-finder">Compare Plans Free</a>
+      <a class="btn-hero-outline" href="https://calendly.com/healthexps-info/">📅 Schedule Free Consultation</a>
+    </div>
+    <div class="hero-tiles">
+      <a class="hero-tile" href="/medicare-advantage-miami">
+        <div class="tile-pic adv">🏥</div>
+        <h3>Medicare Advantage</h3>
+        <p>All-in-one plans, often $0 premium, with dental, vision &amp; drug coverage built in.</p>
+        <span class="tile-tag">Explore Advantage →</span>
+      </a>
+      <a class="hero-tile" href="/medicare-supplement-miami">
+        <div class="tile-pic sup">🛡️</div>
+        <h3>Medicare Supplement</h3>
+        <p>Works with Original Medicare. No networks — see any doctor who takes Medicare.</p>
+        <span class="tile-tag">Explore Medigap →</span>
+      </a>
+      <a class="hero-tile" href="/medicare-plan-finder">
+        <div class="tile-pic pd">💊</div>
+        <h3>Part D Prescriptions</h3>
+        <p>Standalone drug coverage. We check your medications against every plan's formulary.</p>
+        <span class="tile-tag">Explore Part D →</span>
+      </a>
     </div>
   </div>
 </section>
