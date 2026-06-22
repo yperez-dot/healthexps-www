@@ -307,7 +307,7 @@ tr:last-child td { border-bottom: none; }
               <li><a href="/medicare/medicare-costs" style="display:block;padding:10px 18px;color:#555;font-size:14px;text-decoration:none;">Medicare Costs & IRMAA</a></li>
               <li><a href="/medicare/medicare-advantage-plans" style="display:block;padding:10px 18px;color:#555;font-size:14px;text-decoration:none;">Medicare Advantage Guide</a></li>
               <li><a href="/medicare/medicare-supplement-plans" style="display:block;padding:10px 18px;color:#555;font-size:14px;text-decoration:none;">Medicare Supplement Guide</a></li>
-              <li><a href="/medicare/medicare-savings-program" style="display:block;padding:10px 18px;color:#555;font-size:14px;text-decoration:none;">Medicare Savings Program</a></li>
+              <li><a href="/medicare-savings-program" style="display:block;padding:10px 18px;color:#555;font-size:14px;text-decoration:none;">Medicare Savings Program</a></li>
             </ul>
           </li>
           <li><a href="/faq" style="padding:8px 12px;color:#452068;font-weight:600;font-size:14px;border-radius:6px;text-decoration:none;">FAQ</a></li>
@@ -478,7 +478,7 @@ for(var k=0;k<_navLinks.length;k++){
 
  <h2 id="what-is">What is the Medicare Savings Program?</h2>
  <p>The Medicare Savings Program (MSP) is a set of state-run assistance programs that help people with limited income and resources pay for their Medicare costs. In Florida, the program is administered by the <strong>Department of Children and Families (DCF)</strong>.</p>
- <p>Depending on which program you qualify for, the state can pay your Part B premium ($185/month in 2026), your Part A and Part B deductibles, and even your copays and coinsurance. There are four programs — QMB, SLMB, QI, and QDWI — each with different income limits and benefits.</p>
+ <p>Depending on which program you qualify for, the state can pay your Part B premium ($202.90/month in 2026), your Part A and Part B deductibles, and even your copays and coinsurance. There are four programs — QMB, SLMB, QI, and QDWI — each with different income limits and benefits.</p>
 
  <div class="success-box">
  <div class="success-box-title">More people qualify than you think</div>
@@ -545,7 +545,7 @@ for(var k=0;k<_navLinks.length;k++){
  <div class="msp-income">Individual: ≤$1,275/mo · Couple: ≤$1,724/mo</div>
  <div class="msp-covers">
  <div class="msp-cover-row"><div class="msp-dot"></div>Part A premium — paid by state</div>
- <div class="msp-cover-row"><div class="msp-dot"></div>Part B premium ($185/mo) — paid by state</div>
+ <div class="msp-cover-row"><div class="msp-dot"></div>Part B premium ($202.90/mo) — paid by state</div>
  <div class="msp-cover-row"><div class="msp-dot"></div>Part A & B deductibles — paid by state</div>
  <div class="msp-cover-row"><div class="msp-dot"></div>Part A & B copays & coinsurance — paid</div>
  <div class="msp-cover-row"><div class="msp-dot"></div>Auto-qualifies for Extra Help (Part D)</div>
@@ -558,7 +558,7 @@ for(var k=0;k<_navLinks.length;k++){
  <div class="msp-name">Specified Low-Income Medicare Beneficiary</div>
  <div class="msp-income">Individual: ≤$1,526/mo · Couple: ≤$2,058/mo</div>
  <div class="msp-covers">
- <div class="msp-cover-row"><div class="msp-dot"></div>Part B premium ($185/mo) — paid by state</div>
+ <div class="msp-cover-row"><div class="msp-dot"></div>Part B premium ($202.90/mo) — paid by state</div>
  <div class="msp-cover-row"><div class="msp-dot no"></div>Deductibles — not covered</div>
  <div class="msp-cover-row"><div class="msp-dot no"></div>Copays & coinsurance — not covered</div>
  <div class="msp-cover-row"><div class="msp-dot"></div>Auto-qualifies for Extra Help (Part D)</div>
@@ -571,7 +571,7 @@ for(var k=0;k<_navLinks.length;k++){
  <div class="msp-name">Qualifying Individual</div>
  <div class="msp-income">Individual: ≤$1,715/mo · Couple: ≤$2,313/mo</div>
  <div class="msp-covers">
- <div class="msp-cover-row"><div class="msp-dot"></div>Part B premium ($185/mo) — paid by state</div>
+ <div class="msp-cover-row"><div class="msp-dot"></div>Part B premium ($202.90/mo) — paid by state</div>
  <div class="msp-cover-row"><div class="msp-dot no"></div>Deductibles — not covered</div>
  <div class="msp-cover-row"><div class="msp-dot no"></div>Copays & coinsurance — not covered</div>
  <div class="msp-cover-row"><div class="msp-dot"></div>Auto-qualifies for Extra Help (Part D)</div>
@@ -812,7 +812,7 @@ for(var k=0;k<_navLinks.length;k++){
           <li style="margin-bottom:8px;"><a href="/medicare/medicare-costs" style="color:#555;font-size:15px;text-decoration:none;">Medicare Costs & IRMAA</a></li>
           <li style="margin-bottom:8px;"><a href="/medicare/medicare-advantage-plans" style="color:#555;font-size:15px;text-decoration:none;">Medicare Advantage Guide</a></li>
           <li style="margin-bottom:8px;"><a href="/medicare/medicare-supplement-plans" style="color:#555;font-size:15px;text-decoration:none;">Medicare Supplement Guide</a></li>
-          <li style="margin-bottom:8px;"><a href="/medicare/medicare-savings-program" style="color:#555;font-size:15px;text-decoration:none;">Medicare Savings Program</a></li>
+          <li style="margin-bottom:8px;"><a href="/medicare-savings-program" style="color:#555;font-size:15px;text-decoration:none;">Medicare Savings Program</a></li>
         </ul>
       </div>
       <div>
@@ -865,15 +865,15 @@ function checkEligibility() {
  if (income <= limits.QMB[h]) {
  title.style.color = '#16a34a';
  title.textContent = 'You may qualify for QMB — the most comprehensive program.';
- desc.textContent = 'QMB can pay your Part B premium ($185/mo), deductibles, copays, and coinsurance. You\'d also automatically qualify for Extra Help with Part D. Call us to confirm eligibility and apply — it\'s free.';
+ desc.textContent = 'QMB can pay your Part B premium ($202.90/mo), deductibles, copays, and coinsurance. You\'d also automatically qualify for Extra Help with Part D. Call us to confirm eligibility and apply — it\'s free.';
  } else if (income <= limits.SLMB[h]) {
  title.style.color = '#16a34a';
  title.textContent = 'You may qualify for SLMB.';
- desc.textContent = 'SLMB pays your Part B premium ($185/mo = $2,220/year). You\'d also automatically qualify for Extra Help with Part D drug costs. Call us to confirm and apply.';
+ desc.textContent = 'SLMB pays your Part B premium ($202.90/mo = $2,220/year). You\'d also automatically qualify for Extra Help with Part D drug costs. Call us to confirm and apply.';
  } else if (income <= limits.QI[h]) {
  title.style.color = '#16a34a';
  title.textContent = 'You may qualify for QI.';
- desc.textContent = 'QI pays your Part B premium ($185/mo). You\'d also qualify for Extra Help with Part D. QI has limited slots and requires annual renewal. Apply as early as possible each year.';
+ desc.textContent = 'QI pays your Part B premium ($202.90/mo). You\'d also qualify for Extra Help with Part D. QI has limited slots and requires annual renewal. Apply as early as possible each year.';
  } else if (income <= limits.EH[h]) {
  title.style.color = '#d97706';
  title.textContent = 'You may qualify for Extra Help with Part D.';

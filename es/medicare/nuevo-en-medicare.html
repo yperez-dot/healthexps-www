@@ -440,7 +440,7 @@ for(var k=0;k<_navLinks.length;k++){
  </div>
  <div class="sidebar-card">
  <div class="sidebar-title">Fechas clave 2026</div>
- <div class="quick-fact"><span class="quick-fact-label">Prima Parte B</span><span class="quick-fact-value">$185/mes</span></div>
+ <div class="quick-fact"><span class="quick-fact-label">Prima Parte B</span><span class="quick-fact-value">$202.90/mes</span></div>
  <div class="quick-fact"><span class="quick-fact-label">Deducible Parte B</span><span class="quick-fact-value">$257/año</span></div>
  <div class="quick-fact"><span class="quick-fact-label">Penalidad Parte B</span><span class="quick-fact-value">+10%/año</span></div>
  <div class="quick-fact"><span class="quick-fact-label">Penalidad Parte D</span><span class="quick-fact-value">+1%/mes</span></div>
@@ -498,7 +498,7 @@ for(var k=0;k<_navLinks.length;k++){
  <div style="background:white;border-radius:var(--radius);padding:22px;box-shadow:var(--shadow);border-top:4px solid var(--pink);">
  <div style="font-size:17px;font-weight:700;color:var(--black);margin-bottom:6px;">Penalidad Parte B</div>
  <div style="font-size:28px;font-weight:700;color:var(--pink);margin-bottom:8px;">+10% por año</div>
- <p style="font-size:14px;color:var(--gray-text);line-height:1.7;">Por cada período de 12 meses que estuviste elegible pero no te inscribiste. Ejemplo: 2 años de retraso = +20% sobre $185 = $222/mes de por vida.</p>
+ <p style="font-size:14px;color:var(--gray-text);line-height:1.7;">Por cada período de 12 meses que estuviste elegible pero no te inscribiste. Ejemplo: 2 años de retraso = +20% sobre $202.90 = $222/mes de por vida.</p>
  </div>
  <div style="background:white;border-radius:var(--radius);padding:22px;box-shadow:var(--shadow);border-top:4px solid var(--purple);">
  <div style="font-size:17px;font-weight:700;color:var(--black);margin-bottom:6px;">Penalidad Parte D</div>
@@ -629,7 +629,7 @@ function calcPenalidadES(){
  const total=(prima+parseFloat(penalidad)).toFixed(2);
  titulo.style.color='#d4006d';
  titulo.textContent=anios<1?'Menos de 12 meses — aún no hay penalidad de Parte B':`Penalidad Parte B: +${pct}% ($${penalidad}/mes añadido permanentemente)`;
- desc.textContent=anios<1?'Las penalidades de la Parte B se calculan en incrementos de 12 meses completos. Sin embargo, debes inscribirte ahora para evitar acumular más tiempo. Llámanos para revisar tu situación.':`Tu prima de Parte B sería $${total}/mes en lugar de $185/mes — de por vida. Durante 10 años eso es $${(parseFloat(penalidad)*12*10).toFixed(0)} en primas adicionales. Inscríbete ahora antes de que pase más tiempo.`;
+ desc.textContent=anios<1?'Las penalidades de la Parte B se calculan en incrementos de 12 meses completos. Sin embargo, debes inscribirte ahora para evitar acumular más tiempo. Llámanos para revisar tu situación.':`Tu prima de Parte B sería $${total}/mes en lugar de $202.90/mes — de por vida. Durante 10 años eso es $${(parseFloat(penalidad)*12*10).toFixed(0)} en primas adicionales. Inscríbete ahora antes de que pase más tiempo.`;
  } else {
  const pct=meses;
  const primaBase=34.70;

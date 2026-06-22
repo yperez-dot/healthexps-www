@@ -303,7 +303,7 @@ tr:last-child td { border-bottom: none; }
               <li><a href="/medicare/medicare-costs" style="display:block;padding:10px 18px;color:#555;font-size:14px;text-decoration:none;">Medicare Costs & IRMAA</a></li>
               <li><a href="/medicare/medicare-advantage-plans" style="display:block;padding:10px 18px;color:#555;font-size:14px;text-decoration:none;">Medicare Advantage Guide</a></li>
               <li><a href="/medicare/medicare-supplement-plans" style="display:block;padding:10px 18px;color:#555;font-size:14px;text-decoration:none;">Medicare Supplement Guide</a></li>
-              <li><a href="/medicare/medicare-savings-program" style="display:block;padding:10px 18px;color:#555;font-size:14px;text-decoration:none;">Medicare Savings Program</a></li>
+              <li><a href="/medicare-savings-program" style="display:block;padding:10px 18px;color:#555;font-size:14px;text-decoration:none;">Medicare Savings Program</a></li>
             </ul>
           </li>
           <li><a href="/faq" style="padding:8px 12px;color:#452068;font-weight:600;font-size:14px;border-radius:6px;text-decoration:none;">FAQ</a></li>
@@ -626,7 +626,7 @@ for(var k=0;k<_navLinks.length;k++){
 
  <div class="info-box">
  <div class="info-box-title">Real example — Part B late penalty</div>
- <p>If you waited 2 years past your eligibility date without qualifying coverage, your Part B penalty would be 20% added to your premium permanently. At the 2026 standard premium of $185/month, that's an extra $37/month — $444/year — for life.</p>
+ <p>If you waited 2 years past your eligibility date without qualifying coverage, your Part B penalty would be 20% added to your premium permanently. At the 2026 standard premium of $202.90/month, that's an extra $37/month — $444/year — for life.</p>
  </div>
 
  <h3>Calculate your potential penalty</h3>
@@ -693,7 +693,7 @@ for(var k=0;k<_navLinks.length;k++){
  <div class="guide-title">Medicare Plan Finder</div>
  <div class="guide-desc">Browse plans in your ZIP code — free, no obligation.</div>
  </a>
- <a href="/medicare/medicare-savings-program" class="guide-card">
+ <a href="/medicare-savings-program" class="guide-card">
  <div class="guide-ico">💵</div>
  <div class="guide-title">Medicare Savings Program</div>
  <div class="guide-desc">See if you qualify for help paying your Medicare costs.</div>
@@ -797,7 +797,7 @@ for(var k=0;k<_navLinks.length;k++){
           <li style="margin-bottom:8px;"><a href="/medicare/medicare-costs" style="color:#555;font-size:15px;text-decoration:none;">Medicare Costs & IRMAA</a></li>
           <li style="margin-bottom:8px;"><a href="/medicare/medicare-advantage-plans" style="color:#555;font-size:15px;text-decoration:none;">Medicare Advantage Guide</a></li>
           <li style="margin-bottom:8px;"><a href="/medicare/medicare-supplement-plans" style="color:#555;font-size:15px;text-decoration:none;">Medicare Supplement Guide</a></li>
-          <li style="margin-bottom:8px;"><a href="/medicare/medicare-savings-program" style="color:#555;font-size:15px;text-decoration:none;">Medicare Savings Program</a></li>
+          <li style="margin-bottom:8px;"><a href="/medicare-savings-program" style="color:#555;font-size:15px;text-decoration:none;">Medicare Savings Program</a></li>
         </ul>
       </div>
       <div>
@@ -838,7 +838,7 @@ function calcPenalty(){
  const total=(premium+parseFloat(penalty)).toFixed(2);
  title.style.color='#d4006d';
  title.textContent=years<1?'Less than 12 months — no Part B penalty yet':`Part B Penalty: +${pct}% ($${penalty}/month added permanently)`;
- desc.textContent=years<1?'Part B penalties are calculated in 12-month increments. However, you should enroll now to avoid accumulating more time. Call us to review your situation.':`Your Part B premium would be $${total}/month instead of $185/month — for life. Over 10 years that’s $${(parseFloat(penalty)*12*10).toFixed(0)} in extra premiums. Enroll now before more time passes.`;
+ desc.textContent=years<1?'Part B penalties are calculated in 12-month increments. However, you should enroll now to avoid accumulating more time. Call us to review your situation.':`Your Part B premium would be $${total}/month instead of $202.90/month — for life. Over 10 years that’s $${(parseFloat(penalty)*12*10).toFixed(0)} in extra premiums. Enroll now before more time passes.`;
  } else {
  const pct=months;
  const baseP=34.70;
