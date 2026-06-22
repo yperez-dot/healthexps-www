@@ -9,6 +9,13 @@
   status = 301
   force = true
 
+# 301 redirect for MSP (consolidate to real page)
+[[redirects]]
+  from = "/medicare/medicare-savings-program"
+  to = "/medicare-savings-program"
+  status = 301
+  force = true
+
 [[redirects]]
   from = "/*"
   to = "/index.html"
