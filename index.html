@@ -680,71 +680,73 @@ for(var k=0;k<_navLinks.length;k++){
 // Form submission handler
 document.getElementById('homepage-lead-form').addEventListener('submit', async function(e) {
   e.preventDefault();
-
+  
   const submitBtn = document.getElementById('form-submit-btn');
   const formContainer = document.getElementById('homepage-lead-form');
   const successMsg = document.getElementById('form-success');
   const errorMsg = document.getElementById('form-error');
-
-  // Get form values
+  
+  // Get form values explicitly (not FormData)
   const firstName = document.getElementById('form-first-name').value.trim();
   const lastName = document.getElementById('form-last-name').value.trim();
   const phone = document.getElementById('form-phone').value.trim();
   const email = document.getElementById('form-email').value.trim();
   const coverageType = document.getElementById('form-coverage-type').value;
-
-  // Validate
   const consent = document.getElementById('form-consent').checked;
-
+  
+  // Validate required fields
   if (!firstName || !lastName || !phone || !email || !coverageType) {
-    alert(window.location.pathname.includes('/es/')
-      ? 'Por favor completa todos los campos.'
+    alert(window.location.pathname.includes('/es/') 
+      ? 'Por favor completa todos los campos.' 
       : 'Please fill in all fields.');
     return;
   }
-
+  
   if (!consent) {
-    alert(window.location.pathname.includes('/es/')
-      ? 'Por favor acepta los términos de consentimiento para continuar.'
+    alert(window.location.pathname.includes('/es/') 
+      ? 'Por favor acepta los términos de consentimiento para continuar.' 
       : 'Please agree to the consent terms to continue.');
     return;
   }
-
-  // Disable button
+  
+  // Disable submit button
   submitBtn.disabled = true;
   submitBtn.textContent = window.location.pathname.includes('/es/') ? 'Enviando...' : 'Sending...';
-
-  // Build payload
+  
+  // Build payload with explicit string values
   const payload = {
     first_name: firstName,
     last_name: lastName,
-    email: email,
     phone: phone,
+    email: email,
     coverage_type: coverageType,
     lang: window.location.pathname.includes('/es/') ? 'spanish' : 'english',
     source: 'Homepage Form',
     page: window.location.href,
     submitted_at: new Date().toISOString()
   };
-
+  
+  console.log('Homepage form payload:', payload); // Debug log
+  
   try {
-    // POST to GHL webhook
     const response = await fetch('https://services.leadconnectorhq.com/hooks/RINM4TCnM4hN06UA1aK0/webhook-trigger/dc6c8b35-9480-412e-b56d-4a4c8c7bd438', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(payload)
     });
-
+    
     if (!response.ok) {
-      throw new Error('Webhook failed');
+      throw new Error('Webhook failed with status ' + response.status);
     }
-
-    // Success - hide form, show success message
+    
+    console.log('Homepage form success'); // Debug log
+    
+    // Hide form, show success message
     formContainer.style.display = 'none';
     successMsg.style.display = 'block';
-
+    
   } catch (error) {
-    console.error('Form submission error:', error);
+    console.error('Homepage form submission error:', error);
     errorMsg.style.display = 'block';
     submitBtn.disabled = false;
     submitBtn.textContent = window.location.pathname.includes('/es/') ? 'Obtener Cotización Gratis' : 'Get Your Free Quote';

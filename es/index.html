@@ -786,16 +786,15 @@ document.getElementById('homepage-lead-form').addEventListener('submit', async f
   const successMsg = document.getElementById('form-success');
   const errorMsg = document.getElementById('form-error');
   
-  // Get form values
+  // Get form values explicitly (not FormData)
   const firstName = document.getElementById('form-first-name').value.trim();
   const lastName = document.getElementById('form-last-name').value.trim();
   const phone = document.getElementById('form-phone').value.trim();
   const email = document.getElementById('form-email').value.trim();
   const coverageType = document.getElementById('form-coverage-type').value;
-  
-  // Validate
   const consent = document.getElementById('form-consent').checked;
   
+  // Validate required fields
   if (!firstName || !lastName || !phone || !email || !coverageType) {
     alert(window.location.pathname.includes('/es/') 
       ? 'Por favor completa todos los campos.' 
@@ -810,16 +809,16 @@ document.getElementById('homepage-lead-form').addEventListener('submit', async f
     return;
   }
   
-  // Disable button
+  // Disable submit button
   submitBtn.disabled = true;
   submitBtn.textContent = window.location.pathname.includes('/es/') ? 'Enviando...' : 'Sending...';
   
-  // Build payload
+  // Build payload with explicit string values
   const payload = {
     first_name: firstName,
     last_name: lastName,
-    email: email,
     phone: phone,
+    email: email,
     coverage_type: coverageType,
     lang: window.location.pathname.includes('/es/') ? 'spanish' : 'english',
     source: 'Homepage Form',
@@ -827,8 +826,9 @@ document.getElementById('homepage-lead-form').addEventListener('submit', async f
     submitted_at: new Date().toISOString()
   };
   
+  console.log('Homepage form payload:', payload); // Debug log
+  
   try {
-    // POST to GHL webhook
     const response = await fetch('https://services.leadconnectorhq.com/hooks/RINM4TCnM4hN06UA1aK0/webhook-trigger/dc6c8b35-9480-412e-b56d-4a4c8c7bd438', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
@@ -836,15 +836,17 @@ document.getElementById('homepage-lead-form').addEventListener('submit', async f
     });
     
     if (!response.ok) {
-      throw new Error('Webhook failed');
+      throw new Error('Webhook failed with status ' + response.status);
     }
     
-    // Success - hide form, show success message
+    console.log('Homepage form success'); // Debug log
+    
+    // Hide form, show success message
     formContainer.style.display = 'none';
     successMsg.style.display = 'block';
     
   } catch (error) {
-    console.error('Form submission error:', error);
+    console.error('Homepage form submission error:', error);
     errorMsg.style.display = 'block';
     submitBtn.disabled = false;
     submitBtn.textContent = window.location.pathname.includes('/es/') ? 'Obtener Cotización Gratis' : 'Get Your Free Quote';
@@ -1148,23 +1150,6 @@ document.getElementById('homepage-lead-form').addEventListener('submit', async f
 </div>
 
 
-<script>
-(function(){
- var form=document.getElementById('hero-lead-form');
- var success=document.getElementById('hero-form-success');
- var btn=document.getElementById('hero-submit-btn');
- if(!form)return;
- form.addEventListener('submit',async function(e){
- e.preventDefault();
- btn.textContent='Enviando…';btn.disabled=true;
- try{
- var res=await fetch(form.action,{method:'POST',body:new FormData(form),headers:{'Accept':'application/json'}});
- if(res.ok){form.style.display='none';success.style.display='block';}
- else{btn.textContent='Error — intente de nuevo';btn.disabled=false;}
- }catch(err){btn.textContent='Error — intente de nuevo';btn.disabled=false;}
- });
-})();
-</script>
 
 <!-- SCROLL TO TOP BUTTON -->
 <button id="scrollToTop" style="display:none;position:fixed;bottom:30px;right:30px;z-index:999;width:50px;height:50px;border:none;border-radius:50%;background:#452068;color:white;font-size:20px;cursor:pointer;box-shadow:0 4px 12px rgba(69,32,104,0.3);transition:all 0.3s ease;" aria-label="Volver arriba">↑</button>
