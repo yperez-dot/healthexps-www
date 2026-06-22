@@ -1,0 +1,676 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Medigap Plan Calculator — Plan G vs N vs High-Deductible G | The Health Experts Insurance</title>
+<meta name="description" content="Free Medigap calculator comparing Plan G, Plan N, and High-Deductible Plan G costs over 25 years. See how premiums grow with age. Bilingual Miami brokers.">
+<style>
+ :root{
+ --purple:#452068;
+ --purple-light:#6a3a9a;
+ --pink:#ff1090;
+ --planG:#2563eb;
+ --planN:#10b981;
+ --hdg:#f59e0b;
+ --ink:#1a1325;
+ --muted:#6b6477;
+ --line:#e7e3ee;
+ --bg:#ffffff;
+ --panel:#faf8fc;
+ }
+ *{box-sizing:border-box;margin:0;padding:0}
+ body{font-family:Arial,Helvetica,sans-serif;color:var(--ink);background:var(--bg);line-height:1.5;-webkit-font-smoothing:antialiased}
+ .wrap{max-width:880px;margin:0 auto;padding:0 16px 64px}
+
+ /* Header */
+ .topbar{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:16px;max-width:880px;margin:0 auto}
+ .brand{font-weight:bold;color:var(--purple);font-size:15px;letter-spacing:.2px}
+ .lang{display:inline-flex;border:1px solid var(--line);border-radius:999px;overflow:hidden}
+ .lang button{border:0;background:#fff;color:var(--muted);font-family:inherit;font-weight:bold;font-size:13px;padding:7px 14px;cursor:pointer}
+ .lang button.on{background:var(--purple);color:#fff}
+
+ .hero{background:linear-gradient(135deg,var(--purple),var(--purple-light));color:#fff;border-radius:18px;padding:28px 22px;margin-top:8px}
+ .eyebrow{display:inline-block;background:rgba(255,255,255,.16);color:#fff;font-size:11px;font-weight:bold;letter-spacing:.6px;text-transform:uppercase;padding:5px 11px;border-radius:999px;margin-bottom:12px}
+ .hero h1{font-size:26px;line-height:1.2;margin-bottom:8px}
+ .hero p{font-size:15px;opacity:.92;max-width:560px}
+
+ /* Tabs */
+ .tabs{display:flex;gap:4px;background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:5px;margin-top:20px;overflow-x:auto}
+ .tabs button{flex:1 0 auto;min-width:78px;border:0;background:transparent;font-family:inherit;font-size:13px;font-weight:bold;color:var(--muted);padding:11px 8px;border-radius:10px;cursor:pointer;white-space:nowrap}
+ .tabs button.on{background:#fff;color:var(--purple);box-shadow:0 1px 3px rgba(69,32,104,.12)}
+
+ .panel{display:none;margin-top:20px}
+ .panel.on{display:block}
+
+ /* Form */
+ .group{border:1px solid var(--line);border-radius:14px;padding:18px;margin-bottom:16px;background:#fff}
+ .group h3{font-size:15px;color:var(--purple);margin-bottom:4px;display:flex;align-items:center;gap:8px}
+ .group .hint{font-size:12px;color:var(--muted);margin-bottom:14px}
+ .field{margin-bottom:14px}
+ .field:last-child{margin-bottom:0}
+ label{display:block;font-size:13px;font-weight:bold;margin-bottom:6px}
+ .inputwrap{position:relative;display:flex;align-items:center}
+ .inputwrap .pre{position:absolute;left:12px;color:var(--muted);font-size:15px}
+ .inputwrap .post{position:absolute;right:12px;color:var(--muted);font-size:14px}
+ input[type=number]{width:100%;border:1px solid var(--line);border-radius:10px;padding:12px 14px;font-family:inherit;font-size:16px;color:var(--ink)}
+ input.has-pre{padding-left:28px}
+ input.has-post{padding-right:34px}
+ input:focus{outline:2px solid var(--purple);outline-offset:0;border-color:var(--purple)}
+ .sub{font-size:11px;color:var(--muted);margin-top:5px}
+ .row2{display:grid;grid-template-columns:1fr;gap:14px}
+ .pill{display:inline-block;font-size:12px;font-weight:bold;border:1px solid var(--line);border-radius:999px;padding:7px 12px;color:var(--muted);white-space:nowrap}
+ .usagerow{display:grid;grid-template-columns:1fr auto;gap:10px;align-items:center}
+ .check{display:flex;align-items:center;gap:9px;font-size:13px;font-weight:bold}
+ .check input{width:18px;height:18px;accent-color:var(--purple)}
+
+ .cta-btn{display:block;width:100%;text-align:center;background:var(--purple);color:#fff;border:0;border-radius:12px;padding:16px;font-family:inherit;font-size:16px;font-weight:bold;cursor:pointer;margin-top:4px}
+ .cta-btn:hover{background:var(--purple-light)}
+ .cta-btn.pink{background:var(--pink)}
+ .cta-btn.pink:hover{opacity:.92}
+
+ /* Results */
+ .results{display:none;margin-top:8px}
+ .results.on{display:block}
+ .cardrow{display:grid;grid-template-columns:1fr;gap:12px;margin-bottom:8px}
+ .pcard{border:1px solid var(--line);border-radius:14px;padding:16px;position:relative;overflow:hidden}
+ .pcard .bar{position:absolute;left:0;top:0;bottom:0;width:5px}
+ .pcard .nm{font-size:13px;font-weight:bold;margin-bottom:2px}
+ .pcard .big{font-size:24px;font-weight:bold}
+ .pcard .lbl{font-size:11px;color:var(--muted)}
+ .pcard.best{box-shadow:0 0 0 2px var(--purple)}
+ .pcard .tag{position:absolute;top:10px;right:10px;font-size:10px;font-weight:bold;background:var(--purple);color:#fff;padding:3px 8px;border-radius:999px}
+
+ /* Chart */
+ .chartbox{border:1px solid var(--line);border-radius:14px;padding:18px;background:#fff}
+ .chartbox h3{font-size:16px;text-align:center;margin-bottom:14px}
+ svg{width:100%;height:auto;display:block}
+ .legend{display:flex;justify-content:center;gap:18px;flex-wrap:wrap;margin-top:12px;font-size:13px;font-weight:bold}
+ .legend span{display:inline-flex;align-items:center;gap:6px}
+ .legend i{width:14px;height:3px;border-radius:2px;display:inline-block}
+
+ /* Table */
+ table{width:100%;border-collapse:collapse;table-layout:fixed}
+ th,td{text-align:left;vertical-align:middle;word-wrap:break-word;padding:10px 8px;font-size:13px;border-bottom:1px solid var(--line)}
+ th{color:var(--purple);font-size:12px}
+ tbody tr:nth-child(even){background:var(--panel)}
+ .gcol{color:var(--planG);font-weight:bold}
+ .ncol{color:var(--planN);font-weight:bold}
+ .hcol{color:var(--hdg);font-weight:bold}
+
+ /* Benefits */
+ .ben td:first-child{font-weight:bold;font-size:12px}
+ .ben .ck{color:var(--planN);font-weight:bold}
+ .note{font-size:11px;color:var(--muted);margin-top:10px}
+
+ /* About / prose */
+ .prose{border:1px solid var(--line);border-radius:14px;padding:20px;background:#fff}
+ .prose h3{color:var(--purple);font-size:16px;margin:16px 0 6px}
+ .prose h3:first-child{margin-top:0}
+ .prose p{font-size:14px;margin-bottom:10px}
+ .prose ul{margin:0 0 10px 20px}
+ .prose li{font-size:14px;margin-bottom:6px}
+
+ .ctablock{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:20px;text-align:center;margin-top:16px}
+ .ctablock h3{color:var(--purple);font-size:18px;margin-bottom:6px}
+ .ctablock p{font-size:14px;color:var(--muted);margin-bottom:14px}
+ .ctablock .btns{display:grid;grid-template-columns:1fr;gap:10px;max-width:380px;margin:0 auto}
+
+ .disclaimer{font-size:11px;color:var(--muted);margin-top:24px;line-height:1.5;text-align:center}
+
+ @media(min-width:620px){
+ .row2{grid-template-columns:1fr 1fr}
+ .cardrow{grid-template-columns:1fr 1fr 1fr}
+ .ctablock .btns{grid-template-columns:1fr 1fr}
+ .hero h1{font-size:30px}
+ }
+
+ /* Desktop sidebar layout for calculator */
+ .calc-grid{display:block}
+ .calc-side{}
+ .calc-main{}
+ .calc-main .placeholder{border:1px dashed var(--line);border-radius:14px;padding:40px 20px;text-align:center;color:var(--muted);font-size:14px}
+
+ /* Per-plan summary cards */
+ .summary{display:grid;grid-template-columns:1fr;gap:12px;margin-bottom:18px}
+ .scard{border:1px solid var(--line);border-radius:14px;padding:16px;position:relative}
+ .scard.g{background:#eef4ff;border-color:#d6e4ff}
+ .scard.n{background:#eafaf3;border-color:#cdeede}
+ .scard.h{background:#fff4e6;border-color:#ffe2bd}
+ .scard .head{display:flex;align-items:center;justify-content:space-between;margin-bottom:10px}
+ .scard .head .nm{font-size:15px;font-weight:bold}
+ .scard.g .nm{color:var(--planG)} .scard.n .nm{color:var(--planN)} .scard.h .nm{color:var(--hdg)}
+ .scard .line{display:flex;justify-content:space-between;align-items:baseline;font-size:12px;color:var(--muted);margin-bottom:8px}
+ .scard .line b{font-size:16px;color:var(--ink);font-weight:bold}
+ .scard .total{border-top:1px solid rgba(0,0,0,.08);padding-top:10px;margin-top:4px}
+ .scard .total .line{margin-bottom:0}
+ .scard .total b{font-size:19px}
+ .scard.g .total b{color:var(--planG)} .scard.n .total b{color:var(--planN)} .scard.h .total b{color:var(--hdg)}
+ .scard .lowtag{font-size:10px;font-weight:bold;background:var(--purple);color:#fff;padding:3px 9px;border-radius:999px}
+
+ /* Year total cards */
+ .yeargrid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:8px}
+ .ycard{border:1px solid var(--line);border-radius:12px;padding:14px;text-align:center}
+ .ycard .yt{font-size:14px;font-weight:bold}
+ .ycard .yr{font-size:11px;color:var(--muted);margin-bottom:8px}
+ .ycard .yl{font-size:11px;text-align:left;display:flex;justify-content:space-between;margin-bottom:3px}
+ .ycard .yl .gv{color:var(--planG);font-weight:bold}
+ .ycard .yl .nv{color:var(--planN);font-weight:bold}
+ .ycard .yl .hv{color:var(--hdg);font-weight:bold}
+
+ @media(min-width:820px){
+ .calc-grid{display:grid;grid-template-columns:300px 1fr;gap:18px;align-items:start}
+ .calc-side{position:sticky;top:12px}
+ .summary{grid-template-columns:1fr 1fr 1fr}
+ .yeargrid{grid-template-columns:repeat(5,1fr)}
+ }
+</style>
+</head>
+<body>
+
+<div class="topbar">
+ <span class="brand">The Health Experts Insurance</span>
+ <span class="lang">
+ <button id="enBtn" class="on" onclick="setLang('en')">EN</button>
+ <button id="esBtn" onclick="setLang('es')">ES</button>
+ </span>
+</div>
+
+<div class="wrap">
+ <div class="hero">
+ <span class="eyebrow" data-i="eyebrow">Free Tool · v1</span>
+ <h1 data-i="h1">Medigap Plan Calculator</h1>
+ <p data-i="sub">Compare Plan G, Plan N, and High-Deductible Plan G. See your total costs grow over 25 years — and which plan saves you the most.</p>
+ </div>
+
+ <div class="tabs">
+ <button class="on" data-tab="calc" onclick="setTab('calc')" data-i="tCalc">Calculator</button>
+ <button data-tab="charts" onclick="setTab('charts')" data-i="tCharts">Charts</button>
+ <button data-tab="data" onclick="setTab('data')" data-i="tData">Data</button>
+ <button data-tab="benefits" onclick="setTab('benefits')" data-i="tBenefits">Benefits</button>
+ <button data-tab="about" onclick="setTab('about')" data-i="tAbout">About</button>
+ </div>
+
+ <!-- CALCULATOR -->
+ <div class="panel on" id="p-calc">
+ <div class="calc-grid">
+ <div class="calc-side">
+ <div class="group">
+ <h3 data-i="gYou">Your information</h3>
+ <div class="field">
+ <label data-i="age">Your age</label>
+ <div class="inputwrap"><input type="number" id="age" value="65" min="60" max="90"></div>
+ <div class="sub" data-i="ageHint">Most people start Medigap at 65.</div>
+ </div>
+ </div>
+
+ <div class="group">
+ <h3 data-i="gPrem">Monthly premiums</h3>
+ <div class="hint" data-i="premHint">Florida typical ranges shown. We can pull real quotes for your zip.</div>
+ <div class="row2">
+ <div class="field">
+ <label data-i="pgPrem">Plan G premium</label>
+ <div class="inputwrap"><span class="pre">$</span><input class="has-pre" type="number" id="gPrem" value="200"></div>
+ <div class="sub" data-i="pgHint">FL range: $148–$355/mo by age.</div>
+ </div>
+ <div class="field">
+ <label data-i="pnPrem">Plan N premium</label>
+ <div class="inputwrap"><span class="pre">$</span><input class="has-pre" type="number" id="nPrem" value="165"></div>
+ <div class="sub" data-i="pnHint">Usually lower than Plan G.</div>
+ </div>
+ </div>
+ <div class="field">
+ <label data-i="hdPrem">High-Deductible Plan G premium</label>
+ <div class="inputwrap"><span class="pre">$</span><input class="has-pre" type="number" id="hPrem" value="65"></div>
+ <div class="sub" data-i="hdHint">Lowest premium, higher out-of-pocket.</div>
+ </div>
+ </div>
+
+ <div class="group">
+ <h3 data-i="gInc">Annual increase rates</h3>
+ <div class="hint" data-i="incHint">How much premiums rise each year. These are realistic Florida defaults — adjust if you have actual rate history.</div>
+ <div class="row2">
+ <div class="field">
+ <label data-i="gInc2">Plan G increase</label>
+ <div class="inputwrap"><input class="has-post" type="number" id="gInc" value="12" step="0.5"><span class="post">%</span></div>
+ </div>
+ <div class="field">
+ <label data-i="nInc2">Plan N increase</label>
+ <div class="inputwrap"><input class="has-post" type="number" id="nInc" value="10" step="0.5"><span class="post">%</span></div>
+ </div>
+ </div>
+ <div class="field">
+ <label data-i="hInc2">High-Deductible Plan G increase</label>
+ <div class="inputwrap"><input class="has-post" type="number" id="hInc" value="6" step="0.5"><span class="post">%</span></div>
+ </div>
+ </div>
+
+ <div class="group">
+ <h3 data-i="gUse">Plan N usage (annual)</h3>
+ <div class="hint" data-i="useHint">Plan N has small copays: up to $20 per office visit, $50 per ER visit.</div>
+ <div class="field">
+ <div class="usagerow">
+ <div><label style="margin:0" data-i="office">Office visits per year</label></div>
+ <span class="pill">$20 <span data-i="perVisit">/visit</span></span>
+ </div>
+ <input type="number" id="office" value="6" min="0" style="margin-top:8px">
+ </div>
+ <div class="field">
+ <div class="usagerow">
+ <div><label style="margin:0" data-i="er">ER visits per year</label></div>
+ <span class="pill">$50 <span data-i="perVisit2">/visit</span></span>
+ </div>
+ <input type="number" id="er" value="0" min="0" style="margin-top:8px">
+ </div>
+ </div>
+
+ <div class="group">
+ <h3 data-i="gHdg">High-Deductible Plan G out-of-pocket</h3>
+ <div class="hint" data-i="hdgHint">Estimated yearly out-of-pocket before the plan pays. 2026 max deductible: $2,950.</div>
+ <div class="field">
+ <div class="inputwrap"><span class="pre">$</span><input class="has-pre" type="number" id="hdgOOP" value="1500" min="0" max="2950"></div>
+ <div class="sub"><span data-i="range">Range:</span> $0 – $2,950</div>
+ </div>
+ </div>
+
+ <div class="group">
+ <div class="check">
+ <input type="checkbox" id="incB">
+ <label for="incB" style="margin:0" data-i="partB">Include Medicare Part B premium in all plans ($202.90/mo, 2026)</label>
+ </div>
+ </div>
+
+ <button class="cta-btn" onclick="calc()" data-i="run">See my projection</button>
+ </div><!-- /calc-side -->
+
+ <div class="calc-main">
+ <div class="results" id="results">
+ <!-- Per-plan summary cards -->
+ <div class="summary" id="summary"></div>
+
+ <!-- Year total cards -->
+ <div class="yeargrid" id="yeargrid"></div>
+
+ <h3 style="margin:18px 0 12px;font-size:16px;color:var(--purple)" data-i="resTitle">Your 10-year total cost</h3>
+ <div class="cardrow">
+ <div class="pcard" id="card-g"><span class="bar" style="background:var(--planG)"></span><div class="nm">Plan G</div><div class="big" id="g10">$0</div><div class="lbl" data-i="over10">over 10 years</div></div>
+ <div class="pcard" id="card-n"><span class="bar" style="background:var(--planN)"></span><div class="nm">Plan N</div><div class="big" id="n10">$0</div><div class="lbl" data-i="over10b">over 10 years</div></div>
+ <div class="pcard" id="card-h"><span class="bar" style="background:var(--hdg)"></span><div class="nm" data-i="hdgShort">High-Deductible G</div><div class="big" id="h10">$0</div><div class="lbl" data-i="over10c">over 10 years</div></div>
+ </div>
+ <p id="verdict" style="font-size:14px;background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:14px;margin-top:6px"></p>
+ <p class="sub" data-i="seeCharts">See the Charts and Data tabs for the full 25-year breakdown.</p>
+
+ <div class="ctablock">
+ <h3 data-i="ctaH">Want real numbers for your situation?</h3>
+ <p data-i="ctaP">These are estimates. We'll pull actual quotes from 14 carriers for your zip code — free, no obligation.</p>
+ <div class="btns">
+ <a class="cta-btn" href="https://calendly.com/healthexps-info/" data-i="ctaBook">Book a free consultation</a>
+ <a class="cta-btn pink" href="#" id="quizLink" data-i="ctaQuiz">Compare my plans</a>
+ </div>
+ </div>
+ </div>
+ </div><!-- /calc-main -->
+ </div><!-- /calc-grid -->
+ </div>
+
+ <!-- CHARTS -->
+ <div class="panel" id="p-charts">
+ <div class="chartbox">
+ <h3 data-i="chartTitle">Estimated total cost over time</h3>
+ <div id="chart"></div>
+ <div class="legend">
+ <span><i style="background:var(--planG)"></i> Plan G</span>
+ <span><i style="background:var(--planN)"></i> Plan N</span>
+ <span><i style="background:var(--hdg)"></i> <span data-i="hdgShort2">High-Deductible G</span></span>
+ </div>
+ </div>
+ <p class="sub" style="text-align:center;margin-top:12px" data-i="chartNote">Run the calculator first to populate this chart.</p>
+ </div>
+
+ <!-- DATA -->
+ <div class="panel" id="p-data">
+ <div class="chartbox" style="padding:0;overflow:hidden">
+ <table>
+ <thead><tr>
+ <th data-i="thYear">Year</th>
+ <th data-i="thAge">Age</th>
+ <th class="gcol">Plan G</th>
+ <th class="ncol">Plan N</th>
+ <th class="hcol" data-i="thHdg">HD-G</th>
+ </tr></thead>
+ <tbody id="dataBody">
+ <tr><td colspan="5" style="text-align:left;color:var(--muted);padding:18px" data-i="dataEmpty">Run the calculator first to see year-by-year costs.</td></tr>
+ </tbody>
+ </table>
+ </div>
+ </div>
+
+ <!-- BENEFITS -->
+ <div class="panel" id="p-benefits">
+ <div class="chartbox" style="padding:0;overflow:hidden">
+ <table class="ben">
+ <thead><tr>
+ <th data-i="thBenefit">Benefit</th>
+ <th class="gcol">Plan G</th>
+ <th class="ncol">Plan N</th>
+ <th class="hcol" data-i="thHdg2">HD-G</th>
+ </tr></thead>
+ <tbody id="benBody"></tbody>
+ </table>
+ </div>
+ <p class="note" id="benNote"></p>
+ </div>
+
+ <!-- ABOUT -->
+ <div class="panel" id="p-about">
+ <div class="prose" id="aboutProse"></div>
+ <div class="ctablock">
+ <h3 data-i="ctaH2">Talk to a licensed bilingual broker</h3>
+ <p data-i="ctaP2">We serve Miami-Dade and Broward in English and Spanish. No cost, no pressure.</p>
+ <div class="btns">
+ <a class="cta-btn" href="https://calendly.com/healthexps-info/" data-i="ctaBook2">Book a free consultation</a>
+ <a class="cta-btn pink" href="tel:18003806821" data-i="ctaCall">Call 1-800-380-6821</a>
+ </div>
+ </div>
+ </div>
+
+ <p class="disclaimer" id="disc"></p>
+</div>
+
+<script>
+/* ---------- Translations ---------- */
+const T = {
+ en:{
+ eyebrow:"Free Tool · v1",
+ h1:"Medigap Plan Calculator",
+ sub:"Compare Plan G, Plan N, and High-Deductible Plan G. See your total costs grow over 25 years — and which plan saves you the most.",
+ tCalc:"Calculator",tCharts:"Charts",tData:"Data",tBenefits:"Benefits",tAbout:"About",
+ gYou:"Your information",age:"Your age",ageHint:"Most people start Medigap at 65.",
+ gPrem:"Monthly premiums",premHint:"Florida typical ranges shown. We can pull real quotes for your zip.",
+ pgPrem:"Plan G premium",pgHint:"FL range: $148–$355/mo by age.",
+ pnPrem:"Plan N premium",pnHint:"Usually lower than Plan G.",
+ hdPrem:"High-Deductible Plan G premium",hdHint:"Lowest premium, higher out-of-pocket.",
+ gInc:"Annual increase rates",incHint:"How much premiums rise each year. These are realistic Florida defaults — adjust if you have actual rate history.",
+ gInc2:"Plan G increase",nInc2:"Plan N increase",hInc2:"High-Deductible Plan G increase",
+ gUse:"Plan N usage (annual)",useHint:"Plan N has small copays: up to $20 per office visit, $50 per ER visit.",
+ office:"Office visits per year",er:"ER visits per year",perVisit:"/visit",perVisit2:"/visit",
+ gHdg:"High-Deductible Plan G out-of-pocket",hdgHint:"Estimated yearly out-of-pocket before the plan pays. 2026 max deductible: $2,950.",range:"Range:",
+ partB:"Include Medicare Part B premium in all plans ($202.90/mo, 2026)",
+ run:"See my projection",
+ resTitle:"Your 10-year total cost",
+ annualPrem:"Annual Premium",partBDed:"Part B Deductible",annualCopay:"Annual Copays",estOOP:"Est. Out-of-Pocket",totalAnnual:"Total Annual",
+ yr5:"5-Year Total",yr10:"10-Year Total",yr15:"15-Year Total",yr20:"20-Year Total",yr25:"25-Year Total",
+ ages:"Age",lowCost:"Lowest Cost",
+over10:"over 10 years",over10b:"over 10 years",over10c:"over 10 years",hdgShort:"High-Deductible G",
+ seeCharts:"See the Charts and Data tabs for the full 25-year breakdown.",
+ ctaH:"Want real numbers for your situation?",ctaP:"These are estimates. We'll pull actual quotes from 14 carriers for your zip code — free, no obligation.",
+ ctaBook:"Book a free consultation",ctaQuiz:"Compare my plans",
+ chartTitle:"Estimated total cost over time",hdgShort2:"High-Deductible G",chartNote:"Run the calculator first to populate this chart.",
+ thYear:"Year",thAge:"Age",thHdg:"HD-G",dataEmpty:"Run the calculator first to see year-by-year costs.",
+ thBenefit:"Benefit",thHdg2:"HD-G",
+ ctaH2:"Talk to a licensed bilingual broker",ctaP2:"We serve Miami-Dade and Broward in English and Spanish. No cost, no pressure.",
+ ctaBook2:"Book a free consultation",ctaCall:"Call 1-800-380-6821",
+ verdictCheapest:"Lowest 10-year cost:",verdictSaves:"saves you about",verdictVs:"vs",
+ benefits:[
+ ["Part A coinsurance & hospital costs","✓","✓","✓*"],
+ ["Part B coinsurance or copayment","✓","✓**","✓*"],
+ ["Blood (first 3 pints)","✓","✓","✓*"],
+ ["Part A hospice care coinsurance","✓","✓","✓*"],
+ ["Skilled nursing facility coinsurance","✓","✓","✓*"],
+ ["Part A deductible","✓","✓","✓*"],
+ ["Part B deductible","✗","✗","✗"],
+ ["Part B excess charges","✓","✗","✓*"],
+ ["Foreign travel emergency","80%","80%","80%*"]
+ ],
+ benNote:"✓ = covered. * High-Deductible Plan G covers these only after you pay the annual deductible ($2,950 in 2026). ** Plan N has copays of up to $20 for office visits and $50 for ER visits that don't lead to admission, and does not cover Part B excess charges.",
+ about:`<h3>What this calculator does</h3>
+ <p>It compares the three most popular Medicare Supplement (Medigap) plans in Florida — Plan G, Plan N, and High-Deductible Plan G — and projects what each will cost you over time as premiums rise with age.</p>
+ <h3>Why the 25-year view matters</h3>
+ <p>The plan with the lowest premium today isn't always the cheapest over time. Premiums rise every year, and a small difference compounds. Seeing the long-term curve helps you choose with your eyes open.</p>
+ <h3>The three plans in plain English</h3>
+ <ul>
+ <li><strong>Plan G</strong> — the most complete coverage. You pay only the annual Part B deductible; the plan covers nearly everything else. Highest premium.</li>
+ <li><strong>Plan N</strong> — lower premium, with small copays ($20 office, $50 ER) and no coverage for Part B excess charges. A good middle ground for healthy people.</li>
+ <li><strong>High-Deductible Plan G</strong> — lowest premium. You pay out of pocket up to the annual deductible ($2,950 in 2026), then it works like Plan G. Best for people who want to bet on staying healthy.</li>
+ </ul>
+ <h3>Important</h3>
+ <p>These projections are estimates based on the numbers you enter and typical Florida increase rates. Actual premiums depend on your age, zip code, gender, tobacco use, and the carrier. We represent 14 carriers and can pull your real quotes at no cost.</p>`,
+ disc:"This tool provides estimates for educational purposes only and is not insurance advice or a quote. Actual costs vary by carrier, age, location, and health. The Health Experts Insurance is a licensed, independent brokerage in Doral, FL. We do not offer every plan available in your area; currently we represent 14 organizations offering 82 products. Contact Medicare.gov, 1-800-MEDICARE, or your State Health Insurance Program (SHIP) for all options. Not connected with or endorsed by the U.S. government or the federal Medicare program."
+ },
+ es:{
+ eyebrow:"Herramienta gratuita · v1",
+ h1:"Calculadora de Planes Medigap",
+ sub:"Compara el Plan G, el Plan N y el Plan G de Deducible Alto. Mira cómo crecen tus costos totales a 25 años — y qué plan te ahorra más.",
+ tCalc:"Calculadora",tCharts:"Gráficas",tData:"Datos",tBenefits:"Beneficios",tAbout:"Acerca de",
+ gYou:"Tu información",age:"Tu edad",ageHint:"La mayoría empieza Medigap a los 65.",
+ gPrem:"Primas mensuales",premHint:"Se muestran rangos típicos de Florida. Podemos buscar cotizaciones reales para tu código postal.",
+ pgPrem:"Prima del Plan G",pgHint:"Rango FL: $148–$355/mes según la edad.",
+ pnPrem:"Prima del Plan N",pnHint:"Suele ser más baja que el Plan G.",
+ hdPrem:"Prima del Plan G de Deducible Alto",hdHint:"Prima más baja, más gastos de bolsillo.",
+ gInc:"Tasas de aumento anual",incHint:"Cuánto suben las primas cada año. Estos son valores realistas de Florida — ajústalos si tienes el historial real.",
+ gInc2:"Aumento del Plan G",nInc2:"Aumento del Plan N",hInc2:"Aumento del Plan G de Deducible Alto",
+ gUse:"Uso del Plan N (anual)",useHint:"El Plan N tiene copagos pequeños: hasta $20 por visita al consultorio, $50 por sala de emergencias.",
+ office:"Visitas al consultorio por año",er:"Visitas a emergencias por año",perVisit:"/visita",perVisit2:"/visita",
+ gHdg:"Gastos de bolsillo del Plan G de Deducible Alto",hdgHint:"Gasto de bolsillo anual estimado antes de que el plan pague. Deducible máximo 2026: $2,950.",range:"Rango:",
+ partB:"Incluir la prima de Medicare Parte B en todos los planes ($202.90/mes, 2026)",
+ run:"Ver mi proyección",
+ resTitle:"Tu costo total a 10 años",
+ annualPrem:"Prima Anual",partBDed:"Deducible Parte B",annualCopay:"Copagos Anuales",estOOP:"Gasto Est. de Bolsillo",totalAnnual:"Total Anual",
+ yr5:"Total a 5 Años",yr10:"Total a 10 Años",yr15:"Total a 15 Años",yr20:"Total a 20 Años",yr25:"Total a 25 Años",
+ ages:"Edad",lowCost:"Menor Costo",
+over10:"en 10 años",over10b:"en 10 años",over10c:"en 10 años",hdgShort:"G Deducible Alto",
+ seeCharts:"Mira las pestañas Gráficas y Datos para el desglose completo a 25 años.",
+ ctaH:"¿Quieres números reales para tu caso?",ctaP:"Estos son estimados. Buscaremos cotizaciones reales de 14 aseguradoras para tu código postal — gratis, sin compromiso.",
+ ctaBook:"Agenda tu Consulta Gratis",ctaQuiz:"Comparar mis planes",
+ chartTitle:"Costo total estimado con el tiempo",hdgShort2:"G Deducible Alto",chartNote:"Usa la calculadora primero para llenar esta gráfica.",
+ thYear:"Año",thAge:"Edad",thHdg:"G-DA",dataEmpty:"Usa la calculadora primero para ver los costos año por año.",
+ thBenefit:"Beneficio",thHdg2:"G-DA",
+ ctaH2:"Habla con un agente bilingüe con licencia",ctaP2:"Atendemos Miami-Dade y Broward en inglés y español. Sin costo, sin presión.",
+ ctaBook2:"Agenda tu Consulta Gratis",ctaCall:"Llama 1-800-380-6821",
+ verdictCheapest:"Menor costo a 10 años:",verdictSaves:"te ahorra alrededor de",verdictVs:"frente a",
+ benefits:[
+ ["Coseguro Parte A y costos de hospital","✓","✓","✓*"],
+ ["Coseguro o copago de Parte B","✓","✓**","✓*"],
+ ["Sangre (primeras 3 pintas)","✓","✓","✓*"],
+ ["Coseguro de cuidado de hospicio Parte A","✓","✓","✓*"],
+ ["Coseguro de centro de enfermería especializada","✓","✓","✓*"],
+ ["Deducible de Parte A","✓","✓","✓*"],
+ ["Deducible de Parte B","✗","✗","✗"],
+ ["Cargos excedentes de Parte B","✓","✗","✓*"],
+ ["Emergencia en viajes al extranjero","80%","80%","80%*"]
+ ],
+ benNote:"✓ = cubierto. * El Plan G de Deducible Alto cubre esto solo después de que pagues el deducible anual ($2,950 en 2026). ** El Plan N tiene copagos de hasta $20 por visita al consultorio y $50 por emergencias que no terminan en hospitalización, y no cubre los cargos excedentes de Parte B.",
+ about:`<h3>Qué hace esta calculadora</h3>
+ <p>Compara los tres planes Suplementarios de Medicare (Medigap) más populares en Florida — Plan G, Plan N y Plan G de Deducible Alto — y proyecta cuánto te costará cada uno con el tiempo a medida que las primas suben con la edad.</p>
+ <h3>Por qué importa la vista a 25 años</h3>
+ <p>El plan con la prima más baja hoy no siempre es el más barato a largo plazo. Las primas suben cada año, y una pequeña diferencia se acumula. Ver la curva a largo plazo te ayuda a elegir con los ojos abiertos.</p>
+ <h3>Los tres planes en palabras simples</h3>
+ <ul>
+ <li><strong>Plan G</strong> — la cobertura más completa. Solo pagas el deducible anual de Parte B; el plan cubre casi todo lo demás. Prima más alta.</li>
+ <li><strong>Plan N</strong> — prima más baja, con copagos pequeños ($20 consultorio, $50 emergencias) y sin cobertura de cargos excedentes de Parte B. Buen punto medio para personas sanas.</li>
+ <li><strong>Plan G de Deducible Alto</strong> — la prima más baja. Pagas de tu bolsillo hasta el deducible anual ($2,950 en 2026), y luego funciona como el Plan G. Ideal para quien apuesta a mantenerse sano.</li>
+ </ul>
+ <h3>Importante</h3>
+ <p>Estas proyecciones son estimados basados en los números que ingresas y tasas de aumento típicas de Florida. Las primas reales dependen de tu edad, código postal, sexo, uso de tabaco y la aseguradora. Representamos 14 aseguradoras y podemos buscar tus cotizaciones reales sin costo.</p>`,
+ disc:"Esta herramienta ofrece estimados solo con fines educativos y no es asesoría de seguros ni una cotización. Los costos reales varían según la aseguradora, la edad, la ubicación y la salud. The Health Experts Insurance es una correduría independiente con licencia en Doral, FL. No ofrecemos todos los planes disponibles en tu área; actualmente representamos 14 organizaciones que ofrecen 82 productos. Comunícate con Medicare.gov, 1-800-MEDICARE o tu Programa Estatal de Asistencia de Seguro Médico (SHIP) para conocer todas tus opciones. No está conectado ni respaldado por el gobierno de EE. UU. ni el programa federal de Medicare."
+ }
+};
+
+/* =====================================================================
+ GHL FORM LINKS — REPLACE THESE TOMORROW
+ We removed Typeform/Formspree. Paste your GoHighLevel form/funnel URLs
+ below. The calculator will use the EN link in English mode and the ES
+ link in Spanish mode automatically.
+ If you only build ONE bilingual form, put the same URL in both.
+ ===================================================================== */
+const GHL_FORM_EN = 'REPLACE_WITH_GHL_FORM_URL_EN';
+const GHL_FORM_ES = 'REPLACE_WITH_GHL_FORM_URL_ES';
+/* ===================================================================== */
+
+let lang='en';
+const PARTB_2026=202.90;
+
+function setLang(l){
+ lang=l;
+ document.documentElement.lang=l;
+ document.getElementById('enBtn').classList.toggle('on',l==='en');
+ document.getElementById('esBtn').classList.toggle('on',l==='es');
+ document.querySelectorAll('[data-i]').forEach(el=>{
+ const k=el.getAttribute('data-i');
+ if(T[l][k]!==undefined) el.textContent=T[l][k];
+ });
+ // "Compare my plans" CTA → GHL form (EN vs ES)
+ document.getElementById('quizLink').href = (l==='es') ? GHL_FORM_ES : GHL_FORM_EN;
+ document.getElementById('aboutProse').innerHTML=T[l].about;
+ document.getElementById('disc').textContent=T[l].disc;
+ renderBenefits();
+ if(lastResult){ renderVerdict(); renderSummary(); renderYears(); renderData(); renderChart(); }
+}
+
+function setTab(t){
+ document.querySelectorAll('.tabs button').forEach(b=>b.classList.toggle('on',b.dataset.tab===t));
+ document.querySelectorAll('.panel').forEach(p=>p.classList.remove('on'));
+ document.getElementById('p-'+t).classList.add('on');
+}
+
+function renderBenefits(){
+ const rows=T[lang].benefits;
+ document.getElementById('benBody').innerHTML=rows.map(r=>
+ `<tr><td>${r[0]}</td><td class="gcol">${r[1]}</td><td class="ncol">${r[2]}</td><td class="hcol">${r[3]}</td></tr>`
+ ).join('');
+ document.getElementById('benNote').textContent=T[lang].benNote;
+}
+
+const v=id=>parseFloat(document.getElementById(id).value)||0;
+const fmt=n=>'$'+Math.round(n).toLocaleString(lang==='es'?'es-US':'en-US');
+
+let lastResult=null;
+
+function buildSeries(){
+ const age=v('age');
+ const incB=document.getElementById('incB').checked;
+ const partB=incB?PARTB_2026*12:0;
+ const gP=v('gPrem')*12, nP=v('nPrem')*12, hP=v('hPrem')*12;
+ const gI=v('gInc')/100, nI=v('nInc')/100, hI=v('hInc')/100;
+ const nCopay=v('office')*20 + v('er')*50;
+ const hdgOOP=v('hdgOOP');
+
+ const rows=[]; let cg=0,cn=0,ch=0;
+ for(let i=0;i<25;i++){
+ const yG=gP*Math.pow(1+gI,i)+partB;
+ const yN=nP*Math.pow(1+nI,i)+nCopay+partB;
+ const yH=hP*Math.pow(1+hI,i)+hdgOOP+partB;
+ cg+=yG; cn+=yN; ch+=yH;
+ rows.push({year:2026+i,age:age+i,g:cg,n:cn,h:ch,yG,yN,yH});
+ }
+ rows.meta={gP,nP,hP,nCopay,hdgOOP,partB,partBded:283};
+ return rows;
+}
+
+function calc(){
+ lastResult=buildSeries();
+ document.getElementById('results').classList.add('on');
+ const r10=lastResult[9];
+ document.getElementById('g10').textContent=fmt(r10.g);
+ document.getElementById('n10').textContent=fmt(r10.n);
+ document.getElementById('h10').textContent=fmt(r10.h);
+ renderVerdict(); renderSummary(); renderYears(); renderData(); renderChart();
+ document.getElementById('results').scrollIntoView({behavior:'smooth',block:'start'});
+}
+
+function renderSummary(){
+ const m=lastResult.meta;
+ const T_=T[lang];
+ const gTot=m.gP+m.partBded+m.partB;
+ const nTot=m.nP+m.partBded+m.nCopay+m.partB;
+ const hTot=m.hP+m.hdgOOP+m.partB;
+ const cards=[
+ {cls:'g',nm:'Plan G',rows:[[T_.annualPrem,m.gP+m.partB],[T_.partBDed,m.partBded]],tot:gTot},
+ {cls:'n',nm:'Plan N',rows:[[T_.annualPrem,m.nP+m.partB],[T_.partBDed,m.partBded],[T_.annualCopay,m.nCopay]],tot:nTot},
+ {cls:'h',nm:T_.hdgShort,rows:[[T_.annualPrem,m.hP+m.partB],[T_.estOOP,m.hdgOOP]],tot:hTot}
+ ];
+ const low=Math.min(gTot,nTot,hTot);
+ document.getElementById('summary').innerHTML=cards.map(c=>{
+ const tag=(c.tot===low)?`<span class="lowtag">${T_.lowCost}</span>`:'';
+ const lines=c.rows.map(r=>`<div class="line"><span>${r[0]}:</span><b>${fmt(r[1])}</b></div>`).join('');
+ return `<div class="scard ${c.cls}">
+ <div class="head"><span class="nm">${c.nm}</span>${tag}</div>
+ ${lines}
+ <div class="total"><div class="line"><span>${T_.totalAnnual}:</span><b>${fmt(c.tot)}</b></div></div>
+ </div>`;
+ }).join('');
+}
+
+function renderYears(){
+ const T_=T[lang];
+ const pts=[{k:5,t:T_.yr5},{k:10,t:T_.yr10},{k:15,t:T_.yr15},{k:20,t:T_.yr20},{k:25,t:T_.yr25}];
+ const baseAge=lastResult[0].age;
+ document.getElementById('yeargrid').innerHTML=pts.map(p=>{
+ const r=lastResult[p.k-1];
+ return `<div class="ycard">
+ <div class="yt">${p.t}</div>
+ <div class="yr">${T_.ages} ${baseAge}–${baseAge+p.k-1}</div>
+ <div class="yl"><span>Plan G</span><span class="gv">${fmt(r.g)}</span></div>
+ <div class="yl"><span>Plan N</span><span class="nv">${fmt(r.n)}</span></div>
+ <div class="yl"><span>HD-G</span><span class="hv">${fmt(r.h)}</span></div>
+ </div>`;
+ }).join('');
+}
+
+function renderVerdict(){
+ const r10=lastResult[9];
+ const opts=[{k:'g',n:'Plan G',v:r10.g,el:'card-g'},{k:'n',n:'Plan N',v:r10.n,el:'card-n'},{k:'h',n:T[lang].hdgShort,v:r10.h,el:'card-h'}];
+ opts.sort((a,b)=>a.v-b.v);
+ ['card-g','card-n','card-h'].forEach(id=>{const c=document.getElementById(id);c.classList.remove('best');const tag=c.querySelector('.tag');if(tag)tag.remove();});
+ const best=document.getElementById(opts[0].el);
+ best.classList.add('best');
+ const tag=document.createElement('span');tag.className='tag';tag.textContent=T[lang].lowCost;best.appendChild(tag);
+ const save=opts[2].v-opts[0].v;
+ document.getElementById('verdict').innerHTML=
+ `<strong>${T[lang].verdictCheapest} ${opts[0].n}</strong> — ${T[lang].verdictSaves} <strong>${fmt(save)}</strong> ${T[lang].verdictVs} ${opts[2].n} ${lang==='es'?'en 10 años':'over 10 years'}.`;
+}
+
+function renderData(){
+ document.getElementById('dataBody').innerHTML=lastResult.map(r=>
+ `<tr><td>${r.year}</td><td>${r.age}</td><td class="gcol">${fmt(r.g)}</td><td class="ncol">${fmt(r.n)}</td><td class="hcol">${fmt(r.h)}</td></tr>`
+ ).join('');
+}
+
+function renderChart(){
+ const W=600,H=340,pad={l:52,r:16,t:14,b:42};
+ const data=lastResult;
+ const maxV=Math.max(...data.map(d=>Math.max(d.g,d.n,d.h)));
+ const x=i=>pad.l+(i/(data.length-1))*(W-pad.l-pad.r);
+ const y=val=>H-pad.b-(val/maxV)*(H-pad.t-pad.b);
+ const path=key=>data.map((d,i)=>(i?'L':'M')+x(i).toFixed(1)+' '+y(d[key]).toFixed(1)).join(' ');
+ // y gridlines
+ let grid='',ylab='';
+ for(let g=0;g<=4;g++){
+ const val=maxV*g/4, yy=y(val);
+ grid+=`<line x1="${pad.l}" y1="${yy}" x2="${W-pad.r}" y2="${yy}" stroke="#eee" stroke-dasharray="3 3"/>`;
+ ylab+=`<text x="${pad.l-8}" y="${yy+4}" text-anchor="end" font-size="11" fill="#888">$${Math.round(val/1000)}k</text>`;
+ }
+ // x labels (every 5 yrs)
+ let xlab='';
+ data.forEach((d,i)=>{if(i%5===0||i===data.length-1){xlab+=`<text x="${x(i)}" y="${H-pad.b+18}" text-anchor="middle" font-size="10" fill="#888">${d.year}</text>`;}});
+ document.getElementById('chart').innerHTML=
+ `<svg viewBox="0 0 ${W} ${H}" role="img">
+ ${grid}${ylab}${xlab}
+ <line x1="${pad.l}" y1="${pad.t}" x2="${pad.l}" y2="${H-pad.b}" stroke="#ccc"/>
+ <line x1="${pad.l}" y1="${H-pad.b}" x2="${W-pad.r}" y2="${H-pad.b}" stroke="#ccc"/>
+ <path d="${path('g')}" fill="none" stroke="var(--planG)" stroke-width="2.5"/>
+ <path d="${path('n')}" fill="none" stroke="var(--planN)" stroke-width="2.5"/>
+ <path d="${path('h')}" fill="none" stroke="var(--hdg)" stroke-width="2.5"/>
+ </svg>`;
+ document.querySelector('#p-charts .sub').style.display='none';
+}
+
+/* init */
+renderBenefits();
+document.getElementById('quizLink').href=GHL_FORM_EN;
+document.getElementById('aboutProse').innerHTML=T.en.about;
+document.getElementById('disc').textContent=T.en.disc;
+calc();
+</script>
+</body>
+</html>
