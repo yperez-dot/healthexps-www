@@ -13,3 +13,33 @@
 .fab {
   font-family: inherit !important;
 }
+
+/* Scroll to top button - visible on ALL screen sizes (mobile + desktop) */
+#scrollToTop {
+  /* Base styles (will be shown via JS when scrollY > 400) */
+  position: fixed !important;
+  bottom: 30px !important;
+  right: 30px !important;
+  z-index: 999 !important;
+  width: 50px !important;
+  height: 50px !important;
+  border: none !important;
+  border-radius: 50% !important;
+  background: #452068 !important;
+  color: white !important;
+  font-size: 20px !important;
+  cursor: pointer !important;
+  box-shadow: 0 4px 12px rgba(69, 32, 104, 0.3) !important;
+  transition: all 0.3s ease !important;
+  align-items: center !important;
+  justify-content: center !important;
+}
+
+#scrollToTop:hover {
+  background: #5a2a88 !important;
+  box-shadow: 0 6px 16px rgba(69, 32, 104, 0.4) !important;
+  transform: translateY(-2px) !important;
+}
+
+/* Ensure NO media query hides this button on desktop */
+/* The JavaScript controls visibility via display:none/flex */
