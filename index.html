@@ -212,6 +212,11 @@ a:hover{color:var(--pink);}
  .stats-grid > div > div:first-child{font-size:30px !important;}
  .stats-grid > div > div:last-child{font-size:11px !important;line-height:1.4 !important;}
 }
+
+/* FORM SECTION RESPONSIVE */
+@media(max-width:960px){
+ .form-split{grid-template-columns:1fr !important;gap:32px !important;}
+}
 </style>
 </head>
 <body>
@@ -525,7 +530,7 @@ for(var k=0;k<_navLinks.length;k++){
 <!-- LEAD FORM -->
 <section style="padding:56px 0;background:#f4eefa;">
  <div class="container">
- <div class="form-split" style="display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center;max-width:960px;margin:0 auto;">
+ <div class="form-split" style="display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:start;max-width:960px;margin:0 auto;">
  <div>
  <h2 style="color:#452068;font-size:clamp(22px,3vw,28px);font-weight:700;margin:0 0 12px;line-height:1.3;">Ready to find your plan?</h2>
  <p style="color:#6b5a7d;font-size:16px;line-height:1.75;margin:0 0 24px;">Tell us a little about yourself and we'll reach out today with options personalized to your situation.</p>
