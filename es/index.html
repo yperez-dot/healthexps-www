@@ -660,48 +660,33 @@ for(var k=0;k<_navLinks.length;k++){
  <p style="color:#6b5a7d;margin:0 0 14px;font-size:15px;">Le contactaremos hoy. O llame ahora:</p>
  <a href="tel:18003806821" style="display:inline-block;background:#ff1090;color:white;font-weight:700;font-size:15px;padding:12px 26px;border-radius:50px;text-decoration:none;">📞 1-800-380-6821</a>
  </div>
- <form id="homepage-lead-form" action="https://formspree.io/f/xdapbjjl" method="POST" style="display:grid;gap:11px;">
- <div class="form-name-grid" style="display:grid;grid-template-columns:1fr 1fr;gap:11px;">
- <input type="text" name="first-name" placeholder="Nombre" required style="border:1px solid #eadff5;border-radius:10px;padding:12px 14px;font-size:14px;color:#2a183d;outline:none;font-family:inherit;width:100%;box-sizing:border-box;">
- <input type="text" name="last-name" placeholder="Apellido" required style="border:1px solid #eadff5;border-radius:10px;padding:12px 14px;font-size:14px;color:#2a183d;outline:none;font-family:inherit;width:100%;box-sizing:border-box;">
+ <div style="min-height:917px;">
+ <iframe
+ src="https://api.leadconnectorhq.com/widget/form/JzL1z3haj0bec8lRDMe7"
+ style="width:100%;height:917px;border:none;border-radius:8px"
+ id="inline-JzL1z3haj0bec8lRDMe7"
+ data-layout='{"id":"INLINE"}'
+ data-trigger-type="alwaysShow"
+ data-trigger-value=""
+ data-activation-type="alwaysActivated"
+ data-activation-value=""
+ data-deactivation-type="neverDeactivate"
+ data-deactivation-value=""
+ data-form-name="THEI Website Lead Form — ES"
+ data-height="917"
+ data-layout-iframe-id="inline-JzL1z3haj0bec8lRDMe7"
+ data-form-id="JzL1z3haj0bec8lRDMe7"
+ title="THEI Website Lead Form — ES">
+ </iframe>
+ <script src="https://link.msgsndr.com/js/form_embed.js"></script>
  </div>
- <input type="tel" name="phone" placeholder="Teléfono" required style="border:1px solid #eadff5;border-radius:10px;padding:12px 14px;font-size:14px;color:#2a183d;outline:none;font-family:inherit;width:100%;box-sizing:border-box;">
- <input type="email" name="email" placeholder="Correo electrónico" required style="border:1px solid #eadff5;border-radius:10px;padding:12px 14px;font-size:14px;color:#2a183d;outline:none;font-family:inherit;width:100%;box-sizing:border-box;">
- <select name="coverage-type" style="border:1px solid #eadff5;border-radius:10px;padding:12px 14px;font-size:14px;color:#6b5a7d;outline:none;font-family:inherit;width:100%;background:white;box-sizing:border-box;">
- <option value="">¿Qué está buscando?</option>
- <option>Medicare — Advantage o Suplementario</option>
- <option>Medicare Parte D (Medicamentos)</option>
- <option>Plan del Mercado ACA</option>
- <option>Seguro de Salud Privado</option>
- <option>Dental y Visión</option>
- <option>No estoy seguro — ayúdeme a comparar</option>
- </select>
- <button type="submit" id="homepage-submit-btn" style="background:#ff1090;color:white;border:none;border-radius:50px;padding:14px;font:700 15px/1 inherit;cursor:pointer;width:100%;">Reserve mi Consulta Gratuita →</button>
- <p style="font-size:12px;color:#9b8ab0;text-align:center;margin:0;">🔒 Su información es privada. Solo agentes con licencia — sin spam.</p>
- </form>
  </div>
 
  </div>
  </div>
 </section>
 
-<script>
-(function(){
- var form=document.getElementById('homepage-lead-form');
- var success=document.getElementById('homepage-form-success');
- var btn=document.getElementById('homepage-submit-btn');
- if(!form)return;
- form.addEventListener('submit',async function(e){
- e.preventDefault();
- btn.textContent='Enviando…';btn.disabled=true;
- try{
- var res=await fetch(form.action,{method:'POST',body:new FormData(form),headers:{'Accept':'application/json'}});
- if(res.ok){form.style.display='none';success.style.display='block';}
- else{btn.textContent='Algo salió mal — intente de nuevo';btn.disabled=false;}
- }catch(err){btn.textContent='Algo salió mal — intente de nuevo';btn.disabled=false;}
- });
-})();
-</script>
+<!-- GHL form embed script loaded above -->
 
 
 <!-- LOB IMAGE CARDS -->
