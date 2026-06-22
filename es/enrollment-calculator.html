@@ -545,7 +545,7 @@ function calcIEP(){
   cpBtn.textContent=lang==='es'?'Copiar enlace':'Copy link';
   cpBtn.onclick=function(){
     navigator.clipboard.writeText(window.location.href).then(function(){
-      cpBtn.textContent=lang==='es'?'✓ Copiado!':'✓ Copied!';
+      cpBtn.textContent=lang==='es'?'Copiado!':'Copied!';
       setTimeout(function(){cpBtn.textContent=lang==='es'?'Copiar enlace':'Copy link';},2000);
     });
   };
@@ -661,7 +661,7 @@ function calcSEP(){
   cpBtn.textContent=lang==='es'?'Copiar enlace':'Copy link';
   cpBtn.onclick=function(){
     navigator.clipboard.writeText(window.location.href).then(function(){
-      cpBtn.textContent=lang==='es'?'✓ Copiado!':'✓ Copied!';
+      cpBtn.textContent=lang==='es'?'Copiado!':'Copied!';
       setTimeout(function(){cpBtn.textContent=lang==='es'?'Copiar enlace':'Copy link';},2000);
     });
   };
