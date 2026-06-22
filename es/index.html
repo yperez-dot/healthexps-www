@@ -235,40 +235,131 @@ a:hover{color:var(--pink);}
 .lob-label h3{color:var(--purple);font-size:18px;font-weight:700;margin-bottom:4px;}
 .lob-label p{color:var(--gray-text);font-size:14px;}
 
-.hp-form-section{
- display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:start;
- padding:56px 40px;background:linear-gradient(135deg,#f3eef8,#ede6f5);
- border-radius:24px;margin:40px 0;
+
+.hpf-section{
+  display:grid;grid-template-columns:1fr 1.1fr;gap:40px;align-items:start;
+  padding:56px 40px;
+  background:linear-gradient(135deg,#f3eef8 0%,#ede6f5 100%);
+  border-radius:24px;margin:40px 0;
+  font-family:Arial,Helvetica,sans-serif;
 }
-.hp-form-left h2{font-size:28px;color:#2f1548;margin-bottom:10px;line-height:1.2}
-.hp-form-left p{font-size:15px;color:#6b6477;margin-bottom:20px;line-height:1.6}
-.hp-checklist{list-style:none;display:grid;gap:10px}
-.hp-checklist li{display:flex;align-items:center;gap:10px;font-size:14px;font-weight:bold;color:#1a1325}
-.hp-checklist li::before{content:"✓";width:24px;height:24px;min-width:24px;border-radius:50%;background:#452068;color:#fff;display:flex;align-items:center;justify-content:center;font-size:13px}
-.hp-form-card{background:#fff;border-radius:20px;padding:26px 24px;box-shadow:0 14px 40px rgba(69,32,104,.12)}
-.hp-logo{max-height:56px;width:auto;display:block;margin:0 auto 18px}
-.hp-row{display:grid;grid-template-columns:1fr 1fr;gap:10px}
-.hp-field{margin-bottom:13px}
-.hp-field label{display:block;font-size:13px;font-weight:bold;color:#1a1325;margin-bottom:5px}
-.hp-field label span{color:#dc2626}
-.hp-field input,.hp-field select{width:100%;padding:10px 12px;border:1px solid #ece8f2;border-radius:9px;font-family:Arial,sans-serif;font-size:14px;color:#1a1325;outline:none}
-.hp-field input:focus,.hp-field select:focus{border-color:#452068}
-.hp-consent{display:flex;gap:10px;align-items:flex-start;margin-bottom:16px}
-.hp-consent input{width:16px;height:16px;min-width:16px;margin-top:2px;accent-color:#452068}
-.hp-consent label{font-size:11px;color:#6b6477;line-height:1.5;cursor:pointer}
-.hp-consent label a{color:#452068;text-decoration:underline}
-#hpBtn{width:100%;padding:14px;background:#452068;color:#fff;border:none;border-radius:11px;font-family:Arial,sans-serif;font-size:15px;font-weight:bold;cursor:pointer;transition:background .2s}
-#hpBtn:hover{background:#2f1548}
-#hpBtn:disabled{background:#b0a8bc;cursor:not-allowed}
-.hp-error{background:#fef2f2;border:1px solid #fecaca;border-radius:9px;padding:10px 13px;font-size:13px;color:#dc2626;margin-bottom:12px}
-.hp-success{text-align:center;padding:20px 0}
-.hp-check{width:52px;height:52px;border-radius:50%;background:#eafaf2;display:flex;align-items:center;justify-content:center;font-size:24px;color:#16a34a;margin:0 auto 12px}
-.hp-success h3{font-size:17px;color:#452068;margin-bottom:8px}
-.hp-success p{font-size:14px;color:#6b6477;margin-bottom:12px}
-.hp-success a{color:#ff1090;font-weight:bold;text-decoration:none}
-@media(max-width:820px){
- .hp-form-section{grid-template-columns:1fr;gap:24px;padding:32px 20px}
- .hp-row{grid-template-columns:1fr}
+.hpf-section *{font-family:Arial,Helvetica,sans-serif}
+
+/* LEFT COLUMN */
+.hpf-left{}
+.hpf-stars{display:flex;align-items:center;gap:8px;margin-bottom:14px;flex-wrap:wrap}
+.hpf-stars .stars{color:#f59e0b;font-size:18px;letter-spacing:2px}
+.hpf-stars span{font-size:13px;font-weight:bold;color:#452068}
+
+.hpf-cta-row{display:flex;align-items:center;gap:14px;flex-wrap:wrap;margin-bottom:18px}
+.hpf-btn-pink{
+  display:inline-flex;align-items:center;
+  background:#ff1090;color:#fff;
+  font-family:Arial,sans-serif;font-size:14px;font-weight:bold;
+  padding:13px 22px;border-radius:12px;text-decoration:none;
+  box-shadow:0 8px 20px rgba(255,16,144,.25);
+  white-space:nowrap;
+}
+.hpf-phone{font-size:14px;color:#452068;font-weight:bold;text-decoration:none}
+.hpf-phone:hover{color:#ff1090}
+
+.hpf-pills{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:20px}
+.hpf-pill{
+  background:#fff;border:1px solid #ece8f2;border-radius:12px;
+  padding:11px 14px;font-size:13px;color:#1a1325;font-weight:bold;
+  display:flex;align-items:center;gap:8px;
+}
+.hpf-pill::before{content:"✓";color:#ff1090;font-weight:bold;font-size:15px}
+
+.hpf-divider{height:1px;background:linear-gradient(90deg,#452068,#ff1090,transparent);margin:18px 0;opacity:.3}
+
+.hpf-review-badge{
+  display:flex;align-items:center;gap:10px;
+  background:#fff;border:1px solid #ece8f2;border-radius:12px;
+  padding:12px 16px;margin-bottom:18px;
+}
+.hpf-review-badge .stars{color:#f59e0b;font-size:15px}
+.hpf-review-badge .rtxt{font-size:13px;color:#452068;font-weight:bold}
+.hpf-review-badge .rtxt span{color:#6b6477;font-weight:normal}
+
+.hpf-why h3{font-size:16px;font-weight:bold;color:#2f1548;margin-bottom:14px}
+.hpf-why-list{display:grid;gap:12px;margin-bottom:20px}
+.hpf-why-item{display:flex;gap:12px;align-items:flex-start}
+.hpf-why-icon{
+  width:38px;height:38px;min-width:38px;border-radius:10px;
+  background:linear-gradient(135deg,#f3eef8,#e8dff5);
+  display:flex;align-items:center;justify-content:center;font-size:18px;
+}
+.hpf-why-text strong{display:block;font-size:14px;color:#1a1325;margin-bottom:2px}
+.hpf-why-text span{font-size:13px;color:#6b6477;line-height:1.4}
+
+.hpf-quote{
+  background:#fff;border-left:3px solid #ff1090;border-radius:0 12px 12px 0;
+  padding:14px 16px;margin-top:4px;
+}
+.hpf-quote p{font-size:13px;color:#452068;font-style:italic;line-height:1.6;margin-bottom:6px}
+.hpf-quote cite{font-size:12px;color:#6b6477;font-style:normal;font-weight:bold}
+
+/* RIGHT COLUMN — FORM CARD */
+.hpf-card{
+  background:#fff;border-radius:20px;padding:28px 26px;
+  box-shadow:0 12px 36px rgba(69,32,104,.12);
+  border:1px solid #ece8f2;
+}
+.hpf-card-title{font-size:20px;font-weight:bold;color:#2f1548;margin-bottom:4px}
+.hpf-card-sub{font-size:14px;color:#6b6477;margin-bottom:20px;line-height:1.5}
+
+.hpf-row{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.hpf-field{margin-bottom:13px}
+.hpf-field label{display:block;font-size:12px;font-weight:bold;color:#1a1325;margin-bottom:5px;text-transform:uppercase;letter-spacing:.3px}
+.hpf-field label em{color:#dc2626;font-style:normal}
+.hpf-field input,.hpf-field select{
+  width:100%;padding:10px 12px;
+  border:1px solid #ece8f2;border-radius:9px;
+  font-family:Arial,sans-serif;font-size:14px;color:#1a1325;
+  outline:none;background:#fff;
+  transition:border-color .2s;
+  appearance:none;-webkit-appearance:none;
+}
+.hpf-field input:focus,.hpf-field select:focus{border-color:#452068}
+.hpf-field input::placeholder{color:#b0a8bc}
+
+.hpf-consent-wrap{display:flex;gap:9px;align-items:flex-start;margin-bottom:16px}
+.hpf-consent-wrap input[type=checkbox]{width:16px;height:16px;min-width:16px;margin-top:2px;accent-color:#452068;cursor:pointer}
+.hpf-consent-wrap label{font-size:11px;color:#6b6477;line-height:1.55;cursor:pointer}
+.hpf-consent-wrap label a{color:#452068;text-decoration:underline}
+
+.hpf-privacy{display:flex;align-items:center;gap:6px;font-size:12px;color:#6b6477;margin-bottom:14px}
+.hpf-privacy::before{content:"🔒";font-size:13px}
+
+#hpfBtn{
+  width:100%;padding:14px;
+  background:#ff1090;color:#fff;
+  border:none;border-radius:12px;
+  font-family:Arial,sans-serif;font-size:15px;font-weight:bold;
+  cursor:pointer;transition:background .2s,transform .1s;
+  box-shadow:0 8px 20px rgba(255,16,144,.25);
+}
+#hpfBtn:hover{background:#d4006e;transform:translateY(-1px)}
+#hpfBtn:disabled{background:#b0a8bc;cursor:not-allowed;transform:none;box-shadow:none}
+
+.hpf-error{
+  display:none;background:#fef2f2;border:1px solid #fecaca;
+  border-radius:9px;padding:10px 13px;font-size:13px;color:#dc2626;margin-bottom:12px;
+}
+.hpf-success{display:none;text-align:center;padding:24px 10px}
+.hpf-success-check{
+  width:54px;height:54px;border-radius:50%;background:#eafaf2;
+  display:flex;align-items:center;justify-content:center;
+  font-size:26px;color:#16a34a;margin:0 auto 14px;
+}
+.hpf-success h3{font-size:18px;color:#452068;margin-bottom:8px}
+.hpf-success p{font-size:14px;color:#6b6477;margin-bottom:14px;line-height:1.6}
+.hpf-success a{color:#ff1090;font-weight:bold;text-decoration:none;display:block;margin-bottom:8px}
+
+@media(max-width:860px){
+  .hpf-section{grid-template-columns:1fr;gap:28px;padding:32px 20px}
+  .hpf-row{grid-template-columns:1fr}
 }
 </style>
 
@@ -312,41 +403,8 @@ a:hover{color:var(--pink);}
  border-radius: 8px;
  display: block;
 }
-.hp-form-section{
- display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:start;
- padding:56px 40px;background:linear-gradient(135deg,#f3eef8,#ede6f5);
- border-radius:24px;margin:40px 0;
-}
-.hp-form-left h2{font-size:28px;color:#2f1548;margin-bottom:10px;line-height:1.2}
-.hp-form-left p{font-size:15px;color:#6b6477;margin-bottom:20px;line-height:1.6}
-.hp-checklist{list-style:none;display:grid;gap:10px}
-.hp-checklist li{display:flex;align-items:center;gap:10px;font-size:14px;font-weight:bold;color:#1a1325}
-.hp-checklist li::before{content:"✓";width:24px;height:24px;min-width:24px;border-radius:50%;background:#452068;color:#fff;display:flex;align-items:center;justify-content:center;font-size:13px}
-.hp-form-card{background:#fff;border-radius:20px;padding:26px 24px;box-shadow:0 14px 40px rgba(69,32,104,.12)}
-.hp-logo{max-height:56px;width:auto;display:block;margin:0 auto 18px}
-.hp-row{display:grid;grid-template-columns:1fr 1fr;gap:10px}
-.hp-field{margin-bottom:13px}
-.hp-field label{display:block;font-size:13px;font-weight:bold;color:#1a1325;margin-bottom:5px}
-.hp-field label span{color:#dc2626}
-.hp-field input,.hp-field select{width:100%;padding:10px 12px;border:1px solid #ece8f2;border-radius:9px;font-family:Arial,sans-serif;font-size:14px;color:#1a1325;outline:none}
-.hp-field input:focus,.hp-field select:focus{border-color:#452068}
-.hp-consent{display:flex;gap:10px;align-items:flex-start;margin-bottom:16px}
-.hp-consent input{width:16px;height:16px;min-width:16px;margin-top:2px;accent-color:#452068}
-.hp-consent label{font-size:11px;color:#6b6477;line-height:1.5;cursor:pointer}
-.hp-consent label a{color:#452068;text-decoration:underline}
-#hpBtn{width:100%;padding:14px;background:#452068;color:#fff;border:none;border-radius:11px;font-family:Arial,sans-serif;font-size:15px;font-weight:bold;cursor:pointer;transition:background .2s}
-#hpBtn:hover{background:#2f1548}
-#hpBtn:disabled{background:#b0a8bc;cursor:not-allowed}
-.hp-error{background:#fef2f2;border:1px solid #fecaca;border-radius:9px;padding:10px 13px;font-size:13px;color:#dc2626;margin-bottom:12px}
-.hp-success{text-align:center;padding:20px 0}
-.hp-check{width:52px;height:52px;border-radius:50%;background:#eafaf2;display:flex;align-items:center;justify-content:center;font-size:24px;color:#16a34a;margin:0 auto 12px}
-.hp-success h3{font-size:17px;color:#452068;margin-bottom:8px}
-.hp-success p{font-size:14px;color:#6b6477;margin-bottom:12px}
-.hp-success a{color:#ff1090;font-weight:bold;text-decoration:none}
-@media(max-width:820px){
- .hp-form-section{grid-template-columns:1fr;gap:24px;padding:32px 20px}
- .hp-row{grid-template-columns:1fr}
-}
+
+
 </style>
 </head>
 <body>
@@ -501,41 +559,8 @@ Encuentra Mi Plan →
   #nav-toggle { display: none !important; }
   #nav-links { display: flex !important; }
  }
-.hp-form-section{
- display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:start;
- padding:56px 40px;background:linear-gradient(135deg,#f3eef8,#ede6f5);
- border-radius:24px;margin:40px 0;
-}
-.hp-form-left h2{font-size:28px;color:#2f1548;margin-bottom:10px;line-height:1.2}
-.hp-form-left p{font-size:15px;color:#6b6477;margin-bottom:20px;line-height:1.6}
-.hp-checklist{list-style:none;display:grid;gap:10px}
-.hp-checklist li{display:flex;align-items:center;gap:10px;font-size:14px;font-weight:bold;color:#1a1325}
-.hp-checklist li::before{content:"✓";width:24px;height:24px;min-width:24px;border-radius:50%;background:#452068;color:#fff;display:flex;align-items:center;justify-content:center;font-size:13px}
-.hp-form-card{background:#fff;border-radius:20px;padding:26px 24px;box-shadow:0 14px 40px rgba(69,32,104,.12)}
-.hp-logo{max-height:56px;width:auto;display:block;margin:0 auto 18px}
-.hp-row{display:grid;grid-template-columns:1fr 1fr;gap:10px}
-.hp-field{margin-bottom:13px}
-.hp-field label{display:block;font-size:13px;font-weight:bold;color:#1a1325;margin-bottom:5px}
-.hp-field label span{color:#dc2626}
-.hp-field input,.hp-field select{width:100%;padding:10px 12px;border:1px solid #ece8f2;border-radius:9px;font-family:Arial,sans-serif;font-size:14px;color:#1a1325;outline:none}
-.hp-field input:focus,.hp-field select:focus{border-color:#452068}
-.hp-consent{display:flex;gap:10px;align-items:flex-start;margin-bottom:16px}
-.hp-consent input{width:16px;height:16px;min-width:16px;margin-top:2px;accent-color:#452068}
-.hp-consent label{font-size:11px;color:#6b6477;line-height:1.5;cursor:pointer}
-.hp-consent label a{color:#452068;text-decoration:underline}
-#hpBtn{width:100%;padding:14px;background:#452068;color:#fff;border:none;border-radius:11px;font-family:Arial,sans-serif;font-size:15px;font-weight:bold;cursor:pointer;transition:background .2s}
-#hpBtn:hover{background:#2f1548}
-#hpBtn:disabled{background:#b0a8bc;cursor:not-allowed}
-.hp-error{background:#fef2f2;border:1px solid #fecaca;border-radius:9px;padding:10px 13px;font-size:13px;color:#dc2626;margin-bottom:12px}
-.hp-success{text-align:center;padding:20px 0}
-.hp-check{width:52px;height:52px;border-radius:50%;background:#eafaf2;display:flex;align-items:center;justify-content:center;font-size:24px;color:#16a34a;margin:0 auto 12px}
-.hp-success h3{font-size:17px;color:#452068;margin-bottom:8px}
-.hp-success p{font-size:14px;color:#6b6477;margin-bottom:12px}
-.hp-success a{color:#ff1090;font-weight:bold;text-decoration:none}
-@media(max-width:820px){
- .hp-form-section{grid-template-columns:1fr;gap:24px;padding:32px 20px}
- .hp-row{grid-template-columns:1fr}
-}
+
+
 </style>
 <script>
 var _nt=document.getElementById('nav-toggle');
@@ -737,118 +762,192 @@ for(var k=0;k<_navLinks.length;k++){
 <!-- LEAD FORM -->
 <section style="padding:56px 0;background:#f4eefa;">
  <div class="container">
- <div class="hp-form-section">
- <div class="hp-form-left">
- <h2>¿Listo para encontrar tu plan?</h2>
- <p>Cuéntanos un poco sobre ti y te contactaremos hoy con opciones personalizadas para tu situación.</p>
- <ul class="hp-checklist">
- <li>Comparamos 14+ aseguradoras por ti</li>
- <li>Sin costo para ti</li>
- <li>Respuesta el mismo día</li>
- <li>Bilingüe: Inglés y Español</li>
- </ul>
- </div>
- <div class="hp-form-card">
- <img src="/images/logo.png" alt="The Health Experts Insurance" class="hp-logo">
- <div class="hp-error" id="hpError" style="display:none"></div>
- <form id="hpForm" novalidate>
- <div class="hp-row">
- <div class="hp-field">
- <label>Nombre <span>*</span></label>
- <input type="text" id="hpFirst" placeholder="Maria" required>
- </div>
- <div class="hp-field">
- <label>Apellido <span>*</span></label>
- <input type="text" id="hpLast" placeholder="Rodriguez" required>
- </div>
- </div>
- <div class="hp-field">
- <label>Teléfono <span>*</span></label>
- <input type="tel" id="hpPhone" placeholder="+1 (305) 000-0000" required>
- </div>
- <div class="hp-field">
- <label>Correo Electrónico <span>*</span></label>
- <input type="email" id="hpEmail" placeholder="tu@email.com" required>
- </div>
- <div class="hp-field">
- <label>¿Qué estás buscando? <span>*</span></label>
- <select id="hpLooking" required>
- <option value="" disabled selected>Selecciona una opción</option>
- <option>Medicare — Advantage o Suplementario</option>
- <option>Medicare Parte D (Medicamentos Recetados)</option>
- <option>Plan del Mercado ACA</option>
- <option>Seguro Médico Privado</option>
- <option>Dental y Visión</option>
- <option>No estoy seguro — ayúdenme a comparar</option>
- <option>Tengo menos de 65 años — no sé qué necesito</option>
- </select>
- </div>
- <div class="hp-consent">
- <input type="checkbox" id="hpConsent" required>
- <label for="hpConsent">Al marcar esta casilla, usted acepta recibir mensajes de texto enviados por un marcador automático de The Health Experts Insurance sobre servicios de seguros, citas y actualizaciones. El consentimiento no es una condición de compra. Pueden aplicarse tarifas de mensajes y datos. Puede optar por no participar en cualquier momento respondiendo STOP. Vea nuestros <a href="/es/terms">Términos y Política de Privacidad</a>.</label>
- </div>
- <button type="submit" id="hpBtn">Obtén tu Cotización Gratis →</button>
- </form>
- <div class="hp-success" id="hpSuccess" style="display:none">
- <div class="hp-check">✓</div>
- <h3>¡Gracias — recibimos tu solicitud!</h3>
- <p>Un agente bilingüe con licencia se comunicará contigo pronto.</p>
- <a href="tel:18003806821">📞 Llama al 1-800-380-6821</a>
- </div>
- </div>
- </div>
+<div class="hpf-section" id="hpfSectionES">
+
+  <!-- LEFT -->
+  <div class="hpf-left">
+    <div class="hpf-stars">
+      <span class="stars">★★★★★</span>
+      <span>4.9 en Google · Asesores con Licencia en Florida · Sin Costo</span>
+    </div>
+
+    <div class="hpf-cta-row">
+      <a href="https://calendly.com/healthexps-info/" class="hpf-btn-pink">Agenda tu Consulta Gratis</a>
+      <a href="tel:18003806821" class="hpf-phone">O llama al 1-800-380-6821</a>
+    </div>
+
+    <div class="hpf-pills">
+      <div class="hpf-pill">Consultas sin costo</div>
+      <div class="hpf-pill">Agentes con licencia en Florida</div>
+      <div class="hpf-pill">Medicare, ACA y seguros privados</div>
+      <div class="hpf-pill">Apoyo antes y después de la inscripción</div>
+    </div>
+
+    <div class="hpf-divider"></div>
+
+    <div class="hpf-why">
+      <h3>Por qué las familias del sur de Florida nos eligen</h3>
+      <div class="hpf-why-list">
+        <div class="hpf-why-item">
+          <div class="hpf-why-icon">🤝</div>
+          <div class="hpf-why-text">
+            <strong>Ayuda humana real</strong>
+            <span>Agentes con licencia en Florida — no un centro de llamadas.</span>
+          </div>
+        </div>
+        <div class="hpf-why-item">
+          <div class="hpf-why-icon">🗣️</div>
+          <div class="hpf-why-text">
+            <strong>Apoyo bilingüe</strong>
+            <span>Servicio fluido en inglés y español.</span>
+          </div>
+        </div>
+        <div class="hpf-why-item">
+          <div class="hpf-why-icon">💰</div>
+          <div class="hpf-why-text">
+            <strong>$0 costo para ti</strong>
+            <span>Pagado por las aseguradoras. Sin tarifas, sin presión, sin obligación.</span>
+          </div>
+        </div>
+        <div class="hpf-why-item">
+          <div class="hpf-why-icon">📋</div>
+          <div class="hpf-why-text">
+            <strong>Comparación de planes lado a lado</strong>
+            <span>Emparejamos planes con tus médicos, medicamentos y presupuesto.</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="hpf-quote">
+      <p>"La mejor experiencia que pude haber tenido. Yahoska nos guió para encontrar la mejor cobertura de Medicare después de que nuestra aseguradora dejó el mercado."</p>
+      <cite>— Margaret R., reseña verificada de Google</cite>
+    </div>
+  </div>
+
+  <!-- RIGHT — FORM -->
+  <div class="hpf-card">
+    <div class="hpf-card-title">Solicita tu Consulta Gratis</div>
+    <div class="hpf-card-sub">Cuéntanos un poco sobre tus necesidades. Revisaremos tus opciones y te guiaremos paso a paso.</div>
+
+    <div class="hpf-error" id="hpfError"></div>
+
+    <form id="hpfForm" novalidate>
+      <div class="hpf-row">
+        <div class="hpf-field">
+          <label>Nombre <em>*</em></label>
+          <input type="text" id="hpfFirst" placeholder="Maria" required>
+        </div>
+        <div class="hpf-field">
+          <label>Apellido <em>*</em></label>
+          <input type="text" id="hpfLast" placeholder="Rodriguez" required>
+        </div>
+      </div>
+      <div class="hpf-field">
+        <label>Número de Teléfono <em>*</em></label>
+        <input type="tel" id="hpfPhone" placeholder="+1 (305) 000-0000" required>
+      </div>
+      <div class="hpf-field">
+        <label>Correo Electrónico <em>*</em></label>
+        <input type="email" id="hpfEmail" placeholder="tu@email.com" required>
+      </div>
+      <div class="hpf-field">
+        <label>¿Qué estás buscando? <em>*</em></label>
+        <select id="hpfLooking" required>
+          <option value="" disabled selected>Selecciona una opción</option>
+          <option>Medicare — Advantage o Suplementario</option>
+          <option>Medicare Parte D (Medicamentos Recetados)</option>
+          <option>Plan del Mercado (ACA)</option>
+          <option>Seguro Médico Privado</option>
+          <option>Dental y Visión</option>
+          <option>No estoy seguro — ayúdenme a comparar</option>
+          <option>Tengo menos de 65 años — no sé qué necesito</option>
+        </select>
+      </div>
+
+      <div class="hpf-privacy">Tu información es privada. Solo agentes con licencia — sin spam.</div>
+
+      <div class="hpf-consent-wrap">
+        <input type="checkbox" id="hpfConsent" required>
+        <label for="hpfConsent">Al marcar esta casilla, usted acepta recibir mensajes de texto enviados por un marcador automático de The Health Experts Insurance sobre servicios de seguros, citas y actualizaciones. El consentimiento no es una condición de compra. Pueden aplicarse tarifas de mensajes y datos. Puede optar por no participar en cualquier momento respondiendo STOP. Vea nuestros <a href="/es/terms">Términos y Política de Privacidad</a>.</label>
+      </div>
+
+      <button type="submit" id="hpfBtn">Agenda tu Consulta Gratis →</button>
+    </form>
+
+    <div class="hpf-success" id="hpfSuccess">
+      <div class="hpf-success-check">✓</div>
+      <h3>¡Gracias — recibimos tu solicitud!</h3>
+      <p>Un agente bilingüe con licencia se comunicará contigo pronto. ¿Necesitas hablar antes?</p>
+      <a href="tel:18003806821">📞 Llama al 1-800-380-6821</a>
+      <a href="https://wa.me/13054646888">💬 WhatsApp</a>
+    </div>
+  </div>
+</div>
  </div>
 </section>
 
 <script>
-const WEBHOOK = 'https://services.leadconnectorhq.com/hooks/RINM4TCnM4hN06UA1aK0/webhook-trigger/dc6c8b35-9480-412e-b56d-4a4c8c7bd438';
-const isES = window.location.pathname.includes('/es/');
+(function(){
+  const WEBHOOK = 'https://services.leadconnectorhq.com/hooks/RINM4TCnM4hN06UA1aK0/webhook-trigger/dc6c8b35-9480-412e-b56d-4a4c8c7bd438';
+  const isES = window.location.pathname.includes('/es/');
 
-document.getElementById('hpForm').addEventListener('submit', async function(e){
- e.preventDefault();
- const btn = document.getElementById('hpBtn');
- const err = document.getElementById('hpError');
- const first = document.getElementById('hpFirst').value.trim();
- const last = document.getElementById('hpLast').value.trim();
- const phone = document.getElementById('hpPhone').value.trim();
- const email = document.getElementById('hpEmail').value.trim();
- const coverage = document.getElementById('hpLooking').value;
- const consent = document.getElementById('hpConsent').checked;
- if(!first||!last||!phone||!email||!coverage||!consent){
- err.style.display='block';
- err.textContent=isES?'Por favor completa todos los campos.':'Please fill in all required fields.';
- return;
- }
- btn.disabled=true;
- btn.textContent=isES?'Enviando...':'Sending...';
- err.style.display='none';
- try{
- const res = await fetch(WEBHOOK,{
- method:'POST',
- headers:{'Content-Type':'application/json'},
- body:JSON.stringify({
- first_name: first,
- last_name: last,
- phone: phone,
- email: email,
- coverage_type: coverage,
- lang: isES?'spanish':'english',
- source: 'Homepage Form',
- page: window.location.href,
- submitted_at: new Date().toISOString()
- })
- });
- if(res.ok){
- document.getElementById('hpForm').style.display='none';
- document.getElementById('hpSuccess').style.display='block';
- } else { throw new Error(); }
- } catch(e){
- btn.disabled=false;
- btn.textContent=isES?'Obtén tu Cotización Gratis →':'Get My Free Quote →';
- err.style.display='block';
- err.textContent=isES?'Algo salió mal. Llama al 1-800-380-6821.':'Something went wrong. Call 1-800-380-6821.';
- }
-});
+  const form = document.getElementById('hpfForm');
+  if(!form) return;
+
+  form.addEventListener('submit', async function(e){
+    e.preventDefault();
+    const btn = document.getElementById('hpfBtn');
+    const err = document.getElementById('hpfError');
+    const first = document.getElementById('hpfFirst').value.trim();
+    const last  = document.getElementById('hpfLast').value.trim();
+    const phone = document.getElementById('hpfPhone').value.trim();
+    const email = document.getElementById('hpfEmail').value.trim();
+    const coverage = document.getElementById('hpfLooking').value;
+    const consent = document.getElementById('hpfConsent').checked;
+
+    if(!first||!last||!phone||!email||!coverage||!consent){
+      err.style.display='block';
+      err.textContent = isES
+        ? 'Por favor completa todos los campos requeridos.'
+        : 'Please fill in all required fields.';
+      return;
+    }
+
+    btn.disabled = true;
+    btn.textContent = isES ? 'Enviando...' : 'Sending...';
+    err.style.display = 'none';
+
+    try{
+      const res = await fetch(WEBHOOK, {
+        method: 'POST',
+        headers: {'Content-Type':'application/json'},
+        body: JSON.stringify({
+          first_name: first,
+          last_name: last,
+          phone: phone,
+          email: email,
+          coverage_type: coverage,
+          lang: isES ? 'spanish' : 'english',
+          source: 'Homepage Form',
+          page: window.location.href,
+          submitted_at: new Date().toISOString()
+        })
+      });
+      if(res.ok){
+        document.getElementById('hpfForm').style.display = 'none';
+        document.getElementById('hpfSuccess').style.display = 'block';
+      } else { throw new Error(); }
+    } catch(e){
+      btn.disabled = false;
+      btn.textContent = isES ? 'Agenda tu Consulta Gratis →' : 'Book My Free Consultation →';
+      err.style.display = 'block';
+      err.textContent = isES
+        ? 'Algo salió mal. Llama al 1-800-380-6821.'
+        : 'Something went wrong. Please call 1-800-380-6821.';
+    }
+  });
+})();
 </script>
  </div>
  </div>
