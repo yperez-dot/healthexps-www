@@ -42,8 +42,9 @@ a{color:var(--purple);text-decoration:none;}a:hover{color:var(--pink);}
 .hero-card{background:white;border-radius:20px;padding:28px;box-shadow:0 20px 56px rgba(0,0,0,0.28);}
 .hc-title{font-size:13px;font-weight:700;color:var(--gray-text);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:18px;}
 .hc-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
-.hc-item{background:var(--purple-light);border-radius:10px;padding:14px;}
+.hc-item{background:var(--purple-light);border-radius:10px;padding:14px;transition:transform .15s,box-shadow .15s;cursor:default;}
 .hc-item.green{background:#f0fdf4;}
+.hc-item:hover{transform:translateY(-3px);box-shadow:0 8px 20px rgba(69,32,104,.12);}
 .hc-num{font-size:24px;font-weight:700;color:var(--purple);line-height:1;margin-bottom:3px;}
 .hc-item.green .hc-num{color:var(--green);}
 .hc-lbl{font-size:12px;color:var(--gray-text);line-height:1.4;}
