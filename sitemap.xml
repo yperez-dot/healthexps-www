@@ -1,0 +1,541 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
+
+<!-- Homepage -->
+<url>
+  <loc>https://www.healthexps.com/</loc>
+  <lastmod>2026-06-22</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>1.0</priority>
+  <xhtml:link rel="alternate" hreflang="en" href="https://www.healthexps.com/"/>
+  <xhtml:link rel="alternate" hreflang="es" href="https://www.healthexps.com/es/"/>
+</url>
+
+<url>
+  <loc>https://www.healthexps.com/es/</loc>
+  <lastmod>2026-06-22</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>1.0</priority>
+  <xhtml:link rel="alternate" hreflang="en" href="https://www.healthexps.com/"/>
+  <xhtml:link rel="alternate" hreflang="es" href="https://www.healthexps.com/es/"/>
+</url>
+
+<!-- Medicare Plans Landing Pages -->
+<url>
+  <loc>https://www.healthexps.com/medicare-plans-miami</loc>
+  <lastmod>2026-06-22</lastmod>
+  <changefreq>monthly</changefreq>
+  <priority>0.9</priority>
+  <xhtml:link rel="alternate" hreflang="en" href="https://www.healthexps.com/medicare-plans-miami"/>
+  <xhtml:link rel="alternate" hreflang="es" href="https://www.healthexps.com/es/planes-de-medicare-miami"/>
+</url>
+
+<url>
+  <loc>https://www.healthexps.com/es/planes-de-medicare-miami</loc>
+  <lastmod>2026-06-22</lastmod>
+  <changefreq>monthly</changefreq>
+  <priority>0.9</priority>
+  <xhtml:link rel="alternate" hreflang="en" href="https://www.healthexps.com/medicare-plans-miami"/>
+  <xhtml:link rel="alternate" hreflang="es" href="https://www.healthexps.com/es/planes-de-medicare-miami"/>
+</url>
+
+<url>
+  <loc>https://www.healthexps.com/medicare-advantage-miami</loc>
+  <lastmod>2026-06-22</lastmod>
+  <changefreq>monthly</changefreq>
+  <priority>0.9</priority>
+  <xhtml:link rel="alternate" hreflang="en" href="https://www.healthexps.com/medicare-advantage-miami"/>
+  <xhtml:link rel="alternate" hreflang="es" href="https://www.healthexps.com/es/medicare-advantage-en-espanol"/>
+</url>
+
+<url>
+  <loc>https://www.healthexps.com/es/medicare-advantage-en-espanol</loc>
+  <lastmod>2026-06-22</lastmod>
+  <changefreq>monthly</changefreq>
+  <priority>0.9</priority>
+  <xhtml:link rel="alternate" hreflang="en" href="https://www.healthexps.com/medicare-advantage-miami"/>
+  <xhtml:link rel="alternate" hreflang="es" href="https://www.healthexps.com/es/medicare-advantage-en-espanol"/>
+</url>
+
+<url>
+  <loc>https://www.healthexps.com/medicare-supplement-miami</loc>
+  <lastmod>2026-06-22</lastmod>
+  <changefreq>monthly</changefreq>
+  <priority>0.9</priority>
+  <xhtml:link rel="alternate" hreflang="en" href="https://www.healthexps.com/medicare-supplement-miami"/>
+  <xhtml:link rel="alternate" hreflang="es" href="https://www.healthexps.com/es/medicare-suplementario-miami"/>
+</url>
+
+<url>
+  <loc>https://www.healthexps.com/es/medicare-suplementario-miami</loc>
+  <lastmod>2026-06-22</lastmod>
+  <changefreq>monthly</changefreq>
+  <priority>0.9</priority>
+  <xhtml:link rel="alternate" hreflang="en" href="https://www.healthexps.com/medicare-supplement-miami"/>
+  <xhtml:link rel="alternate" hreflang="es" href="https://www.healthexps.com/es/medicare-suplementario-miami"/>
+</url>
+
+<!-- NEW: D-SNP Dual Eligible -->
+<url>
+  <loc>https://www.healthexps.com/medicare-dual-eligible-miami</loc>
+  <lastmod>2026-06-22</lastmod>
+  <changefreq>monthly</changefreq>
+  <priority>0.9</priority>
+  <xhtml:link rel="alternate" hreflang="en" href="https://www.healthexps.com/medicare-dual-eligible-miami"/>
+  <xhtml:link rel="alternate" hreflang="es" href="https://www.healthexps.com/es/medicare-medicaid-miami"/>
+</url>
+
+<url>
+  <loc>https://www.healthexps.com/es/medicare-medicaid-miami</loc>
+  <lastmod>2026-06-22</lastmod>
+  <changefreq>monthly</changefreq>
+  <priority>0.9</priority>
+  <xhtml:link rel="alternate" hreflang="en" href="https://www.healthexps.com/medicare-dual-eligible-miami"/>
+  <xhtml:link rel="alternate" hreflang="es" href="https://www.healthexps.com/es/medicare-medicaid-miami"/>
+</url>
+
+<!-- Medicare Guide Pages -->
+<url>
+  <loc>https://www.healthexps.com/medicare/what-is-medicare</loc>
+  <lastmod>2026-06-22</lastmod>
+  <changefreq>monthly</changefreq>
+  <priority>0.8</priority>
+  <xhtml:link rel="alternate" hreflang="en" href="https://www.healthexps.com/medicare/what-is-medicare"/>
+  <xhtml:link rel="alternate" hreflang="es" href="https://www.healthexps.com/es/medicare/que-es-medicare"/>
+</url>
+
+<url>
+  <loc>https://www.healthexps.com/es/medicare/que-es-medicare</loc>
+  <lastmod>2026-06-22</lastmod>
+  <changefreq>monthly</changefreq>
+  <priority>0.8</priority>
+  <xhtml:link rel="alternate" hreflang="en" href="https://www.healthexps.com/medicare/what-is-medicare"/>
+  <xhtml:link rel="alternate" hreflang="es" href="https://www.healthexps.com/es/medicare/que-es-medicare"/>
+</url>
+
+<url>
+  <loc>https://www.healthexps.com/medicare/new-to-medicare</loc>
+  <lastmod>2026-06-22</lastmod>
+  <changefreq>monthly</changefreq>
+  <priority>0.8</priority>
+  <xhtml:link rel="alternate" hreflang="en" href="https://www.healthexps.com/medicare/new-to-medicare"/>
+  <xhtml:link rel="alternate" hreflang="es" href="https://www.healthexps.com/es/medicare/nuevo-en-medicare"/>
+</url>
+
+<url>
+  <loc>https://www.healthexps.com/es/medicare/nuevo-en-medicare</loc>
+  <lastmod>2026-06-22</lastmod>
+  <changefreq>monthly</changefreq>
+  <priority>0.8</priority>
+  <xhtml:link rel="alternate" hreflang="en" href="https://www.healthexps.com/medicare/new-to-medicare"/>
+  <xhtml:link rel="alternate" hreflang="es" href="https://www.healthexps.com/es/medicare/nuevo-en-medicare"/>
+</url>
+
+<url>
+  <loc>https://www.healthexps.com/medicare/medicare-advantage-plans</loc>
+  <lastmod>2026-06-22</lastmod>
+  <changefreq>monthly</changefreq>
+  <priority>0.8</priority>
+  <xhtml:link rel="alternate" hreflang="en" href="https://www.healthexps.com/medicare/medicare-advantage-plans"/>
+  <xhtml:link rel="alternate" hreflang="es" href="https://www.healthexps.com/es/medicare/planes-medicare-advantage"/>
+</url>
+
+<url>
+  <loc>https://www.healthexps.com/es/medicare/planes-medicare-advantage</loc>
+  <lastmod>2026-06-22</lastmod>
+  <changefreq>monthly</changefreq>
+  <priority>0.8</priority>
+  <xhtml:link rel="alternate" hreflang="en" href="https://www.healthexps.com/medicare/medicare-advantage-plans"/>
+  <xhtml:link rel="alternate" hreflang="es" href="https://www.healthexps.com/es/medicare/planes-medicare-advantage"/>
+</url>
+
+<url>
+  <loc>https://www.healthexps.com/medicare/medicare-supplement-plans</loc>
+  <lastmod>2026-06-22</lastmod>
+  <changefreq>monthly</changefreq>
+  <priority>0.8</priority>
+  <xhtml:link rel="alternate" hreflang="en" href="https://www.healthexps.com/medicare/medicare-supplement-plans"/>
+  <xhtml:link rel="alternate" hreflang="es" href="https://www.healthexps.com/es/medicare/medicare-suplementario"/>
+</url>
+
+<url>
+  <loc>https://www.healthexps.com/es/medicare/medicare-suplementario</loc>
+  <lastmod>2026-06-22</lastmod>
+  <changefreq>monthly</changefreq>
+  <priority>0.8</priority>
+  <xhtml:link rel="alternate" hreflang="en" href="https://www.healthexps.com/medicare/medicare-supplement-plans"/>
+  <xhtml:link rel="alternate" hreflang="es" href="https://www.healthexps.com/es/medicare/medicare-suplementario"/>
+</url>
+
+<url>
+  <loc>https://www.healthexps.com/medicare/medicare-costs</loc>
+  <lastmod>2026-06-22</lastmod>
+  <changefreq>yearly</changefreq>
+  <priority>0.8</priority>
+  <xhtml:link rel="alternate" hreflang="en" href="https://www.healthexps.com/medicare/medicare-costs"/>
+  <xhtml:link rel="alternate" hreflang="es" href="https://www.healthexps.com/es/medicare/costos-de-medicare"/>
+</url>
+
+<url>
+  <loc>https://www.healthexps.com/es/medicare/costos-de-medicare</loc>
+  <lastmod>2026-06-22</lastmod>
+  <changefreq>yearly</changefreq>
+  <priority>0.8</priority>
+  <xhtml:link rel="alternate" hreflang="en" href="https://www.healthexps.com/medicare/medicare-costs"/>
+  <xhtml:link rel="alternate" hreflang="es" href="https://www.healthexps.com/es/medicare/costos-de-medicare"/>
+</url>
+
+<!-- Medicare Savings Program -->
+<url>
+  <loc>https://www.healthexps.com/medicare-savings-program</loc>
+  <lastmod>2026-06-22</lastmod>
+  <changefreq>yearly</changefreq>
+  <priority>0.8</priority>
+  <xhtml:link rel="alternate" hreflang="en" href="https://www.healthexps.com/medicare-savings-program"/>
+  <xhtml:link rel="alternate" hreflang="es" href="https://www.healthexps.com/es/medicare/programa-ahorros-medicare"/>
+</url>
+
+<url>
+  <loc>https://www.healthexps.com/es/medicare/programa-ahorros-medicare</loc>
+  <lastmod>2026-06-22</lastmod>
+  <changefreq>yearly</changefreq>
+  <priority>0.8</priority>
+  <xhtml:link rel="alternate" hreflang="en" href="https://www.healthexps.com/medicare-savings-program"/>
+  <xhtml:link rel="alternate" hreflang="es" href="https://www.healthexps.com/es/medicare/programa-ahorros-medicare"/>
+</url>
+
+<!-- Medicare Tools & Resources -->
+<url>
+  <loc>https://www.healthexps.com/medicare-enrollment-periods</loc>
+  <lastmod>2026-06-15</lastmod>
+  <changefreq>monthly</changefreq>
+  <priority>0.7</priority>
+  <xhtml:link rel="alternate" hreflang="en" href="https://www.healthexps.com/medicare-enrollment-periods"/>
+  <xhtml:link rel="alternate" hreflang="es" href="https://www.healthexps.com/es/periodos-inscripcion-medicare"/>
+</url>
+
+<url>
+  <loc>https://www.healthexps.com/es/periodos-inscripcion-medicare</loc>
+  <lastmod>2026-06-15</lastmod>
+  <changefreq>monthly</changefreq>
+  <priority>0.7</priority>
+  <xhtml:link rel="alternate" hreflang="en" href="https://www.healthexps.com/medicare-enrollment-periods"/>
+  <xhtml:link rel="alternate" hreflang="es" href="https://www.healthexps.com/es/periodos-inscripcion-medicare"/>
+</url>
+
+<url>
+  <loc>https://www.healthexps.com/medicare-irmaa-penalties</loc>
+  <lastmod>2026-06-15</lastmod>
+  <changefreq>yearly</changefreq>
+  <priority>0.7</priority>
+  <xhtml:link rel="alternate" hreflang="en" href="https://www.healthexps.com/medicare-irmaa-penalties"/>
+  <xhtml:link rel="alternate" hreflang="es" href="https://www.healthexps.com/es/irmaa-penalidades-medicare"/>
+</url>
+
+<url>
+  <loc>https://www.healthexps.com/es/irmaa-penalidades-medicare</loc>
+  <lastmod>2026-06-15</lastmod>
+  <changefreq>yearly</changefreq>
+  <priority>0.7</priority>
+  <xhtml:link rel="alternate" hreflang="en" href="https://www.healthexps.com/medicare-irmaa-penalties"/>
+  <xhtml:link rel="alternate" hreflang="es" href="https://www.healthexps.com/es/irmaa-penalidades-medicare"/>
+</url>
+
+<url>
+  <loc>https://www.healthexps.com/medicare-myths</loc>
+  <lastmod>2026-06-15</lastmod>
+  <changefreq>monthly</changefreq>
+  <priority>0.6</priority>
+  <xhtml:link rel="alternate" hreflang="en" href="https://www.healthexps.com/medicare-myths"/>
+  <xhtml:link rel="alternate" hreflang="es" href="https://www.healthexps.com/es/mitos-medicare"/>
+</url>
+
+<url>
+  <loc>https://www.healthexps.com/es/mitos-medicare</loc>
+  <lastmod>2026-06-15</lastmod>
+  <changefreq>monthly</changefreq>
+  <priority>0.6</priority>
+  <xhtml:link rel="alternate" hreflang="en" href="https://www.healthexps.com/medicare-myths"/>
+  <xhtml:link rel="alternate" hreflang="es" href="https://www.healthexps.com/es/mitos-medicare"/>
+</url>
+
+<!-- Calculators & Tools -->
+<url>
+  <loc>https://www.healthexps.com/medicare-plan-finder</loc>
+  <lastmod>2026-06-15</lastmod>
+  <changefreq>monthly</changefreq>
+  <priority>0.7</priority>
+  <xhtml:link rel="alternate" hreflang="en" href="https://www.healthexps.com/medicare-plan-finder"/>
+  <xhtml:link rel="alternate" hreflang="es" href="https://www.healthexps.com/es/buscador-de-planes"/>
+</url>
+
+<url>
+  <loc>https://www.healthexps.com/es/buscador-de-planes</loc>
+  <lastmod>2026-06-15</lastmod>
+  <changefreq>monthly</changefreq>
+  <priority>0.7</priority>
+  <xhtml:link rel="alternate" hreflang="en" href="https://www.healthexps.com/medicare-plan-finder"/>
+  <xhtml:link rel="alternate" hreflang="es" href="https://www.healthexps.com/es/buscador-de-planes"/>
+</url>
+
+<url>
+  <loc>https://www.healthexps.com/enrollment-calculator</loc>
+  <lastmod>2026-06-15</lastmod>
+  <changefreq>yearly</changefreq>
+  <priority>0.6</priority>
+  <xhtml:link rel="alternate" hreflang="en" href="https://www.healthexps.com/enrollment-calculator"/>
+  <xhtml:link rel="alternate" hreflang="es" href="https://www.healthexps.com/es/enrollment-calculator"/>
+</url>
+
+<url>
+  <loc>https://www.healthexps.com/es/enrollment-calculator</loc>
+  <lastmod>2026-06-15</lastmod>
+  <changefreq>yearly</changefreq>
+  <priority>0.6</priority>
+  <xhtml:link rel="alternate" hreflang="en" href="https://www.healthexps.com/enrollment-calculator"/>
+  <xhtml:link rel="alternate" hreflang="es" href="https://www.healthexps.com/es/enrollment-calculator"/>
+</url>
+
+<url>
+  <loc>https://www.healthexps.com/irmaa-calculator</loc>
+  <lastmod>2026-06-15</lastmod>
+  <changefreq>yearly</changefreq>
+  <priority>0.6</priority>
+</url>
+
+<url>
+  <loc>https://www.healthexps.com/compare-medicare-plans</loc>
+  <lastmod>2026-06-15</lastmod>
+  <changefreq>monthly</changefreq>
+  <priority>0.7</priority>
+  <xhtml:link rel="alternate" hreflang="en" href="https://www.healthexps.com/compare-medicare-plans"/>
+  <xhtml:link rel="alternate" hreflang="es" href="https://www.healthexps.com/es/comparar-planes-de-medicare"/>
+</url>
+
+<url>
+  <loc>https://www.healthexps.com/es/comparar-planes-de-medicare</loc>
+  <lastmod>2026-06-15</lastmod>
+  <changefreq>monthly</changefreq>
+  <priority>0.7</priority>
+  <xhtml:link rel="alternate" hreflang="en" href="https://www.healthexps.com/compare-medicare-plans"/>
+  <xhtml:link rel="alternate" hreflang="es" href="https://www.healthexps.com/es/comparar-planes-de-medicare"/>
+</url>
+
+<url>
+  <loc>https://www.healthexps.com/medigap-calculator</loc>
+  <lastmod>2026-06-22</lastmod>
+  <changefreq>monthly</changefreq>
+  <priority>0.6</priority>
+</url>
+
+<!-- Other Insurance Products -->
+<url>
+  <loc>https://www.healthexps.com/aca-plans-miami</loc>
+  <lastmod>2026-06-15</lastmod>
+  <changefreq>monthly</changefreq>
+  <priority>0.7</priority>
+  <xhtml:link rel="alternate" hreflang="en" href="https://www.healthexps.com/aca-plans-miami"/>
+  <xhtml:link rel="alternate" hreflang="es" href="https://www.healthexps.com/es/planes-aca-miami"/>
+</url>
+
+<url>
+  <loc>https://www.healthexps.com/es/planes-aca-miami</loc>
+  <lastmod>2026-06-15</lastmod>
+  <changefreq>monthly</changefreq>
+  <priority>0.7</priority>
+  <xhtml:link rel="alternate" hreflang="en" href="https://www.healthexps.com/aca-plans-miami"/>
+  <xhtml:link rel="alternate" hreflang="es" href="https://www.healthexps.com/es/planes-aca-miami"/>
+</url>
+
+<url>
+  <loc>https://www.healthexps.com/private-health-insurance-miami</loc>
+  <lastmod>2026-06-15</lastmod>
+  <changefreq>monthly</changefreq>
+  <priority>0.7</priority>
+  <xhtml:link rel="alternate" hreflang="en" href="https://www.healthexps.com/private-health-insurance-miami"/>
+  <xhtml:link rel="alternate" hreflang="es" href="https://www.healthexps.com/es/seguro-medico-privado-miami"/>
+</url>
+
+<url>
+  <loc>https://www.healthexps.com/es/seguro-medico-privado-miami</loc>
+  <lastmod>2026-06-15</lastmod>
+  <changefreq>monthly</changefreq>
+  <priority>0.7</priority>
+  <xhtml:link rel="alternate" hreflang="en" href="https://www.healthexps.com/private-health-insurance-miami"/>
+  <xhtml:link rel="alternate" hreflang="es" href="https://www.healthexps.com/es/seguro-medico-privado-miami"/>
+</url>
+
+<url>
+  <loc>https://www.healthexps.com/dental-vision-miami</loc>
+  <lastmod>2026-06-15</lastmod>
+  <changefreq>monthly</changefreq>
+  <priority>0.6</priority>
+  <xhtml:link rel="alternate" hreflang="en" href="https://www.healthexps.com/dental-vision-miami"/>
+  <xhtml:link rel="alternate" hreflang="es" href="https://www.healthexps.com/es/dental-vision-miami"/>
+</url>
+
+<url>
+  <loc>https://www.healthexps.com/es/dental-vision-miami</loc>
+  <lastmod>2026-06-15</lastmod>
+  <changefreq>monthly</changefreq>
+  <priority>0.6</priority>
+  <xhtml:link rel="alternate" hreflang="en" href="https://www.healthexps.com/dental-vision-miami"/>
+  <xhtml:link rel="alternate" hreflang="es" href="https://www.healthexps.com/es/dental-vision-miami"/>
+</url>
+
+<!-- AvMed Special Page -->
+<url>
+  <loc>https://www.healthexps.com/avmed-medicare-florida</loc>
+  <lastmod>2026-06-15</lastmod>
+  <changefreq>monthly</changefreq>
+  <priority>0.7</priority>
+  <xhtml:link rel="alternate" hreflang="en" href="https://www.healthexps.com/avmed-medicare-florida"/>
+  <xhtml:link rel="alternate" hreflang="es" href="https://www.healthexps.com/es/avmed-medicare-florida-espanol"/>
+</url>
+
+<url>
+  <loc>https://www.healthexps.com/es/avmed-medicare-florida-espanol</loc>
+  <lastmod>2026-06-15</lastmod>
+  <changefreq>monthly</changefreq>
+  <priority>0.7</priority>
+  <xhtml:link rel="alternate" hreflang="en" href="https://www.healthexps.com/avmed-medicare-florida"/>
+  <xhtml:link rel="alternate" hreflang="es" href="https://www.healthexps.com/es/avmed-medicare-florida-espanol"/>
+</url>
+
+<!-- About & Contact -->
+<url>
+  <loc>https://www.healthexps.com/medicare-agent-miami</loc>
+  <lastmod>2026-06-15</lastmod>
+  <changefreq>monthly</changefreq>
+  <priority>0.7</priority>
+  <xhtml:link rel="alternate" hreflang="en" href="https://www.healthexps.com/medicare-agent-miami"/>
+  <xhtml:link rel="alternate" hreflang="es" href="https://www.healthexps.com/es/agente-de-medicare-miami"/>
+</url>
+
+<url>
+  <loc>https://www.healthexps.com/es/agente-de-medicare-miami</loc>
+  <lastmod>2026-06-15</lastmod>
+  <changefreq>monthly</changefreq>
+  <priority>0.7</priority>
+  <xhtml:link rel="alternate" hreflang="en" href="https://www.healthexps.com/medicare-agent-miami"/>
+  <xhtml:link rel="alternate" hreflang="es" href="https://www.healthexps.com/es/agente-de-medicare-miami"/>
+</url>
+
+<url>
+  <loc>https://www.healthexps.com/contact</loc>
+  <lastmod>2026-06-15</lastmod>
+  <changefreq>monthly</changefreq>
+  <priority>0.6</priority>
+  <xhtml:link rel="alternate" hreflang="en" href="https://www.healthexps.com/contact"/>
+  <xhtml:link rel="alternate" hreflang="es" href="https://www.healthexps.com/es/contacto"/>
+</url>
+
+<url>
+  <loc>https://www.healthexps.com/es/contacto</loc>
+  <lastmod>2026-06-15</lastmod>
+  <changefreq>monthly</changefreq>
+  <priority>0.6</priority>
+  <xhtml:link rel="alternate" hreflang="en" href="https://www.healthexps.com/contact"/>
+  <xhtml:link rel="alternate" hreflang="es" href="https://www.healthexps.com/es/contacto"/>
+</url>
+
+<url>
+  <loc>https://www.healthexps.com/resources</loc>
+  <lastmod>2026-06-15</lastmod>
+  <changefreq>monthly</changefreq>
+  <priority>0.6</priority>
+  <xhtml:link rel="alternate" hreflang="en" href="https://www.healthexps.com/resources"/>
+  <xhtml:link rel="alternate" hreflang="es" href="https://www.healthexps.com/es/recursos"/>
+</url>
+
+<url>
+  <loc>https://www.healthexps.com/es/recursos</loc>
+  <lastmod>2026-06-15</lastmod>
+  <changefreq>monthly</changefreq>
+  <priority>0.6</priority>
+  <xhtml:link rel="alternate" hreflang="en" href="https://www.healthexps.com/resources"/>
+  <xhtml:link rel="alternate" hreflang="es" href="https://www.healthexps.com/es/recursos"/>
+</url>
+
+<!-- FAQ Pages -->
+<url>
+  <loc>https://www.healthexps.com/faq</loc>
+  <lastmod>2026-06-15</lastmod>
+  <changefreq>monthly</changefreq>
+  <priority>0.6</priority>
+  <xhtml:link rel="alternate" hreflang="en" href="https://www.healthexps.com/faq"/>
+  <xhtml:link rel="alternate" hreflang="es" href="https://www.healthexps.com/es/faq"/>
+</url>
+
+<url>
+  <loc>https://www.healthexps.com/es/faq</loc>
+  <lastmod>2026-06-15</lastmod>
+  <changefreq>monthly</changefreq>
+  <priority>0.6</priority>
+  <xhtml:link rel="alternate" hreflang="en" href="https://www.healthexps.com/faq"/>
+  <xhtml:link rel="alternate" hreflang="es" href="https://www.healthexps.com/es/faq"/>
+</url>
+
+<url>
+  <loc>https://www.healthexps.com/faq/medicarefaq</loc>
+  <lastmod>2026-06-22</lastmod>
+  <changefreq>monthly</changefreq>
+  <priority>0.6</priority>
+  <xhtml:link rel="alternate" hreflang="en" href="https://www.healthexps.com/faq/medicarefaq"/>
+  <xhtml:link rel="alternate" hreflang="es" href="https://www.healthexps.com/es/faq-medicare"/>
+</url>
+
+<url>
+  <loc>https://www.healthexps.com/es/faq-medicare</loc>
+  <lastmod>2026-06-22</lastmod>
+  <changefreq>monthly</changefreq>
+  <priority>0.6</priority>
+  <xhtml:link rel="alternate" hreflang="en" href="https://www.healthexps.com/faq/medicarefaq"/>
+  <xhtml:link rel="alternate" hreflang="es" href="https://www.healthexps.com/es/faq-medicare"/>
+</url>
+
+<url>
+  <loc>https://www.healthexps.com/es/faq-aca</loc>
+  <lastmod>2026-06-15</lastmod>
+  <changefreq>monthly</changefreq>
+  <priority>0.5</priority>
+</url>
+
+<!-- Privacy & Utility Pages -->
+<url>
+  <loc>https://www.healthexps.com/privacy</loc>
+  <lastmod>2026-06-15</lastmod>
+  <changefreq>yearly</changefreq>
+  <priority>0.3</priority>
+  <xhtml:link rel="alternate" hreflang="en" href="https://www.healthexps.com/privacy"/>
+  <xhtml:link rel="alternate" hreflang="es" href="https://www.healthexps.com/es/privacidad"/>
+</url>
+
+<url>
+  <loc>https://www.healthexps.com/es/privacidad</loc>
+  <lastmod>2026-06-15</lastmod>
+  <changefreq>yearly</changefreq>
+  <priority>0.3</priority>
+  <xhtml:link rel="alternate" hreflang="en" href="https://www.healthexps.com/privacy"/>
+  <xhtml:link rel="alternate" hreflang="es" href="https://www.healthexps.com/es/privacidad"/>
+</url>
+
+<url>
+  <loc>https://www.healthexps.com/find-my-plan</loc>
+  <lastmod>2026-06-15</lastmod>
+  <changefreq>monthly</changefreq>
+  <priority>0.5</priority>
+  <xhtml:link rel="alternate" hreflang="en" href="https://www.healthexps.com/find-my-plan"/>
+  <xhtml:link rel="alternate" hreflang="es" href="https://www.healthexps.com/es/find-my-plan"/>
+</url>
+
+<url>
+  <loc>https://www.healthexps.com/es/find-my-plan</loc>
+  <lastmod>2026-06-15</lastmod>
+  <changefreq>monthly</changefreq>
+  <priority>0.5</priority>
+  <xhtml:link rel="alternate" hreflang="en" href="https://www.healthexps.com/find-my-plan"/>
+  <xhtml:link rel="alternate" hreflang="es" href="https://www.healthexps.com/es/find-my-plan"/>
+</url>
+
+</urlset>

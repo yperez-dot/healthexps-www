@@ -1,0 +1,10 @@
+User-agent: *
+Allow: /
+
+# Sitemaps
+Sitemap: https://www.healthexps.com/sitemap.xml
+
+# Disallow admin/test pages (if any exist)
+Disallow: /admin/
+Disallow: /test/
+Disallow: /_*/
