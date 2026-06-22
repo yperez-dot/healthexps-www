@@ -741,7 +741,7 @@ for(var k=0;k<_navLinks.length;k++){
       <div class="info-col">
 
         <div class="info-block">
-          <div class="info-block-title">💜 We're here when you're ready.</div>
+          <div class="info-block-title">We're here when you're ready.</div>
           <p>Whenever you have questions — about costs, enrollment deadlines, IRMAA surcharges, or just which plan fits your doctors best — our licensed Florida brokers are one call away. Always free, never any pressure.</p>
         </div>
 
@@ -1056,7 +1056,8 @@ for(var k=0;k<_navLinks.length;k++){
 <button id="scrollToTop" style="display:none;position:fixed;bottom:30px;right:30px;z-index:999;width:50px;height:50px;border:none;border-radius:50%;background:#452068;color:white;font-size:20px;cursor:pointer;box-shadow:0 4px 12px rgba(69,32,104,0.3);transition:all 0.3s ease;" aria-label="Back to top">↑</button>
 
 <script>
-  const FORMSPREE_URL = 'https://formspree.io/f/xojpzjob';
+  // TODO: Replace with actual GHL inbound webhook URL from Yahoska
+  const GHL_WEBHOOK_URL = 'PLACEHOLDER_GHL_WEBHOOK_URL_EN';
   const SUNFIRE_URL   = 'https://www.sunfirematrix.com/app/consumer/yourmedicare/16326554/';
   const TOTAL_STEPS   = 4;
 
@@ -1141,13 +1142,14 @@ for(var k=0;k<_navLinks.length;k++){
       last_name:     document.getElementById('lname').value.trim(),
       email:         document.getElementById('email').value.trim(),
       phone:         document.getElementById('phone').value.trim(),
-      source:        'Medicare Plan Finder — English Netlify',
+      source:        'Medicare Plan Finder',
+      lang:          'en',
       page:          window.location.href,
       submitted_at:  new Date().toLocaleString('en-US', { timeZone: 'America/New_York' })
     };
 
     try {
-      const res = await fetch(FORMSPREE_URL, {
+      const res = await fetch(GHL_WEBHOOK_URL, {
         method: 'POST',
         headers: { 'Accept': 'application/json', 'Content-Type': 'application/json' },
         body: JSON.stringify(payload)

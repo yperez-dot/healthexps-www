@@ -509,7 +509,8 @@ for(var k=0;k<_navLinks.length;k++){
 </div>
 
 <script>
-  var FORMSPREE_URL = 'https://formspree.io/f/xdapbjjl';
+  // TODO: Replace with actual GHL inbound webhook URL from Yahoska
+  var GHL_WEBHOOK_URL = 'PLACEHOLDER_GHL_WEBHOOK_URL_ES';
   var SUNFIRE_URL = 'https://www.sunfirematrix.com/app/consumer/yourmedicare/16326554/';
   var TOTAL_STEPS = 4;
 
@@ -590,12 +591,13 @@ for(var k=0;k<_navLinks.length;k++){
       last_name: document.getElementById('lname').value.trim(),
       email: document.getElementById('email').value.trim(),
       phone: document.getElementById('phone').value.trim(),
-      source: 'Buscador de Planes Medicare — Espanol',
+      source: 'Medicare Plan Finder',
+      lang: 'es',
       page: window.location.href,
       submitted_at: new Date().toLocaleString('es-US', {timeZone:'America/New_York'})
     };
 
-    fetch(FORMSPREE_URL, {
+    fetch(GHL_WEBHOOK_URL, {
       method: 'POST',
       headers: {'Accept':'application/json','Content-Type':'application/json'},
       body: JSON.stringify(payload)
