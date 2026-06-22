@@ -1,0 +1,15 @@
+/* Global stylesheet - enforces Arial sitewide */
+* {
+  font-family: Arial, Helvetica, sans-serif !important;
+}
+
+/* Preserve any intentional icon fonts */
+.icon,
+[class*="icon-"],
+.fa,
+.fas,
+.far,
+.fal,
+.fab {
+  font-family: inherit !important;
+}
