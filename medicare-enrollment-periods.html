@@ -570,7 +570,7 @@ function calcPenalty(){
  title.textContent = years < 1 ? 'Less than 12 months — no Part B penalty yet' : `Part B penalty: +${pct}% ($${penalty}/month added permanently`;
  desc.textContent = years < 1
  ? 'Part B penalties are calculated in full 12-month increments. However, you should enroll now to avoid accruing more time. Call us to discuss your options.'
- : `Your Part B premium would be $${totalPremium}/month instead of $185/month — for as long as you have Medicare. Over 10 years that's $${(parseFloat(penalty)*12*10).toFixed(0)} in extra premiums. Enroll now before more time passes.`;
+ : `Your Part B premium would be $${totalPremium}/month instead of $202.90/month — for as long as you have Medicare. Over 10 years that's $${(parseFloat(penalty)*12*10).toFixed(0)} in extra premiums. Enroll now before more time passes.`;
  } else {
  const pct = months * 1;
  const basePremium = 34.70;
