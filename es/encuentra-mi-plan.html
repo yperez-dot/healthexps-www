@@ -350,20 +350,20 @@ async function enviarContacto() {
    last_name: apellido,
    email: correo,
    phone: telefono,
-   lang: window.location.pathname.includes('/es/') ? 'spanish' : 'english',
-   age_band: respuestas.edad === '65-mas' ? '65+' : respuestas.edad === '64' ? '64' : respuestas.edad === '55-63' ? '55-63' : respuestas.edad === '26-54' ? '26-54' : '18-25',
-   coverage_situation: respuestas.cobertura === 'ninguna' ? 'No tengo cobertura en este momento' : respuestas.cobertura === 'empleador' ? 'Mi cobertura de empleador termina pronto' : respuestas.cobertura === 'marketplace' ? 'Estoy renovando cobertura del marketplace' : 'Tengo COBRA (de un empleador anterior)',
+   lang: 'spanish',
+   age_band: respuestas.edad === '65-mas' ? '65+' : respuestas.edad === '64' ? '64' : respuestas.edad === '55-63' ? '55-63' : respuestas.edad === 'menor-55' ? 'Under 55' : 'Under 55',
+   coverage_situation: respuestas.cobertura === 'ninguna' ? 'No tengo cobertura en este momento' : respuestas.cobertura === 'perdiendo' ? 'Voy a perder mi cobertura pronto' : respuestas.cobertura === 'cobra' ? 'Estoy en COBRA - es muy caro' : respuestas.cobertura === 'otro' && respuestas.otro_texto ? respuestas.otro_texto : 'Otro',
    household_size: respuestas.hogar === '1' ? 'Solo yo' : respuestas.hogar === '2' ? 'Yo + pareja/cónyuge' : respuestas.hogar === '3' ? 'Familia de 3' : 'Familia de 4+',
    income_band: respuestas.ingreso === 'menos-30k' ? 'Menos de $30,000' : respuestas.ingreso === '30k-60k' ? '$30,000-$60,000' : respuestas.ingreso === '60k-100k' ? '$60,000-$100,000' : respuestas.ingreso === '100k-150k' ? '$100,000-$150,000' : respuestas.ingreso === 'mas-150k' ? 'Más de $150,000' : 'No estoy seguro',
    top_priority: respuestas.prioridad === 'prima-baja' ? 'Prima mensual más baja' : respuestas.prioridad === 'mejor-cobertura' ? 'Cobertura más completa' : respuestas.prioridad === 'mis-medicos' ? 'Mantener mis médicos actuales' : 'Conseguir cobertura lo más rápido posible',
-   source: 'ACA Quiz',
+   source: 'ACA Quiz ES',
    page: window.location.href,
    submitted_at: new Date().toISOString()
  };
 
  try {
    // POST al webhook de GHL
-   const response = await fetch('https://services.leadconnectorhq.com/hooks/RINM4TCnM4hN06UA1aK0/webhook-trigger/c3ed8125-4847-4ebb-aca6-a5aa7817b557', {
+   const response = await fetch('https://services.leadconnectorhq.com/hooks/RINM4TCnM4hN06UA1aK0/webhook-trigger/d36da03c-e92a-424a-9767-babcc77e884f', {
      method: 'POST',
      headers: { 'Content-Type': 'application/json' },
      body: JSON.stringify(payload)
