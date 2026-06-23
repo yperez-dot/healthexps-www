@@ -145,8 +145,11 @@ a{color:var(--purple);text-decoration:none;}
  <button class="option" onclick="selectOption(this,'cobertura','ninguna')"><div class="option-text"><span class="option-main">No tengo seguro ahora</span><span class="option-sub">Necesito cobertura lo antes posible</span></div></button>
  <button class="option" onclick="selectOption(this,'cobertura','perdiendo')"><div class="option-text"><span class="option-main">Voy a perder mi cobertura pronto</span><span class="option-sub">Pérdida de empleo, COBRA terminando, o plan cancelado</span></div></button>
  <button class="option" onclick="selectOption(this,'cobertura','cobra')"><div class="option-text"><span class="option-main">Estoy en COBRA — es muy caro</span><span class="option-sub">Buscando una opción más económica</span></div></button>
- <button class="option" onclick="selectOption(this,'cobertura','bolsillo')"><div class="option-text"><span class="option-main">Pago todo de mi bolsillo</span><span class="option-sub">Quiero comparar qué hay disponible</span></div></button>
- <button class="option" onclick="selectOption(this,'cobertura','empleador')"><div class="option-text"><span class="option-main">Tengo seguro de empleo pero quiero comparar</span><span class="option-sub">Curiosidad sobre si hay algo mejor o más barato</span></div></button>
+ <button class="option" onclick="selectOption(this,'cobertura','medicaid')"><div class="option-text"><span class="option-main">Tengo Medicaid/Asistencia gubernamental</span><span class="option-sub">Buscando opciones de seguro privado</span></div></button>
+ <button class="option" onclick="selectOption(this,'cobertura','otro')"><div class="option-text"><span class="option-main">Otro</span><span class="option-sub">Por favor describe abajo</span></div></button>
+ </div>
+ <div id="other-input-wrap" style="display:none;margin-top:14px;">
+ <textarea id="other-input" placeholder="Cuéntanos más sobre tu situación..." style="width:100%;padding:12px;border:2px solid var(--gray-mid);border-radius:var(--radius);font-family:var(--font);font-size:14px;min-height:80px;resize:vertical;"></textarea>
  </div>
  </div>
 
@@ -259,7 +262,17 @@ function selectOption(btn, clave, valor) {
  btn.closest('.step').querySelectorAll('.option').forEach(b => b.classList.remove('selected'));
  btn.classList.add('selected');
  respuestas[clave] = valor;
+ // Show "Other" text input if selected
+ if(clave === 'cobertura' && valor === 'otro') {
+ document.getElementById('other-input-wrap').style.display = 'block';
+ document.getElementById('other-input').focus();
+ } else if(clave === 'cobertura') {
+ document.getElementById('other-input-wrap').style.display = 'none';
+ }
+ // Auto-advance (but not for "otro")
+ if(!(clave === 'cobertura' && valor === 'otro')) {
  setTimeout(() => { if(pasoActual < 5) siguientePaso(); }, 300);
+ }
 }
 
 function selectGrid(btn, clave, valor) {
@@ -377,12 +390,18 @@ function mostrarResultado() {
  const {edad, cobertura, hogar, ingreso, prioridad} = respuestas;
  let resultado;
 
+ // Capture "Other" text if filled
+ const otroInput = document.getElementById('other-input');
+ if(cobertura === 'otro' && otroInput && otroInput.value.trim()) {
+ respuestas.otro_texto = otroInput.value.trim();
+ }
+
  if(edad === '65-mas') resultado = 'medicare';
  else if(edad === '64') resultado = 'puente';
  else if(ingreso === 'menos-30k') resultado = 'medicaid';
- else if(ingreso === 'mas-150k' || ingreso === '100k-150k') resultado = 'aca-sin-subsidio';
+ else if(ingreso === '60k-100k' || ingreso === '100k-150k' || ingreso === 'mas-150k') resultado = 'seguro-privado';
  else if(cobertura === 'cobra') resultado = 'cobra-cambio';
- else if(ingreso === '30k-60k' || ingreso === '60k-100k' || ingreso === 'no-se') resultado = 'aca-subsidio';
+ else if(ingreso === '30k-60k' || ingreso === 'no-se') resultado = 'aca-subsidio';
  else resultado = 'aca-comparar';
 
  const resultados = {
@@ -486,6 +505,21 @@ function mostrarResultado() {
  { text: 'Sin costo, sin presión — orientación honesta en inglés o español', color: '#452068' }
  ],
  cta1: { text: 'Comparar Planes Gratis', href: '/es/contacto' },
+ },
+ 'seguro-privado': {
+ badge: '💼 Seguro privado recomendado',
+ badgeColor: '#f4eefa', badgeBorder: '#452068', badgeText: '#452068',
+ ico: '🏆',
+ title: 'El seguro de salud privado puede ser tu mejor opción',
+ desc: 'Según tu nivel de ingresos, los planes de seguro de salud privado ofrecen máxima flexibilidad, redes de proveedores más amplias y opciones de cobertura premium. Aunque puede que no califiques para subsidios ACA, los planes privados frecuentemente proporcionan beneficios superiores y servicio personalizado.',
+ ahorro: false,
+ highlights: [
+ { text: 'Acceso a redes de proveedores exclusivas y hospitales de primer nivel', color: '#452068' },
+ { text: 'Diseños de planes flexibles con opciones de cobertura personalizables', color: '#452068' },
+ { text: 'No se requiere verificación de ingresos — proceso de inscripción más rápido', color: '#452068' },
+ { text: 'Nuestros corredores comparan opciones ACA y privadas para encontrar tu mejor opción', color: '#452068' }
+ ],
+ cta1: { text: 'Comparar Planes de Seguro Privado', href: 'https://calendly.com/healthexps-info/' },
  }
  };
 

@@ -248,8 +248,11 @@ a{color:var(--purple);text-decoration:none;}
  <button class="option" onclick="selectOption(this,'coverage','none')"><div class="option-text"><span class="option-main">I have no coverage right now</span><span class="option-sub">Need coverage as soon as possible</span></div></button>
  <button class="option" onclick="selectOption(this,'coverage','losing')"><div class="option-text"><span class="option-main">I'm losing coverage soon</span><span class="option-sub">Job loss, COBRA ending, or plan terminating</span></div></button>
  <button class="option" onclick="selectOption(this,'coverage','cobra')"><div class="option-text"><span class="option-main">I'm on COBRA — it's too expensive</span><span class="option-sub">Looking for a more affordable option</span></div></button>
- <button class="option" onclick="selectOption(this,'coverage','selfpay')"><div class="option-text"><span class="option-main">I'm paying out of pocket / self-insured</span><span class="option-sub">Want to compare what's available</span></div></button>
- <button class="option" onclick="selectOption(this,'coverage','employer')"><div class="option-text"><span class="option-main">I have employer coverage but want to compare</span><span class="option-sub">Curious if there's something better or cheaper</span></div></button>
+ <button class="option" onclick="selectOption(this,'coverage','medicaid')"><div class="option-text"><span class="option-main">I have Medicaid/Government assistance</span><span class="option-sub">Looking for private coverage options</span></div></button>
+ <button class="option" onclick="selectOption(this,'coverage','other')"><div class="option-text"><span class="option-main">Other</span><span class="option-sub">Please describe below</span></div></button>
+ </div>
+ <div id="other-input-wrap" style="display:none;margin-top:14px;">
+ <textarea id="other-input" placeholder="Tell us more about your situation..." style="width:100%;padding:12px;border:2px solid var(--gray-mid);border-radius:var(--radius);font-family:var(--font);font-size:14px;min-height:80px;resize:vertical;"></textarea>
  </div>
  </div>
 
@@ -364,9 +367,18 @@ function selectOption(btn, key, val) {
  btn.closest('.step').querySelectorAll('.option').forEach(b => b.classList.remove('selected'));
  btn.classList.add('selected');
  answers[key] = val;
+ // Show "Other" text input if selected
+ if(key === 'coverage' && val === 'other') {
+ document.getElementById('other-input-wrap').style.display = 'block';
+ document.getElementById('other-input').focus();
+ } else if(key === 'coverage') {
+ document.getElementById('other-input-wrap').style.display = 'none';
+ }
  document.getElementById('btn-next').disabled = false;
- // Auto-advance on selection for smoother UX
+ // Auto-advance on selection (but not for "other")
+ if(!(key === 'coverage' && val === 'other')) {
  setTimeout(() => { if(currentStep < 5) nextStep(); }, 300);
+ }
 }
 
 function selectGrid(btn, key, val) {
@@ -431,17 +443,23 @@ function showResult() {
  const {age, coverage, household, income, priority} = answers;
  let result;
 
+ // Capture "Other" text if filled
+ const otherInput = document.getElementById('other-input');
+ if(coverage === 'other' && otherInput && otherInput.value.trim()) {
+ answers.other_text = otherInput.value.trim();
+ }
+
  if(age === '65-plus') {
  result = 'medicare';
  } else if(age === '64') {
  result = 'bridge';
  } else if(income === 'under-30k') {
  result = 'medicaid';
- } else if(income === 'over-150k' || income === '100k-150k') {
- result = 'aca-nosub';
+ } else if(income === '60k-100k' || income === '100k-150k' || income === 'over-150k') {
+ result = 'private-insurance';
  } else if(coverage === 'cobra') {
  result = 'cobra-switch';
- } else if(income === '30k-60k' || income === '60k-100k' || income === 'unsure') {
+ } else if(income === '30k-60k' || income === 'unsure') {
  result = 'aca-subsidy';
  } else {
  result = 'aca-compare';
@@ -571,6 +589,24 @@ function showResult() {
  { text: 'No cost, no pressure — just honest guidance in English or Spanish', color: '#452068' }
  ],
  cta1: { text: 'Compare Plans Free', href: '/medicare-plan-finder' },
+ cta2: true
+ },
+ 'private-insurance': {
+ badge: '💼 Private insurance recommended',
+ badgeColor: '#f4eefa',
+ badgeBorder: '#452068',
+ badgeText: '#452068',
+ ico: '🏆',
+ title: 'Private health insurance may be your best option',
+ desc: 'Based on your income level, private health insurance plans offer maximum flexibility, broader provider networks, and premium coverage options. While you may not qualify for ACA subsidies, private plans often provide superior benefits and personalized service.',
+ savings: false,
+ highlights: [
+ { text: 'Access to exclusive provider networks and top-tier hospitals', color: '#452068' },
+ { text: 'Flexible plan designs with customizable coverage options', color: '#452068' },
+ { text: 'No income verification required — faster enrollment process', color: '#452068' },
+ { text: 'Our brokers compare both ACA and private options to find your best fit', color: '#452068' }
+ ],
+ cta1: { text: 'Compare Private Insurance Plans', href: 'https://calendly.com/healthexps-info/' },
  cta2: true
  }
  };
