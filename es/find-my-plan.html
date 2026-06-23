@@ -269,9 +269,9 @@ function selectOption(btn, clave, valor) {
  } else if(clave === 'cobertura') {
  document.getElementById('other-input-wrap').style.display = 'none';
  }
- // Auto-advance (but not for "otro")
- if(!(clave === 'cobertura' && valor === 'otro')) {
- setTimeout(() => { if(pasoActual < 5) siguientePaso(); }, 300);
+ // Auto-advance (but not for "otro" or last quiz step)
+ if(!(clave === 'cobertura' && valor === 'otro') && pasoActual < 5) {
+ setTimeout(() => { siguientePaso(); }, 300);
  }
 }
 
@@ -279,7 +279,10 @@ function selectGrid(btn, clave, valor) {
  btn.closest('.step').querySelectorAll('.option-grid-btn').forEach(b => b.classList.remove('selected'));
  btn.classList.add('selected');
  respuestas[clave] = valor;
- setTimeout(() => { if(pasoActual < 5) siguientePaso(); }, 300);
+ // Auto-advance (but not on last quiz step)
+ if(pasoActual < 5) {
+ setTimeout(() => { siguientePaso(); }, 300);
+ }
 }
 
 function siguientePaso() {

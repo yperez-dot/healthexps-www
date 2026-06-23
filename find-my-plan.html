@@ -375,9 +375,9 @@ function selectOption(btn, key, val) {
  document.getElementById('other-input-wrap').style.display = 'none';
  }
  document.getElementById('btn-next').disabled = false;
- // Auto-advance on selection (but not for "other")
- if(!(key === 'coverage' && val === 'other')) {
- setTimeout(() => { if(currentStep < 5) nextStep(); }, 300);
+ // Auto-advance on selection (but not for "other" or last quiz step)
+ if(!(key === 'coverage' && val === 'other') && currentStep < 5) {
+ setTimeout(() => { nextStep(); }, 300);
  }
 }
 
@@ -386,7 +386,10 @@ function selectGrid(btn, key, val) {
  btn.classList.add('selected');
  answers[key] = val;
  document.getElementById('btn-next').disabled = false;
- setTimeout(() => { if(currentStep < 5) nextStep(); }, 300);
+ // Auto-advance on grid selection (but not on last quiz step)
+ if(currentStep < 5) {
+ setTimeout(() => { nextStep(); }, 300);
+ }
 }
 
 function nextStep() {
