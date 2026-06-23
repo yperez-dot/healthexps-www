@@ -469,22 +469,22 @@ function showResult() {
 
  const results = {
  'aca-subsidy': {
- badge: 'You likely qualify for financial help',
+ badge: 'You may qualify for financial help',
  badgeColor: '#f0fdf4',
  badgeBorder: '#16a34a',
  badgeText: '#166534',
  ico: '',
- title: 'Good news — you may qualify for an ACA subsidy',
- desc: 'Based on your answers, you likely qualify for a Premium Tax Credit that could significantly reduce — or even eliminate — your monthly health insurance premium. Many people in your situation pay $0–$100/month after subsidies are applied.',
+ title: 'ACA plans with subsidies may be right for you',
+ desc: 'Based on your answers, you may qualify for a Premium Tax Credit that could significantly reduce your monthly premium. Let\'s review your options together and see exactly what you qualify for — many people in your situation pay $0–$100/month.',
  savings: true,
- savingsText: 'Estimated monthly subsidy for your household',
+ savingsText: 'Potential monthly subsidy',
  savingsNum: income === '30k-60k' ? '$200–$600+' : '$50–$300+',
  highlights: [
- { text: 'ACA plans cover 10 essential benefits including hospitalization, prescriptions, and preventive care', color: '#16a34a' },
- { text: 'Silver plans may also qualify you for Cost-Sharing Reductions that lower your deductibles and copays', color: '#16a34a' },
- { text: 'Coverage can start as soon as the 1st of next month in most cases', color: '#16a34a' }
+ { text: 'We\'ll check your exact subsidy amount and show you all available plans', color: '#16a34a' },
+ { text: 'Compare ACA marketplace and private insurance options side-by-side', color: '#16a34a' },
+ { text: 'Free consultation with licensed brokers — no obligation, no pressure', color: '#16a34a' }
  ],
- cta1: { text: 'Check My Subsidy & Compare Plans', href: 'https://www.healthsherpa.com/?_agent_id=sabri-perez' },
+ cta1: { text: 'Review Your Options', href: 'https://www.healthsherpa.com/?_agent_id=sabri-perez' },
  cta2: true
  },
  'aca-nosub': {
@@ -594,21 +594,21 @@ function showResult() {
  cta2: true
  },
  'private-insurance': {
- badge: '💼 Private insurance is your best path',
+ badge: '💼 Private insurance may be right for you',
  badgeColor: '#f4eefa',
  badgeBorder: '#452068',
  badgeText: '#452068',
  ico: '🏆',
- title: 'Private health insurance is the right choice',
- desc: 'Based on your income, private health insurance is what you\'ll actually want. You could technically get ACA marketplace coverage, but private plans offer better networks, more flexibility, and premium service — without the income verification hassle. This is the path most people in your situation choose.',
+ title: 'Private health insurance or ACA may be right for you',
+ desc: 'Based on your answers, private health insurance plans could be a great fit — they offer broader networks, more flexibility, and premium service. ACA marketplace plans are also an option. Let\'s talk through your specific situation to find the best coverage for your needs and budget.',
  savings: false,
  highlights: [
- { text: 'Access to top-tier provider networks and the best hospitals in Miami', color: '#452068' },
- { text: 'Customizable coverage — choose exactly what you need, not a one-size-fits-all plan', color: '#452068' },
- { text: 'No income documentation required — faster, easier enrollment', color: '#452068' },
- { text: 'Better customer service and concierge-level support from premium carriers', color: '#452068' }
+ { text: 'We\'ll compare private insurance and ACA options side-by-side', color: '#452068' },
+ { text: 'Get personalized recommendations based on your doctors, medications, and budget', color: '#452068' },
+ { text: 'No pressure, no obligation — just honest guidance in English or Spanish', color: '#452068' },
+ { text: 'Free consultation with licensed brokers who work for you, not the insurance companies', color: '#452068' }
  ],
- cta1: { text: 'Get Your Private Insurance Quote', href: 'https://calendly.com/healthexps-info/' },
+ cta1: { text: 'Schedule Free Consultation', href: 'https://calendly.com/healthexps-info/' },
  cta2: true
  }
  };

@@ -408,19 +408,19 @@ function mostrarResultado() {
 
  const resultados = {
  'aca-subsidio': {
- badge: 'Probablemente calificas para ayuda económica',
+ badge: 'Puedes calificar para ayuda económica',
  badgeColor: '#f0fdf4', badgeBorder: '#16a34a', badgeText: '#166534',
  ico: '',
- title: 'Buenas noticias — puede que califiques para un subsidio ACA',
- desc: 'Según tus respuestas, probablemente califiques para un Crédito Fiscal de Prima que podría reducir significativamente — o eliminar — tu prima mensual de seguro de salud. Muchas personas en tu situación pagan $0–$100/mes después de los subsidios.',
- ahorro: true, ahorroTexto: 'Subsidio mensual estimado para tu hogar',
+ title: 'Planes ACA con subsidios pueden ser para ti',
+ desc: 'Según tus respuestas, puedes calificar para un Crédito Fiscal de Prima que podría reducir significativamente tu prima mensual. Revisemos tus opciones juntos y veamos exactamente para qué calificas — muchas personas en tu situación pagan $0–$100/mes.',
+ ahorro: true, ahorroTexto: 'Subsidio mensual posible',
  ahorroNum: ingreso === '30k-60k' ? '$200–$600+' : '$50–$300+',
  highlights: [
- { text: 'Los planes ACA cubren 10 beneficios esenciales incluyendo hospitalización, medicamentos y cuidado preventivo', color: '#16a34a' },
- { text: 'Los planes Silver pueden calificar para Reducciones de Costo Compartido que reducen tus deducibles y copagos', color: '#16a34a' },
- { text: 'La cobertura puede comenzar tan pronto como el primero del próximo mes', color: '#16a34a' }
+ { text: 'Verificaremos tu monto exacto de subsidio y te mostraremos todos los planes disponibles', color: '#16a34a' },
+ { text: 'Comparar opciones del mercado ACA y seguro privado lado a lado', color: '#16a34a' },
+ { text: 'Consulta gratis con corredores con licencia — sin obligación, sin presión', color: '#16a34a' }
  ],
- cta1: { text: 'Verificar Mi Subsidio y Comparar Planes', href: 'https://www.healthsherpa.com/?_agent_id=sabri-perez' },
+ cta1: { text: 'Revisar Tus Opciones', href: 'https://www.healthsherpa.com/?_agent_id=sabri-perez' },
  },
  'aca-sin-subsidio': {
  badge: 'Plan del Mercado ACA recomendado',
@@ -509,19 +509,19 @@ function mostrarResultado() {
  cta1: { text: 'Comparar Planes Gratis', href: '/es/contacto' },
  },
  'seguro-privado': {
- badge: '💼 Seguro privado es tu mejor opción',
+ badge: '💼 Seguro privado puede ser para ti',
  badgeColor: '#f4eefa', badgeBorder: '#452068', badgeText: '#452068',
  ico: '🏆',
- title: 'Seguro de salud privado es la elección correcta',
- desc: 'Según tus ingresos, el seguro de salud privado es lo que realmente vas a querer. Técnicamente podrías obtener cobertura del mercado ACA, pero los planes privados ofrecen mejores redes, más flexibilidad y servicio premium — sin la molestia de verificar ingresos. Este es el camino que eligen la mayoría de personas en tu situación.',
+ title: 'Seguro privado o ACA pueden ser para ti',
+ desc: 'Según tus respuestas, los planes de seguro privado podrían ser una excelente opción — ofrecen redes más amplias, más flexibilidad y servicio premium. Los planes del mercado ACA también son una opción. Hablemos sobre tu situación específica para encontrar la mejor cobertura para tus necesidades y presupuesto.',
  ahorro: false,
  highlights: [
- { text: 'Acceso a redes de proveedores de primer nivel y los mejores hospitales de Miami', color: '#452068' },
- { text: 'Cobertura personalizable — elige exactamente lo que necesitas, no un plan genérico', color: '#452068' },
- { text: 'No se requiere documentación de ingresos — inscripción más rápida y fácil', color: '#452068' },
- { text: 'Mejor servicio al cliente y soporte nivel concierge de aseguradoras premium', color: '#452068' }
+ { text: 'Compararemos opciones de seguro privado y ACA lado a lado', color: '#452068' },
+ { text: 'Recomendaciones personalizadas basadas en tus médicos, medicamentos y presupuesto', color: '#452068' },
+ { text: 'Sin presión, sin obligación — orientación honesta en español e inglés', color: '#452068' },
+ { text: 'Consulta gratis con corredores con licencia que trabajan para ti, no para las aseguradoras', color: '#452068' }
  ],
- cta1: { text: 'Obtén Tu Cotización de Seguro Privado', href: 'https://calendly.com/healthexps-info/' },
+ cta1: { text: 'Agenda Consulta Gratis', href: 'https://calendly.com/healthexps-info/' },
  }
  };
 
