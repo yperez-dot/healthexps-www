@@ -328,6 +328,13 @@
   <priority>0.6</priority>
 </url>
 
+<url>
+  <loc>https://www.healthexps.com/medicare-advantage-vs-supplement-calculator</loc>
+  <lastmod>2026-06-24</lastmod>
+  <changefreq>monthly</changefreq>
+  <priority>0.6</priority>
+</url>
+
 <!-- Other Insurance Products -->
 <url>
   <loc>https://www.healthexps.com/aca-plans-miami</loc>
@@ -474,6 +481,15 @@
   <priority>0.6</priority>
   <xhtml:link rel="alternate" hreflang="en" href="https://www.healthexps.com/faq"/>
   <xhtml:link rel="alternate" hreflang="es" href="https://www.healthexps.com/es/faq"/>
+</url>
+
+<url>
+  <loc>https://www.healthexps.com/es/preguntas-frecuentes</loc>
+  <lastmod>2026-06-24</lastmod>
+  <changefreq>monthly</changefreq>
+  <priority>0.6</priority>
+  <xhtml:link rel="alternate" hreflang="en" href="https://www.healthexps.com/faq"/>
+  <xhtml:link rel="alternate" hreflang="es" href="https://www.healthexps.com/es/preguntas-frecuentes"/>
 </url>
 
 <url>
