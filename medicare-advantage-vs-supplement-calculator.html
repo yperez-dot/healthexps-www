@@ -187,8 +187,8 @@ a{text-decoration:none;}
       </div>
       <div class="field">
         <label class="fl" id="lb2">Monthly Part B premium</label>
-        <div class="iw"><span class="ip">$</span><input type="number" id="ib" value="185" class="hp"></div>
-        <div class="fn" id="nb">$202.90 is the standard 2026 premium.</div>
+        <div class="iw"><span class="ip">$</span><input type="number" id="ib" value="202.90" class="hp"></div>
+        <div class="fn" id="nb">$202.90 is the standard 2026 premium. If you pay more due to IRMAA (income-based surcharge), adjust this number to match your actual premium.</div>
       </div>
     </div>
     <div class="sl" id="sma">Medicare Advantage Plan</div>
@@ -208,8 +208,8 @@ a{text-decoration:none;}
     <div class="fg">
       <div class="field">
         <label class="fl" id="lgp">Monthly Plan G premium</label>
-        <div class="iw"><span class="ip">$</span><input type="number" id="igp" value="135" class="hp"></div>
-        <div class="fn" id="ngp">Typical Florida range: $148-$355/mo depending on age</div>
+        <div class="iw"><span class="ip">$</span><input type="number" id="igp" value="335" class="hp"></div>
+        <div class="fn" id="ngp">Typical Florida range: $300-$375/mo for age 65. Adjust if you know your exact premium.</div>
         <div class="pr" id="pr"></div>
       </div>
       <div class="field">
@@ -288,10 +288,10 @@ function updRange(){
 
 function calc(){
   var t=TL[L];
-  var pb=parseFloat(g('ib').value)||185;
+  var pb=parseFloat(g('ib').value)||202.90;
   var mp=parseFloat(g('imp').value)||0;
   var mo=parseFloat(g('imo').value)||5000;
-  var gp=parseFloat(g('igp').value)||135;
+  var gp=parseFloat(g('igp').value)||335;
   var pd=parseFloat(g('ipd').value)||35;
   var fac=UF[U];
   var maOP=mo*fac;
