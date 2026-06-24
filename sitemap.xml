@@ -629,4 +629,30 @@
   <priority>0.7</priority>
 </url>
 
+<!-- COBRA Alternative Pages - created 2026-06-24 -->
+<url>
+  <loc>https://www.healthexps.com/cobra-alternatives-miami</loc>
+  <lastmod>2026-06-24</lastmod>
+  <changefreq>monthly</changefreq>
+  <priority>0.7</priority>
+  <xhtml:link rel="alternate" hreflang="en" href="https://www.healthexps.com/cobra-alternatives-miami"/>
+  <xhtml:link rel="alternate" hreflang="es" href="https://www.healthexps.com/es/alternativas-cobra-miami"/>
+</url>
+
+<url>
+  <loc>https://www.healthexps.com/es/alternativas-cobra-miami</loc>
+  <lastmod>2026-06-24</lastmod>
+  <changefreq>monthly</changefreq>
+  <priority>0.7</priority>
+  <xhtml:link rel="alternate" hreflang="en" href="https://www.healthexps.com/cobra-alternatives-miami"/>
+  <xhtml:link rel="alternate" hreflang="es" href="https://www.healthexps.com/es/alternativas-cobra-miami"/>
+</url>
+
+<url>
+  <loc>https://www.healthexps.com/blog/cobra-vs-aca-marketplace-miami</loc>
+  <lastmod>2026-06-24</lastmod>
+  <changefreq>monthly</changefreq>
+  <priority>0.6</priority>
+</url>
+
 </urlset>
