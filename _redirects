@@ -1,3 +1,21 @@
 # Netlify redirects
 # Old Spanish quiz URL → New Spanish SEO-friendly URL
 /es/find-my-plan  /es/encuentra-mi-plan  301
+
+# Blog migration — Tier 1 posts (2026-06-24)
+# /post/ → /blog/ (keeping Wix slugs exactly as-is)
+/post/avmed-medicare-ending-florida-what-to-do-2026  /blog/avmed-medicare-ending-florida-what-to-do-2026  301
+/post/medicare-plans-replace-avmed-florida-2026  /blog/medicare-plans-replace-avmed-florida-2026  301
+/post/why-is-there-a-medicare-premium-i-thought-it-was-free  /blog/why-is-there-a-medicare-premium-i-thought-it-was-free  301
+/post/navigating-the-medicare-plan-finder-tool-your-ultimate-guide  /blog/navigating-the-medicare-plan-finder-tool-your-ultimate-guide  301
+/post/understanding-how-income-affects-medicare-premiums-a-complete-guide-for-retirees  /blog/understanding-how-income-affects-medicare-premiums-a-complete-guide-for-retirees  301
+/post/understanding-the-key-differences-between-mapd-and-traditional-medicare  /blog/understanding-the-key-differences-between-mapd-and-traditional-medicare  301
+/post/unlocking-the-secrets-finding-preventative-services-under-medicare  /blog/unlocking-the-secrets-finding-preventative-services-under-medicare  301
+/post/mastering-medicare-essential-tips-to-avoid-common-enrollment-mistakes  /blog/mastering-medicare-essential-tips-to-avoid-common-enrollment-mistakes  301
+/post/private-health-insurance-basics-plans-costs-and-coverage-explained  /blog/private-health-insurance-basics-plans-costs-and-coverage-explained  301
+/post/miami-s-trusted-health-insurance-experts-why-a-broker-makes-all-the-difference  /blog/miami-s-trusted-health-insurance-experts-why-a-broker-makes-all-the-difference  301
+/post/the-hidden-treasure-how-medicare-savings-programs-slash-your-health-insurance-costs  /blog/the-hidden-treasure-how-medicare-savings-programs-slash-your-health-insurance-costs  301
+/post/mastering-medicare-essential-tips-for-comparing-plans-effectively  /blog/mastering-medicare-essential-tips-for-comparing-plans-effectively  301
+/post/what-is-a-special-enrollment-period-for-medicare-in-florida  /blog/what-is-a-special-enrollment-period-for-medicare-in-florida  301
+/post/unlocking-your-rights-how-to-appeal-decision-on-medicare-coverage-denials  /blog/unlocking-your-rights-how-to-appeal-decision-on-medicare-coverage-denials  301
+/post/still-haven-t-switched-your-medicare-plan-you-may-qualify-for-a-special-enrollment-period  /blog/still-haven-t-switched-your-medicare-plan-you-may-qualify-for-a-special-enrollment-period  301
