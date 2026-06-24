@@ -90,6 +90,13 @@ tr:last-child td{border-bottom:none;}
 .guide-ico{font-size:24px;margin-bottom:8px;}
 .guide-title{font-size:14px;font-weight:700;color:var(--purple);margin-bottom:4px;}
 .guide-desc{font-size:13px;color:var(--gray-text);line-height:1.5;}
+/* ENROLLMENT STEPS */
+.enroll-steps{display:flex;flex-direction:column;gap:0;margin:20px 0;}
+.enroll-step{display:flex;gap:16px;padding:16px 0;border-bottom:1px solid #f4eefa;align-items:flex-start;}
+.enroll-step:last-child{border-bottom:none;}
+.enroll-num{min-width:36px;height:36px;background:var(--pink);color:white;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:15px;flex-shrink:0;}
+.enroll-title{font-size:15px;font-weight:700;color:var(--purple);margin-bottom:4px;}
+.enroll-desc{font-size:14px;color:var(--gray-text);line-height:1.7;}
 .sidebar{position:sticky;top:112px;display:flex;flex-direction:column;gap:20px;}
 .sidebar-card{background:white;border:1px solid #e8e0f4;border-radius:var(--radius);padding:22px;box-shadow:var(--shadow);}
 .sidebar-title{font-size:14px;font-weight:700;color:var(--purple);text-transform:uppercase;letter-spacing:0.05em;margin-bottom:14px;padding-bottom:10px;border-bottom:2px solid var(--purple-light);}
@@ -401,6 +408,21 @@ for(var k=0;k<_navLinks.length;k++){
       <p>Con Medigap + Medicare Original, tienes acceso a cualquier médico que acepte Medicare en los 50 estados — sin necesidad de verificar si está "en la red." Con Medicare Advantage, estás limitado a la red del plan. Si tienes especialistas específicos o viaja frecuentemente, Medigap puede ser la mejor opción.</p>
     </div>
 
+    <h2 id="quien-beneficia">¿Quién se beneficia más de Medigap?</h2>
+    <p>Medigap tiende a ser la mejor opción si:</p>
+    <ul>
+      <li>Tienes visitas frecuentes al médico, especialistas o necesidades médicas continuas</li>
+      <li>Quieres ver cualquier médico en EE.UU. sin restricciones de red</li>
+      <li>Viajas frecuentemente dentro de los Estados Unidos</li>
+      <li>Quieres costos de atención médica completamente predecibles sin facturas sorpresa</li>
+      <li>Tienes médicos que no participan en redes de Medicare Advantage</li>
+    </ul>
+
+    <div class="alert-box">
+      <div class="alert-box-title">Mejor momento para comprar: tu Período de Inscripción Abierta de Medigap</div>
+      <p>Tienes una ventana única de 6 meses que comienza el mes en que cumples 65 AÑOS Y estás inscrito en la Parte B. Durante este período, las aseguradoras <strong>no pueden negarte cobertura ni cobrarte más</strong> por condiciones preexistentes. Después de que cierra esta ventana, puedes enfrentar evaluación médica y podrías ser rechazado o cobrado más según tu salud.</p>
+    </div>
+
     <h2 id="cuando">El mejor momento para comprar — el período de inscripción abierta de Medigap</h2>
     <p>Solo tienes <strong>6 meses</strong> para comprar cualquier plan Medigap sin que la compañía te pueda rechazar por condiciones preexistentes. Este período comienza el mes en que cumples 65 años Y estás inscrito en la Parte B.</p>
     <p>Después de esta ventana, las compañías pueden hacerte preguntas médicas y pueden rechazarte o cobrarte más basado en tu historial de salud. La mayoría de los estados — incluyendo Florida — no tienen protecciones adicionales para inscripción fuera de este período.</p>
@@ -416,10 +438,11 @@ for(var k=0;k<_navLinks.length;k++){
       <div class="sidebar-title">En esta página</div>
       <div class="sidebar-toc">
         <a href="#que-es">¿Qué es Medigap?</a>
-        <a href="#cuando">Cuándo comprar</a>
-        <a href="#planes">Letras de plan</a>
+        <a href="#quien-beneficia">¿Quién se beneficia más?</a>
+        <a href="#planes">Letras de plan comparadas</a>
         <a href="#tabla">Tabla de cobertura</a>
         <a href="#estimador">Estimador de prima</a>
+        <a href="#como-inscribirse">Cómo inscribirse</a>
         <a href="#vs">vs. Medicare Advantage</a>
       </div>
     </div>
@@ -429,12 +452,13 @@ for(var k=0;k<_navLinks.length;k++){
       <a href="tel:18003806821" class="btn-call-full">1-800-380-6821</a>
     </div>
     <div class="sidebar-card">
-      <div class="sidebar-title">Plan G — Referencia rápida</div>
-      <div class="quick-fact"><span class="quick-fact-label">Deducible Parte A</span><span class="quick-fact-value">Cubierto</span></div>
-      <div class="quick-fact"><span class="quick-fact-label">Coseguro Parte B (20%)</span><span class="quick-fact-value">Cubierto</span></div>
-      <div class="quick-fact"><span class="quick-fact-label">Días extra hospital</span><span class="quick-fact-value">365 días</span></div>
-      <div class="quick-fact"><span class="quick-fact-label">Enfermería calificada</span><span class="quick-fact-value">Cubierto</span></div>
-      <div class="quick-fact"><span class="quick-fact-label">Prima en FL (aprox.)</span><span class="quick-fact-value">$300–$375/mes</span></div>
+      <div class="sidebar-title">Datos rápidos</div>
+      <div class="quick-fact"><span class="quick-fact-label">Funciona con</span><span class="quick-fact-value">Solo Medicare Original</span></div>
+      <div class="quick-fact"><span class="quick-fact-label">Plan más popular</span><span class="quick-fact-value">Plan G</span></div>
+      <div class="quick-fact"><span class="quick-fact-label">Deducible Parte B 2026</span><span class="quick-fact-value">$283</span></div>
+      <div class="quick-fact"><span class="quick-fact-label">Cobertura nacional</span><span class="quick-fact-value">Sí</span></div>
+      <div class="quick-fact"><span class="quick-fact-label">Incluye medicamentos</span><span class="quick-fact-value">No — agregar Parte D</span></div>
+      <div class="quick-fact"><span class="quick-fact-label">Rango Plan G en FL</span><span class="quick-fact-value">~$300–$375/mes</span></div>
     </div>
   </aside>
 </div>
@@ -537,6 +561,46 @@ for(var k=0;k<_navLinks.length;k++){
   <div class="info-box">
     <div class="info-box-title">Misma cobertura, precios muy diferentes</div>
     <p>Como todas las pólizas de Medicare Suplementario con la misma letra cubren exactamente lo mismo, la única razón para pagar más es si no comparas. Las primas para cobertura idéntica pueden variar $50–$100/mes entre aseguradoras en el mismo código postal de Florida. Nuestros corredores hacen esta comparación por ti sin costo.</p>
+  </div>
+
+  <h2 id="como-inscribirse">Cómo inscribirse en un plan Medicare Suplementario</h2>
+
+  <div class="enroll-steps">
+    <div class="enroll-step">
+      <div class="enroll-num">1</div>
+      <div>
+        <div class="enroll-title">Inscríbete primero en Medicare Partes A y B</div>
+        <div class="enroll-desc">Debes tener Medicare Original antes de poder agregar una póliza Medigap. Asegúrate de que tu fecha de inicio de la Parte B esté confirmada — esto activa tu Período de Inscripción Abierta.</div>
+      </div>
+    </div>
+    <div class="enroll-step">
+      <div class="enroll-num">2</div>
+      <div>
+        <div class="enroll-title">Elige tu letra de plan (G o N para la mayoría de las personas)</div>
+        <div class="enroll-desc">Decide cuánta cobertura quieres vs. cuánta prima puedes pagar. El Plan G ofrece la máxima cobertura. El Plan N reduce tu prima con pequeños copagos.</div>
+      </div>
+    </div>
+    <div class="enroll-step">
+      <div class="enroll-num">3</div>
+      <div>
+        <div class="enroll-title">Compara aseguradoras — misma cobertura, diferentes precios</div>
+        <div class="enroll-desc">Llámanos o usa nuestra herramienta gratuita de comparación. Comparamos cada aseguradora con licencia en Florida y te mostramos el precio más bajo para la letra de plan que elijas.</div>
+      </div>
+    </div>
+    <div class="enroll-step">
+      <div class="enroll-num">4</div>
+      <div>
+        <div class="enroll-title">Agrega un plan de medicamentos de la Parte D</div>
+        <div class="enroll-desc">Medigap no cubre recetas médicas. Necesitarás inscribirte en un plan independiente de la Parte D. Podemos ayudarte a elegir el que cubra tus medicamentos al menor costo.</div>
+      </div>
+    </div>
+    <div class="enroll-step">
+      <div class="enroll-num">5</div>
+      <div>
+        <div class="enroll-title">Revisa anualmente durante AEP</div>
+        <div class="enroll-desc">A diferencia de Medigap (que se renueva automáticamente), tu plan de la Parte D debe revisarse cada año. Los formularios y las primas cambian — te recordaremos cada octubre.</div>
+      </div>
+    </div>
   </div>
 
   <h2 id="vs">Medigap vs. Medicare Advantage — ¿cuál es mejor para ti?</h2>
