@@ -712,7 +712,7 @@ for(var k=0;k<_navLinks.length;k++){
  <div class="estimator-result">
  <div>
  <div style="font-size:12px;color:var(--gray-text);margin-bottom:4px;text-transform:uppercase;letter-spacing:0.05em;">Estimated monthly premium range</div>
- <div class="estimator-range" id="est-result">$100 – $160 / month</div>
+ <div class="estimator-range" id="est-result">$300 – $375 / month</div>
  </div>
  <div class="estimator-note">Actual rates vary by carrier. Our brokers compare every company in Florida to find your lowest rate for identical coverage.</div>
  </div>
@@ -878,9 +878,9 @@ for(var k=0;k<_navLinks.length;k++){
 <script>
 // Premium estimator
 const estimates = {
- G: { 65: [100,160], 67: [110,175], 70: [120,195], 75: [140,210], 80: [155,225] },
- N: { 65: [80,130], 67: [88,140], 70: [95,155], 75: [110,170], 80: [120,185] },
- HD: { 65: [28,45], 67: [32,50], 70: [36,56], 75: [42,64], 80: [48,72] }
+ G: { 65: [300,375], 67: [330,410], 70: [360,455], 75: [420,530], 80: [480,600] },
+ N: { 65: [200,320], 67: [220,350], 70: [240,385], 75: [280,445], 80: [320,505] },
+ HD: { 65: [60,100], 67: [68,110], 70: [77,125], 75: [90,145], 80: [105,165] }
 };
 function updateEstimate() {
  const age = document.getElementById('est-age').value;
