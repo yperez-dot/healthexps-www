@@ -16,6 +16,13 @@
   status = 301
   force = true
 
+# 301 redirect for ACA (fix URL conflict - acaplans → aca-plans-miami)
+[[redirects]]
+  from = "/acaplans"
+  to = "/aca-plans-miami"
+  status = 301
+  force = true
+
 [[redirects]]
   from = "/*"
   to = "/index.html"
