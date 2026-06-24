@@ -1,10 +1,4 @@
-<!DOCTYP
-<div style="background:white;border-bottom:1px solid #f0ecf8;padding:10px 24px;">
-  <a href="/" style="display:inline-flex;align-items:center;gap:6px;font-size:14px;font-weight:600;color:#452068;text-decoration:none;">
-    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 5l-7 7 7 7"/></svg>
-    Back to Home
-  </a>
-</div>E html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
@@ -38,7 +32,7 @@ a{text-decoration:none;}
 .hero h1{color:white;font-size:clamp(24px,5vw,32px);font-weight:700;margin-bottom:10px;line-height:1.2;}
 .hero p{color:rgba(255,255,255,0.85);font-size:16px;max-width:480px;margin:0 auto;}
 
-.shell{max-width:680px;margin:0 auto;padding:0 20px;}
+.shell{max-width:680px;margin:0 auto;padding:0 20px 60px;}
 
 .card{background:white;border-radius:16px;padding:28px;box-shadow:0 4px 24px rgba(69,32,104,0.12);margin-top:32px;}
 
@@ -193,19 +187,14 @@ a{text-decoration:none;}
   </a>
 </div>
 
-
-<div class="header">
-  <div class="header-brand">The Health Experts Insurance</div>
-  <div class="lang-wrap">
-    <button class="lang-btn" id="btn-es" onclick="setLang('es')">ES</button>
-    <button class="lang-btn active" id="btn-en" onclick="setLang('en')">EN</button>
-  </div>
+<div class="hero">
+  <div class="hero-tag" id="hero-tag">Free tool · 2026</div>
+  <h1 id="hero-title">2026 IRMAA Calculator</h1>
+  <p id="hero-sub">Find out exactly what you'll pay for Medicare based on your income.</p>
 </div>
 
-<div class="hero">
-  <div class="hero-tag" id="hero-tag">Herramienta gratuita · 2026</div>
-  <h1 id="hero-title">2026 IRMAA Calculator</h1>
-  <p id="hero-sub">Descubre exactamente cuánto pagarás por Medicare según tus ingresos.</p>
+<div style="max-width:900px;margin:20px auto;padding:0 24px;">
+  <p id="intro-text" style="font-size:15px;color:#555;line-height:1.8;text-align:center;">Medicare uses your income from 2 years ago to determine if you owe an IRMAA surcharge on top of your standard Part B and Part D premiums. Enter your 2024 Modified Adjusted Gross Income (MAGI) below to see exactly what you'll pay in 2026. Results are estimates — if your income has changed significantly, you may be able to appeal your IRMAA. A licensed broker can help you understand your options at no cost.</p>
 </div>
 
 <div class="shell">
