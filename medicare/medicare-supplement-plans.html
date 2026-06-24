@@ -182,9 +182,9 @@ tr:last-child td { border-bottom: none; }
 .plan-card.light .plan-cta { background: var(--purple); color: white; }
 
 /* PREMIUM ESTIMATOR */
-.estimator { background: var(--purple-light); border-radius: var(--radius); padding: 24px; margin: 24px 0; }
-.estimator-title { font-size: 16px; font-weight: 700; color: var(--purple); margin-bottom: 16px; }
-.estimator-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 12px; margin-bottom: 16px; }
+.estimator { background: var(--purple-light); border-radius: var(--radius); padding: 32px; margin: 32px 0; }
+.estimator-title { font-size: 18px; font-weight: 700; color: var(--purple); margin-bottom: 20px; }
+.estimator-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 16px; margin-bottom: 24px; }
 .estimator label { display: block; font-size: 12px; font-weight: 700; color: var(--purple); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 6px; }
 .estimator select { width: 100%; height: 40px; padding: 0 12px; border: 2px solid #e8e0f4; border-radius: 8px; font-size: 14px; color: var(--black); background: white; font-family: var(--font); outline: none; }
 .estimator select:focus { border-color: var(--purple); }
@@ -679,10 +679,11 @@ for(var k=0;k<_navLinks.length;k++){
  <p style="background:#f4eefa;border-left:4px solid #452068;padding:16px 20px;border-radius:0 10px 10px 0;margin:32px 0;"><strong style="color:#452068;">See how Plan G compares to Medicare Advantage over 10 years:</strong> Use our <a href="/medicare-advantage-vs-supplement-calculator" style="color:#ff1090;font-weight:700;">Medigap cost calculator</a> to project total costs at 5, 10, and 20 years based on your health usage.</p>
 
  <h2 id="estimator">Estimate your Medigap premium</h2>
- <p>Medigap premiums vary by age, gender, tobacco use, and the insurance carrier. Use this estimator to get a ballpark range for Florida:</p>
+ <p>Medigap premiums vary by age, tobacco use, and the insurance carrier. Use this estimator to get a ballpark range for Florida:</p>
 
  <div class="estimator">
  <div class="estimator-title">Medigap Premium Estimator — Florida 2026</div>
+ <p style="font-size:14px;color:#555;margin-bottom:18px;line-height:1.6;">📌 <strong>Note:</strong> High earners pay IRMAA surcharges on top of these premiums. Income above $106,000 (individual) or $212,000 (couple) triggers higher costs. <a href="/medicare/medicare-costs" style="color:#452068;font-weight:600;">Learn about IRMAA →</a></p>
  <div class="estimator-grid">
  <div>
  <label for="est-age">Age</label>
