@@ -328,13 +328,6 @@
   <priority>0.6</priority>
 </url>
 
-<url>
-  <loc>https://www.healthexps.com/medicare-advantage-vs-supplement-calculator</loc>
-  <lastmod>2026-06-24</lastmod>
-  <changefreq>monthly</changefreq>
-  <priority>0.6</priority>
-</url>
-
 <!-- Other Insurance Products -->
 <url>
   <loc>https://www.healthexps.com/aca-plans-miami</loc>
@@ -484,15 +477,6 @@
 </url>
 
 <url>
-  <loc>https://www.healthexps.com/es/preguntas-frecuentes</loc>
-  <lastmod>2026-06-24</lastmod>
-  <changefreq>monthly</changefreq>
-  <priority>0.6</priority>
-  <xhtml:link rel="alternate" hreflang="en" href="https://www.healthexps.com/faq"/>
-  <xhtml:link rel="alternate" hreflang="es" href="https://www.healthexps.com/es/preguntas-frecuentes"/>
-</url>
-
-<url>
   <loc>https://www.healthexps.com/faq/medicarefaq</loc>
   <lastmod>2026-06-22</lastmod>
   <changefreq>monthly</changefreq>
@@ -552,76 +536,6 @@
   <priority>0.5</priority>
   <xhtml:link rel="alternate" hreflang="en" href="https://www.healthexps.com/find-my-plan"/>
   <xhtml:link rel="alternate" hreflang="es" href="https://www.healthexps.com/es/find-my-plan"/>
-</url>
-
-<!-- Service pages - created/updated 2026-06-24 -->
-<url>
-  <loc>https://www.healthexps.com/healthcare-insurance-for-seniors</loc>
-</url>
-<url>
-  <loc>https://www.healthexps.com/independent-health-insurance-broker</loc>
-</url>
-
-<!-- Health Insurance Broker pages (EN/ES) - created 2026-06-24 -->
-<url>
-  <loc>https://www.healthexps.com/medical-insurance-broker</loc>
-  <xhtml:link rel="alternate" hreflang="en" href="https://www.healthexps.com/medical-insurance-broker"/>
-  <xhtml:link rel="alternate" hreflang="es" href="https://www.healthexps.com/es/corredor-de-seguros-de-salud-miami"/>
-</url>
-<url>
-  <loc>https://www.healthexps.com/es/corredor-de-seguros-de-salud-miami</loc>
-  <xhtml:link rel="alternate" hreflang="en" href="https://www.healthexps.com/medical-insurance-broker"/>
-  <xhtml:link rel="alternate" hreflang="es" href="https://www.healthexps.com/es/corredor-de-seguros-de-salud-miami"/>
-</url>
-
-<!-- Blog posts (Tier 1 - migrated from Wix 2026-06-24) -->
-<url>
-  <loc>https://www.healthexps.com/blog</loc>
-</url>
-<url>
-  <loc>https://www.healthexps.com/blog/avmed-medicare-ending-florida-what-to-do-2026</loc>
-</url>
-<url>
-  <loc>https://www.healthexps.com/blog/medicare-plans-replace-avmed-florida-2026</loc>
-</url>
-<url>
-  <loc>https://www.healthexps.com/blog/why-is-there-a-medicare-premium-i-thought-it-was-free</loc>
-</url>
-<url>
-  <loc>https://www.healthexps.com/blog/navigating-the-medicare-plan-finder-tool-your-ultimate-guide</loc>
-</url>
-<url>
-  <loc>https://www.healthexps.com/blog/understanding-how-income-affects-medicare-premiums-a-complete-guide-for-retirees</loc>
-</url>
-<url>
-  <loc>https://www.healthexps.com/blog/understanding-the-key-differences-between-mapd-and-traditional-medicare</loc>
-</url>
-<url>
-  <loc>https://www.healthexps.com/blog/unlocking-the-secrets-finding-preventative-services-under-medicare</loc>
-</url>
-<url>
-  <loc>https://www.healthexps.com/blog/mastering-medicare-essential-tips-to-avoid-common-enrollment-mistakes</loc>
-</url>
-<url>
-  <loc>https://www.healthexps.com/blog/private-health-insurance-basics-plans-costs-and-coverage-explained</loc>
-</url>
-<url>
-  <loc>https://www.healthexps.com/blog/miami-s-trusted-health-insurance-experts-why-a-broker-makes-all-the-difference</loc>
-</url>
-<url>
-  <loc>https://www.healthexps.com/blog/the-hidden-treasure-how-medicare-savings-programs-slash-your-health-insurance-costs</loc>
-</url>
-<url>
-  <loc>https://www.healthexps.com/blog/mastering-medicare-essential-tips-for-comparing-plans-effectively</loc>
-</url>
-<url>
-  <loc>https://www.healthexps.com/blog/what-is-a-special-enrollment-period-for-medicare-in-florida</loc>
-</url>
-<url>
-  <loc>https://www.healthexps.com/blog/unlocking-your-rights-how-to-appeal-decision-on-medicare-coverage-denials</loc>
-</url>
-<url>
-  <loc>https://www.healthexps.com/blog/still-haven-t-switched-your-medicare-plan-you-may-qualify-for-a-special-enrollment-period</loc>
 </url>
 
 </urlset>
