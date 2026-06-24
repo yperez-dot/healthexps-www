@@ -45,16 +45,16 @@
   <changefreq>monthly</changefreq>
   <priority>0.9</priority>
   <xhtml:link rel="alternate" hreflang="en" href="https://www.healthexps.com/medicare-advantage-miami"/>
-  <xhtml:link rel="alternate" hreflang="es" href="https://www.healthexps.com/es/medicare-advantage-en-espanol"/>
+  <xhtml:link rel="alternate" hreflang="es" href="https://www.healthexps.com/es/medicare-advantage-miami"/>
 </url>
 
 <url>
-  <loc>https://www.healthexps.com/es/medicare-advantage-en-espanol</loc>
+  <loc>https://www.healthexps.com/es/medicare-advantage-miami</loc>
   <lastmod>2026-06-22</lastmod>
   <changefreq>monthly</changefreq>
   <priority>0.9</priority>
   <xhtml:link rel="alternate" hreflang="en" href="https://www.healthexps.com/medicare-advantage-miami"/>
-  <xhtml:link rel="alternate" hreflang="es" href="https://www.healthexps.com/es/medicare-advantage-en-espanol"/>
+  <xhtml:link rel="alternate" hreflang="es" href="https://www.healthexps.com/es/medicare-advantage-miami"/>
 </url>
 
 <url>
@@ -284,16 +284,16 @@
   <changefreq>yearly</changefreq>
   <priority>0.6</priority>
   <xhtml:link rel="alternate" hreflang="en" href="https://www.healthexps.com/enrollment-calculator"/>
-  <xhtml:link rel="alternate" hreflang="es" href="https://www.healthexps.com/es/enrollment-calculator"/>
+  <xhtml:link rel="alternate" hreflang="es" href="https://www.healthexps.com/es/calculadora-de-inscripcion"/>
 </url>
 
 <url>
-  <loc>https://www.healthexps.com/es/enrollment-calculator</loc>
+  <loc>https://www.healthexps.com/es/calculadora-de-inscripcion</loc>
   <lastmod>2026-06-15</lastmod>
   <changefreq>yearly</changefreq>
   <priority>0.6</priority>
   <xhtml:link rel="alternate" hreflang="en" href="https://www.healthexps.com/enrollment-calculator"/>
-  <xhtml:link rel="alternate" hreflang="es" href="https://www.healthexps.com/es/enrollment-calculator"/>
+  <xhtml:link rel="alternate" hreflang="es" href="https://www.healthexps.com/es/calculadora-de-inscripcion"/>
 </url>
 
 <url>
@@ -397,16 +397,16 @@
   <changefreq>monthly</changefreq>
   <priority>0.7</priority>
   <xhtml:link rel="alternate" hreflang="en" href="https://www.healthexps.com/avmed-medicare-florida"/>
-  <xhtml:link rel="alternate" hreflang="es" href="https://www.healthexps.com/es/avmed-medicare-florida-espanol"/>
+  <xhtml:link rel="alternate" hreflang="es" href="https://www.healthexps.com/es/avmed-medicare-florida"/>
 </url>
 
 <url>
-  <loc>https://www.healthexps.com/es/avmed-medicare-florida-espanol</loc>
+  <loc>https://www.healthexps.com/es/avmed-medicare-florida</loc>
   <lastmod>2026-06-15</lastmod>
   <changefreq>monthly</changefreq>
   <priority>0.7</priority>
   <xhtml:link rel="alternate" hreflang="en" href="https://www.healthexps.com/avmed-medicare-florida"/>
-  <xhtml:link rel="alternate" hreflang="es" href="https://www.healthexps.com/es/avmed-medicare-florida-espanol"/>
+  <xhtml:link rel="alternate" hreflang="es" href="https://www.healthexps.com/es/avmed-medicare-florida"/>
 </url>
 
 <!-- About & Contact -->
@@ -498,20 +498,20 @@
   <changefreq>monthly</changefreq>
   <priority>0.6</priority>
   <xhtml:link rel="alternate" hreflang="en" href="https://www.healthexps.com/faq/medicarefaq"/>
-  <xhtml:link rel="alternate" hreflang="es" href="https://www.healthexps.com/es/faq-medicare"/>
+  <xhtml:link rel="alternate" hreflang="es" href="https://www.healthexps.com/es/preguntas-medicare"/>
 </url>
 
 <url>
-  <loc>https://www.healthexps.com/es/faq-medicare</loc>
+  <loc>https://www.healthexps.com/es/preguntas-medicare</loc>
   <lastmod>2026-06-22</lastmod>
   <changefreq>monthly</changefreq>
   <priority>0.6</priority>
   <xhtml:link rel="alternate" hreflang="en" href="https://www.healthexps.com/faq/medicarefaq"/>
-  <xhtml:link rel="alternate" hreflang="es" href="https://www.healthexps.com/es/faq-medicare"/>
+  <xhtml:link rel="alternate" hreflang="es" href="https://www.healthexps.com/es/preguntas-medicare"/>
 </url>
 
 <url>
-  <loc>https://www.healthexps.com/es/faq-aca</loc>
+  <loc>https://www.healthexps.com/es/preguntas-aca</loc>
   <lastmod>2026-06-15</lastmod>
   <changefreq>monthly</changefreq>
   <priority>0.5</priority>
