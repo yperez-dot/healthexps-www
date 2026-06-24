@@ -40,9 +40,10 @@ a{color:var(--purple);text-decoration:none;}a:hover{color:var(--pink);}
 .article ul{margin:0 0 16px 20px;}
 .article ul li{font-size:16px;color:var(--gray-text);line-height:1.7;margin-bottom:6px;}
 .article a{color:var(--purple);font-weight:600;text-decoration:underline;text-underline-offset:3px;}
-.info-box{background:var(--purple-light);border-left:4px solid var(--purple);border-radius:var(--radius);padding:18px 20px;margin:24px 0;}
-.info-box-title{font-size:15px;font-weight:700;color:var(--purple);margin-bottom:6px;}
-.info-box p{font-size:15px;color:#444;line-height:1.7;margin:0;}
+.info-box{background:var(--purple-light);border-left:6px solid var(--pink);border-radius:var(--radius);padding:28px 32px;margin:32px 0;box-shadow:0 4px 16px rgba(69,32,104,0.12);}
+.info-box-title{font-size:20px;font-weight:700;color:var(--purple);margin-bottom:12px;display:flex;align-items:center;gap:8px;}
+.info-box-title::before{content:"💡";font-size:22px;}
+.info-box p{font-size:16px;color:#333;line-height:1.8;margin:0;font-weight:500;}
 .alert-box{background:#fff0f8;border:1px solid #ffc0d8;border-left:4px solid var(--pink);border-radius:var(--radius);padding:18px 20px;margin:24px 0;}
 .alert-box-title{font-size:15px;font-weight:700;color:var(--pink-hover);margin-bottom:6px;}
 .alert-box p{font-size:15px;color:#6b2040;line-height:1.7;margin:0;}
@@ -492,44 +493,49 @@ for(var k=0;k<_navLinks.length;k++){
   <p>Los precios exactos dependen de tu código postal, edad, género y compañía. Esta herramienta te da un rango de referencia:</p>
 
   <div class="estimator-wrap">
-    <div class="est-title">Estimador de Prima Medicare Suplementario</div>
-    <div class="est-sub">Selecciona tu letra de plan y tu edad para ver un rango estimado en Florida.</div>
+    <div class="est-title">Estimador de Prima Medicare Suplementario — Florida 2026</div>
+    <div class="est-sub">Las primas de Medigap varían según la edad, el uso de tabaco y la compañía de seguros. Use este estimador para obtener un rango aproximado para Florida:</div>
     <div class="est-grid">
       <div class="est-group">
-        <label for="est-plan">Letra de plan</label>
-        <select id="est-plan">
+        <label for="est-edad">Edad</label>
+        <select id="est-edad" onchange="calcEstimadorES()">
+          <option value="65">65</option>
+          <option value="67">67–69</option>
+          <option value="70">70–74</option>
+          <option value="75">75–79</option>
+          <option value="80">80+</option>
+        </select>
+      </div>
+      <div class="est-group">
+        <label for="est-plan">Plan</label>
+        <select id="est-plan" onchange="calcEstimadorES()">
           <option value="G">Plan G</option>
           <option value="N">Plan N</option>
-          <option value="F">Plan F (pre-2020)</option>
+          <option value="HD">Plan G-HD (Alto Deducible)</option>
         </select>
       </div>
       <div class="est-group">
-        <label for="est-edad">Tu edad</label>
-        <select id="est-edad">
-          <option value="65">65</option>
-          <option value="66-70">66–70</option>
-          <option value="71-75">71–75</option>
-          <option value="76-80">76–80</option>
-          <option value="81plus">81+</option>
-        </select>
-      </div>
-      <div class="est-group">
-        <label for="est-genero">Género</label>
-        <select id="est-genero">
-          <option value="F">Femenino</option>
-          <option value="M">Masculino</option>
+        <label for="est-tobacco">¿Usuario de tabaco?</label>
+        <select id="est-tobacco" onchange="calcEstimadorES()">
+          <option value="no">No</option>
+          <option value="yes">Sí</option>
         </select>
       </div>
     </div>
-    <button class="est-btn" onclick="calcEstimadorES()">Ver Estimado de Prima</button>
-    <div class="est-result" id="est-resultado">
-      <div class="est-result-title" id="est-titulo"></div>
-      <div class="est-result-desc" id="est-desc"></div>
+    <div class="est-result show" id="est-resultado">
+      <div style="font-size:12px;color:#666;margin-bottom:4px;text-transform:uppercase;letter-spacing:0.05em;">Rango de prima mensual estimado</div>
+      <div class="est-result-title" id="est-titulo" style="font-size:28px;font-weight:700;color:#452068;margin-bottom:8px;">$300 – $375 / mes</div>
+      <div class="est-result-desc" id="est-desc" style="font-size:14px;color:#555;line-height:1.7;">Las tarifas reales varían según la aseguradora. Nuestros corredores comparan todas las compañías en Florida para encontrar su tarifa más baja para una cobertura idéntica.</div>
     </div>
     <p style="font-size:13px;color:#888;margin-top:12px;">
       ⚠️ Solo estimados. Las tarifas reales varían según la aseguradora, código postal e historial de salud.
       <a href="/es/contacto" style="color:#452068;font-weight:600;">Llámenos para su tarifa real →</a>
     </p>
+  </div>
+
+  <div class="info-box">
+    <div class="info-box-title">Misma cobertura, precios muy diferentes</div>
+    <p>Como todas las pólizas de Medicare Suplementario con la misma letra cubren exactamente lo mismo, la única razón para pagar más es si no comparas. Las primas para cobertura idéntica pueden variar $50–$100/mes entre aseguradoras en el mismo código postal de Florida. Nuestros corredores hacen esta comparación por ti sin costo.</p>
   </div>
 
   <h2 id="vs">Medigap vs. Medicare Advantage — ¿cuál es mejor para ti?</h2>
@@ -621,20 +627,17 @@ for(var k=0;k<_navLinks.length;k++){
 function calcEstimadorES(){
   const plan=document.getElementById('est-plan').value;
   const edad=document.getElementById('est-edad').value;
-  const genero=document.getElementById('est-genero').value;
-  const resultado=document.getElementById('est-resultado');
+  const tobacco=document.getElementById('est-tobacco').value;
   const titulo=document.getElementById('est-titulo');
-  const desc=document.getElementById('est-desc');
-  const ranges={
-    'G':{'65':{'F':'$100–$145','M':'$110–$155'},'66-70':{'F':'$110–$160','M':'$120–$170'},'71-75':{'F':'$125–$180','M':'$135–$195'},'76-80':{'F':'$145–$205','M':'$160–$220'},'81plus':{'F':'$165–$230','M':'$180–$250'}},
-    'N':{'65':{'F':'$80–$120','M':'$88–$130'},'66-70':{'F':'$88–$135','M':'$96–$145'},'71-75':{'F':'$100–$150','M':'$110–$165'},'76-80':{'F':'$115–$170','M':'$128–$185'},'81plus':{'F':'$132–$190','M':'$145–$210'}},
-    'F':{'65':{'F':'$120–$165','M':'$132–$180'},'66-70':{'F':'$132–$185','M':'$145–$200'},'71-75':{'F':'$150–$210','M':'$165–$230'},'76-80':{'F':'$170–$235','M':'$185–$255'},'81plus':{'F':'$195–$265','M':'$210–$285'}}
+  const estimates={
+    G:{65:[300,375],67:[330,410],70:[360,455],75:[420,530],80:[480,600]},
+    N:{65:[200,320],67:[220,350],70:[240,385],75:[280,445],80:[320,505]},
+    HD:{65:[60,100],67:[68,110],70:[77,125],75:[90,145],80:[105,165]}
   };
-  const rango=ranges[plan][edad][genero];
-  titulo.style.color='#452068';
-  titulo.textContent=`Rango estimado Plan ${plan} en Florida: ${rango}/mes`;
-  desc.textContent=`Este es un rango de referencia basado en el mercado de Florida en 2026. Tu precio exacto depende de tu código postal, compañía aseguradora y si eres fumador. Todos los planes con la misma letra ofrecen exactamente la misma cobertura — solo el precio varía. Nuestros corredores comparan cada portadora para encontrar la más baja para ti.`;
-  resultado.classList.add('show');
+  const base=estimates[plan][edad];
+  const low=tobacco==='yes'?Math.round(base[0]*1.15):base[0];
+  const high=tobacco==='yes'?Math.round(base[1]*1.15):base[1];
+  titulo.textContent='$'+low+' – $'+high+' / mes';
 }
 (function(){const btn=document.getElementById('scrollToTop');if(!btn)return;window.addEventListener('scroll',function(){btn.style.display=window.pageYOffset>300?'block':'none';});btn.addEventListener('click',function(){window.scrollTo({top:0,behavior:'smooth'});});btn.addEventListener('mouseenter',function(){btn.style.background='#ff1090';btn.style.transform='translateY(-3px)';});btn.addEventListener('mouseleave',function(){btn.style.background='#452068';btn.style.transform='translateY(0)';});})();
 </script>
