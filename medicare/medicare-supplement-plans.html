@@ -138,9 +138,10 @@ a:hover { color: var(--pink); }
 .article a:hover { color: var(--pink); }
 
 /* INFO BOX */
-.info-box { background: var(--purple-light); border-left: 4px solid var(--purple); border-radius: var(--radius); padding: 18px 20px; margin: 24px 0; }
-.info-box-title { font-size: 15px; font-weight: 700; color: var(--purple); margin-bottom: 6px; }
-.info-box p { font-size: 15px; color: #444; line-height: 1.7; margin: 0; }
+.info-box { background: var(--purple-light); border-left: 6px solid var(--pink); border-radius: var(--radius); padding: 28px 32px; margin: 32px 0; box-shadow: 0 4px 16px rgba(69,32,104,0.12); }
+.info-box-title { font-size: 20px; font-weight: 700; color: var(--purple); margin-bottom: 12px; display: flex; align-items: center; gap: 8px; }
+.info-box-title::before { content: "💡"; font-size: 22px; }
+.info-box p { font-size: 16px; color: #333; line-height: 1.8; margin: 0; font-weight: 500; }
 
 /* ALERT BOX */
 .alert-box { background: #fff0f8; border: 1px solid #ffc0d8; border-left: 4px solid var(--pink); border-radius: var(--radius); padding: 18px 20px; margin: 24px 0; }
@@ -724,7 +725,7 @@ for(var k=0;k<_navLinks.length;k++){
 
  <div class="info-box">
  <div class="info-box-title">Same coverage, very different prices</div>
- <p>Because all Plan G policies cover exactly the same things, the only reason to pay more is if you don't compare. Premiums for identical Plan G coverage can vary by $50–$100/month between carriers in the same Florida ZIP code. Our brokers run this comparison for you at no cost.</p>
+ <p>Because all Medicare Supplement policies with the same letter cover exactly the same things, the only reason to pay more is if you don't compare. Premiums for identical coverage can vary by $50–$100/month between carriers in the same Florida ZIP code. Our brokers run this comparison for you at no cost.</p>
  </div>
 
  <h2 id="how-to-enroll">How to enroll in a Medicare Supplement plan</h2>
