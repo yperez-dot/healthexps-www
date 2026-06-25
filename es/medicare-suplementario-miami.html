@@ -78,7 +78,7 @@ a{color:var(--purple);text-decoration:none;}a:hover{color:var(--pink);}
 .plan-header{padding:20px 24px;color:white;}
 .plan-header.plan-g{background:linear-gradient(135deg,var(--purple),#6b3a9e);}
 .plan-header.plan-n{background:linear-gradient(135deg,#1a6b8a,#2196b8);}
-.plan-header.plan-f{background:linear-gradient(135deg,#555,#888);}
+
 .plan-tag{font-size:11px;font-weight:700;opacity:0.8;text-transform:uppercase;letter-spacing:1px;margin-bottom:6px;}
 .plan-header h3{font-size:22px;font-weight:700;}
 .plan-header .plan-note{font-size:13px;opacity:0.8;margin-top:4px;}
@@ -123,6 +123,33 @@ details[open] .faq-icon{transform:rotate(45deg);}
 .btn-wa-nav{background:var(--wa);color:white;display:inline-flex;align-items:center;gap:6px;padding:10px 16px;border-radius:50px;font-weight:700;font-size:14px;transition:all 0.2s;}
 .btn-wa-nav:hover{background:var(--wa-hover);color:white;transform:translateY(-1px);}
 .btn-wa-nav svg{width:16px;height:16px;flex-shrink:0;}
+
+.table-wrap{margin:32px 0;overflow-x:auto;}
+.supp-table{width:100%;border-collapse:collapse;background:white;border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow);font-size:14px;}
+.supp-table th{background:var(--purple);color:white;padding:14px 10px;text-align:center;font-weight:700;font-size:13px;}
+.supp-table td{padding:12px 10px;text-align:center;border-bottom:1px solid #f4eefa;}
+.supp-table tbody tr:last-child td{border-bottom:none;}
+.supp-table td:first-child{text-align:left;font-weight:600;color:var(--black);}
+.td-yes{color:#16a34a;font-weight:700;font-size:16px;}
+.td-no{color:#dc2626;font-weight:700;font-size:16px;}
+.td-partial{color:#ea580c;font-weight:700;font-size:13px;}
+.td-highlight{background:#f4eefa;}
+.table-toggle-btn{background:var(--purple-light);color:var(--purple);border:2px solid var(--purple);padding:10px 20px;border-radius:50px;font-weight:700;font-size:14px;cursor:pointer;margin-top:12px;transition:all 0.2s;}
+.table-toggle-btn:hover{background:var(--purple);color:white;}
+.supp-table th:nth-child(2),.supp-table td:nth-child(2),.supp-table th:nth-child(3),.supp-table td:nth-child(3),.supp-table th:nth-child(6),.supp-table td:nth-child(6),.supp-table th:nth-child(7),.supp-table td:nth-child(7){display:none;}
+.supp-table.expanded th,.supp-table.expanded td{display:table-cell !important;}
+@media(max-width:768px){.supp-table{font-size:12px;}.supp-table th,.supp-table td{padding:8px 6px;}}
+
+.estimator{background:white;border:1px solid #e8e0f4;border-radius:var(--radius);padding:28px;box-shadow:var(--shadow);margin:24px 0;}
+.estimator-title{font-size:20px;font-weight:700;color:var(--purple);margin-bottom:18px;}
+.estimator-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-bottom:20px;}
+.estimator-grid label{display:block;font-size:13px;font-weight:700;color:var(--purple);text-transform:uppercase;letter-spacing:0.05em;margin-bottom:6px;}
+.estimator-grid select{width:100%;padding:10px 12px;border:2px solid #e8e0f4;border-radius:8px;font-size:15px;font-weight:600;color:var(--black);background:white;cursor:pointer;transition:border-color 0.2s;}
+.estimator-grid select:hover{border-color:var(--purple);}
+.estimator-result{background:var(--purple-light);border-radius:var(--radius);padding:20px;text-align:center;}
+.estimator-range{font-size:28px;font-weight:700;color:var(--purple);}
+.estimator-note{font-size:13px;color:var(--gray-text);margin-top:10px;line-height:1.6;}
+@media(max-width:768px){.estimator-grid{grid-template-columns:1fr;}}
 
 </style>
 </head>
@@ -276,6 +303,33 @@ Encuentra Mi Plan →
   #nav-toggle { display: none !important; }
   #nav-links { display: flex !important; }
  }
+.table-wrap{margin:32px 0;overflow-x:auto;}
+.supp-table{width:100%;border-collapse:collapse;background:white;border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow);font-size:14px;}
+.supp-table th{background:var(--purple);color:white;padding:14px 10px;text-align:center;font-weight:700;font-size:13px;}
+.supp-table td{padding:12px 10px;text-align:center;border-bottom:1px solid #f4eefa;}
+.supp-table tbody tr:last-child td{border-bottom:none;}
+.supp-table td:first-child{text-align:left;font-weight:600;color:var(--black);}
+.td-yes{color:#16a34a;font-weight:700;font-size:16px;}
+.td-no{color:#dc2626;font-weight:700;font-size:16px;}
+.td-partial{color:#ea580c;font-weight:700;font-size:13px;}
+.td-highlight{background:#f4eefa;}
+.table-toggle-btn{background:var(--purple-light);color:var(--purple);border:2px solid var(--purple);padding:10px 20px;border-radius:50px;font-weight:700;font-size:14px;cursor:pointer;margin-top:12px;transition:all 0.2s;}
+.table-toggle-btn:hover{background:var(--purple);color:white;}
+.supp-table th:nth-child(2),.supp-table td:nth-child(2),.supp-table th:nth-child(3),.supp-table td:nth-child(3),.supp-table th:nth-child(6),.supp-table td:nth-child(6),.supp-table th:nth-child(7),.supp-table td:nth-child(7){display:none;}
+.supp-table.expanded th,.supp-table.expanded td{display:table-cell !important;}
+@media(max-width:768px){.supp-table{font-size:12px;}.supp-table th,.supp-table td{padding:8px 6px;}}
+
+.estimator{background:white;border:1px solid #e8e0f4;border-radius:var(--radius);padding:28px;box-shadow:var(--shadow);margin:24px 0;}
+.estimator-title{font-size:20px;font-weight:700;color:var(--purple);margin-bottom:18px;}
+.estimator-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-bottom:20px;}
+.estimator-grid label{display:block;font-size:13px;font-weight:700;color:var(--purple);text-transform:uppercase;letter-spacing:0.05em;margin-bottom:6px;}
+.estimator-grid select{width:100%;padding:10px 12px;border:2px solid #e8e0f4;border-radius:8px;font-size:15px;font-weight:600;color:var(--black);background:white;cursor:pointer;transition:border-color 0.2s;}
+.estimator-grid select:hover{border-color:var(--purple);}
+.estimator-result{background:var(--purple-light);border-radius:var(--radius);padding:20px;text-align:center;}
+.estimator-range{font-size:28px;font-weight:700;color:var(--purple);}
+.estimator-note{font-size:13px;color:var(--gray-text);margin-top:10px;line-height:1.6;}
+@media(max-width:768px){.estimator-grid{grid-template-columns:1fr;}}
+
 </style>
 <script>
 var _nt=document.getElementById('nav-toggle');
@@ -442,20 +496,75 @@ for(var k=0;k<_navLinks.length;k++){
           <div style="margin-top:16px;background:var(--purple-light);padding:12px;border-radius:8px;font-size:15px;"><strong>Prima típica en Miami:</strong> $60–$100/mes</div>
         </div>
       </div>
-        <div class="plan-body">
-          <div class="plan-feature"><span class="check">✓</span> Cubre TODO — deducibles, coseguros, copagos</div>
-          <div class="plan-feature"><span class="check">✓</span> Cubre deducible Parte B ($283)</div>
-          <div class="plan-feature"><span class="check">✓</span> Cubre "excess charges" Parte B</div>
-          <div class="plan-feature"><span class="check">✓</span> Cobertura de emergencia internacional</div>
-          <div class="plan-feature" style="color:#d97706;"><span style="color:#d97706;font-weight:700;">⚠️</span> Solo disponible si se inscribió en Medicare antes del 1 de enero de 2020</div>
-          <div style="margin-top:16px;background:var(--purple-light);padding:12px;border-radius:8px;font-size:15px;"><strong>Prima típica en Miami:</strong> $180–$280/mes</div>
-        </div>
       </div>
     </div>
 
     <div class="callout callout-pink">
       <strong>Las primas varían por aseguradora, edad y estado de salud.</strong> Dos personas en la misma situación pueden pagar precios muy diferentes dependiendo del momento en que se inscriben. Le ayudamos a encontrar la prima más baja disponible para el plan que necesita.
     </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+
+    <h2 id="plan-letters">Letras de planes de Medicare Supplement — qué cubre cada uno</h2>
+    <p>Todos los planes Medigap están estandarizados por el gobierno federal — un Plan G de una compañía cubre exactamente lo mismo que un Plan G de otra. La única diferencia entre aseguradoras es la <strong>prima mensual</strong>. Por eso es importante comparar precios.</p>
+
+    <div class="table-wrap">
+      <table class="supp-table">
+        <thead>
+          <tr>
+            <th style="width:28%">Qué cubre</th>
+            <th style="width:12%">Plan A</th>
+            <th style="width:12%">Plan B</th>
+            <th style="width:12%" class="td-highlight">Plan G ★</th>
+            <th style="width:12%">Plan N</th>
+            <th style="width:12%">Plan K</th>
+            <th style="width:12%">Plan L</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Coseguro Parte A y costos hospitalarios</td>
+            <td class="td-yes">✓</td><td class="td-yes">✓</td><td class="td-highlight td-yes">✓</td><td class="td-yes">✓</td><td class="td-yes">✓</td><td class="td-yes">✓</td>
+          </tr>
+          <tr>
+            <td>Coseguro Parte B (el 20%)</td>
+            <td class="td-yes">✓</td><td class="td-yes">✓</td><td class="td-highlight td-yes">✓</td><td class="td-partial">Copago*</td><td class="td-partial">50%</td><td class="td-partial">75%</td>
+          </tr>
+          <tr>
+            <td>Deducible Parte A ($1,736)</td>
+            <td class="td-no">✗</td><td class="td-yes">✓</td><td class="td-highlight td-yes">✓</td><td class="td-yes">✓</td><td class="td-partial">50%</td><td class="td-partial">75%</td>
+          </tr>
+          <tr>
+            <td>Deducible Parte B ($283)</td>
+            <td class="td-no">✗</td><td class="td-no">✗</td><td class="td-highlight td-no">✗</td><td class="td-no">✗</td><td class="td-no">✗</td><td class="td-no">✗</td>
+          </tr>
+          <tr>
+            <td>Cargos excesivos Parte B</td>
+            <td class="td-no">✗</td><td class="td-no">✗</td><td class="td-highlight td-yes">✓</td><td class="td-no">✗</td><td class="td-no">✗</td><td class="td-no">✗</td>
+          </tr>
+          <tr>
+            <td>Coseguro de enfermería especializada</td>
+            <td class="td-no">✗</td><td class="td-no">✗</td><td class="td-highlight td-yes">✓</td><td class="td-yes">✓</td><td class="td-partial">50%</td><td class="td-partial">75%</td>
+          </tr>
+          <tr>
+            <td>Emergencia de viaje al extranjero</td>
+            <td class="td-no">✗</td><td class="td-no">✗</td><td class="td-highlight td-yes">80%</td><td class="td-yes">80%</td><td class="td-no">✗</td><td class="td-no">✗</td>
+          </tr>
+        </tbody>
+      </table>
+      <button class="table-toggle-btn" id="suppTableToggle" onclick="
+        var t = document.querySelector('.supp-table');
+        var btn = document.getElementById('suppTableToggle');
+        t.classList.toggle('expanded');
+        btn.textContent = t.classList.contains('expanded') ? '− Mostrar menos planes' : '+ Mostrar todas las letras de plan';
+      ">+ Mostrar todas las letras de plan</button>
+    </div>
+    <p style="font-size:13px;color:var(--gray-text);margin-top:-12px;">★ El Plan G está disponible para cualquier persona recién elegible para Medicare. El Plan F (que también cubre el deducible de la Parte B) ya no está disponible para nuevos inscritos desde el 1 de enero de 2020. *El Plan N tiene copagos de hasta $20 por visitas al consultorio y $50 por visitas a emergencias que no resulten en ingreso hospitalario.</p>
+
+
   </div>
 </section>
 
