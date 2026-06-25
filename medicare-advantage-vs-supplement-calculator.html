@@ -89,6 +89,7 @@ a{text-decoration:none;}
 .ctaw{display:inline-flex;align-items:center;gap:6px;background:#25D366;color:white;padding:13px 24px;border-radius:50px;font-weight:700;font-size:14px;}
 @media(max-width:560px){.fg{grid-template-columns:1fr;}.cg{grid-template-columns:1fr;}.ub{grid-template-columns:1fr;}.card{padding:20px 16px;}}
 </style>
+<link rel="canonical" href="https://www.healthexps.com/medicare-advantage-vs-supplement-calculator">
 </head>
 <body>
 <header style="position:sticky;top:0;z-index:100;box-shadow:0 2px 12px rgba(69,32,104,0.12);">
@@ -118,7 +119,7 @@ a{text-decoration:none;}
   <div style="background:white;border-bottom:2px solid #f4eefa;">
     <div style="max-width:1060px;margin:0 auto;padding:0 24px;">
       <nav style="display:flex;align-items:center;justify-content:space-between;height:76px;">
-        <a href="/"><img src="/images/logo.png" alt="The Health Experts Insurance" style="height:72px;width:auto;display:block;"></a>
+        <a href="/"><img src="/images/logo.webp" alt="The Health Experts Insurance" style="height:72px;width:auto;display:block;"></a>
         <ul id="nav-links" style="display:flex;align-items:center;gap:4px;list-style:none;margin:0;padding:0;position:relative;">
           <button id="nav-close-btn" style="display:none;position:absolute;top:8px;right:12px;background:none;border:none;font-size:28px;font-weight:400;color:#452068;cursor:pointer;line-height:1;padding:4px 8px;" aria-label="Close menu">×</button>
           <li><a href="/" style="padding:8px 12px;color:#452068;font-weight:600;font-size:14px;border-radius:6px;text-decoration:none;">Home</a></li>
@@ -479,10 +480,10 @@ setLang('en');
   <div style="max-width:1060px;margin:0 auto;padding:0 24px;">
     <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:36px;margin-bottom:44px;">
       <div>
-        <img src="/images/logo.png" alt="The Health Experts Insurance" style="height:64px;width:auto;margin-bottom:14px;">
-        <p style="font-size:14px;color:#555;line-height:1.6;margin:0 0 14px;">Independent bilingual Medicare brokers. Office in Doral, FL.</p>
+        <img src="/images/logo.webp" alt="The Health Experts Insurance" style="height:64px;width:auto;margin-bottom:14px;">
+        <p style="font-size:14px;color:#555;line-height:1.6;margin:0 0 14px;">Independent bilingual health insurance brokers. Office in Doral, FL.</p>
         <p style="font-size:15px;margin-bottom:6px;"><a href="tel:18003806821" style="color:#452068;font-weight:600;text-decoration:none;">1-800-380-6821</a></p>
-        <p style="font-size:15px;margin-bottom:6px;"><a href="https://wa.me/13054646888" style="color:#452068;font-weight:600;text-decoration:none;">💬 WhatsApp</a></p>
+        <p style="font-size:15px;margin-bottom:6px;"><a href="https://wa.me/13054646888" style="color:#452068;font-weight:600;text-decoration:none;">WhatsApp</a></p>
         <p style="font-size:15px;margin-bottom:6px;"><a href="mailto:info@healthexps.com" style="color:#452068;font-weight:600;text-decoration:none;">info@healthexps.com</a></p>
         <p style="font-size:14px;color:#555;margin-top:8px;">1695 NW 110 Ave, Ste 224<br>Doral, FL 33172</p>
       </div>
@@ -526,5 +527,17 @@ setLang('en');
   </div>
 </footer>
 
+
+<button id="scrollToTop" aria-label="Back to top">↑</button>
+<script>
+(function(){
+  const btn=document.getElementById('scrollToTop');
+  if(!btn)return;
+  window.addEventListener('scroll',function(){btn.style.display=window.pageYOffset>300?'block':'none';});
+  btn.addEventListener('click',function(){window.scrollTo({top:0,behavior:'smooth'});});
+  btn.addEventListener('mouseenter',function(){btn.style.background='#ff1090';btn.style.transform='translateY(-3px)';});
+  btn.addEventListener('mouseleave',function(){btn.style.background='#452068';btn.style.transform='translateY(0)';});
+})();
+</script>
 </body>
 </html>
