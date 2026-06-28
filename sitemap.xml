@@ -655,4 +655,24 @@
   <priority>0.6</priority>
 </url>
 
+
+<!-- AEP Annual Enrollment Pages - created 2026-06-28 -->
+<url>
+  <loc>https://www.healthexps.com/medicare-annual-enrollment-2027</loc>
+  <lastmod>2026-06-28</lastmod>
+  <changefreq>monthly</changefreq>
+  <priority>0.8</priority>
+  <xhtml:link rel="alternate" hreflang="en" href="https://www.healthexps.com/medicare-annual-enrollment-2027"/>
+  <xhtml:link rel="alternate" hreflang="es" href="https://www.healthexps.com/es/inscripcion-anual-medicare-2027"/>
+</url>
+
+<url>
+  <loc>https://www.healthexps.com/es/inscripcion-anual-medicare-2027</loc>
+  <lastmod>2026-06-28</lastmod>
+  <changefreq>monthly</changefreq>
+  <priority>0.8</priority>
+  <xhtml:link rel="alternate" hreflang="en" href="https://www.healthexps.com/medicare-annual-enrollment-2027"/>
+  <xhtml:link rel="alternate" hreflang="es" href="https://www.healthexps.com/es/inscripcion-anual-medicare-2027"/>
+</url>
+
 </urlset>

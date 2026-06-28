@@ -283,12 +283,53 @@ document.addEventListener('click',function(e){
   </div>
 </section>
 
-<section class="section">
+<section class="section" style="background:#f8f7fc;">
   <div class="container">
     <h2 class="section-title">Lo que realmente cuesta el COBRA en Florida</h2>
-    <p class="section-sub">El COBRA requiere que pagues el 100% de la prima que tu empleador estaba pagando, más una tarifa administrativa del 2%. Para la mayoría de las personas en Florida, eso significa:</p>
-    <div class="cost-box">
-      <div class="cost-box-amt">$800–$1,020/mes para una persona<br>$2,000–$2,800/mes para familias</div>
+    <p class="section-sub">El COBRA te obliga a pagar el 100% de la prima que pagaba tu empleador más un 2% de cargo administrativo. Para la mayoría de los residentes de Florida, eso significa:</p>
+
+    <!-- Split cost card -->
+    <div style="display:flex;border-radius:16px;overflow:hidden;max-width:580px;margin:24px auto 0;">
+      <div style="flex:1;background:#452068;padding:32px 24px;text-align:center;">
+        <div style="font-size:11px;color:rgba(255,255,255,0.6);text-transform:uppercase;letter-spacing:0.8px;margin-bottom:10px;">Persona individual</div>
+        <div style="font-size:36px;font-weight:500;color:#fff;line-height:1.1;">$800–$1,020</div>
+        <div style="font-size:12px;color:rgba(255,255,255,0.6);margin-top:8px;">por mes</div>
+      </div>
+      <div style="flex:1;background:#5c2d8a;padding:32px 24px;text-align:center;">
+        <div style="font-size:11px;color:rgba(255,255,255,0.6);text-transform:uppercase;letter-spacing:0.8px;margin-bottom:10px;">Cobertura familiar</div>
+        <div style="font-size:36px;font-weight:500;color:#fff;line-height:1.1;">$2,000–$2,800</div>
+        <div style="font-size:12px;color:rgba(255,255,255,0.6);margin-top:8px;">por mes</div>
+      </div>
+    </div>
+
+    <!-- Comparison lines -->
+    <div style="max-width:580px;margin:24px auto 0;">
+      <div style="font-size:12px;font-weight:500;color:#452068;text-transform:uppercase;letter-spacing:0.5px;margin-bottom:10px;">Tus alternativas — a una fracción del costo:</div>
+      <div style="background:white;border:0.5px solid #e0d9ed;border-radius:12px;padding:14px 20px;display:flex;align-items:center;justify-content:space-between;margin-bottom:10px;flex-wrap:wrap;gap:8px;">
+        <div style="display:flex;align-items:center;gap:10px;">
+          <span style="width:8px;height:8px;border-radius:50%;background:#452068;flex-shrink:0;display:inline-block;"></span>
+          <span style="font-size:15px;color:#333;">Planes del Mercado ACA</span>
+        </div>
+        <div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;">
+          <span style="font-size:14px;font-weight:500;color:#452068;">$0–$150/mes</span>
+          <span style="font-size:11px;color:#2e7d32;background:#e8f5e9;padding:2px 8px;border-radius:99px;white-space:nowrap;">Ahorra hasta $1,020/mes</span>
+        </div>
+      </div>
+      <div style="background:white;border:0.5px solid #e0d9ed;border-radius:12px;padding:14px 20px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px;">
+        <div style="display:flex;align-items:center;gap:10px;">
+          <span style="width:8px;height:8px;border-radius:50%;background:#452068;flex-shrink:0;display:inline-block;"></span>
+          <span style="font-size:15px;color:#333;">Seguro médico privado</span>
+        </div>
+        <div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;">
+          <span style="font-size:14px;font-weight:500;color:#452068;">40–60% menos que COBRA</span>
+          <span style="font-size:11px;color:#2e7d32;background:#e8f5e9;padding:2px 8px;border-radius:99px;white-space:nowrap;">Ahorra $320–$600/mes</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Disclaimer -->
+    <div style="max-width:580px;margin:16px auto 0;display:flex;gap:6px;">
+      <span style="font-size:11px;color:#999;line-height:1.5;">Las cifras anteriores son estimaciones basadas en tarifas promedio del mercado de Florida. Los costos reales varían según tu edad, ubicación, ingresos e historial de salud. Un corredor con licencia preparará tu cotización personalizada sin costo — sin obligación de inscribirte.</span>
     </div>
 
     <div class="amber-warning">

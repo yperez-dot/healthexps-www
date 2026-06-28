@@ -124,6 +124,7 @@ a{color:var(--purple);text-decoration:none;}a:hover{color:var(--pink);}
               <li><a href="/private-health-insurance-miami" style="display:block;padding:10px 18px;color:#555;font-size:14px;text-decoration:none;">Private Health Insurance</a></li>
               <li><a href="/aca-plans-miami" style="display:block;padding:10px 18px;color:#555;font-size:14px;text-decoration:none;">ACA Marketplace Plans</a></li>
               <li><a href="/dental-vision-miami" style="display:block;padding:10px 18px;color:#555;font-size:14px;text-decoration:none;">Dental &amp; Vision</a></li>
+              <li><a href="/medicare-annual-enrollment-2027" style="display:block;padding:10px 18px;color:#ff1090;font-size:14px;font-weight:700;text-decoration:none;">Annual Enrollment (AEP)</a></li>
             </ul>
           </li>
           <li style="position:relative;" class="has-dropdown">
@@ -284,12 +285,53 @@ document.addEventListener('click',function(e){
   </div>
 </section>
 
-<section class="section">
+<section class="section" style="background:#f8f7fc;">
   <div class="container">
     <h2 class="section-title">What COBRA actually costs in Florida</h2>
-    <p class="section-sub">COBRA requires you to pay 100% of the premium your employer was paying, plus a 2% administrative fee. For most people in Florida, that means:</p>
-    <div class="cost-box">
-      <div class="cost-box-amt">$800–$1,020/mo for a single person<br>$2,000–$2,800/mo for families</div>
+    <p class="section-sub">COBRA requires you to pay 100% of your employer's premium plus a 2% admin fee. For most Florida residents, that means:</p>
+
+    <!-- Split cost card -->
+    <div style="display:flex;border-radius:16px;overflow:hidden;max-width:580px;margin:24px auto 0;">
+      <div style="flex:1;background:#452068;padding:32px 24px;text-align:center;">
+        <div style="font-size:11px;color:rgba(255,255,255,0.6);text-transform:uppercase;letter-spacing:0.8px;margin-bottom:10px;">Single person</div>
+        <div style="font-size:36px;font-weight:500;color:#fff;line-height:1.1;">$800–$1,020</div>
+        <div style="font-size:12px;color:rgba(255,255,255,0.6);margin-top:8px;">per month</div>
+      </div>
+      <div style="flex:1;background:#5c2d8a;padding:32px 24px;text-align:center;">
+        <div style="font-size:11px;color:rgba(255,255,255,0.6);text-transform:uppercase;letter-spacing:0.8px;margin-bottom:10px;">Family coverage</div>
+        <div style="font-size:36px;font-weight:500;color:#fff;line-height:1.1;">$2,000–$2,800</div>
+        <div style="font-size:12px;color:rgba(255,255,255,0.6);margin-top:8px;">per month</div>
+      </div>
+    </div>
+
+    <!-- Comparison lines -->
+    <div style="max-width:580px;margin:24px auto 0;">
+      <div style="font-size:12px;font-weight:500;color:#452068;text-transform:uppercase;letter-spacing:0.5px;margin-bottom:10px;">Your alternatives — at a fraction of the cost:</div>
+      <div style="background:white;border:0.5px solid #e0d9ed;border-radius:12px;padding:14px 20px;display:flex;align-items:center;justify-content:space-between;margin-bottom:10px;flex-wrap:wrap;gap:8px;">
+        <div style="display:flex;align-items:center;gap:10px;">
+          <span style="width:8px;height:8px;border-radius:50%;background:#452068;flex-shrink:0;display:inline-block;"></span>
+          <span style="font-size:15px;color:#333;">ACA Marketplace plans</span>
+        </div>
+        <div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;">
+          <span style="font-size:14px;font-weight:500;color:#452068;">$0–$150/mo</span>
+          <span style="font-size:11px;color:#2e7d32;background:#e8f5e9;padding:2px 8px;border-radius:99px;white-space:nowrap;">Save up to $1,020/mo</span>
+        </div>
+      </div>
+      <div style="background:white;border:0.5px solid #e0d9ed;border-radius:12px;padding:14px 20px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px;">
+        <div style="display:flex;align-items:center;gap:10px;">
+          <span style="width:8px;height:8px;border-radius:50%;background:#452068;flex-shrink:0;display:inline-block;"></span>
+          <span style="font-size:15px;color:#333;">Private health insurance</span>
+        </div>
+        <div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;">
+          <span style="font-size:14px;font-weight:500;color:#452068;">40–60% less than COBRA</span>
+          <span style="font-size:11px;color:#2e7d32;background:#e8f5e9;padding:2px 8px;border-radius:99px;white-space:nowrap;">Save $320–$600/mo</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Disclaimer -->
+    <div style="max-width:580px;margin:16px auto 0;display:flex;gap:6px;">
+      <span style="font-size:11px;color:#999;line-height:1.5;">⚠️ Figures above are estimates based on average Florida market rates. Actual costs vary based on your age, location, income, and health history. A licensed broker will run your personalized quote at no cost — no obligation to enroll.</span>
     </div>
 
     <div class="amber-warning">
