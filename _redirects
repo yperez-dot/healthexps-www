@@ -1,6 +1,6 @@
 # Netlify redirects
 # Old Spanish quiz URL → New Spanish SEO-friendly URL
-/es/find-my-plan  /es/encuentra-mi-plan  301
+/es/encuentra-mi-plan  /es/find-my-plan  301
 
 # Blog migration — Tier 1 posts (2026-06-24)
 # /post/ → /blog/ (keeping Wix slugs exactly as-is)
