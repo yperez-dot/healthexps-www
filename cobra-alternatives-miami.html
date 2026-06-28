@@ -441,7 +441,11 @@ document.addEventListener('click',function(e){
           </select>
         </div>
         <div id="urgencyMsg" class="urgency-message"></div>
-        <div class="form-checkbox">
+                <div class="form-group" style="margin-bottom:18px;">
+          <label class="form-label">Anything you'd like to share? <span style="font-weight:400;text-transform:none;color:#888;">(optional)</span></label>
+          <textarea name="additional_notes" placeholder="e.g. I need to keep my cardiologist, or I take 3 medications..." style="width:100%;padding:12px 14px;border:2px solid #e5e5e5;border-radius:8px;font-size:15px;font-family:Arial,sans-serif;min-height:80px;resize:vertical;box-sizing:border-box;"></textarea>
+        </div>
+<div class="form-checkbox">
           <input type="checkbox" id="consent" name="consent" required>
           <label for="consent">By submitting this form, I consent to receive calls, texts, and emails from The Health Experts Insurance at the number and email provided, including automated dialing. Consent is not required to purchase services.</label>
         </div>

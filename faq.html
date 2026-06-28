@@ -179,6 +179,7 @@ a{color:var(--purple);text-decoration:none;}a:hover{color:var(--pink);}
             <a href="/medicare-plans-miami" style="padding:8px 12px;color:#452068;font-weight:600;font-size:14px;border-radius:6px;text-decoration:none;background:#f4eefa;">Insurance ▾</a>
             <ul style="display:none;position:absolute;top:100%;left:0;min-width:210px;background:white;border-radius:12px;box-shadow:0 8px 24px rgba(0,0,0,0.12);border-top:3px solid #ff1090;padding:8px 0;z-index:200;list-style:none;margin:0;" class="dropdown">
               <li><a href="/medicare-plans-miami" style="display:block;padding:10px 18px;color:#452068;font-size:14px;font-weight:700;text-decoration:none;">Medicare Plans</a></li>
+              <li><a href="/medicare-annual-enrollment-2027" style="display:block;padding:10px 18px;color:#555;font-size:14px;text-decoration:none;">Annual Enrollment (AEP)</a></li>
               <li><a href="/private-health-insurance-miami" style="display:block;padding:10px 18px;color:#555;font-size:14px;text-decoration:none;">Private Health Insurance</a></li>
               <li><a href="/aca-plans-miami" style="display:block;padding:10px 18px;color:#555;font-size:14px;text-decoration:none;">ACA Marketplace Plans</a></li>
               <li><a href="/dental-vision-miami" style="display:block;padding:10px 18px;color:#555;font-size:14px;text-decoration:none;">Dental &amp; Vision</a></li>
@@ -366,7 +367,8 @@ for(var k=0;k<_navLinks.length;k++){
  <button class="cat-btn" onclick="filterCat('plans',this)">Plan Types</button>
  <button class="cat-btn" onclick="filterCat('costs',this)">Costs & IRMAA</button>
  <button class="cat-btn" onclick="filterCat('coverage',this)">Coverage</button>
- <button class="cat-btn" onclick="filterCat('aca',this)">ACA & Private</button>
+ <button class="cat-btn" onclick="filterCat('aca',this)">ACA & Marketplace</button>
+ <button class="cat-btn" onclick="filterCat('private',this)">Private Insurance</button>
  </div>
 
  <!-- ENROLLMENT -->
@@ -477,9 +479,9 @@ for(var k=0;k<_navLinks.length;k++){
  </div>
  </div>
 
- <!-- ACA & PRIVATE -->
+ <!-- ACA & MARKETPLACE -->
  <div class="faq-section" data-cat="aca">
- <div class="faq-section-title">ACA & Private Health Insurance</div>
+ <div class="faq-section-title">ACA & Marketplace</div>
  <div class="faq-list">
  <div class="faq-item" data-cat="aca">
  <button class="faq-q" onclick="toggleFaq(this)">What is the ACA Marketplace? <span class="faq-icon">+</span></button>
@@ -496,6 +498,33 @@ for(var k=0;k<_navLinks.length;k++){
  <div class="faq-item" data-cat="aca">
  <button class="faq-q" onclick="toggleFaq(this)">When can I enroll in an ACA plan? <span class="faq-icon">+</span></button>
  <div class="faq-a">Open Enrollment runs November 1 – January 15 each year. Outside of that, you can enroll if you experience a qualifying life event — losing job coverage, getting married, having a baby, moving to a new state, or other changes. These trigger a Special Enrollment Period of 60 days.</div>
+ </div>
+ </div>
+ </div>
+
+ <!-- PRIVATE HEALTH INSURANCE -->
+ <div class="faq-section" data-cat="private">
+ <div class="faq-section-title">Private Health Insurance</div>
+ <div class="faq-list">
+ <div class="faq-item" data-cat="private">
+ <button class="faq-q" onclick="toggleFaq(this)">What is private health insurance? <span class="faq-icon">+</span></button>
+ <div class="faq-a">Private health insurance is coverage purchased directly from an insurance carrier — not through an employer or government program. It's a good option for self-employed individuals, people who don't qualify for ACA subsidies, or anyone who wants more flexibility in their coverage. <a href="/private-health-insurance-miami">Learn more →</a></div>
+ </div>
+ <div class="faq-item" data-cat="private">
+ <button class="faq-q" onclick="toggleFaq(this)">Who should consider private health insurance instead of ACA? <span class="faq-icon">+</span></button>
+ <div class="faq-a">Private health insurance may be a better fit if your income is too high for ACA subsidies, you want year-round enrollment flexibility, or you're looking for a specific network or plan design. A licensed broker can compare both options for your situation at no cost.</div>
+ </div>
+ <div class="faq-item" data-cat="private">
+ <button class="faq-q" onclick="toggleFaq(this)">Is COBRA better than private health insurance? <span class="faq-icon">+</span></button>
+ <div class="faq-a">In most cases, no. COBRA requires you to pay 100% of your employer's premium plus a 2% admin fee — often $800+/month. Private health insurance is frequently 40–60% cheaper. There are exceptions for complex medical situations, but most people save significantly by switching. <a href="/cobra-alternatives-miami">See COBRA alternatives →</a></div>
+ </div>
+ <div class="faq-item" data-cat="private">
+ <button class="faq-q" onclick="toggleFaq(this)">Can self-employed people get private health insurance? <span class="faq-icon">+</span></button>
+ <div class="faq-a">Yes. Self-employed individuals, freelancers, and small business owners are among the most common buyers of private health insurance. Depending on your income, you may also qualify for ACA subsidies. We compare both options for you at no cost.</div>
+ </div>
+ <div class="faq-item" data-cat="private">
+ <button class="faq-q" onclick="toggleFaq(this)">How much does private health insurance cost in Florida? <span class="faq-icon">+</span></button>
+ <div class="faq-a">Costs vary based on age, location, plan type, and health history. Healthy adults in Florida often find plans ranging from $150–$400/month. A licensed broker can run a personalized quote for your specific situation — free, no obligation. <a href="/contact">Get a free quote →</a></div>
  </div>
  </div>
  </div>

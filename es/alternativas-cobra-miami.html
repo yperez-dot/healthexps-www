@@ -121,6 +121,7 @@ a{color:var(--purple);text-decoration:none;}a:hover{color:var(--pink);}
             <a href="/es/planes-de-medicare-miami" style="padding:8px 12px;color:#452068;font-weight:600;font-size:14px;border-radius:6px;text-decoration:none;">Seguros ▾</a>
             <ul style="display:none;position:absolute;top:100%;left:0;min-width:210px;background:white;border-radius:12px;box-shadow:0 8px 24px rgba(0,0,0,0.12);border-top:3px solid #ff1090;padding:8px 0;z-index:200;list-style:none;margin:0;" class="dropdown">
               <li><a href="/es/planes-de-medicare-miami" style="display:block;padding:10px 18px;color:#452068;font-size:14px;font-weight:700;text-decoration:none;">Planes de Medicare</a></li>
+              <li><a href="/es/inscripcion-anual-medicare-2027" style="display:block;padding:10px 18px;color:#555;font-size:14px;text-decoration:none;">Inscripción Anual (AEP)</a></li>
               <li><a href="/es/seguro-medico-privado-miami" style="display:block;padding:10px 18px;color:#555;font-size:14px;text-decoration:none;">Seguro Médico Privado</a></li>
               <li><a href="/es/planes-aca-miami" style="display:block;padding:10px 18px;color:#555;font-size:14px;text-decoration:none;">Planes del Mercado ACA</a></li>
               <li><a href="/es/dental-vision-miami" style="display:block;padding:10px 18px;color:#555;font-size:14px;text-decoration:none;">Dental y Visión</a></li>
@@ -439,7 +440,11 @@ document.addEventListener('click',function(e){
           </select>
         </div>
         <div id="urgencyMsg" class="urgency-message"></div>
-        <div class="form-checkbox">
+                <div class="form-group" style="margin-bottom:18px;">
+          <label class="form-label">¿Algo que quieras compartir? <span style="font-weight:400;text-transform:none;color:#888;">(opcional)</span></label>
+          <textarea name="additional_notes" placeholder="Ej. Necesito mantener a mi cardólogo, o tomo 3 medicamentos..." style="width:100%;padding:12px 14px;border:2px solid #e5e5e5;border-radius:8px;font-size:15px;font-family:Arial,sans-serif;min-height:80px;resize:vertical;box-sizing:border-box;"></textarea>
+        </div>
+<div class="form-checkbox">
           <input type="checkbox" id="consent" name="consent" required>
           <label for="consent">Al enviar este formulario, acepto recibir llamadas, mensajes de texto y correos electrónicos de The Health Experts Insurance al número y correo electrónico proporcionados, incluido marcación automatizada. El consentimiento no es necesario para comprar servicios.</label>
         </div>

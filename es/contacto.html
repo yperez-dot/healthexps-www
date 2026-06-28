@@ -179,6 +179,7 @@ Encuentra Mi Plan →
 <a href="/es/planes-de-medicare-miami" style="padding:8px 12px;color:#452068;font-weight:600;font-size:14px;border-radius:6px;text-decoration:none;">Seguros ▾</a>
 <ul style="display:none;position:absolute;top:100%;left:0;min-width:220px;background:white;border-radius:12px;box-shadow:0 8px 24px rgba(0,0,0,0.12);border-top:3px solid #ff1090;padding:8px 0;z-index:200;list-style:none;margin:0;" class="dropdown">
 <li><a href="/es/planes-de-medicare-miami" style="display:block;padding:10px 18px;color:#555;font-size:14px;text-decoration:none;">Planes de Medicare</a></li>
+<li><a href="/es/inscripcion-anual-medicare-2027" style="display:block;padding:10px 18px;color:#555;font-size:14px;text-decoration:none;">Inscripción Anual (AEP)</a></li>
 <li><a href="/es/seguro-medico-privado-miami" style="display:block;padding:10px 18px;color:#555;font-size:14px;text-decoration:none;">Seguro Médico Privado</a></li>
 <li><a href="/es/planes-aca-miami" style="display:block;padding:10px 18px;color:#555;font-size:14px;text-decoration:none;">Plan del Mercado (ACA)</a></li>
 <li><a href="/es/dental-vision-miami" style="display:block;padding:10px 18px;color:#555;font-size:14px;text-decoration:none;">Dental y Visión</a></li>
@@ -473,20 +474,73 @@ for(var k=0;k<_navLinks.length;k++){
  </div>
 </section>
 
-<!-- TEAM PHOTO -->
+<!-- LEAD FORM -->
 <section class="form-section">
  <div class="container">
- <h2 style="font-size:26px;font-weight:700;color:var(--purple);margin-bottom:8px;text-align:center;">Conoce a Nuestro Equipo</h2>
- <p style="color:var(--gray-text);font-size:18px;margin-bottom:28px;text-align:center;">Yahoska Perez (16 años de experiencia) y Katy Robles (15 años de experiencia) — Cofundadoras y corredoras licenciadas bilingües en Doral, FL.</p>
- <div style="max-width:800px;margin:0 auto;border-radius:var(--radius);overflow:hidden;box-shadow:0 4px 32px rgba(69,32,104,0.12);border:2px solid var(--purple-light);">
- <img src="/images/team-photo.jpg" alt="Yahoska Perez y Katy Robles - The Health Experts Insurance" style="width:100%;height:auto;display:block;">
+ <div class="form-wrapper">
+ <div class="form-header">
+ <h3>Envíame un mensaje</h3>
+ <p>Un corredor licenciado bilingüe te contactará dentro de 1 hora hábil.</p>
  </div>
- <div style="text-align:center;margin-top:32px;">
- <a href="https://calendly.com/healthexps-info/" class="btn-contact btn-form" target="_blank" rel="noopener" style="margin-right:12px;">Agendar Consulta Gratis</a>
- <a href="tel:18003806821" class="btn-contact btn-call">Llamar Ahora</a>
+ <div style="padding:28px;">
+ <div id="es-form-success" style="display:none;background:#f0fdf4;border:1px solid #16a34a;border-radius:8px;padding:20px;text-align:center;margin-bottom:16px;">
+ <div style="font-size:36px;margin-bottom:8px;">✅</div>
+ <div style="font-size:16px;font-weight:700;color:#166534;margin-bottom:4px;">¡Mensaje recibido!</div>
+ <div style="font-size:14px;color:#166534;">Nos pondremos en contacto contigo dentro de 1 hora hábil. Para servicio más rápido, escómoins por WhatsApp al (305) 464-6888.</div>
+ </div>
+ <form action="https://services.leadconnectorhq.com/hooks/dc6c8b35" method="POST" id="esContactForm">
+ <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:16px;">
+ <div>
+ <label style="display:block;font-size:13px;font-weight:700;color:#452068;text-transform:uppercase;letter-spacing:.05em;margin-bottom:6px;">Nombre</label>
+ <input type="text" name="first_name" style="width:100%;padding:12px 14px;border:2px solid #e5e5e5;border-radius:8px;font-size:15px;font-family:Arial,sans-serif;box-sizing:border-box;" required>
+ </div>
+ <div>
+ <label style="display:block;font-size:13px;font-weight:700;color:#452068;text-transform:uppercase;letter-spacing:.05em;margin-bottom:6px;">Apellido</label>
+ <input type="text" name="last_name" style="width:100%;padding:12px 14px;border:2px solid #e5e5e5;border-radius:8px;font-size:15px;font-family:Arial,sans-serif;box-sizing:border-box;" required>
+ </div>
+ </div>
+ <div style="margin-bottom:16px;">
+ <label style="display:block;font-size:13px;font-weight:700;color:#452068;text-transform:uppercase;letter-spacing:.05em;margin-bottom:6px;">Teléfono</label>
+ <input type="tel" name="phone" style="width:100%;padding:12px 14px;border:2px solid #e5e5e5;border-radius:8px;font-size:15px;font-family:Arial,sans-serif;box-sizing:border-box;" required>
+ </div>
+ <div style="margin-bottom:16px;">
+ <label style="display:block;font-size:13px;font-weight:700;color:#452068;text-transform:uppercase;letter-spacing:.05em;margin-bottom:6px;">Correo electrónico</label>
+ <input type="email" name="email" style="width:100%;padding:12px 14px;border:2px solid #e5e5e5;border-radius:8px;font-size:15px;font-family:Arial,sans-serif;box-sizing:border-box;" required>
+ </div>
+ <div style="margin-bottom:16px;">
+ <label style="display:block;font-size:13px;font-weight:700;color:#452068;text-transform:uppercase;letter-spacing:.05em;margin-bottom:6px;">¿Cómo podemos ayudarte?</label>
+ <select name="contact_reason" style="width:100%;padding:12px 14px;border:2px solid #e5e5e5;border-radius:8px;font-size:15px;font-family:Arial,sans-serif;background:white;box-sizing:border-box;" required>
+ <option value="">Seleccionar...</option>
+ <option value="Planes de Medicare">Planes de Medicare</option>
+ <option value="Mercado ACA">Mercado ACA</option>
+ <option value="Seguro Médico Privado">Seguro Médico Privado</option>
+ <option value="Alternativas al COBRA">Alternativas al COBRA</option>
+ <option value="Otro">Otro</option>
+ </select>
+ </div>
+ <div style="margin-bottom:16px;">
+ <label style="display:block;font-size:13px;font-weight:700;color:#452068;text-transform:uppercase;letter-spacing:.05em;margin-bottom:6px;">¿Algo que quieras compartir? <span style="font-weight:400;text-transform:none;color:#888;">(opcional)</span></label>
+ <textarea name="additional_notes" placeholder="Ej. Necesito mantener a mi cardólogo en Baptist Health, o tomo 3 medicamentos..." style="width:100%;padding:12px 14px;border:2px solid #e5e5e5;border-radius:8px;font-size:15px;font-family:Arial,sans-serif;min-height:80px;resize:vertical;box-sizing:border-box;"></textarea>
+ </div>
+ <div style="display:flex;align-items:flex-start;gap:10px;margin:18px 0;">
+ <input type="checkbox" id="esContactConsent" name="consent" style="margin-top:4px;flex-shrink:0;" required>
+ <label for="esContactConsent" style="font-size:13px;color:#555;line-height:1.5;">Al enviar este formulario, doy mi consentimiento para recibir llamadas, mensajes de texto y correos electrónicos de The Health Experts Insurance al número e email proporcionados, incluyendo marcación automatizada. El consentimiento no es necesario para adquirir servicios.</label>
+ </div>
+ <button type="submit" style="width:100%;background:#ff1090;color:white;border:none;padding:14px;border-radius:50px;font-size:16px;font-weight:700;cursor:pointer;font-family:Arial,sans-serif;margin-top:4px;">Enviar mi mensaje →</button>
+ </form>
+ </div>
  </div>
  </div>
 </section>
+<script>
+document.getElementById('esContactForm').addEventListener('submit',function(e){
+ e.preventDefault();
+ var form=this;
+ fetch(form.action,{method:'POST',body:new FormData(form)})
+ .then(function(){document.getElementById('es-form-success').style.display='block';form.style.display='none';})
+ .catch(function(){form.submit();});
+});
+</script>
 
 <!-- FOOTER -->
 <!-- ===== MASTER FOOTER - healthexps.com/es/ ===== -->
