@@ -868,6 +868,11 @@ for(var k=0;k<_navLinks.length;k++){
         </select>
       </div>
 
+      <div class="hpf-field">
+        <label>¿Algo que quieras compartir? <span style="font-weight:400;color:#888;">(opcional)</span></label>
+        <textarea id="hpfNotes" name="additional_notes" placeholder="Ej. Necesito mantener a mi cardólogo, o tomo 3 medicamentos..." style="width:100%;padding:12px 14px;border:2px solid #e5e5e5;border-radius:8px;font-size:15px;font-family:Arial,sans-serif;min-height:80px;resize:vertical;box-sizing:border-box;"></textarea>
+      </div>
+
       <div class="hpf-privacy">Tu información es privada. Solo agentes con licencia — sin spam.</div>
 
       <div class="hpf-consent-wrap">
@@ -907,6 +912,7 @@ for(var k=0;k<_navLinks.length;k++){
     const phone = document.getElementById('hpfPhone').value.trim();
     const email = document.getElementById('hpfEmail').value.trim();
     const coverage = document.getElementById('hpfLooking').value;
+    const notes = document.getElementById('hpfNotes') ? document.getElementById('hpfNotes').value.trim() : '';
     const consent = document.getElementById('hpfConsent').checked;
 
     if(!first||!last||!phone||!email||!coverage||!consent){
@@ -931,6 +937,7 @@ for(var k=0;k<_navLinks.length;k++){
           phone: phone,
           email: email,
           coverage_type: coverage,
+          additional_notes: notes,
           lang: isES ? 'spanish' : 'english',
           source: 'Homepage Form',
           page: window.location.href,
