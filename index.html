@@ -1092,6 +1092,16 @@ for(var k=0;k<_navLinks.length;k++){
 
 <!-- SCROLL TO TOP -->
 <button id="scrollToTop" aria-label="Back to top">↑</button>
+<script>
+(function(){
+  var btn=document.getElementById('scrollToTop');
+  if(!btn)return;
+  window.addEventListener('scroll',function(){btn.style.display=window.pageYOffset>400?'flex':'none';});
+  btn.addEventListener('click',function(){window.scrollTo({top:0,behavior:'smooth'});});
+  btn.addEventListener('mouseenter',function(){btn.style.background='#ff1090';btn.style.transform='translateY(-3px)';});
+  btn.addEventListener('mouseleave',function(){btn.style.background='#452068';btn.style.transform='translateY(0)';});
+})();
+</script>
 
 <script defer>
 // Toggle review expand/collapse
