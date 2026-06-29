@@ -409,7 +409,7 @@ document.addEventListener('click',function(e){
     <div class="form-box">
       <h2 class="form-title">Get my free COBRA comparison</h2>
       <p class="form-sub">A licensed bilingual agent will reach out within 1 business hour.</p>
-      <form action="https://services.leadconnectorhq.com/hooks/dc6c8b35" method="POST" id="cobraForm">
+      <form action="https://services.leadconnectorhq.com/hooks/RINM4TCnM4hN06UA1aK0/webhook-trigger/dc6c8b35-9480-412e-b56d-4a4c8c7bd438" method="POST" id="cobraForm">
         <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;">
           <div class="form-group">
             <label class="form-label">First Name</label>
@@ -453,6 +453,44 @@ document.addEventListener('click',function(e){
       </form>
     </div>
   </div>
+
+<script>
+(function(){
+  var form = document.getElementById('cobraForm');
+  if (!form) return;
+
+  // Insert success div before form
+  var successDiv = document.createElement('div');
+  successDiv.id = 'cobraForm-success';
+  successDiv.style.cssText = 'display:none;background:#f0fdf4;border:1px solid #16a34a;border-radius:10px;padding:24px;text-align:center;margin-bottom:16px;';
+  successDiv.innerHTML = '<div style="font-size:36px;margin-bottom:10px;">✅</div><p style="font-size:16px;color:#166534;line-height:1.6;"><strong>We've received your request!</strong> A licensed bilingual broker will call you within 1 business hour.</p>';
+  form.parentNode.insertBefore(successDiv, form);
+
+  form.addEventListener('submit', function(e) {
+    e.preventDefault();
+    var btn = form.querySelector('button[type="submit"]');
+    var originalText = btn ? btn.textContent : '';
+    if (btn) { btn.disabled = true; btn.textContent = 'Sending...'; }
+
+    var data = new FormData(form);
+
+    fetch('https://services.leadconnectorhq.com/hooks/RINM4TCnM4hN06UA1aK0/webhook-trigger/dc6c8b35-9480-412e-b56d-4a4c8c7bd438', {
+      method: 'POST',
+      body: data
+    })
+    .then(function() {
+      form.style.display = 'none';
+      successDiv.style.display = 'block';
+      successDiv.scrollIntoView({behavior: 'smooth', block: 'center'});
+    })
+    .catch(function() {
+      // Fallback: try native submit
+      if (btn) { btn.disabled = false; btn.textContent = originalText; }
+      form.submit();
+    });
+  });
+})();
+</script>
 </section>
 
 <script>
