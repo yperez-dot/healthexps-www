@@ -138,7 +138,7 @@ a:hover { color: var(--pink); }
 .breadcrumb a { color: var(--purple); font-weight: 600; }
 
 /* HERO */
-.page-hero { background: linear-gradient(135deg, var(--purple-dark) 0%, var(--purple) 60%, #6b3a9e 100%); color: var(--white); padding: 60px 0 80px; position: relative; overflow: hidden; }
+.page-hero {overflow-x:hidden; background: linear-gradient(135deg, var(--purple-dark) 0%, var(--purple) 60%, #6b3a9e 100%); color: var(--white); padding: 60px 0 80px; position: relative; overflow: hidden; }
 .page-hero::after { content: ''; position: absolute; bottom: -1px; left: 0; right: 0; height: 48px; background: var(--white); clip-path: ellipse(55% 100% at 50% 100%); }
 .page-hero h1 { font-size: clamp(26px, 4vw, 44px); font-weight: 700; line-height: 1.2; margin-bottom: 14px; }
 .page-hero p { font-size: 19px; opacity: 0.92; max-width: 580px; margin-bottom: 28px; line-height: 1.7; }
@@ -249,6 +249,22 @@ details[open] .faq-icon { transform: rotate(45deg); }
  .stat-item:nth-child(odd) { border-right: 1px solid rgba(255,255,255,0.15); }
 }
 </style>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "InsuranceAgency", "name": "The Health Experts Insurance", "url": "https://www.healthexps.com", "telephone": "+18003806821", "address": {"@type": "PostalAddress", "streetAddress": "1695 NW 110 Ave, Suite 224", "addressLocality": "Doral", "addressRegion": "FL", "postalCode": "33172", "addressCountry": "US"}, "areaServed": ["Miami-Dade County", "Broward County", "Florida"], "priceRange": "Free", "description": "Independent bilingual health insurance brokers in Doral, FL. We compare 14+ carriers for Medicare, ACA, and private health insurance at no cost."}</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "name": "Medicare Advantage en Español Miami | Planes 2026 | Prima $0",
+  "serviceType": "Medicare Advantage Plans",
+  "url": "https://www.healthexps.com/es/medicare-advantage-miami",
+  "provider": {
+    "@type": "Organization",
+    "name": "The Health Experts Insurance",
+    "url": "https://www.healthexps.com"
+  },
+  "inLanguage": "es"
+}
+</script>
 </head>
 
 <body>
@@ -274,7 +290,7 @@ WhatsApp
 Encuentra Mi Plan →
 </a>
 <div style="display:flex;align-items:center;border:1.5px solid rgba(255,255,255,0.4);border-radius:50px;overflow:hidden;">
-<a href="/" style="font-size:12px;font-weight:700;padding:3px 10px;color:rgba(255,255,255,0.75);text-decoration:none;">EN</a>
+<a href="/medicare-advantage-miami" style="font-size:12px;font-weight:700;padding:3px 10px;color:rgba(255,255,255,0.75);text-decoration:none;">EN</a>
 <span style="background:white;color:#452068;font-size:12px;font-weight:700;padding:3px 10px;">ES</span>
 </div>
 </div>
@@ -851,15 +867,15 @@ for(var k=0;k<_navLinks.length;k++){
  <h2 class="section-title">Siga Aprendiendo</h2>
  <p class="section-subtitle">Más guías gratuitas de nuestros corredores licenciadas.</p>
  <div class="card-grid card-grid-3">
- <a href="/planes-de-medicare-miami" class="rt-card" style="display:block;text-decoration:none;">
+ <a href="/es/planes-de-medicare-miami" class="rt-card" style="display:block;text-decoration:none;">
  <h3 style="color:var(--purple);font-size:17px;margin-bottom:8px;">Planes de Medicare Miami →</h3>
  <p style="color:var(--gray-text);font-size:16px;">Guía completa de todas sus opciones de Medicare en 2026.</p>
  </a>
- <a href="/agente-de-medicare-miami" class="rt-card" style="display:block;text-decoration:none;">
+ <a href="/es/agente-de-medicare-miami" class="rt-card" style="display:block;text-decoration:none;">
  <h3 style="color:var(--purple);font-size:17px;margin-bottom:8px;">Conozca a Nuestro Equipo →</h3>
  <p style="color:var(--gray-text);font-size:16px;">Yahoska y Katy — quiénes somos y cómo trabajamos.</p>
  </a>
- <a href="/comparar-planes-de-medicare" class="rt-card" style="display:block;text-decoration:none;">
+ <a href="/es/comparar-planes-de-medicare" class="rt-card" style="display:block;text-decoration:none;">
  <h3 style="color:var(--purple);font-size:17px;margin-bottom:8px;">Comparar Planes →</h3>
  <p style="color:var(--gray-text);font-size:16px;">Herramienta gratuita para comparar planes en su área.</p>
  </a>

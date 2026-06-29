@@ -47,7 +47,7 @@ a{color:var(--purple);text-decoration:none;}a:hover{color:var(--pink);}
 .breadcrumb ol{display:flex;gap:6px;list-style:none;align-items:center;flex-wrap:wrap;}
 .breadcrumb li+li::before{content:"›";color:var(--gray-text);}
 .breadcrumb a{color:var(--purple);font-weight:600;}
-.page-hero{background:linear-gradient(135deg,var(--purple-dark) 0%,var(--purple) 60%,#6b3a9e 100%);color:var(--white);padding:60px 0 80px;position:relative;overflow:hidden;}
+.page-hero{overflow-x:hidden;background:linear-gradient(135deg,var(--purple-dark) 0%,var(--purple) 60%,#6b3a9e 100%);color:var(--white);padding:60px 0 80px;position:relative;overflow:hidden;}
 .page-hero::after{content:'';position:absolute;bottom:-1px;left:0;right:0;height:48px;background:var(--white);clip-path:ellipse(55% 100% at 50% 100%);}
 .page-hero h1{font-size:clamp(26px,4vw,44px);font-weight:700;line-height:1.2;margin-bottom:14px;}
 .page-hero p{font-size:19px;opacity:0.92;max-width:580px;margin-bottom:28px;line-height:1.7;}
@@ -138,6 +138,42 @@ details[open] .faq-icon{transform:rotate(45deg);}
 .cta-btns{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;}
 @media(max-width:768px){.nav-links{display:none;}.nav-links.open{display:flex;flex-direction:column;position:absolute;top:72px;left:0;right:0;background:var(--white);padding:16px;box-shadow:var(--shadow);gap:4px;z-index:99;}.nav-toggle{display:block;}.stat-grid{grid-template-columns:repeat(1,1fr);}.stat-item{border-right:none;border-bottom:1px solid rgba(255,255,255,0.15);padding:14px;}.cards-2,.cards-3,.steps-grid{grid-template-columns:1fr;}.table-wrap{margin-left:-24px;margin-right:-24px;padding:0 24px;}}
 </style>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "InsuranceAgency", "name": "The Health Experts Insurance", "url": "https://www.healthexps.com", "telephone": "+18003806821", "address": {"@type": "PostalAddress", "streetAddress": "1695 NW 110 Ave, Suite 224", "addressLocality": "Doral", "addressRegion": "FL", "postalCode": "33172", "addressCountry": "US"}, "areaServed": ["Miami-Dade County", "Broward County", "Florida"], "priceRange": "Free", "description": "Independent bilingual health insurance brokers in Doral, FL. We compare 14+ carriers for Medicare, ACA, and private health insurance at no cost."}</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Inicio",
+      "item": "https://www.healthexps.com/es/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Planes ACA Miami",
+      "item": "https://www.healthexps.com/es/planes-aca-miami"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "name": "Planes ACA Miami 2026 | Mercado de Seguros | Subsidios hasta $0",
+  "serviceType": "ACA Marketplace Plans",
+  "url": "https://www.healthexps.com/es/planes-aca-miami",
+  "provider": {
+    "@type": "Organization",
+    "name": "The Health Experts Insurance",
+    "url": "https://www.healthexps.com"
+  },
+  "inLanguage": "es"
+}
+</script>
 </head>
 <body>
 <!-- ===== MASTER NAV - healthexps.com/es/ ===== -->
@@ -162,7 +198,7 @@ WhatsApp
 Encuentra Mi Plan →
 </a>
 <div style="display:flex;align-items:center;border:1.5px solid rgba(255,255,255,0.4);border-radius:50px;overflow:hidden;">
-<a href="/" style="font-size:12px;font-weight:700;padding:3px 10px;color:rgba(255,255,255,0.75);text-decoration:none;">EN</a>
+<a href="/aca-plans-miami" style="font-size:12px;font-weight:700;padding:3px 10px;color:rgba(255,255,255,0.75);text-decoration:none;">EN</a>
 <span style="background:white;color:#452068;font-size:12px;font-weight:700;padding:3px 10px;">ES</span>
 </div>
 </div>

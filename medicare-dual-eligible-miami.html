@@ -30,7 +30,7 @@
   .crumb a:hover{color:var(--purple)}
 
   /* HERO */
-  .hero{background:radial-gradient(circle at 75% 15%,var(--purple-l),var(--purple) 48%,var(--purple-d) 100%);border-radius:22px;margin-top:12px;padding:44px 34px;color:#fff;position:relative;overflow:hidden}
+  .hero{overflow-x:hidden;background:radial-gradient(circle at 75% 15%,var(--purple-l),var(--purple) 48%,var(--purple-d) 100%);border-radius:22px;margin-top:12px;padding:44px 34px;color:#fff;position:relative;overflow:hidden}
   .hero::after{content:"";position:absolute;right:-50px;top:-50px;width:240px;height:240px;background:radial-gradient(circle,rgba(255,16,144,.3),transparent 70%)}
   .hgrid{display:grid;grid-template-columns:1.1fr .9fr;gap:34px;align-items:center;position:relative;z-index:1}
   .pill{display:inline-flex;align-items:center;gap:6px;background:rgba(255,255,255,.15);font-size:12px;font-weight:bold;padding:7px 14px;border-radius:999px;margin-bottom:16px;letter-spacing:.3px}
@@ -111,6 +111,7 @@
     .hero h1{font-size:27px}
   }
 </style>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "InsuranceAgency", "name": "The Health Experts Insurance", "url": "https://www.healthexps.com", "telephone": "+18003806821", "address": {"@type": "PostalAddress", "streetAddress": "1695 NW 110 Ave, Suite 224", "addressLocality": "Doral", "addressRegion": "FL", "postalCode": "33172", "addressCountry": "US"}, "areaServed": ["Miami-Dade County", "Broward County", "Florida"], "priceRange": "Free", "description": "Independent bilingual health insurance brokers in Doral, FL. We compare 14+ carriers for Medicare, ACA, and private health insurance at no cost."}</script>
 </head>
 <body>
 <header style="position:sticky;top:0;z-index:100;box-shadow:0 2px 12px rgba(69,32,104,0.12);">
@@ -182,6 +183,85 @@
     </div>
   </div>
 </header>
+<style>
+ .dropdown a:hover{background:#f4eefa !important;color:#452068 !important;}
+ li:hover > .dropdown{display:block !important;}
+ @media (max-width: 768px) {
+  #nav-toggle { display: block !important; }
+  #nav-links { display: none !important; }
+  #nav-links.open {
+    display: flex !important;
+    flex-direction: column;
+    position: fixed !important;
+    top: 0 !important;
+    right: 0 !important;
+    bottom: auto;
+    left: 15% !important;
+    width: 85% !important;
+    max-width: none !important;
+    height: auto;
+    min-height: auto;
+    max-height: 100vh;
+    background: white;
+    padding: 56px 24px 24px;
+    box-shadow: -4px 0 24px rgba(0,0,0,0.15);
+    gap: 12px;
+    z-index: 999;
+    text-align: left;
+    align-items: flex-start;
+    overflow-y: auto;
+  }
+  #nav-links.open > li { width: 100%; }
+  #nav-links.open > li > a {
+    display: block;
+    text-align: left;
+    font-size: 18px;
+    font-weight: 700;
+    color: #452068;
+    padding: 8px 0;
+    width: 100%;
+    white-space: nowrap;
+    overflow: visible;
+  }
+  #nav-links.open #nav-close-btn {
+    display: block !important;
+    position: fixed;
+    top: 12px;
+    right: 16px;
+    z-index: 1000;
+    font-size: 28px;
+    font-weight: 300;
+    color: #452068;
+    background: none;
+    border: none;
+    cursor: pointer;
+  }
+  #nav-links .dropdown {
+    display: none !important;
+    position: static !important;
+    box-shadow: none !important;
+    border: none !important;
+    padding: 4px 0 4px 16px !important;
+    background: #f9f7fc;
+    border-radius: 8px;
+    margin-top: 4px;
+  }
+  #nav-links .dropdown a {
+    font-size: 16px !important;
+    font-weight: 500 !important;
+    padding: 6px 12px !important;
+    white-space: nowrap !important;
+    overflow: visible !important;
+    display: block !important;
+    color: #452068 !important;
+  }
+  #nav-links li.open .dropdown { display: block !important; }
+ }
+ @media (min-width: 769px) {
+  #nav-toggle { display: none !important; }
+  #nav-links { display: flex !important; }
+ }
+</style>
 
 <div class="topbar">
   <span class="lang">
@@ -295,7 +375,8 @@
   <p class="disc" id="disc"></p>
 </div>
 
-<script type="application/ld+json" id="faqSchema"></script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.healthexps.com"}, {"@type": "ListItem", "position": 2, "name": "Medicare Dual Eligible (Medicare-Medicaid) Plans Miami", "item": "https://www.healthexps.com/medicare-dual-eligible-miami"}]}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Service", "name": "Medicare Dual Eligible (Medicare-Medicaid) Plans Miami", "provider": {"@type": "InsuranceAgency", "name": "The Health Experts Insurance", "url": "https://www.healthexps.com"}, "url": "https://www.healthexps.com/medicare-dual-eligible-miami", "areaServed": "Florida", "serviceType": "Health Insurance Consulting", "inLanguage": "en"}</script>
 
 <script>
 const T={

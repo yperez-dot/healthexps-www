@@ -27,7 +27,7 @@ a{text-decoration:none;}
 .lang-btn{background:transparent;border:1.5px solid rgba(255,255,255,0.4);border-radius:50px;padding:4px 14px;font-weight:700;font-size:12px;cursor:pointer;color:rgba(255,255,255,0.7);transition:all 0.2s;}
 .lang-btn.active{background:white;color:#452068;}
 
-.hero{background:linear-gradient(135deg,#311549 0%,#452068 70%);padding:40px 24px 56px;text-align:center;position:relative;}
+.hero{overflow-x:hidden;background:linear-gradient(135deg,#311549 0%,#452068 70%);padding:40px 24px 56px;text-align:center;position:relative;}
 .hero::after{content:'';position:absolute;bottom:-1px;left:0;right:0;height:40px;background:#f4eefa;clip-path:ellipse(55% 100% at 50% 100%);}
 .hero-tag{display:inline-block;background:rgba(255,255,255,0.12);border:1px solid rgba(255,255,255,0.25);border-radius:50px;padding:5px 16px;color:white;font-size:12px;font-weight:700;margin-bottom:14px;letter-spacing:0.06em;text-transform:uppercase;}
 .hero h1{color:white;font-size:clamp(24px,5vw,32px);font-weight:700;margin-bottom:10px;line-height:1.2;}
@@ -106,13 +106,47 @@ a{text-decoration:none;}
 .cta-btn:hover{background:#d4006d;}
 
 @media(max-width:480px){
-  .hero{padding:32px 20px 48px;}
+  .hero{overflow-x:hidden;padding:32px 20px 48px;}
   .card{padding:20px 16px;}
   .toggle-grid{grid-template-columns:1fr;}
   .tier-badge{flex-direction:column;align-items:flex-start;}
 }
 </style>
 <link rel="canonical" href="https://www.healthexps.com/irmaa-calculator">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "InsuranceAgency", "name": "The Health Experts Insurance", "url": "https://www.healthexps.com", "telephone": "+18003806821", "address": {"@type": "PostalAddress", "streetAddress": "1695 NW 110 Ave, Suite 224", "addressLocality": "Doral", "addressRegion": "FL", "postalCode": "33172", "addressCountry": "US"}, "areaServed": ["Miami-Dade County", "Broward County", "Florida"], "priceRange": "Free", "description": "Independent bilingual health insurance brokers in Doral, FL. We compare 14+ carriers for Medicare, ACA, and private health insurance at no cost."}</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://www.healthexps.com"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Calculadora IRMAA 2026",
+      "item": "https://www.healthexps.com/irmaa-calculator"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": "Calculadora IRMAA 2026",
+  "url": "https://www.healthexps.com/irmaa-calculator",
+  "inLanguage": "en",
+  "isPartOf": {
+    "@type": "WebSite",
+    "url": "https://www.healthexps.com"
+  }
+}
+</script>
 </head>
 <body>
 <header style="position:sticky;top:0;z-index:100;box-shadow:0 2px 12px rgba(69,32,104,0.12);">
@@ -184,6 +218,85 @@ a{text-decoration:none;}
     </div>
   </div>
 </header>
+<style>
+ .dropdown a:hover{background:#f4eefa !important;color:#452068 !important;}
+ li:hover > .dropdown{display:block !important;}
+ @media (max-width: 768px) {
+  #nav-toggle { display: block !important; }
+  #nav-links { display: none !important; }
+  #nav-links.open {
+    display: flex !important;
+    flex-direction: column;
+    position: fixed !important;
+    top: 0 !important;
+    right: 0 !important;
+    bottom: auto;
+    left: 15% !important;
+    width: 85% !important;
+    max-width: none !important;
+    height: auto;
+    min-height: auto;
+    max-height: 100vh;
+    background: white;
+    padding: 56px 24px 24px;
+    box-shadow: -4px 0 24px rgba(0,0,0,0.15);
+    gap: 12px;
+    z-index: 999;
+    text-align: left;
+    align-items: flex-start;
+    overflow-y: auto;
+  }
+  #nav-links.open > li { width: 100%; }
+  #nav-links.open > li > a {
+    display: block;
+    text-align: left;
+    font-size: 18px;
+    font-weight: 700;
+    color: #452068;
+    padding: 8px 0;
+    width: 100%;
+    white-space: nowrap;
+    overflow: visible;
+  }
+  #nav-links.open #nav-close-btn {
+    display: block !important;
+    position: fixed;
+    top: 12px;
+    right: 16px;
+    z-index: 1000;
+    font-size: 28px;
+    font-weight: 300;
+    color: #452068;
+    background: none;
+    border: none;
+    cursor: pointer;
+  }
+  #nav-links .dropdown {
+    display: none !important;
+    position: static !important;
+    box-shadow: none !important;
+    border: none !important;
+    padding: 4px 0 4px 16px !important;
+    background: #f9f7fc;
+    border-radius: 8px;
+    margin-top: 4px;
+  }
+  #nav-links .dropdown a {
+    font-size: 16px !important;
+    font-weight: 500 !important;
+    padding: 6px 12px !important;
+    white-space: nowrap !important;
+    overflow: visible !important;
+    display: block !important;
+    color: #452068 !important;
+  }
+  #nav-links li.open .dropdown { display: block !important; }
+ }
+ @media (min-width: 769px) {
+  #nav-toggle { display: none !important; }
+  #nav-links { display: flex !important; }
+ }
+</style>
 <div style="padding:10px 24px;">
   <a href="/resources" style="display:inline-flex;align-items:center;gap:6px;font-size:14px;font-weight:600;color:#452068;text-decoration:none;">
     <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 5l-7 7 7 7"/></svg>

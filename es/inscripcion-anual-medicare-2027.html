@@ -105,6 +105,42 @@ a{color:var(--purple);text-decoration:none;}a:hover{color:var(--pink);}
 .dropdown a:hover{background:#f4eefa !important;color:#452068 !important;}
 li:hover>.dropdown{display:block !important;}
 </style>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "InsuranceAgency", "name": "The Health Experts Insurance", "url": "https://www.healthexps.com", "telephone": "+18003806821", "address": {"@type": "PostalAddress", "streetAddress": "1695 NW 110 Ave, Suite 224", "addressLocality": "Doral", "addressRegion": "FL", "postalCode": "33172", "addressCountry": "US"}, "areaServed": ["Miami-Dade County", "Broward County", "Florida"], "priceRange": "Free", "description": "Independent bilingual health insurance brokers in Doral, FL. We compare 14+ carriers for Medicare, ACA, and private health insurance at no cost."}</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Inicio",
+      "item": "https://www.healthexps.com/es/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Inscripción Anual Medicare 2027",
+      "item": "https://www.healthexps.com/es/inscripcion-anual-medicare-2027"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "name": "Inscripción Anual Medicare 2027 Miami | Revisión Gratuita",
+  "serviceType": "Medicare Annual Enrollment",
+  "url": "https://www.healthexps.com/es/inscripcion-anual-medicare-2027",
+  "provider": {
+    "@type": "Organization",
+    "name": "The Health Experts Insurance",
+    "url": "https://www.healthexps.com"
+  },
+  "inLanguage": "es"
+}
+</script>
 </head>
 <body>
 
@@ -335,25 +371,25 @@ li:hover>.dropdown{display:block !important;}
       <form action="https://services.leadconnectorhq.com/hooks/RINM4TCnM4hN06UA1aK0/webhook-trigger/dc6c8b35-9480-412e-b56d-4a4c8c7bd438" method="POST" id="aepForm">
         <div class="form-row">
           <div class="form-group">
-            <label class="form-label">Nombre</label>
-            <input type="text" name="first_name" class="form-input" required>
+            <label for="first_name_es" class="form-label">Nombre <em style="color:#ff1090;">*</em></label>
+            <input type="text" name="first_name" id="first_name_es" class="form-input" required>
           </div>
           <div class="form-group">
-            <label class="form-label">Apellido</label>
-            <input type="text" name="last_name" class="form-input" required>
+            <label for="last_name_es" class="form-label">Apellido <em style="color:#ff1090;">*</em></label>
+            <input type="text" name="last_name" id="last_name_es" class="form-input" required>
           </div>
         </div>
         <div class="form-group">
-          <label class="form-label">Teléfono</label>
-          <input type="tel" name="phone" class="form-input" required>
+          <label for="phone_es" class="form-label">Teléfono <em style="color:#ff1090;">*</em></label>
+          <input type="tel" name="phone" id="phone_es" class="form-input" required>
         </div>
         <div class="form-group">
-          <label class="form-label">Correo electrónico</label>
-          <input type="email" name="email" class="form-input" required>
+          <label for="email_es" class="form-label">Correo electrónico <em style="color:#ff1090;">*</em></label>
+          <input type="email" name="email" id="email_es" class="form-input" required>
         </div>
         <div class="form-group">
-          <label class="form-label">¿Qué tipo de plan tienes actualmente?</label>
-          <select name="aep_plan_type" class="form-select" required>
+          <label for="aep_plan_type_es" class="form-label">¿Qué tipo de plan tienes actualmente? <em style="color:#ff1090;">*</em></label>
+          <select name="aep_plan_type" id="aep_plan_type_es" class="form-select" required>
             <option value="">Seleccionar...</option>
             <option value="medicare_advantage">Medicare Advantage (Parte C)</option>
             <option value="medicare_supplement">Medicare Suplementario (Medigap)</option>
@@ -362,11 +398,11 @@ li:hover>.dropdown{display:block !important;}
           </select>
         </div>
                 <div class="form-group" style="margin-bottom:18px;">
-          <label class="form-label">¿Algo que quieras compartir? <span style="font-weight:400;text-transform:none;color:#888;">(opcional)</span></label>
-          <textarea name="additional_notes" placeholder="Ej. Necesito mantener a mi cardólogo, o tomo 3 medicamentos..." style="width:100%;padding:12px 14px;border:2px solid #e5e5e5;border-radius:8px;font-size:15px;font-family:Arial,sans-serif;min-height:80px;resize:vertical;box-sizing:border-box;"></textarea>
+          <label for="additional_notes_es" class="form-label">¿Algo que quieras compartir? <span style="font-weight:400;text-transform:none;color:#888;">(opcional)</span></label>
+          <textarea name="additional_notes" id="additional_notes_es" placeholder="Ej. Necesito mantener a mi cardólogo, o tomo 3 medicamentos..." style="width:100%;padding:12px 14px;border:2px solid #e5e5e5;border-radius:8px;font-size:15px;font-family:Arial,sans-serif;min-height:80px;resize:vertical;box-sizing:border-box;"></textarea>
         </div>
 <div class="form-checkbox">
-          <input type="checkbox" id="consent" name="consent" required>
+          <input type="checkbox" id="consent" name="consent" id="consent_es" required>
           <label for="consent">Al marcar esta casilla, consientes recibir llamadas y mensajes de texto de The Health Experts Insurance sobre opciones de planes de Medicare. El consentimiento no es requisito para adquirir servicios. Se pueden aplicar tarifas de mensajes y datos. Responde STOP para cancelar.</label>
         </div>
         <button type="submit" class="btn-pink-full">Agenda mi revisión gratuita del plan 2027 →</button>

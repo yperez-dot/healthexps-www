@@ -30,7 +30,7 @@
   .crumb a:hover{color:var(--purple)}
 
   /* HERO */
-  .hero{background:radial-gradient(circle at 75% 15%,var(--purple-l),var(--purple) 48%,var(--purple-d) 100%);border-radius:22px;margin-top:12px;padding:44px 34px;color:#fff;position:relative;overflow:hidden}
+  .hero{overflow-x:hidden;background:radial-gradient(circle at 75% 15%,var(--purple-l),var(--purple) 48%,var(--purple-d) 100%);border-radius:22px;margin-top:12px;padding:44px 34px;color:#fff;position:relative;overflow:hidden}
   .hero::after{content:"";position:absolute;right:-50px;top:-50px;width:240px;height:240px;background:radial-gradient(circle,rgba(255,16,144,.3),transparent 70%)}
   .hgrid{display:grid;grid-template-columns:1.1fr .9fr;gap:34px;align-items:center;position:relative;z-index:1}
   .pill{display:inline-flex;align-items:center;gap:6px;background:rgba(255,255,255,.15);font-size:12px;font-weight:bold;padding:7px 14px;border-radius:999px;margin-bottom:16px;letter-spacing:.3px}
@@ -111,6 +111,7 @@
     .hero h1{font-size:27px}
   }
 </style>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "InsuranceAgency", "name": "The Health Experts Insurance", "url": "https://www.healthexps.com", "telephone": "+18003806821", "address": {"@type": "PostalAddress", "streetAddress": "1695 NW 110 Ave, Suite 224", "addressLocality": "Doral", "addressRegion": "FL", "postalCode": "33172", "addressCountry": "US"}, "areaServed": ["Miami-Dade County", "Broward County", "Florida"], "priceRange": "Free", "description": "Independent bilingual health insurance brokers in Doral, FL. We compare 14+ carriers for Medicare, ACA, and private health insurance at no cost."}</script>
 </head>
 <body>
 
@@ -139,7 +140,7 @@ WhatsApp
 Encuentra Mi Plan →
 </a>
 <div style="display:flex;align-items:center;border:1.5px solid rgba(255,255,255,0.4);border-radius:50px;overflow:hidden;">
-<a href="/" style="font-size:12px;font-weight:700;padding:3px 10px;color:rgba(255,255,255,0.75);text-decoration:none;">EN</a>
+<a href="/medicare-dual-eligible-miami" style="font-size:12px;font-weight:700;padding:3px 10px;color:rgba(255,255,255,0.75);text-decoration:none;">EN</a>
 <span style="background:white;color:#452068;font-size:12px;font-weight:700;padding:3px 10px;">ES</span>
 </div>
 </div>
@@ -304,7 +305,8 @@ Encuentra Mi Plan →
   <p class="disc" id="disc"></p>
 </div>
 
-<script type="application/ld+json" id="faqSchema"></script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.healthexps.com"}, {"@type": "ListItem", "position": 2, "name": "Medicare Medicaid Miami — Doble Elegibilidad", "item": "https://www.healthexps.com/es/medicare-medicaid-miami"}]}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Service", "name": "Medicare Medicaid Miami — Doble Elegibilidad", "provider": {"@type": "InsuranceAgency", "name": "The Health Experts Insurance", "url": "https://www.healthexps.com"}, "url": "https://www.healthexps.com/es/medicare-medicaid-miami", "areaServed": "Florida", "serviceType": "Health Insurance Consulting", "inLanguage": "es"}</script>
 
 <script>
 const T={

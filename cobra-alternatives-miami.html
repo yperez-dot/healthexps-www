@@ -84,6 +84,41 @@ a{color:var(--purple);text-decoration:none;}a:hover{color:var(--pink);}
 @media(max-width:900px){.options-grid{grid-template-columns:1fr;}}
 @media(max-width:768px){#nav-links{display:none !important;}#nav-links.open{display:flex !important;flex-direction:column;position:absolute;top:100%;right:0;width:290px;background:white;padding:50px 16px 16px;box-shadow:0 8px 24px rgba(0,0,0,0.12);border-radius:0 0 0 12px;gap:4px;z-index:99;text-align:center;align-items:center;}#nav-links.open>li{width:100%;}#nav-links.open>li>a{display:block;text-align:center;}#nav-links.open #nav-close-btn{display:block !important;}#nav-links .dropdown{display:none !important;position:static !important;box-shadow:none !important;border:none !important;padding:0 0 0 16px !important;}#nav-links li:hover .dropdown,#nav-links li.open .dropdown{display:block !important;}#nav-toggle{display:block !important;}}
 </style>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "InsuranceAgency", "name": "The Health Experts Insurance", "url": "https://www.healthexps.com", "telephone": "+18003806821", "address": {"@type": "PostalAddress", "streetAddress": "1695 NW 110 Ave, Suite 224", "addressLocality": "Doral", "addressRegion": "FL", "postalCode": "33172", "addressCountry": "US"}, "areaServed": ["Miami-Dade County", "Broward County", "Florida"], "priceRange": "Free", "description": "Independent bilingual health insurance brokers in Doral, FL. We compare 14+ carriers for Medicare, ACA, and private health insurance at no cost."}</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://www.healthexps.com"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "COBRA Insurance Alternatives Miami | Save Money & Get Covered",
+      "item": "https://www.healthexps.com/cobra-alternatives-miami"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "name": "COBRA Insurance Alternatives Miami | Save Money & Get Covered",
+  "serviceType": "COBRA Alternatives",
+  "url": "https://www.healthexps.com/cobra-alternatives-miami",
+  "provider": {
+    "@type": "Organization",
+    "name": "The Health Experts Insurance",
+    "url": "https://www.healthexps.com"
+  }
+}
+</script>
 </head>
 <body>
 <header style="position:sticky;top:0;z-index:100;box-shadow:0 2px 12px rgba(69,32,104,0.12);">
@@ -412,25 +447,25 @@ document.addEventListener('click',function(e){
       <form action="https://services.leadconnectorhq.com/hooks/RINM4TCnM4hN06UA1aK0/webhook-trigger/dc6c8b35-9480-412e-b56d-4a4c8c7bd438" method="POST" id="cobraForm">
         <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;">
           <div class="form-group">
-            <label class="form-label">First Name</label>
-            <input type="text" name="first_name" class="form-input" required>
+            <label for="first_name_en" class="form-label">First Name <em style="color:#ff1090;">*</em></label>
+            <input type="text" name="first_name" id="first_name_en" class="form-input" required>
           </div>
           <div class="form-group">
-            <label class="form-label">Last Name</label>
-            <input type="text" name="last_name" class="form-input" required>
+            <label for="last_name_en" class="form-label">Last Name <em style="color:#ff1090;">*</em></label>
+            <input type="text" name="last_name" id="last_name_en" class="form-input" required>
           </div>
         </div>
         <div class="form-group">
-          <label class="form-label">Phone</label>
-          <input type="tel" name="phone" class="form-input" required>
+          <label for="phone_en" class="form-label">Phone <em style="color:#ff1090;">*</em></label>
+          <input type="tel" name="phone" id="phone_en" class="form-input" required>
         </div>
         <div class="form-group">
-          <label class="form-label">Email</label>
-          <input type="email" name="email" class="form-input" required>
+          <label for="email_en" class="form-label">Email <em style="color:#ff1090;">*</em></label>
+          <input type="email" name="email" id="email_en" class="form-input" required>
         </div>
         <div class="form-group">
-          <label class="form-label">When are you losing coverage?</label>
-          <select name="cobra_timing" id="timingSelect" class="form-select" required>
+          <label for="cobra_timing_en" class="form-label">When are you losing coverage? <em style="color:#ff1090;">*</em></label>
+          <select name="cobra_timing" id="cobra_timing_en" id="timingSelect" class="form-select" required>
             <option value="">Select...</option>
             <option value="already_lost">I already lost it</option>
             <option value="end_this_month">End of this month</option>
@@ -442,11 +477,11 @@ document.addEventListener('click',function(e){
         </div>
         <div id="urgencyMsg" class="urgency-message"></div>
                 <div class="form-group" style="margin-bottom:18px;">
-          <label class="form-label">Anything you'd like to share? <span style="font-weight:400;text-transform:none;color:#888;">(optional)</span></label>
-          <textarea name="additional_notes" placeholder="e.g. I need to keep my cardiologist, or I take 3 medications..." style="width:100%;padding:12px 14px;border:2px solid #e5e5e5;border-radius:8px;font-size:15px;font-family:Arial,sans-serif;min-height:80px;resize:vertical;box-sizing:border-box;"></textarea>
+          <label for="additional_notes_en" class="form-label">Anything you'd like to share? <span style="font-weight:400;text-transform:none;color:#888;">(optional)</span></label>
+          <textarea name="additional_notes" id="additional_notes_en" placeholder="e.g. I need to keep my cardiologist, or I take 3 medications..." style="width:100%;padding:12px 14px;border:2px solid #e5e5e5;border-radius:8px;font-size:15px;font-family:Arial,sans-serif;min-height:80px;resize:vertical;box-sizing:border-box;"></textarea>
         </div>
 <div class="form-checkbox">
-          <input type="checkbox" id="consent" name="consent" required>
+          <input type="checkbox" id="consent" name="consent" id="consent_en" required>
           <label for="consent">By submitting this form, I consent to receive calls, texts, and emails from The Health Experts Insurance at the number and email provided, including automated dialing. Consent is not required to purchase services.</label>
         </div>
         <button type="submit" class="btn-pink-full">Get my free COBRA comparison →</button>

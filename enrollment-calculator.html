@@ -121,6 +121,40 @@ a{text-decoration:none;color:inherit;}
   .topbar-left{display:none;}
 }
 </style>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "InsuranceAgency", "name": "The Health Experts Insurance", "url": "https://www.healthexps.com", "telephone": "+18003806821", "address": {"@type": "PostalAddress", "streetAddress": "1695 NW 110 Ave, Suite 224", "addressLocality": "Doral", "addressRegion": "FL", "postalCode": "33172", "addressCountry": "US"}, "areaServed": ["Miami-Dade County", "Broward County", "Florida"], "priceRange": "Free", "description": "Independent bilingual health insurance brokers in Doral, FL. We compare 14+ carriers for Medicare, ACA, and private health insurance at no cost."}</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://www.healthexps.com"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Medicare Enrollment Calculator",
+      "item": "https://www.healthexps.com/enrollment-calculator"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": "Medicare Enrollment Calculator",
+  "url": "https://www.healthexps.com/enrollment-calculator",
+  "inLanguage": "en",
+  "isPartOf": {
+    "@type": "WebSite",
+    "url": "https://www.healthexps.com"
+  }
+}
+</script>
 </head>
 <body>
 
@@ -193,6 +227,85 @@ a{text-decoration:none;color:inherit;}
     </div>
   </div>
 </header>
+<style>
+ .dropdown a:hover{background:#f4eefa !important;color:#452068 !important;}
+ li:hover > .dropdown{display:block !important;}
+ @media (max-width: 768px) {
+  #nav-toggle { display: block !important; }
+  #nav-links { display: none !important; }
+  #nav-links.open {
+    display: flex !important;
+    flex-direction: column;
+    position: fixed !important;
+    top: 0 !important;
+    right: 0 !important;
+    bottom: auto;
+    left: 15% !important;
+    width: 85% !important;
+    max-width: none !important;
+    height: auto;
+    min-height: auto;
+    max-height: 100vh;
+    background: white;
+    padding: 56px 24px 24px;
+    box-shadow: -4px 0 24px rgba(0,0,0,0.15);
+    gap: 12px;
+    z-index: 999;
+    text-align: left;
+    align-items: flex-start;
+    overflow-y: auto;
+  }
+  #nav-links.open > li { width: 100%; }
+  #nav-links.open > li > a {
+    display: block;
+    text-align: left;
+    font-size: 18px;
+    font-weight: 700;
+    color: #452068;
+    padding: 8px 0;
+    width: 100%;
+    white-space: nowrap;
+    overflow: visible;
+  }
+  #nav-links.open #nav-close-btn {
+    display: block !important;
+    position: fixed;
+    top: 12px;
+    right: 16px;
+    z-index: 1000;
+    font-size: 28px;
+    font-weight: 300;
+    color: #452068;
+    background: none;
+    border: none;
+    cursor: pointer;
+  }
+  #nav-links .dropdown {
+    display: none !important;
+    position: static !important;
+    box-shadow: none !important;
+    border: none !important;
+    padding: 4px 0 4px 16px !important;
+    background: #f9f7fc;
+    border-radius: 8px;
+    margin-top: 4px;
+  }
+  #nav-links .dropdown a {
+    font-size: 16px !important;
+    font-weight: 500 !important;
+    padding: 6px 12px !important;
+    white-space: nowrap !important;
+    overflow: visible !important;
+    display: block !important;
+    color: #452068 !important;
+  }
+  #nav-links li.open .dropdown { display: block !important; }
+ }
+ @media (min-width: 769px) {
+  #nav-toggle { display: none !important; }
+  #nav-links { display: flex !important; }
+ }
+</style>
 
 <div style="padding:10px 24px;">
   <a href="/resources" style="display:inline-flex;align-items:center;gap:6px;font-size:14px;font-weight:600;color:#452068;text-decoration:none;">

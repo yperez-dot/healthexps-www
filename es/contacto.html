@@ -65,7 +65,7 @@ a:hover{color:var(--pink);}
 .breadcrumb a{color:var(--purple);font-weight:600;}
 
 /* HERO */
-.page-hero{background:linear-gradient(135deg,var(--purple-dark) 0%,var(--purple) 55%,#6b3a9e 100%);color:white;padding:56px 0 80px;position:relative;overflow:hidden;}
+.page-hero{overflow-x:hidden;background:linear-gradient(135deg,var(--purple-dark) 0%,var(--purple) 55%,#6b3a9e 100%);color:white;padding:56px 0 80px;position:relative;overflow:hidden;}
 .page-hero::before{content:'';position:absolute;inset:0;background-image:radial-gradient(rgba(255,255,255,0.10) 1.5px,transparent 1.5px);background-size:24px 24px;pointer-events:none;}
 .page-hero::after{content:'';position:absolute;bottom:-1px;left:0;right:0;height:48px;background:white;clip-path:ellipse(55% 100% at 50% 100%);}
 .page-hero .container{position:relative;z-index:1;}
@@ -136,6 +136,15 @@ a:hover{color:var(--pink);}
  .office-map{height:240px;}
 }
 </style>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "InsuranceAgency", "name": "The Health Experts Insurance", "url": "https://www.healthexps.com", "telephone": "+18003806821", "address": {"@type": "PostalAddress", "streetAddress": "1695 NW 110 Ave, Suite 224", "addressLocality": "Doral", "addressRegion": "FL", "postalCode": "33172", "addressCountry": "US"}, "areaServed": ["Miami-Dade County", "Broward County", "Florida"], "priceRange": "Free", "description": "Independent bilingual health insurance brokers in Doral, FL. We compare 14+ carriers for Medicare, ACA, and private health insurance at no cost."}</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ContactPage",
+  "name": "Contacto — The Health Experts Insurance",
+  "url": "https://www.healthexps.com/es/contacto"
+}
+</script>
 </head>
 <body>
 
@@ -162,7 +171,7 @@ WhatsApp
 Encuentra Mi Plan →
 </a>
 <div style="display:flex;align-items:center;border:1.5px solid rgba(255,255,255,0.4);border-radius:50px;overflow:hidden;">
-<a href="/" style="font-size:12px;font-weight:700;padding:3px 10px;color:rgba(255,255,255,0.75);text-decoration:none;">EN</a>
+<a href="/contact" style="font-size:12px;font-weight:700;padding:3px 10px;color:rgba(255,255,255,0.75);text-decoration:none;">EN</a>
 <span style="background:white;color:#452068;font-size:12px;font-weight:700;padding:3px 10px;">ES</span>
 </div>
 </div>
@@ -493,24 +502,24 @@ for(var k=0;k<_navLinks.length;k++){
  <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:16px;">
  <div>
  <label style="display:block;font-size:13px;font-weight:700;color:#452068;text-transform:uppercase;letter-spacing:.05em;margin-bottom:6px;">Nombre</label>
- <input type="text" name="first_name" style="width:100%;padding:12px 14px;border:2px solid #e5e5e5;border-radius:8px;font-size:15px;font-family:Arial,sans-serif;box-sizing:border-box;" required>
+ <input type="text" name="first_name" id="first_name_es" style="width:100%;padding:12px 14px;border:2px solid #e5e5e5;border-radius:8px;font-size:15px;font-family:Arial,sans-serif;box-sizing:border-box;" required>
  </div>
  <div>
  <label style="display:block;font-size:13px;font-weight:700;color:#452068;text-transform:uppercase;letter-spacing:.05em;margin-bottom:6px;">Apellido</label>
- <input type="text" name="last_name" style="width:100%;padding:12px 14px;border:2px solid #e5e5e5;border-radius:8px;font-size:15px;font-family:Arial,sans-serif;box-sizing:border-box;" required>
+ <input type="text" name="last_name" id="last_name_es" style="width:100%;padding:12px 14px;border:2px solid #e5e5e5;border-radius:8px;font-size:15px;font-family:Arial,sans-serif;box-sizing:border-box;" required>
  </div>
  </div>
  <div style="margin-bottom:16px;">
  <label style="display:block;font-size:13px;font-weight:700;color:#452068;text-transform:uppercase;letter-spacing:.05em;margin-bottom:6px;">Teléfono</label>
- <input type="tel" name="phone" style="width:100%;padding:12px 14px;border:2px solid #e5e5e5;border-radius:8px;font-size:15px;font-family:Arial,sans-serif;box-sizing:border-box;" required>
+ <input type="tel" name="phone" id="phone_es" style="width:100%;padding:12px 14px;border:2px solid #e5e5e5;border-radius:8px;font-size:15px;font-family:Arial,sans-serif;box-sizing:border-box;" required>
  </div>
  <div style="margin-bottom:16px;">
  <label style="display:block;font-size:13px;font-weight:700;color:#452068;text-transform:uppercase;letter-spacing:.05em;margin-bottom:6px;">Correo electrónico</label>
- <input type="email" name="email" style="width:100%;padding:12px 14px;border:2px solid #e5e5e5;border-radius:8px;font-size:15px;font-family:Arial,sans-serif;box-sizing:border-box;" required>
+ <input type="email" name="email" id="email_es" style="width:100%;padding:12px 14px;border:2px solid #e5e5e5;border-radius:8px;font-size:15px;font-family:Arial,sans-serif;box-sizing:border-box;" required>
  </div>
  <div style="margin-bottom:16px;">
  <label style="display:block;font-size:13px;font-weight:700;color:#452068;text-transform:uppercase;letter-spacing:.05em;margin-bottom:6px;">¿Cómo podemos ayudarte?</label>
- <select name="contact_reason" style="width:100%;padding:12px 14px;border:2px solid #e5e5e5;border-radius:8px;font-size:15px;font-family:Arial,sans-serif;background:white;box-sizing:border-box;" required>
+ <select name="contact_reason" id="contact_reason_es" style="width:100%;padding:12px 14px;border:2px solid #e5e5e5;border-radius:8px;font-size:15px;font-family:Arial,sans-serif;background:white;box-sizing:border-box;" required>
  <option value="">Seleccionar...</option>
  <option value="Planes de Medicare">Planes de Medicare</option>
  <option value="Mercado ACA">Mercado ACA</option>
@@ -521,10 +530,10 @@ for(var k=0;k<_navLinks.length;k++){
  </div>
  <div style="margin-bottom:16px;">
  <label style="display:block;font-size:13px;font-weight:700;color:#452068;text-transform:uppercase;letter-spacing:.05em;margin-bottom:6px;">¿Algo que quieras compartir? <span style="font-weight:400;text-transform:none;color:#888;">(opcional)</span></label>
- <textarea name="additional_notes" placeholder="Ej. Necesito mantener a mi cardólogo en Baptist Health, o tomo 3 medicamentos..." style="width:100%;padding:12px 14px;border:2px solid #e5e5e5;border-radius:8px;font-size:15px;font-family:Arial,sans-serif;min-height:80px;resize:vertical;box-sizing:border-box;"></textarea>
+ <textarea name="additional_notes" id="additional_notes_es" placeholder="Ej. Necesito mantener a mi cardólogo en Baptist Health, o tomo 3 medicamentos..." style="width:100%;padding:12px 14px;border:2px solid #e5e5e5;border-radius:8px;font-size:15px;font-family:Arial,sans-serif;min-height:80px;resize:vertical;box-sizing:border-box;"></textarea>
  </div>
  <div style="display:flex;align-items:flex-start;gap:10px;margin:18px 0;">
- <input type="checkbox" id="esContactConsent" name="consent" style="margin-top:4px;flex-shrink:0;" required>
+ <input type="checkbox" id="esContactConsent" name="consent" id="consent_es" style="margin-top:4px;flex-shrink:0;" required>
  <label for="esContactConsent" style="font-size:13px;color:#555;line-height:1.5;">Al enviar este formulario, doy mi consentimiento para recibir llamadas, mensajes de texto y correos electrónicos de The Health Experts Insurance al número e email proporcionados, incluyendo marcación automatizada. El consentimiento no es necesario para adquirir servicios.</label>
  </div>
  <button type="submit" style="width:100%;background:#ff1090;color:white;border:none;padding:14px;border-radius:50px;font-size:16px;font-weight:700;cursor:pointer;font-family:Arial,sans-serif;margin-top:4px;">Enviar mi mensaje →</button>
