@@ -1,0 +1,13 @@
+{
+  "name": "healthexps-www",
+  "version": "1.0.0",
+  "description": "healthexps.com static site with Eleventy blog",
+  "scripts": {
+    "build": "npx @11ty/eleventy",
+    "dev": "npx @11ty/eleventy --serve"
+  },
+  "devDependencies": {
+    "@11ty/eleventy": "^2.0.1",
+    "markdown-it": "^14.0.0"
+  }
+}
