@@ -1,6 +1,9 @@
 [build]
-  publish = "."
-  command = "echo 'Static site - no build needed'"
+  publish = "_site"
+  command = "npm ci && npx @11ty/eleventy"
+
+[build.environment]
+  NODE_VERSION = "20"
 
 # 301 redirect for renamed calculator
 [[redirects]]

@@ -1,0 +1,7 @@
+README.md
+IGOR_README.md
+node_modules/
+_site/
+*.py
+*.sh
+*.backup
