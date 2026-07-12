@@ -26,6 +26,165 @@
   status = 301
   force = true
 
+# ----------------------------------------------------------
+# Wix → Netlify Redirects (25 rules) — Added 2026-07-12
+# Audit: wix-audit-output/netlify-redirects.toml
+# ----------------------------------------------------------
+
+# GROUP 1: /post/* → /blog/* (138 clicks/90d)
+[[redirects]]
+  from = "/post/avmed-medicare-ending-florida-what-to-do-2026"
+  to = "/blog/avmed-medicare-ending-florida-what-to-do-2026"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/post/are-health-insurance-premiums-subject-to-fica"
+  to = "/blog/understanding-how-income-affects-medicare-premiums-a-complete-guide-for-retirees"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/post/avmed-medicare-is-ending-in-2026-what-florida-seniors-need-to-know"
+  to = "/blog/avmed-medicare-ending-florida-what-to-do-2026"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/post/navigating-the-medicare-plan-finder-tool-your-ultimate-guide"
+  to = "/blog/navigating-the-medicare-plan-finder-tool-your-ultimate-guide"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/post/what-is-a-special-enrollment-period-for-medicare-in-florida"
+  to = "/blog/what-is-a-special-enrollment-period-for-medicare-in-florida"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/post/understanding-how-income-affects-medicare-premiums-a-complete-guide-for-retirees"
+  to = "/blog/understanding-how-income-affects-medicare-premiums-a-complete-guide-for-retirees"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/post/what-replaced-avmed-medicare-in-florida"
+  to = "/blog/avmed-medicare-ending-florida-what-to-do-2026"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/post/why-is-there-a-medicare-premium-i-thought-it-was-free"
+  to = "/blog/why-is-there-a-medicare-premium-i-thought-it-was-free"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/post/best-medicare-advantage-plans-to-replace-avmed-in-florida-2026-by-yahoska-perez-licensed-medicare"
+  to = "/blog/medicare-plans-replace-avmed-florida-2026"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/post/medicare-plans-replace-avmed-florida-2026"
+  to = "/blog/medicare-plans-replace-avmed-florida-2026"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/post/cost-comparisons-mapd-vs-original-medicare-making-the-right-choice-for-your-health-insurance"
+  to = "/blog/understanding-the-key-differences-between-mapd-and-traditional-medicare"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/post/how-to-switch-medicare-plans-after-avmed-exits-florida"
+  to = "/blog/avmed-medicare-ending-florida-what-to-do-2026"
+  status = 301
+  force = true
+
+# GROUP 2: /insurance/* → service pages (3 clicks/90d)
+[[redirects]]
+  from = "/insurance/acaplans"
+  to = "/aca-plans-miami"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/insurance/medicareplans"
+  to = "/medicare-plans-miami"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/es/insurance/travelinsurance"
+  to = "/es/"
+  status = 301
+  force = true
+
+# GROUP 3: Other legacy Wix URLs (26 clicks/90d)
+[[redirects]]
+  from = "/irmaa-lep"
+  to = "/medicare-irmaa-penalties"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/events"
+  to = "/contact"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/medicare-insurance-agents"
+  to = "/medicare-agent-miami"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/medicare-insurance-agents-miami"
+  to = "/medicare-agent-miami"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/independent-healthcare-agents"
+  to = "/independent-health-insurance-broker"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/faq/mapd-termination"
+  to = "/faq"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/our-services"
+  to = "/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/brokerservices"
+  to = "/medical-insurance-broker"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/book-online"
+  to = "https://calendly.com/healthexps-info/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/es/our-services"
+  to = "/es/"
+  status = 301
+  force = true
+
+# WILDCARD CATCH-ALL — MUST REMAIN LAST
 [[redirects]]
   from = "/health-insurance-broker"
   to = "/"
