@@ -21,7 +21,8 @@
 /post/still-haven-t-switched-your-medicare-plan-you-may-qualify-for-a-special-enrollment-period  /blog/still-haven-t-switched-your-medicare-plan-you-may-qualify-for-a-special-enrollment-period  301
 
 # Spanish URL cleanup — proper Spanish slugs (2026-06-24)
-/es/enrollment-calculator  /es/calculadora-de-inscripcion  301
+/es/enrollment-calculator  /calculadora-de-inscripcion.html  301
+/es/programa-ahorros-medicare  /es/medicare/programa-ahorros-medicare  301
 /es/faq-aca  /es/preguntas-aca  301
 /es/faq-medicare  /es/preguntas-medicare  301
 /es/avmed-medicare-florida-espanol  /es/avmed-medicare-florida  301
