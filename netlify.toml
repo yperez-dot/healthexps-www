@@ -342,6 +342,20 @@
   status = 301
   force = true
 
+# Additional legacy pages (2026-07-12)
+[[redirects]]
+  from = "/healthcare-insurance-for-seniors"
+  to = "/medicare-plans-miami"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/service-page/medicare-made-easy"
+  to = "/resources"
+  status = 410
+  force = true
+
+# WILDCARD CATCH-ALL — MUST REMAIN LAST
 [[redirects]]
   from = "/*"
   to = "/index.html"
