@@ -8,7 +8,7 @@
 # 301 redirect for renamed calculator
 [[redirects]]
   from = "/medigap-calculator"
-  to = "/medigap-plan-calculator"
+  to = "/medicare-advantage-vs-supplement-calculator"
   status = 301
   force = true
 
