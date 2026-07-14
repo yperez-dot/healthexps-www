@@ -27,3 +27,8 @@
 /es/faq-medicare  /es/preguntas-medicare  301
 /es/avmed-medicare-florida-espanol  /es/avmed-medicare-florida  301
 /es/medicare-advantage-en-espanol  /es/medicare-advantage-miami  301
+
+# SEO canonical redirects — keep higher-performing URL, redirect duplicate
+/medicare/medicare-advantage-plans  /medicare-advantage-miami  301
+/medicare/medicare-supplement-plans  /medicare-supplement-miami  301
+/medicare/medicare-costs-irmaa  /medicare/medicare-costs  301
