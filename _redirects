@@ -32,3 +32,40 @@
 /medicare/medicare-advantage-plans  /medicare-advantage-miami  301
 /medicare/medicare-supplement-plans  /medicare-supplement-miami  301
 /medicare/medicare-costs-irmaa  /medicare/medicare-costs  301
+
+# Duplicate ES find-my-plan — keep encuentra-mi-plan (Spanish URL) (2026-07-15)
+/es/find-my-plan  /es/encuentra-mi-plan  301
+
+# Approved /post/ redirects — 30 Wix legacy URLs (2026-07-15, approved by Yahoska)
+/post/private-health-insurance-made-easy-a-guide-for-families  /private-health-insurance-miami  301
+/post/private-health-insurance-a-simple-guide-for-your-family  /private-health-insurance-miami  301
+/post/private-health-insurance-simple-guide-for-families  /private-health-insurance-miami  301
+/post/master-private-health-insurance-a-guide-for-your-family  /private-health-insurance-miami  301
+/post/understand-private-health-insurance-a-simple-family-guide  /private-health-insurance-miami  301
+/post/how-to-switch-medicare-plans-after-avmed-exits-florida  /blog/avmed-medicare-ending-florida-what-to-do-2026  301
+/post/what-replaced-avmed-medicare-in-florida  /blog/avmed-medicare-ending-florida-what-to-do-2026  301
+/post/best-medicare-advantage-plans-to-replace-avmed-in-florida-2026-by-yahoska-perez-licensed-medicare  /blog/avmed-medicare-ending-florida-what-to-do-2026  301
+/es/post/planes-medicare-reemplazo-avmed-florida-2026  /es/avmed-medicare-florida  301
+/es/post/avmed-medicare-termino-florida-que-hacer-2026  /es/avmed-medicare-florida  301
+/post/the-essential-guide-to-understanding-medicare-supplement-plans  /medicare-supplement-miami  301
+/post/mastering-the-medicare-enrollment-process-your-guide-to-a-stress-free-experience  /medicare-enrollment-periods  301
+/post/understanding-medicare-enrollment-periods-a-comprehensive-guide  /medicare-enrollment-periods  301
+/post/unlocking-medicare-enrollment-periods-your-complete-guide-to-health-insurance-benefits  /medicare-enrollment-periods  301
+/post/missed-your-medicare-enrollment-period-heres-your-essential-guide  /medicare-enrollment-periods  301
+/post/exploring-special-enrollment-periods-who-qualifies  /medicare-enrollment-periods  301
+/post/navigating-the-medicare-enrollment-process-step-by-step-instructions  /medicare-enrollment-periods  301
+/post/unlocking-the-medicare-advantage-open-enrollment-period-a-comprehensive-guide-to-your-health-benefi  /medicare-enrollment-periods  301
+/post/open-enrollment-vs-annual-enrollment-period-whats-the-difference  /medicare-enrollment-periods  301
+/post/unlocking-benefits-medicare-coverage-for-specific-health-conditions  /medicare-advantage-miami  301
+/post/what-is-a-medicare-late-enrollment-penalty-lep  /medicare-enrollment-periods  301
+/post/why-use-a-health-insurance-brokerage  /medicare-agent-miami  301
+/post/unlocking-the-secrets-of-preventative-care-benefits-in-medicare  /medicare-advantage-miami  301
+/post/key-differences-between-medicare-and-medicaid-what-you-need-to-know  /medicare-dual-eligible-miami  301
+/post/unlocking-the-benefits-of-medicare-advantage-plans-mapd  /medicare-advantage-miami  301
+/post/uncovering-hidden-costs-in-medicare-what-every-retired-individual-needs-to-know  /medicare/medicare-costs  301
+/post/comparing-costs-medicare-advantage-plans-vs-original-medicare  /medicare-advantage-miami  301
+/post/smart-ways-to-save-money-during-medicare-enrollment-budgeting-tips  /medicare/medicare-costs  301
+/post/cost-comparisons-mapd-vs-original-medicare-making-the-right-choice-for-your-health-insurance  /medicare-advantage-miami  301
+
+# Broker page consolidation — keep /medical-insurance-broker, fold /independent in (2026-07-15)
+/independent-health-insurance-broker  /medical-insurance-broker  301
