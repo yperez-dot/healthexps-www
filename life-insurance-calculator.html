@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Life Insurance Cost Calculator Miami | Final Expense Quotes</title>
+<meta name="description" content="Estimate your life insurance cost in seconds. See real final expense rates for Florida residents by age. Free, no obligation — bilingual agents available.">
+<link rel="canonical" href="https://www.healthexps.com/life-insurance-calculator/">
+<link rel="stylesheet" href="css/global.css">
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-SJSGF3E9MD"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-SJSGF3E9MD');</script>
+<style>
+:root{--purple:#452068;--purple-dark:#311549;--purple-light:#f4eefa;--pink:#ff1090;--pink-hover:#d4006d;--white:#ffffff;--gray-light:#f7f7f7;--gray-text:#555555;--black:#1a1a1a;--font:Arial,Helvetica,sans-serif;--radius:12px;--shadow:0 2px 16px rgba(69,32,104,0.10);}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:var(--font);color:var(--black);background:var(--gray-light);font-size:17px;}
+.page-header{background:linear-gradient(135deg,var(--purple-dark),var(--purple));color:white;padding:48px 24px;text-align:center;}
+.page-header h1{font-size:clamp(24px,4vw,38px);font-weight:700;margin-bottom:10px;}
+.page-header p{color:rgba(255,255,255,0.85);font-size:17px;max-width:560px;margin:0 auto;}
+.calc-wrap{max-width:680px;margin:40px auto;padding:0 20px 60px;}
+.calc-card{background:white;border-radius:16px;box-shadow:var(--shadow);padding:36px;}
+.calc-card h2{font-size:20px;font-weight:700;color:var(--purple);margin-bottom:24px;}
+.field{margin-bottom:22px;}
+.field label{display:block;font-size:14px;font-weight:700;color:#333;margin-bottom:8px;text-transform:uppercase;letter-spacing:.04em;}
+.field select, .field input{width:100%;padding:13px 16px;border:2px solid #e8e0f4;border-radius:10px;font-size:16px;color:var(--black);background:white;appearance:none;-webkit-appearance:none;outline:none;transition:border .2s;}
+.field select:focus, .field input:focus{border-color:var(--purple);}
+.lang-toggle{display:flex;gap:10px;margin-bottom:28px;}
+.lang-btn{flex:1;padding:10px;border:2px solid #e8e0f4;border-radius:10px;background:white;font-size:14px;font-weight:700;cursor:pointer;transition:all .2s;color:var(--gray-text);}
+.lang-btn.active{border-color:var(--purple);background:var(--purple-light);color:var(--purple);}
+.calc-btn{width:100%;padding:16px;background:linear-gradient(135deg,var(--purple),var(--pink));color:white;border:none;border-radius:50px;font-size:17px;font-weight:700;cursor:pointer;margin-top:8px;transition:opacity .2s;}
+.calc-btn:hover{opacity:.9;}
+.result-box{display:none;margin-top:28px;padding:24px;background:var(--purple-light);border-radius:14px;border:2px solid #d8bff5;}
+.result-box.show{display:block;}
+.result-label{font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:.05em;color:var(--purple);margin-bottom:8px;}
+.result-range{font-size:34px;font-weight:700;color:var(--purple-dark);margin-bottom:4px;}
+.result-sub{font-size:14px;color:var(--gray-text);margin-bottom:20px;}
+.result-cta{display:flex;flex-direction:column;gap:12px;}
+.btn-call{display:block;text-align:center;padding:14px;background:var(--purple);color:white;border-radius:50px;font-weight:700;font-size:16px;text-decoration:none;}
+.btn-wa{display:block;text-align:center;padding:14px;background:#25D366;color:white;border-radius:50px;font-weight:700;font-size:16px;text-decoration:none;}
+.disclaimer{font-size:12px;color:#888;margin-top:24px;line-height:1.6;}
+.back-link{text-align:center;margin-top:24px;}
+.back-link a{color:var(--purple);font-weight:600;text-decoration:none;}
+</style>
+</head>
+<body>
+
+<div class="page-header">
+  <h1 id="h-title">Life Insurance Cost Calculator</h1>
+  <p id="h-sub">See real final expense rates for Florida residents. Takes 30 seconds.</p>
+</div>
+
+<div class="calc-wrap">
+  <div class="calc-card">
+
+    <div class="lang-toggle">
+      <button class="lang-btn active" onclick="setLang('en')">🇺🇸 English</button>
+      <button class="lang-btn" onclick="setLang('es')">🇪🇸 Español</button>
+    </div>
+
+    <h2 id="calc-title">Estimate Your Monthly Premium</h2>
+
+    <div class="field">
+      <label id="lbl-age">Your Age</label>
+      <select id="sel-age">
+        <option value="">— Select your age —</option>
+        <option value="50">50–54</option>
+        <option value="55">55–59</option>
+        <option value="60">60–64</option>
+        <option value="65">65–69</option>
+        <option value="70">70–74</option>
+        <option value="75">75–79</option>
+        <option value="80">80–84</option>
+        <option value="85">85+</option>
+      </select>
+    </div>
+
+    <div class="field">
+      <label id="lbl-coverage">Coverage Amount</label>
+      <select id="sel-coverage">
+        <option value="10000">$10,000 (Final Expense)</option>
+      </select>
+    </div>
+
+    <div class="field">
+      <label id="lbl-name">Your Name</label>
+      <input type="text" id="inp-name" placeholder="First name">
+    </div>
+
+    <div class="field">
+      <label id="lbl-phone">Phone Number</label>
+      <input type="tel" id="inp-phone" placeholder="(305) 000-0000">
+    </div>
+
+    <button class="calc-btn" id="calc-btn" onclick="calculate()">
+      <span id="btn-label">See My Estimate →</span>
+    </button>
+
+    <div class="result-box" id="result-box">
+      <div class="result-label" id="res-label">Your estimated monthly premium</div>
+      <div class="result-range" id="res-range">—</div>
+      <div class="result-sub" id="res-sub">Final Expense · $10,000 coverage · No medical exam required</div>
+      <div class="result-cta">
+        <a href="tel:18003806821" class="btn-call" id="res-call">📞 Call to lock in your rate</a>
+        <a href="https://wa.me/13054646888" class="btn-wa" id="res-wa">💬 WhatsApp us your quote</a>
+      </div>
+    </div>
+
+    <p class="disclaimer" id="disclaimer">Rates shown are estimated monthly premiums for a $10,000 final expense policy in Florida. Actual rates vary by carrier, health status, and gender. These are illustrative ranges for planning purposes only. Contact a licensed agent for your exact quote. The Health Experts Insurance · License #L123456 · Not affiliated with any government program.</p>
+  </div>
+
+  <div class="back-link">
+    <a href="/life-insurance-miami" id="back-link">← Back to Life Insurance</a>
+  </div>
+</div>
+
+<script>
+// Rate table: final expense $10,000
+// [low, high] monthly premiums by age band
+const RATES = {
+  10000: {
+    50: [30.55, 45.05],
+    55: [35.76, 59.17],
+    60: [43.12, 73.81],
+    65: [53.97, 92.75],
+    70: [69.78, 116.44],
+    75: [97.10, 167.12],
+    80: [135.78, 229.03],
+    85: [187.58, 326.54]
+  }
+};
+
+const COPY = {
+  en: {
+    hTitle: 'Life Insurance Cost Calculator',
+    hSub: 'See real final expense rates for Florida residents. Takes 30 seconds.',
+    calcTitle: 'Estimate Your Monthly Premium',
+    lblAge: 'Your Age',
+    lblCoverage: 'Coverage Amount',
+    lblName: 'Your Name',
+    lblPhone: 'Phone Number',
+    btnLabel: 'See My Estimate →',
+    resLabel: 'Your estimated monthly premium',
+    resSub: 'Final Expense · $10,000 coverage · No medical exam required',
+    resCall: '📞 Call to lock in your rate',
+    resWa: '💬 WhatsApp us your quote',
+    disclaimer: 'Rates shown are estimated monthly premiums for a $10,000 final expense policy in Florida. Actual rates vary by carrier, health status, and gender. These are illustrative ranges for planning purposes only. Contact a licensed agent for your exact quote.',
+    backLink: '← Back to Life Insurance',
+    alertAge: 'Please select your age.',
+    alertPhone: 'Please enter your phone number so we can follow up.'
+  },
+  es: {
+    hTitle: 'Calculadora de Seguro de Vida',
+    hSub: 'Vea tarifas reales de gastos finales para residentes de Florida. Solo 30 segundos.',
+    calcTitle: 'Estime su Prima Mensual',
+    lblAge: 'Su Edad',
+    lblCoverage: 'Monto de Cobertura',
+    lblName: 'Su Nombre',
+    lblPhone: 'Número de Teléfono',
+    btnLabel: 'Ver Mi Estimado →',
+    resLabel: 'Su prima mensual estimada',
+    resSub: 'Gastos Finales · $10,000 de cobertura · Sin examen médico',
+    resCall: '📞 Llame para fijar su tarifa',
+    resWa: '💬 Escríbanos por WhatsApp',
+    disclaimer: 'Las tarifas mostradas son primas mensuales estimadas para una póliza de gastos finales de $10,000 en Florida. Las tarifas reales varían según el carrier, estado de salud y género. Contáctenos para una cotización exacta.',
+    backLink: '← Regresar a Seguro de Vida',
+    alertAge: 'Por favor seleccione su edad.',
+    alertPhone: 'Por favor ingrese su teléfono para darle seguimiento.'
+  }
+};
+
+let lang = 'en';
+
+function setLang(l) {
+  lang = l;
+  document.querySelectorAll('.lang-btn').forEach((b,i)=>b.classList.toggle('active', (i===0&&l==='en')||(i===1&&l==='es')));
+  const c = COPY[l];
+  document.getElementById('h-title').textContent = c.hTitle;
+  document.getElementById('h-sub').textContent = c.hSub;
+  document.getElementById('calc-title').textContent = c.calcTitle;
+  document.getElementById('lbl-age').textContent = c.lblAge;
+  document.getElementById('lbl-coverage').textContent = c.lblCoverage;
+  document.getElementById('lbl-name').textContent = c.lblName;
+  document.getElementById('lbl-phone').textContent = c.lblPhone;
+  document.getElementById('btn-label').textContent = c.btnLabel;
+  document.getElementById('res-label').textContent = c.resLabel;
+  document.getElementById('res-sub').textContent = c.resSub;
+  document.getElementById('res-call').textContent = c.resCall;
+  document.getElementById('res-wa').textContent = c.resWa;
+  document.getElementById('disclaimer').textContent = c.disclaimer;
+  document.getElementById('back-link').textContent = c.backLink;
+}
+
+function calculate() {
+  const age = parseInt(document.getElementById('sel-age').value);
+  const coverage = parseInt(document.getElementById('sel-coverage').value);
+  const name = document.getElementById('inp-name').value.trim();
+  const phone = document.getElementById('inp-phone').value.trim();
+  const c = COPY[lang];
+
+  if (!age) { alert(c.alertAge); return; }
+  if (!phone) { alert(c.alertPhone); return; }
+
+  const rate = RATES[coverage][age];
+  const low = rate[0].toFixed(2);
+  const high = rate[1].toFixed(2);
+
+  document.getElementById('res-range').textContent = `$${low} – $${high}/mo`;
+  document.getElementById('result-box').classList.add('show');
+
+  // Send lead to GHL
+  const payload = {
+    first_name: name.split(' ')[0] || name,
+    last_name: name.split(' ').slice(1).join(' ') || '',
+    phone: phone,
+    source: 'Life Insurance Calculator — healthexps.com',
+    life_insurance_age_band: document.getElementById('sel-age').options[document.getElementById('sel-age').selectedIndex].text,
+    life_insurance_coverage: '$' + coverage.toLocaleString(),
+    life_insurance_estimated_range: `$${low} – $${high}/mo`,
+    calculator_language: lang === 'en' ? 'English' : 'Spanish',
+    tags: 'Life-Insurance-Lead,Calculator-Lead,Life-Insurance-Calculator'
+  };
+
+  fetch('https://services.leadconnectorhq.com/hooks/RINM4TCnM4hN06UA1aK0/webhook-trigger/LIFE_INSURANCE_WEBHOOK_PLACEHOLDER', {
+    method: 'POST',
+    headers: {'Content-Type': 'application/json'},
+    body: JSON.stringify(payload)
+  }).catch(() => {});
+
+  document.getElementById('result-box').scrollIntoView({behavior: 'smooth', block: 'start'});
+}
+</script>
+</body>
+</html>

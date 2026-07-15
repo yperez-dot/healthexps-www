@@ -2,7 +2,7 @@
 layout: layouts/blog-post-es.njk
 category: "Medicare"
 title: "Doble elegibilidad: qué significa tener Medicare y Medicaid a la vez en Miami"
-description: "¿Tiene Medicare y Medicaid? Puede calificar para planes D-SNP con beneficios adicionales, Ayuda Adicional con medicamentos y cambios de plan mensuales."
+description: "Costo y beneficios de planes D-SNP en Miami 2026. ¿Tiene Medicare y Medicaid? Ahorre en primas, medicamentos y copagos. Corredores bilingües, gratis."
 date: 2026-07-15
 lang: es
 permalink: /es/blog/doble-elegibilidad-medicare-medicaid-miami/
