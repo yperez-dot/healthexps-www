@@ -1,0 +1,12 @@
+name: Weekly Blog Rebuild
+on:
+  schedule:
+    - cron: "0 13 * * 3"  # 9am ET = 13:00 UTC (Wednesday)
+  workflow_dispatch: {}   # allows manual trigger too
+
+jobs:
+  trigger-netlify-build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Trigger Netlify build hook
+        run: curl -X POST -d '{}' "${{ secrets.NETLIFY_BUILD_HOOK_URL }}"
