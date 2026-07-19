@@ -258,103 +258,14 @@ for(var k=0;k<_navLinks.length;k++){
 <div class="container">
   <div class="card-grid" id="blogGrid">
 
-    <a href="/es/blog/cambio-red-uhealth-unitedhealthcare-medicare-advantage/" class="blog-card" data-category="Medicare">
-      <div class="card-category">Medicare</div>
-      <h2 class="card-title">¿UHealth Sale de Medicare de UHC? Sus Opciones en Miami 2026</h2>
-      <p class="card-excerpt">UHealth sale de Medicare Advantage de UHC el 1 de septiembre de 2026. Vea qué planes se afectan, si Bascom Palmer sigue cubierto, y sus opciones en Miami-Dade y Broward.</p>
-      <div class="card-footer"><span class="card-date">18 julio 2026</span><span class="card-read">Leer →</span></div>
+    {% for post in collections.blogEs %}
+    <a href="{{ post.url }}" class="blog-card" data-category="{{ post.data.category }}">
+      <div class="card-category">{{ post.data.category }}</div>
+      <h2 class="card-title">{{ post.data.title }}</h2>
+      <p class="card-excerpt">{{ post.data.description }}</p>
+      <div class="card-footer"><span class="card-date">{{ post.date | readableDateEs }}</span><span class="card-read">Leer &#8594;</span></div>
     </a>
-
-    <a href="/es/blog/avmed-medicare-termino-florida-que-hacer" class="blog-card" data-category="Medicare">
-      <div class="card-category">Medicare</div>
-      <h2 class="card-title">AvMed Medicare Terminó en Florida: ¿Qué Hacer Ahora?</h2>
-      <p class="card-excerpt">AvMed terminó sus planes Medicare Advantage en Florida el 1 de enero de 2026. Si eras miembro, todavía tienes opciones. Paso a paso qué hacer.</p>
-      <div class="card-footer"><span class="card-date">12 mayo 2026</span><span class="card-read">Leer →</span></div>
-    </a>
-
-    <a href="/es/blog/planes-medicare-reemplazaron-avmed-florida" class="blog-card" data-category="Medicare">
-      <div class="card-category">Medicare</div>
-      <h2 class="card-title">Planes de Medicare que Reemplazaron a AvMed en Florida 2026</h2>
-      <p class="card-excerpt">AvMed salió del mercado Medicare. Estos son los principales planes disponibles en Miami-Dade y Broward para reemplazarlo.</p>
-      <div class="card-footer"><span class="card-date">15 mayo 2026</span><span class="card-read">Leer →</span></div>
-    </a>
-
-    <a href="/es/blog/como-el-ingreso-afecta-primas-medicare" class="blog-card" data-category="Medicare">
-      <div class="card-category">Medicare</div>
-      <h2 class="card-title">Cómo Tus Ingresos Afectan lo que Pagas por Medicare en 2026</h2>
-      <p class="card-excerpt">¿Sabías que Medicare cobra más según tus ingresos? El recargo IRMAA puede aumentar tu prima significativamente. Te explicamos cómo funciona.</p>
-      <div class="card-footer"><span class="card-date">20 mayo 2026</span><span class="card-read">Leer →</span></div>
-    </a>
-
-    <a href="/es/blog/diferencias-mapd-medicare-tradicional" class="blog-card" data-category="Medicare">
-      <div class="card-category">Medicare</div>
-      <h2 class="card-title">Medicare Advantage vs Medicare Original: ¿Cuál Te Conviene en Miami?</h2>
-      <p class="card-excerpt">¿Cuál es la diferencia entre Medicare Advantage y Medicare Original? Pros y contras para ayudarte a elegir el plan correcto en Florida.</p>
-      <div class="card-footer"><span class="card-date">22 mayo 2026</span><span class="card-read">Leer →</span></div>
-    </a>
-
-    <a href="/es/blog/errores-comunes-inscripcion-medicare" class="blog-card" data-category="Medicare">
-      <div class="card-category">Medicare</div>
-      <h2 class="card-title">7 Errores Comunes al Inscribirse en Medicare (y Cómo Evitarlos)</h2>
-      <p class="card-excerpt">Evita penalidades permanentes. Estos son los errores más comunes al inscribirse en Medicare en Florida y cómo no caer en ellos.</p>
-      <div class="card-footer"><span class="card-date">28 mayo 2026</span><span class="card-read">Leer →</span></div>
-    </a>
-
-    <a href="/es/blog/que-es-el-periodo-inscripcion-especial-medicare-florida" class="blog-card" data-category="Medicare">
-      <div class="card-category">Medicare</div>
-      <h2 class="card-title">¿Qué es un Período de Inscripción Especial de Medicare en Florida?</h2>
-      <p class="card-excerpt">Un SEP te permite cambiar tu plan fuera del período anual. Te explicamos qué lo activa y cómo usarlo en Florida para no quedarte sin cobertura.</p>
-      <div class="card-footer"><span class="card-date">3 junio 2026</span><span class="card-read">Leer →</span></div>
-    </a>
-
-    <a href="/es/blog/por-que-necesitas-corredor-seguros-salud-miami" class="blog-card" data-category="Seguro Privado">
-      <div class="card-category">Seguro Privado</div>
-      <h2 class="card-title">Por Qué un Corredor de Seguros Independiente Marca la Diferencia en Miami</h2>
-      <p class="card-excerpt">Un corredor independiente bilingüe en Miami compara 14+ aseguradoras por ti — sin costo. Aquí te explicamos por qué importa.</p>
-      <div class="card-footer"><span class="card-date">8 junio 2026</span><span class="card-read">Leer →</span></div>
-    </a>
-
-    <a href="/es/blog/medicare-advantage-vs-medicare-original" class="blog-card" data-category="Medicare">
-      <div class="card-category">Medicare</div>
-      <h2 class="card-title">Medicare Advantage vs Medicare Original: ¿Cuál Es Mejor Para Ti?</h2>
-      <p class="card-excerpt">Sin ganador universal — solo lo que se ajusta a tu salud, presupuesto y médicos. Comparación lado a lado para que decidas con los ojos bien abiertos.</p>
-      <div class="card-footer"><span class="card-date">5 julio 2026</span><span class="card-read">Leer →</span></div>
-    </a>
-
-    <a href="/es/blog/perdi-inscripcion-abierta-medicare" class="blog-card" data-category="Medicare">
-      <div class="card-category">Medicare</div>
-      <h2 class="card-title">¿Qué Pasa Si Perdiste la Inscripción Abierta de Medicare?</h2>
-      <p class="card-excerpt">Se te pasó el 7 de diciembre. Tranquilo. Aquí te explicamos qué pasa ahora, qué ventanas siguen abiertas y cómo evitar multas.</p>
-      <div class="card-footer"><span class="card-date">5 julio 2026</span><span class="card-read">Leer →</span></div>
-    </a>
-
-    <a href="/es/blog/programa-ahorros-medicare-reducir-costos" class="blog-card" data-category="Medicare">
-      <div class="card-category">Medicare</div>
-      <h2 class="card-title">Cómo el Programa de Ahorros de Medicare Puede Reducir Tus Costos</h2>
-      <p class="card-excerpt">Un programa que puede pagar tu prima de la Parte B — y miles de personas elegibles en el sur de la Florida nunca aplican. Descubre si calificas.</p>
-      <div class="card-footer"><span class="card-date">5 julio 2026</span><span class="card-read">Leer →</span></div>
-    </a>
-
-    <a href="/es/blog/necesito-agente-medicare-o-inscribirme-solo" class="blog-card" data-category="Medicare">
-      <div class="card-category">Medicare</div>
-      <h2 class="card-title">¿Necesito un Agente de Medicare o Puedo Inscribirme Solo?</h2>
-      <p class="card-excerpt">La respuesta honesta: no necesitas un agente. Pero hay momentos en que vale la peña tener ayuda. Un análisis claro de las dos opciones — y cuánto cuesta un agente (spoiler: nada).</p>
-      <div class="card-footer"><span class="card-date">5 julio 2026</span><span class="card-read">Leer →</span></div>
-    </a>
-
-    <a href="/es/blog/programa-ahorros-medicare-florida" class="blog-card" data-category="Medicare">
-      <div class="card-category">Medicare</div>
-      <h2 class="card-title">El Programa de Ahorros de Medicare en Florida: ¿Calificas para Ayuda?</h2>
-      <p class="card-excerpt">El Programa de Ahorros de Medicare puede pagar tu prima de Parte B. Muchos floridanos califican sin saberlo. Descubre si eres uno de ellos.</p>
-      <div class="card-footer"><span class="card-date">12 junio 2026</span><span class="card-read">Leer →</span></div>
-    </a>
-
-    <a href="/es/blog/alternativas-cobra-miami-ahorra-dinero" class="blog-card" data-category="COBRA">
-      <div class="card-category">COBRA</div>
-      <h2 class="card-title">Alternativas al COBRA en Miami: Cómo Ahorrar $600+ al Mes</h2>
-      <p class="card-excerpt">¿Recibiste la carta del COBRA y te asustaste con el precio? En Miami hay alternativas que cuestan hasta 60% menos. Te explicamos cuáles son.</p>
-      <div class="card-footer"><span class="card-date">18 junio 2026</span><span class="card-read">Leer →</span></div>
-    </a>
+    {% endfor %}
 
   </div>
 
