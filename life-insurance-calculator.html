@@ -62,14 +62,19 @@ body{font-family:var(--font);color:var(--black);background:var(--gray-light);fon
       <label id="lbl-age">Your Age</label>
       <select id="sel-age">
         <option value="">— Select your age —</option>
+        <option value="25" class="term-only" style="display:none">25–29</option>
+        <option value="30" class="term-only" style="display:none">30–34</option>
+        <option value="35" class="term-only" style="display:none">35–39</option>
+        <option value="40" class="term-only" style="display:none">40–44</option>
+        <option value="45" class="term-only" style="display:none">45–49</option>
         <option value="50">50–54</option>
         <option value="55">55–59</option>
         <option value="60">60–64</option>
-        <option value="65">65–69</option>
-        <option value="70">70–74</option>
-        <option value="75">75–79</option>
-        <option value="80">80–84</option>
-        <option value="85">85+</option>
+        <option value="65" class="fe-only">65–69</option>
+        <option value="70" class="fe-only">70–74</option>
+        <option value="75" class="fe-only">75–79</option>
+        <option value="80" class="fe-only">80–84</option>
+        <option value="85" class="fe-only">85+</option>
       </select>
     </div>
 
@@ -77,6 +82,7 @@ body{font-family:var(--font);color:var(--black);background:var(--gray-light);fon
       <label id="lbl-coverage">Coverage Amount</label>
       <select id="sel-coverage">
         <option value="10000">$10,000 (Final Expense)</option>
+        <option value="100000">$100,000 (Term 20 Year)</option>
       </select>
     </div>
 
@@ -113,18 +119,27 @@ body{font-family:var(--font);color:var(--black);background:var(--gray-light);fon
 </div>
 
 <script>
-// Rate table: final expense $10,000
-// [low, high] monthly premiums by age band
+// Rate table — [low, high] monthly premiums by age band
 const RATES = {
-  10000: {
-    50: [30.55, 45.05],
-    55: [35.76, 59.17],
-    60: [43.12, 73.81],
-    65: [53.97, 92.75],
-    70: [69.78, 116.44],
-    75: [97.10, 167.12],
-    80: [135.78, 229.03],
-    85: [187.58, 326.54]
+  10000: { // Final Expense $10,000
+    50: [25, 25],
+    55: [30, 30],
+    60: [35, 35],
+    65: [40, 45],
+    70: [50, 55],
+    75: [70, 75],
+    80: [98, 105],
+    85: [135, 150]
+  },
+  100000: { // Term 20 Year $100,000
+    25: [8, 10],
+    30: [10, 10],
+    35: [11, 15],
+    40: [13, 20],
+    45: [15, 25],
+    50: [19, 30],
+    55: [30, 50],
+    60: [50, 75]
   }
 };
 
@@ -168,6 +183,18 @@ const COPY = {
 };
 
 let lang = 'en';
+
+// Filter age options based on selected product
+function onCoverageChange() {
+  const coverage = parseInt(document.getElementById('sel-coverage').value);
+  const isTerm = coverage === 100000;
+  document.querySelectorAll('.term-only').forEach(el => el.style.display = isTerm ? '' : 'none');
+  document.querySelectorAll('.fe-only').forEach(el => el.style.display = isTerm ? 'none' : '');
+  // Reset age selection when switching products
+  document.getElementById('sel-age').value = '';
+  document.getElementById('result-box').classList.remove('show');
+}
+document.getElementById('sel-coverage').addEventListener('change', onCoverageChange);
 
 function setLang(l) {
   lang = l;
