@@ -1,6 +1,6 @@
 ---
 layout: layouts/blog-post.njk
-category: "Health Insurance"
+category: "ACA & Marketplace"
 title: "Florida Health Insurance Costs Just Went Up — Here's What To Do"
 description: "ACA subsidies expired in Florida, with Florida marketplace premiums up an average of 31.5% before subsidies. Learn your options: ACA plans, private insurance, COBRA. Bilingual licensed agents explain."
 date: 2026-08-05

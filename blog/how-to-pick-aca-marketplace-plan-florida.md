@@ -1,6 +1,6 @@
 ---
 layout: layouts/blog-post.njk
-category: "Health Insurance"
+category: "ACA & Marketplace"
 title: "How to Pick a Health Insurance Plan on the ACA Marketplace in Florida"
 description: "Open enrollment in Florida: learn ACA subsidies, income limits, metal tiers, and how to pick the right Marketplace plan. Free bilingual help from licensed agents."
 date: 2026-09-02

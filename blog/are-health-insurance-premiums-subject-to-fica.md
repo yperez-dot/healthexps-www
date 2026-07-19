@@ -1,6 +1,6 @@
 ---
 layout: layouts/blog-post.njk
-category: "Health Insurance"
+category: "Private Insurance"
 title: "Are Health Insurance Premiums Subject to FICA Taxes?"
 description: "Most employer-sponsored health premiums are exempt from FICA — but the rules differ for self-employed, S-corp owners, and after-tax plans. Miami brokers explain."
 date: 2026-07-10

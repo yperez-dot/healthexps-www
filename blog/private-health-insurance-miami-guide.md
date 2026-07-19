@@ -1,6 +1,6 @@
 ---
 layout: layouts/blog-post.njk
-category: "Health Insurance"
+category: "Private Insurance"
 title: "Private Health Insurance in Miami: The Non-ACA Option Explained"
 description: "Not on an ACA plan? Private off-exchange health insurance in Miami may offer more flexibility, wider networks, and lower costs for self-employed Floridians."
 date: 2026-09-09
