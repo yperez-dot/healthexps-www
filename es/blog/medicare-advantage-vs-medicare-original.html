@@ -218,5 +218,18 @@ Encuentra Mi Plan →
 </div>
 </div>
 </footer>
+<style>
+#scrollToTop{display:none;position:fixed;bottom:24px;right:24px;width:44px;height:44px;background:#452068;color:white;border:none;border-radius:50%;font-size:20px;cursor:pointer;z-index:999;box-shadow:0 4px 12px rgba(69,32,104,0.3);transition:all .2s;}
+#scrollToTop:hover{background:#ff1090;transform:translateY(-3px);}
+</style>
+<button id="scrollToTop" aria-label="Back to top">↑</button>
+<script>
+(function(){
+var btn=document.getElementById('scrollToTop');
+if(!btn)return;
+window.addEventListener('scroll',function(){btn.style.display=window.pageYOffset>300?'block':'none';});
+btn.addEventListener('click',function(){window.scrollTo({top:0,behavior:'smooth'});});
+})();
+</script>
 </body>
 </html>
