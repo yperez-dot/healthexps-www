@@ -114,7 +114,15 @@ a{text-decoration:none;color:inherit}
     </div>
   </div>
 </header>
-<style>.dropdown a:hover{background:#f4eefa !important;color:#452068 !important;}li:hover > .dropdown{display:block !important;}</style>
+<style>.dropdown a:hover{background:#f4eefa !important;color:#452068 !important;}li:hover > .dropdown{display:block !important;}
+@media (max-width: 768px) {
+  #nav-toggle { display: block !important; }
+  #nav-links { display: none !important; }
+}
+@media (min-width: 769px) {
+  #nav-toggle { display: none !important; }
+  #nav-links { display: flex !important; }
+}</style>
 
 <div class="wrap">
   <article class="article">

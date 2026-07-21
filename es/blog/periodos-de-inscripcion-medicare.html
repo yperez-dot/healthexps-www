@@ -114,7 +114,8 @@ a{text-decoration:none;color:inherit}
     </div>
   </div>
 </header>
-<style>.dropdown a:hover{background:#f4eefa !important;color:#452068 !important;}li:hover > .dropdown{display:block !important;}</style>
+<style>.dropdown a:hover{background:#f4eefa !important;color:#452068 !important;}li:hover > .dropdown{display:block !important;}
+@media(max-width:768px){#nav-toggle{display:block !important;}#nav-links{display:none !important;}#nav-links.open{display:flex !important;flex-direction:column;position:fixed !important;top:0 !important;right:0 !important;left:15% !important;width:85% !important;max-height:100vh;background:white;padding:56px 24px 24px;box-shadow:-4px 0 24px rgba(0,0,0,0.15);gap:12px;z-index:999;overflow-y:auto;}#nav-links.open>li{width:100%;}#nav-links.open>li>a{display:block;font-size:18px;font-weight:700;color:#452068;padding:8px 0;}#nav-links.open #nav-close-btn{display:block !important;position:fixed;top:12px;right:16px;z-index:1000;}}@media(min-width:769px){#nav-toggle{display:none !important;}#nav-links{display:flex !important;}}</style>
 
 <div class="wrap">
   <article class="article">
