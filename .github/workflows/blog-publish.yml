@@ -1,0 +1,14 @@
+name: Publish Blog Posts (Wed 9 AM ET)
+on:
+  schedule:
+    # Wednesday 09:00 ET = 13:00 UTC (14:00 UTC during EDT)
+    - cron: "0 13 * * 3"
+  workflow_dispatch: # allow manual trigger
+jobs:
+  trigger-netlify-build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Trigger Netlify build hook
+        run: |
+          curl -s -X POST "${{ secrets.NETLIFY_BUILD_HOOK_URL }}"
+          echo "Netlify build triggered at $(date -u)"
