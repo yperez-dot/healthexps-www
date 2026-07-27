@@ -5,6 +5,7 @@ title: "Can Green Card Holders Get Medicare in Florida? What You Need to Know"
 description: "Green card holders in Florida: learn Medicare eligibility rules, the 5-year residency requirement, work credits, and your options in South Florida."
 date: 2026-08-12
 lang: en
+hreflang_es: /es/blog/medicare-residentes-permanentes/
 permalink: /blog/medicare-green-card-holders-florida/
 ---
 

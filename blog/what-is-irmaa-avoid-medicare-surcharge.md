@@ -5,6 +5,7 @@ title: "What Is IRMAA — and How to Avoid the Medicare Surcharge"
 description: "IRMAA can add hundreds a month to your Medicare premiums based on income from two years ago. Learn the 2026 brackets, the SSA-44 appeal, and planning moves that help."
 date: 2026-07-29
 lang: en
+hreflang_es: /es/blog/que-es-irmaa-medicare/
 permalink: /blog/what-is-irmaa-avoid-medicare-surcharge/
 ---
 

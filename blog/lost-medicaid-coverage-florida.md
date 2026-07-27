@@ -5,6 +5,7 @@ title: "Lost Medicaid Coverage in Florida? Here's What to Do Next"
 description: "Lost Medicaid in Florida? Learn your Medicare SEP options, Medicare Savings Programs, and D-SNP eligibility to avoid a coverage gap. Free help available."
 date: 2026-07-22
 lang: en
+hreflang_es: /es/blog/perdio-su-medicaid-florida/
 permalink: /blog/lost-medicaid-coverage-florida/
 ---
 

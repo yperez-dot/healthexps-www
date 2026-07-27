@@ -5,6 +5,7 @@ title: "Dual Eligible: What It Means to Have Medicare and Medicaid Together in M
 description: "Have both Medicare and Medicaid? You may qualify for D-SNP plans with extra benefits, Extra Help with prescriptions, and monthly plan-change rights. Miami brokers explain."
 date: 2026-07-15
 lang: en
+hreflang_es: /es/blog/doble-elegibilidad-medicare-medicaid-miami/
 permalink: /blog/dual-eligible-medicare-medicaid-miami/
 ---
 
