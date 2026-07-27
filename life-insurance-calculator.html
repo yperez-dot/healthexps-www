@@ -581,15 +581,15 @@ function selectNotSure(el){
 }
 
 function toggleProduct(el, key){
-  // Deselect "Not sure" if individual option tapped
-  S.notSure = false;
-  document.getElementById('prod-notsure').classList.remove('sel');
-  if(S.products.size === 3 && S.notSure === false){
-    // Coming from "not sure" — clear and start fresh
+  // If coming from "Not sure", clear everything first
+  if(S.notSure){
+    S.notSure = false;
     S.products = new Set();
-    document.querySelectorAll('.prod-opt:not(#prod-notsure)').forEach(o=>o.classList.remove('sel'));
+    document.querySelectorAll('.prod-opt').forEach(o=>o.classList.remove('sel'));
+  } else {
+    document.getElementById('prod-notsure').classList.remove('sel');
   }
-  // Toggle this key
+  // Toggle this product
   if(S.products.has(key)){ S.products.delete(key); el.classList.remove('sel'); }
   else { S.products.add(key); el.classList.add('sel'); }
   document.getElementById('sprod-btn').className = 'cont-btn ' + (S.products.size > 0 ? 'on' : 'off');
