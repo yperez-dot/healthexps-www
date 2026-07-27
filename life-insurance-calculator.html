@@ -398,8 +398,8 @@ input[type=range]::-webkit-slider-thumb{appearance:none;-webkit-appearance:none;
   <!-- ── RESULT ── -->
   <div class="screen" id="s-result">
     <div class="result-wrap">
-      <div class="result-badge" id="res-badge">Your Estimated Premium</div>
-      <div class="result-type" id="res-type">Term Life · 20 Years</div>
+      <div class="result-rec" id="res-rec" style="font-size:14px;color:var(--gt);margin-bottom:6px;"></div>
+      <div class="result-type" id="res-type" style="font-size:20px;font-weight:700;color:var(--purple);margin-bottom:4px;">Term Life · 20 Years</div>
       <div class="result-range" id="res-range">$19 – $30</div>
       <div class="result-period" id="res-period">per month</div>
       <div class="result-note" id="res-note">
@@ -453,6 +453,12 @@ const RATES = {
   500000: {25:[22,30],30:[25,35],35:[32,48],40:[44,65],45:[58,90],50:[72,115],55:[118,180],60:[185,265]}
 };
 
+// Whole Life approx. monthly rates ($25,000 coverage)
+const RATES_WHOLE = {
+  25:[50,65], 30:[62,80], 35:[80,100], 40:[100,130],
+  45:[130,170], 50:[165,215], 55:[210,275], 60:[270,360], 65:[345,460]
+};
+
 // ─── Copy ─────────────────────────────────────────────────────────────────────
 const COPY = {
   en: {
@@ -489,6 +495,15 @@ const COPY = {
     resNoteBody:'This estimate is based on your age and coverage needs. Actual rates depend on your health history and the carrier. A licensed agent will get you your exact number — no obligation.',
     resCall:'📞 Call 1-800-380-6821',resWa:'💬 WhatsApp us your quote',
     resRestart:'← Start over',
+    recReasonChosen:'Based on your selection, we recommend:',
+    recReasonAge:'Based on your age, we recommend:',
+    recReasonAgeSit:'Based on your age and situation, we recommend:',
+    recReasonKidsMortgage:'Based on your age, children, and mortgage, we recommend:',
+    recReasonKids:'Based on your age and dependents, we recommend:',
+    recReasonMortgage:'Based on your age and mortgage, we recommend:',
+    recReasonIncome:'Based on your income and situation, we recommend:',
+    recReasonDefault:'Based on your answers, we recommend:',
+    wholeType:'Whole Life (Permanent)',
     disc:'Rates shown are estimated monthly premiums for illustrative purposes only. Actual rates vary by carrier, health status, gender, and coverage amount. Contact a licensed agent for your exact quote. The Health Experts Insurance · Licensed in Florida · Not affiliated with any government program.',
     finalExpType:'Final Expense Policy',termType:'Term Life · 20 Years',
     finalExpNote:'Coverage: $10,000 — No medical exam required. This is a final expense policy designed to cover end-of-life costs. Rates are typically approved regardless of health history.',
@@ -529,6 +544,15 @@ const COPY = {
     resNoteBody:'Este estimado se basa en su edad y necesidades de cobertura. Las tarifas reales dependen de su historial de salud y la aseguradora. Un agente licenciado le dará su número exacto — sin compromiso.',
     resCall:'📞 Llamar al 1-800-380-6821',resWa:'💬 Escríbanos por WhatsApp',
     resRestart:'← Volver a comenzar',
+    recReasonChosen:'Según su selección, le recomendamos:',
+    recReasonAge:'Según su edad, le recomendamos:',
+    recReasonAgeSit:'Según su edad y situación, le recomendamos:',
+    recReasonKidsMortgage:'Según su edad, hijos e hipoteca, le recomendamos:',
+    recReasonKids:'Según su edad y dependientes, le recomendamos:',
+    recReasonMortgage:'Según su edad e hipoteca, le recomendamos:',
+    recReasonIncome:'Según sus ingresos y situación, le recomendamos:',
+    recReasonDefault:'Según sus respuestas, le recomendamos:',
+    wholeType:'Vida Entera (Permanente)',
     disc:'Las tarifas mostradas son primas mensuales estimadas con fines ilustrativos. Las tarifas reales varían según la aseguradora, estado de salud, género y cobertura. Contáctenos para una cotización exacta. The Health Experts Insurance · Licenciados en Florida · No afiliados con ningún programa de gobierno.',
     finalExpType:'Póliza de Gastos Finales',termType:'Seguro a Término · 20 años',
     finalExpNote:'Cobertura: $10,000 — No requiere examen médico. Diseñada para cubrir gastos al final de la vida. Las tarifas generalmente se aprueban sin importar el historial de salud.',
@@ -681,7 +705,9 @@ function setLang(l){
   document.getElementById('edu-b3-s').textContent = cc.b3s;
   document.getElementById('edu-btn').querySelector('span').textContent = cc.eduBtn;
   // Result
-  document.getElementById('res-badge').textContent = cc.resBadge;
+  // Set personalized recommendation text
+  const recEl = document.getElementById('res-rec');
+  if(recEl) recEl.textContent = recommendation.reason;
   document.getElementById('res-period').textContent = cc.resPeriod;
   document.getElementById('res-call').textContent = cc.resCall;
   document.getElementById('res-wa').textContent = cc.resWa;
@@ -878,11 +904,10 @@ function showResult(){
   const [lo, hi] = rateTable[ageKey] || [0,0];
 
   document.getElementById('res-badge').textContent = cc.resBadge;
-  document.getElementById('res-type').textContent = rec.isSenior ? cc.finalExpType : cc.termType;
+  document.getElementById('res-type').textContent = productTypeLabel;
   document.getElementById('res-range').textContent = '$' + lo + ' – $' + hi;
   document.getElementById('res-period').textContent = cc.resPeriod;
-  document.getElementById('res-note-strong').textContent =
-    rec.isSenior ? '' : (cc.termNotePrefix + '$' + rec.coverageKey.toLocaleString());
+  document.getElementById('res-note-strong').textContent = cc.termNotePrefix + coverageLabel;
   document.getElementById('res-note-body').textContent =
     rec.isSenior ? cc.finalExpNote : cc.resNoteBody;
   document.getElementById('res-call').textContent = cc.resCall;
@@ -923,6 +948,37 @@ function showResult(){
   document.getElementById('s-result').classList.add('active');
   window.scrollTo({top:0,behavior:'smooth'});
   gtag('event','calc_result',{'coverage':rec.coverageKey,'type':rec.type,'lang':S.lang});
+}
+
+
+// ─── Smart Recommendation Engine ──────────────────────────────────────────────
+function getRecommendation(){
+  const age = S.ageKey || 0;
+  const hasKids = S.numChildren > 0;
+  const hasMortgage = S.mortgage > 25000;
+  const highIncome = S.income >= 150000;
+  const cc = c();
+
+  // If user picked a specific product (not "not sure"), honor their choice
+  if(!S.notSure && S.products.size > 0){
+    const p = Array.from(S.products)[0];
+    return {product: p, reason: cc.recReasonChosen};
+  }
+
+  // Smart logic for "not sure"
+  if(age >= 65)
+    return {product:'final', reason: cc.recReasonAge};
+  if(age >= 55 && !hasKids && !hasMortgage)
+    return {product:'final', reason: cc.recReasonAgeSit};
+  if(hasKids && hasMortgage)
+    return {product:'term', reason: cc.recReasonKidsMortgage};
+  if(hasKids)
+    return {product:'term', reason: cc.recReasonKids};
+  if(hasMortgage)
+    return {product:'term', reason: cc.recReasonMortgage};
+  if(highIncome && !hasKids && !hasMortgage)
+    return {product:'whole', reason: cc.recReasonIncome};
+  return {product:'term', reason: cc.recReasonDefault};
 }
 
 // ─── GHL Lead ─────────────────────────────────────────────────────────────────
