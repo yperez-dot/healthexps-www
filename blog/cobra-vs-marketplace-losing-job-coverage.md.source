@@ -5,6 +5,7 @@ title: "COBRA vs. the Marketplace: What to Do When You Lose Job Coverage"
 description: "Lost your job-based health insurance? Compare COBRA, ACA Marketplace, and private plans — including what changed with subsidies in 2026. Miami brokers explain."
 date: 2026-07-10
 lang: en
+hreflang_es: /es/blog/cobra-vs-mercado-de-salud/
 permalink: /blog/cobra-vs-marketplace-losing-job-coverage/
 ---
 

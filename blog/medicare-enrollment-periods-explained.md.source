@@ -5,6 +5,7 @@ title: "Medicare Enrollment Periods Explained: When Can You Actually Make Change
 description: "IEP, AEP, OEP, SEP — Medicare's enrollment windows explained in plain English by licensed Miami brokers. Find out exactly when you can enroll or switch plans."
 date: 2026-07-08
 lang: en
+hreflang_es: /es/blog/periodos-de-inscripcion-medicare/
 permalink: /blog/medicare-enrollment-periods-explained/
 ---
 
