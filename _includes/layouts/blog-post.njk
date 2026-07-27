@@ -21,6 +21,7 @@ a{text-decoration:none;color:inherit}
 .article-header{margin-bottom:40px;border-bottom:2px solid #f4eefa;padding-bottom:24px;}
 .article-category{display:inline-block;background:#f4eefa;color:var(--purple);font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;padding:4px 12px;border-radius:50px;margin-bottom:14px;}
 .article-title{font-size:36px;font-weight:700;color:#1a1325;margin-bottom:12px;line-height:1.2;}
+.article-body h1{font-size:36px;font-weight:700;color:#1a1325;margin-bottom:12px;line-height:1.2;}
 .article-meta{font-size:14px;color:var(--muted);}
 .article-body{font-size:17px;line-height:1.8;color:#444;}
 .article-body h2{font-size:28px;font-weight:700;color:var(--purple);margin:40px 0 16px;}
@@ -122,7 +123,6 @@ a{text-decoration:none;color:inherit}
     <a href="/blog" class="back-link">← Back to Blog</a>
     <header class="article-header">
       {% if category %}<span class="article-category">{{ category }}</span>{% endif %}
-      <h1 class="article-title">{{ title }}</h1>
       <p class="article-meta">The Health Experts Insurance &nbsp;·&nbsp; {{ date | readableDate }}</p>
     </header>
     <div class="article-body">
