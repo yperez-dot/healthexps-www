@@ -160,8 +160,33 @@ input[type=range]::-webkit-slider-thumb{appearance:none;-webkit-appearance:none;
         <span id="p-other-lbl">Leave an inheritance</span><span class="opt-chk">✓</span>
       </div>
     </div>
-    <button class="cont-btn off" id="s1-btn" onclick="goStep(2)">
+    <button class="cont-btn off" id="s1-btn" onclick="goStepId('s-prod')">
       <span id="s1-btn-lbl">Continue →</span>
+    </button>
+  </div>
+
+
+  <!-- ── STEP: Product Type ── -->
+  <div class="screen" id="s-prod">
+    <button class="back-btn" onclick="goStepId('s1')">← Back</button>
+    <div class="step-q" id="sprod-q">What type of coverage are you looking for?</div>
+    <div class="step-sub" id="sprod-sub">Select one or both.</div>
+    <div class="opts">
+      <div class="opt prod-opt" onclick="toggleProduct(this,'term')" id="prod-term" style="flex-direction:column;align-items:flex-start;gap:4px;">
+        <div style="display:flex;justify-content:space-between;width:100%;align-items:center;">
+          <span style="font-size:16px;font-weight:700;" id="sprod-term-lbl">Term Life</span><span class="opt-chk">✓</span>
+        </div>
+        <span style="font-size:13px;color:#666;font-weight:400;" id="sprod-term-desc">20-year coverage. Pays a lump sum to replace income, cover the mortgage, and protect your family's future.</span>
+      </div>
+      <div class="opt prod-opt" onclick="toggleProduct(this,'final')" id="prod-final" style="flex-direction:column;align-items:flex-start;gap:4px;">
+        <div style="display:flex;justify-content:space-between;width:100%;align-items:center;">
+          <span style="font-size:16px;font-weight:700;" id="sprod-final-lbl">Final Expense</span><span class="opt-chk">✓</span>
+        </div>
+        <span style="font-size:13px;color:#666;font-weight:400;" id="sprod-final-desc">$10,000–$25,000 coverage. Covers funeral costs and end-of-life expenses. No medical exam required.</span>
+      </div>
+    </div>
+    <button class="cont-btn off" id="sprod-btn" onclick="afterProduct()">
+      <span id="sprod-btn-lbl">Continue →</span>
     </button>
   </div>
 
@@ -384,8 +409,8 @@ const S = {
   phone: ''
 };
 
-const TOTAL = 9;
-const STEP_ORDER = ['s1','s2','s3n','s3','s4t','s5h','s4','s5','s6'];
+const TOTAL = 10;
+const STEP_ORDER = ['s1','s-prod','s2','s3n','s3','s4t','s5h','s4','s5','s6'];
 
 // ─── Income slider steps ──────────────────────────────────────────────────────
 const INCOME_STEPS = [
@@ -524,6 +549,27 @@ function selectHealth(el, val){
   el.classList.add('sel');
   S.healthClass = val;
   document.getElementById('s5h-btn').className = 'cont-btn on';
+}
+
+function toggleProduct(el, key){
+  el.classList.toggle('sel');
+  if(S.products.has(key)) S.products.delete(key);
+  else S.products.add(key);
+  document.getElementById('sprod-btn').className = 'cont-btn ' + (S.products.size > 0 ? 'on' : 'off');
+}
+
+function afterProduct(){
+  if(S.products.size === 0) return;
+  // Final expense only — skip children/income/mortgage
+  if(S.products.has('final') && !S.products.has('term')){
+    S.numChildren = 0; S.childAge = 'none';
+    // After DOB go straight to tobacco
+    document.getElementById('s2-btn').setAttribute('onclick', "goStepId('s4t')");
+  } else {
+    // Term or both — full flow
+    document.getElementById('s2-btn').setAttribute('onclick', "goStepId('s3n')");
+  }
+  goStepId('s2');
 }
 
 function selectNumChildren(el, n){
@@ -772,6 +818,13 @@ function showRecommendation(){
 // ─── Education screen ─────────────────────────────────────────────────────────
 function showEducation(){
   const rec = S._rec;
+  // Show/hide benefit items based on selection
+  const hasTerm = S.products.has('term') || (!S.products.has('final'));
+  const hasFinal = S.products.has('final');
+  const tb = document.getElementById('edu-term-benefit');
+  const fb = document.getElementById('edu-final-benefit');
+  if(tb) tb.style.display = hasTerm ? '' : 'none';
+  if(fb) fb.style.display = hasFinal ? '' : 'none';
   if(rec.isSenior){
     showResult(); return;
   }
