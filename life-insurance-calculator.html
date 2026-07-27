@@ -14,11 +14,17 @@
 *{box-sizing:border-box;margin:0;padding:0;}
 body{font-family:var(--font);color:var(--black);background:var(--gray);font-size:16px;min-height:100vh;}
 
-/* Header */
+/* Header / Hero */
 .hdr{background:linear-gradient(135deg,var(--pd),var(--purple));padding:16px 20px;display:flex;align-items:center;gap:12px;}
 .hdr-back{color:rgba(255,255,255,.8);text-decoration:none;font-size:22px;line-height:1;}
 .hdr-title{color:#fff;font-weight:700;font-size:16px;flex:1;text-align:center;}
 .hdr-space{width:24px;}
+.hero{background:linear-gradient(135deg,var(--pd),var(--purple));padding:32px 24px 28px;text-align:center;}
+.hero h1{color:#fff;font-size:clamp(22px,4vw,34px);font-weight:700;margin-bottom:10px;line-height:1.25;}
+.hero p{color:rgba(255,255,255,.85);font-size:16px;max-width:480px;margin:0 auto 20px;}
+.hero-lang{display:flex;gap:10px;max-width:260px;margin:0 auto;}
+.hero-lang .lang-btn{flex:1;padding:9px;border:2px solid rgba(255,255,255,.35);border-radius:10px;background:transparent;font-size:14px;font-weight:700;cursor:pointer;color:rgba(255,255,255,.8);transition:all .15s;}
+.hero-lang .lang-btn.active{border-color:#fff;background:rgba(255,255,255,.15);color:#fff;}
 
 /* Progress */
 .prog-wrap{background:var(--pd);padding:0 20px 14px;}
@@ -115,11 +121,14 @@ input[type=range]::-webkit-slider-thumb{appearance:none;-webkit-appearance:none;
 </head>
 <body>
 
-<!-- Header -->
-<div class="hdr">
-  <a href="/life-insurance-miami" class="hdr-back">←</a>
-  <div class="hdr-title" id="hdr-title">Life Insurance Calculator</div>
-  <div class="hdr-space"></div>
+<!-- Hero -->
+<div class="hero">
+  <h1 id="hdr-title">Life Insurance Calculator</h1>
+  <p id="hero-sub">Find out how much coverage you need and what it costs. Takes 60 seconds.</p>
+  <div class="hero-lang">
+    <button class="lang-btn active" onclick="setLang('en')" id="lb-en">English</button>
+    <button class="lang-btn" onclick="setLang('es')" id="lb-es">Español</button>
+  </div>
 </div>
 
 <!-- Progress bar -->
@@ -132,10 +141,6 @@ input[type=range]::-webkit-slider-thumb{appearance:none;-webkit-appearance:none;
 
   <!-- ── STEP 1: Priorities ── -->
   <div class="screen active" id="s1">
-    <div class="lang-row">
-      <button class="lang-btn active" onclick="setLang('en')" id="lb-en">🇺🇸 English</button>
-      <button class="lang-btn" onclick="setLang('es')" id="lb-es">🇪🇸 Español</button>
-    </div>
     <div class="step-q" id="s1-q">What are your priorities for coverage?</div>
     <div class="step-sub" id="s1-sub">Select all that apply.</div>
     <div class="opts" id="s1-opts">
