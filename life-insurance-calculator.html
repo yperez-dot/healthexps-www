@@ -361,25 +361,33 @@ input[type=range]::-webkit-slider-thumb{appearance:none;-webkit-appearance:none;
   </div>
 
   <!-- ── EDUCATIONAL: Term vs Whole Life ── -->
+  <!-- ── YOUR COVERAGE SUMMARY ── -->
   <div class="screen" id="s-edu">
     <button class="back-btn" onclick="goStepId('s-rec')">← Back</button>
-
-    <div class="edu-lbl" id="edu-lbl">BASED ON WHAT WE LEARNED</div>
-    <div class="edu-hl" id="edu-hl">Term life offers the most coverage for the years your family depends on you most</div>
-    <div class="chart">
-      <div class="bar-wrap">
-        <div class="bar term"></div>
-        <div class="bar-lbl t" id="edu-term-lbl">Term life<br><strong>$</strong></div>
+    <div class="edu-lbl" id="edu-lbl">YOUR COVERAGE</div>
+    <div class="edu-hl" id="edu-hl">Here's what your plan covers</div>
+    <div class="benefits" id="edu-benefits-wrap" style="margin-top:20px;">
+      <div class="benefit" id="edu-term-benefit" style="display:none;">
+        <div class="benefit-ico">🛡️</div>
+        <div class="benefit-txt">
+          <strong>Term Life</strong>
+          <span>20-year coverage with a lump-sum payout — replaces income, pays the mortgage, and protects your family's future.</span>
+        </div>
       </div>
-      <div class="bar-wrap">
-        <div class="bar whole"><span class="badge" id="edu-badge">5–15× more</span></div>
-        <div class="bar-lbl" id="edu-whole-lbl">Whole life<br><strong>$$$</strong></div>
+      <div class="benefit" id="edu-final-benefit" style="display:none;">
+        <div class="benefit-ico">🌿</div>
+        <div class="benefit-txt">
+          <strong>Final Expense</strong>
+          <span>$10,000–$25,000 coverage for funeral costs and end-of-life expenses. No medical exam required.</span>
+        </div>
       </div>
-    </div>
-    <div class="benefits">
-      <div class="benefit"><div class="benefit-ico">🏠</div><div class="benefit-txt"><strong id="edu-b1-h">Protect your home</strong></div></div>
-      <div class="benefit"><div class="benefit-ico">🎓</div><div class="benefit-txt"><strong id="edu-b2-h">Fund education</strong></div></div>
-      <div class="benefit"><div class="benefit-ico">💵</div><div class="benefit-txt"><strong id="edu-b3-h">Replace your income</strong></div></div>
+      <div class="benefit" id="edu-whole-benefit" style="display:none;">
+        <div class="benefit-ico">🏦</div>
+        <div class="benefit-txt">
+          <strong>Whole Life</strong>
+          <span>Permanent lifetime coverage with a guaranteed death benefit and cash value that grows over time.</span>
+        </div>
+      </div>
     </div>
     <button class="cont-btn on" id="edu-btn" onclick="showResult()">
       <span id="edu-btn-lbl">See My Rate →</span>
@@ -399,6 +407,7 @@ input[type=range]::-webkit-slider-thumb{appearance:none;-webkit-appearance:none;
       </div>
       <a href="tel:18003806821" class="btn-call" id="res-call">📞 Call 1-800-380-6821</a>
       <a href="https://wa.me/13054646888" class="btn-wa" id="res-wa" onclick="gtag('event','whatsapp_click',{'page':window.location.pathname})">💬 WhatsApp us your quote</a>
+      <a href="mailto:info@healthexps.com" class="btn-call" id="res-email" style="background:#452068;margin-top:12px;">📧 Email us your quote</a>
       <p class="disc" id="res-disc">Rates shown are estimated monthly premiums for illustrative purposes only. Actual rates vary by carrier, health status, gender, and coverage amount. Contact a licensed agent for your exact quote. The Health Experts Insurance · Licensed in Florida · Not affiliated with any government program.</p>
     </div>
     <div class="restart"><a onclick="restart()" id="res-restart">← Start over</a></div>
@@ -663,17 +672,11 @@ function setLang(l){
     if(el) el.textContent = cc.contBtn;
   });
   // Educational
-  document.getElementById('edu-lbl').textContent = cc.eduLbl;
-  document.getElementById('edu-hl').textContent = cc.eduHl;
   document.getElementById('edu-sub').textContent = cc.eduSub;
   document.getElementById('edu-term-lbl').innerHTML = cc.termLbl + '<br><strong>$</strong>';
   document.getElementById('edu-whole-lbl').innerHTML = cc.wholeLbl + '<br><strong>$$$</strong>';
-  document.getElementById('edu-badge').textContent = cc.badge;
-  document.getElementById('edu-b1-h').textContent = cc.b1h;
   document.getElementById('edu-b1-s').textContent = cc.b1s;
-  document.getElementById('edu-b2-h').textContent = cc.b2h;
   document.getElementById('edu-b2-s').textContent = cc.b2s;
-  document.getElementById('edu-b3-h').textContent = cc.b3h;
   document.getElementById('edu-b3-s').textContent = cc.b3s;
   document.getElementById('edu-btn').querySelector('span').textContent = cc.eduBtn;
   // Result
@@ -846,8 +849,9 @@ function showRecommendation(){
 // ─── Education screen ─────────────────────────────────────────────────────────
 function showEducation(){
   const rec = S._rec;
-  // Show/hide benefit items based on selection
-  const hasTerm = S.products.has('term') || (!S.products.has('final'));
+  if(rec.isSenior){ showResult(); return; }
+  // Show only selected product benefits
+  const hasTerm = S.products.has('term');
   const hasFinal = S.products.has('final');
   const hasWhole = S.products.has('whole');
   const tb = document.getElementById('edu-term-benefit');
@@ -856,9 +860,6 @@ function showEducation(){
   if(tb) tb.style.display = hasTerm ? '' : 'none';
   if(fb) fb.style.display = hasFinal ? '' : 'none';
   if(wb) wb.style.display = hasWhole ? '' : 'none';
-  if(rec.isSenior){
-    showResult(); return;
-  }
   document.querySelectorAll('.screen').forEach(s=>s.classList.remove('active'));
   document.getElementById('s-edu').classList.add('active');
   window.scrollTo({top:0,behavior:'smooth'});
@@ -887,6 +888,35 @@ function showResult(){
   document.getElementById('res-wa').textContent = cc.resWa;
   document.getElementById('res-restart').textContent = cc.resRestart;
   document.getElementById('res-disc').textContent = cc.disc;
+
+  // Build pre-fill message matching THEI format
+  const healthLabel = {preferred_plus:'Preferred Plus', preferred:'Preferred', standard:'Standard', substandard:'Substandard'}[S.healthClass] || '';
+  const prodLabel = S.notSure ? 'all options' : Array.from(S.products).map(p=>({term:'Term Life',final:'Final Expense',whole:'Whole Life'}[p])).join(' + ');
+  const coverageDesc = rec.isSenior ? '$10,000 Final Expense' : '$' + rec.coverageKey.toLocaleString() + ' ' + prodLabel;
+
+  // Calculate age from DOB
+  let ageDisplay = S.ageLabel;
+  if(S.dobRaw){
+    const dob = new Date(S.dobRaw);
+    const today = new Date();
+    let age = today.getFullYear() - dob.getFullYear();
+    const m = today.getMonth() - dob.getMonth();
+    if(m < 0 || (m===0 && today.getDate() < dob.getDate())) age--;
+    ageDisplay = age + ' years old';
+  }
+
+  const waMsg = S.lang === 'es'
+    ? encodeURIComponent(`¡Hola THEI! Me llamo ${S.fname} ${S.lname} y usé su calculadora de seguro de vida. Tengo ${ageDisplay}, salud ${healthLabel}. Busco ${prodLabel} — ${coverageDesc} de cobertura. Mi estimado fue $${lo}–$${hi}/mes. ¿Pueden ayudarme a fijar mi tarifa exacta?`)
+    : encodeURIComponent(`Hi THEI! My name is ${S.fname} ${S.lname} and I used your life insurance calculator. I'm ${ageDisplay}, ${healthLabel} health. Looking for ${prodLabel} — ${coverageDesc} in coverage. My estimate was $${lo}–$${hi}/mo. Can you help me lock in my exact rate?`);
+  document.getElementById('res-wa').href = 'https://wa.me/13054646888?text=' + waMsg;
+
+  const emailSubject = S.lang === 'es'
+    ? `Cotización de Seguro de Vida — ${S.fname} ${S.lname}`
+    : `Life Insurance Quote — ${S.fname} ${S.lname}`;
+  const emailBody = S.lang === 'es'
+    ? encodeURIComponent(`¡Hola THEI!\n\nMe llamo ${S.fname} ${S.lname} y usé su calculadora de seguro de vida.\n\nTengo ${ageDisplay}, salud ${healthLabel}.\nBusco: ${prodLabel}\nCobertura: ${coverageDesc}\nEstimado mensual: $${lo}–$${hi}/mes\nTeléfono: ${S.phone}\n\n¿Pueden ayudarme a fijar mi tarifa exacta?\n\nGracias.`)
+    : encodeURIComponent(`Hi THEI!\n\nMy name is ${S.fname} ${S.lname} and I used your life insurance calculator.\n\nAge: ${ageDisplay}\nHealth: ${healthLabel}\nLooking for: ${prodLabel}\nCoverage: ${coverageDesc}\nEstimate: $${lo}–$${hi}/mo\nPhone: ${S.phone}\n\nCan you help me lock in my exact rate?\n\nThank you.`);
+  document.getElementById('res-email').href = 'mailto:info@healthexps.com?subject=' + encodeURIComponent(emailSubject) + '&body=' + emailBody;
 
   document.querySelectorAll('.screen').forEach(s=>s.classList.remove('active'));
   document.getElementById('s-result').classList.add('active');
