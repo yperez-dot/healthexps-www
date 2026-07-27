@@ -190,6 +190,12 @@ input[type=range]::-webkit-slider-thumb{appearance:none;-webkit-appearance:none;
         </div>
         <span style="font-size:13px;color:#666;font-weight:400;" id="sprod-whole-desc">Permanent lifetime coverage that never expires and builds cash value over time.</span>
       </div>
+      <div class="opt prod-opt" onclick="selectNotSure(this)" id="prod-notsure" style="flex-direction:column;align-items:flex-start;gap:4px;border-style:dashed;">
+        <div style="display:flex;justify-content:space-between;width:100%;align-items:center;">
+          <span style="font-size:16px;font-weight:700;" id="sprod-notsure-lbl">Not sure</span><span class="opt-chk">✓</span>
+        </div>
+        <span style="font-size:13px;color:#666;font-weight:400;" id="sprod-notsure-desc">Show me all my options and help me decide based on my situation.</span>
+      </div>
     </div>
     <button class="cont-btn off" id="sprod-btn" onclick="afterProduct()">
       <span id="sprod-btn-lbl">Continue →</span>
@@ -557,7 +563,34 @@ function selectHealth(el, val){
   document.getElementById('s5h-btn').className = 'cont-btn on';
 }
 
+function selectNotSure(el){
+  // Deselect individual options, select "not sure" only
+  S.notSure = false;
+  document.querySelectorAll('.prod-opt').forEach(o=>o.classList.remove('sel'));
+  el.classList.add('sel');
+  S.products = new Set(['term','final','whole']);
+  S.notSure = true;
+  document.getElementById('sprod-btn').className = 'cont-btn on';
+}
+
 function toggleProduct(el, key){
+  // Deselect "not sure" if an individual option is picked
+  S.notSure = false;
+  document.getElementById('prod-notsure').classList.remove('sel');
+  S.products.delete('term'); S.products.delete('final'); S.products.delete('whole');
+  // Rebuild from currently selected individual opts
+  document.querySelectorAll('.prod-opt:not(#prod-notsure)').forEach(o=>{
+    if(o.classList.contains('sel')){
+      const onclick = o.getAttribute('onclick');
+      const m = onclick.match(/toggleProduct\(this,'(\w+)'\)/);
+      if(m) S.products.add(m[1]);
+    }
+  });
+  el.classList.toggle('sel');
+  if(el.classList.contains('sel')) S.products.add(key);
+  else S.products.delete(key);
+  document.getElementById('sprod-btn').className = 'cont-btn ' + (S.products.size > 0 ? 'on' : 'off');
+}
   el.classList.toggle('sel');
   if(S.products.has(key)) S.products.delete(key);
   else S.products.add(key);
