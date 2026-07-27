@@ -564,8 +564,6 @@ function selectHealth(el, val){
 }
 
 function selectNotSure(el){
-  // Deselect individual options, select "not sure" only
-  S.notSure = false;
   document.querySelectorAll('.prod-opt').forEach(o=>o.classList.remove('sel'));
   el.classList.add('sel');
   S.products = new Set(['term','final','whole']);
@@ -574,26 +572,17 @@ function selectNotSure(el){
 }
 
 function toggleProduct(el, key){
-  // Deselect "not sure" if an individual option is picked
+  // Deselect "Not sure" if individual option tapped
   S.notSure = false;
   document.getElementById('prod-notsure').classList.remove('sel');
-  S.products.delete('term'); S.products.delete('final'); S.products.delete('whole');
-  // Rebuild from currently selected individual opts
-  document.querySelectorAll('.prod-opt:not(#prod-notsure)').forEach(o=>{
-    if(o.classList.contains('sel')){
-      const onclick = o.getAttribute('onclick');
-      const m = onclick.match(/toggleProduct\(this,'(\w+)'\)/);
-      if(m) S.products.add(m[1]);
-    }
-  });
-  el.classList.toggle('sel');
-  if(el.classList.contains('sel')) S.products.add(key);
-  else S.products.delete(key);
-  document.getElementById('sprod-btn').className = 'cont-btn ' + (S.products.size > 0 ? 'on' : 'off');
-}
-  el.classList.toggle('sel');
-  if(S.products.has(key)) S.products.delete(key);
-  else S.products.add(key);
+  if(S.products.size === 3 && S.notSure === false){
+    // Coming from "not sure" — clear and start fresh
+    S.products = new Set();
+    document.querySelectorAll('.prod-opt:not(#prod-notsure)').forEach(o=>o.classList.remove('sel'));
+  }
+  // Toggle this key
+  if(S.products.has(key)){ S.products.delete(key); el.classList.remove('sel'); }
+  else { S.products.add(key); el.classList.add('sel'); }
   document.getElementById('sprod-btn').className = 'cont-btn ' + (S.products.size > 0 ? 'on' : 'off');
 }
 
