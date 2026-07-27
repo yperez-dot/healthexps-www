@@ -1,4 +1,6 @@
 ---
+layout: layouts/blog-post-es.njk
+category: "Medicare"
 title: "¿Perdió su Medicaid en Florida? Estas son sus opciones"
 description: "¿Le quitaron el Medicaid en la renovación? Conozca sus tres caminos: Programa de Ahorros de Medicare, un plan D-SNP, o el Mercado de Salud — y cuál le conviene."
 date: 2026-08-05

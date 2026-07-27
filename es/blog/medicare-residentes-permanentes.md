@@ -1,4 +1,6 @@
 ---
+layout: layouts/blog-post-es.njk
+category: "Medicare"
 title: "Medicare para residentes permanentes y recién llegados a Florida"
 description: "¿Tiene green card? Aprenda las reglas de elegibilidad de Medicare: los 40 créditos de trabajo, el requisito de 5 años y cómo comprar la Parte A si no califica gratis."
 date: 2026-08-12
