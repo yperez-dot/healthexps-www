@@ -171,7 +171,7 @@ input[type=range]::-webkit-slider-thumb{appearance:none;-webkit-appearance:none;
     <div class="step-sub" id="s2-sub">This determines which plans are available to you.</div>
     <div class="field">
       <label id="s2-lbl-dob">Date of Birth</label>
-      <input type="date" id="inp-dob" max="" oninput="checkDob()" style="color:#1a1a1a;">
+      <input type="text" id="inp-dob" placeholder="MM/DD/YYYY" maxlength="10" oninput="formatDob(this)">
     </div>
     <button class="cont-btn off" id="s2-btn" onclick="goStep(3)">
       <span id="s2-btn-lbl">Continue →</span>
@@ -532,6 +532,15 @@ function togglePriority(el, key){
   else S.priorities.add(key);
   const btn = document.getElementById('s1-btn');
   btn.className = 'cont-btn ' + (S.priorities.size > 0 ? 'on' : 'off');
+}
+
+// ─── Step 2: Date of Birth auto-format
+function formatDob(el){
+  let v = el.value.replace(/\D/g,'');
+  if(v.length >= 3) v = v.slice(0,2) + '/' + v.slice(2);
+  if(v.length >= 6) v = v.slice(0,5) + '/' + v.slice(5,9);
+  el.value = v;
+  checkDob();
 }
 
 // ─── Step 2: Date of Birth ───────────────────────────────────────────────────
