@@ -165,17 +165,13 @@ input[type=range]::-webkit-slider-thumb{appearance:none;-webkit-appearance:none;
     </button>
   </div>
 
-  <!-- ── STEP 2: Age ── -->
+  <!-- ── STEP 2: Date of Birth ── -->
   <div class="screen" id="s2">
-    <div class="step-q" id="s2-q">What is your age?</div>
+    <div class="step-q" id="s2-q">What is your date of birth?</div>
     <div class="step-sub" id="s2-sub">This determines which plans are available to you.</div>
-    <div class="opts" id="s2-opts">
-      <div class="opt" onclick="selectAge(this,30,'25–34')"><span>25–34</span><span class="opt-chk">✓</span></div>
-      <div class="opt" onclick="selectAge(this,35,'35–44')"><span>35–44</span><span class="opt-chk">✓</span></div>
-      <div class="opt" onclick="selectAge(this,50,'45–54')"><span>45–54</span><span class="opt-chk">✓</span></div>
-      <div class="opt" onclick="selectAge(this,55,'55–64')"><span>55–64</span><span class="opt-chk">✓</span></div>
-      <div class="opt" onclick="selectAge(this,65,'65–74')"><span>65–74</span><span class="opt-chk">✓</span></div>
-      <div class="opt" onclick="selectAge(this,75,'75+')"><span id="s2-75">75+</span><span class="opt-chk">✓</span></div>
+    <div class="field">
+      <label id="s2-lbl-dob">Date of Birth</label>
+      <input type="date" id="inp-dob" max="" oninput="checkDob()" style="color:#1a1a1a;">
     </div>
     <button class="cont-btn off" id="s2-btn" onclick="goStep(3)">
       <span id="s2-btn-lbl">Continue →</span>
@@ -230,8 +226,16 @@ input[type=range]::-webkit-slider-thumb{appearance:none;-webkit-appearance:none;
     <div class="step-q" id="s6-q">Last step — where should we send your estimate?</div>
     <div class="step-sub" id="s6-sub">A licensed agent will follow up with your exact quote. No pressure.</div>
     <div class="field">
-      <label id="s6-lbl-name">First Name</label>
-      <input type="text" id="inp-name" placeholder="Maria" oninput="checkContact()">
+      <label id="s6-lbl-fname">First Name</label>
+      <input type="text" id="inp-fname" placeholder="Your first name" oninput="checkContact()">
+    </div>
+    <div class="field">
+      <label id="s6-lbl-lname">Last Name</label>
+      <input type="text" id="inp-lname" placeholder="Your last name" oninput="checkContact()">
+    </div>
+    <div class="field">
+      <label id="s6-lbl-email">Email Address</label>
+      <input type="email" id="inp-email" placeholder="Your email address" oninput="checkContact()">
     </div>
     <div class="field">
       <label id="s6-lbl-phone">Phone Number</label>
@@ -530,12 +534,31 @@ function togglePriority(el, key){
   btn.className = 'cont-btn ' + (S.priorities.size > 0 ? 'on' : 'off');
 }
 
-// ─── Step 2: Age ─────────────────────────────────────────────────────────────
-function selectAge(el, key, label){
-  document.querySelectorAll('#s2-opts .opt').forEach(o=>o.classList.remove('sel'));
-  el.classList.add('sel');
-  S.ageKey = key;
-  S.ageLabel = label;
+// ─── Step 2: Date of Birth ───────────────────────────────────────────────────
+function checkDob(){
+  const val = document.getElementById('inp-dob').value;
+  if(!val) return;
+  const dob = new Date(val);
+  const today = new Date();
+  let age = today.getFullYear() - dob.getFullYear();
+  const m = today.getMonth() - dob.getMonth();
+  if(m < 0 || (m === 0 && today.getDate() < dob.getDate())) age--;
+  S.dobRaw = val;
+  S.dobLabel = dob.toLocaleDateString('en-US',{month:'long',day:'numeric',year:'numeric'});
+  // Map age to rate key
+  if(age < 25) { S.ageKey = null; S.ageLabel = ''; document.getElementById('s2-btn').className = 'cont-btn off'; return; }
+  if(age < 30) { S.ageKey = 25; S.ageLabel = '25-29'; }
+  else if(age < 35) { S.ageKey = 30; S.ageLabel = '30-34'; }
+  else if(age < 40) { S.ageKey = 35; S.ageLabel = '35-39'; }
+  else if(age < 45) { S.ageKey = 40; S.ageLabel = '40-44'; }
+  else if(age < 50) { S.ageKey = 45; S.ageLabel = '45-49'; }
+  else if(age < 55) { S.ageKey = 50; S.ageLabel = '50-54'; }
+  else if(age < 60) { S.ageKey = 55; S.ageLabel = '55-59'; }
+  else if(age < 65) { S.ageKey = 60; S.ageLabel = '60-64'; }
+  else if(age < 70) { S.ageKey = 65; S.ageLabel = '65-69'; }
+  else if(age < 75) { S.ageKey = 70; S.ageLabel = '70-74'; }
+  else if(age < 80) { S.ageKey = 75; S.ageLabel = '75-79'; }
+  else { S.ageKey = 80; S.ageLabel = '80+'; }
   document.getElementById('s2-btn').className = 'cont-btn on';
 }
 
@@ -566,9 +589,13 @@ function updateMortgage(idx){
 
 // ─── Step 6: Contact ─────────────────────────────────────────────────────────
 function checkContact(){
-  S.name = document.getElementById('inp-name').value.trim();
-  S.phone = document.getElementById('inp-phone').value.trim();
-  const ok = S.name.length > 0 && S.phone.replace(/\D/g,'').length >= 10;
+  const fname = document.getElementById('inp-fname').value.trim();
+  const lname = document.getElementById('inp-lname').value.trim();
+  const email = document.getElementById('inp-email').value.trim();
+  const phone = document.getElementById('inp-phone').value.trim();
+  S.fname = fname; S.lname = lname; S.email = email; S.phone = phone;
+  const emailOk = /^[^@]+@[^@]+\.[^@]+$/.test(email);
+  const ok = fname.length > 0 && lname.length > 0 && emailOk && phone.replace(/\D/g,'').length >= 10;
   document.getElementById('s6-btn').className = 'cont-btn ' + (ok ? 'on' : 'off');
 }
 
@@ -685,9 +712,11 @@ function showResult(){
 // ─── GHL Lead ─────────────────────────────────────────────────────────────────
 function sendLead(rec){
   const payload = {
-    first_name: S.name.split(' ')[0] || S.name,
-    last_name: S.name.split(' ').slice(1).join(' ') || '',
+    first_name: S.fname || '',
+    last_name: S.lname || '',
+    email: S.email || '',
     phone: S.phone,
+    date_of_birth: S.dobRaw || '',
     source: 'Life Insurance Calculator — healthexps.com',
     life_insurance_age_band: S.ageLabel,
     life_insurance_coverage: rec.isSenior ? '$10,000 Final Expense' : '$'+rec.coverageKey.toLocaleString()+' Term',
@@ -707,9 +736,12 @@ function restart(){
   S.ageKey = null; S.ageLabel = '';
   S.childAge = null;
   S.income = 75000; S.mortgage = 150000;
-  S.name = ''; S.phone = '';
+  S.fname=''; S.lname=''; S.email=''; S.phone=''; S.dobRaw=''; S.ageKey=null; S.ageLabel='';
   document.querySelectorAll('.opt').forEach(o=>o.classList.remove('sel'));
-  document.getElementById('inp-name').value = '';
+  document.getElementById('inp-dob').value = '';
+  document.getElementById('inp-fname').value = '';
+  document.getElementById('inp-lname').value = '';
+  document.getElementById('inp-email').value = '';
   document.getElementById('inp-phone').value = '';
   document.getElementById('income-slider').value = 11;
   document.getElementById('mortgage-slider').value = 6;
@@ -722,6 +754,8 @@ function restart(){
 }
 
 // ─── Init ─────────────────────────────────────────────────────────────────────
+// Set DOB max to today (no future dates)
+document.getElementById('inp-dob').max = new Date().toISOString().split('T')[0];
 updateIncome(11);
 updateMortgage(6);
 updateProgress();
