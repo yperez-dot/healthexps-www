@@ -5,3 +5,18 @@ _site/
 *.py
 *.sh
 *.backup
+# EN blog HTML files replaced by .md pipeline (2026-07-27)
+blog/aca-marketplace-health-insurance-miami-2026.html
+blog/are-health-insurance-premiums-subject-to-fica.html
+blog/cobra-vs-marketplace-losing-job-coverage.html
+blog/dual-eligible-medicare-medicaid-miami.html
+blog/florida-health-insurance-subsidy-expiration-2026.html
+blog/how-to-pick-aca-marketplace-plan-florida.html
+blog/lost-medicaid-coverage-florida.html
+blog/medicare-enrollment-periods-explained.html
+blog/medicare-green-card-holders-florida.html
+blog/private-health-insurance-miami-guide.html
+blog/term-vs-whole-vs-final-expense-life-insurance.html
+blog/uhealth-unitedhealthcare-medicare-advantage-network-change.html
+blog/what-is-irmaa-avoid-medicare-surcharge.html
+blog/what-is-life-insurance-florida.html
