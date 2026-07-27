@@ -503,6 +503,8 @@ const COPY = {
     recReasonMortgage:'Based on your age and mortgage, we recommend:',
     recReasonIncome:'Based on your income and situation, we recommend:',
     recReasonDefault:'Based on your answers, we recommend:',
+    recReasonHealth:'Based on your health profile, we recommend:',
+    recReasonAge65Deps:'Based on your age, dependents, and mortgage, we recommend:',
     wholeType:'Whole Life (Permanent)',
     disc:'Rates shown are estimated monthly premiums for illustrative purposes only. Actual rates vary by carrier, health status, gender, and coverage amount. Contact a licensed agent for your exact quote. The Health Experts Insurance · Licensed in Florida · Not affiliated with any government program.',
     finalExpType:'Final Expense Policy',termType:'Term Life · 20 Years',
@@ -552,6 +554,8 @@ const COPY = {
     recReasonMortgage:'Según su edad e hipoteca, le recomendamos:',
     recReasonIncome:'Según sus ingresos y situación, le recomendamos:',
     recReasonDefault:'Según sus respuestas, le recomendamos:',
+    recReasonHealth:'Según su perfil de salud, le recomendamos:',
+    recReasonAge65Deps:'Según su edad, dependientes e hipoteca, le recomendamos:',
     wholeType:'Vida Entera (Permanente)',
     disc:'Las tarifas mostradas son primas mensuales estimadas con fines ilustrativos. Las tarifas reales varían según la aseguradora, estado de salud, género y cobertura. Contáctenos para una cotización exacta. The Health Experts Insurance · Licenciados en Florida · No afiliados con ningún programa de gobierno.',
     finalExpType:'Póliza de Gastos Finales',termType:'Seguro a Término · 20 años',
@@ -956,28 +960,41 @@ function getRecommendation(){
   const age = S.ageKey || 0;
   const hasKids = S.numChildren > 0;
   const hasMortgage = S.mortgage > 25000;
-  const highIncome = S.income >= 150000;
+  const hasDependents = hasKids || hasMortgage;
+  const poorHealth = S.healthClass === 'substandard';
   const cc = c();
 
-  // If user picked a specific product (not "not sure"), honor their choice
+  // Honor specific product selection
   if(!S.notSure && S.products.size > 0){
     const p = Array.from(S.products)[0];
     return {product: p, reason: cc.recReasonChosen};
   }
 
-  // Smart logic for "not sure"
+  // Health issues first — Substandard may only qualify for guaranteed-issue Final Expense
+  if(poorHealth)
+    return {product:'final', reason: cc.recReasonHealth};
+
+  // 65+ WITH active dependents or mortgage → Term may still be appropriate
+  if(age >= 65 && hasDependents)
+    return {product:'term', reason: cc.recReasonAge65Deps};
+
+  // 65+ without dependents/mortgage → Final Expense
   if(age >= 65)
     return {product:'final', reason: cc.recReasonAge};
-  if(age >= 55 && !hasKids && !hasMortgage)
-    return {product:'final', reason: cc.recReasonAgeSit};
+
+  // Under 65 with dependents or mortgage → Term
   if(hasKids && hasMortgage)
     return {product:'term', reason: cc.recReasonKidsMortgage};
   if(hasKids)
     return {product:'term', reason: cc.recReasonKids};
   if(hasMortgage)
     return {product:'term', reason: cc.recReasonMortgage};
-  if(highIncome && !hasKids && !hasMortgage)
-    return {product:'whole', reason: cc.recReasonIncome};
+
+  // 55–64, no dependents, no mortgage → Final Expense is likely best fit
+  if(age >= 55)
+    return {product:'final', reason: cc.recReasonAgeSit};
+
+  // Default → Term
   return {product:'term', reason: cc.recReasonDefault};
 }
 
