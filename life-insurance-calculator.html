@@ -173,8 +173,24 @@ input[type=range]::-webkit-slider-thumb{appearance:none;-webkit-appearance:none;
       <label id="s2-lbl-dob">Date of Birth</label>
       <input type="text" id="inp-dob" placeholder="MM/DD/YYYY" maxlength="10" oninput="formatDob(this)">
     </div>
-    <button class="cont-btn off" id="s2-btn" onclick="goStep(3)">
+    <button class="cont-btn off" id="s2-btn" onclick="goStepId('s3n')">
       <span id="s2-btn-lbl">Continue →</span>
+    </button>
+  </div>
+
+  <!-- ── STEP 3a: Number of children ── -->
+  <div class="screen" id="s3n">
+    <div class="step-q" id="s3n-q">How many children do you have?</div>
+    <div class="step-sub" id="s3n-sub">Under 21 and financially dependent on you.</div>
+    <div class="opts" id="s3n-opts">
+      <div class="opt" onclick="selectNumChildren(this,0)"><span>None</span><span class="opt-chk">✓</span></div>
+      <div class="opt" onclick="selectNumChildren(this,1)"><span>1</span><span class="opt-chk">✓</span></div>
+      <div class="opt" onclick="selectNumChildren(this,2)"><span>2</span><span class="opt-chk">✓</span></div>
+      <div class="opt" onclick="selectNumChildren(this,3)"><span>3</span><span class="opt-chk">✓</span></div>
+      <div class="opt" onclick="selectNumChildren(this,4)"><span>4 or more</span><span class="opt-chk">✓</span></div>
+    </div>
+    <button class="cont-btn off" id="s3n-btn" onclick="afterNumChildren()">
+      <span id="s3n-btn-lbl">Continue →</span>
     </button>
   </div>
 
@@ -367,8 +383,8 @@ const S = {
   phone: ''
 };
 
-const TOTAL = 8;
-const STEP_ORDER = ['s1','s2','s3','s4t','s5h','s4','s5','s6'];
+const TOTAL = 9;
+const STEP_ORDER = ['s1','s2','s3n','s3','s4t','s5h','s4','s5','s6'];
 
 // ─── Income slider steps ──────────────────────────────────────────────────────
 const INCOME_STEPS = [
@@ -507,6 +523,23 @@ function selectHealth(el, val){
   el.classList.add('sel');
   S.healthClass = val;
   document.getElementById('s5h-btn').className = 'cont-btn on';
+}
+
+function selectNumChildren(el, n){
+  document.querySelectorAll('#s3n-opts .opt').forEach(o=>o.classList.remove('sel'));
+  el.classList.add('sel');
+  S.numChildren = n;
+  document.getElementById('s3n-btn').className = 'cont-btn on';
+}
+
+function afterNumChildren(){
+  if(S.numChildren === null) return;
+  if(S.numChildren === 0){
+    S.childAge = 'none';
+    goStepId('s4t'); // skip age question
+  } else {
+    goStepId('s3'); // ask youngest age
+  }
 }
 
 // ─── Language ─────────────────────────────────────────────────────────────────
@@ -683,9 +716,10 @@ function calcCoverage(){
   const incomeReplacement = S.income >= 999999 ? 3000000 : S.income * 10;
   const mortgageNeeds = S.mortgage >= 999999 ? 1000000 : S.mortgage;
   let childNeeds = 0;
-  if(S.childAge==='under10') childNeeds = 100000;
-  else if(S.childAge==='11-16') childNeeds = 75000;
-  else if(S.childAge==='17-21') childNeeds = 40000;
+  const n = S.numChildren || 1;
+  if(S.childAge==='under10') childNeeds = 100000 * n;
+  else if(S.childAge==='11-16') childNeeds = 75000 * n;
+  else if(S.childAge==='17-21') childNeeds = 40000 * n;
   const total = incomeReplacement + mortgageNeeds + childNeeds;
   let coverageKey = 100000;
   if(total > 250000) coverageKey = 500000;
