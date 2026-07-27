@@ -167,6 +167,8 @@ input[type=range]::-webkit-slider-thumb{appearance:none;-webkit-appearance:none;
 
   <!-- ── STEP 2: Date of Birth ── -->
   <div class="screen" id="s2">
+    <button class="back-btn" onclick="goStepId('s1')">← Back</button>
+
     <div class="step-q" id="s2-q">What is your date of birth?</div>
     <div class="step-sub" id="s2-sub">This determines which plans are available to you.</div>
     <div class="field">
@@ -180,6 +182,8 @@ input[type=range]::-webkit-slider-thumb{appearance:none;-webkit-appearance:none;
 
   <!-- ── STEP 3a: Number of children ── -->
   <div class="screen" id="s3n">
+    <button class="back-btn" onclick="goStepId('s2')">← Back</button>
+
     <div class="step-q" id="s3n-q">How many children do you have?</div>
     <div class="step-sub" id="s3n-sub">Under 21 and financially dependent on you.</div>
     <div class="opts" id="s3n-opts">
@@ -196,6 +200,8 @@ input[type=range]::-webkit-slider-thumb{appearance:none;-webkit-appearance:none;
 
   <!-- ── STEP 3: Children ── -->
   <div class="screen" id="s3">
+    <button class="back-btn" onclick="goStepId('s3n')">← Back</button>
+
     <div class="step-q" id="s3-q">What is the age of your youngest child?</div>
     <div class="step-sub" id="s3-sub">This helps us size your coverage recommendation.</div>
     <div class="opts" id="s3-opts">
@@ -211,6 +217,8 @@ input[type=range]::-webkit-slider-thumb{appearance:none;-webkit-appearance:none;
 
   <!-- ── STEP 4: Tobacco ── -->
   <div class="screen" id="s4t">
+    <button class="back-btn" onclick="goStepId('s3n')">← Back</button>
+
     <div class="step-q" id="s4t-q">Do you use tobacco or nicotine?</div>
     <div class="step-sub" id="s4t-sub">Includes cigarettes, cigars, vaping, chewing tobacco, or nicotine patches in the last 12 months.</div>
     <div class="opts" id="s4t-opts">
@@ -224,6 +232,8 @@ input[type=range]::-webkit-slider-thumb{appearance:none;-webkit-appearance:none;
 
   <!-- ── STEP 5: Health class ── -->
   <div class="screen" id="s5h">
+    <button class="back-btn" onclick="goStepId('s4t')">← Back</button>
+
     <div class="step-q" id="s5h-q">How would you describe your overall health?</div>
     <div class="step-sub" id="s5h-sub">This helps us match you with the right carriers and rates.</div>
     <div class="opts" id="s5h-opts">
@@ -239,6 +249,8 @@ input[type=range]::-webkit-slider-thumb{appearance:none;-webkit-appearance:none;
 
   <!-- ── STEP 4: Income ── -->
   <div class="screen" id="s4">
+    <button class="back-btn" onclick="goStepId('s5h')">← Back</button>
+
     <div class="step-q" id="s4-q">What is your annual income?</div>
     <div class="step-sub" id="s4-sub">An estimate is fine. This helps us calculate how much your family would need.</div>
     <div class="slider-wrap">
@@ -253,6 +265,8 @@ input[type=range]::-webkit-slider-thumb{appearance:none;-webkit-appearance:none;
 
   <!-- ── STEP 5: Mortgage ── -->
   <div class="screen" id="s5">
+    <button class="back-btn" onclick="goStepId('s4')">← Back</button>
+
     <div class="step-q" id="s5-q">How much mortgage do you have remaining?</div>
     <div class="step-sub" id="s5-sub">Approximate is fine. Enter $0 if you rent or own outright.</div>
     <div class="slider-wrap">
@@ -267,6 +281,8 @@ input[type=range]::-webkit-slider-thumb{appearance:none;-webkit-appearance:none;
 
   <!-- ── STEP 6: Contact ── -->
   <div class="screen" id="s6">
+    <button class="back-btn" onclick="goStepId('s5')">← Back</button>
+
     <div class="step-q" id="s6-q">Last step — where should we send your estimate?</div>
     <div class="step-sub" id="s6-sub">We'll use this to send your personalized estimate.</div>
     <div class="field">
@@ -292,6 +308,8 @@ input[type=range]::-webkit-slider-thumb{appearance:none;-webkit-appearance:none;
 
   <!-- ── INTERSTITIAL: Coverage Recommendation ── -->
   <div class="screen" id="s-rec">
+    <button class="back-btn" onclick="goStepId('s6')">← Back</button>
+
     <div class="rec-icon">🎯</div>
     <div class="rec-hl" id="rec-hl">Based on your answers, you need:</div>
     <div class="rec-sub" id="rec-sub">Here's how we calculated it</div>
@@ -307,9 +325,10 @@ input[type=range]::-webkit-slider-thumb{appearance:none;-webkit-appearance:none;
 
   <!-- ── EDUCATIONAL: Term vs Whole Life ── -->
   <div class="screen" id="s-edu">
+    <button class="back-btn" onclick="goStepId('s-rec')">← Back</button>
+
     <div class="edu-lbl" id="edu-lbl">BASED ON WHAT WE LEARNED</div>
     <div class="edu-hl" id="edu-hl">Term life offers the most coverage for the years your family depends on you most</div>
-    <div class="edu-sub" id="edu-sub">A term life policy covers your family for a set number of years at a fixed monthly rate. If you pass away during that time, they receive a lump-sum payout — enough to replace your income, pay the mortgage, and fund your children's education.</div>
     <div class="chart">
       <div class="bar-wrap">
         <div class="bar term"></div>
@@ -321,27 +340,9 @@ input[type=range]::-webkit-slider-thumb{appearance:none;-webkit-appearance:none;
       </div>
     </div>
     <div class="benefits">
-      <div class="benefit">
-        <div class="benefit-ico">🏠</div>
-        <div class="benefit-txt">
-          <strong id="edu-b1-h">Protect your home</strong>
-          <span id="edu-b1-s">Your family keeps the house even if you're not there to make the payments.</span>
-        </div>
-      </div>
-      <div class="benefit">
-        <div class="benefit-ico">🎓</div>
-        <div class="benefit-txt">
-          <strong id="edu-b2-h">Fund education</strong>
-          <span id="edu-b2-s">Cover tuition and childcare so your kids' future stays on track.</span>
-        </div>
-      </div>
-      <div class="benefit">
-        <div class="benefit-ico">💵</div>
-        <div class="benefit-txt">
-          <strong id="edu-b3-h">Replace your income</strong>
-          <span id="edu-b3-s">Give your family time to get back on their feet — without financial stress.</span>
-        </div>
-      </div>
+      <div class="benefit"><div class="benefit-ico">🏠</div><div class="benefit-txt"><strong id="edu-b1-h">Protect your home</strong></div></div>
+      <div class="benefit"><div class="benefit-ico">🎓</div><div class="benefit-txt"><strong id="edu-b2-h">Fund education</strong></div></div>
+      <div class="benefit"><div class="benefit-ico">💵</div><div class="benefit-txt"><strong id="edu-b3-h">Replace your income</strong></div></div>
     </div>
     <button class="cont-btn on" id="edu-btn" onclick="showResult()">
       <span id="edu-btn-lbl">See My Rate →</span>
