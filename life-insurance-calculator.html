@@ -224,7 +224,7 @@ input[type=range]::-webkit-slider-thumb{appearance:none;-webkit-appearance:none;
   <!-- ── STEP 6: Contact ── -->
   <div class="screen" id="s6">
     <div class="step-q" id="s6-q">Last step — where should we send your estimate?</div>
-    <div class="step-sub" id="s6-sub">A licensed agent will follow up with your exact quote. No pressure.</div>
+    <div class="step-sub" id="s6-sub">We'll use this to send your personalized estimate.</div>
     <div class="field">
       <label id="s6-lbl-fname">First Name</label>
       <input type="text" id="inp-fname" placeholder="Your first name" oninput="checkContact()">
@@ -643,9 +643,13 @@ function calcCoverage(){
 
 // ─── Recommendation screen ───────────────────────────────────────────────────
 function showRecommendation(){
-  if(!S.name || document.getElementById('inp-phone').value.replace(/\D/g,'').length < 10) return;
-  S.name = document.getElementById('inp-name').value.trim();
-  S.phone = document.getElementById('inp-phone').value.trim();
+  const fname = document.getElementById('inp-fname').value.trim();
+  const phone = document.getElementById('inp-phone').value.trim();
+  if(!fname || phone.replace(/\D/g,'').length < 10) return;
+  S.fname = fname;
+  S.lname = document.getElementById('inp-lname').value.trim();
+  S.email = document.getElementById('inp-email').value.trim();
+  S.phone = phone;
 
   const rec = calcCoverage();
   S._rec = rec;
