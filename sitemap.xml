@@ -737,9 +737,30 @@
   <loc>https://www.healthexps.com/blog/dual-eligible-medicare-medicaid-miami/</loc>
   <loc>https://www.healthexps.com/blog/medicare-enrollment-periods-explained/</loc>
   <loc>https://www.healthexps.com/blog/uhealth-unitedhealthcare-medicare-advantage-network-change/</loc>
-  <loc>https://www.healthexps.com/es/blog/cobra-vs-mercado-de-salud/</loc>
-  <loc>https://www.healthexps.com/es/blog/que-es-irmaa-medicare/</loc>
+  <!-- ES blog pipeline posts (2026-07-27) — proper url+hreflang entries -->
+<url><loc>https://www.healthexps.com/es/blog/periodos-de-inscripcion-medicare/</loc><lastmod>2026-07-27</lastmod><changefreq>monthly</changefreq><priority>0.7</priority>
+  <xhtml:link rel="alternate" hreflang="es" href="https://www.healthexps.com/es/blog/periodos-de-inscripcion-medicare/"/>
+  <xhtml:link rel="alternate" hreflang="en" href="https://www.healthexps.com/blog/medicare-enrollment-periods-explained/"/>
+</url>
+<url><loc>https://www.healthexps.com/es/blog/doble-elegibilidad-medicare-medicaid-miami/</loc><lastmod>2026-07-27</lastmod><changefreq>monthly</changefreq><priority>0.7</priority>
+  <xhtml:link rel="alternate" hreflang="es" href="https://www.healthexps.com/es/blog/doble-elegibilidad-medicare-medicaid-miami/"/>
+  <xhtml:link rel="alternate" hreflang="en" href="https://www.healthexps.com/blog/dual-eligible-medicare-medicaid-miami/"/>
+</url>
+<url><loc>https://www.healthexps.com/es/blog/cobra-vs-mercado-de-salud/</loc><lastmod>2026-07-27</lastmod><changefreq>monthly</changefreq><priority>0.7</priority>
+  <xhtml:link rel="alternate" hreflang="es" href="https://www.healthexps.com/es/blog/cobra-vs-mercado-de-salud/"/>
+  <xhtml:link rel="alternate" hreflang="en" href="https://www.healthexps.com/blog/cobra-vs-marketplace-losing-job-coverage/"/>
+</url>
+<url><loc>https://www.healthexps.com/es/blog/que-es-irmaa-medicare/</loc><lastmod>2026-07-27</lastmod><changefreq>monthly</changefreq><priority>0.7</priority>
+  <xhtml:link rel="alternate" hreflang="es" href="https://www.healthexps.com/es/blog/que-es-irmaa-medicare/"/>
+  <xhtml:link rel="alternate" hreflang="en" href="https://www.healthexps.com/blog/what-is-irmaa-avoid-medicare-surcharge/"/>
+</url>
+<url><loc>https://www.healthexps.com/es/blog/perdio-su-medicaid-florida/</loc><lastmod>2026-07-27</lastmod><changefreq>monthly</changefreq><priority>0.7</priority>
+  <xhtml:link rel="alternate" hreflang="es" href="https://www.healthexps.com/es/blog/perdio-su-medicaid-florida/"/>
+  <xhtml:link rel="alternate" hreflang="en" href="https://www.healthexps.com/blog/lost-medicaid-coverage-florida/"/>
+</url>
+<url><loc>https://www.healthexps.com/es/blog/medicare-residentes-permanentes/</loc><lastmod>2026-07-27</lastmod><changefreq>monthly</changefreq><priority>0.7</priority>
+  <xhtml:link rel="alternate" hreflang="es" href="https://www.healthexps.com/es/blog/medicare-residentes-permanentes/"/>
+  <xhtml:link rel="alternate" hreflang="en" href="https://www.healthexps.com/blog/medicare-green-card-holders-florida/"/>
+</url>
   <loc>https://www.healthexps.com/es/blog/cambio-red-uhealth-unitedhealthcare-medicare-advantage/</loc>
-  <loc>https://www.healthexps.com/es/blog/doble-elegibilidad-medicare-medicaid-miami/</loc>
-  <loc>https://www.healthexps.com/es/blog/periodos-de-inscripcion-medicare/</loc>
 </urlset>
