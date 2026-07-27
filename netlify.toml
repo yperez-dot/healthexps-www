@@ -15,14 +15,7 @@
 # 301 redirect for MSP (consolidate to real page)
 [[redirects]]
   from = "/medicare/medicare-savings-program"
-  to = "/medicare-savings-program/"
-  status = 301
-  force = true
-
-# 301 canonical: non-slash → canonical slash version
-[[redirects]]
-  from = "/medicare-savings-program"
-  to = "/medicare-savings-program/"
+  to = "/medicare-savings-program"
   status = 301
   force = true
 
@@ -483,7 +476,7 @@
 
 [[redirects]]
   from = "/post/smart-ways-to-save-money-during-medicare-enrollment-budgeting-tips"
-  to = "/medicare-savings-program/"
+  to = "/medicare-savings-program"
   status = 301
 
 # Spanish /post/ redirects
@@ -520,7 +513,7 @@
 
 [[redirects]]
   from = "/msp"
-  to = "/medicare-savings-program/"
+  to = "/medicare-savings-program"
   status = 301
 
 [[redirects]]
