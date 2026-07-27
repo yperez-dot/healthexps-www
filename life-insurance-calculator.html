@@ -188,8 +188,36 @@ input[type=range]::-webkit-slider-thumb{appearance:none;-webkit-appearance:none;
       <div class="opt" onclick="selectChild(this,'17-21')"><span id="s3-1721">Ages 17–21</span><span class="opt-chk">✓</span></div>
       <div class="opt" onclick="selectChild(this,'none')"><span id="s3-none">No children / 21+</span><span class="opt-chk">✓</span></div>
     </div>
-    <button class="cont-btn off" id="s3-btn" onclick="goStep(4)">
+    <button class="cont-btn off" id="s3-btn" onclick="goStepId('s4t')">
       <span id="s3-btn-lbl">Continue →</span>
+    </button>
+  </div>
+
+  <!-- ── STEP 4: Tobacco ── -->
+  <div class="screen" id="s4t">
+    <div class="step-q" id="s4t-q">Do you use tobacco or nicotine?</div>
+    <div class="step-sub" id="s4t-sub">Includes cigarettes, cigars, vaping, chewing tobacco, or nicotine patches in the last 12 months.</div>
+    <div class="opts" id="s4t-opts">
+      <div class="opt" onclick="selectTobacco(this,'no')"><span id="s4t-no">No</span><span class="opt-chk">✓</span></div>
+      <div class="opt" onclick="selectTobacco(this,'yes')"><span id="s4t-yes">Yes</span><span class="opt-chk">✓</span></div>
+    </div>
+    <button class="cont-btn off" id="s4t-btn" onclick="goStepId('s5h')">
+      <span id="s4t-btn-lbl">Continue →</span>
+    </button>
+  </div>
+
+  <!-- ── STEP 5: Health class ── -->
+  <div class="screen" id="s5h">
+    <div class="step-q" id="s5h-q">How would you describe your overall health?</div>
+    <div class="step-sub" id="s5h-sub">This helps us match you with the right carriers and rates.</div>
+    <div class="opts" id="s5h-opts">
+      <div class="opt" onclick="selectHealth(this,'preferred_plus')"><span id="s5h-pp">Preferred Plus — Excellent, no major conditions</span><span class="opt-chk">✓</span></div>
+      <div class="opt" onclick="selectHealth(this,'preferred')"><span id="s5h-p">Preferred — Very good health</span><span class="opt-chk">✓</span></div>
+      <div class="opt" onclick="selectHealth(this,'standard')"><span id="s5h-s">Standard — Average health</span><span class="opt-chk">✓</span></div>
+      <div class="opt" onclick="selectHealth(this,'substandard')"><span id="s5h-ss">Substandard — Some health concerns</span><span class="opt-chk">✓</span></div>
+    </div>
+    <button class="cont-btn off" id="s5h-btn" onclick="goStepId('s4')">
+      <span id="s5h-btn-lbl">Continue →</span>
     </button>
   </div>
 
@@ -339,7 +367,8 @@ const S = {
   phone: ''
 };
 
-const TOTAL = 6;
+const TOTAL = 8;
+const STEP_ORDER = ['s1','s2','s3','s4t','s5h','s4','s5','s6'];
 
 // ─── Income slider steps ──────────────────────────────────────────────────────
 const INCOME_STEPS = [
@@ -454,6 +483,30 @@ function updateProgress(){
   const cc = c();
   document.getElementById('prog-lbl').textContent =
     S.step <= TOTAL ? cc.progOf + ' ' + S.step + ' ' + cc.progOfOf + ' ' + TOTAL : '';
+}
+
+function goStepId(id){
+  const idx = STEP_ORDER.indexOf(id);
+  document.querySelectorAll('.screen').forEach(s=>s.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+  S.step = idx >= 0 ? idx + 1 : S.step;
+  updateProgress();
+  window.scrollTo({top:0,behavior:'smooth'});
+  gtag('event','calc_step',{'step':id});
+}
+
+function selectTobacco(el, val){
+  document.querySelectorAll('#s4t-opts .opt').forEach(o=>o.classList.remove('sel'));
+  el.classList.add('sel');
+  S.tobacco = val;
+  document.getElementById('s4t-btn').className = 'cont-btn on';
+}
+
+function selectHealth(el, val){
+  document.querySelectorAll('#s5h-opts .opt').forEach(o=>o.classList.remove('sel'));
+  el.classList.add('sel');
+  S.healthClass = val;
+  document.getElementById('s5h-btn').className = 'cont-btn on';
 }
 
 // ─── Language ─────────────────────────────────────────────────────────────────
