@@ -605,6 +605,7 @@ function selectNotSure(el){
   document.querySelectorAll('.prod-opt').forEach(o=>o.classList.remove('sel'));
   el.classList.add('sel');
   S.notSure = true;
+  S.products = new Set(['term','final','whole']); // all products for "not sure"
   document.getElementById('sprod-btn').className = 'cont-btn on';
 }
 
@@ -1044,10 +1045,16 @@ function sendLead(rec){
 // ─── Restart ──────────────────────────────────────────────────────────────────
 function restart(){
   S.priorities = new Set();
+  S.products = new Set();
+  S.notSure = false;
   S.ageKey = null; S.ageLabel = '';
   S.childAge = null;
+  S.numChildren = null;
+  S.tobacco = null;
+  S.healthClass = null;
   S.income = 75000; S.mortgage = 150000;
-  S.fname=''; S.lname=''; S.email=''; S.phone=''; S.dobRaw=''; S.ageKey=null; S.ageLabel='';
+  S.fname=''; S.lname=''; S.email=''; S.phone=''; S.dobRaw=''; S.dobLabel='';
+  S._rec = null;
   document.querySelectorAll('.opt').forEach(o=>o.classList.remove('sel'));
   document.getElementById('inp-dob').value = '';
   document.getElementById('inp-fname').value = '';
@@ -1058,10 +1065,15 @@ function restart(){
   document.getElementById('mortgage-slider').value = 6;
   updateIncome(11); updateMortgage(6);
   document.getElementById('s1-btn').className = 'cont-btn off';
+  document.getElementById('sprod-btn').className = 'cont-btn off';
   document.getElementById('s2-btn').className = 'cont-btn off';
+  document.getElementById('s2-btn').setAttribute('onclick', "goStepId('s3n')");
   document.getElementById('s3-btn').className = 'cont-btn off';
+  document.getElementById('s3n-btn').className = 'cont-btn off';
+  document.getElementById('s4t-btn').className = 'cont-btn off';
+  document.getElementById('s5h-btn').className = 'cont-btn off';
   document.getElementById('s6-btn').className = 'cont-btn off';
-  goStep(1);
+  goStepId('s1');
 }
 
 // ─── Init ─────────────────────────────────────────────────────────────────────
