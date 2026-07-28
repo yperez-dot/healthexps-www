@@ -898,14 +898,38 @@ function showEducation(){
 function showResult(){
   const rec = S._rec;
   const cc = c();
-  const rateTable = RATES[rec.coverageKey];
+  const recommendation = getRecommendation();
+
+  // Pick rate table + labels based on recommendation
+  let rateTable, coverageLabel, productTypeLabel;
+  if(recommendation.product === 'whole'){
+    rateTable = RATES_WHOLE;
+    coverageLabel = '$25,000';
+    productTypeLabel = cc.wholeType;
+  } else if(recommendation.product === 'final' || rec.isSenior){
+    rateTable = RATES[10000];
+    coverageLabel = '$10,000';
+    productTypeLabel = cc.finalExpType;
+  } else {
+    rateTable = RATES[rec.coverageKey];
+    coverageLabel = '$' + rec.coverageKey.toLocaleString();
+    productTypeLabel = cc.termType;
+  }
+
   // Find the right age key
   const ageKeys = Object.keys(rateTable).map(Number).sort((a,b)=>a-b);
   let ageKey = ageKeys[0];
   for(const k of ageKeys){ if(S.ageKey >= k) ageKey = k; }
-  const [lo, hi] = rateTable[ageKey] || [0,0];
+  const raw = rateTable[ageKey] || [0,0];
+  const tobaccoMult = S.tobacco === 'yes' ? 1.4 : 1.0;
+  const healthMult = S.healthClass === 'preferred_plus' ? 0.85 : S.healthClass === 'standard' ? 1.2 : S.healthClass === 'substandard' ? 1.5 : 1.0;
+  const lo = Math.round(raw[0] * tobaccoMult * healthMult);
+  const hi = Math.round(raw[1] * tobaccoMult * healthMult);
 
-  document.getElementById('res-badge').textContent = cc.resBadge;
+  // Set personalized recommendation text
+  const recEl = document.getElementById('res-rec');
+  if(recEl) recEl.textContent = recommendation.reason;
+
   document.getElementById('res-type').textContent = productTypeLabel;
   document.getElementById('res-range').textContent = '$' + lo + ' – $' + hi;
   document.getElementById('res-period').textContent = cc.resPeriod;
