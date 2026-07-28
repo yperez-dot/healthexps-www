@@ -604,23 +604,21 @@ function selectHealth(el, val){
 function selectNotSure(el){
   document.querySelectorAll('.prod-opt').forEach(o=>o.classList.remove('sel'));
   el.classList.add('sel');
-  S.products = new Set(['term','final','whole']);
   S.notSure = true;
   document.getElementById('sprod-btn').className = 'cont-btn on';
 }
 
 function toggleProduct(el, key){
-  // If coming from "Not sure", clear everything first
-  if(S.notSure){
-    S.notSure = false;
-    S.products = new Set();
-    document.querySelectorAll('.prod-opt').forEach(o=>o.classList.remove('sel'));
-  } else {
-    document.getElementById('prod-notsure').classList.remove('sel');
-  }
-  // Toggle this product
-  if(S.products.has(key)){ S.products.delete(key); el.classList.remove('sel'); }
-  else { S.products.add(key); el.classList.add('sel'); }
+  // Clear "not sure" state
+  S.notSure = false;
+  document.getElementById('prod-notsure').classList.remove('sel');
+  // Toggle this card visually
+  el.classList.toggle('sel');
+  // Rebuild products from DOM — simple, reliable
+  S.products = new Set();
+  if(document.getElementById('prod-term').classList.contains('sel')) S.products.add('term');
+  if(document.getElementById('prod-final').classList.contains('sel')) S.products.add('final');
+  if(document.getElementById('prod-whole').classList.contains('sel')) S.products.add('whole');
   document.getElementById('sprod-btn').className = 'cont-btn ' + (S.products.size > 0 ? 'on' : 'off');
 }
 
