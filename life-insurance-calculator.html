@@ -879,7 +879,7 @@ function showRecommendation(){
 // ─── Education screen ─────────────────────────────────────────────────────────
 function showEducation(){
   const rec = S._rec;
-  if(rec.isSenior){ showResult(); return; }
+  if(rec.isSenior || S.notSure){ showResult(); return; }
   // Show only selected product benefits
   const hasTerm = S.products.has('term');
   const hasFinal = S.products.has('final');
