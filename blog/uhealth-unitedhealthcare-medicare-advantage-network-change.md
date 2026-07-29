@@ -49,4 +49,3 @@ At The Health Experts Insurance, we help Medicare beneficiaries in South Florida
 
 ---
 
-*We do not offer every plan available in your area. Currently we represent 14 organizations which offer 82 products in your area. Please contact Medicare.gov, 1-800-MEDICARE, or your local State Health Insurance Program (SHIP) to get information on all of your options.*
