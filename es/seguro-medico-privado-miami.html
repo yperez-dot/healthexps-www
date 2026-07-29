@@ -405,6 +405,33 @@ for(var k=0;k<_navLinks.length;k++){
   </div>
 </section>
 
+<section style="background:#f4eefa;padding:56px 0;" id="seguro-form">
+ <div class="container">
+ <div style="background:white;border-radius:14px;padding:36px;max-width:620px;margin:0 auto;box-shadow:0 8px 32px rgba(69,32,104,0.15);">
+ <h2 style="font-size:26px;font-weight:700;color:#452068;margin-bottom:10px;text-align:center;">Obtener mi cotización gratis de seguro médico</h2>
+ <p style="font-size:15px;color:#555;margin-bottom:28px;text-align:center;">Un corredor licenciado bilingüe te contactará dentro de 1 hora hábil.</p>
+ <div id="es-seguro-success" style="display:none;background:#f0fdf4;border:1px solid #16a34a;border-radius:8px;padding:20px;text-align:center;margin-bottom:16px;">
+ <div style="font-size:36px;margin-bottom:8px;">✅</div>
+ <div style="font-size:16px;font-weight:700;color:#166534;margin-bottom:4px;">¡Listo!</div>
+ <div style="font-size:14px;color:#166534;">Nos pondremos en contacto dentro de 1 hora hábil.</div>
+ </div>
+ <form action="https://services.leadconnectorhq.com/hooks/RINM4TCnM4hN06UA1aK0/webhook-trigger/FklcK7rZSNfB9SlLueOm" method="POST" id="esSeguroForm">
+ <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:18px;">
+ <div><label style="display:block;font-size:14px;font-weight:700;color:#333;margin-bottom:6px;">Nombre</label><input type="text" name="first_name" id="first_name_es" style="width:100%;padding:12px 14px;border:2px solid #e5e5e5;border-radius:8px;font-size:15px;font-family:Arial,sans-serif;box-sizing:border-box;" required></div>
+ <div><label style="display:block;font-size:14px;font-weight:700;color:#333;margin-bottom:6px;">Apellido</label><input type="text" name="last_name" id="last_name_es" style="width:100%;padding:12px 14px;border:2px solid #e5e5e5;border-radius:8px;font-size:15px;font-family:Arial,sans-serif;box-sizing:border-box;" required></div>
+ </div>
+ <div style="margin-bottom:18px;"><label style="display:block;font-size:14px;font-weight:700;color:#333;margin-bottom:6px;">Teléfono</label><input type="tel" name="phone" id="phone_es" style="width:100%;padding:12px 14px;border:2px solid #e5e5e5;border-radius:8px;font-size:15px;font-family:Arial,sans-serif;box-sizing:border-box;" required></div>
+ <div style="margin-bottom:18px;"><label style="display:block;font-size:14px;font-weight:700;color:#333;margin-bottom:6px;">Correo electrónico</label><input type="email" name="email" id="email_es" style="width:100%;padding:12px 14px;border:2px solid #e5e5e5;border-radius:8px;font-size:15px;font-family:Arial,sans-serif;box-sizing:border-box;" required></div>
+ <div style="margin-bottom:18px;"><label style="display:block;font-size:14px;font-weight:700;color:#333;margin-bottom:6px;">¿Qué te trajo aquí?</label><select name="private_reason" id="private_reason_es" style="width:100%;padding:12px 14px;border:2px solid #e5e5e5;border-radius:8px;font-size:15px;font-family:Arial,sans-serif;background:white;box-sizing:border-box;"><option value="">Seleccionar...</option><option>Perdí mi trabajo</option><option>El COBRA es muy caro</option><option>Trabajo por cuenta propia</option><option>Mi familia necesita cobertura</option><option>Me mudé a Florida</option><option>Tengo un pequeño negocio</option><option>Solo explorando</option></select></div>
+ <div style="margin-bottom:18px;"><label style="display:block;font-size:14px;font-weight:700;color:#333;margin-bottom:6px;">¿Algo que quieras compartir? <span style="font-weight:400;color:#888;">(opcional)</span></label><textarea name="additional_notes" id="additional_notes_es" placeholder="Ej. Necesito mantener a mi cardólogo, o tomo 3 medicamentos..." style="width:100%;padding:12px 14px;border:2px solid #e5e5e5;border-radius:8px;font-size:15px;font-family:Arial,sans-serif;min-height:80px;resize:vertical;box-sizing:border-box;"></textarea></div>
+ <div style="display:flex;align-items:flex-start;gap:10px;margin:18px 0;"><input type="checkbox" id="esSeguroConsent" name="consent" id="consent_es" style="margin-top:4px;flex-shrink:0;" required><label for="esSeguroConsent" style="font-size:13px;color:#555;line-height:1.5;">Al enviar este formulario, doy mi consentimiento para recibir llamadas, mensajes de texto y correos de The Health Experts Insurance. El consentimiento no es necesario para adquirir servicios.</label></div>
+ <button type="submit" style="width:100%;background:#ff1090;color:white;border:none;padding:14px;border-radius:50px;font-size:16px;font-weight:700;cursor:pointer;font-family:Arial,sans-serif;">Obtener mi cotización gratis →</button>
+ </form>
+ </div>
+ </div>
+</section>
+<script>document.getElementById('esSeguroForm').addEventListener('submit',function(e){e.preventDefault();var form=this;fetch(form.action,{method:'POST',body:new FormData(form)}).then(function(){document.getElementById('es-seguro-success').style.display='block';form.style.display='none';}).catch(function(){form.submit();});});
+
 <!-- LIFE EVENTS TRIGGER SECTION (Task 2a ES) -->
 <section style="background:#f8f7fc;padding:52px 0;">
  <div class="container">
@@ -697,32 +724,7 @@ for(var k=0;k<_navLinks.length;k++){
 </section>
 
 <!-- LEAD FORM (Task 2b ES) -->
-<section style="background:#f4eefa;padding:56px 0;" id="seguro-form">
- <div class="container">
- <div style="background:white;border-radius:14px;padding:36px;max-width:620px;margin:0 auto;box-shadow:0 8px 32px rgba(69,32,104,0.15);">
- <h2 style="font-size:26px;font-weight:700;color:#452068;margin-bottom:10px;text-align:center;">Obtener mi cotización gratis de seguro médico</h2>
- <p style="font-size:15px;color:#555;margin-bottom:28px;text-align:center;">Un corredor licenciado bilingüe te contactará dentro de 1 hora hábil.</p>
- <div id="es-seguro-success" style="display:none;background:#f0fdf4;border:1px solid #16a34a;border-radius:8px;padding:20px;text-align:center;margin-bottom:16px;">
- <div style="font-size:36px;margin-bottom:8px;">✅</div>
- <div style="font-size:16px;font-weight:700;color:#166534;margin-bottom:4px;">¡Listo!</div>
- <div style="font-size:14px;color:#166534;">Nos pondremos en contacto dentro de 1 hora hábil.</div>
- </div>
- <form action="https://services.leadconnectorhq.com/hooks/RINM4TCnM4hN06UA1aK0/webhook-trigger/dc6c8b35-9480-412e-b56d-4a4c8c7bd438" method="POST" id="esSeguroForm">
- <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:18px;">
- <div><label style="display:block;font-size:14px;font-weight:700;color:#333;margin-bottom:6px;">Nombre</label><input type="text" name="first_name" id="first_name_es" style="width:100%;padding:12px 14px;border:2px solid #e5e5e5;border-radius:8px;font-size:15px;font-family:Arial,sans-serif;box-sizing:border-box;" required></div>
- <div><label style="display:block;font-size:14px;font-weight:700;color:#333;margin-bottom:6px;">Apellido</label><input type="text" name="last_name" id="last_name_es" style="width:100%;padding:12px 14px;border:2px solid #e5e5e5;border-radius:8px;font-size:15px;font-family:Arial,sans-serif;box-sizing:border-box;" required></div>
- </div>
- <div style="margin-bottom:18px;"><label style="display:block;font-size:14px;font-weight:700;color:#333;margin-bottom:6px;">Teléfono</label><input type="tel" name="phone" id="phone_es" style="width:100%;padding:12px 14px;border:2px solid #e5e5e5;border-radius:8px;font-size:15px;font-family:Arial,sans-serif;box-sizing:border-box;" required></div>
- <div style="margin-bottom:18px;"><label style="display:block;font-size:14px;font-weight:700;color:#333;margin-bottom:6px;">Correo electrónico</label><input type="email" name="email" id="email_es" style="width:100%;padding:12px 14px;border:2px solid #e5e5e5;border-radius:8px;font-size:15px;font-family:Arial,sans-serif;box-sizing:border-box;" required></div>
- <div style="margin-bottom:18px;"><label style="display:block;font-size:14px;font-weight:700;color:#333;margin-bottom:6px;">¿Qué te trajo aquí?</label><select name="private_reason" id="private_reason_es" style="width:100%;padding:12px 14px;border:2px solid #e5e5e5;border-radius:8px;font-size:15px;font-family:Arial,sans-serif;background:white;box-sizing:border-box;"><option value="">Seleccionar...</option><option>Perdí mi trabajo</option><option>El COBRA es muy caro</option><option>Trabajo por cuenta propia</option><option>Mi familia necesita cobertura</option><option>Me mudé a Florida</option><option>Tengo un pequeño negocio</option><option>Solo explorando</option></select></div>
- <div style="margin-bottom:18px;"><label style="display:block;font-size:14px;font-weight:700;color:#333;margin-bottom:6px;">¿Algo que quieras compartir? <span style="font-weight:400;color:#888;">(opcional)</span></label><textarea name="additional_notes" id="additional_notes_es" placeholder="Ej. Necesito mantener a mi cardólogo, o tomo 3 medicamentos..." style="width:100%;padding:12px 14px;border:2px solid #e5e5e5;border-radius:8px;font-size:15px;font-family:Arial,sans-serif;min-height:80px;resize:vertical;box-sizing:border-box;"></textarea></div>
- <div style="display:flex;align-items:flex-start;gap:10px;margin:18px 0;"><input type="checkbox" id="esSeguroConsent" name="consent" id="consent_es" style="margin-top:4px;flex-shrink:0;" required><label for="esSeguroConsent" style="font-size:13px;color:#555;line-height:1.5;">Al enviar este formulario, doy mi consentimiento para recibir llamadas, mensajes de texto y correos de The Health Experts Insurance. El consentimiento no es necesario para adquirir servicios.</label></div>
- <button type="submit" style="width:100%;background:#ff1090;color:white;border:none;padding:14px;border-radius:50px;font-size:16px;font-weight:700;cursor:pointer;font-family:Arial,sans-serif;">Obtener mi cotización gratis →</button>
- </form>
- </div>
- </div>
-</section>
-<script>document.getElementById('esSeguroForm').addEventListener('submit',function(e){e.preventDefault();var form=this;fetch(form.action,{method:'POST',body:new FormData(form)}).then(function(){document.getElementById('es-seguro-success').style.display='block';form.style.display='none';}).catch(function(){form.submit();});});</script>
+</script>
 
 <!-- FOOTER -->
 <!-- ===== MASTER FOOTER - healthexps.com/es/ ===== -->

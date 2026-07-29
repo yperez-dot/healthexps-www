@@ -353,6 +353,71 @@ for(var k=0;k<_navLinks.length;k++){
   </div>
 </section>
 
+<section style="background:#f4eefa;padding:56px 0;" id="private-form">
+ <div class="container">
+ <div style="background:white;border-radius:14px;padding:36px;max-width:620px;margin:0 auto;box-shadow:0 8px 32px rgba(69,32,104,0.15);">
+ <h2 style="font-size:26px;font-weight:700;color:#452068;margin-bottom:10px;text-align:center;">Get my free health insurance quote</h2>
+ <p style="font-size:15px;color:#555;margin-bottom:28px;text-align:center;">A licensed bilingual broker will reach out within 1 business hour.</p>
+ <div id="private-form-success" style="display:none;background:#f0fdf4;border:1px solid #16a34a;border-radius:8px;padding:20px;text-align:center;margin-bottom:16px;">
+ <div style="font-size:36px;margin-bottom:8px;">✅</div>
+ <div style="font-size:16px;font-weight:700;color:#166534;margin-bottom:4px;">You're all set!</div>
+ <div style="font-size:14px;color:#166534;">We'll be in touch within 1 business hour. For faster service, WhatsApp us at (305) 464-6888.</div>
+ </div>
+ <form action="https://services.leadconnectorhq.com/hooks/RINM4TCnM4hN06UA1aK0/webhook-trigger/9eebf549-c131-4d43-8432-0f6628211899" method="POST" id="privateForm">
+ <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:18px;">
+ <div>
+ <label style="display:block;font-size:14px;font-weight:700;color:#333;margin-bottom:6px;">First Name</label>
+ <input type="text" name="first_name" id="first_name_en" style="width:100%;padding:12px 14px;border:2px solid #e5e5e5;border-radius:8px;font-size:15px;font-family:Arial,sans-serif;box-sizing:border-box;" required>
+ </div>
+ <div>
+ <label style="display:block;font-size:14px;font-weight:700;color:#333;margin-bottom:6px;">Last Name</label>
+ <input type="text" name="last_name" id="last_name_en" style="width:100%;padding:12px 14px;border:2px solid #e5e5e5;border-radius:8px;font-size:15px;font-family:Arial,sans-serif;box-sizing:border-box;" required>
+ </div>
+ </div>
+ <div style="margin-bottom:18px;">
+ <label style="display:block;font-size:14px;font-weight:700;color:#333;margin-bottom:6px;">Phone</label>
+ <input type="tel" name="phone" id="phone_en" style="width:100%;padding:12px 14px;border:2px solid #e5e5e5;border-radius:8px;font-size:15px;font-family:Arial,sans-serif;box-sizing:border-box;" required>
+ </div>
+ <div style="margin-bottom:18px;">
+ <label style="display:block;font-size:14px;font-weight:700;color:#333;margin-bottom:6px;">Email</label>
+ <input type="email" name="email" id="email_en" style="width:100%;padding:12px 14px;border:2px solid #e5e5e5;border-radius:8px;font-size:15px;font-family:Arial,sans-serif;box-sizing:border-box;" required>
+ </div>
+ <div style="margin-bottom:18px;">
+ <label style="display:block;font-size:14px;font-weight:700;color:#333;margin-bottom:6px;">What brought you here?</label>
+ <select name="private_reason" id="private_reason_en" style="width:100%;padding:12px 14px;border:2px solid #e5e5e5;border-radius:8px;font-size:15px;font-family:Arial,sans-serif;background:white;box-sizing:border-box;">
+ <option value="">Select...</option>
+ <option value="I just lost my job">I just lost my job</option>
+ <option value="COBRA is too expensive">COBRA is too expensive</option>
+ <option value="I'm self-employed or freelance">I'm self-employed or freelance</option>
+ <option value="My family needs coverage">My family needs coverage</option>
+ <option value="I just moved to Florida">I just moved to Florida</option>
+ <option value="I own a small business">I own a small business</option>
+ <option value="Just exploring">Just exploring</option>
+ </select>
+ </div>
+ <div style="margin-bottom:18px;">
+ <label style="display:block;font-size:14px;font-weight:700;color:#333;margin-bottom:6px;">Anything you'd like to share? <span style="font-weight:400;color:#888;">(optional)</span></label>
+ <textarea name="additional_notes" id="additional_notes_en" placeholder="e.g. I need to keep my cardiologist, or I take 3 medications..." style="width:100%;padding:12px 14px;border:2px solid #e5e5e5;border-radius:8px;font-size:15px;font-family:Arial,sans-serif;min-height:80px;resize:vertical;box-sizing:border-box;"></textarea>
+ </div>
+ <div style="display:flex;align-items:flex-start;gap:10px;margin:18px 0;">
+ <input type="checkbox" id="privateConsent" name="consent" id="consent_en" style="margin-top:4px;flex-shrink:0;" required>
+ <label for="privateConsent" style="font-size:13px;color:#555;line-height:1.5;">By submitting this form, I consent to receive calls, texts, and emails from The Health Experts Insurance at the number and email provided, including automated dialing. Consent is not required to purchase services.</label>
+ </div>
+ <button type="submit" style="width:100%;background:#ff1090;color:white;border:none;padding:14px;border-radius:50px;font-size:16px;font-weight:700;cursor:pointer;font-family:Arial,sans-serif;">Get my free quote →</button>
+ </form>
+ </div>
+ </div>
+</section>
+<script>
+document.getElementById('privateForm').addEventListener('submit',function(e){
+ e.preventDefault();
+ var form=this;
+ fetch(form.action,{method:'POST',body:new FormData(form)})
+ .then(function(){document.getElementById('private-form-success').style.display='block';form.style.display='none';})
+ .catch(function(){form.submit();});
+});
+
+
 <!-- LIFE EVENTS TRIGGER SECTION -->
 <section style="background:#f8f7fc;padding:52px 0;">
  <div class="container">
@@ -550,69 +615,6 @@ for(var k=0;k<_navLinks.length;k++){
 </section>
 
 <!-- EMBEDDED LEAD FORM (Task 2b) -->
-<section style="background:#f4eefa;padding:56px 0;" id="private-form">
- <div class="container">
- <div style="background:white;border-radius:14px;padding:36px;max-width:620px;margin:0 auto;box-shadow:0 8px 32px rgba(69,32,104,0.15);">
- <h2 style="font-size:26px;font-weight:700;color:#452068;margin-bottom:10px;text-align:center;">Get my free health insurance quote</h2>
- <p style="font-size:15px;color:#555;margin-bottom:28px;text-align:center;">A licensed bilingual broker will reach out within 1 business hour.</p>
- <div id="private-form-success" style="display:none;background:#f0fdf4;border:1px solid #16a34a;border-radius:8px;padding:20px;text-align:center;margin-bottom:16px;">
- <div style="font-size:36px;margin-bottom:8px;">✅</div>
- <div style="font-size:16px;font-weight:700;color:#166534;margin-bottom:4px;">You're all set!</div>
- <div style="font-size:14px;color:#166534;">We'll be in touch within 1 business hour. For faster service, WhatsApp us at (305) 464-6888.</div>
- </div>
- <form action="https://services.leadconnectorhq.com/hooks/RINM4TCnM4hN06UA1aK0/webhook-trigger/9eebf549-c131-4d43-8432-0f6628211899" method="POST" id="privateForm">
- <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:18px;">
- <div>
- <label style="display:block;font-size:14px;font-weight:700;color:#333;margin-bottom:6px;">First Name</label>
- <input type="text" name="first_name" id="first_name_en" style="width:100%;padding:12px 14px;border:2px solid #e5e5e5;border-radius:8px;font-size:15px;font-family:Arial,sans-serif;box-sizing:border-box;" required>
- </div>
- <div>
- <label style="display:block;font-size:14px;font-weight:700;color:#333;margin-bottom:6px;">Last Name</label>
- <input type="text" name="last_name" id="last_name_en" style="width:100%;padding:12px 14px;border:2px solid #e5e5e5;border-radius:8px;font-size:15px;font-family:Arial,sans-serif;box-sizing:border-box;" required>
- </div>
- </div>
- <div style="margin-bottom:18px;">
- <label style="display:block;font-size:14px;font-weight:700;color:#333;margin-bottom:6px;">Phone</label>
- <input type="tel" name="phone" id="phone_en" style="width:100%;padding:12px 14px;border:2px solid #e5e5e5;border-radius:8px;font-size:15px;font-family:Arial,sans-serif;box-sizing:border-box;" required>
- </div>
- <div style="margin-bottom:18px;">
- <label style="display:block;font-size:14px;font-weight:700;color:#333;margin-bottom:6px;">Email</label>
- <input type="email" name="email" id="email_en" style="width:100%;padding:12px 14px;border:2px solid #e5e5e5;border-radius:8px;font-size:15px;font-family:Arial,sans-serif;box-sizing:border-box;" required>
- </div>
- <div style="margin-bottom:18px;">
- <label style="display:block;font-size:14px;font-weight:700;color:#333;margin-bottom:6px;">What brought you here?</label>
- <select name="private_reason" id="private_reason_en" style="width:100%;padding:12px 14px;border:2px solid #e5e5e5;border-radius:8px;font-size:15px;font-family:Arial,sans-serif;background:white;box-sizing:border-box;">
- <option value="">Select...</option>
- <option value="I just lost my job">I just lost my job</option>
- <option value="COBRA is too expensive">COBRA is too expensive</option>
- <option value="I'm self-employed or freelance">I'm self-employed or freelance</option>
- <option value="My family needs coverage">My family needs coverage</option>
- <option value="I just moved to Florida">I just moved to Florida</option>
- <option value="I own a small business">I own a small business</option>
- <option value="Just exploring">Just exploring</option>
- </select>
- </div>
- <div style="margin-bottom:18px;">
- <label style="display:block;font-size:14px;font-weight:700;color:#333;margin-bottom:6px;">Anything you'd like to share? <span style="font-weight:400;color:#888;">(optional)</span></label>
- <textarea name="additional_notes" id="additional_notes_en" placeholder="e.g. I need to keep my cardiologist, or I take 3 medications..." style="width:100%;padding:12px 14px;border:2px solid #e5e5e5;border-radius:8px;font-size:15px;font-family:Arial,sans-serif;min-height:80px;resize:vertical;box-sizing:border-box;"></textarea>
- </div>
- <div style="display:flex;align-items:flex-start;gap:10px;margin:18px 0;">
- <input type="checkbox" id="privateConsent" name="consent" id="consent_en" style="margin-top:4px;flex-shrink:0;" required>
- <label for="privateConsent" style="font-size:13px;color:#555;line-height:1.5;">By submitting this form, I consent to receive calls, texts, and emails from The Health Experts Insurance at the number and email provided, including automated dialing. Consent is not required to purchase services.</label>
- </div>
- <button type="submit" style="width:100%;background:#ff1090;color:white;border:none;padding:14px;border-radius:50px;font-size:16px;font-weight:700;cursor:pointer;font-family:Arial,sans-serif;">Get my free quote →</button>
- </form>
- </div>
- </div>
-</section>
-<script>
-document.getElementById('privateForm').addEventListener('submit',function(e){
- e.preventDefault();
- var form=this;
- fetch(form.action,{method:'POST',body:new FormData(form)})
- .then(function(){document.getElementById('private-form-success').style.display='block';form.style.display='none';})
- .catch(function(){form.submit();});
-});
 </script>
 
 <section class="cta-strip">
