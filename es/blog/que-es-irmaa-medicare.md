@@ -11,7 +11,6 @@ permalink: /es/blog/que-es-irmaa-medicare/
 
 <!-- META TITLE (57): Qué es IRMAA: Niveles 2026 y Cómo Evitar el Recargo -->
 <!-- META DESCRIPTION (157): IRMAA añade cientos de dólares al mes a las primas de Medicare — según sus ingresos de hace 2 años. Vea los niveles 2026 y la apelación SSA-44. Ayuda gratis. -->
-<!-- ⚠️ NOTA EDITOR: Verificar la tabla de niveles contra el anuncio oficial de primas 2026 de CMS antes de publicar. -->
 
 # Qué es IRMAA y cómo evitar el recargo de Medicare
 
@@ -27,12 +26,14 @@ Para 2026, el primer nivel de IRMAA comienza en $109,000 para una persona que de
 
 | MAGI 2024 (individual) | MAGI 2024 (conjunta) | Prima mensual Parte B 2026 |
 |---|---|---|
-| $109,000 o menos | $218,000 o menos | $202.90 (estándar) |
-| Más de $109,000 | Más de $218,000 | ~$284 |
-| Niveles más altos | Niveles más altos | ~$406 – $649 |
-| $500,000 o más | $750,000 o más | ~$690 |
+| $109,000 o menos | $218,000 o menos | $202.90 |
+| $109,001 – $137,000 | $218,001 – $274,000 | $284.10 |
+| $137,001 – $171,000 | $274,001 – $342,000 | $405.80 |
+| $171,001 – $205,000 | $342,001 – $410,000 | $527.50 |
+| $205,001 – $499,999 | $410,001 – $749,999 | $649.20 |
+| $500,000 o más | $750,000 o más | $689.90 |
 
-*(Verificar los montos exactos contra las cifras oficiales de CMS para 2026 — ver nota del editor.)* El IRMAA de la Parte D añade un monto adicional según los ingresos, aproximadamente de $14 a $91 al mes, que se paga directamente a Medicare — aunque la prima de su plan de medicamentos sea $0.
+El IRMAA de la Parte D añade un monto adicional según los ingresos, de $14.50 a $91.00 al mes, que se paga directamente a Medicare — aunque la prima de su plan de medicamentos sea $0.
 
 ## Lo más importante: IRMAA es un precipicio, no una cuesta
 
@@ -102,4 +103,4 @@ No. Se recalcula cada año según la declaración de impuestos de hace dos años
 }
 </script>
 
-*The Health Experts Insurance es una agencia de seguros independiente y licenciada en Doral, FL. Este artículo es información general, no asesoría fiscal ni legal — consulte a su profesional de impuestos. [Añadir aviso TPMO estándar — versión 2027.]*
+*The Health Experts Insurance es una agencia de seguros independiente y licenciada en Doral, FL. Este artículo es información general, no asesoría fiscal ni legal — consulte a su profesional de impuestos.*

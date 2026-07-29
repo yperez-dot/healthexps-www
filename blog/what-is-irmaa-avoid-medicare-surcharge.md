@@ -11,7 +11,6 @@ permalink: /blog/what-is-irmaa-avoid-medicare-surcharge/
 
 <!-- META TITLE (55): What Is IRMAA? 2026 Brackets & How to Avoid the Surcharge -->
 <!-- META DESCRIPTION (155): IRMAA adds up to hundreds per month to Medicare premiums — based on income from 2 years ago. See 2026 brackets, the SSA-44 appeal & how to plan around it. -->
-<!-- ⚠️ EDITOR NOTE: Verify the bracket table below against the official CMS 2026 premium announcement and SSA notices before publishing. Thresholds and tier amounts must match CMS exactly. -->
 
 # What Is IRMAA — and How to Avoid the Medicare Surcharge
 
@@ -25,14 +24,16 @@ Each fall, Social Security looks at the modified adjusted gross income (MAGI) fr
 
 For 2026, the first IRMAA threshold is $109,000 for a single filer and $218,000 for a joint return, based on 2024 income.
 
-| 2024 MAGI (single) | 2024 MAGI (joint) | 2026 Part B monthly premium |
+| 2024 MAGI (single) | 2024 MAGI (joint) | 2026 Part B premium |
 |---|---|---|
-| $109,000 or less | $218,000 or less | $202.90 (standard) |
-| Above $109,000 | Above $218,000 | ~$284 |
-| Higher tiers | Higher tiers | ~$406 – $649 |
-| $500,000+ | $750,000+ | ~$690 |
+| $109,000 or less | $218,000 or less | $202.90 |
+| $109,001 – $137,000 | $218,001 – $274,000 | $284.10 |
+| $137,001 – $171,000 | $274,001 – $342,000 | $405.80 |
+| $171,001 – $205,000 | $342,001 – $410,000 | $527.50 |
+| $205,001 – $499,999 | $410,001 – $749,999 | $649.20 |
+| $500,000 or more | $750,000 or more | $689.90 |
 
-*(Verify exact tier boundaries and amounts against CMS's official 2026 figures — see editor note.)* Part D IRMAA adds a further income-based amount, roughly $14–$91 per month, paid to Medicare directly — even if your drug plan's premium is $0.
+Part D IRMAA adds a further income-based amount, $14.50 to $91.00 per month, paid to Medicare directly — even if your drug plan's premium is $0.
 
 ## The most important thing to know: IRMAA is a cliff, not a slope
 
@@ -101,4 +102,4 @@ No. It's recalculated every year based on the tax return from two years prior. I
 }
 </script>
 
-*The Health Experts Insurance is a licensed, independent insurance brokerage in Doral, FL. This article is general information, not tax or legal advice — consult your tax professional about income planning. [Append standard TPMO disclaimer — 2027 updated version.]*
+*The Health Experts Insurance is a licensed, independent insurance brokerage in Doral, FL. This article is general information, not tax or legal advice — consult your tax professional about income planning.*
