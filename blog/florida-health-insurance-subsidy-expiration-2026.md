@@ -22,12 +22,15 @@ Back in 2021, the American Rescue Plan expanded the ACA's premium tax credits (P
 
 Those enhancements expired December 31, 2025. Congress did not renew them.
 
-Here's what that looks like in real numbers for a Florida family:
+**What this actually looks like**
 
-- A family of four earning $85,000/year might have paid **~$350/month** in 2025 with enhanced subsidies.
-- In 2026, that same family could be looking at **$550–$700/month** — or more — for the same plan.
+The math changed at the formula level, not just at the edges. Your credit is the benchmark Silver premium in your area minus what the IRS expects you to contribute — and that expected contribution rose sharply.
 
-That's not a small change. That's hundreds of dollars a month that people weren't budgeting for. If you're searching for "health insurance after subsidy expiration 2026" trying to make sense of this, the confusion is completely understandable.
+A household at 200% of the federal poverty level (about $64,300 for a family of four) was expected to put 2% of its income toward the benchmark plan in 2025. For 2026, that figure is 6.6% — roughly triple. Same income, same plan, three times the required contribution. At the top of the eligible range it now reaches 9.96%.
+
+Above 400% FPL, the credit is zero.
+
+What that means in dollars depends on the benchmark plan in your ZIP code, your ages, and your household size — which is why we run your real numbers instead of quoting averages.
 
 ---
 
