@@ -51,15 +51,15 @@ One of the most important things to know about the ACA Marketplace is that **mos
 
 ### Income Thresholds for 2026
 
-ACA subsidies are available to individuals and families earning between **100% and 400% of the Federal Poverty Level (FPL)**. Enhanced subsidies under the Inflation Reduction Act extended eligibility further — even households above 400% FPL may qualify for reduced premiums if their plan costs exceed a certain percentage of their income.
+ACA subsidies are available to individuals and families earning between **100% and 400% of the Federal Poverty Level (FPL)**. In 2026 the enhanced subsidies expired and the 400% FPL cliff returned. Above $62,600 for a single filer, the credit is zero.
 
 General 2026 income guidelines (approximate):
 
 | Household Size | 100% FPL | 400% FPL |
 |---|---|---|
-| 1 person | ~$15,060 | ~$60,240 |
+| 1 person | ~$15,650 | ~$62,600 |
 | 2 people | ~$20,440 | ~$81,760 |
-| 4 people | ~$31,200 | ~$124,800 |
+| 4 people | ~$32,150 | ~$128,600 |
 
 **Important:** If you qualify for Medicaid, you're not eligible for Marketplace subsidies. If you have affordable employer coverage offered to you, your subsidy eligibility may be limited.
 

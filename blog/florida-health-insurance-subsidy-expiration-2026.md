@@ -59,7 +59,7 @@ When does COBRA make sense? If you're in the middle of an ongoing medical situat
 
 ### 4. Medicaid and CHIP (If Your Income Qualifies)
 
-Florida expanded Medicaid in 2023, which opened the door for more low-income adults to qualify. If your income dropped this year — or if you have children in the household — it's worth checking whether your family qualifies for Medicaid or the Children's Health Insurance Program (CHIP).
+Florida has not expanded Medicaid under the ACA. Adults below 100% of the federal poverty level who do not qualify for Florida Medicaid through another category — such as having dependents or a qualifying disability — fall into a coverage gap: too little income for a Marketplace subsidy, and not enough to qualify for Medicaid. If your income dropped this year and you have children in the household, it is worth checking whether your family qualifies for Medicaid or CHIP.
 
 Eligibility is based on current income, so even if you didn't qualify before, a job change or reduced hours might change your status. A licensed agent can help you check this at no cost to you.
 
