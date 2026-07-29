@@ -24,14 +24,26 @@ Each fall, Social Security looks at the modified adjusted gross income (MAGI) fr
 
 For 2026, the first IRMAA threshold is $109,000 for a single filer and $218,000 for a joint return, based on 2024 income.
 
-| 2024 MAGI (single) | 2024 MAGI (joint) | 2026 Part B premium |
-|---|---|---|
-| $109,000 or less | $218,000 or less | $202.90 |
-| $109,001 – $137,000 | $218,001 – $274,000 | $284.10 |
-| $137,001 – $171,000 | $274,001 – $342,000 | $405.80 |
-| $171,001 – $205,000 | $342,001 – $410,000 | $527.50 |
-| $205,001 – $499,999 | $410,001 – $749,999 | $649.20 |
-| $500,000 or more | $750,000 or more | $689.90 |
+<style>
+.irmaa-table { table-layout: fixed; }
+.irmaa-table th, .irmaa-table td { text-align: left; vertical-align: middle; word-wrap: break-word; }
+</style>
+<table class="irmaa-table">
+<thead><tr>
+<th>2024 MAGI (single)</th>
+<th>2024 MAGI (joint)</th>
+<th>2026 Part B premium (total)</th>
+<th>Part D IRMAA (added to your plan premium)</th>
+</tr></thead>
+<tbody>
+<tr><td>$109,000 or less</td><td>$218,000 or less</td><td>$202.90</td><td>$0</td></tr>
+<tr><td>$109,001 – $137,000</td><td>$218,001 – $274,000</td><td>$284.10</td><td>+$14.50</td></tr>
+<tr><td>$137,001 – $171,000</td><td>$274,001 – $342,000</td><td>$405.80</td><td>+$37.50</td></tr>
+<tr><td>$171,001 – $205,000</td><td>$342,001 – $410,000</td><td>$527.50</td><td>+$60.40</td></tr>
+<tr><td>$205,001 – $499,999</td><td>$410,001 – $749,999</td><td>$649.20</td><td>+$83.30</td></tr>
+<tr><td>$500,000 or more</td><td>$750,000 or more</td><td>$689.90</td><td>+$91.00</td></tr>
+</tbody>
+</table>
 
 Part D IRMAA adds a further income-based amount, $14.50 to $91.00 per month, paid to Medicare directly — even if your drug plan's premium is $0.
 

@@ -24,14 +24,26 @@ Cada otoño, el Seguro Social revisa el ingreso bruto ajustado modificado (MAGI)
 
 Para 2026, el primer nivel de IRMAA comienza en $109,000 para una persona que declara sola y $218,000 para una declaración conjunta, según los ingresos de 2024.
 
-| MAGI 2024 (individual) | MAGI 2024 (conjunta) | Prima mensual Parte B 2026 |
-|---|---|---|
-| $109,000 o menos | $218,000 o menos | $202.90 |
-| $109,001 – $137,000 | $218,001 – $274,000 | $284.10 |
-| $137,001 – $171,000 | $274,001 – $342,000 | $405.80 |
-| $171,001 – $205,000 | $342,001 – $410,000 | $527.50 |
-| $205,001 – $499,999 | $410,001 – $749,999 | $649.20 |
-| $500,000 o más | $750,000 o más | $689.90 |
+<style>
+.irmaa-table { table-layout: fixed; }
+.irmaa-table th, .irmaa-table td { text-align: left; vertical-align: middle; word-wrap: break-word; }
+</style>
+<table class="irmaa-table">
+<thead><tr>
+<th>MAGI 2024 (individual)</th>
+<th>MAGI 2024 (conjunta)</th>
+<th>Prima Parte B 2026 (total)</th>
+<th>IRMAA Parte D (se suma a la prima de su plan)</th>
+</tr></thead>
+<tbody>
+<tr><td>$109,000 o menos</td><td>$218,000 o menos</td><td>$202.90</td><td>$0</td></tr>
+<tr><td>$109,001 – $137,000</td><td>$218,001 – $274,000</td><td>$284.10</td><td>+$14.50</td></tr>
+<tr><td>$137,001 – $171,000</td><td>$274,001 – $342,000</td><td>$405.80</td><td>+$37.50</td></tr>
+<tr><td>$171,001 – $205,000</td><td>$342,001 – $410,000</td><td>$527.50</td><td>+$60.40</td></tr>
+<tr><td>$205,001 – $499,999</td><td>$410,001 – $749,999</td><td>$649.20</td><td>+$83.30</td></tr>
+<tr><td>$500,000 o más</td><td>$750,000 o más</td><td>$689.90</td><td>+$91.00</td></tr>
+</tbody>
+</table>
 
 El IRMAA de la Parte D añade un monto adicional según los ingresos, de $14.50 a $91.00 al mes, que se paga directamente a Medicare — aunque la prima de su plan de medicamentos sea $0.
 
