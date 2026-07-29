@@ -99,4 +99,4 @@ En la mayoría de los casos, sí. Los beneficiarios con doble elegibilidad o Ayu
 }
 </script>
 
-*The Health Experts Insurance es una agencia de seguros independiente y licenciada en Doral, FL. Los beneficios descritos varían según el plan y el nivel de elegibilidad. [Añadir aviso TPMO estándar — versión 2027.]*
+*The Health Experts Insurance es una agencia de seguros independiente y licenciada en Doral, FL. Los beneficios descritos varían según el plan y el nivel de elegibilidad.*
