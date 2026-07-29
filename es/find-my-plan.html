@@ -6,7 +6,7 @@
 <link rel="stylesheet" href="../css/global.css">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Encuentra Mi Plan de Salud | Quiz Gratuito | Health Experts</title>
-<meta name="description" content="Responde 5 preguntas rápidas y te decimos cuál plan de salud es el mejor para ti — y si calificas para subsidios que podrían reducir tu costo a $0. Corredores bilingües en Miami.">
+<meta name="description" content="Responda 5 preguntas rápidas y le mostramos qué plan de salud se ajusta a su situación — y a qué ayuda financiera podría calificar. Corredores bilingües en Miami. Para personas de 64 años o menos.">
 <link rel="canonical" href="https://www.healthexps.com/es/find-my-plan/">
 <link rel="alternate" hreflang="es" href="https://www.healthexps.com/es/encuentra-mi-plan"//>
 <link rel="alternate" hreflang="en" href="https://www.healthexps.com/find-my-plan"//>
@@ -223,529 +223,601 @@ Encuentra Mi Plan →
 </div>
 
 <div class="quiz-shell">
- <div class="quiz-header">
- <div class="quiz-eyebrow">Gratis · 2 minutos · Sin obligación</div>
- <h1 class="quiz-headline">Encuentra Tu Mejor Plan de Salud</h1>
- <p class="quiz-subhead">Responde 5 preguntas rápidas y te mostramos qué plan se ajusta a tu situación — y si calificas para subsidios que podrían reducir tu costo a $0.</p>
- </div>
+<div class="quiz-shell">
 
- <div class="progress-wrap" id="progress-wrap">
- <div class="progress-bar-bg"><div class="progress-bar-fill" id="progress-fill" style="width:20%;"></div></div>
- <div class="progress-label" id="progress-label">Pregunta 1 de 5</div>
- </div>
+  <!-- CABECERA -->
+  <div class="quiz-header">
+    <div class="quiz-eyebrow">Gratis &middot; 2 minutos &middot; Sin obligaci&oacute;n</div>
+    <h1 class="quiz-headline">Encuentre Su Plan de Salud en 2 Minutos</h1>
+    <p class="quiz-subhead">Responda 5 preguntas r&aacute;pidas y le mostramos si un plan del Mercado (Obamacare) o un plan privado se ajusta a su situaci&oacute;n &mdash; y a qu&eacute; ayuda financiera podr&iacute;a calificar. Para personas de 64 a&ntilde;os o menos.</p>
+  </div>
 
- <div class="quiz-card" id="quiz-card">
+  <!-- PROGRESO -->
+  <div class="progress-wrap" id="progress-wrap">
+    <div class="progress-bar-bg"><div class="progress-bar-fill" id="progress-fill" style="width:20%;"></div></div>
+    <div class="progress-label" id="progress-label">Pregunta 1 de 5</div>
+  </div>
 
- <!-- PASO 1: Edad -->
- <div class="step" id="step-1">
- <div class="step-q">¿Cuántos años tienes?</div>
- <div class="step-hint">Esto determina qué tipos de planes están disponibles para ti.</div>
- <div class="options">
- <button class="option" onclick="selectOption(this,'edad','menor-55')"><div class="option-text"><span class="option-main">Menos de 55 años</span><span class="option-sub">Planes ACA y privados disponibles</span></div></button>
- <button class="option" onclick="selectOption(this,'edad','55-63')"><div class="option-text"><span class="option-main">55–63 años</span><span class="option-sub">Planes ACA disponibles — cerca de Medicare</span></div></button>
- <button class="option" onclick="selectOption(this,'edad','64')"><div class="option-text"><span class="option-main">64 años — pronto cumplo 65</span><span class="option-sub">Puede necesitar un plan puente antes de Medicare</span></div></button>
- <button class="option" onclick="selectOption(this,'edad','65-mas')"><div class="option-text"><span class="option-main">65 años o más</span><span class="option-sub">Elegible para Medicare — opciones diferentes</span></div></button>
- </div>
- </div>
+  <!-- PANTALLA DE SALIDA (65+) -->
+  <div id="exit-screen" style="display:none;">
+    <div class="quiz-card">
+      <div style="text-align:center;margin-bottom:20px;">
+        <div style="font-size:48px;margin-bottom:12px;">&#128269;</div>
+        <h2 style="font-size:22px;font-weight:700;color:#1a1a1a;margin-bottom:14px;line-height:1.3;">Medicare funciona diferente &mdash; y eso es una buena noticia.</h2>
+        <p style="font-size:15px;color:#555;line-height:1.7;margin-bottom:20px;">A los 65 a&ntilde;os usted es elegible para Medicare, que tiene sus propios planes, sus propios per&iacute;odos de inscripci&oacute;n y sus propios programas de ayuda financiera. Este cuestionario es para personas menores de 65 a&ntilde;os, as&iacute; que no le va a dar una respuesta &uacute;til.</p>
+        <p style="font-size:15px;color:#1a1a1a;font-weight:700;margin-bottom:16px;">Aqu&iacute; puede continuar:</p>
+        <div style="display:flex;flex-direction:column;gap:10px;margin-bottom:20px;">
+          <a href="/es/planes-de-medicare-miami" style="display:block;background:#452068;color:white;padding:14px;border-radius:50px;font-weight:700;font-size:15px;text-decoration:none;text-align:center;">Comparar planes de Medicare</a>
+          <a href="/es/planes-de-medicare-miami" style="display:block;background:#f4eefa;color:#452068;padding:14px;border-radius:50px;font-weight:700;font-size:15px;text-decoration:none;text-align:center;">Ver planes en su c&oacute;digo postal</a>
+          <a href="https://calendly.com/healthexps-info/" target="_blank" rel="noopener" style="display:block;background:#ff1090;color:white;padding:14px;border-radius:50px;font-weight:700;font-size:15px;text-decoration:none;text-align:center;">Hablar con un corredor licenciado &mdash; gratis</a>
+        </div>
+        <p style="font-size:13px;color:#555;line-height:1.6;border-top:1px solid #e5e5e5;padding-top:16px;">&iquest;Todav&iacute;a trabaja y tiene cobertura de su empleador, o est&aacute; ayudando a un familiar menor de 65 a&ntilde;os? Ll&aacute;menos al <a href="tel:18003806821" style="color:#452068;font-weight:600;">1-800-380-6821</a> &mdash; le orientamos sin costo.</p>
+      </div>
+    </div>
+    <!-- CAPTURA MEDICARE -->
+    <div class="quiz-card" style="margin-top:20px;" id="mc-lead-card">
+      <h3 style="font-size:18px;font-weight:700;color:#1a1a1a;margin-bottom:8px;">&iquest;Quiere que un corredor licenciado lo llame sobre Medicare?</h3>
+      <p style="font-size:14px;color:#555;margin-bottom:20px;line-height:1.6;">Gratis, en espa&ntilde;ol, sin compromiso. Revisamos sus opciones y le respondemos lo que necesite.</p>
+      <div id="mc-success" style="display:none;background:#f0fdf4;border:1.5px solid #16a34a;border-radius:14px;padding:16px;font-size:14px;color:#166534;line-height:1.6;margin-bottom:16px;">
+        Listo &mdash; un agente biling&uuml;e licenciado se comunicar&aacute; con usted. &iquest;Lo necesita antes? Llame al <a href="tel:18003806821" style="color:#166534;font-weight:600;">1-800-380-6821</a> o esr&iacute;banos por WhatsApp al <a href="https://wa.me/13054646888" onclick="gtag('event','whatsapp_click',{'page':window.location.pathname})" style="color:#166534;font-weight:600;">(305) 464-6888</a>.
+      </div>
+      <div class="contact-fields" id="mc-form-fields">
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;">
+          <div class="contact-field">
+            <label class="contact-label" for="mc-first">Nombre</label>
+            <input type="text" id="mc-first" class="contact-input" placeholder="Su nombre">
+          </div>
+          <div class="contact-field">
+            <label class="contact-label" for="mc-last">Apellido</label>
+            <input type="text" id="mc-last" class="contact-input" placeholder="Su apellido">
+          </div>
+        </div>
+        <div class="contact-field">
+          <label class="contact-label" for="mc-phone">Tel&eacute;fono</label>
+          <input type="tel" id="mc-phone" class="contact-input" placeholder="(305) 555-0100">
+        </div>
+        <div class="contact-field">
+          <label class="contact-label" for="mc-email">Correo electr&oacute;nico</label>
+          <input type="email" id="mc-email" class="contact-input" placeholder="su@correo.com">
+        </div>
+        <div class="contact-field">
+          <label class="contact-label" for="mc-situation">&iquest;Qu&eacute; necesita?</label>
+          <select id="mc-situation" class="contact-input" style="background:white;cursor:pointer;">
+            <option value="">Seleccionar...</option>
+            <option value="new_to_medicare">Soy nuevo en Medicare / cumplo 65 a&ntilde;os</option>
+            <option value="review_plan">Quiero revisar mi plan actual</option>
+            <option value="dual_eligible">Tengo Medicare y Medicaid</option>
+            <option value="plan_changing">Mi plan est&aacute; cambiando o se va de mi &aacute;rea</option>
+            <option value="questions">Solo tengo preguntas</option>
+          </select>
+        </div>
+        <div class="consent-wrap">
+          <label class="consent-checkbox">
+            <input type="checkbox" id="mc-consent">
+            <div class="consent-text">
+              <strong>Permiso para Contactar:</strong> Doy mi consentimiento para recibir correos electr&oacute;nicos, llamadas telef&oacute;nicas, mensajes de texto y mensajes artificiales o pregrabados de agentes de seguros con licencia de The Health Experts Insurance, sobre planes de seguro m&eacute;dico y productos y servicios relacionados, al correo electr&oacute;nico y n&uacute;mero de tel&eacute;fono proporcionados, incluyendo mi n&uacute;mero inal&aacute;mbrico (si se proporcion&oacute;), independientemente de si est&aacute; en cualquier lista de no llamar, utilizando un sistema de marcado telef&oacute;nico automatizado. Entiendo que se aplican las tarifas est&aacute;ndar de mensajes y datos de mi proveedor inal&aacute;mbrico. Entiendo que puedo revocar este consentimiento en cualquier momento. Entiendo que tengo la opci&oacute;n de hablar con un agente de seguros con licencia sin otorgar este consentimiento llamando al <a href="tel:18003806821">1-800-380-6821</a> TTY 711.
+            </div>
+          </label>
+        </div>
+      </div>
+      <div id="mc-error" style="display:none;color:#dc2626;font-size:13px;margin-top:8px;"></div>
+      <button onclick="submitMedicareExit()" id="mc-submit-btn" style="margin-top:16px;background:#452068;color:white;border:none;padding:14px 28px;border-radius:50px;font-size:15px;font-weight:700;cursor:pointer;font-family:Arial,Helvetica,sans-serif;width:100%;transition:background 0.2s;">Que me llame un corredor</button>
+      <div class="tpmo-disclaimer" style="margin-top:20px;">Medicare has not reviewed or endorsed this information. We do not offer every plan available in your area. We currently represent 14 organizations offering 82 products in your area. Please contact Medicare.gov, 1-800-MEDICARE, or your local SHIP program for information about all your options.</div>
+    </div>
+    <div class="trust-bar" style="margin-top:20px;">
+      <div class="trust-item">Corredores con licencia</div>
+      <div class="trust-item">Espa&ntilde;ol &amp; English</div>
+      <div class="trust-item">Sin spam</div>
+      <div class="trust-item">100% gratis</div>
+    </div>
+  </div><!-- /exit-screen -->
 
- <!-- PASO 2: Cobertura actual -->
- <div class="step" id="step-2" style="display:none;">
- <div class="step-q">¿Cuál es tu situación de seguro actual?</div>
- <div class="step-hint">Esto nos ayuda a entender tu fecha límite y urgencia.</div>
- <div class="options">
- <button class="option" onclick="selectOption(this,'cobertura','ninguna')"><div class="option-text"><span class="option-main">No tengo seguro ahora</span><span class="option-sub">Necesito cobertura lo antes posible</span></div></button>
- <button class="option" onclick="selectOption(this,'cobertura','perdiendo')"><div class="option-text"><span class="option-main">Voy a perder mi cobertura pronto</span><span class="option-sub">Pérdida de empleo, COBRA terminando, o plan cancelado</span></div></button>
- <button class="option" onclick="selectOption(this,'cobertura','cobra')"><div class="option-text"><span class="option-main">Estoy en COBRA — es muy caro</span><span class="option-sub">Buscando una opción más económica</span></div></button>
- <button class="option" onclick="selectOption(this,'cobertura','otro')"><div class="option-text"><span class="option-main">Otro</span><span class="option-sub">Por favor describe abajo</span></div></button>
- </div>
- <div id="other-input-wrap" style="display:none;margin-top:14px;">
- <textarea id="other-input" placeholder="Cuéntanos más sobre tu situación..." style="width:100%;padding:12px;border:2px solid var(--gray-mid);border-radius:var(--radius);font-family:var(--font);font-size:14px;min-height:80px;resize:vertical;"></textarea>
- </div>
- </div>
+  <!-- TARJETA DEL CUESTIONARIO -->
+  <div class="quiz-card" id="quiz-card">
 
- <!-- PASO 3: Tamaño del hogar -->
- <div class="step" id="step-3" style="display:none;">
- <div class="step-q">¿Cuántas personas necesitan cobertura?</div>
- <div class="step-hint">Inclúyete a ti, tu cónyuge y cualquier dependiente.</div>
- <div class="options-grid">
- <button class="option-grid-btn" onclick="selectGrid(this,'hogar','1')"><div class="ogb-main">Solo yo</div><div class="ogb-sub">Plan individual</div></button>
- <button class="option-grid-btn" onclick="selectGrid(this,'hogar','2')"><div class="ogb-main">Yo + cónyuge</div><div class="ogb-sub">2 adultos</div></button>
- <button class="option-grid-btn" onclick="selectGrid(this,'hogar','3')"><div class="ogb-main">Familia de 3</div><div class="ogb-sub">2 adultos + 1 hijo</div></button>
- <button class="option-grid-btn" onclick="selectGrid(this,'hogar','4mas')"><div class="ogb-main">Familia de 4+</div><div class="ogb-sub">Familia más grande</div></button>
- </div>
- </div>
+    <!-- PASO 1: Edad -->
+    <div class="step" id="step-1">
+      <div class="step-q">&iquest;Cu&aacute;ntos a&ntilde;os tiene?</div>
+      <div class="step-hint">Esto afecta qu&eacute; planes puede comprar y cu&aacute;nto le van a costar.</div>
+      <div class="options">
+        <button class="option" onclick="selectOption(this,'age','18-30')"><div class="option-text"><span class="option-main">18 a 30 a&ntilde;os</span><span class="option-sub">Las primas m&aacute;s bajas de la escala &mdash; y antes de los 30, los planes catastr&oacute;ficos tambi&eacute;n son una opci&oacute;n</span></div></button>
+        <button class="option" onclick="selectOption(this,'age','31-49')"><div class="option-text"><span class="option-main">31 a 49 a&ntilde;os</span><span class="option-sub">Planes del Mercado (Obamacare) y privados disponibles</span></div></button>
+        <button class="option" onclick="selectOption(this,'age','50-63')"><div class="option-text"><span class="option-main">50 a 63 a&ntilde;os</span><span class="option-sub">Las primas suben en este rango &mdash; aqu&iacute; es donde m&aacute;s importa revisar el subsidio</span></div></button>
+        <button class="option" onclick="selectOption(this,'age','64')"><div class="option-text"><span class="option-main">64 a&ntilde;os &mdash; cumplo 65 este a&ntilde;o</span><span class="option-sub">Puede necesitar un plan puente antes de que empiece Medicare</span></div></button>
+        <button class="option" onclick="selectOption(this,'age','65-plus')"><div class="option-text"><span class="option-main">65 a&ntilde;os o m&aacute;s</span><span class="option-sub">Usted es elegible para Medicare &mdash; aplican reglas diferentes</span></div></button>
+      </div>
+    </div>
 
- <!-- PASO 4: Ingresos -->
- <div class="step" id="step-4" style="display:none;">
- <div class="step-q">¿Cuál es tu ingreso familiar anual aproximado?</div>
- <div class="step-hint">Esto determina si calificas para subsidios del ACA. Tu respuesta es privada.</div>
- <div class="options-grid">
- <button class="option-grid-btn" onclick="selectGrid(this,'ingreso','menos-30k')"><div class="ogb-main">Menos de $30,000</div><div class="ogb-sub">Puede calificar para Medicaid</div></button>
- <button class="option-grid-btn" onclick="selectGrid(this,'ingreso','30k-60k')"><div class="ogb-main">$30,000–$60,000</div><div class="ogb-sub">Probablemente califica para subsidios</div></button>
- <button class="option-grid-btn" onclick="selectGrid(this,'ingreso','60k-100k')"><div class="ogb-main">$60,000–$100,000</div><div class="ogb-sub">Puede calificar para algún subsidio</div></button>
- <button class="option-grid-btn" onclick="selectGrid(this,'ingreso','100k-150k')"><div class="ogb-main">$100,000–$150,000</div><div class="ogb-sub">Subsidio pequeño posible</div></button>
- <button class="option-grid-btn" onclick="selectGrid(this,'ingreso','mas-150k')"><div class="ogb-main">Más de $150,000</div><div class="ogb-sub">Prima completa, mejor cobertura</div></button>
- <button class="option-grid-btn" onclick="selectGrid(this,'ingreso','no-se')"><div class="ogb-main">No estoy seguro</div><div class="ogb-sub">Te ayudamos a calcularlo</div></button>
- </div>
- </div>
+    <!-- PASO 2: Situaci&oacute;n de seguro -->
+    <div class="step" id="step-2" style="display:none;">
+      <div class="step-q">&iquest;Cu&aacute;l es su situaci&oacute;n de seguro actual?</div>
+      <div class="step-hint">Esto nos ayuda a entender su fecha l&iacute;mite y urgencia.</div>
+      <div class="options">
+        <button class="option" onclick="selectOption(this,'coverage','none')"><div class="option-text"><span class="option-main">No tengo seguro ahora</span><span class="option-sub">Necesito cobertura lo antes posible</span></div></button>
+        <button class="option" onclick="selectOption(this,'coverage','losing')"><div class="option-text"><span class="option-main">Voy a perder mi cobertura pronto</span><span class="option-sub">P&eacute;rdida de empleo, COBRA terminando, o plan cancelado</span></div></button>
+        <button class="option" onclick="selectOption(this,'coverage','cobra')"><div class="option-text"><span class="option-main">Estoy en COBRA &mdash; es muy caro</span><span class="option-sub">Buscando una opci&oacute;n m&aacute;s econ&oacute;mica</span></div></button>
+        <button class="option" onclick="selectOption(this,'coverage','renewing')"><div class="option-text"><span class="option-main">Estoy renovando mi cobertura del Mercado</span><span class="option-sub">Quiero comparar antes de renovar</span></div></button>
+        <button class="option" onclick="selectOption(this,'coverage','turning_26')"><div class="option-text"><span class="option-main">Voy a cumplir 26 y salgo del plan de mis padres</span><span class="option-sub">Esto abre un Per&iacute;odo Especial de Inscripci&oacute;n de 60 d&iacute;as</span></div></button>
+        <button class="option" onclick="selectOption(this,'coverage','other')"><div class="option-text"><span class="option-main">Otro</span><span class="option-sub">Por favor describa abajo</span></div></button>
+      </div>
+      <div id="other-input-wrap" style="display:none;margin-top:14px;">
+        <textarea id="other-input" placeholder="Cu&eacute;ntenos m&aacute;s sobre su situaci&oacute;n..." style="width:100%;padding:12px;border:2px solid #e5e5e5;border-radius:14px;font-family:Arial,Helvetica,sans-serif;font-size:14px;min-height:80px;resize:vertical;"></textarea>
+      </div>
+    </div>
 
- <!-- PASO 5: Prioridad -->
- <div class="step" id="step-5" style="display:none;">
- <div class="step-q">¿Qué es lo más importante para ti en un plan de salud?</div>
- <div class="step-hint">Ayúdanos a encontrarte la mejor opción.</div>
- <div class="options">
- <button class="option" onclick="selectOption(this,'prioridad','prima-baja')"><div class="option-text"><span class="option-main">Prima mensual más baja</span><span class="option-sub">Prefiero pagar menos al mes aunque pague más cuando use el seguro</span></div></button>
- <button class="option" onclick="selectOption(this,'prioridad','mejor-cobertura')"><div class="option-text"><span class="option-main">Cobertura más completa</span><span class="option-sub">Quiero estar cubierto para todo con copagos bajos</span></div></button>
- <button class="option" onclick="selectOption(this,'prioridad','mis-medicos')"><div class="option-text"><span class="option-main">Mantener mis médicos actuales</span><span class="option-sub">Mis médicos y especialistas son lo más importante</span></div></button>
- <button class="option" onclick="selectOption(this,'prioridad','rapido')"><div class="option-text"><span class="option-main">Conseguir cobertura lo más rápido posible</span><span class="option-sub">Necesito que la cobertura comience rápido</span></div></button>
- </div>
- </div>
+    <!-- PASO 3: Tama&ntilde;o del hogar -->
+    <div class="step" id="step-3" style="display:none;">
+      <div class="step-q">&iquest;Cu&aacute;ntas personas necesitan cobertura?</div>
+      <div class="step-hint">Incl&uacute;yase usted, su c&oacute;nyuge y cualquier dependiente.</div>
+      <div class="options-grid">
+        <button class="option-grid-btn" onclick="selectGrid(this,'household','1')"><div class="ogb-main">Solo yo</div><div class="ogb-sub">Plan individual</div></button>
+        <button class="option-grid-btn" onclick="selectGrid(this,'household','2')"><div class="ogb-main">Yo + c&oacute;nyuge</div><div class="ogb-sub">2 adultos</div></button>
+        <button class="option-grid-btn" onclick="selectGrid(this,'household','3')"><div class="ogb-main">Familia de 3</div><div class="ogb-sub">2 adultos + 1 hijo</div></button>
+        <button class="option-grid-btn" onclick="selectGrid(this,'household','4plus')"><div class="ogb-main">Familia de 4+</div><div class="ogb-sub">Familia m&aacute;s grande</div></button>
+      </div>
+    </div>
 
- <!-- PASO 6: Información de Contacto -->
- <div class="step" id="step-6" style="display:none;">
- <div class="step-q">¡Casi terminamos! ¿Cómo podemos enviarte tus resultados personalizados?</div>
- <div class="step-hint">Tu información es privada y nunca se comparte. La usaremos para enviarte tu comparación personalizada de planes.</div>
- <div class="contact-fields">
- <div class="contact-field">
- <label class="contact-label" for="contact-first-name">Nombre</label>
- <input type="text" id="contact-first-name" class="contact-input" placeholder="Juan" required>
- </div>
- <div class="contact-field">
- <label class="contact-label" for="contact-last-name">Apellido</label>
- <input type="text" id="contact-last-name" class="contact-input" placeholder="Pérez" required>
- </div>
- <div class="contact-field">
- <label class="contact-label" for="contact-phone">Teléfono</label>
- <input type="tel" id="contact-phone" class="contact-input" placeholder="(305) 555-0100" required>
- </div>
- <div class="contact-field">
- <label class="contact-label" for="contact-email">Correo Electrónico</label>
- <input type="email" id="contact-email" class="contact-input" placeholder="juan@ejemplo.com" required>
- </div>
- <div class="consent-wrap">
- <label class="consent-checkbox">
- <input type="checkbox" id="contact-consent" required>
- <div class="consent-text">
- <strong>Permiso para Contactar:</strong> Doy mi consentimiento para recibir correos electrónicos, llamadas telefónicas, mensajes de texto y mensajes artificiales o pregrabados de agentes de seguros con licencia de The Health Experts Insurance, sobre planes de seguro médico y productos y servicios relacionados, al correo electrónico y número de teléfono proporcionados, incluyendo mi número inalámbrico (si se proporcionó), independientemente de si está en cualquier lista de no llamar, utilizando un sistema de marcado telefónico automatizado. Entiendo que se aplican las tarifas estándar de mensajes y datos de mi proveedor inalámbrico. Entiendo que puedo revocar este consentimiento en cualquier momento. Entiendo que tengo la opción de hablar con un agente de seguros con licencia sin otorgar este consentimiento llamando al <a href="tel:18003806821">1-800-380-6821</a> TTY 711.
- </div>
- </label>
- </div>
- </div>
- </div>
+    <!-- PASO 4: Ingresos (FPL din&aacute;mico seg&uacute;n paso 3) -->
+    <div class="step" id="step-4" style="display:none;">
+      <div class="step-q">&iquest;Cu&aacute;l es su ingreso familiar estimado para 2026?</div>
+      <div class="step-hint">Los subsidios se calculan con el ingreso estimado de este a&ntilde;o &mdash; no con el del a&ntilde;o pasado. Si sus ingresos bajaron, eso lo favorece.</div>
+      <div class="options-grid">
+        <button class="option-grid-btn" id="q4-btn-under" onclick="selectGrid(this,'income','under_100fpl')"><div class="ogb-main" id="q4-under-label">Menos de $15,650</div><div class="ogb-sub">Revisamos qu&eacute; opciones tiene disponibles en Florida</div></button>
+        <button class="option-grid-btn" id="q4-btn-range" onclick="selectGrid(this,'income','100_400fpl')"><div class="ogb-main" id="q4-range-label">$15,650 &ndash; $62,600</div><div class="ogb-sub">En este rango aplican los cr&eacute;ditos fiscales de prima</div></button>
+        <button class="option-grid-btn" id="q4-btn-over" onclick="selectGrid(this,'income','over_400fpl')"><div class="ogb-main" id="q4-over-label">M&aacute;s de $62,600</div><div class="ogb-sub">Por encima del l&iacute;mite de subsidio &mdash; los planes privados suelen convenir m&aacute;s</div></button>
+        <button class="option-grid-btn" onclick="selectGrid(this,'income','unsure')"><div class="ogb-main">No estoy seguro</div><div class="ogb-sub">Le ayudamos a calcularlo</div></button>
+      </div>
+    </div>
 
- <!-- BOTONES DE NAVEGACIÓN -->
- <div style="display:flex;gap:10px;margin-top:22px;">
- <button style="background:none;border:2px solid var(--gray-mid);color:var(--gray-text);padding:12px 22px;border-radius:50px;font-size:15px;font-weight:700;cursor:pointer;font-family:var(--font);transition:all 0.2s;display:none;" id="btn-volver" onclick="pasoAnterior()">← Volver</button>
- <button style="background:var(--purple);color:white;border:none;padding:12px 28px;border-radius:50px;font-size:15px;font-weight:700;cursor:pointer;font-family:var(--font);transition:all 0.2s;flex:1;display:none;" id="btn-continuar">Continuar →</button>
- <button class="btn-submit-contact" id="btn-submit-contact" onclick="enviarContacto()">Ver Mis Resultados →</button>
- </div>
+    <!-- PASO 5: Prioridad -->
+    <div class="step" id="step-5" style="display:none;">
+      <div class="step-q">&iquest;Qu&eacute; es lo m&aacute;s importante para usted en un plan de salud?</div>
+      <div class="step-hint">Esto nos ayuda a reducir cu&aacute;les planes comparar para usted.</div>
+      <div class="options">
+        <button class="option" onclick="selectOption(this,'priority','low-premium')"><div class="option-text"><span class="option-main">Prima mensual m&aacute;s baja</span><span class="option-sub">Prefiero pagar menos al mes aunque pague m&aacute;s cuando use el seguro</span></div></button>
+        <button class="option" onclick="selectOption(this,'priority','best-coverage')"><div class="option-text"><span class="option-main">Cobertura m&aacute;s completa</span><span class="option-sub">Quiero estar cubierto para todo con copagos bajos</span></div></button>
+        <button class="option" onclick="selectOption(this,'priority','my-doctors')"><div class="option-text"><span class="option-main">Mantener mis m&eacute;dicos actuales</span><span class="option-sub">Mis m&eacute;dicos y especialistas son lo m&aacute;s importante</span></div></button>
+        <button class="option" onclick="selectOption(this,'priority','fast-coverage')"><div class="option-text"><span class="option-main">Conseguir cobertura lo m&aacute;s r&aacute;pido posible</span><span class="option-sub">Necesito que la cobertura comience r&aacute;pido</span></div></button>
+      </div>
+    </div>
 
- </div>
+    <!-- PASO RESULTADO: antes del formulario -->
+    <div class="step" id="step-result" style="display:none;">
+      <div id="result-headline" style="font-size:20px;font-weight:700;color:#1a1a1a;margin-bottom:20px;line-height:1.3;"></div>
+      <div id="result-link-wrap" style="margin-bottom:20px;"></div>
+      <p style="font-size:14px;color:#555;line-height:1.6;margin-bottom:20px;">Complete su informaci&oacute;n abajo y un corredor biling&uuml;e con licencia har&aacute; su comparaci&oacute;n personalizada &mdash; planes exactos, precios reales, y si califica para ayuda.</p>
+      <button onclick="showContactStep()" style="background:#ff1090;color:white;border:none;padding:14px 28px;border-radius:50px;font-size:16px;font-weight:700;cursor:pointer;font-family:Arial,Helvetica,sans-serif;width:100%;margin-bottom:10px;transition:background 0.2s;">Obtener mi comparaci&oacute;n personalizada &rarr;</button>
+      <button onclick="goBackFromResult()" style="background:none;border:2px solid #e5e5e5;color:#555;padding:11px 22px;border-radius:50px;font-size:14px;font-weight:700;cursor:pointer;font-family:Arial,Helvetica,sans-serif;width:100%;">&larr; Volver</button>
+    </div>
 
- <!-- RESULTADO -->
- <div class="result-card" id="result-card">
- <div id="result-inner"></div>
- <button class="result-restart" onclick="restartQuiz()">← Empezar de nuevo</button>
- </div>
+    <!-- PASO 6: Formulario de contacto -->
+    <div class="step" id="step-6" style="display:none;">
+      <div class="step-q">&iexcl;Casi terminamos! &iquest;C&oacute;mo podemos enviarle sus resultados personalizados?</div>
+      <div class="step-hint">Su informaci&oacute;n es privada y nunca se comparte. La usaremos para enviarle su comparaci&oacute;n personalizada de planes.</div>
+      <div class="contact-fields">
+        <div class="contact-field">
+          <label class="contact-label" for="contact-first-name">Nombre</label>
+          <input type="text" id="contact-first-name" class="contact-input" placeholder="Su nombre" required>
+        </div>
+        <div class="contact-field">
+          <label class="contact-label" for="contact-last-name">Apellido</label>
+          <input type="text" id="contact-last-name" class="contact-input" placeholder="Su apellido" required>
+        </div>
+        <div class="contact-field">
+          <label class="contact-label" for="contact-phone">Tel&eacute;fono</label>
+          <input type="tel" id="contact-phone" class="contact-input" placeholder="(305) 555-0100" required>
+        </div>
+        <div class="contact-field">
+          <label class="contact-label" for="contact-email">Correo electr&oacute;nico</label>
+          <input type="email" id="contact-email" class="contact-input" placeholder="su@correo.com" required>
+        </div>
+        <div class="consent-wrap">
+          <label class="consent-checkbox">
+            <input type="checkbox" id="contact-consent" required>
+            <div class="consent-text">
+              <strong>Permiso para Contactar:</strong> Doy mi consentimiento para recibir correos electr&oacute;nicos, llamadas telef&oacute;nicas, mensajes de texto y mensajes artificiales o pregrabados de agentes de seguros con licencia de The Health Experts Insurance, sobre planes de seguro m&eacute;dico y productos y servicios relacionados, al correo electr&oacute;nico y n&uacute;mero de tel&eacute;fono proporcionados, incluyendo mi n&uacute;mero inal&aacute;mbrico (si se proporcion&oacute;), independientemente de si est&aacute; en cualquier lista de no llamar, utilizando un sistema de marcado telef&oacute;nico automatizado. Entiendo que se aplican las tarifas est&aacute;ndar de mensajes y datos de mi proveedor inal&aacute;mbrico. Entiendo que puedo revocar este consentimiento en cualquier momento. Entiendo que tengo la opci&oacute;n de hablar con un agente de seguros con licencia sin otorgar este consentimiento llamando al <a href="tel:18003806821">1-800-380-6821</a> TTY 711.
+            </div>
+          </label>
+        </div>
+      </div>
+      <div id="submit-error" style="display:none;color:#dc2626;font-size:13px;margin-top:8px;"></div>
+    </div>
 
- <div class="trust-bar" id="trust-bar">
- <div class="trust-item">Corredores con licencia</div>
- <div class="trust-item">Español &amp; English</div>
- <div class="trust-item">Sin spam</div>
- <div class="trust-item">100% gratis</div>
- </div>
-</div>
+    <!-- NAVEGACI&Oacute;N -->
+    <div class="quiz-nav" id="quiz-nav">
+      <button class="btn-back" id="btn-back" onclick="prevStep()" style="display:none;">&larr; Volver</button>
+      <button class="btn-next" id="btn-next" onclick="nextStep()" disabled>Continuar &rarr;</button>
+      <button class="btn-submit-contact" id="btn-submit-contact" onclick="submitContact()">Ver Mis Resultados &rarr;</button>
+    </div>
+
+  </div><!-- /quiz-card -->
+
+  <!-- &Eacute;XITO (despu&eacute;s de enviar) -->
+  <div class="result-card" id="result-card">
+    <div id="result-inner"></div>
+    <button class="result-restart" onclick="restartQuiz()">&larr; Empezar de nuevo</button>
+  </div>
+
+  <div class="trust-bar" id="trust-bar">
+    <div class="trust-item">Corredores con licencia</div>
+    <div class="trust-item">Espa&ntilde;ol &amp; English</div>
+    <div class="trust-item">Sin spam</div>
+    <div class="trust-item">100% gratis</div>
+  </div>
+
+</div><!-- /quiz-shell -->
 
 <div class="quiz-footer">
- © 2026 The Health Experts Insurance · 1695 NW 110 Ave Ste 224, Doral FL 33172<br>
- <a href="/es/privacidad">Política de Privacidad</a> · <a href="/es/contacto">Contacto</a> · <a href="/es/">Inicio</a><br><br>
- Somos agentes de seguros independientes con licencia. No ofrecemos todos los planes disponibles. Los estimados de subsidios ACA son aproximados — la elegibilidad real se determina al inscribirse.
+  &copy; 2026 The Health Experts Insurance &middot; 1695 NW 110 Ave Ste 224, Doral FL 33172<br>
+  <a href="/es/privacidad">Pol&iacute;tica de Privacidad</a> &middot; <a href="/es/contacto">Contacto</a> &middot; <a href="/es/">Inicio</a><br><br>
+  Somos agentes de seguros independientes con licencia. No ofrecemos todos los planes disponibles. Los estimados de subsidios ACA son aproximados &mdash; la elegibilidad real se determina al inscribirse.
 </div>
 
 <script>
-const respuestas = {};
-const infoContacto = {};
-let pasoActual = 1;
-const totalPasos = 6;
+// ── FPL 2025 (para cobertura 2026) ───────────────────────────────────────────
+const FPL_2025 = {
+  1: { fpl100: 15650,  fpl400: 62600  },
+  2: { fpl100: 21150,  fpl400: 84600  },
+  3: { fpl100: 26650,  fpl400: 106600 },
+  4: { fpl100: 32150,  fpl400: 128600 }
+};
 
-function selectOption(btn, clave, valor) {
- btn.closest('.step').querySelectorAll('.option').forEach(b => b.classList.remove('selected'));
- btn.classList.add('selected');
- respuestas[clave] = valor;
- // Show "Other" text input if selected
- if(clave === 'cobertura' && valor === 'otro') {
- document.getElementById('other-input-wrap').style.display = 'block';
- document.getElementById('other-input').focus();
- } else if(clave === 'cobertura') {
- document.getElementById('other-input-wrap').style.display = 'none';
- }
- // Auto-advance (but not for "otro" or last quiz step)
- if(!(clave === 'cobertura' && valor === 'otro') && pasoActual < 5) {
- setTimeout(() => { siguientePaso(); }, 300);
- }
+// ── Resultados (en usted, texto nativo) ──────────────────────────────────────
+const RESULTS = {
+  bridge_64:       { headline: "Necesita cobertura ahora y Medicare pronto \u2014 nosotros le resolvemos las dos cosas",                                                                                link: "/es/planes-de-medicare-miami"       },
+  cobra:           { headline: "El COBRA no es su \u00fanica opci\u00f3n \u2014 vamos a comparar las tres",                                                                                           link: "/es/alternativas-cobra-miami"       },
+  renewing:        { headline: "Renovar sin comparar es cuando la gente termina pagando de m\u00e1s \u2014 revisemos su plan contra las opciones de este a\u00f1o",                                    link: "/es/planes-aca-miami"               },
+  turning_26:      { headline: "Tiene 60 d\u00edas \u2014 vamos a aprovecharlos",                                                                                                                      link: "/es/planes-aca-miami"               },
+  over_400_50to63: { headline: "A su edad, la prima sin subsidio es lo que m\u00e1s pesa \u2014 y aqu\u00ed es donde m\u00e1s le ahorramos a la gente",                                               link: "/es/seguro-medico-privado-miami"    },
+  under30_subsidy: { headline: "A su edad puede tener una opci\u00f3n extra que vale la pena comparar: un plan catastrófico junto a un Silver con subsidio",                                           link: "/es/planes-aca-miami"               },
+  under_100fpl:    { headline: "Florida no expandi\u00f3 Medicaid \u2014 vamos a ver qu\u00e9 s\u00ed puede conseguir",                                                                               link: "/es/planes-aca-miami"               },
+  "100_400fpl":    { headline: "Usted est\u00e1 en el rango donde s\u00ed hay ayuda con la prima",                                                                                                     link: "/es/planes-aca-miami"               },
+  over_400fpl:     { headline: "Por encima del l\u00edmite de subsidio, los planes privados suelen salir mejor",                                                                                       link: "/es/seguro-medico-privado-miami"    },
+  unsure:          { headline: "Nosotros le revisamos el subsidio \u2014 es una sola conversaci\u00f3n",                                                                                               link: "/es/planes-aca-miami"               }
+};
+
+// ── Estado ───────────────────────────────────────────────────────────────────
+const answers = {};
+let currentStep = 1;
+const TOTAL_Q   = 5;
+
+// ── Auxiliares ───────────────────────────────────────────────────────────────
+function getHHSize() {
+  const h = answers.household;
+  if (h === '1') return 1; if (h === '2') return 2; if (h === '3') return 3; return 4;
 }
 
-function selectGrid(btn, clave, valor) {
- btn.closest('.step').querySelectorAll('.option-grid-btn').forEach(b => b.classList.remove('selected'));
- btn.classList.add('selected');
- respuestas[clave] = valor;
- // Auto-advance (but not on last quiz step)
- if(pasoActual < 5) {
- setTimeout(() => { siguientePaso(); }, 300);
- }
+function fmtUSD(n) { return '$' + n.toLocaleString('es-US'); }
+
+function renderQ4Labels() {
+  const sz = Math.min(getHHSize(), 4), fpl = FPL_2025[sz];
+  const lo = fmtUSD(fpl.fpl100), hi = fmtUSD(fpl.fpl400);
+  document.getElementById('q4-under-label').textContent = 'Menos de ' + lo;
+  document.getElementById('q4-range-label').textContent = lo + ' \u2013 ' + hi;
+  document.getElementById('q4-over-label').textContent  = 'M\u00e1s de ' + hi;
+  if (answers.income) {
+    delete answers.income;
+    document.getElementById('step-4').querySelectorAll('.option-grid-btn').forEach(b => b.classList.remove('selected'));
+    document.getElementById('btn-next').disabled = true;
+  }
 }
 
-function siguientePaso() {
- if(pasoActual >= totalPasos){ return; }
- document.getElementById('step-'+pasoActual).style.display = 'none';
- pasoActual++;
- document.getElementById('step-'+pasoActual).style.display = 'block';
- actualizarProgreso();
- if(pasoActual === 6) {
-   document.getElementById('btn-continuar').style.display = 'none';
-   document.getElementById('btn-submit-contact').style.display = 'block';
- }
- document.getElementById('btn-volver').style.display = pasoActual > 1 ? 'block' : 'none';
+function computeResult() {
+  const { age, coverage, income } = answers;
+  if (age === '64')              return 'bridge_64';
+  if (coverage === 'cobra')      return 'cobra';
+  if (coverage === 'renewing')   return 'renewing';
+  if (coverage === 'turning_26') return 'turning_26';
+  if (age === '50-63' && income === 'over_400fpl') return 'over_400_50to63';
+  if (age === '18-30' && income === '100_400fpl')  return 'under30_subsidy';
+  if (income === 'under_100fpl') return 'under_100fpl';
+  if (income === '100_400fpl')   return '100_400fpl';
+  if (income === 'over_400fpl')  return 'over_400fpl';
+  return 'unsure';
 }
 
-function pasoAnterior() {
- if(pasoActual <= 1) return;
- document.getElementById('step-'+pasoActual).style.display = 'none';
- pasoActual--;
- document.getElementById('step-'+pasoActual).style.display = 'block';
- actualizarProgreso();
- if(pasoActual < 6) {
-   document.getElementById('btn-continuar').style.display = 'block';
-   document.getElementById('btn-submit-contact').style.display = 'none';
- }
- document.getElementById('btn-volver').style.display = pasoActual > 1 ? 'block' : 'none';
+function getKeyForStep(s) {
+  return ['','age','coverage','household','income','priority','contact'][s] || '';
 }
 
-function actualizarProgreso() {
- const pct = (pasoActual / totalPasos) * 100;
- document.getElementById('progress-fill').style.width = pct + '%';
- if(pasoActual <= 5) {
-   document.getElementById('progress-label').textContent = 'Pregunta ' + pasoActual + ' de 5';
- } else {
-   document.getElementById('progress-label').textContent = 'Casi terminamos...';
- }
+// ── Selecci\u00f3n ─────────────────────────────────────────────────────────────────
+function selectOption(btn, key, val) {
+  btn.closest('.step').querySelectorAll('.option').forEach(b => b.classList.remove('selected'));
+  btn.classList.add('selected');
+  answers[key] = val;
+  if (key === 'coverage' && val === 'other') {
+    document.getElementById('other-input-wrap').style.display = 'block';
+    document.getElementById('other-input').focus();
+  } else if (key === 'coverage') {
+    document.getElementById('other-input-wrap').style.display = 'none';
+  }
+  document.getElementById('btn-next').disabled = false;
+  if (key === 'age' && val === '65-plus') { showExitScreen(); return; }
+  if (!(key === 'coverage' && val === 'other') && currentStep < 5) {
+    setTimeout(() => { nextStep(); }, 300);
+  }
 }
 
-async function enviarContacto() {
- // Validar campos de contacto
- const nombre = document.getElementById('contact-first-name').value.trim();
- const apellido = document.getElementById('contact-last-name').value.trim();
- const telefono = document.getElementById('contact-phone').value.trim();
- const correo = document.getElementById('contact-email').value.trim();
- const consentimiento = document.getElementById('contact-consent').checked;
-
- if(!nombre || !apellido || !telefono || !correo) {
-   alert('Por favor completa todos los campos de contacto.');
-   return;
- }
-
- if(!consentimiento) {
-   alert('Por favor acepta los términos de consentimiento para continuar.');
-   return;
- }
-
- // Deshabilitar botón y mostrar estado de carga
- const submitBtn = document.getElementById('btn-submit-contact');
- const textoOriginal = submitBtn.textContent;
- submitBtn.disabled = true;
- submitBtn.textContent = 'Enviando...';
-
- // Construir payload
- const payload = {
-   first_name: nombre,
-   last_name: apellido,
-   email: correo,
-   phone: telefono,
-   lang: 'spanish',
-   age_band: respuestas.edad === '65-mas' ? '65+' : respuestas.edad === '64' ? '64' : respuestas.edad === '55-63' ? '55-63' : respuestas.edad === 'menor-55' ? 'Under 55' : 'Under 55',
-   coverage_situation: respuestas.cobertura === 'ninguna' ? 'No tengo cobertura en este momento' : respuestas.cobertura === 'perdiendo' ? 'Voy a perder mi cobertura pronto' : respuestas.cobertura === 'cobra' ? 'Estoy en COBRA - es muy caro' : respuestas.cobertura === 'otro' && respuestas.otro_texto ? respuestas.otro_texto : 'Otro',
-   household_size: respuestas.hogar === '1' ? 'Solo yo' : respuestas.hogar === '2' ? 'Yo + pareja/cónyuge' : respuestas.hogar === '3' ? 'Familia de 3' : 'Familia de 4+',
-   income_band: respuestas.ingreso === 'menos-30k' ? 'Menos de $30,000' : respuestas.ingreso === '30k-60k' ? '$30,000-$60,000' : respuestas.ingreso === '60k-100k' ? '$60,000-$100,000' : respuestas.ingreso === '100k-150k' ? '$100,000-$150,000' : respuestas.ingreso === 'mas-150k' ? 'Más de $150,000' : 'No estoy seguro',
-   top_priority: respuestas.prioridad === 'prima-baja' ? 'Prima mensual más baja' : respuestas.prioridad === 'mejor-cobertura' ? 'Cobertura más completa' : respuestas.prioridad === 'mis-medicos' ? 'Mantener mis médicos actuales' : 'Conseguir cobertura lo más rápido posible',
-   source: 'ACA Quiz ES',
-   page: window.location.href,
-   submitted_at: new Date().toISOString()
- };
-
- try {
-   // POST al webhook de GHL
-   const response = await fetch('https://services.leadconnectorhq.com/hooks/RINM4TCnM4hN06UA1aK0/webhook-trigger/d36da03c-e92a-424a-9767-babcc77e884f', {
-     method: 'POST',
-     headers: { 'Content-Type': 'application/json' },
-     body: JSON.stringify(payload)
-   });
-
-   if(!response.ok) {
-     throw new Error('Webhook falló');
-   }
-
-   // Éxito - mostrar pantalla de resultados
-   mostrarResultado();
- } catch(error) {
-   console.error('Error del webhook:', error);
-   alert('Hubo un error. Llama al 1-800-380-6821.');
-   submitBtn.disabled = false;
-   submitBtn.textContent = textoOriginal;
- }
+function selectGrid(btn, key, val) {
+  btn.closest('.step').querySelectorAll('.option-grid-btn').forEach(b => b.classList.remove('selected'));
+  btn.classList.add('selected');
+  answers[key] = val;
+  document.getElementById('btn-next').disabled = false;
+  if (currentStep < 5) { setTimeout(() => { nextStep(); }, 300); }
 }
 
-function mostrarResultado() {
- document.getElementById('quiz-card').style.display = 'none';
- document.getElementById('progress-wrap').style.display = 'none';
- document.getElementById('trust-bar').style.display = 'none';
- document.querySelector('.quiz-header').style.display = 'none';
-
- const {edad, cobertura, hogar, ingreso, prioridad} = respuestas;
- let resultado;
-
- // Capture "Other" text if filled
- const otroInput = document.getElementById('other-input');
- if(cobertura === 'otro' && otroInput && otroInput.value.trim()) {
- respuestas.otro_texto = otroInput.value.trim();
- }
-
- if(edad === '65-mas') resultado = 'medicare';
- else if(edad === '64') resultado = 'puente';
- else if(ingreso === 'menos-30k') resultado = 'medicaid';
- else if(ingreso === '60k-100k' || ingreso === '100k-150k' || ingreso === 'mas-150k') resultado = 'seguro-privado';
- else if(cobertura === 'cobra') resultado = 'cobra-cambio';
- else if(ingreso === '30k-60k' || ingreso === 'no-se') resultado = 'aca-subsidio';
- else resultado = 'aca-comparar';
-
- const resultados = {
- 'aca-subsidio': {
- badge: 'Puedes calificar para ayuda económica',
- badgeColor: '#f0fdf4', badgeBorder: '#16a34a', badgeText: '#166534',
- ico: '',
- title: 'Planes ACA con subsidios pueden ser para ti',
- desc: 'Según tus respuestas, puedes calificar para un Crédito Fiscal de Prima que podría reducir significativamente tu prima mensual. Revisemos tus opciones juntos y veamos exactamente para qué calificas — muchas personas en tu situación pagan $0–$100/mes.',
- ahorro: true, ahorroTexto: 'Subsidio mensual posible',
- ahorroNum: ingreso === '30k-60k' ? '$200–$600+' : '$50–$300+',
- highlights: [
- { text: 'Verificaremos tu monto exacto de subsidio y te mostraremos todos los planes disponibles', color: '#16a34a' },
- { text: 'Comparar opciones del mercado ACA y seguro privado lado a lado', color: '#16a34a' },
- { text: 'Consulta gratis con corredores con licencia — sin obligación, sin presión', color: '#16a34a' }
- ],
- cta1: { text: 'Revisar Tus Opciones', href: 'https://www.healthsherpa.com/?_agent_id=sabri-perez' },
- },
- 'aca-sin-subsidio': {
- badge: 'Plan del Mercado ACA recomendado',
- badgeColor: '#f4eefa', badgeBorder: '#452068', badgeText: '#452068',
- ico: '',
- title: 'Un plan ACA probablemente es tu mejor opción',
- desc: 'Según tus ingresos, puede que no califiques para subsidios — pero los planes del Mercado ACA ofrecen cobertura completa sin exclusiones por condiciones preexistentes, y generalmente mejores beneficios que planes privados comparables.',
- ahorro: false,
- highlights: [
- { text: 'Los planes Gold y Platinum ofrecen copagos más bajos para quienes usan más el seguro', color: '#452068' },
- { text: 'Sin evaluación médica — cobertura independientemente de condiciones preexistentes', color: '#452068' },
- { text: 'Nuestros corredores comparan todas las aseguradoras sin costo para encontrar tu mejor opción', color: '#452068' }
- ],
- cta1: { text: 'Comparar Planes ACA Gratis', href: 'https://www.healthsherpa.com/?_agent_id=sabri-perez' },
- },
- 'cobra-cambio': {
- badge: 'Alternativa a COBRA encontrada',
- badgeColor: '#fff4ef', badgeBorder: '#ff6b35', badgeText: '#7c3d1a',
- ico: '',
- title: 'Casi siempre puedes conseguir algo mejor que COBRA',
- desc: 'COBRA es casi siempre la opción más cara — estás pagando la prima completa que tu empleador subsidiaba, más un cargo administrativo. En la mayoría de los casos, un plan ACA con subsidios puede darte cobertura comparable o mejor por mucho menos.',
- ahorro: true, ahorroTexto: 'Ahorro mensual típico vs. COBRA',
- ahorroNum: '$200–$800',
- highlights: [
- { text: 'Tienes 60 días desde perder la cobertura del empleador para inscribirte en un plan ACA', color: '#d97706' },
- { text: 'Si tus ingresos califican, un plan ACA con subsidios puede costar una fracción de lo que cobra COBRA', color: '#d97706' },
- { text: 'Los planes ACA cubren los mismos beneficios esenciales que la mayoría de los planes de empleador', color: '#d97706' }
- ],
- cta1: { text: 'Comparar Planes ACA — Supera a COBRA', href: 'https://www.healthsherpa.com/?_agent_id=sabri-perez' },
- },
- 'medicare': {
- badge: 'Elegible para Medicare',
- badgeColor: '#f4eefa', badgeBorder: '#452068', badgeText: '#452068',
- ico: '',
- title: 'Eres elegible para Medicare — encontremos tu mejor plan',
- desc: 'A los 65 años o más, Medicare es tu camino principal de cobertura — no un plan ACA privado. Los planes Medicare Advantage y Medicare Suplementario en el Sur de Florida ofrecen excelente cobertura, frecuentemente con primas de $0 y amplios beneficios adicionales.',
- ahorro: false,
- highlights: [
- { text: 'Muchos planes Medicare Advantage en Miami-Dade tienen $0 de prima mensual', color: '#452068' },
- { text: 'Los planes incluyen dental, visión, audición, artículos sin receta y cobertura de medicamentos', color: '#452068' },
- { text: 'Nuestros corredores bilingües comparan 14+ aseguradoras para ti sin costo', color: '#452068' }
- ],
- cta1: { text: 'Comparar Planes Medicare Gratis', href: '/es/contacto' },
- },
- 'puente': {
- badge: 'Próximo a cumplir 65',
- badgeColor: '#fff4ef', badgeBorder: '#d97706', badgeText: '#92400e',
- ico: '',
- title: 'Puede que necesites un plan puente antes de que comience Medicare',
- desc: 'A los 64 años, probablemente estés a menos de un año de ser elegible para Medicare. Dependiendo de tu situación, un plan ACA a corto plazo puede cubrirte hasta que comience tu cobertura de Medicare.',
- ahorro: false,
- highlights: [
- { text: 'Medicare comienza el primero del mes en que cumples 65 — planifica tu inscripción ahora', color: '#d97706' },
- { text: 'Un plan ACA a corto plazo puede cubrir el tiempo hasta que comience Medicare', color: '#d97706' },
- { text: 'Nuestros corredores manejan ambos — te configuramos ahora y te hacemos la transición a Medicare', color: '#d97706' }
- ],
- cta1: { text: 'Hablar con un Corredor — Planifica tu Transición', href: 'https://calendly.com/healthexps-info/' },
- },
- 'medicaid': {
- badge: 'Medicaid puede estar disponible',
- badgeColor: '#f0fdf4', badgeBorder: '#16a34a', badgeText: '#166534',
- ico: '',
- title: 'Puede que califiques para Medicaid o un plan ACA de $0',
- desc: 'Con tu nivel de ingresos, puede que califiques para Medicaid de Florida o un plan ACA con prima muy baja o sin prima. Nuestro equipo trabaja con ambos — verificamos tu elegibilidad y te ayudamos a obtener cobertura rápidamente.',
- ahorro: true, ahorroTexto: 'Prima mensual potencial',
- ahorroNum: '$0 – muy baja',
- highlights: [
- { text: 'Medicaid de Florida proporciona cobertura integral para personas de bajos ingresos que califican', color: '#16a34a' },
- { text: 'Los planes ACA Silver con Reducciones de Costo Compartido pueden tener deducibles y copagos muy bajos', color: '#16a34a' },
- { text: 'Nuestro equipo puede verificar la elegibilidad para Medicaid y ACA en una sola conversación', color: '#16a34a' }
- ],
- cta1: { text: 'Verificar Mi Elegibilidad Gratis', href: '/es/contacto' },
- },
- 'aca-comparar': {
- badge: 'Comparemos tus opciones',
- badgeColor: '#f4eefa', badgeBorder: '#452068', badgeText: '#452068',
- ico: '',
- title: 'Encontremos el plan correcto para tu situación',
- desc: 'Según tus respuestas, hay varias opciones sólidas que vale la pena comparar. Nuestros corredores revisarán planes ACA, opciones privadas y elegibilidad para subsidios — y te mostrarán la mejor opción para tus médicos, medicamentos y presupuesto.',
- ahorro: false,
- highlights: [
- { text: 'Comparamos todos los planes disponibles en tu código postal — no solo unos pocos', color: '#452068' },
- { text: 'Verificamos que tus médicos específicos están en la red antes de recomendar algo', color: '#452068' },
- { text: 'Sin costo, sin presión — orientación honesta en inglés o español', color: '#452068' }
- ],
- cta1: { text: 'Comparar Planes Gratis', href: '/es/contacto' },
- },
- 'seguro-privado': {
- badge: '💼 Seguro privado puede ser para ti',
- badgeColor: '#f4eefa', badgeBorder: '#452068', badgeText: '#452068',
- ico: '🏆',
- title: 'Seguro privado puede ser para ti',
- desc: 'Según tus respuestas, los planes de seguro privado podrían ser una excelente opción — ofrecen redes más amplias, más flexibilidad y servicio premium. Los planes del mercado ACA también son una opción. Hablemos sobre tu situación específica para encontrar la mejor cobertura para tus necesidades y presupuesto.',
- ahorro: false,
- highlights: [
- { text: 'Compararemos opciones de seguro privado y ACA lado a lado', color: '#452068' },
- { text: 'Recomendaciones personalizadas basadas en tus médicos, medicamentos y presupuesto', color: '#452068' },
- { text: 'Sin presión, sin obligación — orientación honesta en español e inglés', color: '#452068' },
- { text: 'Consulta gratis con corredores con licencia que trabajan para ti, no para las aseguradoras', color: '#452068' }
- ],
- cta1: { text: 'Agenda Consulta Gratis', href: 'https://calendly.com/healthexps-info/' },
- }
- };
-
- const r = resultados[resultado];
- let html = `
- <div style="text-align:center;margin-bottom:20px;">
- <span class="result-badge" style="background:${r.badgeColor};border:1.5px solid ${r.badgeBorder};color:${r.badgeText};">${r.badge}</span>
- <div class="result-ico">${r.ico}</div>
- <h2 class="result-title">${r.title}</h2>
- </div>`;
-
- if(r.ahorro){
- html += `<div class="savings-callout"><div class="sc-ico"></div><div class="sc-text">${r.ahorroTexto}<span class="sc-num">${r.ahorroNum}</span>Basado en tus respuestas — un corredor confirmará el monto exacto</div></div>`;
- }
-
- html += `<p class="result-desc">${r.desc}</p><div class="result-highlights">`;
- r.highlights.forEach(h => {
- html += `<div class="result-highlight"><div class="rh-dot" style="background:${h.color};"><svg viewBox="0 0 12 12" fill="none"><polyline points="2,6 5,9 10,3" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div><div>${h.text}</div></div>`;
- });
- html += `</div><div class="result-ctas">
- <a href="${r.cta1.href}" class="btn-result-primary" target="_blank" rel="noopener">${r.cta1.text}</a>
- <a href="https://wa.me/13054646888" class="btn-result-wa" target="_blank" rel="noopener" onclick="gtag('event','whatsapp_click',{'page':window.location.pathname})">
- <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.123.556 4.116 1.526 5.845L0 24l6.335-1.508A11.945 11.945 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.818 9.818 0 01-5.006-1.368l-.359-.214-3.728.887.916-3.636-.234-.374A9.818 9.818 0 1112 21.818z"/></svg>
- WhatsApp — Respuesta más rápida
- </a>
- <a href="tel:18003806821" class="btn-result-call">Llama: 1-800-380-6821</a>
- </div>`;
-
- document.getElementById('result-inner').innerHTML = html;
- document.getElementById('result-card').classList.add('show');
- window.scrollTo({top:0,behavior:'smooth'});
+// ── Navegaci\u00f3n ─────────────────────────────────────────────────────────────────
+function nextStep() {
+  if (currentStep === 5)        { showResultStep(); return; }
+  if (currentStep === 'result') { showContactStep(); return; }
+  if (typeof currentStep !== 'number' || currentStep >= 6) return;
+  document.getElementById('step-' + currentStep).style.display = 'none';
+  currentStep++;
+  document.getElementById('step-' + currentStep).style.display = 'block';
+  if (currentStep === 4) renderQ4Labels();
+  updateProgress();
+  document.getElementById('btn-back').style.display = 'block';
+  document.getElementById('btn-next').disabled = !answers[getKeyForStep(currentStep)];
+  if (currentStep === 6) {
+    document.getElementById('btn-next').style.display = 'none';
+    document.getElementById('btn-submit-contact').style.display = 'block';
+  }
 }
 
+function prevStep() {
+  if (currentStep === 6) {
+    document.getElementById('step-6').style.display = 'none';
+    document.getElementById('btn-next').style.display = 'block';
+    document.getElementById('btn-submit-contact').style.display = 'none';
+    showResultStep(true); return;
+  }
+  if (typeof currentStep !== 'number' || currentStep <= 1) return;
+  document.getElementById('step-' + currentStep).style.display = 'none';
+  currentStep--;
+  document.getElementById('step-' + currentStep).style.display = 'block';
+  updateProgress();
+  document.getElementById('btn-next').disabled = false;
+  document.getElementById('btn-back').style.display = currentStep > 1 ? 'block' : 'none';
+}
+
+function goBackFromResult() {
+  document.getElementById('step-result').style.display = 'none';
+  document.getElementById('quiz-nav').style.display    = 'flex';
+  currentStep = 5;
+  document.getElementById('step-5').style.display = 'block';
+  document.getElementById('btn-next').disabled = false;
+  document.getElementById('btn-back').style.display = 'block';
+  updateProgress();
+}
+
+// ── Pantallas especiales ──────────────────────────────────────────────────────
+function showExitScreen() {
+  document.getElementById('quiz-card').style.display    = 'none';
+  document.getElementById('progress-wrap').style.display = 'none';
+  document.getElementById('trust-bar').style.display    = 'none';
+  document.querySelector('.quiz-header').style.display  = 'none';
+  document.getElementById('exit-screen').style.display  = 'block';
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+function showResultStep(restore) {
+  if (!restore) {
+    const key = computeResult();
+    answers.result_shown = key;
+    const r = RESULTS[key];
+    document.getElementById('result-headline').textContent = r.headline;
+    document.getElementById('result-link-wrap').innerHTML =
+      '<a href="' + r.link + '" style="display:block;text-align:center;padding:12px 18px;background:#f4eefa;border:1.5px solid #452068;border-radius:12px;color:#452068;font-size:14px;font-weight:600;text-decoration:none;">Saber m\u00e1s \u2192</a>';
+  }
+  if (typeof currentStep === 'number') document.getElementById('step-' + currentStep).style.display = 'none';
+  document.getElementById('step-result').style.display = 'block';
+  document.getElementById('quiz-nav').style.display    = 'none';
+  currentStep = 'result';
+  document.getElementById('progress-fill').style.width  = '100%';
+  document.getElementById('progress-label').textContent = 'Su resultado';
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+function showContactStep() {
+  document.getElementById('step-result').style.display        = 'none';
+  document.getElementById('step-6').style.display             = 'block';
+  document.getElementById('quiz-nav').style.display           = 'flex';
+  document.getElementById('btn-next').style.display           = 'none';
+  document.getElementById('btn-submit-contact').style.display = 'block';
+  document.getElementById('btn-back').style.display           = 'block';
+  currentStep = 6;
+  document.getElementById('progress-fill').style.width  = '100%';
+  document.getElementById('progress-label').textContent = 'Casi terminamos\u2026';
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+// ── Progreso ──────────────────────────────────────────────────────────────────
+function updateProgress() {
+  if (typeof currentStep !== 'number') return;
+  const pct = (currentStep / TOTAL_Q) * 100;
+  document.getElementById('progress-fill').style.width  = Math.min(pct, 100) + '%';
+  document.getElementById('progress-label').textContent =
+    currentStep <= 5 ? 'Pregunta ' + currentStep + ' de 5' : 'Casi terminamos\u2026';
+}
+
+// ── Env\u00edo GHL (cuestionario principal) ────────────────────────────────────────
+async function submitContact() {
+  const firstName = document.getElementById('contact-first-name').value.trim();
+  const lastName  = document.getElementById('contact-last-name').value.trim();
+  const phone     = document.getElementById('contact-phone').value.trim();
+  const email     = document.getElementById('contact-email').value.trim();
+  const consent   = document.getElementById('contact-consent').checked;
+  const errEl     = document.getElementById('submit-error');
+
+  if (!firstName || !lastName || !phone || !email) {
+    errEl.textContent = 'Por favor complete todos los campos.'; errEl.style.display = 'block'; return;
+  }
+  if (!consent) {
+    errEl.textContent = 'Por favor acepte los t\u00e9rminos de consentimiento.'; errEl.style.display = 'block'; return;
+  }
+  errEl.style.display = 'none';
+
+  const btn = document.getElementById('btn-submit-contact');
+  btn.disabled = true; btn.textContent = 'Enviando\u2026';
+
+  const sz  = Math.min(getHHSize(), 4);
+  const fpl = FPL_2025[sz];
+  const otherText = (document.getElementById('other-input') || {}).value || '';
+
+  const payload = {
+    first_name:          firstName,
+    last_name:           lastName,
+    email:               email,
+    phone:               phone,
+    lang:                'spanish',
+    age_band:            answers.age || '',
+    coverage_situation:  (() => {
+      const c = answers.coverage;
+      if (c === 'none')       return 'No tengo cobertura ahora';
+      if (c === 'losing')     return 'Voy a perder mi cobertura';
+      if (c === 'cobra')      return 'En COBRA';
+      if (c === 'renewing')   return 'Renovando cobertura del Mercado';
+      if (c === 'turning_26') return 'Cumplo 26, salgo del plan de mis padres';
+      if (c === 'other')      return otherText || 'Otro';
+      return c || '';
+    })(),
+    household_size:      (() => {
+      const h = answers.household;
+      if (h === '1') return 'Solo yo';
+      if (h === '2') return 'Yo + c\u00f3nyuge';
+      if (h === '3') return 'Familia de 3';
+      return 'Familia de 4+';
+    })(),
+    income_band:         answers.income || 'unsure',
+    income_band_display: (() => {
+      const i = answers.income;
+      if (i === 'under_100fpl') return 'Menos de ' + fmtUSD(fpl.fpl100);
+      if (i === '100_400fpl')   return fmtUSD(fpl.fpl100) + ' \u2013 ' + fmtUSD(fpl.fpl400);
+      if (i === 'over_400fpl')  return 'M\u00e1s de ' + fmtUSD(fpl.fpl400);
+      return 'No estoy seguro';
+    })(),
+    top_priority:        (() => {
+      const p = answers.priority;
+      if (p === 'low-premium')   return 'Prima mensual m\u00e1s baja';
+      if (p === 'best-coverage') return 'Cobertura m\u00e1s completa';
+      if (p === 'my-doctors')    return 'Mantener mis m\u00e9dicos';
+      return 'Cobertura r\u00e1pida';
+    })(),
+    result_shown:        answers.result_shown || '',
+    source:              'ACA Quiz',
+    page:                window.location.href,
+    submitted_at:        new Date().toISOString()
+  };
+
+  try {
+    const res = await fetch('https://services.leadconnectorhq.com/hooks/RINM4TCnM4hN06UA1aK0/webhook-trigger/d36da03c-e92a-424a-9767-babcc77e884f', {
+      method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(payload)
+    });
+    if (!res.ok) throw new Error('Webhook fall\u00f3');
+    showSuccessCard();
+  } catch(e) {
+    console.error(e);
+    btn.disabled = false; btn.textContent = 'Ver Mis Resultados \u2192';
+    alert('Hubo un error. Ll\u00e1menos al 1-800-380-6821.');
+  }
+}
+
+function showSuccessCard() {
+  document.getElementById('quiz-card').style.display    = 'none';
+  document.getElementById('progress-wrap').style.display = 'none';
+  document.getElementById('trust-bar').style.display    = 'none';
+  document.querySelector('.quiz-header').style.display  = 'none';
+  const r    = RESULTS[answers.result_shown || 'unsure'];
+  const link = r ? r.link : '/es/planes-aca-miami';
+  document.getElementById('result-inner').innerHTML = `
+    <div style="text-align:center;margin-bottom:20px;">
+      <div style="font-size:48px;margin-bottom:12px;">&#10003;</div>
+      <h2 style="font-size:22px;font-weight:700;color:#1a1a1a;margin-bottom:12px;">${r ? r.headline : 'Nos comunicaremos pronto.'}</h2>
+      <p style="font-size:15px;color:#555;line-height:1.7;margin-bottom:20px;">Un corredor biling\u00fce con licencia se comunicar\u00e1 en breve. \u00bfLo necesita antes?</p>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:10px;">
+      <a href="${link}" style="display:block;background:#452068;color:white;padding:14px;border-radius:50px;font-weight:700;font-size:15px;text-decoration:none;text-align:center;">Explorar sus opciones \u2192</a>
+      <a href="https://wa.me/13054646888" style="display:flex;align-items:center;justify-content:center;gap:8px;background:#25D366;color:white;padding:14px;border-radius:50px;font-weight:700;font-size:15px;text-decoration:none;" onclick="gtag('event','whatsapp_click',{'page':window.location.pathname})">&#128172; WhatsApp</a>
+      <a href="tel:18003806821" style="display:block;background:#f4eefa;color:#452068;padding:14px;border-radius:50px;font-weight:700;font-size:15px;text-decoration:none;text-align:center;">Llamar: 1-800-380-6821</a>
+    </div>`;
+  document.getElementById('result-card').classList.add('show');
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+// ── Env\u00edo Medicare Exit Screen ────────────────────────────────────────────────
+async function submitMedicareExit() {
+  const firstName = document.getElementById('mc-first').value.trim();
+  const lastName  = document.getElementById('mc-last').value.trim();
+  const phone     = document.getElementById('mc-phone').value.trim();
+  const email     = document.getElementById('mc-email').value.trim();
+  const situation = document.getElementById('mc-situation').value;
+  const consent   = document.getElementById('mc-consent').checked;
+  const errEl     = document.getElementById('mc-error');
+
+  if (!firstName || !lastName || !phone || !email) {
+    errEl.textContent = 'Por favor complete todos los campos.'; errEl.style.display = 'block'; return;
+  }
+  if (!consent) {
+    errEl.textContent = 'Por favor acepte los t\u00e9rminos.'; errEl.style.display = 'block'; return;
+  }
+  errEl.style.display = 'none';
+
+  const btn = document.getElementById('mc-submit-btn');
+  btn.disabled = true; btn.textContent = 'Enviando\u2026';
+
+  const payload = {
+    first_name:         firstName,
+    last_name:          lastName,
+    email:              email,
+    phone:              phone,
+    lang:               'spanish',
+    medicare_situation: situation,
+    source:             'Medicare Exit Screen',
+    page:               window.location.href,
+    submitted_at:       new Date().toISOString()
+  };
+
+  try {
+    const res = await fetch('https://services.leadconnectorhq.com/hooks/RINM4TCnM4hN06UA1aK0/webhook-trigger/d36da03c-e92a-424a-9767-babcc77e884f', {
+      method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(payload)
+    });
+    if (!res.ok) throw new Error('Webhook fall\u00f3');
+    document.getElementById('mc-form-fields').style.display = 'none';
+    document.getElementById('mc-submit-btn').style.display  = 'none';
+    document.getElementById('mc-success').style.display     = 'block';
+  } catch(e) {
+    console.error(e);
+    btn.disabled = false; btn.textContent = 'Que me llame un corredor';
+    alert('Hubo un error. Ll\u00e1menos al 1-800-380-6821.');
+  }
+}
+
+// ── Reiniciar ─────────────────────────────────────────────────────────────────
 function restartQuiz() {
- Object.keys(respuestas).forEach(k => delete respuestas[k]);
- Object.keys(infoContacto).forEach(k => delete infoContacto[k]);
- pasoActual = 1;
- for(let i=1;i<=6;i++){
- const s = document.getElementById('step-'+i);
- if(s) {
-   s.style.display = i===1 ? 'block' : 'none';
-   s.querySelectorAll('.option,.option-grid-btn').forEach(b=>b.classList.remove('selected'));
- }
- }
- // Resetear formulario de contacto
- document.getElementById('contact-first-name').value = '';
- document.getElementById('contact-last-name').value = '';
- document.getElementById('contact-email').value = '';
- document.getElementById('contact-phone').value = '';
- document.getElementById('contact-consent').checked = false;
- document.getElementById('btn-continuar').style.display = 'block';
- document.getElementById('btn-submit-contact').style.display = 'none';
- document.getElementById('btn-volver').style.display = 'none';
- document.getElementById('quiz-card').style.display = 'block';
- document.getElementById('progress-wrap').style.display = 'block';
- document.getElementById('trust-bar').style.display = 'flex';
- document.querySelector('.quiz-header').style.display = 'block';
- document.getElementById('result-card').classList.remove('show');
- actualizarProgreso();
- window.scrollTo({top:0,behavior:'smooth'});
+  Object.keys(answers).forEach(k => delete answers[k]);
+  currentStep = 1;
+  for (let i = 1; i <= 6; i++) {
+    const s = document.getElementById('step-' + i);
+    if (s) { s.style.display = i === 1 ? 'block' : 'none'; s.querySelectorAll('.option,.option-grid-btn').forEach(b => b.classList.remove('selected')); }
+  }
+  const sr = document.getElementById('step-result'); if (sr) sr.style.display = 'none';
+  ['contact-first-name','contact-last-name','contact-phone','contact-email'].forEach(id => { const el = document.getElementById(id); if(el) el.value=''; });
+  const cc = document.getElementById('contact-consent'); if(cc) cc.checked = false;
+  document.getElementById('btn-next').style.display          = 'block';
+  document.getElementById('btn-next').disabled               = true;
+  document.getElementById('btn-submit-contact').style.display = 'none';
+  document.getElementById('btn-back').style.display          = 'none';
+  document.getElementById('quiz-nav').style.display          = 'flex';
+  document.getElementById('quiz-card').style.display         = 'block';
+  document.getElementById('progress-wrap').style.display     = 'block';
+  document.getElementById('trust-bar').style.display         = 'flex';
+  document.querySelector('.quiz-header').style.display       = 'block';
+  document.getElementById('result-card').classList.remove('show');
+  document.getElementById('other-input-wrap').style.display  = 'none';
+  updateProgress();
+  window.scrollTo({ top: 0, behavior: 'smooth' });
 }
 </script>
-<footer style="background:#fafafa;border-top:3px solid #f4eefa;padding:52px 0 24px;">
-<div style="max-width:1060px;margin:0 auto;padding:0 24px;">
-<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:36px;margin-bottom:44px;">
-<div>
-<img src="/images/logo.webp" alt="The Health Experts Insurance" style="height:64px;width:auto;margin-bottom:14px;">
-<p style="font-size:14px;color:#555;line-height:1.6;margin:0 0 14px;">Corredores de seguros bilingües. Oficina en Doral, FL.</p>
-<p style="font-size:15px;margin-bottom:6px;"><a href="tel:18003806821" style="color:#452068;font-weight:600;text-decoration:none;">1-800-380-6821</a></p>
-<p style="font-size:15px;margin-bottom:6px;"><a href="https://wa.me/13054646888" style="color:#452068;font-weight:600;text-decoration:none;" onclick="gtag('event','whatsapp_click',{'page':window.location.pathname})">WhatsApp</a></p>
-<p style="font-size:14px;color:#555;margin-top:8px;">1695 NW 110 Ave, Ste 224<br>Doral, FL 33172</p>
-</div>
-<div>
-<h3 style="color:#452068;font-size:13px;text-transform:uppercase;letter-spacing:1px;margin:0 0 14px;">Guías de Medicare</h3>
-<ul style="list-style:none;padding:0;margin:0;">
-<li style="margin-bottom:8px;"><a href="/es/medicare/que-es-medicare" style="color:#555;font-size:15px;text-decoration:none;">¿Qué es Medicare?</a></li>
-<li style="margin-bottom:8px;"><a href="/es/medicare/nuevo-en-medicare" style="color:#555;font-size:15px;text-decoration:none;">Nuevo en Medicare</a></li>
-<li style="margin-bottom:8px;"><a href="/es/medicare/costos-de-medicare" style="color:#555;font-size:15px;text-decoration:none;">Costos de Medicare</a></li>
-<li style="margin-bottom:8px;"><a href="/es/medicare-advantage-miami" style="color:#555;font-size:15px;text-decoration:none;">Planes Medicare Advantage</a></li>
-<li style="margin-bottom:8px;"><a href="/es/medicare-suplementario-miami" style="color:#555;font-size:15px;text-decoration:none;">Medicare Suplementario</a></li>
-<li style="margin-bottom:8px;"><a href="/es/medicare/programa-ahorros-medicare" style="color:#555;font-size:15px;text-decoration:none;">Programa de Ahorros</a></li>
-</ul>
-</div>
-<div>
-<h3 style="color:#452068;font-size:13px;text-transform:uppercase;letter-spacing:1px;margin:0 0 14px;">Seguros</h3>
-<ul style="list-style:none;padding:0;margin:0;">
-<li style="margin-bottom:8px;"><a href="/es/planes-de-medicare-miami" style="color:#555;font-size:15px;text-decoration:none;">Planes de Medicare</a></li>
-<li style="margin-bottom:8px;"><a href="/es/medicare-advantage-miami" style="color:#555;font-size:15px;text-decoration:none;">Medicare Advantage</a></li>
-<li style="margin-bottom:8px;"><a href="/es/medicare-suplementario-miami" style="color:#555;font-size:15px;text-decoration:none;">Medicare Suplementario</a></li>
-<li style="margin-bottom:8px;"><a href="/es/medicare-medicaid-miami" style="color:#555;font-size:15px;text-decoration:none;">Dual Eligible (D-SNP)</a></li>
-<li style="margin-bottom:8px;"><a href="/es/seguro-medico-privado-miami" style="color:#555;font-size:15px;text-decoration:none;">Seguro Médico Privado</a></li>
-<li style="margin-bottom:8px;"><a href="/es/planes-aca-miami" style="color:#555;font-size:15px;text-decoration:none;">Plan del Mercado (ACA)</a></li>
-<li style="margin-bottom:8px;"><a href="/es/dental-vision-miami" style="color:#555;font-size:15px;text-decoration:none;">Dental y Visión</a></li>
-</ul>
-</div>
-<div>
-<h3 style="color:#452068;font-size:13px;text-transform:uppercase;letter-spacing:1px;margin:0 0 14px;">También</h3>
-<ul style="list-style:none;padding:0;margin:0;">
-<li style="margin-bottom:8px;"><a href="/es/agente-de-medicare-miami" style="color:#555;font-size:15px;text-decoration:none;">Conócenos</a></li>
-<li style="margin-bottom:8px;"><a href="/es/contacto" style="color:#555;font-size:15px;text-decoration:none;">Contacto</a></li>
-<li style="margin-bottom:8px;"><a href="/es/recursos" style="color:#555;font-size:15px;text-decoration:none;">Recursos</a></li>
-<li style="margin-bottom:8px;"><a href="/es/privacidad" style="color:#555;font-size:15px;text-decoration:none;">Privacidad</a></li>
-</ul>
-</div>
-</div>
-<div style="border-top:1px solid #e5e5e5;padding-top:20px;">
-<p style="font-size:12px;color:#666;margin:0;">© 2026 The Health Experts Insurance. <a href="/es/privacidad" style="color:#452068;text-decoration:none;">Política de Privacidad</a></p>
-<p style="font-size:11px;color:#aaa;margin-top:10px;line-height:1.7;">Medicare no ha revisado ni respaldado esta información. No ofrecemos todos los planes disponibles en su área. Actualmente representamos 14 organizaciones que ofrecen 82 productos en su área. Comuníquese con Medicare.gov, 1-800-MEDICARE o su programa SHIP local para obtener información sobre todas sus opciones.</p>
-</div>
-</div>
-</footer>
-
-
 <button id="scrollToTop" aria-label="Volver arriba">↑</button>
 <script>
 (function(){
