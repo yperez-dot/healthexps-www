@@ -105,4 +105,4 @@ During your 6-month Medigap Open Enrollment Period, which begins the month you a
 }
 </script>
 
-*The Health Experts Insurance is a licensed, independent insurance brokerage in Doral, FL. [Append standard TPMO disclaimer — 2027 updated version.]*
+*The Health Experts Insurance is a licensed, independent insurance brokerage in Doral, FL.*

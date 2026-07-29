@@ -100,4 +100,4 @@ No. COBRA is not creditable coverage for Medicare Part B. If you're 65 or older,
 }
 </script>
 
-*The Health Experts Insurance is a licensed, independent insurance brokerage in Doral, FL. [Append standard TPMO disclaimer where Medicare products are referenced.]*
+*The Health Experts Insurance is a licensed, independent insurance brokerage in Doral, FL.*

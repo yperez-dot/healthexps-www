@@ -98,4 +98,4 @@ In most cases, yes. Dual-eligible and Extra Help beneficiaries have monthly oppo
 }
 </script>
 
-*The Health Experts Insurance is a licensed, independent insurance brokerage in Doral, FL. Benefits described vary by plan and eligibility level. [Append standard TPMO disclaimer — 2027 updated version.]*
+*The Health Experts Insurance is a licensed, independent insurance brokerage in Doral, FL. Benefits described vary by plan and eligibility level.*
