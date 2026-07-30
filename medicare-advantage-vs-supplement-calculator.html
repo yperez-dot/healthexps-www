@@ -591,5 +591,17 @@ function restart() {
 // Init
 setLang('en');
 </script>
+
+<button id="scrollToTop" aria-label="Back to top" style="display:none;position:fixed;bottom:28px;right:28px;width:44px;height:44px;border-radius:50%;background:#452068;color:white;border:none;font-size:20px;cursor:pointer;box-shadow:0 4px 14px rgba(69,32,104,.35);transition:background .2s,transform .15s;z-index:999;">↑</button>
+<script>
+(function(){
+  const btn=document.getElementById('scrollToTop');
+  if(!btn)return;
+  window.addEventListener('scroll',function(){btn.style.display=window.pageYOffset>300?'block':'none';});
+  btn.addEventListener('click',function(){window.scrollTo({top:0,behavior:'smooth'});});
+  btn.addEventListener('mouseenter',function(){btn.style.background='#ff1090';btn.style.transform='translateY(-3px)';});
+  btn.addEventListener('mouseleave',function(){btn.style.background='#452068';btn.style.transform='translateY(0)';});
+})();
+</script>
 </body>
 </html>
