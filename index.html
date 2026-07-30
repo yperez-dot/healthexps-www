@@ -621,12 +621,12 @@ img { max-width: 100%; height: auto; }
 <body>
 
 <!-- ============================================================
-     NAVIGATION — preserved verbatim
+     HEADER — utility bar + sticky nav
      ============================================================ -->
 <header style="position:sticky;top:0;z-index:100;box-shadow:0 2px 12px rgba(69,32,104,0.12);">
 
-  <!-- TOP BAR -->
-  <div style="background:#452068;padding:8px 0;">
+  <!-- UTILITY BAR -->
+  <div style="background:#2f1550;padding:9px 0;">
     <div style="max-width:1060px;margin:0 auto;padding:0 24px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px;">
       <div style="display:flex;align-items:center;gap:16px;">
         <a href="tel:18003806821" style="color:white;font-size:14px;font-weight:700;text-decoration:none;display:flex;align-items:center;gap:6px;">
@@ -634,14 +634,19 @@ img { max-width: 100%; height: auto; }
           1-800-380-6821
         </a>
         <span style="color:rgba(255,255,255,0.4);">|</span>
-        <span style="color:rgba(255,255,255,0.75);font-size:13px;">English &amp; Spanish</span>
+        <span style="color:rgba(255,255,255,0.75);font-size:13px;">English &amp; Espa&ntilde;ol</span>
       </div>
       <div style="display:flex;align-items:center;gap:10px;">
-        <a href="https://wa.me/13054646888" target="_blank" rel="noopener" style="background:#25D366;color:white;display:inline-flex;align-items:center;gap:6px;padding:8px 14px;border-radius:50px;font-weight:700;font-size:13px;text-decoration:none;" onclick="gtag('event','whatsapp_click',{'page':window.location.pathname})">
+        <a href="https://wa.me/13054646888" target="_blank" rel="noopener"
+           style="background:#25D366;color:white;display:inline-flex;align-items:center;gap:6px;padding:8px 14px;border-radius:50px;font-weight:700;font-size:13px;text-decoration:none;"
+           onclick="gtag('event','whatsapp_click',{'page':window.location.pathname})">
           <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.123.556 4.116 1.526 5.845L0 24l6.335-1.508A11.945 11.945 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.818 9.818 0 01-5.006-1.368l-.359-.214-3.728.887.916-3.636-.234-.374A9.818 9.818 0 1112 21.818z"/></svg>
-          WhatsApp
+          305-464-6888
         </a>
-        <a href="https://calendly.com/healthexps-info/" target="_blank" rel="noopener" style="background:#ff1090;color:white;display:inline-block;padding:8px 18px;border-radius:50px;font-weight:700;font-size:13px;text-decoration:none;">Schedule Free Consultation →</a>
+        <a href="https://calendly.com/healthexps-info/" target="_blank" rel="noopener"
+           style="background:#ff1090;color:white;display:inline-block;padding:8px 18px;border-radius:50px;font-weight:700;font-size:13px;text-decoration:none;">
+          Schedule Free Consultation &rarr;
+        </a>
         <div style="display:flex;align-items:center;border:1.5px solid rgba(255,255,255,0.4);border-radius:50px;overflow:hidden;">
           <span style="background:white;color:#452068;font-size:12px;font-weight:700;padding:3px 10px;">EN</span>
           <a href="https://www.healthexps.com/es/" style="font-size:12px;font-weight:700;padding:3px 10px;color:rgba(255,255,255,0.75);text-decoration:none;">ES</a>
@@ -803,7 +808,7 @@ img { max-width: 100%; height: auto; }
         </div>
       </div>
 
-      <!-- RIGHT: Photo + rating badge -->
+      <!-- RIGHT: Photo + rating float -->
       <div class="hero-photo-wrap">
         <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=800&h=500&fit=crop&crop=faces,center&auto=format&q=80"
              alt="Licensed bilingual health insurance advisor at The Health Experts Insurance in Doral, FL"
@@ -822,7 +827,7 @@ img { max-width: 100%; height: auto; }
 </section>
 
 <!-- ============================================================
-     STAT STRIP
+     STAT STRIP — 5 stats from v4 redesign
      ============================================================ -->
 <div class="stat-strip">
   <div class="container">
@@ -832,16 +837,16 @@ img { max-width: 100%; height: auto; }
         <div class="stat-label">Insurance Carriers</div>
       </div>
       <div class="stat-cell">
-        <div class="stat-num">Doral</div>
-        <div class="stat-label">Office in Miami-Dade</div>
-      </div>
-      <div class="stat-cell">
-        <div class="stat-num">EN/ES</div>
-        <div class="stat-label">English &amp; Spanish</div>
+        <div class="stat-num">82</div>
+        <div class="stat-label">Products in Florida</div>
       </div>
       <div class="stat-cell">
         <div class="stat-num">$0</div>
         <div class="stat-label">Cost to You</div>
+      </div>
+      <div class="stat-cell">
+        <div class="stat-num">2019</div>
+        <div class="stat-label">Founded in Doral</div>
       </div>
       <div class="stat-cell">
         <div class="stat-num">4.9</div>
@@ -852,7 +857,7 @@ img { max-width: 100%; height: auto; }
 </div>
 
 <!-- ============================================================
-     WHAT WE COMPARE — interactive (NEW section)
+     WHAT WE COMPARE — interactive cards
      ============================================================ -->
 <section class="section section-bg-off">
   <div class="container" style="text-align:center;">
@@ -863,16 +868,18 @@ img { max-width: 100%; height: auto; }
     <div class="compare-grid" id="compareGrid">
 
       <!-- 1 — Your doctors -->
-      <div class="compare-card" tabindex="0" role="button" aria-pressed="false" data-detail="We verify network coverage before recommending any plan — so your cardiologist, PCP, and specialists all stay in-network.">
+      <div class="compare-card" tabindex="0" role="button" aria-pressed="false"
+           data-detail="We verify network coverage before recommending any plan — so your cardiologist, PCP, and specialists all stay in-network.">
         <div class="cc-icon">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#452068" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 12h6M12 9v6"/><circle cx="12" cy="12" r="9"/></svg>
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#452068" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12h14"/></svg>
         </div>
         <div class="cc-title">Your doctors</div>
         <div class="cc-desc">We verify network coverage first.</div>
       </div>
 
       <!-- 2 — Your medications -->
-      <div class="compare-card" tabindex="0" role="button" aria-pressed="false" data-detail="Full formulary reviewed plan by plan — we match your prescriptions to the exact formulary tiers so you know your real drug costs.">
+      <div class="compare-card" tabindex="0" role="button" aria-pressed="false"
+           data-detail="Full formulary reviewed plan by plan — we match your prescriptions to the exact formulary tiers so you know your real drug costs.">
         <div class="cc-icon">
           <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#452068" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="8" width="18" height="8" rx="4"/><line x1="12" y1="8" x2="12" y2="16"/></svg>
         </div>
@@ -881,7 +888,8 @@ img { max-width: 100%; height: auto; }
       </div>
 
       <!-- 3 — Your real budget -->
-      <div class="compare-card" tabindex="0" role="button" aria-pressed="false" data-detail="We look at monthly premium, copays, coinsurance, and out-of-pocket maximum together — not just the headline premium number.">
+      <div class="compare-card" tabindex="0" role="button" aria-pressed="false"
+           data-detail="We look at monthly premium, copays, coinsurance, and out-of-pocket maximum together — not just the headline premium number.">
         <div class="cc-icon">
           <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#452068" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="6" width="18" height="12" rx="2"/><circle cx="17" cy="12" r="1.5" fill="#452068" stroke="none"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
         </div>
@@ -890,7 +898,8 @@ img { max-width: 100%; height: auto; }
       </div>
 
       <!-- 4 — Extra benefits -->
-      <div class="compare-card" tabindex="0" role="button" aria-pressed="false" data-detail="Many Medicare Advantage plans include dental, vision, hearing, gym memberships, transportation, and OTC allowances. We find what you actually qualify for.">
+      <div class="compare-card" tabindex="0" role="button" aria-pressed="false"
+           data-detail="Many Medicare Advantage plans include dental, vision, hearing, gym memberships, transportation, and OTC allowances. We find what you actually qualify for.">
         <div class="cc-icon">
           <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#452068" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="8" width="16" height="12" rx="1.5"/><path d="M4 12h16M12 8v12"/></svg>
         </div>
@@ -899,7 +908,8 @@ img { max-width: 100%; height: auto; }
       </div>
 
       <!-- 5 — Your lifestyle -->
-      <div class="compare-card" tabindex="0" role="button" aria-pressed="false" data-detail="Do you spend winters in a different state? Travel internationally? Some plans provide coverage anywhere; others do not. We match plans to how you actually live.">
+      <div class="compare-card" tabindex="0" role="button" aria-pressed="false"
+           data-detail="Do you spend winters in a different state? Travel internationally? Some plans provide coverage anywhere; others do not. We match plans to how you actually live.">
         <div class="cc-icon">
           <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#452068" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><line x1="3" y1="12" x2="21" y2="12"/><path d="M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18"/></svg>
         </div>
@@ -909,7 +919,7 @@ img { max-width: 100%; height: auto; }
 
     </div>
 
-    <!-- Detail callout (shown on card selection) -->
+    <!-- Detail callout — shown on card selection -->
     <div id="compareDetail" style="display:none;margin-top:28px;background:white;border:2px solid #452068;border-radius:14px;padding:20px 28px;max-width:680px;margin-left:auto;margin-right:auto;text-align:left;">
       <p id="compareDetailText" style="font-size:16px;color:#241a30;line-height:1.65;margin:0;"></p>
     </div>
@@ -921,7 +931,7 @@ img { max-width: 100%; height: auto; }
 </section>
 
 <!-- ============================================================
-     AVMED ALERT — updated styling
+     AVMED ALERT BAR
      ============================================================ -->
 <div class="avmed-bar">
   <div class="container">
@@ -936,7 +946,7 @@ img { max-width: 100%; height: auto; }
 </div>
 
 <!-- ============================================================
-     NOT SURE WHERE TO START — interactive scenario cards (NEW)
+     NOT SURE WHERE TO START — interactive scenario cards
      ============================================================ -->
 <section class="section section-bg-white">
   <div class="container">
@@ -953,9 +963,7 @@ img { max-width: 100%; height: auto; }
         <div>
           <div class="sc-q">&ldquo;I&rsquo;m turning 65 and don&rsquo;t know what to choose.&rdquo;</div>
           <div class="sc-a">We walk you through your Medicare options as licensed agents &mdash; clearly, at no cost.</div>
-          <div class="sc-cta">
-            <a href="#lead-form">Talk to an agent &rarr;</a>
-          </div>
+          <div class="sc-cta"><a href="#lead-form">Talk to an agent &rarr;</a></div>
         </div>
       </div>
 
@@ -967,9 +975,7 @@ img { max-width: 100%; height: auto; }
         <div>
           <div class="sc-q">&ldquo;I lost my coverage and need something fast.&rdquo;</div>
           <div class="sc-a">We review ACA Marketplace and private insurance options without the added stress.</div>
-          <div class="sc-cta">
-            <a href="#lead-form">Get help now &rarr;</a>
-          </div>
+          <div class="sc-cta"><a href="#lead-form">Get help now &rarr;</a></div>
         </div>
       </div>
 
@@ -979,9 +985,7 @@ img { max-width: 100%; height: auto; }
         <div>
           <div class="sc-q">&ldquo;I got an IRMAA notice and don&rsquo;t understand it.&rdquo;</div>
           <div class="sc-a">We explain surcharges, penalties, and whether you may qualify for an appeal.</div>
-          <div class="sc-cta">
-            <a href="#lead-form">Explain my IRMAA &rarr;</a>
-          </div>
+          <div class="sc-cta"><a href="#lead-form">Explain my IRMAA &rarr;</a></div>
         </div>
       </div>
 
@@ -993,9 +997,7 @@ img { max-width: 100%; height: auto; }
         <div>
           <div class="sc-q">&ldquo;I don&rsquo;t have time to figure all this out.&rdquo;</div>
           <div class="sc-a">We simplify the process and help you move forward with confidence, faster.</div>
-          <div class="sc-cta">
-            <a href="#lead-form">Save me time &rarr;</a>
-          </div>
+          <div class="sc-cta"><a href="#lead-form">Save me time &rarr;</a></div>
         </div>
       </div>
 
@@ -1004,7 +1006,7 @@ img { max-width: 100%; height: auto; }
 </section>
 
 <!-- ============================================================
-     TESTIMONIAL SPOTLIGHT (from redesign — new on homepage)
+     TESTIMONIAL SPOTLIGHT
      ============================================================ -->
 <section class="testimonial-section">
   <div class="container">
@@ -1018,8 +1020,34 @@ img { max-width: 100%; height: auto; }
 </section>
 
 <!-- ============================================================
-     LEAD FORM — "Request Your Free Consultation"
-     GHL webhook preserved verbatim
+     HOW WE WORK — 3 steps
+     ============================================================ -->
+<section class="section section-bg-lav">
+  <div class="container" style="text-align:center;">
+    <h2 class="section-title">How we work &mdash; 3 steps</h2>
+    <p class="section-sub" style="margin-left:auto;margin-right:auto;margin-bottom:48px;">Simple, fast, and completely free.</p>
+    <div class="steps-grid">
+      <div>
+        <div class="step-num-badge">1</div>
+        <div class="step-title">Free consultation</div>
+        <div class="step-desc">In person in Doral, by phone, or video. Tell us who you are, which doctors you see, and what medications you take. We listen first &mdash; then we compare.</div>
+      </div>
+      <div>
+        <div class="step-num-badge">2</div>
+        <div class="step-title">Personalized comparison</div>
+        <div class="step-desc">We show you specific plans matched to your doctors, medications, and real budget &mdash; not a generic list. We run every network and every formulary.</div>
+      </div>
+      <div>
+        <div class="step-num-badge">3</div>
+        <div class="step-title">Enrollment &amp; follow-up</div>
+        <div class="step-desc">We handle the enrollment process with you and stay available all year long &mdash; not just during open enrollment season.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     LEAD CAPTURE FORM — GHL webhook preserved
      ============================================================ -->
 <section class="lead-section" id="lead-form">
   <div class="container">
@@ -1095,7 +1123,7 @@ img { max-width: 100%; height: auto; }
           <div class="ff-privacy">Your info is private. Licensed agents only &mdash; no spam.</div>
           <div class="ff-consent">
             <input type="checkbox" id="hpfConsent" required>
-            <label for="hpfConsent">By checking this box, you consent to receive text messages sent via an autodialer from The Health Experts Insurance regarding insurance services, appointments, and updates. Consent is not a condition of purchase. Message and data rates may apply. You can opt out anytime by replying STOP. View our <a href="/privacy">Terms and Privacy Policy</a>.</label>
+            <label for="hpfConsent"><strong>Permission to Contact:</strong> I consent to receive e-mails, telephone calls, text messages, and artificial or pre-recorded messages from licensed insurance agents with The Health Experts Insurance, regarding health insurance plans and related products and services, at the e-mail address and telephone number provided above, including my wireless number (if provided), and regardless of whether it is on any do not call list, using an automated telephone dialing system. I understand that my wireless carrier&rsquo;s standard message and data rates apply. I understand that I may revoke this consent at any time. I understand that I have the option to speak with a licensed insurance agent without granting this consent by calling <a href="tel:18003806821">1-800-380-6821</a> TTY 711.</label>
           </div>
           <button type="submit" id="hpfBtn">Book My Free Consultation &rarr;</button>
         </form>
@@ -1175,7 +1203,7 @@ img { max-width: 100%; height: auto; }
 </script>
 
 <!-- ============================================================
-     PLANS GRID — updated design
+     PLANS GRID
      ============================================================ -->
 <section class="section section-bg-off">
   <div class="container">
@@ -1223,7 +1251,7 @@ img { max-width: 100%; height: auto; }
 
       <a href="#" class="plan-card">
         <div class="pc-icon">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#452068" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><line x1="3" y1="12" x2="21" y2="12"/><path d="M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18"/></svg>
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#452068" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><ellipse cx="12" cy="12" rx="4" ry="9" stroke="#452068"/><line x1="3" y1="12" x2="21" y2="12"/></svg>
         </div>
         <div class="pc-title">Travel Insurance</div>
         <div class="pc-desc">International &amp; travel medical coverage</div>
@@ -1262,7 +1290,7 @@ img { max-width: 100%; height: auto; }
 </section>
 
 <!-- ============================================================
-     GOOGLE REVIEWS — existing reviews, new design
+     CARRIER LOGOS / GOOGLE REVIEWS
      ============================================================ -->
 <section class="section section-bg-white">
   <div class="container">
@@ -1345,42 +1373,18 @@ img { max-width: 100%; height: auto; }
     </div>
 
     <div style="text-align:center;margin-top:28px;">
-      <a href="https://g.page/r/Cee2iBiBjgodEAE/review" target="_blank" rel="noopener" style="color:var(--purple);font-weight:700;font-size:15px;text-decoration:none;">See all reviews on Google &rarr;</a>
+      <a href="https://g.page/r/Cee2iBiBjgodEAE/review" target="_blank" rel="noopener"
+         style="color:var(--purple);font-weight:700;font-size:15px;text-decoration:none;">
+        See all reviews on Google &rarr;
+      </a>
     </div>
   </div>
 </section>
 
 <!-- ============================================================
-     HOW WE WORK — 3 steps (NEW section layout from redesign)
+     WHY CHOOSE US — 6-item grid
      ============================================================ -->
-<section class="section section-bg-lav">
-  <div class="container" style="text-align:center;">
-    <h2 class="section-title">How we work &mdash; 3 steps</h2>
-    <p class="section-sub" style="margin-left:auto;margin-right:auto;margin-bottom:48px;">Simple, fast, and completely free.</p>
-    <div class="steps-grid">
-      <div>
-        <div class="step-num-badge">1</div>
-        <div class="step-title">Free consultation</div>
-        <div class="step-desc">In person in Doral, by phone, or video. Tell us who you are, which doctors you see, and what medications you take. We listen first &mdash; then we compare.</div>
-      </div>
-      <div>
-        <div class="step-num-badge">2</div>
-        <div class="step-title">Personalized comparison</div>
-        <div class="step-desc">We show you specific plans matched to your doctors, medications, and real budget &mdash; not a generic list. We run every network and every formulary.</div>
-      </div>
-      <div>
-        <div class="step-num-badge">3</div>
-        <div class="step-title">Enrollment &amp; follow-up</div>
-        <div class="step-desc">We handle the enrollment process with you and stay available all year long &mdash; not just during open enrollment season.</div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ============================================================
-     WHY CHOOSE US — 6-item grid (updated)
-     ============================================================ -->
-<section class="section section-bg-white">
+<section class="section section-bg-white" style="background:#fdfaf7;">
   <div class="container">
     <div style="text-align:center;margin-bottom:44px;">
       <h2 class="section-title">Why South Florida families choose us</h2>
@@ -1461,7 +1465,9 @@ img { max-width: 100%; height: auto; }
     <p>Speak with a licensed Medicare broker. Free, local, no pressure.</p>
     <div class="final-cta-btns">
       <a href="#lead-form" class="btn-pink">Compare Plans Free</a>
-      <a href="https://wa.me/13054646888" style="display:inline-flex;align-items:center;gap:8px;background:#25D366;color:white;padding:14px 24px;border-radius:12px;font-weight:700;font-size:15.5px;text-decoration:none;transition:background .2s;" target="_blank" rel="noopener" onclick="gtag('event','whatsapp_click',{'page':window.location.pathname})">
+      <a href="https://wa.me/13054646888" target="_blank" rel="noopener"
+         style="display:inline-flex;align-items:center;gap:8px;background:#25D366;color:white;padding:14px 24px;border-radius:12px;font-weight:700;font-size:15.5px;text-decoration:none;transition:background .2s;"
+         onclick="gtag('event','whatsapp_click',{'page':window.location.pathname})">
         <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.123.556 4.116 1.526 5.845L0 24l6.335-1.508A11.945 11.945 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.818 9.818 0 01-5.006-1.368l-.359-.214-3.728.887.916-3.636-.234-.374A9.818 9.818 0 1112 21.818z"/></svg>
         WhatsApp
       </a>
@@ -1471,7 +1477,7 @@ img { max-width: 100%; height: auto; }
 </section>
 
 <!-- ============================================================
-     FOOTER — preserved verbatim
+     FOOTER
      ============================================================ -->
 <footer style="background:#fafafa;border-top:3px solid #f4eefa;padding:52px 0 24px;">
   <div style="max-width:1060px;margin:0 auto;padding:0 24px;">
@@ -1480,7 +1486,7 @@ img { max-width: 100%; height: auto; }
         <img src="/images/logo.webp" alt="The Health Experts Insurance" style="height:64px;width:auto;margin-bottom:14px;">
         <p style="font-size:14px;color:#555;line-height:1.6;margin:0 0 14px;">Independent bilingual health insurance brokers. Office in Doral, FL.</p>
         <p style="font-size:15px;margin-bottom:6px;"><a href="tel:18003806821" style="color:#452068;font-weight:600;text-decoration:none;">1-800-380-6821</a></p>
-        <p style="font-size:15px;margin-bottom:6px;"><a href="https://wa.me/13054646888" style="color:#452068;font-weight:600;text-decoration:none;" onclick="gtag('event','whatsapp_click',{'page':window.location.pathname})">WhatsApp</a></p>
+        <p style="font-size:15px;margin-bottom:6px;"><a href="https://wa.me/13054646888" style="color:#452068;font-weight:600;text-decoration:none;" onclick="gtag('event','whatsapp_click',{'page':window.location.pathname})">WhatsApp 305-464-6888</a></p>
         <p style="font-size:15px;margin-bottom:6px;"><a href="mailto:info@healthexps.com" style="color:#452068;font-weight:600;text-decoration:none;">info@healthexps.com</a></p>
         <p style="font-size:14px;color:#555;margin-top:8px;">1695 NW 110 Ave, Ste 224<br>Doral, FL 33172</p>
       </div>
@@ -1533,7 +1539,7 @@ img { max-width: 100%; height: auto; }
      SCRIPTS
      ============================================================ -->
 
-<!-- Nav JS — preserved verbatim -->
+<!-- Nav JS -->
 <script defer>
 var _nt=document.getElementById('nav-toggle');
 var _nl=document.getElementById('nav-links');
@@ -1574,7 +1580,7 @@ for(var k=0;k<_navLinks.length;k++){
 }
 </script>
 
-<!-- ScrollToTop JS — preserved -->
+<!-- ScrollToTop JS -->
 <script>
 (function(){
   var btn=document.getElementById('scrollToTop');
@@ -1586,7 +1592,7 @@ for(var k=0;k<_navLinks.length;k++){
 })();
 </script>
 
-<!-- Review expand/collapse — preserved -->
+<!-- Review expand/collapse -->
 <script defer>
 function toggleReview(link){
   var container=link.closest('.rev-text');
@@ -1602,7 +1608,7 @@ function toggleReview(link){
 }
 </script>
 
-<!-- "What We Compare" interactive cards — NEW -->
+<!-- "What We Compare" interactive cards -->
 <script defer>
 (function(){
   var cards = document.querySelectorAll('#compareGrid .compare-card');
@@ -1632,16 +1638,14 @@ function toggleReview(link){
 })();
 </script>
 
-<!-- "Not Sure Where to Start" scenario cards — NEW -->
+<!-- "Not Sure Where to Start" scenario cards -->
 <script defer>
 (function(){
   var cards = document.querySelectorAll('#scenarioGrid .scenario-card');
   cards.forEach(function(card){
     card.addEventListener('click', function(){
       var isActive = this.classList.contains('active');
-      // close all first
       cards.forEach(function(c){ c.classList.remove('active'); c.setAttribute('aria-expanded','false'); });
-      // open clicked one if it wasn't open
       if(!isActive){
         this.classList.add('active');
         this.setAttribute('aria-expanded','true');
