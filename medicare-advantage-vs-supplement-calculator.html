@@ -403,11 +403,39 @@ function setLang(l) {
 }
 
 // ── Navigation ────────────────────────────────────────────────────────────────
+
+// ── Plan G age-based rate lookup (Florida typical midpoints, 2026) ─────────────
+// Source: Florida Medigap market data. User can always override.
+var PG_RATES = {
+  60:148,61:151,62:155,63:159,64:162,
+  65:170,66:178,67:185,68:192,69:200,
+  70:210,71:218,72:227,73:236,74:244,
+  75:254,76:265,77:277,78:290,79:302,
+  80:315
+};
+function getPGRate(age) {
+  age = Math.min(80, Math.max(60, Math.round(age)));
+  return PG_RATES[age] || 215;
+}
+
 function goStep(n) {
   g('step-' + currentStep).style.display = 'none';
   currentStep = n;
   g('step-' + n).style.display = 'block';
   updateProgress();
+  // Auto-fill Plan G premium based on age when arriving at step 3
+  if (n === 3) {
+    var age = parseFloat(g('i-age').value) || 65;
+    var suggested = getPGRate(age);
+    g('i-mgp').value = suggested;
+    // Update hint
+    var t = TL[L];
+    var hintEl = g('h-mgp');
+    if (hintEl) {
+      var range = Math.round(suggested * 0.85) + '–$' + Math.round(suggested * 1.15);
+      hintEl.textContent = (L === 'es' ? 'Estimado típico para su edad: ~$' : 'Typical for your age: ~$') + suggested + '/mo. ' + (L === 'es' ? 'Puede ajustarlo.' : 'You can adjust this.');
+    }
+  }
   window.scrollTo({ top: 0, behavior: 'smooth' });
 }
 
