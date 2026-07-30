@@ -399,8 +399,8 @@ for(var k=0;k<_navLinks.length;k++){
  <thead>
  <tr>
  <th class="col-feature">Feature</th>
- <th class="col-original">🏛️ Original Medicare</th>
- <th class="col-advantage">⭐ Medicare Advantage</th>
+ <th class="col-original"> Original Medicare</th>
+ <th class="col-advantage"> Medicare Advantage</th>
  <th class="col-medigap">Original + Medigap</th>
  </tr>
  </thead>
@@ -473,7 +473,7 @@ for(var k=0;k<_navLinks.length;k++){
 
  <!-- RESULT -->
  <div class="quiz-result" id="quiz-result">
- <div class="result-ico" id="result-ico">⭐</div>
+ <div class="result-ico" id="result-ico"></div>
  <div class="result-title" id="result-title">Medicare Advantage may be a great fit</div>
  <div class="result-desc" id="result-desc">Based on your answers, Medicare Advantage offers the benefits that matter most to you. Our brokers can compare every plan available in your ZIP code and verify your doctors are in-network — free.</div>
  <a href="/medicare-plan-finder" class="result-cta" target="_blank" rel="noopener" id="result-cta">Compare Plans Free →</a>
@@ -641,11 +641,11 @@ function showResult(budgetPref) {
  title.textContent = 'Medicare Supplement (Medigap) may be your best fit';
  desc.textContent = 'Based on your answers, you value doctor freedom, predictable costs, or frequent healthcare use — all of which point toward Original Medicare + a Medigap Plan G. Our brokers will compare every carrier in Florida to find your lowest rate.';
  } else if(networkPref === 'network-no' || budgetPref === 'balance') {
- ico.textContent = '⭐';
+ ico.textContent = '';
  title.textContent = 'Medicare Advantage could be a great fit';
  desc.textContent = 'You seem open to a network-based plan and value low premiums with good benefits. Medicare Advantage plans in South Florida often have $0 premiums, dental, vision, and an annual out-of-pocket cap. Our brokers will verify your doctors and compare every plan.';
  } else {
- ico.textContent = '⭐';
+ ico.textContent = '';
  title.textContent = 'Medicare Advantage is worth a close look';
  desc.textContent = 'Based on your answers, Medicare Advantage could be a strong fit — especially with so many $0 premium plans available in South Florida. Our brokers will confirm your doctors are in-network and compare all options for you. Free.';
  }
