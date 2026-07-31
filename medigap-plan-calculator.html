@@ -1109,393 +1109,126 @@ tbody tr:nth-child(even) { background: var(--panel-bg); }
 <!-- ============================================================
      FOOTER (verbatim from index.html v4 · classes: footer-wrap + footer-grid)
      ============================================================ -->
-<footer class="footer-wrap">
-  <div class="footer-inner">
-    <div class="footer-grid">
-
-      <!-- Col 1: Brand -->
-      <div>
-        <img src="/images/logo.webp" alt="The Health Experts Insurance" style="height:64px;width:auto;margin-bottom:14px">
-        <p style="font-size:13.5px;color:#6f6478;line-height:1.6;max-width:260px;margin-bottom:14px">Independent bilingual health insurance brokers. Office in Doral, FL.</p>
-        <div class="footer-links" style="margin-bottom:14px">
-          <a href="tel:18003806821" class="fw">1-800-380-6821</a>
-          <a href="https://wa.me/13054646888" class="fw" onclick="gtag('event','whatsapp_click',{'page':window.location.pathname})">WhatsApp</a>
-          <a href="mailto:info@healthexps.com" class="fw">info@healthexps.com</a>
+      <!-- FOOTER -->
+      <div id="site-footer" style="background:#fff;color:#241a30;padding:56px 56px 24px;border-top:1px solid #ece5f0">
+        <div style="max-width:1160px;margin:0 auto">
+          <div id="footer-grid" style="display:grid;grid-template-columns:1.3fr 1fr 1fr 1fr;gap:32px;margin-bottom:36px">
+            <div>
+              <img src="/images/logo.webp" alt="The Health Experts Insurance" style="height:70px;width:auto;margin-bottom:16px"/>
+              <p style="font-size:13.5px;color:#6f6478;line-height:1.6;max-width:260px">Independent bilingual health insurance brokers. Office in Doral, FL.</p>
+              <div style="display:flex;flex-direction:column;gap:4px;margin-top:14px;font-size:13.5px">
+                <a href="tel:18003806821" style="color:#452068;font-weight:700">1-800-380-6821</a>
+                <a href="https://wa.me/13054646888" style="color:#452068;font-weight:700" onclick="gtag('event','whatsapp_click',{'page':window.location.pathname})">WhatsApp</a>
+                <a href="mailto:info@healthexps.com" style="color:#452068;font-weight:700">info@healthexps.com</a>
+              </div>
+              <p style="font-size:13.5px;color:#4a4051;margin-top:14px">1695 NW 110 Ave, Ste 224<br/>Doral, FL 33172</p>
+            </div>
+            <div>
+              <div style="font-weight:700;font-size:12.5px;letter-spacing:.06em;margin-bottom:14px;color:#452068">MEDICARE</div>
+              <div style="display:flex;flex-direction:column;gap:9px;font-size:13.5px">
+                <a href="/medicare-plans-miami" style="cursor:pointer;color:#241a30;font-weight:700">Medicare Plans</a>
+                <a href="/medicare-advantage-miami" style="color:#4a4051">Medicare Advantage</a>
+                <a href="/medicare-supplement-miami" style="color:#4a4051">Medicare Supplement</a>
+                <a href="/medicare-plans-miami#dsnp" style="cursor:pointer;color:#4a4051">Dual Eligible (D-SNP)</a>
+                <a href="/medicare-plan-finder" style="cursor:pointer;color:#4a4051">Medicare Plan Finder</a>
+                <a href="/avmed-medicare-florida" style="color:#4a4051">AvMed Transition</a>
+              </div>
+            </div>
+            <div>
+              <div style="font-weight:700;font-size:12.5px;letter-spacing:.06em;margin-bottom:14px;color:#452068">MEDICARE GUIDES</div>
+              <div style="display:flex;flex-direction:column;gap:9px;font-size:13.5px">
+                <a href="/medicare/what-is-medicare" style="cursor:pointer;color:#4a4051">What Is Medicare</a>
+                <a href="/medicare/new-to-medicare" style="cursor:pointer;color:#4a4051">New to Medicare</a>
+                <a href="/medicare/medicare-costs" style="cursor:pointer;color:#4a4051">Medicare Costs &amp; IRMAA</a>
+                <a href="/medicare-advantage-miami" style="cursor:pointer;color:#4a4051">Medicare Advantage Guide</a>
+                <a href="/medicare-supplement-miami" style="cursor:pointer;color:#4a4051">Medicare Supplement Guide</a>
+                <a href="/medicare-savings-program" style="cursor:pointer;color:#4a4051">Medicare Savings Program</a>
+              </div>
+            </div>
+            <div>
+              <div style="font-weight:700;font-size:12.5px;letter-spacing:.06em;margin-bottom:14px;color:#452068">MORE</div>
+              <div style="display:flex;flex-direction:column;gap:9px;font-size:13.5px">
+                <a href="/private-health-insurance-miami" style="cursor:pointer;color:#4a4051">Private Health Insurance</a>
+                <a href="/aca-plans-miami" style="cursor:pointer;color:#4a4051">ACA Marketplace Plans</a>
+                <a href="/cobra-alternatives-miami" style="cursor:pointer;color:#4a4051">COBRA Alternatives</a>
+                <a href="/dental-vision-miami" style="cursor:pointer;color:#4a4051">Dental &amp; Vision</a>
+                <a href="/medicare-agent-miami" style="cursor:pointer;color:#4a4051">About Us</a>
+                <a href="/contact" style="cursor:pointer;color:#4a4051">Contact</a>
+                <a href="/es/" style="color:#4a4051">Sitio en Espa&ntilde;ol</a>
+              </div>
+            </div>
+          </div>
+          <div style="border-top:1px solid #ece5f0;padding-top:20px;font-size:13px;color:#4a4051">
+            © 2026 The Health Experts Insurance. <a href="/privacy" style="color:#452068;font-weight:600">Privacy Policy &amp; Terms</a>
+          </div>
+          <div style="padding-top:12px;font-size:13.5px;color:#a79db2;line-height:1.6">
+            Medicare has not reviewed or endorsed this information. We do not offer every plan available in your area. We currently represent 14 organizations offering 82 products in your area. Please contact Medicare.gov, 1-800-MEDICARE, or your local SHIP program for information about all your options.
+          </div>
         </div>
-        <p style="font-size:13.5px;color:#4a4051">1695 NW 110 Ave, Ste 224<br>Doral, FL 33172</p>
       </div>
 
-      <!-- Col 2: Medicare -->
-      <div>
-        <div class="footer-col-title">Medicare</div>
-        <div class="footer-links">
-          <a href="/medicare-plans-miami" class="fw">Medicare Plans</a>
-          <a href="/medicare-advantage-miami">Medicare Advantage</a>
-          <a href="/medicare-supplement-miami">Medicare Supplement</a>
-          <a href="/medicare-plan-finder">Medicare Plan Finder</a>
-          <a href="/avmed-medicare-florida">AvMed Transition</a>
-        </div>
-      </div>
-
-      <!-- Col 3: Guides -->
-      <div>
-        <div class="footer-col-title">Medicare Guides</div>
-        <div class="footer-links">
-          <a href="/medicare/what-is-medicare">What Is Medicare</a>
-          <a href="/medicare/new-to-medicare">New to Medicare</a>
-          <a href="/medicare/medicare-costs">Medicare Costs &amp; IRMAA</a>
-          <a href="/medicare-advantage-miami">Medicare Advantage Guide</a>
-          <a href="/medicare-supplement-miami">Medicare Supplement Guide</a>
-          <a href="/medicare-savings-program">Medicare Savings Program</a>
-        </div>
-      </div>
-
-      <!-- Col 4: More -->
-      <div>
-        <div class="footer-col-title">More</div>
-        <div class="footer-links">
-          <a href="/private-health-insurance-miami">Private Health Insurance</a>
-          <a href="/aca-plans-miami">ACA Marketplace Plans</a>
-          <a href="/cobra-alternatives-miami">COBRA Alternatives</a>
-          <a href="/dental-vision-miami">Dental &amp; Vision</a>
-          <a href="/medicare-agent-miami">About Us</a>
-          <a href="/contact">Contact</a>
-          <a href="https://www.healthexps.com/es/planes-de-medicare-miami">Sitio en Español</a>
-        </div>
-      </div>
-
-    </div><!-- /footer-grid -->
-
-    <div class="footer-bottom">
-      <p>© 2026 The Health Experts Insurance. <a href="/privacy" style="color:#452068;font-weight:600">Privacy Policy &amp; Terms</a></p>
     </div>
-    <div class="footer-legal">
-      Medicare has not reviewed or endorsed this information. We do not offer every plan available in your area. We currently represent 14 organizations offering 82 products in your area. Please contact Medicare.gov, 1-800-MEDICARE, or your local SHIP program for information about all your options. This tool provides estimates for educational purposes only and is not insurance advice or a quote.
-    </div>
-  </div>
-</footer>
 
-<!-- ============================================================
-     SCROLL TO TOP BUTTON
-     ============================================================ -->
-<button id="scrollToTop" aria-label="Back to top">↑</button>
 
-</div><!-- /outer wrapper -->
-
-<!-- ============================================================
-     CALCULATOR JAVASCRIPT — VERBATIM from existing medigap-plan-calculator.html
-     ============================================================ -->
-<script>
-/* ---------- Translations ---------- */
-const T = {
- en:{
- eyebrow:"Free Tool · v1",
- h1:"Medigap Plan Calculator",
- sub:"Compare Plan G, Plan N, and High-Deductible Plan G. See your total costs grow over 25 years — and which plan saves you the most.",
- tCalc:"Calculator",tCharts:"Charts",tData:"Data",tBenefits:"Benefits",tAbout:"About",
- gYou:"Your information",age:"Your age",ageHint:"Most people start Medigap at 65.",
- gPrem:"Monthly premiums",premHint:"Florida typical ranges shown. We can pull real quotes for your zip.",
- pgPrem:"Plan G premium",pgHint:"FL range: $148–$355/mo by age.",
- pnPrem:"Plan N premium",pnHint:"Usually lower than Plan G.",
- hdPrem:"High-Deductible Plan G premium",hdHint:"Lowest premium, higher out-of-pocket.",
- gInc:"Annual increase rates",incHint:"How much premiums rise each year. These are realistic Florida defaults — adjust if you have actual rate history.",
- gInc2:"Plan G increase",nInc2:"Plan N increase",hInc2:"High-Deductible Plan G increase",
- gUse:"Plan N usage (annual)",useHint:"Plan N has small copays: up to $20 per office visit, $50 per ER visit.",
- office:"Office visits per year",er:"ER visits per year",perVisit:"/visit",perVisit2:"/visit",
- gHdg:"High-Deductible Plan G out-of-pocket",hdgHint:"Estimated yearly out-of-pocket before the plan pays. 2026 max deductible: $2,950.",range:"Range:",
- partB:"Include Medicare Part B premium in all plans ($202.90/mo, 2026)",
- run:"See my projection",
- resTitle:"Your 10-year total cost",
- annualPrem:"Annual Premium",partBDed:"Part B Deductible",annualCopay:"Annual Copays",estOOP:"Est. Out-of-Pocket",totalAnnual:"Total Annual",
- yr5:"5-Year Total",yr10:"10-Year Total",yr15:"15-Year Total",yr20:"20-Year Total",yr25:"25-Year Total",
- ages:"Age",lowCost:"Lowest Cost",
-over10:"over 10 years",over10b:"over 10 years",over10c:"over 10 years",hdgShort:"High-Deductible G",
- seeCharts:"See the Charts and Data tabs for the full 25-year breakdown.",
- ctaH:"Want real numbers for your situation?",ctaP:"These are estimates. We'll pull actual quotes from 14 carriers for your zip code — free, no obligation.",
- ctaBook:"Book a free consultation",ctaQuiz:"Compare my plans",
- chartTitle:"Estimated total cost over time",hdgShort2:"High-Deductible G",chartNote:"Run the calculator first to populate this chart.",
- thYear:"Year",thAge:"Age",thHdg:"HD-G",dataEmpty:"Run the calculator first to see year-by-year costs.",
- thBenefit:"Benefit",thHdg2:"HD-G",
- ctaH2:"Talk to a licensed bilingual broker",ctaP2:"We serve Miami-Dade and Broward in English and Spanish. No cost, no pressure.",
- ctaBook2:"Book a free consultation",ctaCall:"Call 1-800-380-6821",
- verdictCheapest:"Lowest 10-year cost:",verdictSaves:"saves you about",verdictVs:"vs",
- benefits:[
- ["Part A coinsurance & hospital costs","✓","✓","✓*"],
- ["Part B coinsurance or copayment","✓","✓**","✓*"],
- ["Blood (first 3 pints)","✓","✓","✓*"],
- ["Part A hospice care coinsurance","✓","✓","✓*"],
- ["Skilled nursing facility coinsurance","✓","✓","✓*"],
- ["Part A deductible","✓","✓","✓*"],
- ["Part B deductible","✗","✗","✗"],
- ["Part B excess charges","✓","✗","✓*"],
- ["Foreign travel emergency","80%","80%","80%*"]
- ],
- benNote:"= covered. * High-Deductible Plan G covers these only after you pay the annual deductible ($2,950 in 2026). ** Plan N has copays of up to $20 for office visits and $50 for ER visits that don't lead to admission, and does not cover Part B excess charges.",
- about:`<h3>What this calculator does</h3>
- <p>It compares the three most popular Medicare Supplement (Medigap) plans in Florida — Plan G, Plan N, and High-Deductible Plan G — and projects what each will cost you over time as premiums rise with age.</p>
- <h3>Why the 25-year view matters</h3>
- <p>The plan with the lowest premium today isn't always the cheapest over time. Premiums rise every year, and a small difference compounds. Seeing the long-term curve helps you choose with your eyes open.</p>
- <h3>The three plans in plain English</h3>
- <ul>
- <li><strong>Plan G</strong> — the most complete coverage. You pay only the annual Part B deductible; the plan covers nearly everything else. Highest premium.</li>
- <li><strong>Plan N</strong> — lower premium, with small copays ($20 office, $50 ER) and no coverage for Part B excess charges. A good middle ground for healthy people.</li>
- <li><strong>High-Deductible Plan G</strong> — lowest premium. You pay out of pocket up to the annual deductible ($2,950 in 2026), then it works like Plan G. Best for people who want to bet on staying healthy.</li>
- </ul>
- <h3>Important</h3>
- <p>These projections are estimates based on the numbers you enter and typical Florida increase rates. Actual premiums depend on your age, zip code, gender, tobacco use, and the carrier. We represent 14 carriers and can pull your real quotes at no cost.</p>`,
- disc:"This tool provides estimates for educational purposes only and is not insurance advice or a quote. Actual costs vary by carrier, age, location, and health. The Health Experts Insurance is a licensed, independent brokerage in Doral, FL. We do not offer every plan available in your area; currently we represent 14 organizations offering 82 products. Contact Medicare.gov, 1-800-MEDICARE, or your State Health Insurance Program (SHIP) for all options. Not connected with or endorsed by the U.S. government or the federal Medicare program."
- },
- es:{
- eyebrow:"Herramienta gratuita · v1",
- h1:"Calculadora de Planes Medigap",
- sub:"Compara el Plan G, el Plan N y el Plan G de Deducible Alto. Mira cómo crecen tus costos totales a 25 años — y qué plan te ahorra más.",
- tCalc:"Calculadora",tCharts:"Gráficas",tData:"Datos",tBenefits:"Beneficios",tAbout:"Acerca de",
- gYou:"Tu información",age:"Tu edad",ageHint:"La mayoría empieza Medigap a los 65.",
- gPrem:"Primas mensuales",premHint:"Se muestran rangos típicos de Florida. Podemos buscar cotizaciones reales para tu código postal.",
- pgPrem:"Prima del Plan G",pgHint:"Rango FL: $148–$355/mes según la edad.",
- pnPrem:"Prima del Plan N",pnHint:"Suele ser más baja que el Plan G.",
- hdPrem:"Prima del Plan G de Deducible Alto",hdHint:"Prima más baja, más gastos de bolsillo.",
- gInc:"Tasas de aumento anual",incHint:"Cuánto suben las primas cada año. Estos son valores realistas de Florida — ajústalos si tienes el historial real.",
- gInc2:"Aumento del Plan G",nInc2:"Aumento del Plan N",hInc2:"Aumento del Plan G de Deducible Alto",
- gUse:"Uso del Plan N (anual)",useHint:"El Plan N tiene copagos pequeños: hasta $20 por visita al consultorio, $50 por sala de emergencias.",
- office:"Visitas al consultorio por año",er:"Visitas a emergencias por año",perVisit:"/visita",perVisit2:"/visita",
- gHdg:"Gastos de bolsillo del Plan G de Deducible Alto",hdgHint:"Gasto de bolsillo anual estimado antes de que el plan pague. Deducible máximo 2026: $2,950.",range:"Rango:",
- partB:"Incluir la prima de Medicare Parte B en todos los planes ($202.90/mes, 2026)",
- run:"Ver mi proyección",
- resTitle:"Tu costo total a 10 años",
- annualPrem:"Prima Anual",partBDed:"Deducible Parte B",annualCopay:"Copagos Anuales",estOOP:"Gasto Est. de Bolsillo",totalAnnual:"Total Anual",
- yr5:"Total a 5 Años",yr10:"Total a 10 Años",yr15:"Total a 15 Años",yr20:"Total a 20 Años",yr25:"Total a 25 Años",
- ages:"Edad",lowCost:"Menor Costo",
-over10:"en 10 años",over10b:"en 10 años",over10c:"en 10 años",hdgShort:"G Deducible Alto",
- seeCharts:"Mira las pestañas Gráficas y Datos para el desglose completo a 25 años.",
- ctaH:"¿Quieres números reales para tu caso?",ctaP:"Estos son estimados. Buscaremos cotizaciones reales de 14 aseguradoras para tu código postal — gratis, sin compromiso.",
- ctaBook:"Agenda tu Consulta Gratis",ctaQuiz:"Comparar mis planes",
- chartTitle:"Costo total estimado con el tiempo",hdgShort2:"G Deducible Alto",chartNote:"Usa la calculadora primero para llenar esta gráfica.",
- thYear:"Año",thAge:"Edad",thHdg:"G-DA",dataEmpty:"Usa la calculadora primero para ver los costos año por año.",
- thBenefit:"Beneficio",thHdg2:"G-DA",
- ctaH2:"Habla con un agente bilingüe con licencia",ctaP2:"Atendemos Miami-Dade y Broward en inglés y español. Sin costo, sin presión.",
- ctaBook2:"Agenda tu Consulta Gratis",ctaCall:"Llama 1-800-380-6821",
- verdictCheapest:"Menor costo a 10 años:",verdictSaves:"te ahorra alrededor de",verdictVs:"frente a",
- benefits:[
- ["Coseguro Parte A y costos de hospital","✓","✓","✓*"],
- ["Coseguro o copago de Parte B","✓","✓**","✓*"],
- ["Sangre (primeras 3 pintas)","✓","✓","✓*"],
- ["Coseguro de cuidado de hospicio Parte A","✓","✓","✓*"],
- ["Coseguro de centro de enfermería especializada","✓","✓","✓*"],
- ["Deducible de Parte A","✓","✓","✓*"],
- ["Deducible de Parte B","✗","✗","✗"],
- ["Cargos excedentes de Parte B","✓","✗","✓*"],
- ["Emergencia en viajes al extranjero","80%","80%","80%*"]
- ],
- benNote:"= cubierto. * El Plan G de Deducible Alto cubre esto solo después de que pagues el deducible anual ($2,950 en 2026). ** El Plan N tiene copagos de hasta $20 por visita al consultorio y $50 por emergencias que no terminan en hospitalización, y no cubre los cargos excedentes de Parte B.",
- about:`<h3>Qué hace esta calculadora</h3>
- <p>Compara los tres planes Suplementarios de Medicare (Medigap) más populares en Florida — Plan G, Plan N y Plan G de Deducible Alto — y proyecta cuánto te costará cada uno con el tiempo a medida que las primas suben con la edad.</p>
- <h3>Por qué importa la vista a 25 años</h3>
- <p>El plan con la prima más baja hoy no siempre es el más barato a largo plazo. Las primas suben cada año, y una pequeña diferencia se acumula. Ver la curva a largo plazo te ayuda a elegir con los ojos abiertos.</p>
- <h3>Los tres planes en palabras simples</h3>
- <ul>
- <li><strong>Plan G</strong> — la cobertura más completa. Solo pagas el deducible anual de Parte B; el plan cubre casi todo lo demás. Prima más alta.</li>
- <li><strong>Plan N</strong> — prima más baja, con copagos pequeños ($20 consultorio, $50 emergencias) y sin cobertura de cargos excedentes de Parte B. Buen punto medio para personas sanas.</li>
- <li><strong>Plan G de Deducible Alto</strong> — la prima más baja. Pagas de tu bolsillo hasta el deducible anual ($2,950 en 2026), y luego funciona como el Plan G. Ideal para quien apuesta a mantenerse sano.</li>
- </ul>
- <h3>Importante</h3>
- <p>Estas proyecciones son estimados basados en los números que ingresas y tasas de aumento típicas de Florida. Las primas reales dependen de tu edad, código postal, sexo, uso de tabaco y la aseguradora. Representamos 14 aseguradoras y podemos buscar tus cotizaciones reales sin costo.</p>`,
- disc:"Esta herramienta ofrece estimados solo con fines educativos y no es asesoría de seguros ni una cotización. Los costos reales varían según la aseguradora, la edad, la ubicación y la salud. The Health Experts Insurance es una correduría independiente con licencia en Doral, FL. No ofrecemos todos los planes disponibles en tu área; actualmente representamos 14 organizaciones que ofrecen 82 productos. Comunícate con Medicare.gov, 1-800-MEDICARE o tu Programa Estatal de Asistencia de Seguro Médico (SHIP) para conocer todas tus opciones. No está conectado ni respaldado por el gobierno de EE. UU. ni el programa federal de Medicare."
- }
-};
-
-/* =====================================================================
- GHL FORM LINKS — REPLACE THESE TOMORROW
- We removed Typeform/Formspree. Paste your GoHighLevel form/funnel URLs
- below. The calculator will use the EN link in English mode and the ES
- link in Spanish mode automatically.
- If you only build ONE bilingual form, put the same URL in both.
- ===================================================================== */
-const GHL_FORM_EN = 'REPLACE_WITH_GHL_FORM_URL_EN';
-const GHL_FORM_ES = 'REPLACE_WITH_GHL_FORM_URL_ES';
-/* ===================================================================== */
-
-let lang='en';
-const PARTB_2026=202.90;
-
-function setLang(l){
- lang=l;
- document.documentElement.lang=l;
- document.getElementById('enBtn').classList.toggle('on',l==='en');
- document.getElementById('esBtn').classList.toggle('on',l==='es');
- document.querySelectorAll('[data-i]').forEach(el=>{
- const k=el.getAttribute('data-i');
- if(T[l][k]!==undefined) el.textContent=T[l][k];
- });
- // "Compare my plans" CTA → GHL form (EN vs ES)
- document.getElementById('quizLink').href = (l==='es') ? GHL_FORM_ES : GHL_FORM_EN;
- document.getElementById('aboutProse').innerHTML=T[l].about;
- document.getElementById('disc').textContent=T[l].disc;
- renderBenefits();
- if(lastResult){ renderVerdict(); renderSummary(); renderYears(); renderData(); renderChart(); }
-}
-
-function setTab(t){
- document.querySelectorAll('.tabs button').forEach(b=>b.classList.toggle('on',b.dataset.tab===t));
- document.querySelectorAll('.panel').forEach(p=>p.classList.remove('on'));
- document.getElementById('p-'+t).classList.add('on');
-}
-
-function renderBenefits(){
- const rows=T[lang].benefits;
- document.getElementById('benBody').innerHTML=rows.map(r=>
- `<tr><td>${r[0]}</td><td class="gcol">${r[1]}</td><td class="ncol">${r[2]}</td><td class="hcol">${r[3]}</td></tr>`
- ).join('');
- document.getElementById('benNote').textContent=T[lang].benNote;
-}
-
-const v=id=>parseFloat(document.getElementById(id).value)||0;
-const fmt=n=>'$'+Math.round(n).toLocaleString(lang==='es'?'es-US':'en-US');
-
-let lastResult=null;
-
-function buildSeries(){
- const age=v('age');
- const incB=document.getElementById('incB').checked;
- const partB=incB?PARTB_2026*12:0;
- const gP=v('gPrem')*12, nP=v('nPrem')*12, hP=v('hPrem')*12;
- const gI=v('gInc')/100, nI=v('nInc')/100, hI=v('hInc')/100;
- const nCopay=v('office')*20 + v('er')*50;
- const hdgOOP=v('hdgOOP');
-
- const rows=[]; let cg=0,cn=0,ch=0;
- for(let i=0;i<25;i++){
- const yG=gP*Math.pow(1+gI,i)+partB;
- const yN=nP*Math.pow(1+nI,i)+nCopay+partB;
- const yH=hP*Math.pow(1+hI,i)+hdgOOP+partB;
- cg+=yG; cn+=yN; ch+=yH;
- rows.push({year:2026+i,age:age+i,g:cg,n:cn,h:ch,yG,yN,yH});
- }
- rows.meta={gP,nP,hP,nCopay,hdgOOP,partB,partBded:283};
- return rows;
-}
-
-function calc(){
- lastResult=buildSeries();
- document.getElementById('results').classList.add('on');
- const r10=lastResult[9];
- document.getElementById('g10').textContent=fmt(r10.g);
- document.getElementById('n10').textContent=fmt(r10.n);
- document.getElementById('h10').textContent=fmt(r10.h);
- renderVerdict(); renderSummary(); renderYears(); renderData(); renderChart();
- document.getElementById('results').scrollIntoView({behavior:'smooth',block:'start'});
-}
-
-function renderSummary(){
- const m=lastResult.meta;
- const T_=T[lang];
- const gTot=m.gP+m.partBded+m.partB;
- const nTot=m.nP+m.partBded+m.nCopay+m.partB;
- const hTot=m.hP+m.hdgOOP+m.partB;
- const cards=[
- {cls:'g',nm:'Plan G',rows:[[T_.annualPrem,m.gP+m.partB],[T_.partBDed,m.partBded]],tot:gTot},
- {cls:'n',nm:'Plan N',rows:[[T_.annualPrem,m.nP+m.partB],[T_.partBDed,m.partBded],[T_.annualCopay,m.nCopay]],tot:nTot},
- {cls:'h',nm:T_.hdgShort,rows:[[T_.annualPrem,m.hP+m.partB],[T_.estOOP,m.hdgOOP]],tot:hTot}
- ];
- const low=Math.min(gTot,nTot,hTot);
- document.getElementById('summary').innerHTML=cards.map(c=>{
- const tag=(c.tot===low)?`<span class="lowtag">${T_.lowCost}</span>`:'';
- const lines=c.rows.map(r=>`<div class="line"><span>${r[0]}:</span><b>${fmt(r[1])}</b></div>`).join('');
- return `<div class="scard ${c.cls}">
- <div class="head"><span class="nm">${c.nm}</span>${tag}</div>
- ${lines}
- <div class="total"><div class="line"><span>${T_.totalAnnual}:</span><b>${fmt(c.tot)}</b></div></div>
- </div>`;
- }).join('');
-}
-
-function renderYears(){
- const T_=T[lang];
- const pts=[{k:5,t:T_.yr5},{k:10,t:T_.yr10},{k:15,t:T_.yr15},{k:20,t:T_.yr20},{k:25,t:T_.yr25}];
- const baseAge=lastResult[0].age;
- document.getElementById('yeargrid').innerHTML=pts.map(p=>{
- const r=lastResult[p.k-1];
- return `<div class="ycard">
- <div class="yt">${p.t}</div>
- <div class="yr">${T_.ages} ${baseAge}–${baseAge+p.k-1}</div>
- <div class="yl"><span>Plan G</span><span class="gv">${fmt(r.g)}</span></div>
- <div class="yl"><span>Plan N</span><span class="nv">${fmt(r.n)}</span></div>
- <div class="yl"><span>HD-G</span><span class="hv">${fmt(r.h)}</span></div>
- </div>`;
- }).join('');
-}
-
-function renderVerdict(){
- const r10=lastResult[9];
- const opts=[{k:'g',n:'Plan G',v:r10.g,el:'card-g'},{k:'n',n:'Plan N',v:r10.n,el:'card-n'},{k:'h',n:T[lang].hdgShort,v:r10.h,el:'card-h'}];
- opts.sort((a,b)=>a.v-b.v);
- ['card-g','card-n','card-h'].forEach(id=>{const c=document.getElementById(id);c.classList.remove('best');const tag=c.querySelector('.tag');if(tag)tag.remove();});
- const best=document.getElementById(opts[0].el);
- best.classList.add('best');
- const tag=document.createElement('span');tag.className='tag';tag.textContent=T[lang].lowCost;best.appendChild(tag);
- const save=opts[2].v-opts[0].v;
- document.getElementById('verdict').innerHTML=
- `<strong>${T[lang].verdictCheapest} ${opts[0].n}</strong> — ${T[lang].verdictSaves} <strong>${fmt(save)}</strong> ${T[lang].verdictVs} ${opts[2].n} ${lang==='es'?'en 10 años':'over 10 years'}.`;
-}
-
-function renderData(){
- document.getElementById('dataBody').innerHTML=lastResult.map(r=>
- `<tr><td>${r.year}</td><td>${r.age}</td><td class="gcol">${fmt(r.g)}</td><td class="ncol">${fmt(r.n)}</td><td class="hcol">${fmt(r.h)}</td></tr>`
- ).join('');
-}
-
-function renderChart(){
- const W=600,H=340,pad={l:52,r:16,t:14,b:42};
- const data=lastResult;
- const maxV=Math.max(...data.map(d=>Math.max(d.g,d.n,d.h)));
- const x=i=>pad.l+(i/(data.length-1))*(W-pad.l-pad.r);
- const y=val=>H-pad.b-(val/maxV)*(H-pad.t-pad.b);
- const path=key=>data.map((d,i)=>(i?'L':'M')+x(i).toFixed(1)+' '+y(d[key]).toFixed(1)).join(' ');
- // y gridlines
- let grid='',ylab='';
- for(let g=0;g<=4;g++){
- const val=maxV*g/4, yy=y(val);
- grid+=`<line x1="${pad.l}" y1="${yy}" x2="${W-pad.r}" y2="${yy}" stroke="#eee" stroke-dasharray="3 3"/>`;
- ylab+=`<text x="${pad.l-8}" y="${yy+4}" text-anchor="end" font-size="11" fill="#888">$${Math.round(val/1000)}k</text>`;
- }
- // x labels (every 5 yrs)
- let xlab='';
- data.forEach((d,i)=>{if(i%5===0||i===data.length-1){xlab+=`<text x="${x(i)}" y="${H-pad.b+18}" text-anchor="middle" font-size="10" fill="#888">${d.year}</text>`;}});
- document.getElementById('chart').innerHTML=
- `<svg viewBox="0 0 ${W} ${H}" role="img">
- ${grid}${ylab}${xlab}
- <line x1="${pad.l}" y1="${pad.t}" x2="${pad.l}" y2="${H-pad.b}" stroke="#ccc"/>
- <line x1="${pad.l}" y1="${H-pad.b}" x2="${W-pad.r}" y2="${H-pad.b}" stroke="#ccc"/>
- <path d="${path('g')}" fill="none" stroke="var(--planG)" stroke-width="2.5"/>
- <path d="${path('n')}" fill="none" stroke="var(--planN)" stroke-width="2.5"/>
- <path d="${path('h')}" fill="none" stroke="var(--hdg)" stroke-width="2.5"/>
- </svg>`;
- document.querySelector('#p-charts .sub').style.display='none';
-}
-
-/* init */
-renderBenefits();
-document.getElementById('quizLink').href=GHL_FORM_EN;
-document.getElementById('aboutProse').innerHTML=T.en.about;
-document.getElementById('disc').textContent=T.en.disc;
-calc();
-</script>
-
-<!-- ============================================================
-     SCROLL TO TOP JS
-     ============================================================ -->
 <script>
 (function(){
-  const btn=document.getElementById('scrollToTop');
-  if(!btn)return;
-  window.addEventListener('scroll',function(){btn.style.display=window.pageYOffset>300?'flex':'none';});
-  btn.addEventListener('click',function(){window.scrollTo({top:0,behavior:'smooth'});});
+  var WEBHOOK = 'https://services.leadconnectorhq.com/hooks/RINM4TCnM4hN06UA1aK0/webhook-trigger/dc6c8b35-9480-412e-b56d-4a4c8c7bd438';
+  var form = document.getElementById('v4LeadForm');
+  if (!form) return;
+
+  form.addEventListener('submit', async function(e) {
+    e.preventDefault();
+    var btn      = document.getElementById('v4Submit');
+    var err      = document.getElementById('v4Error');
+    var first    = (document.getElementById('v4First') || {}).value || '';
+    var last     = (document.getElementById('v4Last') || {}).value || '';
+    var phone    = (document.getElementById('v4Phone') || {}).value || '';
+    var email    = (document.getElementById('v4Email') || {}).value || '';
+    var coverage = (document.getElementById('v4Coverage') || {}).value || '';
+    var consent  = document.getElementById('v4Consent') && document.getElementById('v4Consent').checked;
+
+    first = first.trim(); last = last.trim(); phone = phone.trim(); email = email.trim();
+
+    if (!first || !last || !phone || !email || !coverage || !consent) {
+      err.style.display = 'block';
+      err.textContent = 'Please fill in all required fields.';
+      return;
+    }
+    btn.disabled = true;
+    btn.textContent = 'Sending...';
+    err.style.display = 'none';
+
+    try {
+      var res = await fetch(WEBHOOK, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          first_name: first,
+          last_name: last,
+          phone: phone,
+          email: email,
+          coverage_type: coverage,
+          source: 'Homepage Form',
+          page: window.location.href,
+          submitted_at: new Date().toISOString()
+        })
+      });
+      if (res.ok) {
+        form.style.display = 'none';
+        var success = document.getElementById('v4Success');
+        if (success) success.style.display = 'block';
+      } else { throw new Error('Server error'); }
+    } catch(ex) {
+      btn.disabled = false;
+      btn.textContent = 'Book My Free Consultation →';
+      err.style.display = 'block';
+      err.textContent = 'Something went wrong. Please try again or call 1-800-380-6821.';
+    }
+  });
 })();
 </script>
 
-<!-- ============================================================
-     NAV JS (verbatim from index.html v4)
-     ============================================================ -->
+
 <script>
 // V4 hamburger toggle
 (function(){
@@ -1549,6 +1282,7 @@ calc();
   });
 })();
 </script>
+
 
 </body>
 </html>
