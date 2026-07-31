@@ -2,9 +2,12 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<link rel="stylesheet" href="css/global.css">
+<link rel="icon" href="/favicon.ico" type="image/x-icon">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="css/global.css">
+
 <title>Medigap Plan Calculator — Plan G vs N vs High-Deductible G | Health Experts</title>
+
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-SJSGF3E9MD"></script>
 <script>
@@ -13,189 +16,33 @@
   gtag('js', new Date());
   gtag('config', 'G-SJSGF3E9MD');
 </script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
 <meta name="description" content="Free Medigap calculator comparing Plan G, Plan N, and High-Deductible Plan G costs over 25 years. See how premiums grow with age. Bilingual Miami brokers.">
-<style>
- :root{
- --purple:#452068;
- --purple-light:#6a3a9a;
- --pink:#ff1090;
- --planG:#2563eb;
- --planN:#10b981;
- --hdg:#f59e0b;
- --ink:#1a1325;
- --muted:#6b6477;
- --line:#e7e3ee;
- --bg:#ffffff;
- --panel:#faf8fc;
- }
- *{box-sizing:border-box;margin:0;padding:0}
- body{font-family:Arial,Helvetica,sans-serif;color:var(--ink);background:var(--bg);line-height:1.5;-webkit-font-smoothing:antialiased}
- .wrap{max-width:880px;margin:0 auto;padding:0 16px 124px}
-
- /* Header */
- .topbar{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:16px;max-width:880px;margin:0 auto}
- .brand{font-weight:bold;color:var(--purple);font-size:15px;letter-spacing:.2px}
- .lang{display:inline-flex;border:2px solid var(--line);border-radius:999px;overflow:hidden}
- .lang button{border:0;background:#fff;color:var(--muted);font-family:inherit;font-weight:bold;font-size:13px;padding:7px 14px;cursor:pointer}
- .lang button.on{background:var(--purple);color:#fff}
-
- .hero{overflow-x:hidden;background:linear-gradient(135deg,var(--purple),var(--purple-light));color:#fff;border-radius:18px;padding:28px 22px;margin-top:8px}
- .eyebrow{display:inline-block;background:rgba(255,255,255,.16);color:#fff;font-size:13px;font-weight:bold;letter-spacing:.6px;text-transform:uppercase;padding:5px 11px;border-radius:999px;margin-bottom:12px}
- .hero h1{font-size:26px;line-height:1.2;margin-bottom:8px}
- .hero p{font-size:15px;opacity:.92;max-width:560px}
-
- /* Tabs */
- .tabs{display:flex;gap:4px;background:var(--panel);border:2px solid var(--line);border-radius:14px;padding:5px;margin-top:20px;overflow-x:auto}
- .tabs button{flex:1 0 auto;min-width:78px;border:0;background:transparent;font-family:inherit;font-size:13px;font-weight:bold;color:var(--muted);padding:11px 8px;border-radius:10px;cursor:pointer;white-space:nowrap}
- .tabs button.on{background:#fff;color:var(--purple);box-shadow:0 1px 3px rgba(69,32,104,.12)}
-
- .panel{display:none;margin-top:20px}
- .panel.on{display:block}
-
- /* Form */
- .group{border:2px solid var(--line);border-radius:14px;padding:18px;margin-bottom:16px;background:#fff}
- .group h3{font-size:15px;color:var(--purple);margin-bottom:4px;display:flex;align-items:center;gap:8px}
- .group .hint{font-size:13.5px;color:var(--muted);margin-bottom:14px}
- .field{margin-bottom:14px}
- .field:last-child{margin-bottom:0}
- label{display:block;font-size:13px;font-weight:bold;margin-bottom:6px}
- .inputwrap{position:relative;display:flex;align-items:center}
- .inputwrap .pre{position:absolute;left:12px;color:var(--muted);font-size:15px}
- .inputwrap .post{position:absolute;right:12px;color:var(--muted);font-size:14px}
- input[type=number]{width:100%;border:2px solid var(--line);border-radius:10px;padding:12px 14px;font-family:inherit;font-size:16px;color:var(--ink)}
- input.has-pre{padding-left:28px}
- input.has-post{padding-right:34px}
- input:focus{outline:2px solid var(--purple);outline-offset:0;border-color:var(--purple)}
- .sub{font-size:13px;color:var(--muted);margin-top:5px}
- .row2{display:grid;grid-template-columns:1fr;gap:14px}
- .pill{display:inline-block;font-size:13.5px;font-weight:bold;border:2px solid var(--line);border-radius:999px;padding:7px 12px;color:var(--muted);white-space:nowrap}
- .usagerow{display:grid;grid-template-columns:1fr auto;gap:10px;align-items:center}
- .check{display:flex;align-items:center;gap:9px;font-size:13px;font-weight:bold}
- .check input{width:18px;height:18px;accent-color:var(--purple)}
-
- .cta-btn{display:block;width:100%;text-align:center;background:var(--purple);color:#fff;border:0;border-radius:12px;padding:16px;font-family:inherit;font-size:16px;font-weight:bold;cursor:pointer;margin-top:4px}
- .cta-btn:hover{background:var(--purple-light)}
- .cta-btn.pink{background:var(--pink)}
- .cta-btn.pink:hover{opacity:.92}
-
- /* Results */
- .results{display:none;margin-top:8px}
- .results.on{display:block}
- .cardrow{display:grid;grid-template-columns:1fr;gap:12px;margin-bottom:8px}
- .pcard{border:2px solid var(--line);border-radius:14px;padding:16px;position:relative;overflow:hidden}
- .pcard .bar{position:absolute;left:0;top:0;bottom:0;width:5px}
- .pcard .nm{font-size:13px;font-weight:bold;margin-bottom:2px}
- .pcard .big{font-size:24px;font-weight:bold}
- .pcard .lbl{font-size:13px;color:var(--muted)}
- .pcard.best{box-shadow:0 0 0 2px var(--purple)}
- .pcard .tag{position:absolute;top:10px;right:10px;font-size:10px;font-weight:bold;background:var(--purple);color:#fff;padding:3px 8px;border-radius:999px}
-
- /* Chart */
- .chartbox{border:2px solid var(--line);border-radius:14px;padding:18px;background:#fff}
- .chartbox h3{font-size:16px;text-align:center;margin-bottom:14px}
- svg{width:100%;height:auto;display:block}
- .legend{display:flex;justify-content:center;gap:18px;flex-wrap:wrap;margin-top:12px;font-size:13px;font-weight:bold}
- .legend span{display:inline-flex;align-items:center;gap:6px}
- .legend i{width:14px;height:3px;border-radius:2px;display:inline-block}
-
- /* Table */
- table{width:100%;border-collapse:collapse;table-layout:fixed}
- th,td{text-align:left;vertical-align:middle;word-wrap:break-word;padding:10px 8px;font-size:13px;border-bottom:1px solid var(--line)}
- th{color:var(--purple);font-size:12px}
- tbody tr:nth-child(even){background:var(--panel)}
- .gcol{color:var(--planG);font-weight:bold}
- .ncol{color:var(--planN);font-weight:bold}
- .hcol{color:var(--hdg);font-weight:bold}
-
- /* Benefits */
- .ben td:first-child{font-weight:bold;font-size:13.5px}
- .ben .ck{color:var(--planN);font-weight:bold}
- .note{font-size:13px;color:var(--muted);margin-top:10px}
-
- /* About / prose */
- .prose{border:2px solid var(--line);border-radius:14px;padding:20px;background:#fff}
- .prose h3{color:var(--purple);font-size:16px;margin:16px 0 6px}
- .prose h3:first-child{margin-top:0}
- .prose p{font-size:14px;margin-bottom:10px}
- .prose ul{margin:0 0 10px 20px}
- .prose li{font-size:14px;margin-bottom:6px}
-
- .ctablock{background:var(--panel);border:2px solid var(--line);border-radius:14px;padding:20px;text-align:center;margin-top:16px}
- .ctablock h3{color:var(--purple);font-size:18px;margin-bottom:6px}
- .ctablock p{font-size:14px;color:var(--muted);margin-bottom:14px}
- .ctablock .btns{display:grid;grid-template-columns:1fr;gap:10px;max-width:380px;margin:0 auto}
-
- .disclaimer{font-size:13px;color:var(--muted);margin-top:24px;line-height:1.5;text-align:center}
-
- @media(min-width:620px){
- .row2{grid-template-columns:1fr 1fr}
- .cardrow{grid-template-columns:1fr 1fr 1fr}
- .ctablock .btns{grid-template-columns:1fr 1fr}
- .hero h1{font-size:30px}
- }
-
- /* Desktop sidebar layout for calculator */
- .calc-grid{display:block}
- .calc-side{}
- .calc-main{}
- .calc-main .placeholder{border:1px dashed var(--line);border-radius:14px;padding:40px 20px;text-align:center;color:var(--muted);font-size:14px}
-
- /* Per-plan summary cards */
- .summary{display:grid;grid-template-columns:1fr;gap:12px;margin-bottom:18px}
- .scard{border:2px solid var(--line);border-radius:14px;padding:16px;position:relative}
- .scard.g{background:#eef4ff;border-color:#d6e4ff}
- .scard.n{background:#eafaf3;border-color:#cdeede}
- .scard.h{background:#fff4e6;border-color:#ffe2bd}
- .scard .head{display:flex;align-items:center;justify-content:space-between;margin-bottom:10px}
- .scard .head .nm{font-size:15px;font-weight:bold}
- .scard.g .nm{color:var(--planG)} .scard.n .nm{color:var(--planN)} .scard.h .nm{color:var(--hdg)}
- .scard .line{display:flex;justify-content:space-between;align-items:baseline;font-size:13.5px;color:var(--muted);margin-bottom:8px}
- .scard .line b{font-size:16px;color:var(--ink);font-weight:bold}
- .scard .total{border-top:1px solid rgba(0,0,0,.08);padding-top:10px;margin-top:4px}
- .scard .total .line{margin-bottom:0}
- .scard .total b{font-size:19px}
- .scard.g .total b{color:var(--planG)} .scard.n .total b{color:var(--planN)} .scard.h .total b{color:var(--hdg)}
- .scard .lowtag{font-size:10px;font-weight:bold;background:var(--purple);color:#fff;padding:3px 9px;border-radius:999px}
-
- /* Year total cards */
- .yeargrid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:8px}
- .ycard{border:2px solid var(--line);border-radius:12px;padding:14px;text-align:center}
- .ycard .yt{font-size:14px;font-weight:bold}
- .ycard .yr{font-size:13px;color:var(--muted);margin-bottom:8px}
- .ycard .yl{font-size:13px;text-align:left;display:flex;justify-content:space-between;margin-bottom:3px}
- .ycard .yl .gv{color:var(--planG);font-weight:bold}
- .ycard .yl .nv{color:var(--planN);font-weight:bold}
- .ycard .yl .hv{color:var(--hdg);font-weight:bold}
-
- @media(min-width:820px){
- .calc-grid{display:grid;grid-template-columns:300px 1fr;gap:18px;align-items:start}
- .calc-side{position:sticky;top:12px}
- .summary{grid-template-columns:1fr 1fr 1fr}
- .yeargrid{grid-template-columns:repeat(5,1fr)}
- }
-</style>
 <link rel="canonical" href="https://www.healthexps.com/medigap-calculator/">
-<script type="application/ld+json">{"@context": "https://schema.org", "@type": "InsuranceAgency", "name": "The Health Experts Insurance", "url": "https://www.healthexps.com", "telephone": "+18003806821", "address": {"@type": "PostalAddress", "streetAddress": "1695 NW 110 Ave, Suite 224", "addressLocality": "Doral", "addressRegion": "FL", "postalCode": "33172", "addressCountry": "US"}, "areaServed": ["Miami-Dade County", "Broward County", "Florida"], "priceRange": "Free", "description": "Independent bilingual health insurance brokers in Doral, FL. We compare 14+ carriers for Medicare, ACA, and private health insurance at no cost."}</script>
+<link rel="alternate" hreflang="en" href="https://www.healthexps.com/medigap-calculator/">
+<link rel="alternate" hreflang="x-default" href="https://www.healthexps.com/medigap-calculator/">
+
+<!-- JSON-LD Schema — InsuranceAgency -->
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"InsuranceAgency","name":"The Health Experts Insurance","url":"https://www.healthexps.com","telephone":"+18003806821","address":{"@type":"PostalAddress","streetAddress":"1695 NW 110 Ave, Suite 224","addressLocality":"Doral","addressRegion":"FL","postalCode":"33172","addressCountry":"US"},"areaServed":["Miami-Dade County","Broward County","Florida"],"priceRange":"Free","description":"Independent bilingual health insurance brokers in Doral, FL. We compare 14+ carriers for Medicare, ACA, and private health insurance at no cost."}</script>
+
+<!-- JSON-LD Schema — BreadcrumbList -->
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "BreadcrumbList",
   "itemListElement": [
-    {
-      "@type": "ListItem",
-      "position": 1,
-      "name": "Home",
-      "item": "https://www.healthexps.com"
-    },
-    {
-      "@type": "ListItem",
-      "position": 2,
-      "name": "Medigap Plan Calculator — Plan G vs N vs High-Deductible G",
-      "item": "https://www.healthexps.com/medigap-calculator"
-    }
+    {"@type":"ListItem","position":1,"name":"Home","item":"https://www.healthexps.com"},
+    {"@type":"ListItem","position":2,"name":"Resources","item":"https://www.healthexps.com/resources"},
+    {"@type":"ListItem","position":3,"name":"Medigap Plan Calculator — Plan G vs N vs High-Deductible G","item":"https://www.healthexps.com/medigap-calculator"}
   ]
 }
 </script>
+
+<!-- JSON-LD Schema — WebPage -->
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -203,371 +50,1123 @@
   "name": "Medigap Plan Calculator — Plan G vs N vs High-Deductible G",
   "url": "https://www.healthexps.com/medigap-calculator",
   "inLanguage": "en",
-  "isPartOf": {
-    "@type": "WebSite",
-    "url": "https://www.healthexps.com"
-  }
+  "isPartOf": {"@type":"WebSite","url":"https://www.healthexps.com"}
 }
 </script>
+
+<style>
+/* ============================================================
+   DESIGN SYSTEM — v4 redesign · Inter + Poppins
+   THEI brand: purple #452068 · pink #ff1090
+   ============================================================ */
+html, body { overflow-x: hidden; max-width: 100%; }
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --purple:       #452068;
+  --purple-dark:  #2f1550;
+  --purple-light: #f7f2fb;
+  --pink:         #ff1090;
+  --pink-hover:   #c40074;
+  --white:        #ffffff;
+  --off-white:    #fdfaf7;
+  --gray-mid:     #ece5f0;
+  --gray-text:    #6f6478;
+  --black:        #241a30;
+  --planG:        #2563eb;
+  --planN:        #10b981;
+  --hdg:          #f59e0b;
+  --panel-bg:     #faf8fc;
+  --font-body:    'Inter', Arial, Helvetica, sans-serif;
+  --font-head:    'Poppins', Arial, Helvetica, sans-serif;
+}
+
+body {
+  font-family: var(--font-body);
+  color: var(--black);
+  line-height: 1.65;
+  font-size: 17px;
+  background: var(--white);
+  -webkit-font-smoothing: antialiased;
+}
+h1, h2, h3 { font-family: var(--font-head); line-height: 1.2; }
+a { color: var(--purple); text-decoration: none; }
+a:hover { color: var(--pink); }
+img { max-width: 100%; height: auto; }
+
+/* ============================================================
+   UTILITY BAR
+   ============================================================ */
+.top-bar-inner {
+  background: var(--purple-dark);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 9px 56px;
+  font-size: 13px;
+}
+.top-bar-left  { display: flex; align-items: center; gap: 14px; }
+.top-bar-right { display: flex; align-items: center; gap: 16px; }
+
+/* ============================================================
+   V4 NAV
+   ============================================================ */
+.v4-nav-outer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 56px;
+  border-bottom: 1px solid var(--gray-mid);
+  position: sticky;
+  top: 0;
+  background: var(--white);
+  z-index: 500;
+}
+.v4-nav-dropdown { display: none; }
+.v4-nav-item:hover .v4-nav-dropdown { display: block; }
+.v4-nav-mobile-btn {
+  display: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 8px;
+}
+#v4-mobile-menu {
+  display: none;
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: #fff;
+  z-index: 999;
+  overflow-y: auto;
+  padding: 24px;
+}
+#v4-mobile-menu.open { display: block; }
+
+/* ============================================================
+   BREADCRUMB
+   ============================================================ */
+.breadcrumb {
+  padding: 14px 56px;
+  background: var(--purple-light);
+  font-size: 13px;
+  color: var(--gray-text);
+}
+.breadcrumb a { font-weight: 600; color: var(--purple); }
+.breadcrumb a:hover { color: var(--pink); }
+
+/* ============================================================
+   CALCULATOR WRAPPER
+   ============================================================ */
+.mg-wrap {
+  max-width: 980px;
+  margin: 0 auto;
+  padding: 0 24px 100px;
+}
+
+/* Hero */
+.mg-hero {
+  background: linear-gradient(135deg, var(--purple) 0%, #5a2a86 100%);
+  color: #fff;
+  border-radius: 20px;
+  padding: 36px 28px;
+  margin-top: 12px;
+  margin-bottom: 24px;
+}
+.eyebrow {
+  display: inline-block;
+  background: rgba(255,255,255,.18);
+  color: #fff;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: .6px;
+  text-transform: uppercase;
+  padding: 5px 12px;
+  border-radius: 999px;
+  margin-bottom: 14px;
+}
+.mg-hero h1 {
+  font-family: var(--font-head);
+  font-size: clamp(22px, 4vw, 32px);
+  font-weight: 700;
+  margin-bottom: 10px;
+  color: #fff;
+}
+.mg-hero p {
+  font-size: 15.5px;
+  opacity: .92;
+  max-width: 560px;
+  line-height: 1.6;
+}
+
+/* Language toggle */
+.lang {
+  display: inline-flex;
+  border: 2px solid rgba(255,255,255,.35);
+  border-radius: 999px;
+  overflow: hidden;
+  margin-top: 18px;
+}
+.lang button {
+  border: 0;
+  background: transparent;
+  color: rgba(255,255,255,.75);
+  font-family: var(--font-body);
+  font-weight: 700;
+  font-size: 13px;
+  padding: 7px 14px;
+  cursor: pointer;
+  transition: background .2s, color .2s;
+}
+.lang button.on { background: #fff; color: var(--purple); }
+
+/* Tabs — class "tabs" kept for JS compatibility */
+.tabs {
+  display: flex;
+  gap: 4px;
+  background: var(--panel-bg);
+  border: 2px solid var(--gray-mid);
+  border-radius: 14px;
+  padding: 5px;
+  margin-bottom: 20px;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+.tabs button {
+  flex: 1 0 auto;
+  min-width: 72px;
+  border: 0;
+  background: transparent;
+  font-family: var(--font-body);
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--gray-text);
+  padding: 11px 10px;
+  border-radius: 10px;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: background .15s, color .15s, box-shadow .15s;
+}
+.tabs button.on {
+  background: #fff;
+  color: var(--purple);
+  box-shadow: 0 1px 4px rgba(69,32,104,.14);
+}
+
+/* Panels */
+.panel { display: none; }
+.panel.on { display: block; }
+
+/* ============================================================
+   CALCULATOR SIDEBAR GRID (desktop)
+   ============================================================ */
+.calc-grid { display: block; }
+
+/* Form card */
+.group {
+  border: 2px solid var(--gray-mid);
+  border-radius: 16px;
+  padding: 20px;
+  margin-bottom: 14px;
+  background: #fff;
+  box-shadow: 0 4px 16px rgba(69,32,104,.06);
+}
+.group h3 {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--purple);
+  margin-bottom: 4px;
+  letter-spacing: .03em;
+}
+.group .hint {
+  font-size: 13.5px;
+  color: var(--gray-text);
+  margin-bottom: 14px;
+  line-height: 1.5;
+}
+.field { margin-bottom: 14px; }
+.field:last-child { margin-bottom: 0; }
+
+/* Labels — 14px per accessibility requirement */
+label {
+  display: block;
+  font-size: 14px;
+  font-weight: 700;
+  margin-bottom: 6px;
+  color: var(--black);
+  line-height: 1.35;
+}
+
+/* Inputs — 16px font, 2px border per accessibility requirement */
+input[type=number], input[type=text] {
+  width: 100%;
+  border: 2px solid var(--gray-mid);
+  border-radius: 10px;
+  padding: 12px 14px;
+  font-family: var(--font-body);
+  font-size: 16px;
+  color: var(--black);
+  background: #fff;
+  outline: none;
+  transition: border-color .2s;
+  -webkit-appearance: none;
+  appearance: none;
+}
+input[type=number].has-pre  { padding-left: 28px; }
+input[type=number].has-post { padding-right: 36px; }
+input[type=number]:focus, input[type=text]:focus {
+  border-color: var(--purple);
+  outline: 2px solid rgba(69,32,104,.15);
+  outline-offset: 1px;
+}
+input[type=number]::placeholder { color: #a79db2; }
+
+.inputwrap { position: relative; display: flex; align-items: center; }
+.inputwrap .pre {
+  position: absolute; left: 12px;
+  color: var(--gray-text); font-size: 15px; pointer-events: none;
+}
+.inputwrap .post {
+  position: absolute; right: 12px;
+  color: var(--gray-text); font-size: 14px; pointer-events: none;
+}
+
+/* sub — 13.5px fine print */
+.sub {
+  font-size: 13.5px;
+  color: var(--gray-text);
+  margin-top: 5px;
+  line-height: 1.45;
+}
+
+/* ============================================================
+   MULTI-COLUMN INPUT GRIDS (each has unique class)
+   ============================================================ */
+
+/* 3-col: Monthly premiums */
+.grid-premiums-3col {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 14px;
+}
+
+/* 3-col: Annual increase rates */
+.grid-rates-3col {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 14px;
+}
+
+/* 2-col: Plan N usage */
+.grid-usage-2col {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+}
+
+.usagerow {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 10px;
+  align-items: center;
+}
+.pill {
+  display: inline-block;
+  font-size: 13.5px;
+  font-weight: 700;
+  border: 2px solid var(--gray-mid);
+  border-radius: 999px;
+  padding: 6px 12px;
+  color: var(--gray-text);
+  white-space: nowrap;
+}
+
+/* Checkbox */
+.check {
+  display: flex;
+  align-items: flex-start;
+  gap: 9px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+}
+.check input[type=checkbox] {
+  width: 18px;
+  height: 18px;
+  min-width: 18px;
+  margin-top: 2px;
+  accent-color: var(--purple);
+  cursor: pointer;
+  border: 2px solid var(--gray-mid);
+  border-radius: 4px;
+  flex-shrink: 0;
+}
+
+/* CTA button */
+.cta-btn {
+  display: block;
+  width: 100%;
+  text-align: center;
+  background: var(--purple);
+  color: #fff;
+  border: 0;
+  border-radius: 12px;
+  padding: 16px;
+  font-family: var(--font-body);
+  font-size: 16px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background .2s, transform .15s;
+  margin-top: 4px;
+  text-decoration: none;
+}
+.cta-btn:hover { background: #5a2a86; color: #fff; transform: translateY(-1px); }
+.cta-btn.pink  { background: var(--pink); }
+.cta-btn.pink:hover { background: var(--pink-hover); color: #fff; }
+
+/* ============================================================
+   RESULTS SECTION
+   ============================================================ */
+.results { display: none; margin-top: 8px; }
+.results.on { display: block; }
+
+/* 3-col: Summary cards (unique class) */
+.grid-summary-3col {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 12px;
+  margin-bottom: 18px;
+}
+
+/* Summary card styles (JS generates HTML with these classes) */
+.scard { border: 2px solid var(--gray-mid); border-radius: 14px; padding: 16px; position: relative; }
+.scard.g { background: #eef4ff; border-color: #d6e4ff; }
+.scard.n { background: #eafaf3; border-color: #cdeede; }
+.scard.h { background: #fff4e6; border-color: #ffe2bd; }
+.scard .head { display: flex; align-items: center; justify-content: space-between; margin-bottom: 10px; }
+.scard .head .nm { font-size: 15px; font-weight: 700; }
+.scard.g .nm { color: var(--planG); }
+.scard.n .nm { color: var(--planN); }
+.scard.h .nm { color: var(--hdg); }
+.scard .line { display: flex; justify-content: space-between; align-items: baseline; font-size: 13.5px; color: var(--gray-text); margin-bottom: 8px; }
+.scard .line b { font-size: 16px; color: var(--black); font-weight: 700; }
+.scard .total { border-top: 1px solid rgba(0,0,0,.08); padding-top: 10px; margin-top: 4px; }
+.scard .total .line { margin-bottom: 0; }
+.scard .total b { font-size: 19px; }
+.scard.g .total b { color: var(--planG); }
+.scard.n .total b { color: var(--planN); }
+.scard.h .total b { color: var(--hdg); }
+.scard .lowtag { font-size: 10px; font-weight: 700; background: var(--purple); color: #fff; padding: 3px 9px; border-radius: 999px; }
+
+/* 5-col: Year totals grid (unique class) */
+.grid-years-5col {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  gap: 10px;
+  margin-bottom: 18px;
+}
+
+/* Year card styles (JS generates HTML) */
+.ycard { border: 2px solid var(--gray-mid); border-radius: 12px; padding: 14px; text-align: center; background: #fff; }
+.ycard .yt { font-size: 14px; font-weight: 700; color: var(--black); }
+.ycard .yr { font-size: 12.5px; color: var(--gray-text); margin-bottom: 8px; }
+.ycard .yl { font-size: 13px; text-align: left; display: flex; justify-content: space-between; margin-bottom: 3px; }
+.ycard .yl .gv { color: var(--planG); font-weight: 700; }
+.ycard .yl .nv { color: var(--planN); font-weight: 700; }
+.ycard .yl .hv { color: var(--hdg); font-weight: 700; }
+
+/* 3-col: 10-year card row (unique class) */
+.grid-cardrow-3col {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 12px;
+  margin-bottom: 8px;
+}
+
+/* Plan card styles (JS generates HTML) */
+.pcard { border: 2px solid var(--gray-mid); border-radius: 14px; padding: 16px; position: relative; overflow: hidden; background: #fff; }
+.pcard .bar { position: absolute; left: 0; top: 0; bottom: 0; width: 5px; }
+.pcard .nm { font-size: 13px; font-weight: 700; margin-bottom: 2px; color: var(--gray-text); }
+.pcard .big { font-size: 24px; font-weight: 700; color: var(--black); }
+.pcard .lbl { font-size: 13px; color: var(--gray-text); }
+.pcard.best { box-shadow: 0 0 0 2px var(--purple); }
+.pcard .tag { position: absolute; top: 10px; right: 10px; font-size: 10px; font-weight: 700; background: var(--purple); color: #fff; padding: 3px 8px; border-radius: 999px; }
+
+/* Verdict */
+#verdict {
+  font-size: 14px;
+  background: var(--panel-bg);
+  border: 2px solid var(--gray-mid);
+  border-radius: 12px;
+  padding: 14px;
+  margin-top: 6px;
+  line-height: 1.6;
+}
+
+/* CTA block (results) */
+.ctablock {
+  background: linear-gradient(135deg, var(--purple) 0%, #5a2a86 100%);
+  border-radius: 18px;
+  padding: 28px;
+  text-align: center;
+  margin-top: 16px;
+  color: #fff;
+}
+.ctablock h3 { font-size: 18px; font-weight: 700; color: #fff; margin-bottom: 8px; font-family: var(--font-head); }
+.ctablock p  { font-size: 13.5px; opacity: .88; margin-bottom: 18px; line-height: 1.55; }
+
+/* 2-col: CTA buttons (unique class) */
+.grid-cta-btns-2col {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  max-width: 420px;
+  margin: 0 auto;
+}
+.grid-cta-btns-2col a { display: block; }
+
+/* ============================================================
+   CHART TAB
+   ============================================================ */
+.chartbox {
+  border: 2px solid var(--gray-mid);
+  border-radius: 14px;
+  padding: 18px;
+  background: #fff;
+}
+.chartbox h3 { font-size: 16px; text-align: center; margin-bottom: 14px; color: var(--black); }
+svg { width: 100%; height: auto; display: block; }
+.legend {
+  display: flex;
+  justify-content: center;
+  gap: 18px;
+  flex-wrap: wrap;
+  margin-top: 12px;
+  font-size: 13px;
+  font-weight: 700;
+}
+.legend span { display: inline-flex; align-items: center; gap: 6px; }
+.legend i { width: 14px; height: 3px; border-radius: 2px; display: inline-block; }
+
+/* ============================================================
+   DATA TABLE
+   ============================================================ */
+table { width: 100%; border-collapse: collapse; table-layout: fixed; }
+th, td {
+  text-align: left;
+  vertical-align: middle;
+  word-wrap: break-word;
+  padding: 10px 8px;
+  font-size: 13px;
+  border-bottom: 1px solid var(--gray-mid);
+}
+th { color: var(--purple); font-size: 12px; font-weight: 700; }
+tbody tr:nth-child(even) { background: var(--panel-bg); }
+.gcol { color: var(--planG); font-weight: 700; }
+.ncol { color: var(--planN); font-weight: 700; }
+.hcol { color: var(--hdg); font-weight: 700; }
+
+/* ============================================================
+   BENEFITS TABLE
+   ============================================================ */
+.ben td:first-child { font-weight: 700; font-size: 13.5px; }
+.note { font-size: 13.5px; color: var(--gray-text); margin-top: 10px; line-height: 1.55; }
+
+/* ============================================================
+   ABOUT / PROSE
+   ============================================================ */
+.prose { border: 2px solid var(--gray-mid); border-radius: 14px; padding: 20px; background: #fff; }
+.prose h3 { color: var(--purple); font-size: 16px; margin: 16px 0 6px; }
+.prose h3:first-child { margin-top: 0; }
+.prose p { font-size: 14px; margin-bottom: 10px; line-height: 1.65; }
+.prose ul { margin: 0 0 10px 20px; }
+.prose li { font-size: 14px; margin-bottom: 6px; line-height: 1.6; }
+
+/* Disclaimer — 13.5px fine print */
+.disclaimer {
+  font-size: 13.5px;
+  color: var(--gray-text);
+  margin-top: 28px;
+  line-height: 1.65;
+  text-align: center;
+  padding: 0 8px;
+}
+
+/* ============================================================
+   FOOTER — footer-wrap + footer-grid per spec
+   ============================================================ */
+.footer-wrap {
+  background: var(--white);
+  color: var(--black);
+  padding: 56px 56px 24px;
+  border-top: 2px solid var(--gray-mid);
+}
+.footer-inner { max-width: 1160px; margin: 0 auto; }
+
+/* 4-col: footer grid (unique class) */
+.footer-grid {
+  display: grid;
+  grid-template-columns: 1.3fr 1fr 1fr 1fr;
+  gap: 32px;
+  margin-bottom: 36px;
+}
+
+.footer-col-title {
+  font-weight: 700;
+  font-size: 12.5px;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  margin-bottom: 14px;
+  color: var(--purple);
+}
+.footer-links { display: flex; flex-direction: column; gap: 9px; font-size: 13.5px; }
+.footer-links a { color: #4a4051; }
+.footer-links a:hover { color: var(--pink); }
+.footer-links a.fw { color: var(--purple); font-weight: 700; }
+.footer-bottom { border-top: 1px solid var(--gray-mid); padding-top: 20px; font-size: 13px; color: #4a4051; }
+.footer-legal { padding-top: 12px; font-size: 13.5px; color: #a79db2; line-height: 1.7; }
+
+/* ============================================================
+   SCROLL TO TOP
+   ============================================================ */
+#scrollToTop {
+  position: fixed;
+  bottom: 28px; right: 28px;
+  width: 46px; height: 46px;
+  background: var(--purple);
+  color: white; border: none; border-radius: 50%;
+  font-size: 18px; cursor: pointer;
+  display: none;
+  align-items: center; justify-content: center;
+  box-shadow: 0 4px 14px rgba(69,32,104,.3);
+  transition: background .2s, transform .2s;
+  z-index: 999;
+}
+#scrollToTop:hover { background: var(--pink); transform: translateY(-3px); }
+
+/* ============================================================
+   DESKTOP SIDEBAR — 820px+
+   ============================================================ */
+@media (min-width: 820px) {
+  .calc-grid {
+    display: grid;
+    grid-template-columns: 320px 1fr;
+    gap: 20px;
+    align-items: start;
+  }
+  .calc-side { position: sticky; top: 84px; }
+  .grid-summary-3col { grid-template-columns: 1fr 1fr 1fr; }
+}
+
+/* ============================================================
+   TABLET — ≤900px
+   ============================================================ */
+@media (max-width: 900px) {
+  .v4-nav-desktop   { display: none !important; }
+  .v4-nav-mobile-btn { display: flex !important; align-items: center; }
+  .top-bar-inner  { padding-left: 24px !important; padding-right: 24px !important; }
+  .v4-nav-outer   { padding-left: 20px !important; padding-right: 20px !important; }
+  .breadcrumb     { padding-left: 24px; padding-right: 24px; }
+}
+
+/* ============================================================
+   MANDATORY MOBILE — ≤640px
+   ALL 3-col → 1-col | ALL 2-col → 1-col
+   Section padding 56px → 20px
+   Footer: footer-wrap + footer-grid mobile
+   ============================================================ */
+@media (max-width: 640px) {
+  /* ALL 3-col → 1-col */
+  .grid-premiums-3col  { grid-template-columns: 1fr !important; }
+  .grid-rates-3col     { grid-template-columns: 1fr !important; }
+  .grid-summary-3col   { grid-template-columns: 1fr !important; }
+  .grid-cardrow-3col   { grid-template-columns: 1fr !important; }
+  .grid-cta-btns-2col  { grid-template-columns: 1fr !important; }
+
+  /* ALL 2-col → 1-col */
+  .grid-usage-2col     { grid-template-columns: 1fr !important; }
+
+  /* 5-col years → 2-col on mobile */
+  .grid-years-5col     { grid-template-columns: 1fr 1fr !important; }
+
+  /* Footer: 4-col → 1-col */
+  .footer-wrap  { padding: 40px 20px 20px !important; }
+  .footer-grid  { grid-template-columns: 1fr !important; gap: 24px !important; }
+
+  /* Section padding 56px → 20px */
+  .breadcrumb   { padding: 12px 20px !important; }
+  .mg-wrap      { padding: 0 16px 80px !important; }
+  .mg-hero      { padding: 24px 20px !important; border-radius: 14px !important; }
+
+  /* Top bar mobile */
+  .top-bar-inner { padding: 8px 16px !important; flex-wrap: wrap; gap: 8px; }
+  .top-bar-right { flex-wrap: wrap; justify-content: flex-end; gap: 8px; }
+
+  /* Form group */
+  .group { padding: 18px 14px !important; }
+
+  /* Tabs */
+  .tabs         { padding: 4px !important; }
+  .tabs button  { font-size: 12px !important; padding: 9px 7px !important; min-width: 56px !important; }
+
+  /* Typography */
+  .mg-hero h1   { font-size: 20px !important; }
+  .mg-hero p    { font-size: 14px !important; }
+
+  /* Unstick sidebar */
+  .calc-side    { position: static !important; top: auto !important; }
+}
+
+/* Very small screens */
+@media (max-width: 380px) {
+  .grid-years-5col { grid-template-columns: 1fr !important; }
+}
+</style>
 </head>
+
 <body>
-<header style="position:sticky;top:0;z-index:100;box-shadow:0 2px 12px rgba(69,32,104,0.12);">
-  <div style="background:#452068;padding:8px 0;">
-    <div style="max-width:1060px;margin:0 auto;padding:0 24px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px;">
-      <div style="display:flex;align-items:center;gap:16px;">
-        <a href="tel:18003806821" style="color:white;font-size:14px;font-weight:700;text-decoration:none;display:flex;align-items:center;gap:6px;white-space:nowrap;">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 1.27h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.91a16 16 0 0 0 6.29 6.29l.91-.91a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-          1-800-380-6821
-        </a>
-        <span style="color:rgba(255,255,255,0.4);">|</span>
-        <span style="color:rgba(255,255,255,0.75);font-size:13px;">English &amp; Spanish</span>
-      </div>
-      <div style="display:flex;align-items:center;gap:10px;">
-        <a href="https://wa.me/13054646888" target="_blank" rel="noopener" style="background:#25D366;color:white;display:inline-flex;align-items:center;gap:6px;padding:8px 14px;border-radius:50px;font-weight:700;font-size:13px;text-decoration:none;" onclick="gtag('event','whatsapp_click',{'page':window.location.pathname})">
-          <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.123.556 4.116 1.526 5.845L0 24l6.335-1.508A11.945 11.945 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.818 9.818 0 01-5.006-1.368l-.359-.214-3.728.887.916-3.636-.234-.374A9.818 9.818 0 1112 21.818z"/></svg>
-          WhatsApp
-        </a>
-        <a href="https://calendly.com/healthexps-info/" target="_blank" rel="noopener" style="background:#ff1090;color:white;display:inline-block;padding:8px 18px;border-radius:50px;font-weight:700;font-size:13px;text-decoration:none;">Schedule Free Consultation →</a>
-        <div style="display:flex;align-items:center;border:1.5px solid rgba(255,255,255,0.4);border-radius:50px;overflow:hidden;">
-          <span style="background:white;color:#452068;font-size:13.5px;font-weight:700;padding:3px 10px;">EN</span>
-          <a href="https://www.healthexps.com/es/planes-de-medicare-miami" style="font-size:13.5px;font-weight:700;padding:3px 10px;color:rgba(255,255,255,0.75);text-decoration:none;">ES</a>
+<div style="font-family:Inter,sans-serif;color:#241a30;background:#fff">
+
+<!-- ============================================================
+     UTILITY BAR (verbatim from index.html v4)
+     ============================================================ -->
+<div class="top-bar-inner">
+  <div class="top-bar-left">
+    <a href="tel:18003806821" style="color:#fff;font-weight:700">1-800-380-6821</a>
+    <span style="opacity:.5">|</span>
+    <span style="opacity:.85">English &amp; Español</span>
+  </div>
+  <div class="top-bar-right">
+    <a href="https://wa.me/13054646888" style="color:#fff;opacity:.9;font-weight:600" onclick="gtag('event','whatsapp_click',{'page':window.location.pathname})">WhatsApp</a>
+    <a href="/contact" style="background:#ff1090;color:#fff;padding:7px 16px;border-radius:999px;font-weight:700;font-size:12.5px">Schedule Free Consultation →</a>
+  </div>
+</div>
+
+<!-- ============================================================
+     NAV (verbatim from index.html v4)
+     ============================================================ -->
+<div class="v4-nav-outer">
+  <a href="/"><img src="/images/logo.webp" alt="The Health Experts Insurance" style="height:80px;width:auto;cursor:pointer"/></a>
+  <div class="v4-nav-desktop" style="display:flex;align-items:center;gap:26px;font-size:14.5px;font-weight:600;color:#3a2f47">
+    <a href="/" style="cursor:pointer">Home</a>
+
+    <div class="v4-nav-item" style="position:relative">
+      <a href="/medicare-plans-miami" style="cursor:pointer;display:flex;align-items:center;gap:4px">Insurance ▾</a>
+      <div class="v4-nav-dropdown" style="position:absolute;top:100%;left:-14px;padding-top:12px;z-index:20">
+        <div style="background:#fff;border:2px solid #ece5f0;border-radius:12px;box-shadow:0 16px 36px rgba(69,32,104,.16);padding:8px;min-width:230px;display:flex;flex-direction:column">
+          <a href="/medicare-plans-miami" style="padding:10px 14px;border-radius:8px;cursor:pointer;font-weight:600">Medicare Plans</a>
+          <a href="/private-health-insurance-miami" style="padding:10px 14px;border-radius:8px;cursor:pointer;font-weight:600">Private Health Insurance</a>
+          <a href="/aca-plans-miami" style="padding:10px 14px;border-radius:8px;cursor:pointer;font-weight:600">ACA Marketplace Plans</a>
+          <a href="/cobra-alternatives-miami" style="padding:10px 14px;border-radius:8px;color:#3a2f47;font-weight:600">COBRA Alternatives</a>
+          <a href="/dental-vision-miami" style="padding:10px 14px;border-radius:8px;cursor:pointer;font-weight:600">Dental &amp; Vision</a>
         </div>
       </div>
     </div>
+
+    <div class="v4-nav-item" style="position:relative">
+      <span style="cursor:pointer;display:flex;align-items:center;gap:4px">Guides ▾</span>
+      <div class="v4-nav-dropdown" style="position:absolute;top:100%;left:-14px;padding-top:12px;z-index:20">
+        <div style="background:#fff;border:2px solid #ece5f0;border-radius:12px;box-shadow:0 16px 36px rgba(69,32,104,.16);padding:8px;min-width:240px;display:flex;flex-direction:column">
+          <a href="/medicare/what-is-medicare" style="padding:10px 14px;border-radius:8px;cursor:pointer;font-weight:600">What Is Medicare</a>
+          <a href="/medicare/new-to-medicare" style="padding:10px 14px;border-radius:8px;cursor:pointer;font-weight:600">New to Medicare</a>
+          <a href="/medicare/medicare-costs" style="padding:10px 14px;border-radius:8px;cursor:pointer;font-weight:600">Medicare Costs &amp; IRMAA</a>
+          <a href="/medicare-advantage-miami" style="padding:10px 14px;border-radius:8px;cursor:pointer;font-weight:600">Medicare Advantage Guide</a>
+          <a href="/medicare-supplement-miami" style="padding:10px 14px;border-radius:8px;cursor:pointer;font-weight:600">Medicare Supplement Guide</a>
+          <a href="/medicare-savings-program" style="padding:10px 14px;border-radius:8px;cursor:pointer;font-weight:600">Medicare Savings Program</a>
+          <a href="/find-my-plan" style="padding:10px 14px;border-radius:8px;cursor:pointer;font-weight:600">Find My Plan Quiz</a>
+        </div>
+      </div>
+    </div>
+
+    <a href="/faq" style="cursor:pointer">FAQ</a>
+    <a href="/resources" style="cursor:pointer">Resources</a>
+    <a href="/blog" style="cursor:pointer">Blog</a>
+    <a href="/medicare-agent-miami" style="padding:10px 14px;border-radius:8px;cursor:pointer;font-weight:600">About Us</a>
+    <a href="/contact" style="cursor:pointer">Contact</a>
   </div>
-  <div style="background:white;border-bottom:2px solid #f4eefa;">
-    <div style="max-width:1060px;margin:0 auto;padding:0 24px;">
-      <nav style="display:flex;align-items:center;justify-content:space-between;height:76px;">
-        <a href="/"><img src="/images/logo.webp" alt="The Health Experts Insurance" style="height:72px;width:auto;display:block;"></a>
-        <ul id="nav-links" style="display:flex;align-items:center;gap:4px;list-style:none;margin:0;padding:0;position:relative;">
-          <button id="nav-close-btn" style="display:none;position:absolute;top:8px;right:12px;background:none;border:none;font-size:28px;font-weight:400;color:#452068;cursor:pointer;line-height:1;padding:4px 8px;" aria-label="Close menu">×</button>
-          <li><a href="/" style="padding:8px 12px;color:#452068;font-weight:600;font-size:14px;border-radius:6px;text-decoration:none;">Home</a></li>
-          <li style="position:relative;" class="has-dropdown">
-            <a href="/medicare-plans-miami" style="padding:8px 12px;color:#452068;font-weight:600;font-size:14px;border-radius:6px;text-decoration:none;background:#f4eefa;">Insurance ▾</a>
-            <ul style="display:none;position:absolute;top:100%;left:0;min-width:210px;background:white;border-radius:12px;box-shadow:0 8px 24px rgba(0,0,0,0.12);border-top:3px solid #ff1090;padding:8px 0;z-index:200;list-style:none;margin:0;" class="dropdown">
-              <li><a href="/medicare-plans-miami" style="display:block;padding:10px 18px;color:#452068;font-size:14px;font-weight:700;text-decoration:none;">Medicare Plans</a></li>
-              <li><a href="/private-health-insurance-miami" style="display:block;padding:10px 18px;color:#555;font-size:14px;text-decoration:none;">Private Health Insurance</a></li>
-              <li><a href="/aca-plans-miami" style="display:block;padding:10px 18px;color:#555;font-size:14px;text-decoration:none;">ACA Marketplace Plans</a></li>
-              <li><a href="/cobra-alternatives-miami" style="display:block;padding:10px 18px;color:#555;font-size:14px;text-decoration:none;">COBRA Alternatives</a></li>
-              <li><a href="/dental-vision-miami" style="display:block;padding:10px 18px;color:#555;font-size:14px;text-decoration:none;">Dental &amp; Vision</a></li>
-            </ul>
-          </li>
-          <li style="position:relative;" class="has-dropdown">
-            <a href="/medicare/what-is-medicare" style="padding:8px 12px;color:#452068;font-weight:600;font-size:14px;border-radius:6px;text-decoration:none;">Guides ▾</a>
-            <ul style="display:none;position:absolute;top:100%;left:0;min-width:210px;background:white;border-radius:12px;box-shadow:0 8px 24px rgba(0,0,0,0.12);border-top:3px solid #ff1090;padding:8px 0;z-index:200;list-style:none;margin:0;" class="dropdown">
-              <li><a href="/medicare/what-is-medicare" style="display:block;padding:10px 18px;color:#452068;font-size:14px;font-weight:700;text-decoration:none;">What Is Medicare</a></li>
-              <li><a href="/medicare/new-to-medicare" style="display:block;padding:10px 18px;color:#555;font-size:14px;text-decoration:none;">New to Medicare</a></li>
-              <li><a href="/medicare/medicare-costs" style="display:block;padding:10px 18px;color:#555;font-size:14px;text-decoration:none;">Medicare Costs & IRMAA</a></li>
-              <li><a href="/medicare-advantage-miami" style="display:block;padding:10px 18px;color:#555;font-size:14px;text-decoration:none;">Medicare Advantage Guide</a></li>
-              <li><a href="/medicare-supplement-miami" style="display:block;padding:10px 18px;color:#555;font-size:14px;text-decoration:none;">Medicare Supplement Guide</a></li>
-              <li><a href="/medicare-savings-program" style="display:block;padding:10px 18px;color:#555;font-size:14px;text-decoration:none;">Medicare Savings Program</a></li>
-            </ul>
-          </li>
-          <li><a href="/faq" style="padding:8px 12px;color:#452068;font-weight:600;font-size:14px;border-radius:6px;text-decoration:none;">FAQ</a></li>
-          <li style="position:relative;">
-            <a href="/resources" style="padding:8px 12px;color:#452068;font-weight:600;font-size:14px;border-radius:6px;text-decoration:none;">Resources</a>
-          </li>
-          <li><a href="/blog" style="padding:8px 12px;color:#452068;font-weight:600;font-size:14px;border-radius:6px;text-decoration:none;">Blog</a></li>
-          <li><a href="/medicare-agent-miami" style="padding:8px 12px;color:#452068;font-weight:600;font-size:14px;border-radius:6px;text-decoration:none;">About Us</a></li>
-          <li><a href="/contact" style="padding:8px 12px;color:#452068;font-weight:600;font-size:14px;border-radius:6px;text-decoration:none;">Contact</a></li>
-        </ul>
-        <button id="nav-toggle" style="display:none;background:none;border:none;cursor:pointer;padding:8px;" aria-label="Menu">
-          <span style="display:block;width:24px;height:2px;background:#452068;margin:5px 0;border-radius:2px;"></span>
-          <span style="display:block;width:24px;height:2px;background:#452068;margin:5px 0;border-radius:2px;"></span>
-          <span style="display:block;width:24px;height:2px;background:#452068;margin:5px 0;border-radius:2px;"></span>
-        </button>
-      </nav>
+  <div style="display:flex;align-items:center;gap:12px">
+    <a href="tel:18003806821" class="v4-nav-desktop" style="color:#241a30;font-weight:700;font-size:14.5px">1-800-380-6821</a>
+    <a href="/contact" class="v4-nav-desktop" style="background:#452068;color:#fff;padding:11px 20px;border-radius:10px;font-weight:700;font-size:14px">Free Consultation</a>
+    <button class="v4-nav-mobile-btn" id="v4HamburgerBtn" aria-label="Open menu" aria-expanded="false" aria-controls="v4-mobile-menu">
+      <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#241a30" stroke-width="2.2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+    </button>
+  </div>
+</div>
+
+<!-- ============================================================
+     MOBILE NAV PANEL (verbatim from index.html v4)
+     ============================================================ -->
+<div id="v4-mobile-menu" role="dialog" aria-label="Navigation menu">
+  <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:28px">
+    <a href="/"><img src="/images/logo.webp" alt="The Health Experts Insurance" style="height:56px;width:auto"/></a>
+    <button id="v4MobileClose" aria-label="Close menu" style="background:none;border:none;cursor:pointer;padding:8px">
+      <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#241a30" stroke-width="2.2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+    </button>
+  </div>
+  <nav style="display:flex;flex-direction:column;gap:4px;font-size:16px;font-weight:600;color:#241a30">
+    <a href="/" style="padding:14px 4px;border-bottom:1px solid #ece5f0;color:#241a30">Home</a>
+    <div style="padding:14px 4px 4px;font-size:13px;font-weight:700;color:#8a6aaa;text-transform:uppercase;letter-spacing:.06em">Insurance</div>
+    <a href="/medicare-plans-miami" style="padding:11px 12px;border-radius:8px;color:#241a30;font-weight:600;font-size:15px">Medicare Plans</a>
+    <a href="/private-health-insurance-miami" style="padding:11px 12px;border-radius:8px;color:#241a30;font-weight:600;font-size:15px">Private Health Insurance</a>
+    <a href="/aca-plans-miami" style="padding:11px 12px;border-radius:8px;color:#241a30;font-weight:600;font-size:15px">ACA Marketplace Plans</a>
+    <a href="/cobra-alternatives-miami" style="padding:11px 12px;border-radius:8px;color:#241a30;font-weight:600;font-size:15px">COBRA Alternatives</a>
+    <a href="/dental-vision-miami" style="padding:11px 12px;border-radius:8px;color:#241a30;font-weight:600;font-size:15px">Dental &amp; Vision</a>
+    <div style="padding:14px 4px 4px;font-size:13px;font-weight:700;color:#8a6aaa;text-transform:uppercase;letter-spacing:.06em;margin-top:8px">Guides</div>
+    <a href="/medicare/what-is-medicare" style="padding:11px 12px;border-radius:8px;color:#241a30;font-weight:600;font-size:15px">What Is Medicare</a>
+    <a href="/medicare/new-to-medicare" style="padding:11px 12px;border-radius:8px;color:#241a30;font-weight:600;font-size:15px">New to Medicare</a>
+    <a href="/medicare/medicare-costs" style="padding:11px 12px;border-radius:8px;color:#241a30;font-weight:600;font-size:15px">Medicare Costs &amp; IRMAA</a>
+    <a href="/medicare-advantage-miami" style="padding:11px 12px;border-radius:8px;color:#241a30;font-weight:600;font-size:15px">Medicare Advantage Guide</a>
+    <a href="/medicare-supplement-miami" style="padding:11px 12px;border-radius:8px;color:#241a30;font-weight:600;font-size:15px">Medicare Supplement Guide</a>
+    <a href="/medicare-savings-program" style="padding:11px 12px;border-radius:8px;color:#241a30;font-weight:600;font-size:15px">Medicare Savings Program</a>
+    <a href="/find-my-plan" style="padding:11px 12px;border-radius:8px;color:#241a30;font-weight:600;font-size:15px">Find My Plan Quiz</a>
+    <div style="margin-top:8px;border-top:1px solid #ece5f0;padding-top:12px;display:flex;flex-direction:column;gap:4px">
+      <a href="/faq" style="padding:12px 4px;color:#241a30;border-bottom:1px solid #ece5f0">FAQ</a>
+      <a href="/resources" style="padding:12px 4px;color:#241a30;border-bottom:1px solid #ece5f0">Resources</a>
+      <a href="/blog" style="padding:12px 4px;color:#241a30;border-bottom:1px solid #ece5f0">Blog</a>
+      <a href="/medicare-agent-miami" style="padding:12px 4px;color:#241a30;border-bottom:1px solid #ece5f0">About Us</a>
+      <a href="/contact" style="padding:12px 4px;color:#241a30">Contact</a>
+    </div>
+    <div style="margin-top:20px;display:flex;flex-direction:column;gap:12px">
+      <a href="tel:18003806821" style="background:#241a30;color:#fff;padding:16px;border-radius:12px;font-weight:700;font-size:16px;text-align:center">1-800-380-6821</a>
+      <a href="/contact" onclick="document.getElementById('v4-mobile-menu').classList.remove('open');document.getElementById('v4HamburgerBtn').setAttribute('aria-expanded','false');" style="background:#ff1090;color:#fff;padding:16px;border-radius:12px;font-weight:700;font-size:16px;text-align:center">Book Free Consultation →</a>
+    </div>
+  </nav>
+</div>
+
+<!-- ============================================================
+     BREADCRUMB (from v4 design source — medigap section)
+     ============================================================ -->
+<div class="breadcrumb">
+  <a href="/">Home</a> / <a href="/resources">Resources</a> / Medigap Plan Calculator
+</div>
+
+<!-- ============================================================
+     CALCULATOR CONTENT (from v4 design source — isMedigap section)
+     ============================================================ -->
+<div class="mg-wrap">
+
+  <!-- Hero -->
+  <div class="mg-hero">
+    <span class="eyebrow" data-i="eyebrow">Free Tool · v1</span>
+    <h1 data-i="h1">Medigap Plan Calculator</h1>
+    <p data-i="sub">Compare Plan G, Plan N, and High-Deductible Plan G. See your total costs grow over 25 years — and which plan saves you the most.</p>
+    <div class="lang" style="margin-top:18px">
+      <button id="enBtn" class="on" onclick="setLang('en')">EN</button>
+      <button id="esBtn" onclick="setLang('es')">ES</button>
     </div>
   </div>
-</header>
-<style>
- .dropdown a:hover{background:#f4eefa !important;color:#452068 !important;}
- li:hover > .dropdown{display:block !important;}
- @media (max-width: 768px) {
-  #nav-toggle { display: block !important; }
-  #nav-links { display: none !important; }
-  #nav-links.open {
-    display: flex !important;
-    flex-direction: column;
-    position: fixed !important;
-    top: 0 !important;
-    right: 0 !important;
-    bottom: auto;
-    left: 15% !important;
-    width: 85% !important;
-    max-width: none !important;
-    height: auto;
-    min-height: auto;
-    max-height: 100vh;
-    background: white;
-    padding: 56px 24px 24px;
-    box-shadow: -4px 0 24px rgba(0,0,0,0.15);
-    gap: 12px;
-    z-index: 999;
-    text-align: left;
-    align-items: flex-start;
-    overflow-y: auto;
-  }
-  #nav-links.open > li { width: 100%; }
-  #nav-links.open > li > a {
-    display: block;
-    text-align: left;
-    font-size: 18px;
-    font-weight: 700;
-    color: #452068;
-    padding: 8px 0;
-    width: 100%;
-    white-space: nowrap;
-    overflow: visible;
-  }
-  #nav-links.open #nav-close-btn {
-    display: block !important;
-    position: fixed;
-    top: 12px;
-    right: 16px;
-    z-index: 1000;
-    font-size: 28px;
-    font-weight: 300;
-    color: #452068;
-    background: none;
-    border: none;
-    cursor: pointer;
-  }
-  #nav-links .dropdown {
-    display: none !important;
-    position: static !important;
-    box-shadow: none !important;
-    border: none !important;
-    padding: 4px 0 4px 16px !important;
-    background: #f9f7fc;
-    border-radius: 8px;
-    margin-top: 4px;
-  }
-  #nav-links .dropdown a {
-    font-size: 16px !important;
-    font-weight: 500 !important;
-    padding: 6px 12px !important;
-    white-space: nowrap !important;
-    overflow: visible !important;
-    display: block !important;
-    color: #452068 !important;
-  }
-  #nav-links li.open .dropdown { display: block !important; }
- }
- @media (min-width: 769px) {
-  #nav-toggle { display: none !important; }
-  #nav-links { display: flex !important; }
- }
-</style>
 
-<div style="padding:10px 24px;">
-  <a href="/resources" style="display:inline-flex;align-items:center;gap:6px;font-size:14px;font-weight:600;color:#452068;text-decoration:none;">
-    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 5l-7 7 7 7"/></svg>
-    Back to Resources
-  </a>
-</div>
+  <!-- Tabs — class "tabs" required by JS (verbatim JS uses .tabs button) -->
+  <div class="tabs">
+    <button class="on" data-tab="calc" onclick="setTab('calc')" data-i="tCalc">Calculator</button>
+    <button data-tab="charts" onclick="setTab('charts')" data-i="tCharts">Charts</button>
+    <button data-tab="data" onclick="setTab('data')" data-i="tData">Data</button>
+    <button data-tab="benefits" onclick="setTab('benefits')" data-i="tBenefits">Benefits</button>
+    <button data-tab="about" onclick="setTab('about')" data-i="tAbout">About</button>
+  </div>
 
-<div class="wrap">
- <div class="hero">
- <span class="eyebrow" data-i="eyebrow">Free Tool · v1</span>
- <h1 data-i="h1">Medigap Plan Calculator</h1>
- <p data-i="sub">Compare Plan G, Plan N, and High-Deductible Plan G. See your total costs grow over 25 years — and which plan saves you the most.</p>
- </div>
+  <!-- ===== CALCULATOR PANEL ===== -->
+  <div class="panel on" id="p-calc">
+    <div class="calc-grid">
 
- <div class="tabs">
- <button class="on" data-tab="calc" onclick="setTab('calc')" data-i="tCalc">Calculator</button>
- <button data-tab="charts" onclick="setTab('charts')" data-i="tCharts">Charts</button>
- <button data-tab="data" onclick="setTab('data')" data-i="tData">Data</button>
- <button data-tab="benefits" onclick="setTab('benefits')" data-i="tBenefits">Benefits</button>
- <button data-tab="about" onclick="setTab('about')" data-i="tAbout">About</button>
- </div>
+      <!-- SIDEBAR FORM -->
+      <div class="calc-side">
 
- <!-- CALCULATOR -->
- <div class="panel on" id="p-calc">
- <div class="calc-grid">
- <div class="calc-side">
- <div class="group">
- <h3 data-i="gYou">Your information</h3>
- <div class="field">
- <label data-i="age">Your age</label>
- <div class="inputwrap"><input type="number" id="age" value="65" min="60" max="90"></div>
- <div class="sub" data-i="ageHint">Most people start Medigap at 65.</div>
- </div>
- </div>
+        <!-- YOUR INFO -->
+        <div class="group">
+          <h3 data-i="gYou">Your information</h3>
+          <div class="field">
+            <label data-i="age">Your age</label>
+            <div class="inputwrap" style="max-width:160px">
+              <input type="number" id="age" value="65" min="60" max="90">
+            </div>
+            <div class="sub" data-i="ageHint">Most people start Medigap at 65.</div>
+          </div>
+        </div>
 
- <div class="group">
- <h3 data-i="gPrem">Monthly premiums</h3>
- <div class="hint" data-i="premHint">Florida typical ranges shown. We can pull real quotes for your zip.</div>
- <div class="row2">
- <div class="field">
- <label data-i="pgPrem">Plan G premium</label>
- <div class="inputwrap"><span class="pre">$</span><input class="has-pre" type="number" id="gPrem" value="200"></div>
- <div class="sub" data-i="pgHint">FL range: $148–$355/mo by age.</div>
- </div>
- <div class="field">
- <label data-i="pnPrem">Plan N premium</label>
- <div class="inputwrap"><span class="pre">$</span><input class="has-pre" type="number" id="nPrem" value="165"></div>
- <div class="sub" data-i="pnHint">Usually lower than Plan G.</div>
- </div>
- </div>
- <div class="field">
- <label data-i="hdPrem">High-Deductible Plan G premium</label>
- <div class="inputwrap"><span class="pre">$</span><input class="has-pre" type="number" id="hPrem" value="65"></div>
- <div class="sub" data-i="hdHint">Lowest premium, higher out-of-pocket.</div>
- </div>
- </div>
+        <!-- MONTHLY PREMIUMS — 3-col grid -->
+        <div class="group">
+          <h3 data-i="gPrem">Monthly premiums</h3>
+          <div class="hint" data-i="premHint">Florida typical ranges shown. We can pull real quotes for your zip.</div>
+          <div class="grid-premiums-3col">
+            <div class="field">
+              <label data-i="pgPrem">Plan G premium</label>
+              <div class="inputwrap"><span class="pre">$</span><input class="has-pre" type="number" id="gPrem" value="200"></div>
+              <div class="sub" data-i="pgHint">FL range: $148–$355/mo by age.</div>
+            </div>
+            <div class="field">
+              <label data-i="pnPrem">Plan N premium</label>
+              <div class="inputwrap"><span class="pre">$</span><input class="has-pre" type="number" id="nPrem" value="165"></div>
+              <div class="sub" data-i="pnHint">Usually lower than Plan G.</div>
+            </div>
+            <div class="field">
+              <label data-i="hdPrem">HD Plan G premium</label>
+              <div class="inputwrap"><span class="pre">$</span><input class="has-pre" type="number" id="hPrem" value="65"></div>
+              <div class="sub" data-i="hdHint">Lowest premium, higher out-of-pocket.</div>
+            </div>
+          </div>
+        </div>
 
- <div class="group">
- <h3 data-i="gInc">Annual increase rates</h3>
- <div class="hint" data-i="incHint">How much premiums rise each year. These are realistic Florida defaults — adjust if you have actual rate history.</div>
- <div class="row2">
- <div class="field">
- <label data-i="gInc2">Plan G increase</label>
- <div class="inputwrap"><input class="has-post" type="number" id="gInc" value="12" step="0.5"><span class="post">%</span></div>
- </div>
- <div class="field">
- <label data-i="nInc2">Plan N increase</label>
- <div class="inputwrap"><input class="has-post" type="number" id="nInc" value="10" step="0.5"><span class="post">%</span></div>
- </div>
- </div>
- <div class="field">
- <label data-i="hInc2">High-Deductible Plan G increase</label>
- <div class="inputwrap"><input class="has-post" type="number" id="hInc" value="6" step="0.5"><span class="post">%</span></div>
- </div>
- </div>
+        <!-- ANNUAL INCREASE RATES — 3-col grid -->
+        <div class="group">
+          <h3 data-i="gInc">Annual increase rates</h3>
+          <div class="hint" data-i="incHint">How much premiums rise each year. These are realistic Florida defaults — adjust if you have actual rate history.</div>
+          <div class="grid-rates-3col">
+            <div class="field">
+              <label data-i="gInc2">Plan G increase</label>
+              <div class="inputwrap"><input class="has-post" type="number" id="gInc" value="12" step="0.5"><span class="post">%</span></div>
+            </div>
+            <div class="field">
+              <label data-i="nInc2">Plan N increase</label>
+              <div class="inputwrap"><input class="has-post" type="number" id="nInc" value="10" step="0.5"><span class="post">%</span></div>
+            </div>
+            <div class="field">
+              <label data-i="hInc2">High-Deductible Plan G increase</label>
+              <div class="inputwrap"><input class="has-post" type="number" id="hInc" value="6" step="0.5"><span class="post">%</span></div>
+            </div>
+          </div>
+        </div>
 
- <div class="group">
- <h3 data-i="gUse">Plan N usage (annual)</h3>
- <div class="hint" data-i="useHint">Plan N has small copays: up to $20 per office visit, $50 per ER visit.</div>
- <div class="field">
- <div class="usagerow">
- <div><label style="margin:0" data-i="office">Office visits per year</label></div>
- <span class="pill">$20 <span data-i="perVisit">/visit</span></span>
- </div>
- <input type="number" id="office" value="6" min="0" style="margin-top:8px">
- </div>
- <div class="field">
- <div class="usagerow">
- <div><label style="margin:0" data-i="er">ER visits per year</label></div>
- <span class="pill">$50 <span data-i="perVisit2">/visit</span></span>
- </div>
- <input type="number" id="er" value="0" min="0" style="margin-top:8px">
- </div>
- </div>
+        <!-- PLAN N USAGE — 2-col grid -->
+        <div class="group">
+          <h3 data-i="gUse">Plan N usage (annual)</h3>
+          <div class="hint" data-i="useHint">Plan N has small copays: up to $20 per office visit, $50 per ER visit.</div>
+          <div class="grid-usage-2col">
+            <div class="field">
+              <div class="usagerow">
+                <label style="margin:0" data-i="office">Office visits per year</label>
+                <span class="pill">$20 <span data-i="perVisit">/visit</span></span>
+              </div>
+              <input type="number" id="office" value="6" min="0" style="margin-top:8px">
+            </div>
+            <div class="field">
+              <div class="usagerow">
+                <label style="margin:0" data-i="er">ER visits per year</label>
+                <span class="pill">$50 <span data-i="perVisit2">/visit</span></span>
+              </div>
+              <input type="number" id="er" value="0" min="0" style="margin-top:8px">
+            </div>
+          </div>
+        </div>
 
- <div class="group">
- <h3 data-i="gHdg">High-Deductible Plan G out-of-pocket</h3>
- <div class="hint" data-i="hdgHint">Estimated yearly out-of-pocket before the plan pays. 2026 max deductible: $2,950.</div>
- <div class="field">
- <div class="inputwrap"><span class="pre">$</span><input class="has-pre" type="number" id="hdgOOP" value="1500" min="0" max="2950"></div>
- <div class="sub"><span data-i="range">Range:</span> $0 – $2,950</div>
- </div>
- </div>
+        <!-- HD OOP -->
+        <div class="group">
+          <h3 data-i="gHdg">High-Deductible Plan G out-of-pocket</h3>
+          <div class="hint" data-i="hdgHint">Estimated yearly out-of-pocket before the plan pays. 2026 max deductible: $2,950.</div>
+          <div class="field">
+            <div class="inputwrap"><span class="pre">$</span><input class="has-pre" type="number" id="hdgOOP" value="1500" min="0" max="2950"></div>
+            <div class="sub"><span data-i="range">Range:</span> $0 – $2,950</div>
+          </div>
+        </div>
 
- <div class="group">
- <div class="check">
- <input type="checkbox" id="incB">
- <label for="incB" style="margin:0" data-i="partB">Include Medicare Part B premium in all plans ($202.90/mo, 2026)</label>
- </div>
- </div>
+        <!-- PART B CHECKBOX -->
+        <div class="group">
+          <label class="check">
+            <input type="checkbox" id="incB">
+            <span data-i="partB">Include Medicare Part B premium in all plans ($202.90/mo, 2026)</span>
+          </label>
+        </div>
 
- <button class="cta-btn" onclick="calc()" data-i="run">See my projection</button>
- </div><!-- /calc-side -->
+        <button class="cta-btn" onclick="calc()" data-i="run">See my projection</button>
 
- <div class="calc-main">
- <div class="results" id="results">
- <!-- Per-plan summary cards -->
- <div class="summary" id="summary"></div>
+      </div><!-- /calc-side -->
 
- <!-- Year total cards -->
- <div class="yeargrid" id="yeargrid"></div>
+      <!-- RESULTS MAIN -->
+      <div class="calc-main">
+        <div class="results" id="results">
 
- <h3 style="margin:18px 0 12px;font-size:16px;color:var(--purple)" data-i="resTitle">Your 10-year total cost</h3>
- <div class="cardrow">
- <div class="pcard" id="card-g"><span class="bar" style="background:var(--planG)"></span><div class="nm">Plan G</div><div class="big" id="g10">$0</div><div class="lbl" data-i="over10">over 10 years</div></div>
- <div class="pcard" id="card-n"><span class="bar" style="background:var(--planN)"></span><div class="nm">Plan N</div><div class="big" id="n10">$0</div><div class="lbl" data-i="over10b">over 10 years</div></div>
- <div class="pcard" id="card-h"><span class="bar" style="background:var(--hdg)"></span><div class="nm" data-i="hdgShort">High-Deductible G</div><div class="big" id="h10">$0</div><div class="lbl" data-i="over10c">over 10 years</div></div>
- </div>
- <p id="verdict" style="font-size:14px;background:var(--panel);border:2px solid var(--line);border-radius:12px;padding:14px;margin-top:6px"></p>
- <p class="sub" data-i="seeCharts">See the Charts and Data tabs for the full 25-year breakdown.</p>
+          <!-- Per-plan summary — 3-col grid -->
+          <div class="grid-summary-3col" id="summary"></div>
 
- <div class="ctablock">
- <h3 data-i="ctaH">Want real numbers for your situation?</h3>
- <p data-i="ctaP">These are estimates. We'll pull actual quotes from 14 carriers for your zip code — free, no obligation.</p>
- <div class="btns">
- <a class="cta-btn" href="https://calendly.com/healthexps-info/" data-i="ctaBook">Book a free consultation</a>
- <a class="cta-btn pink" href="#" id="quizLink" data-i="ctaQuiz">Compare my plans</a>
- </div>
- </div>
- </div>
- </div><!-- /calc-main -->
- </div><!-- /calc-grid -->
- </div>
+          <!-- Year totals — 5-col grid -->
+          <div class="grid-years-5col" id="yeargrid"></div>
 
- <!-- CHARTS -->
- <div class="panel" id="p-charts">
- <div class="chartbox">
- <h3 data-i="chartTitle">Estimated total cost over time</h3>
- <div id="chart"></div>
- <div class="legend">
- <span><i style="background:var(--planG)"></i> Plan G</span>
- <span><i style="background:var(--planN)"></i> Plan N</span>
- <span><i style="background:var(--hdg)"></i> <span data-i="hdgShort2">High-Deductible G</span></span>
- </div>
- </div>
- <p class="sub" style="text-align:center;margin-top:12px" data-i="chartNote">Run the calculator first to populate this chart.</p>
- </div>
+          <!-- 10-year cards — 3-col grid -->
+          <h3 style="margin:18px 0 12px;font-size:16px;color:var(--purple)" data-i="resTitle">Your 10-year total cost</h3>
+          <div class="grid-cardrow-3col">
+            <div class="pcard" id="card-g">
+              <span class="bar" style="background:var(--planG)"></span>
+              <div class="nm">Plan G</div>
+              <div class="big" id="g10">$0</div>
+              <div class="lbl" data-i="over10">over 10 years</div>
+            </div>
+            <div class="pcard" id="card-n">
+              <span class="bar" style="background:var(--planN)"></span>
+              <div class="nm">Plan N</div>
+              <div class="big" id="n10">$0</div>
+              <div class="lbl" data-i="over10b">over 10 years</div>
+            </div>
+            <div class="pcard" id="card-h">
+              <span class="bar" style="background:var(--hdg)"></span>
+              <div class="nm" data-i="hdgShort">High-Deductible G</div>
+              <div class="big" id="h10">$0</div>
+              <div class="lbl" data-i="over10c">over 10 years</div>
+            </div>
+          </div>
 
- <!-- DATA -->
- <div class="panel" id="p-data">
- <div class="chartbox" style="padding:0;overflow:hidden">
- <table>
- <thead><tr>
- <th data-i="thYear">Year</th>
- <th data-i="thAge">Age</th>
- <th class="gcol">Plan G</th>
- <th class="ncol">Plan N</th>
- <th class="hcol" data-i="thHdg">HD-G</th>
- </tr></thead>
- <tbody id="dataBody">
- <tr><td colspan="5" style="text-align:left;color:var(--muted);padding:18px" data-i="dataEmpty">Run the calculator first to see year-by-year costs.</td></tr>
- </tbody>
- </table>
- </div>
- </div>
+          <p id="verdict" style="font-size:14px;background:var(--panel-bg);border:2px solid var(--gray-mid);border-radius:12px;padding:14px;margin-top:6px"></p>
+          <p class="sub" style="text-align:center;margin-top:6px" data-i="seeCharts">See the Charts and Data tabs for the full 25-year breakdown.</p>
 
- <!-- BENEFITS -->
- <div class="panel" id="p-benefits">
- <div class="chartbox" style="padding:0;overflow:hidden">
- <table class="ben">
- <thead><tr>
- <th data-i="thBenefit">Benefit</th>
- <th class="gcol">Plan G</th>
- <th class="ncol">Plan N</th>
- <th class="hcol" data-i="thHdg2">HD-G</th>
- </tr></thead>
- <tbody id="benBody"></tbody>
- </table>
- </div>
- <p class="note" id="benNote"></p>
- </div>
+          <!-- CTA block -->
+          <div class="ctablock">
+            <h3 data-i="ctaH">Want real numbers for your situation?</h3>
+            <p data-i="ctaP">These are estimates. We'll pull actual quotes from 14 carriers for your zip code — free, no obligation.</p>
+            <div class="grid-cta-btns-2col">
+              <a class="cta-btn" href="https://calendly.com/healthexps-info/" data-i="ctaBook">Book a free consultation</a>
+              <a class="cta-btn pink" href="#" id="quizLink" data-i="ctaQuiz">Compare my plans</a>
+            </div>
+          </div>
 
- <!-- ABOUT -->
- <div class="panel" id="p-about">
- <div class="prose" id="aboutProse"></div>
- <div class="ctablock">
- <h3 data-i="ctaH2">Talk to a licensed bilingual broker</h3>
- <p data-i="ctaP2">We serve Miami-Dade and Broward in English and Spanish. No cost, no pressure.</p>
- <div class="btns">
- <a class="cta-btn" href="https://calendly.com/healthexps-info/" data-i="ctaBook2">Book a free consultation</a>
- <a class="cta-btn pink" href="tel:18003806821" data-i="ctaCall">Call 1-800-380-6821</a>
- </div>
- </div>
- </div>
+        </div><!-- /results -->
+      </div><!-- /calc-main -->
 
- <p class="disclaimer" id="disc"></p>
-</div>
+    </div><!-- /calc-grid -->
+  </div><!-- /p-calc -->
 
+  <!-- ===== CHARTS PANEL ===== -->
+  <div class="panel" id="p-charts">
+    <div class="chartbox">
+      <h3 data-i="chartTitle">Estimated total cost over time</h3>
+      <div id="chart"></div>
+      <div class="legend">
+        <span><i style="background:var(--planG)"></i> Plan G</span>
+        <span><i style="background:var(--planN)"></i> Plan N</span>
+        <span><i style="background:var(--hdg)"></i> <span data-i="hdgShort2">High-Deductible G</span></span>
+      </div>
+    </div>
+    <p class="sub" style="text-align:center;margin-top:12px" data-i="chartNote">Run the calculator first to populate this chart.</p>
+  </div>
+
+  <!-- ===== DATA PANEL ===== -->
+  <div class="panel" id="p-data">
+    <div class="chartbox" style="padding:0;overflow:hidden">
+      <table>
+        <thead><tr>
+          <th data-i="thYear">Year</th>
+          <th data-i="thAge">Age</th>
+          <th class="gcol">Plan G</th>
+          <th class="ncol">Plan N</th>
+          <th class="hcol" data-i="thHdg">HD-G</th>
+        </tr></thead>
+        <tbody id="dataBody">
+          <tr><td colspan="5" style="text-align:left;color:var(--gray-text);padding:18px" data-i="dataEmpty">Run the calculator first to see year-by-year costs.</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- ===== BENEFITS PANEL ===== -->
+  <div class="panel" id="p-benefits">
+    <div class="chartbox" style="padding:0;overflow:hidden">
+      <table class="ben">
+        <thead><tr>
+          <th data-i="thBenefit">Benefit</th>
+          <th class="gcol">Plan G</th>
+          <th class="ncol">Plan N</th>
+          <th class="hcol" data-i="thHdg2">HD-G</th>
+        </tr></thead>
+        <tbody id="benBody"></tbody>
+      </table>
+    </div>
+    <p class="note" id="benNote"></p>
+  </div>
+
+  <!-- ===== ABOUT PANEL ===== -->
+  <div class="panel" id="p-about">
+    <div class="prose" id="aboutProse"></div>
+    <div class="ctablock">
+      <h3 data-i="ctaH2">Talk to a licensed bilingual broker</h3>
+      <p data-i="ctaP2">We serve Miami-Dade and Broward in English and Spanish. No cost, no pressure.</p>
+      <div class="grid-cta-btns-2col">
+        <a class="cta-btn" href="https://calendly.com/healthexps-info/" data-i="ctaBook2">Book a free consultation</a>
+        <a class="cta-btn pink" href="tel:18003806821" data-i="ctaCall">Call 1-800-380-6821</a>
+      </div>
+    </div>
+  </div>
+
+  <p class="disclaimer" id="disc"></p>
+
+</div><!-- /mg-wrap -->
+
+<!-- ============================================================
+     FOOTER (verbatim from index.html v4 · classes: footer-wrap + footer-grid)
+     ============================================================ -->
+<footer class="footer-wrap">
+  <div class="footer-inner">
+    <div class="footer-grid">
+
+      <!-- Col 1: Brand -->
+      <div>
+        <img src="/images/logo.webp" alt="The Health Experts Insurance" style="height:64px;width:auto;margin-bottom:14px">
+        <p style="font-size:13.5px;color:#6f6478;line-height:1.6;max-width:260px;margin-bottom:14px">Independent bilingual health insurance brokers. Office in Doral, FL.</p>
+        <div class="footer-links" style="margin-bottom:14px">
+          <a href="tel:18003806821" class="fw">1-800-380-6821</a>
+          <a href="https://wa.me/13054646888" class="fw" onclick="gtag('event','whatsapp_click',{'page':window.location.pathname})">WhatsApp</a>
+          <a href="mailto:info@healthexps.com" class="fw">info@healthexps.com</a>
+        </div>
+        <p style="font-size:13.5px;color:#4a4051">1695 NW 110 Ave, Ste 224<br>Doral, FL 33172</p>
+      </div>
+
+      <!-- Col 2: Medicare -->
+      <div>
+        <div class="footer-col-title">Medicare</div>
+        <div class="footer-links">
+          <a href="/medicare-plans-miami" class="fw">Medicare Plans</a>
+          <a href="/medicare-advantage-miami">Medicare Advantage</a>
+          <a href="/medicare-supplement-miami">Medicare Supplement</a>
+          <a href="/medicare-plan-finder">Medicare Plan Finder</a>
+          <a href="/avmed-medicare-florida">AvMed Transition</a>
+        </div>
+      </div>
+
+      <!-- Col 3: Guides -->
+      <div>
+        <div class="footer-col-title">Medicare Guides</div>
+        <div class="footer-links">
+          <a href="/medicare/what-is-medicare">What Is Medicare</a>
+          <a href="/medicare/new-to-medicare">New to Medicare</a>
+          <a href="/medicare/medicare-costs">Medicare Costs &amp; IRMAA</a>
+          <a href="/medicare-advantage-miami">Medicare Advantage Guide</a>
+          <a href="/medicare-supplement-miami">Medicare Supplement Guide</a>
+          <a href="/medicare-savings-program">Medicare Savings Program</a>
+        </div>
+      </div>
+
+      <!-- Col 4: More -->
+      <div>
+        <div class="footer-col-title">More</div>
+        <div class="footer-links">
+          <a href="/private-health-insurance-miami">Private Health Insurance</a>
+          <a href="/aca-plans-miami">ACA Marketplace Plans</a>
+          <a href="/cobra-alternatives-miami">COBRA Alternatives</a>
+          <a href="/dental-vision-miami">Dental &amp; Vision</a>
+          <a href="/medicare-agent-miami">About Us</a>
+          <a href="/contact">Contact</a>
+          <a href="https://www.healthexps.com/es/planes-de-medicare-miami">Sitio en Español</a>
+        </div>
+      </div>
+
+    </div><!-- /footer-grid -->
+
+    <div class="footer-bottom">
+      <p>© 2026 The Health Experts Insurance. <a href="/privacy" style="color:#452068;font-weight:600">Privacy Policy &amp; Terms</a></p>
+    </div>
+    <div class="footer-legal">
+      Medicare has not reviewed or endorsed this information. We do not offer every plan available in your area. We currently represent 14 organizations offering 82 products in your area. Please contact Medicare.gov, 1-800-MEDICARE, or your local SHIP program for information about all your options. This tool provides estimates for educational purposes only and is not insurance advice or a quote.
+    </div>
+  </div>
+</footer>
+
+<!-- ============================================================
+     SCROLL TO TOP BUTTON
+     ============================================================ -->
+<button id="scrollToTop" aria-label="Back to top">↑</button>
+
+</div><!-- /outer wrapper -->
+
+<!-- ============================================================
+     CALCULATOR JAVASCRIPT — VERBATIM from existing medigap-plan-calculator.html
+     ============================================================ -->
 <script>
 /* ---------- Translations ---------- */
 const T = {
@@ -863,69 +1462,75 @@ document.getElementById('aboutProse').innerHTML=T.en.about;
 document.getElementById('disc').textContent=T.en.disc;
 calc();
 </script>
-<footer style="background:#fafafa;border-top:3px solid #f4eefa;padding:52px 0 24px;">
-  <div style="max-width:1060px;margin:0 auto;padding:0 24px;">
-    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:36px;margin-bottom:44px;">
-      <div>
-        <img src="/images/logo.webp" alt="The Health Experts Insurance" style="height:64px;width:auto;margin-bottom:14px;">
-        <p style="font-size:14px;color:#555;line-height:1.6;margin:0 0 14px;">Independent bilingual health insurance brokers. Office in Doral, FL.</p>
-        <p style="font-size:15px;margin-bottom:6px;"><a href="tel:18003806821" style="color:#452068;font-weight:600;text-decoration:none;">1-800-380-6821</a></p>
-        <p style="font-size:15px;margin-bottom:6px;"><a href="https://wa.me/13054646888" style="color:#452068;font-weight:600;text-decoration:none;" onclick="gtag('event','whatsapp_click',{'page':window.location.pathname})">WhatsApp</a></p>
-        <p style="font-size:15px;margin-bottom:6px;"><a href="mailto:info@healthexps.com" style="color:#452068;font-weight:600;text-decoration:none;">info@healthexps.com</a></p>
-        <p style="font-size:14px;color:#555;margin-top:8px;">1695 NW 110 Ave, Ste 224<br>Doral, FL 33172</p>
-      </div>
-      <div>
-        <h3 style="color:#452068;font-size:13px;text-transform:uppercase;letter-spacing:1px;margin:0 0 14px;">Medicare</h3>
-        <ul style="list-style:none;padding:0;margin:0;">
-          <li style="margin-bottom:8px;"><a href="/medicare-plans-miami" style="color:#452068;font-size:15px;font-weight:700;text-decoration:none;">Medicare Plans</a></li>
-          <li style="margin-bottom:8px;"><a href="/medicare-advantage-miami" style="color:#555;font-size:15px;text-decoration:none;">Medicare Advantage</a></li>
-          <li style="margin-bottom:8px;"><a href="/medicare-supplement-miami" style="color:#555;font-size:15px;text-decoration:none;">Medicare Supplement</a></li>
-          <li style="margin-bottom:8px;"><a href="/medicare-plan-finder" style="color:#555;font-size:15px;text-decoration:none;">Medicare Plan Finder</a></li>
-          <li style="margin-bottom:8px;"><a href="/avmed-medicare-florida" style="color:#555;font-size:15px;text-decoration:none;">AvMed Transition</a></li>
-        </ul>
-      </div>
-      <div>
-        <h3 style="color:#452068;font-size:13px;text-transform:uppercase;letter-spacing:1px;margin:0 0 14px;">Medicare Guides</h3>
-        <ul style="list-style:none;padding:0;margin:0;">
-          <li style="margin-bottom:8px;"><a href="/medicare/what-is-medicare" style="color:#555;font-size:15px;text-decoration:none;">What Is Medicare</a></li>
-          <li style="margin-bottom:8px;"><a href="/medicare/new-to-medicare" style="color:#555;font-size:15px;text-decoration:none;">New to Medicare</a></li>
-          <li style="margin-bottom:8px;"><a href="/medicare/medicare-costs" style="color:#555;font-size:15px;text-decoration:none;">Medicare Costs & IRMAA</a></li>
-          <li style="margin-bottom:8px;"><a href="/medicare-advantage-miami" style="color:#555;font-size:15px;text-decoration:none;">Medicare Advantage Guide</a></li>
-          <li style="margin-bottom:8px;"><a href="/medicare-supplement-miami" style="color:#555;font-size:15px;text-decoration:none;">Medicare Supplement Guide</a></li>
-          <li style="margin-bottom:8px;"><a href="/medicare-savings-program" style="color:#555;font-size:15px;text-decoration:none;">Medicare Savings Program</a></li>
-        </ul>
-      </div>
-      <div>
-        <h3 style="color:#452068;font-size:13px;text-transform:uppercase;letter-spacing:1px;margin:0 0 14px;">More</h3>
-        <ul style="list-style:none;padding:0;margin:0;">
-          <li style="margin-bottom:8px;"><a href="/private-health-insurance-miami" style="color:#555;font-size:15px;text-decoration:none;">Private Health Insurance</a></li>
-          <li style="margin-bottom:8px;"><a href="/aca-plans-miami" style="color:#555;font-size:15px;text-decoration:none;">ACA Marketplace Plans</a></li>
-          <li style="margin-bottom:8px;"><a href="/cobra-alternatives-miami" style="color:#555;font-size:15px;text-decoration:none;">COBRA Alternatives</a></li>
-          <li style="margin-bottom:8px;"><a href="/dental-vision-miami" style="color:#555;font-size:15px;text-decoration:none;">Dental &amp; Vision</a></li>
-          <li style="margin-bottom:8px;"><a href="/medicare-agent-miami" style="color:#555;font-size:15px;text-decoration:none;">About Us</a></li>
-          <li style="margin-bottom:8px;"><a href="/contact" style="color:#555;font-size:15px;text-decoration:none;">Contact</a></li>
-          <li style="margin-bottom:8px;"><a href="https://www.healthexps.com/es/planes-de-medicare-miami" style="color:#555;font-size:15px;text-decoration:none;">Sitio en Español</a></li>
-        </ul>
-      </div>
-    </div>
-    <div style="border-top:1px solid #e5e5e5;padding-top:20px;">
-      <p style="font-size:13.5px;color:#666;margin:0;">© 2026 The Health Experts Insurance. <a href="/privacy" style="color:#452068;text-decoration:none;">Privacy Policy &amp; Terms</a></p>
-      <p style="font-size:13px;color:#aaa;margin-top:10px;line-height:1.7;">Medicare has not reviewed or endorsed this information. We do not offer every plan available in your area. We currently represent 14 organizations offering 82 products in your area. Please contact Medicare.gov, 1-800-MEDICARE, or your local SHIP program for information about all your options.</p>
-    </div>
-  </div>
-</footer>
 
-
-<button id="scrollToTop" aria-label="Back to top">↑</button>
+<!-- ============================================================
+     SCROLL TO TOP JS
+     ============================================================ -->
 <script>
 (function(){
   const btn=document.getElementById('scrollToTop');
   if(!btn)return;
-  window.addEventListener('scroll',function(){btn.style.display=window.pageYOffset>300?'block':'none';});
+  window.addEventListener('scroll',function(){btn.style.display=window.pageYOffset>300?'flex':'none';});
   btn.addEventListener('click',function(){window.scrollTo({top:0,behavior:'smooth'});});
-  btn.addEventListener('mouseenter',function(){btn.style.background='#ff1090';btn.style.transform='translateY(-3px)';});
-  btn.addEventListener('mouseleave',function(){btn.style.background='#452068';btn.style.transform='translateY(0)';});
 })();
 </script>
+
+<!-- ============================================================
+     NAV JS (verbatim from index.html v4)
+     ============================================================ -->
+<script>
+// V4 hamburger toggle
+(function(){
+  var btn = document.getElementById('v4HamburgerBtn');
+  var closeBtn = document.getElementById('v4MobileClose');
+  var menu = document.getElementById('v4-mobile-menu');
+  if (!btn || !menu) return;
+  function openMenu(){
+    menu.classList.add('open');
+    btn.setAttribute('aria-expanded','true');
+    document.body.style.overflow='hidden';
+  }
+  function closeMenu(){
+    menu.classList.remove('open');
+    btn.setAttribute('aria-expanded','false');
+    document.body.style.overflow='';
+  }
+  btn.addEventListener('click', openMenu);
+  if (closeBtn) closeBtn.addEventListener('click', closeMenu);
+  // Close on Escape
+  document.addEventListener('keydown', function(e){ if(e.key==='Escape') closeMenu(); });
+})();
+</script>
+
+<script>
+// V4 nav mobile — hover for desktop, click for mobile
+(function(){
+  var navItems = document.querySelectorAll('.v4-nav-item');
+  function isMobile(){ return window.innerWidth <= 900; }
+  navItems.forEach(function(item){
+    var drop = item.querySelector('.v4-nav-dropdown');
+    if (!drop) return;
+    // Desktop: CSS handles hover; Mobile: toggle on click
+    item.addEventListener('click', function(e){
+      if (!isMobile()) return;
+      var open = drop.style.display === 'block';
+      // Close all
+      navItems.forEach(function(ni){ var d = ni.querySelector('.v4-nav-dropdown'); if(d) d.style.display=''; });
+      drop.style.display = open ? '' : 'block';
+    });
+  });
+  // Close on outside click
+  document.addEventListener('click', function(e){
+    if (!isMobile()) return;
+    navItems.forEach(function(item){
+      if (!item.contains(e.target)){
+        var drop = item.querySelector('.v4-nav-dropdown');
+        if(drop) drop.style.display='';
+      }
+    });
+  });
+})();
+</script>
+
 </body>
 </html>
