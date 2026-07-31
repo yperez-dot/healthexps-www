@@ -523,5 +523,15 @@ a{text-decoration:none;color:inherit}
 </script>
 
 
+<button id="scrollToTop" aria-label="Scroll to top">↑</button>
+<script>
+(function(){
+  var s=document.getElementById('scrollToTop');
+  if(!s)return;
+  s.style.cssText='display:none;position:fixed;bottom:28px;right:28px;width:44px;height:44px;background:#452068;color:#fff;border:none;border-radius:50%;font-size:22px;cursor:pointer;align-items:center;justify-content:center;box-shadow:0 4px 14px rgba(69,32,104,.3);z-index:998;';
+  window.addEventListener('scroll',function(){s.style.display=window.pageYOffset>300?'flex':'none';});
+  s.addEventListener('click',function(){window.scrollTo({top:0,behavior:'smooth'});});
+})();
+</script>
 </body>
 </html>
