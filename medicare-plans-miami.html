@@ -265,6 +265,7 @@ img { max-width: 100%; height: auto; }
   .edu-grid { grid-template-columns: 1fr 1fr !important; }
 }
 @media (max-width: 640px) {
+  .avmed-banner { padding: 14px 20px !important; }
   /* Comparison table: 2-col mobile (label spans full width, values side by side) */
   .comp-table { grid-template-columns: 1fr 1fr !important; }
   .comp-table .ct-header:first-child { display: none !important; }
@@ -402,11 +403,11 @@ img { max-width: 100%; height: auto; }
     </div>
 
     <!-- AVMED ALERT BANNER -->
-    <div style="background:#fff7ec;border-bottom:1px solid #f3d9a8;padding:13px 56px">
+    <div class="avmed-banner" style="background:#fff7ec;border-bottom:1px solid #f3d9a8;padding:14px 56px">
       <div style="max-width:1160px;margin:0 auto;display:flex;align-items:center;gap:16px;flex-wrap:wrap">
         <div style="width:36px;height:36px;border-radius:50%;background:#f0a500;color:#fff;font-weight:800;font-size:18px;display:flex;align-items:center;justify-content:center;flex-shrink:0">!</div>
-        <div style="flex:1;font-size:14.5px;color:#5a4a2f;line-height:1.55">
-          <strong style="color:#241a30">Had Medicare with AvMed?</strong> AvMed exited the Medicare market on January 1, 2026 &mdash; but you may still be able to enroll in a new plan through a Special Enrollment Period.
+        <div style="flex:1;min-width:0;font-size:14.5px;color:#5a4a2f;line-height:1.55">
+          <strong style="color:#241a30">Had Medicare with AvMed?</strong> AvMed exited the Medicare market on December 31, 2025 &mdash; but you may still be able to enroll in a new plan through a Special Enrollment Period.
         </div>
         <a href="#lead-form" style="font-weight:700;color:#c40074;white-space:nowrap;font-size:14px">See my options &rarr;</a>
       </div>
