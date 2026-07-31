@@ -108,6 +108,13 @@ img { max-width: 100%; height: auto; }
 /* ============================================================
    FAQ ACCORDION
    ============================================================ */
+/* Category filter */
+.cat-nav { display:flex; flex-wrap:wrap; gap:8px; margin-bottom:32px; }
+.cat-btn { background:#f7f2fb; border:1.5px solid #ece5f0; border-radius:999px; padding:8px 18px; font-size:13px; font-weight:600; color:#452068; cursor:pointer; transition:all .2s; }
+.cat-btn:hover,.cat-btn.active { background:#452068; color:#fff; border-color:#452068; }
+.faq-section { margin-bottom:12px; }
+.faq-section-title { font-family:Poppins,sans-serif; font-weight:700; font-size:13px; text-transform:uppercase; letter-spacing:.08em; color:#452068; padding:20px 0 8px; border-top:2px solid #f0eaf5; margin-top:8px; }
+.faq-section:first-of-type .faq-section-title { border-top:none; margin-top:0; }
 .faq-item {
   border: 1px solid var(--gray-mid);
   border-radius: 14px;
@@ -178,6 +185,9 @@ img { max-width: 100%; height: auto; }
 @media (max-width: 640px) {
   .footer-grid { grid-template-columns: 1fr !important; gap: 24px !important; }
   .footer-wrap { padding: 40px 20px 88px !important; }
+  .cat-nav { gap: 6px; }
+  .cat-btn { font-size: 12px; padding: 7px 14px; }
+  .faq-body { padding: 16px 20px 60px !important; }
 }
 </style>
 </head>
@@ -296,54 +306,173 @@ img { max-width: 100%; height: auto; }
 
   <!-- ===== FAQ ACCORDION ===== -->
   <div class="faq-body" style="background:#fff;padding:16px 56px 80px">
-    <div style="max-width:820px;margin:0 auto;display:flex;flex-direction:column;gap:12px">
+    <div style="max-width:820px;margin:0 auto">
 
-      <div class="faq-item">
-        <button class="faq-q" onclick="toggleFaq(this)">
-          Does it cost anything to work with you?
-          <span class="faq-icon">+</span>
-        </button>
-        <div class="faq-a">No — never. We're paid by the insurance carriers, the same as any licensed broker, so our help is 100% free to you, with no hidden fees.</div>
+      <!-- Category filter nav -->
+      <div class="cat-nav">
+        <button class="cat-btn active" onclick="filterCat('all',this)">All Questions</button>
+        <button class="cat-btn" onclick="filterCat('enrollment',this)">Enrollment</button>
+        <button class="cat-btn" onclick="filterCat('plans',this)">Plan Types</button>
+        <button class="cat-btn" onclick="filterCat('costs',this)">Costs &amp; IRMAA</button>
+        <button class="cat-btn" onclick="filterCat('coverage',this)">Coverage</button>
+        <button class="cat-btn" onclick="filterCat('aca',this)">ACA &amp; Marketplace</button>
+        <button class="cat-btn" onclick="filterCat('private',this)">Private Insurance</button>
       </div>
 
-      <div class="faq-item">
-        <button class="faq-q" onclick="toggleFaq(this)">
-          Do you offer service in Spanish?
-          <span class="faq-icon">+</span>
-        </button>
-        <div class="faq-a">Yes — our agents are truly bilingual, not translating on the fly. Every consultation, document, and follow-up is available in English or Español.</div>
+      <!-- ENROLLMENT -->
+      <div class="faq-section" data-cat="enrollment">
+        <div class="faq-section-title">Medicare Enrollment</div>
+        <div class="faq-item" data-cat="enrollment">
+          <button class="faq-q" onclick="toggleFaq(this)">When can I enroll in Medicare? <span class="faq-icon">+</span></button>
+          <div class="faq-a">Most people enroll when they turn 65. Your <strong>Initial Enrollment Period (IEP)</strong> is a 7-month window: 3 months before your 65th birthday month, the month you turn 65, and 3 months after. If you miss this window, you may face late enrollment penalties and have to wait for the <strong>General Enrollment Period</strong> (January 1 – March 31). <a href="/medicare/new-to-medicare">See all enrollment periods →</a></div>
+        </div>
+        <div class="faq-item" data-cat="enrollment">
+          <button class="faq-q" onclick="toggleFaq(this)">Do I automatically get Medicare when I turn 65? <span class="faq-icon">+</span></button>
+          <div class="faq-a">If you're already receiving Social Security benefits, you'll be automatically enrolled in Parts A and B starting the month you turn 65. If you're not receiving Social Security, you need to actively enroll at ssa.gov or your local Social Security office during your Initial Enrollment Period. Don't assume it happens automatically.</div>
+        </div>
+        <div class="faq-item" data-cat="enrollment">
+          <button class="faq-q" onclick="toggleFaq(this)">Can I delay Medicare if I still have employer coverage? <span class="faq-icon">+</span></button>
+          <div class="faq-a">Yes. If you or your spouse are still working and covered by an employer health plan based on active employment, you can delay Part B without penalty. When you eventually lose that employer coverage, you'll get a <strong>Special Enrollment Period (SEP)</strong> of 8 months to enroll. Important: COBRA and retiree coverage do NOT qualify for this exception.</div>
+        </div>
+        <div class="faq-item" data-cat="enrollment">
+          <button class="faq-q" onclick="toggleFaq(this)">What happens if I miss my Medicare enrollment window? <span class="faq-icon">+</span></button>
+          <div class="faq-a">Missing your Initial Enrollment Period without qualifying for an exception can result in late enrollment penalties. Part B adds 10% to your premium for each 12-month period you were eligible but didn't enroll — and this penalty is permanent. Part D adds 1% per month late. Enrolling on time is critical. <a href="/medicare/new-to-medicare">Learn about penalties →</a></div>
+        </div>
+        <div class="faq-item" data-cat="enrollment">
+          <button class="faq-q" onclick="toggleFaq(this)">When can I switch Medicare Advantage plans? <span class="faq-icon">+</span></button>
+          <div class="faq-a">You can switch during the <strong>Annual Enrollment Period (AEP)</strong> — October 15 to December 7 each year. Changes take effect January 1. You can also switch during the <strong>Medicare Advantage Open Enrollment Period (OEP)</strong> — January 1 to March 31 — if you're already on an Advantage plan. Some qualifying life events also trigger Special Enrollment Periods.</div>
+        </div>
       </div>
 
-      <div class="faq-item">
-        <button class="faq-q" onclick="toggleFaq(this)">
-          What's the difference between Medicare Advantage and Supplement?
-          <span class="faq-icon">+</span>
-        </button>
-        <div class="faq-a">Advantage plans bundle your care into one plan with a local network, often with extra benefits. Supplement (Medigap) plans work alongside Original Medicare and let you see any doctor nationwide who accepts it. We'll walk through which fits your doctors and travel habits.</div>
+      <!-- PLAN TYPES -->
+      <div class="faq-section" data-cat="plans">
+        <div class="faq-section-title">Medicare Plan Types</div>
+        <div class="faq-item" data-cat="plans">
+          <button class="faq-q" onclick="toggleFaq(this)">What is the difference between Medicare Advantage and Original Medicare? <span class="faq-icon">+</span></button>
+          <div class="faq-a">Original Medicare (Parts A and B) is the federal program covering hospital and medical services. You can see any doctor nationwide that accepts Medicare, but there's no annual out-of-pocket cap. <strong>Medicare Advantage (Part C)</strong> is an alternative offered by private insurers — it bundles A and B coverage with extra benefits like dental and vision, and has an annual OOP maximum. However, it restricts you to a provider network. <a href="/medicare-advantage-miami">Learn more →</a></div>
+        </div>
+        <div class="faq-item" data-cat="plans">
+          <button class="faq-q" onclick="toggleFaq(this)">What is Medigap (Medicare Supplement)? <span class="faq-icon">+</span></button>
+          <div class="faq-a">Medigap is private insurance that works alongside Original Medicare to cover the costs Medicare doesn't pay — like the 20% coinsurance, deductibles, and copays. With Plan G (the most popular), you pay only the Part B deductible ($283 in 2026) and Medicare + Medigap cover the rest. You can see any doctor that accepts Medicare — no networks. <a href="/medicare-supplement-miami">Compare plan letters →</a></div>
+        </div>
+        <div class="faq-item" data-cat="plans">
+          <button class="faq-q" onclick="toggleFaq(this)">Can I have both Medicare Supplement and Medicare Advantage? <span class="faq-icon">+</span></button>
+          <div class="faq-a">No. Medicare Supplement (Medigap) only works with Original Medicare. If you enroll in a Medicare Advantage plan, you cannot use a Medigap policy alongside it. You need to choose one path: Original Medicare + Medigap, or Medicare Advantage.</div>
+        </div>
+        <div class="faq-item" data-cat="plans">
+          <button class="faq-q" onclick="toggleFaq(this)">What is Part D and do I need it? <span class="faq-icon">+</span></button>
+          <div class="faq-a">Part D is Medicare's prescription drug coverage. If you're on Original Medicare or a Medigap plan, you need a standalone Part D plan to cover your prescriptions. Most Medicare Advantage plans include drug coverage built in (called MAPD). If you don't enroll in Part D when first eligible and don't have other creditable drug coverage, you'll face a late enrollment penalty.</div>
+        </div>
+        <div class="faq-item" data-cat="plans">
+          <button class="faq-q" onclick="toggleFaq(this)">What is a Special Needs Plan (SNP)? <span class="faq-icon">+</span></button>
+          <div class="faq-a">A Special Needs Plan (SNP) is a type of Medicare Advantage plan tailored to people with specific needs. <strong>D-SNPs</strong> are for people who qualify for both Medicare and Medicaid (dual-eligible). <strong>C-SNPs</strong> are for people with certain chronic conditions. D-SNPs in South Florida often have $0 copays and comprehensive care coordination benefits.</div>
+        </div>
       </div>
 
-      <div class="faq-item">
-        <button class="faq-q" onclick="toggleFaq(this)">
-          I got an IRMAA notice — what does that mean?
-          <span class="faq-icon">+</span>
-        </button>
-        <div class="faq-a">IRMAA is an income-based surcharge added to your Medicare premium. It's based on tax returns from two years ago, and life changes (like retirement) can qualify you to appeal it. We can walk you through whether an appeal makes sense.</div>
+      <!-- COSTS -->
+      <div class="faq-section" data-cat="costs">
+        <div class="faq-section-title">Medicare Costs &amp; IRMAA</div>
+        <div class="faq-item" data-cat="costs">
+          <button class="faq-q" onclick="toggleFaq(this)">How much does Medicare cost per month in 2026? <span class="faq-icon">+</span></button>
+          <div class="faq-a">The standard Part B premium is <strong>$202.90/month</strong> in 2026. Part A is free for most people. Medicare Advantage plans in South Florida often have $0 additional premium (you still pay Part B). If you add a Medigap plan, premiums range from $80–$220+/month in Florida. Higher-income individuals pay more due to IRMAA surcharges. <a href="/medicare/medicare-costs">See full 2026 cost breakdown →</a></div>
+        </div>
+        <div class="faq-item" data-cat="costs">
+          <button class="faq-q" onclick="toggleFaq(this)">What is IRMAA and will I have to pay it? <span class="faq-icon">+</span></button>
+          <div class="faq-a">IRMAA (Income-Related Monthly Adjustment Amount) is a surcharge added to your Part B and Part D premiums if your income exceeds certain thresholds. In 2026, it applies to individuals earning above $109,000 and couples above $218,000. Social Security uses your tax return from 2 years prior to calculate it. If your income has dropped recently, you can file a Life-Changing Event appeal. <a href="/medicare/medicare-costs">See 2026 IRMAA brackets →</a></div>
+        </div>
+        <div class="faq-item" data-cat="costs">
+          <button class="faq-q" onclick="toggleFaq(this)">Can I appeal my IRMAA? <span class="faq-icon">+</span></button>
+          <div class="faq-a">Yes. If your income has dropped due to a qualifying life event — retirement, divorce, death of a spouse, or loss of income-producing property — you can file a Life-Changing Event appeal using <strong>Form SSA-44</strong> with Social Security. If approved, your IRMAA will be recalculated using your current income. Call us and we'll point you in the right direction.</div>
+        </div>
+        <div class="faq-item" data-cat="costs">
+          <button class="faq-q" onclick="toggleFaq(this)">What is the Medicare Savings Program? <span class="faq-icon">+</span></button>
+          <div class="faq-a">The Medicare Savings Program (MSP) is a state-run program that helps people with limited income pay for Medicare costs. In Florida, QMB can pay your Part B premium, deductibles, and copays. SLMB and QI pay your Part B premium. If you qualify for any MSP program, you also automatically qualify for Extra Help with Part D. <a href="/medicare-savings-program">Check eligibility →</a></div>
+        </div>
+        <div class="faq-item" data-cat="costs">
+          <button class="faq-q" onclick="toggleFaq(this)">Is using a Medicare broker free? <span class="faq-icon">+</span></button>
+          <div class="faq-a">Yes — completely free. Medicare brokers are paid by the insurance carriers, not by you. Your premium is exactly the same whether you enroll through a broker or directly. Using a licensed broker gives you expert guidance, plan comparisons across multiple carriers, and ongoing support — at no cost to you.</div>
+        </div>
       </div>
 
-      <div class="faq-item">
-        <button class="faq-q" onclick="toggleFaq(this)">
-          I already have a plan — can you just give a second opinion?
-          <span class="faq-icon">+</span>
-        </button>
-        <div class="faq-a">Absolutely — we're here year-round, not just during open enrollment. We're happy to review your current plan against what else is available, at no cost.</div>
+      <!-- COVERAGE -->
+      <div class="faq-section" data-cat="coverage">
+        <div class="faq-section-title">Coverage Questions</div>
+        <div class="faq-item" data-cat="coverage">
+          <button class="faq-q" onclick="toggleFaq(this)">Do I need a referral to see a specialist on Medicare? <span class="faq-icon">+</span></button>
+          <div class="faq-a">With Original Medicare or a Medigap plan, you do <strong>not</strong> need a referral to see a specialist — as long as the provider accepts Medicare. With a Medicare Advantage HMO, you typically need a referral from your primary care doctor. PPO plans generally don't require referrals but may charge more for out-of-network care.</div>
+        </div>
+        <div class="faq-item" data-cat="coverage">
+          <button class="faq-q" onclick="toggleFaq(this)">Does Medicare cover dental, vision, and hearing? <span class="faq-icon">+</span></button>
+          <div class="faq-a">Original Medicare does <strong>not</strong> cover routine dental, vision, or hearing. Medicare Advantage plans often include these benefits — many in South Florida have dental cleanings, eye exams, glasses allowances, and hearing aid benefits included. If you're on Original Medicare, you can add standalone dental and vision plans. <a href="/dental-vision-miami">Learn about dental &amp; vision coverage →</a></div>
+        </div>
+        <div class="faq-item" data-cat="coverage">
+          <button class="faq-q" onclick="toggleFaq(this)">Can I have Medicare and Medicaid at the same time? <span class="faq-icon">+</span></button>
+          <div class="faq-a">Yes. People who qualify for both are called dual-eligible beneficiaries. D-SNP plans are designed specifically for dual-eligible individuals and often provide $0 copays and coordinated care. Florida's Medicaid program may also help pay your Medicare premiums and cost-sharing through the Medicare Savings Program.</div>
+        </div>
+        <div class="faq-item" data-cat="coverage">
+          <button class="faq-q" onclick="toggleFaq(this)">What happens if I travel outside Florida on Medicare? <span class="faq-icon">+</span></button>
+          <div class="faq-a">With Original Medicare or a Medigap plan, you can see any doctor nationwide that accepts Medicare — travel is no issue. With Medicare Advantage, you're covered for emergency and urgent care anywhere in the U.S., but routine care is typically restricted to your plan's service area. If you travel frequently, a PPO or Original Medicare + Medigap is often a better fit.</div>
+        </div>
+        <div class="faq-item" data-cat="coverage">
+          <button class="faq-q" onclick="toggleFaq(this)">Does Medicare cover prescription drugs? <span class="faq-icon">+</span></button>
+          <div class="faq-a">Original Medicare does not include prescription drug coverage. You need to add a standalone Part D plan, or enroll in a Medicare Advantage plan that includes drug coverage (MAPD). The 2026 out-of-pocket cap for Part D is $2,000 — the first in Medicare's history. If your income is limited, Extra Help can reduce or eliminate your drug costs.</div>
+        </div>
       </div>
 
-      <div class="faq-item">
-        <button class="faq-q" onclick="toggleFaq(this)">
-          What areas do you serve?
-          <span class="faq-icon">+</span>
-        </button>
-        <div class="faq-a">We're based in Doral and serve all of Miami-Dade, Broward, and the rest of Florida — in person, by phone, or video, whichever is easiest for you.</div>
+      <!-- ACA & MARKETPLACE -->
+      <div class="faq-section" data-cat="aca">
+        <div class="faq-section-title">ACA &amp; Marketplace</div>
+        <div class="faq-item" data-cat="aca">
+          <button class="faq-q" onclick="toggleFaq(this)">What is the ACA Marketplace? <span class="faq-icon">+</span></button>
+          <div class="faq-a">The ACA Marketplace (also called the Health Insurance Exchange) is where you can shop for individual and family health insurance plans that meet the Affordable Care Act's standards. All plans cover 10 essential benefits. Income-based subsidies (Premium Tax Credits) can significantly reduce — or even eliminate — your monthly premium. <a href="/aca-plans-miami">See ACA options in Miami →</a></div>
+        </div>
+        <div class="faq-item" data-cat="aca">
+          <button class="faq-q" onclick="toggleFaq(this)">Can I get a subsidy to help pay for ACA insurance? <span class="faq-icon">+</span></button>
+          <div class="faq-a">Yes. Premium Tax Credits are available to individuals and families earning between 100% and 400% of the federal poverty level. In 2026, a single person earning up to $62,600 may qualify. Above that threshold the credit is zero. Many people pay $0 or close to it — it depends on your income and household size. We check your eligibility for free.</div>
+        </div>
+        <div class="faq-item" data-cat="aca">
+          <button class="faq-q" onclick="toggleFaq(this)">Is COBRA better than an ACA plan? <span class="faq-icon">+</span></button>
+          <div class="faq-a">COBRA is almost always more expensive than comparable ACA coverage, especially if you qualify for a subsidy. When you lose employer coverage, you have 60 days to enroll in an ACA plan. We usually find better coverage for significantly less than what COBRA costs. Always compare before committing to COBRA. <a href="/private-health-insurance-miami">Compare your options →</a></div>
+        </div>
+        <div class="faq-item" data-cat="aca">
+          <button class="faq-q" onclick="toggleFaq(this)">When can I enroll in an ACA plan? <span class="faq-icon">+</span></button>
+          <div class="faq-a">Open Enrollment runs November 1 – January 15 each year. Outside of that, you can enroll if you experience a qualifying life event — losing job coverage, getting married, having a baby, moving to a new state, or other changes. These trigger a Special Enrollment Period of 60 days.</div>
+        </div>
+      </div>
+
+      <!-- PRIVATE HEALTH INSURANCE -->
+      <div class="faq-section" data-cat="private">
+        <div class="faq-section-title">Private Health Insurance</div>
+        <div class="faq-item" data-cat="private">
+          <button class="faq-q" onclick="toggleFaq(this)">What is private health insurance? <span class="faq-icon">+</span></button>
+          <div class="faq-a">Private health insurance is coverage purchased directly from an insurance carrier — not through an employer or government program. It's a good option for self-employed individuals, people who don't qualify for ACA subsidies, or anyone who wants more flexibility in their coverage. <a href="/private-health-insurance-miami">Learn more →</a></div>
+        </div>
+        <div class="faq-item" data-cat="private">
+          <button class="faq-q" onclick="toggleFaq(this)">Who should consider private health insurance instead of ACA? <span class="faq-icon">+</span></button>
+          <div class="faq-a">Private health insurance may be a better fit if your income is too high for ACA subsidies, you want year-round enrollment flexibility, or you're looking for a specific network or plan design. A licensed broker can compare both options for your situation at no cost.</div>
+        </div>
+        <div class="faq-item" data-cat="private">
+          <button class="faq-q" onclick="toggleFaq(this)">Is COBRA better than private health insurance? <span class="faq-icon">+</span></button>
+          <div class="faq-a">In most cases, no. COBRA requires you to pay 100% of your employer's premium plus a 2% admin fee — often $800+/month. Private health insurance is frequently 40–60% cheaper. There are exceptions for complex medical situations, but most people save significantly by switching. <a href="/cobra-alternatives-miami">See COBRA alternatives →</a></div>
+        </div>
+        <div class="faq-item" data-cat="private">
+          <button class="faq-q" onclick="toggleFaq(this)">Can self-employed people get private health insurance? <span class="faq-icon">+</span></button>
+          <div class="faq-a">Yes. Self-employed individuals, freelancers, and small business owners are among the most common buyers of private health insurance. Depending on your income, you may also qualify for ACA subsidies. We compare both options for you at no cost.</div>
+        </div>
+        <div class="faq-item" data-cat="private">
+          <button class="faq-q" onclick="toggleFaq(this)">How much does private health insurance cost in Florida? <span class="faq-icon">+</span></button>
+          <div class="faq-a">Costs vary based on age, location, plan type, and health history. Healthy adults in Florida often find plans ranging from $150–$400/month. A licensed broker can run a personalized quote for your specific situation — free, no obligation. <a href="/contact">Get a free quote →</a></div>
+        </div>
+      </div>
+
+      <!-- Still have a question? -->
+      <div style="background:#f7f2fb;border-radius:16px;padding:28px;text-align:center;margin-top:16px">
+        <h3 style="font-family:Poppins,sans-serif;font-size:18px;font-weight:700;color:#452068;margin:0 0 8px">Still have a question?</h3>
+        <p style="font-size:15px;color:#6f6478;margin:0 0 18px;line-height:1.7">Our licensed bilingual brokers answer Medicare and health insurance questions every day — free, in English or Spanish, with no obligation.</p>
+        <div style="display:flex;gap:10px;justify-content:center;flex-wrap:wrap">
+          <a href="tel:18003806821" style="background:#452068;color:#fff;padding:12px 22px;border-radius:999px;font-weight:700;font-size:14px;text-decoration:none">Call 1-800-380-6821</a>
+          <a href="https://wa.me/13054646888" style="background:#25D366;color:#fff;padding:12px 22px;border-radius:999px;font-weight:700;font-size:14px;text-decoration:none" target="_blank" rel="noopener" onclick="gtag('event','whatsapp_click',{'page':window.location.pathname})">WhatsApp Us</a>
+        </div>
       </div>
 
     </div>
@@ -426,6 +555,18 @@ function toggleFaq(btn) {
   var isOpen = item.classList.contains('open');
   document.querySelectorAll('.faq-item').forEach(function(i){ i.classList.remove('open'); });
   if (!isOpen) { item.classList.add('open'); }
+}
+
+function filterCat(cat, btn) {
+  document.querySelectorAll('.cat-btn').forEach(function(b){ b.classList.remove('active'); });
+  btn.classList.add('active');
+  document.querySelectorAll('.faq-section').forEach(function(s){
+    s.style.display = (cat === 'all' || s.dataset.cat === cat) ? '' : 'none';
+  });
+  document.querySelectorAll('.faq-item').forEach(function(item){
+    item.style.display = (cat === 'all' || item.dataset.cat === cat) ? '' : 'none';
+  });
+  document.querySelectorAll('.faq-item').forEach(function(i){ i.classList.remove('open'); });
 }
 
 /* V4 hamburger toggle */
