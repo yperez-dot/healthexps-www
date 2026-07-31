@@ -24,159 +24,31 @@
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 
 <style>
-/* ============================================================
-   DESIGN SYSTEM — Inter + Poppins redesign
-   THEI brand: purple #452068, pink #ff1090
-   ============================================================ */
-html, body { overflow-x: hidden; max-width: 100%; }
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
-:root {
-  --purple:       #452068;
-  --purple-dark:  #2f1550;
-  --purple-light: #f7f2fb;
-  --pink:         #ff1090;
-  --pink-hover:   #c40074;
-  --white:        #ffffff;
-  --off-white:    #fdfaf7;
-  --gray-light:   #f7f7f7;
-  --gray-mid:     #ece5f0;
-  --gray-text:    #6f6478;
-  --black:        #241a30;
-  --wa:           #25D366;
-  --wa-hover:     #1da851;
-  --radius:       16px;
-  --shadow:       0 4px 20px rgba(69,32,104,0.10);
-  --shadow-lg:    0 16px 48px rgba(69,32,104,0.16);
-  --font-body:    'Inter', Arial, Helvetica, sans-serif;
-  --font-head:    'Poppins', Arial, Helvetica, sans-serif;
-}
-
-body {
-  font-family: var(--font-body);
-  color: var(--black);
-  line-height: 1.65;
-  font-size: 17px;
-  background: var(--white);
-  -webkit-font-smoothing: antialiased;
-}
-
-h1, h2, h3 { font-family: var(--font-head); line-height: 1.2; }
-a { color: var(--purple); text-decoration: none; }
-a:hover { color: var(--pink); }
-img { max-width: 100%; height: auto; }
-
-.container { max-width: 1100px; margin: 0 auto; padding: 0 28px; }
-
-/* ---- BUTTONS ---- */
-.btn-pink {
-  display: inline-flex; align-items: center; gap: 8px;
-  background: var(--pink); color: white;
-  padding: 15px 28px; border-radius: 12px;
-  font-family: var(--font-body); font-weight: 700; font-size: 15.5px;
-  box-shadow: 0 8px 22px rgba(255,16,144,0.25);
-  transition: background .2s, transform .15s;
-  text-decoration: none;
-}
-.btn-pink:hover { background: var(--pink-hover); color: white; transform: translateY(-2px); }
-
-/* ============================================================
-   SCROLL TO TOP
-   ============================================================ */
+/* Task 1.7 — scroll-to-top: WCAG 48×48 target, brand purple, visible shadow */
 #scrollToTop {
-  position: fixed; bottom: 28px; right: 28px;
-  width: 44px; height: 44px;
-  background: var(--purple); color: white; border: none; border-radius: 50%;
-  font-size: 18px; cursor: pointer; display: none;
-  align-items: center; justify-content: center;
-  box-shadow: 0 4px 14px rgba(69,32,104,.3);
-  transition: background .2s, transform .2s; z-index: 999;
+  display: none;
+  position: fixed;
+  bottom: 28px;
+  right: 28px;
+  width: 48px;
+  height: 48px;
+  min-width: 48px;
+  min-height: 48px;
+  background: #452068;
+  color: #fff;
+  border: none;
+  border-radius: 50%;
+  font-size: 22px;
+  font-weight: 700;
+  cursor: pointer;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 16px rgba(69,32,104,.35);
+  z-index: 998;
+  transition: background .2s, transform .15s;
 }
-
-/* ============================================================
-   LEAD FORM — inline field styles
-   ============================================================ */
-.ff-input {
-  padding: 13px 14px; border-radius: 10px;
-  border: 1px solid #ddd2e6; font-size: 14.5px;
-  font-family: var(--font-body); color: var(--black);
-  background: white; width: 100%; box-sizing: border-box;
-  outline: none; transition: border-color .2s;
-  appearance: none; -webkit-appearance: none;
-}
-.ff-input:focus { border-color: var(--purple); }
-.ff-input::placeholder { color: #a79db2; }
-
-/* ============================================================
-   FAQ ACCORDION
-   ============================================================ */
-.faq-item {
-  background: #fff; border: 1px solid #ece5f0; border-radius: 14px; overflow: hidden;
-}
-.faq-toggle {
-  width: 100%; padding: 18px 20px;
-  display: flex; justify-content: space-between; align-items: center;
-  cursor: pointer; font-weight: 700; font-size: 15px; color: var(--black);
-  background: none; border: none; font-family: var(--font-body);
-  text-align: left; gap: 12px;
-}
-.faq-toggle:hover { color: var(--purple); }
-.faq-icon { font-size: 20px; font-weight: 400; flex-shrink: 0; color: var(--pink); transition: transform .2s; }
-.faq-item.open .faq-icon { transform: rotate(45deg); }
-.faq-body { display: none; padding: 0 20px 18px; font-size: 14px; color: var(--gray-text); line-height: 1.6; }
-.faq-item.open .faq-body { display: block; }
-
-/* ============================================================
-   NAV — V4 dropdown hover
-   ============================================================ */
-.v4-nav-dropdown { display: none; }
-.v4-nav-item:hover .v4-nav-dropdown { display: block; }
-.v4-nav-mobile-btn { display: none; background:none; border:none; cursor:pointer; padding:8px; }
-#v4-mobile-menu { display:none; position:fixed; top:0; left:0; right:0; bottom:0; background:#fff; z-index:999; overflow-y:auto; padding:24px; }
-#v4-mobile-menu.open { display:block; }
-@media (max-width: 900px) {
-  .v4-nav-desktop { display: none !important; }
-  .v4-nav-mobile-btn { display: flex !important; align-items:center; }
-}
-
-/* ============================================================
-   RESPONSIVE
-   ============================================================ */
-@media (max-width: 768px) {
-  .top-bar-inner { padding-left: 20px !important; padding-right: 20px !important; }
-  .v4-nav-outer { padding-left: 20px !important; padding-right: 20px !important; }
-  .aca-who-grid { grid-template-columns: 1fr !important; }
-  .aca-benefits-grid { grid-template-columns: 1fr 1fr !important; }
-  .aca-tiers-grid { grid-template-columns: 1fr 1fr !important; }
-  .aca-enroll-grid { grid-template-columns: 1fr 1fr !important; }
-  .aca-how-grid { grid-template-columns: 1fr !important; }
-  .aca-carriers-flex { gap: 8px !important; }
-  .aca-compare-table { font-size: 13px !important; }
-  .footer-grid { grid-template-columns: 1fr !important; gap: 24px !important; }
-  .footer-wrap { padding: 40px 20px 88px !important; }
-  .aca-subsidy-grid { grid-template-columns: 1fr !important; }
-  .aca-hero-btns { flex-direction: column !important; align-items: center !important; }
-  .aca-stats-bar { flex-direction: column !important; gap: 16px !important; }
-  .aca-final-btns { flex-direction: column !important; align-items: center !important; }
-}
-@media (max-width: 640px) {
-  /* ACA comparison table: compact 3-col on mobile */
-  .aca-compare-table {
-    grid-template-columns: 0.85fr 1fr 1fr !important;
-    font-size: 11.5px !important;
-    border-radius: 12px !important;
-  }
-  .aca-compare-table > div {
-    padding: 9px 7px !important;
-    line-height: 1.4;
-    word-break: break-word;
-  }
-}
-@media (max-width: 480px) {
-  .aca-benefits-grid { grid-template-columns: 1fr !important; }
-  .aca-tiers-grid { grid-template-columns: 1fr !important; }
-  .aca-enroll-grid { grid-template-columns: 1fr !important; }
-}
+#scrollToTop:hover { background: #ff1090; transform: translateY(-2px); }
+#scrollToTop:focus-visible { outline: 3px solid #ff1090; outline-offset: 3px; }
 </style>
 <style>
 #v4-mobile-menu a, .v4-nav-outer a, .v4-nav-desktop a { text-decoration: none !important; }
@@ -834,9 +706,7 @@ img { max-width: 100%; height: auto; }
 </div>
 
 <!-- ═══════ SCROLL TO TOP ═══════ -->
-<button id="scrollToTop" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Scroll to top" style="display:none;position:fixed;bottom:28px;right:28px;width:44px;height:44px;background:#452068;color:#fff;border:none;border-radius:50%;font-size:18px;cursor:pointer;align-items:center;justify-content:center;box-shadow:0 4px 14px rgba(69,32,104,.3);z-index:999">
-  ↑
-</button>
+<button id="scrollToTop" aria-label="Back to top">↑</button>
 
 <!-- ═══════ SCRIPTS ═══════ -->
 
@@ -961,17 +831,7 @@ function toggleFaq(id) {
 </script>
 
 <!-- Scroll to Top -->
-<script>
-(function(){
-  var btn = document.getElementById('scrollToTop');
-  if (!btn) return;
-  window.addEventListener('scroll', function(){
-    btn.style.display = window.scrollY > 400 ? 'flex' : 'none';
-  });
-})();
-</script>
-
-      <!-- FOOTER -->
+<!-- FOOTER -->
       <div id="site-footer" style="background:#fff;color:#241a30;padding:56px 56px 24px;border-top:1px solid #ece5f0">
         <div style="max-width:1160px;margin:0 auto">
           <div id="footer-grid" style="display:grid;grid-template-columns:1.3fr 1fr 1fr 1fr;gap:32px;margin-bottom:36px">
@@ -1143,5 +1003,18 @@ function toggleFaq(id) {
 })();
 </script>
 
+<script>
+(function(){
+  var s = document.getElementById('scrollToTop');
+  if (!s) return;
+  var prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  window.addEventListener('scroll', function(){
+    s.style.display = window.pageYOffset > 300 ? 'flex' : 'none';
+  });
+  s.addEventListener('click', function(){
+    window.scrollTo({ top: 0, behavior: prefersReduced ? 'instant' : 'smooth' });
+  });
+})();
+</script>
 </body>
 </html>

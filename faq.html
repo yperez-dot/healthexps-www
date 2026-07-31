@@ -48,145 +48,31 @@
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 
 <style>
-/* ============================================================
-   DESIGN SYSTEM — Inter + Poppins redesign
-   THEI brand: purple #452068, pink #ff1090
-   ============================================================ */
-html, body { overflow-x: hidden; max-width: 100%; }
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
-:root {
-  --purple:       #452068;
-  --purple-dark:  #2f1550;
-  --purple-light: #f7f2fb;
-  --pink:         #ff1090;
-  --pink-hover:   #c40074;
-  --white:        #ffffff;
-  --off-white:    #fdfaf7;
-  --gray-light:   #f7f7f7;
-  --gray-mid:     #ece5f0;
-  --gray-text:    #6f6478;
-  --black:        #241a30;
-  --wa:           #25D366;
-  --wa-hover:     #1da851;
-  --radius:       16px;
-  --shadow:       0 4px 20px rgba(69,32,104,0.10);
-  --shadow-lg:    0 16px 48px rgba(69,32,104,0.16);
-  --font-body:    'Inter', Arial, Helvetica, sans-serif;
-  --font-head:    'Poppins', Arial, Helvetica, sans-serif;
-}
-
-body {
-  font-family: var(--font-body);
-  color: var(--black);
-  line-height: 1.65;
-  font-size: 17px;
-  background: var(--white);
-  -webkit-font-smoothing: antialiased;
-}
-
-h1, h2, h3 { font-family: var(--font-head); line-height: 1.2; }
-a { color: var(--purple); text-decoration: none; }
-a:hover { color: var(--pink); }
-img { max-width: 100%; height: auto; }
-
-/* ============================================================
-   V4 NAV
-   ============================================================ */
-.v4-nav-dropdown { display: none; }
-.v4-nav-item:hover .v4-nav-dropdown { display: block; }
-.v4-nav-mobile-btn { display: none; background: none; border: none; cursor: pointer; padding: 8px; }
-#v4-mobile-menu { display: none; position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: #fff; z-index: 999; overflow-y: auto; padding: 24px; }
-#v4-mobile-menu.open { display: block; }
-@media (max-width: 900px) {
-  .v4-nav-desktop { display: none !important; }
-  .v4-nav-mobile-btn { display: flex !important; align-items: center; }
-}
-
-/* ============================================================
-   FAQ ACCORDION
-   ============================================================ */
-/* Category filter */
-.cat-nav { display:flex; flex-wrap:wrap; gap:8px; margin-bottom:32px; }
-.cat-btn { background:#f7f2fb; border:2px solid #ece5f0; border-radius:999px; padding:8px 18px; font-size:13px; font-weight:600; color:#452068; cursor:pointer; transition:all .2s; }
-.cat-btn:hover,.cat-btn.active { background:#452068; color:#fff; border-color:#452068; }
-.faq-section { margin-bottom:12px; }
-.faq-section-title { font-family:Poppins,sans-serif; font-weight:700; font-size:13px; text-transform:uppercase; letter-spacing:.08em; color:#452068; padding:20px 0 8px; border-top:2px solid #f0eaf5; margin-top:8px; }
-.faq-section:first-of-type .faq-section-title { border-top:none; margin-top:0; }
-.faq-item {
-  border: 1px solid var(--gray-mid);
-  border-radius: 14px;
-  overflow: hidden;
-}
-.faq-q {
-  width: 100%;
-  background: none;
-  border: none;
-  text-align: left;
-  padding: 20px 22px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  cursor: pointer;
-  font-family: var(--font-body);
-  font-weight: 700;
-  font-size: 15.5px;
-  color: var(--black);
-  line-height: 1.4;
-  gap: 16px;
-  transition: color .15s;
-}
-.faq-q:hover { color: var(--purple); }
-.faq-icon {
-  color: var(--pink);
-  font-weight: 700;
-  font-size: 20px;
-  transition: transform .15s ease;
-  flex-shrink: 0;
-  line-height: 1;
-  display: inline-block;
-}
-.faq-item.open .faq-icon { transform: rotate(45deg); }
-.faq-a {
-  display: none;
-  padding: 0 22px 20px;
-  font-size: 14.5px;
-  color: var(--gray-text);
-  line-height: 1.6;
-}
-.faq-item.open .faq-a { display: block; }
-
-/* ============================================================
-   SCROLL TO TOP
-   ============================================================ */
+/* Task 1.7 — scroll-to-top: WCAG 48×48 target, brand purple, visible shadow */
 #scrollToTop {
-  position: fixed; bottom: 28px; right: 28px;
-  width: 44px; height: 44px;
-  background: var(--purple); color: white; border: none; border-radius: 50%;
-  font-size: 18px; cursor: pointer; display: none;
-  align-items: center; justify-content: center;
-  box-shadow: 0 4px 14px rgba(69,32,104,.3);
-  transition: background .2s, transform .2s; z-index: 999;
+  display: none;
+  position: fixed;
+  bottom: 28px;
+  right: 28px;
+  width: 48px;
+  height: 48px;
+  min-width: 48px;
+  min-height: 48px;
+  background: #452068;
+  color: #fff;
+  border: none;
+  border-radius: 50%;
+  font-size: 22px;
+  font-weight: 700;
+  cursor: pointer;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 16px rgba(69,32,104,.35);
+  z-index: 998;
+  transition: background .2s, transform .15s;
 }
-#scrollToTop:hover { background: var(--pink); transform: translateY(-3px); }
-
-/* ============================================================
-   RESPONSIVE
-   ============================================================ */
-@media (max-width: 768px) {
-  .top-bar-inner  { padding-left: 20px !important; padding-right: 20px !important; }
-  .v4-nav-outer   { padding-left: 20px !important; padding-right: 20px !important; }
-  .faq-hero       { padding: 40px 24px 40px !important; }
-  .faq-body       { padding: 16px 24px 60px !important; }
-  .breadcrumb-bar { padding-left: 24px !important; padding-right: 24px !important; }
-}
-@media (max-width: 640px) {
-  .footer-grid { grid-template-columns: 1fr !important; gap: 24px !important; }
-  .footer-wrap { padding: 40px 20px 88px !important; }
-  .cat-nav { gap: 6px; }
-  .cat-btn { font-size: 12px; padding: 7px 14px; }
-  .faq-body { padding: 16px 20px 60px !important; }
-}
+#scrollToTop:hover { background: #ff1090; transform: translateY(-2px); }
+#scrollToTop:focus-visible { outline: 3px solid #ff1090; outline-offset: 3px; }
 </style>
 <style>
 .v4-nav-dropdown { display: none; }
@@ -676,14 +562,18 @@ img { max-width: 100%; height: auto; }
 })();
 </script>
 
-<button id="scrollToTop" aria-label="Scroll to top">↑</button>
+<button id="scrollToTop" aria-label="Back to top">↑</button>
 <script>
 (function(){
-  var s=document.getElementById('scrollToTop');
-  if(!s)return;
-  s.style.cssText='display:none;position:fixed;bottom:28px;right:28px;width:44px;height:44px;background:#452068;color:#fff;border:none;border-radius:50%;font-size:22px;cursor:pointer;align-items:center;justify-content:center;box-shadow:0 4px 14px rgba(69,32,104,.3);z-index:998;';
-  window.addEventListener('scroll',function(){s.style.display=window.pageYOffset>300?'flex':'none';});
-  s.addEventListener('click',function(){window.scrollTo({top:0,behavior:'smooth'});});
+  var s = document.getElementById('scrollToTop');
+  if (!s) return;
+  var prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  window.addEventListener('scroll', function(){
+    s.style.display = window.pageYOffset > 300 ? 'flex' : 'none';
+  });
+  s.addEventListener('click', function(){
+    window.scrollTo({ top: 0, behavior: prefersReduced ? 'instant' : 'smooth' });
+  });
 })();
 </script>
 </body>

@@ -10,39 +10,32 @@
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-SJSGF3E9MD"></script>
 <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-SJSGF3E9MD');</script>
 <style>
-:root{--purple:#452068;--pink:#ff1090;--ink:#1a1325;--muted:#6b6477;}
-*{box-sizing:border-box;margin:0;padding:0}
-body{font-family:Arial,Helvetica,sans-serif;color:var(--ink);background:#fff;line-height:1.6}
-a{text-decoration:none;color:inherit}
-.wrap{max-width:760px;margin:0 auto;padding:0 24px;}
-.header{background:var(--purple);padding:16px 24px;display:flex;justify-content:space-between;align-items:center;}
-.header a{color:#fff;font-weight:600;font-size:15px;}
-.header a:hover{opacity:0.9;}
-.nav{display:flex;gap:24px;}
-.article{padding:16px 0;}
-.article-header{margin-bottom:40px;border-bottom:2px solid #f4eefa;padding-bottom:24px;}
-.article-title{font-size:36px;font-weight:700;color:#1a1a1a;margin-bottom:12px;line-height:1.2;}
-.article-meta{font-size:14px;color:var(--muted);}
-.article-body{font-size:17px;line-height:1.8;color:#444;}
-.article-body h2{font-size:28px;font-weight:700;color:var(--purple);margin:40px 0 16px;}
-.article-body h3{font-size:22px;font-weight:700;color:var(--purple);margin:32px 0 12px;}
-.article-body p{margin-bottom:20px;}
-.article-body ul,.article-body ol{margin:20px 0 20px 32px;}
-.article-body li{margin-bottom:12px;}
-.article-body strong{color:var(--purple);font-weight:700;}
-.article-body a{color:var(--pink);font-weight:600;}
-.article-body a:hover{text-decoration:underline;}
-.footer{background:#f4eefa;padding:40px 24px;text-align:center;margin-top:60px;}
-.footer a{color:var(--purple);font-weight:600;}
-.back-link{color:#452068;font-weight:600;font-size:16px;text-decoration:none;display:inline-block;margin-bottom:40px;}
-.back-link:hover{text-decoration:underline;}
-.inline-cta{border-left:3px solid var(--purple);background:#f7f7f7;border-radius:0 8px 8px 0;padding:20px 24px;margin:40px 0;display:flex;justify-content:space-between;align-items:center;gap:24px;flex-wrap:wrap;}
-.inline-cta-text{flex:1;min-width:240px;}
-.inline-cta-text strong{display:block;font-size:18px;color:var(--purple);margin-bottom:6px;}
-.inline-cta-text span{font-size:15px;color:var(--muted);}
-.inline-cta-btn{background:var(--purple);color:#fff;padding:12px 24px;border-radius:8px;font-weight:600;font-size:14px;text-decoration:none;white-space:nowrap;transition:all 0.2s;}
-.inline-cta-btn:hover{background:#311549;transform:translateY(-1px);}
-#scrollToTop{position:fixed;bottom:24px;right:24px;width:48px;height:48px;border-radius:50%;background:#452068;color:#fff;border:none;font-size:22px;cursor:pointer;display:none;box-shadow:0 4px 16px rgba(69,32,104,0.3);transition:all 0.2s;z-index:99;}#scrollToTop:hover{background:#ff1090;transform:translateY(-3px);}</style>
+/* Task 1.7 — scroll-to-top: WCAG 48×48 target, brand purple, visible shadow */
+#scrollToTop {
+  display: none;
+  position: fixed;
+  bottom: 28px;
+  right: 28px;
+  width: 48px;
+  height: 48px;
+  min-width: 48px;
+  min-height: 48px;
+  background: #452068;
+  color: #fff;
+  border: none;
+  border-radius: 50%;
+  font-size: 22px;
+  font-weight: 700;
+  cursor: pointer;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 16px rgba(69,32,104,.35);
+  z-index: 998;
+  transition: background .2s, transform .15s;
+}
+#scrollToTop:hover { background: #ff1090; transform: translateY(-2px); }
+#scrollToTop:focus-visible { outline: 3px solid #ff1090; outline-offset: 3px; }
+</style>
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "InsuranceAgency", "name": "The Health Experts Insurance", "url": "https://www.healthexps.com", "telephone": "+18003806821", "address": {"@type": "PostalAddress", "streetAddress": "1695 NW 110 Ave, Suite 224", "addressLocality": "Doral", "addressRegion": "FL", "postalCode": "33172", "addressCountry": "US"}, "areaServed": ["Miami-Dade County", "Broward County", "Florida"], "priceRange": "Free", "description": "Independent bilingual health insurance brokers in Doral, FL. We compare 14+ carriers for Medicare, ACA, and private health insurance at no cost."}</script>
 <script type="application/ld+json">
 {
@@ -571,14 +564,18 @@ a{text-decoration:none;color:inherit}
 })();
 </script>
 
-<button id="scrollToTop" aria-label="Scroll to top">↑</button>
+<button id="scrollToTop" aria-label="Back to top">↑</button>
 <script>
 (function(){
-  var s=document.getElementById('scrollToTop');
-  if(!s)return;
-  s.style.cssText='display:none;position:fixed;bottom:28px;right:28px;width:44px;height:44px;background:#452068;color:#fff;border:none;border-radius:50%;font-size:22px;cursor:pointer;align-items:center;justify-content:center;box-shadow:0 4px 14px rgba(69,32,104,.3);z-index:998;';
-  window.addEventListener('scroll',function(){s.style.display=window.pageYOffset>300?'flex':'none';});
-  s.addEventListener('click',function(){window.scrollTo({top:0,behavior:'smooth'});});
+  var s = document.getElementById('scrollToTop');
+  if (!s) return;
+  var prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  window.addEventListener('scroll', function(){
+    s.style.display = window.pageYOffset > 300 ? 'flex' : 'none';
+  });
+  s.addEventListener('click', function(){
+    window.scrollTo({ top: 0, behavior: prefersReduced ? 'instant' : 'smooth' });
+  });
 })();
 </script>
 </body>

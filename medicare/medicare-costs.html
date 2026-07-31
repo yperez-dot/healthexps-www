@@ -82,126 +82,31 @@
 </script>
 
 <style>
-html, body { overflow-x: hidden; max-width: 100%; }
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
-:root {
-  --purple:       #452068;
-  --purple-dark:  #2f1550;
-  --purple-light: #f7f2fb;
-  --pink:         #ff1090;
-  --pink-hover:   #c40074;
-  --white:        #ffffff;
-  --off-white:    #fdfaf7;
-  --gray-mid:     #ece5f0;
-  --gray-text:    #6f6478;
-  --black:        #241a30;
-  --font-body:    'Inter', Arial, Helvetica, sans-serif;
-  --font-head:    'Poppins', Arial, Helvetica, sans-serif;
-}
-
-body {
-  font-family: var(--font-body);
-  color: var(--black);
-  line-height: 1.65;
-  font-size: 16px;
-  background: var(--white);
-  -webkit-font-smoothing: antialiased;
-}
-
-a { color: var(--purple); text-decoration: none; }
-a:hover { color: var(--pink); }
-
-/* ── NAV DROPDOWN ── */
-.v4-nav-dropdown { display: none; }
-.v4-nav-item:hover .v4-nav-dropdown { display: block; }
-.v4-nav-mobile-btn { display: none; background: none; border: none; cursor: pointer; padding: 8px; }
-#v4-mobile-menu { display: none; position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: #fff; z-index: 999; overflow-y: auto; padding: 24px; }
-#v4-mobile-menu.open { display: block; }
-@media (max-width: 900px) {
-  .v4-nav-desktop { display: none !important; }
-  .v4-nav-mobile-btn { display: flex !important; align-items: center; }
-}
-
-/* ── PAGE CONTENT WRAPPER ── */
-.pg-wrap { background: #fff; padding: 0 56px 56px; }
-.pg-inner { max-width: 900px; margin: 0 auto; }
-
-/* ── STATS GRID 3-col ── */
-.stats-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
-
-/* ── PARTS GRID 2-col ── */
-.parts-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; margin-bottom: 40px; }
-
-/* ── IRMAA BRACKETS ── */
-.irmaa-rows { display: flex; flex-direction: column; gap: 10px; margin-bottom: 20px; }
-.irmaa-row { display: grid; grid-template-columns: 1.4fr 1fr; gap: 12px; align-items: center; border-radius: 12px; padding: 14px 18px; }
-.irmaa-row-std { background: var(--purple-light); }
-.irmaa-row-reg { background: #fff; border: 1px solid var(--gray-mid); }
-.irmaa-row-top { background: #2f1550; }
-
-/* ── WAYS TO LOWER 2-col ── */
-.lower-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; margin-bottom: 48px; }
-
-/* ── NEXT STEPS 3-col ── */
-.next-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
-
-/* ── LEAD FORM ── */
-.form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 12px; }
-
-/* ── TABLES ── */
-.table-wrap { overflow-x: auto; margin-bottom: 16px; }
-.data-table { width: 100%; border-collapse: collapse; font-size: 12.5px; background: #fff; border-radius: 12px; overflow: hidden; border: 1px solid var(--gray-mid); }
-.data-table th { text-align: left; padding: 12px 14px; font-weight: 700; color: var(--black); background: var(--purple-light); }
-.data-table td { padding: 12px 14px; color: #4a4051; border-top: 1px solid var(--gray-mid); }
-.data-table td:first-child { font-weight: 600; color: var(--purple); }
-
-/* ── SCROLL TO TOP ── */
+/* Task 1.7 — scroll-to-top: WCAG 48×48 target, brand purple, visible shadow */
 #scrollToTop {
-  position: fixed; bottom: 28px; right: 28px;
-  width: 44px; height: 44px;
-  background: var(--purple); color: white; border: none; border-radius: 50%;
-  font-size: 18px; cursor: pointer; display: none;
-  align-items: center; justify-content: center;
-  box-shadow: 0 4px 14px rgba(69,32,104,.3);
-  transition: background .2s, transform .2s; z-index: 999;
+  display: none;
+  position: fixed;
+  bottom: 28px;
+  right: 28px;
+  width: 48px;
+  height: 48px;
+  min-width: 48px;
+  min-height: 48px;
+  background: #452068;
+  color: #fff;
+  border: none;
+  border-radius: 50%;
+  font-size: 22px;
+  font-weight: 700;
+  cursor: pointer;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 16px rgba(69,32,104,.35);
+  z-index: 998;
+  transition: background .2s, transform .15s;
 }
-
-/* ── FOOTER ── */
-.footer-wrap { background: #fff; color: var(--black); padding: 56px 56px 24px; border-top: 1px solid var(--gray-mid); }
-.footer-grid { display: grid; grid-template-columns: 1.3fr 1fr 1fr 1fr; gap: 32px; margin-bottom: 36px; }
-
-/* ═══════════════════════════════════════
-   RESPONSIVE — MANDATORY MOBILE CSS
-   ═══════════════════════════════════════ */
-@media (max-width: 900px) {
-  .pg-wrap { padding: 0 24px 40px; }
-}
-@media (max-width: 640px) {
-  /* 3-col → 1-col */
-  .stats-grid { grid-template-columns: 1fr !important; }
-  .next-grid  { grid-template-columns: 1fr !important; }
-  /* 2-col → 1-col */
-  .parts-grid { grid-template-columns: 1fr !important; }
-  .lower-grid { grid-template-columns: 1fr !important; }
-  .form-row   { grid-template-columns: 1fr !important; }
-  /* padding 56px → 20px */
-  .pg-wrap    { padding: 0 20px 40px !important; }
-  .footer-wrap { padding: 40px 20px 88px !important; }
-  .footer-grid { grid-template-columns: 1fr !important; gap: 24px !important; }
-  .top-bar-inner { padding-left: 20px !important; padding-right: 20px !important; }
-  .v4-nav-outer  { padding-left: 20px !important; padding-right: 20px !important; }
-  /* hero */
-  .pg-hero { padding: 32px 20px 28px !important; }
-  /* CTA banner in content */
-  .cta-banner { flex-direction: column !important; }
-  /* lead form section */
-  .lead-section { padding: 48px 20px !important; }
-  /* irmaa rows */
-  .irmaa-row { grid-template-columns: 1fr !important; }
-  /* final cta */
-  .final-cta { padding: 40px 20px !important; }
-}
+#scrollToTop:hover { background: #ff1090; transform: translateY(-2px); }
+#scrollToTop:focus-visible { outline: 3px solid #ff1090; outline-offset: 3px; }
 </style>
 <style>
 .v4-nav-dropdown { display: none; }
@@ -770,7 +675,7 @@ a:hover { color: var(--pink); }
 </div>
 
 <!-- ═══════════════════ SCROLL TO TOP ═══════════════════ -->
-<button id="scrollToTop" aria-label="Back to top" style="position:fixed;bottom:28px;right:28px;width:44px;height:44px;background:#452068;color:#fff;border:none;border-radius:50%;font-size:18px;cursor:pointer;display:none;align-items:center;justify-content:center;box-shadow:0 4px 14px rgba(69,32,104,.3);z-index:999">&#8593;</button>
+<button id="scrollToTop" aria-label="Back to top">↑</button>
 
 <!-- ═══════════════════ JAVASCRIPT ═══════════════════ -->
 <script>
@@ -1036,5 +941,18 @@ a:hover { color: var(--pink); }
 })();
 </script>
 
+<script>
+(function(){
+  var s = document.getElementById('scrollToTop');
+  if (!s) return;
+  var prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  window.addEventListener('scroll', function(){
+    s.style.display = window.pageYOffset > 300 ? 'flex' : 'none';
+  });
+  s.addEventListener('click', function(){
+    window.scrollTo({ top: 0, behavior: prefersReduced ? 'instant' : 'smooth' });
+  });
+})();
+</script>
 </body>
 </html>

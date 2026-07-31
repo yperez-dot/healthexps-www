@@ -848,7 +848,7 @@ img{max-width:100%;height:auto;}
   </footer>
 
   <!-- SCROLL TO TOP -->
-  <button id="scrollToTop" aria-label="Back to top" style="position:fixed;bottom:28px;right:28px;width:44px;height:44px;background:#452068;color:#fff;border:none;border-radius:50%;font-size:18px;cursor:pointer;display:none;align-items:center;justify-content:center;box-shadow:0 4px 14px rgba(69,32,104,.3);transition:background .2s,transform .2s;z-index:999;">&#8593;</button>
+  <button id="scrollToTop" aria-label="Back to top">↑</button>
 
 </div><!-- /outer div -->
 
@@ -972,5 +972,18 @@ updateEstimator(6);
 })();
 </script>
 
+<script>
+(function(){
+  var s = document.getElementById('scrollToTop');
+  if (!s) return;
+  var prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  window.addEventListener('scroll', function(){
+    s.style.display = window.pageYOffset > 300 ? 'flex' : 'none';
+  });
+  s.addEventListener('click', function(){
+    window.scrollTo({ top: 0, behavior: prefersReduced ? 'instant' : 'smooth' });
+  });
+})();
+</script>
 </body>
 </html>

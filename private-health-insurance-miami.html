@@ -74,97 +74,31 @@
 </script>
 
 <style>
-/* ============================================================
-   DESIGN SYSTEM — Inter + Poppins redesign
-   THEI brand: purple #452068, pink #ff1090
-   ============================================================ */
-html, body { overflow-x: hidden; max-width: 100%; }
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
-:root {
-  --purple:       #452068;
-  --purple-dark:  #2f1550;
-  --purple-light: #f7f2fb;
-  --pink:         #ff1090;
-  --pink-hover:   #c40074;
-  --white:        #ffffff;
-  --off-white:    #fdfaf7;
-  --gray-light:   #f7f7f7;
-  --gray-mid:     #ece5f0;
-  --gray-text:    #6f6478;
-  --black:        #241a30;
-  --wa:           #25D366;
-  --wa-hover:     #1da851;
-  --radius:       16px;
-  --shadow:       0 4px 20px rgba(69,32,104,0.10);
-  --shadow-lg:    0 16px 48px rgba(69,32,104,0.16);
-  --font-body:    'Inter', Arial, Helvetica, sans-serif;
-  --font-head:    'Poppins', Arial, Helvetica, sans-serif;
-}
-
-body {
-  font-family: var(--font-body);
-  color: var(--black);
-  line-height: 1.65;
-  font-size: 17px;
-  background: var(--white);
-  -webkit-font-smoothing: antialiased;
-}
-
-h1, h2, h3 { font-family: var(--font-head); line-height: 1.2; }
-a { color: var(--purple); text-decoration: none; }
-a:hover { color: var(--pink); }
-img { max-width: 100%; height: auto; }
-
-.container { max-width: 1100px; margin: 0 auto; padding: 0 28px; }
-
-/* ---- BUTTONS ---- */
-.btn-pink {
-  display: inline-flex; align-items: center; gap: 8px;
-  background: var(--pink); color: white;
-  padding: 15px 28px; border-radius: 12px;
-  font-family: var(--font-body); font-weight: 700; font-size: 15.5px;
-  box-shadow: 0 8px 22px rgba(255,16,144,0.25);
-  transition: background .2s, transform .15s;
-  text-decoration: none;
-}
-.btn-pink:hover { background: var(--pink-hover); color: white; transform: translateY(-2px); }
-
-/* ============================================================
-   SCROLL TO TOP
-   ============================================================ */
+/* Task 1.7 — scroll-to-top: WCAG 48×48 target, brand purple, visible shadow */
 #scrollToTop {
-  position: fixed; bottom: 28px; right: 28px;
-  width: 44px; height: 44px;
-  background: var(--purple); color: white; border: none; border-radius: 50%;
-  font-size: 18px; cursor: pointer; display: none;
-  align-items: center; justify-content: center;
-  box-shadow: 0 4px 14px rgba(69,32,104,.3);
-  transition: background .2s, transform .2s; z-index: 999;
+  display: none;
+  position: fixed;
+  bottom: 28px;
+  right: 28px;
+  width: 48px;
+  height: 48px;
+  min-width: 48px;
+  min-height: 48px;
+  background: #452068;
+  color: #fff;
+  border: none;
+  border-radius: 50%;
+  font-size: 22px;
+  font-weight: 700;
+  cursor: pointer;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 16px rgba(69,32,104,.35);
+  z-index: 998;
+  transition: background .2s, transform .15s;
 }
-
-/* ============================================================
-   RESPONSIVE
-   ============================================================ */
-@media (max-width: 900px) {
-  .v4-nav-desktop { display: none !important; }
-  .v4-nav-mobile-btn { display: flex !important; align-items:center; }
-}
-@media (max-width: 768px) {
-  .top-bar-inner { padding-left: 20px !important; padding-right: 20px !important; }
-  .v4-nav-outer { padding-left: 20px !important; padding-right: 20px !important; }
-  .priv-what-grid { grid-template-columns: 1fr !important; }
-  .priv-options-grid { grid-template-columns: 1fr !important; }
-  .priv-cost-grid { grid-template-columns: repeat(2, 1fr) !important; }
-  .priv-carriers-wrap { gap: 8px !important; }
-}
-@media (max-width: 640px) {
-  .footer-grid { grid-template-columns: 1fr !important; gap: 24px !important; }
-  .footer-wrap { padding: 40px 20px 88px !important; }
-}
-@media (max-width: 480px) {
-  .priv-cost-grid { grid-template-columns: 1fr !important; }
-}
+#scrollToTop:hover { background: #ff1090; transform: translateY(-2px); }
+#scrollToTop:focus-visible { outline: 3px solid #ff1090; outline-offset: 3px; }
 </style>
 
 <style>
@@ -601,7 +535,7 @@ img { max-width: 100%; height: auto; }
   </div><!-- end font-family wrapper -->
 
   <!-- Scroll to top button -->
-  <button id="scrollToTop" aria-label="Back to top" style="position:fixed;bottom:28px;right:28px;width:44px;height:44px;background:#452068;color:#fff;border:none;border-radius:50%;font-size:18px;cursor:pointer;display:none;align-items:center;justify-content:center;box-shadow:0 4px 14px rgba(69,32,104,.3);transition:background .2s,transform .2s;z-index:999;">↑</button>
+  <button id="scrollToTop" aria-label="Back to top">↑</button>
 
   <script>
   // Scroll to top
@@ -715,5 +649,18 @@ img { max-width: 100%; height: auto; }
   })();
   </script>
 
+<script>
+(function(){
+  var s = document.getElementById('scrollToTop');
+  if (!s) return;
+  var prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  window.addEventListener('scroll', function(){
+    s.style.display = window.pageYOffset > 300 ? 'flex' : 'none';
+  });
+  s.addEventListener('click', function(){
+    window.scrollTo({ top: 0, behavior: prefersReduced ? 'instant' : 'smooth' });
+  });
+})();
+</script>
 </body>
 </html>

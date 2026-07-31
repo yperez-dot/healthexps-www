@@ -176,6 +176,33 @@ tr:last-child td{border-bottom:none;}
 <link rel="alternate" hreflang="en" href="https://www.healthexps.com/compare-medicare-plans"/>
 <link rel="alternate" hreflang="es" href="https://www.healthexps.com/es/comparar-planes-de-medicare"/>
 <link rel="alternate" hreflang="x-default" href="https://www.healthexps.com/compare-medicare-plans"/>
+<style>
+/* Task 1.7 — scroll-to-top: WCAG 48×48 target, brand purple, visible shadow */
+#scrollToTop {
+  display: none;
+  position: fixed;
+  bottom: 28px;
+  right: 28px;
+  width: 48px;
+  height: 48px;
+  min-width: 48px;
+  min-height: 48px;
+  background: #452068;
+  color: #fff;
+  border: none;
+  border-radius: 50%;
+  font-size: 22px;
+  font-weight: 700;
+  cursor: pointer;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 16px rgba(69,32,104,.35);
+  z-index: 998;
+  transition: background .2s, transform .15s;
+}
+#scrollToTop:hover { background: #ff1090; transform: translateY(-2px); }
+#scrollToTop:focus-visible { outline: 3px solid #ff1090; outline-offset: 3px; }
+</style>
 </head>
 <body>
     <div style="font-family:Inter,sans-serif;color:#241a30;background:#fff">
@@ -731,6 +758,19 @@ function restartQuiz() {
 }
 
 (function(){const btn=document.getElementById('scrollToTop');if(!btn)return;window.addEventListener('scroll',function(){btn.style.display=window.pageYOffset>300?'block':'none';});btn.addEventListener('click',function(){window.scrollTo({top:0,behavior:'smooth'});});btn.addEventListener('mouseenter',function(){btn.style.background='#ff1090';btn.style.transform='translateY(-3px)';});btn.addEventListener('mouseleave',function(){btn.style.background='#452068';btn.style.transform='translateY(0)';});})();
+</script>
+<script>
+(function(){
+  var s = document.getElementById('scrollToTop');
+  if (!s) return;
+  var prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  window.addEventListener('scroll', function(){
+    s.style.display = window.pageYOffset > 300 ? 'flex' : 'none';
+  });
+  s.addEventListener('click', function(){
+    window.scrollTo({ top: 0, behavior: prefersReduced ? 'instant' : 'smooth' });
+  });
+})();
 </script>
 </body>
 </html>

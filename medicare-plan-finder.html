@@ -751,7 +751,7 @@ img { max-width: 100%; height: auto; }
 </div><!-- /wrapper -->
 
 <!-- SCROLL TO TOP -->
-<button id="scrollToTop" aria-label="Back to top">&#8679;</button>
+<button id="scrollToTop" aria-label="Back to top">↑</button>
 
 <script>
   /* ============================================================
@@ -982,5 +982,18 @@ img { max-width: 100%; height: auto; }
   })();
 </script>
 
+<script>
+(function(){
+  var s = document.getElementById('scrollToTop');
+  if (!s) return;
+  var prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  window.addEventListener('scroll', function(){
+    s.style.display = window.pageYOffset > 300 ? 'flex' : 'none';
+  });
+  s.addEventListener('click', function(){
+    window.scrollTo({ top: 0, behavior: prefersReduced ? 'instant' : 'smooth' });
+  });
+})();
+</script>
 </body>
 </html>

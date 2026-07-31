@@ -31,153 +31,31 @@
 <script id="faqSchema" type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Can I enroll in a D-SNP any time of year?","acceptedAnswer":{"@type":"Answer","text":"Often yes. People with both Medicare and Medicaid usually qualify for a Special Enrollment Period and can switch or join a D-SNP once per quarter, plus during the Annual Enrollment Period (Oct 15–Dec 7). We can check your window today."}},{"@type":"Question","name":"Will I lose my Medicaid if I join a D-SNP?","acceptedAnswer":{"@type":"Answer","text":"No — a D-SNP works alongside your Medicaid, it doesn't replace it. You keep both, and the plan coordinates them for you."}},{"@type":"Question","name":"How much does a D-SNP cost?","acceptedAnswer":{"@type":"Answer","text":"Most D-SNPs have a $0 monthly premium for people who qualify for both Medicare and Medicaid — your Medicaid covers what Medicare doesn't. Our service is always free."}},{"@type":"Question","name":"What if I have Medicare but not Medicaid?","acceptedAnswer":{"@type":"Answer","text":"You may still qualify for a Chronic Condition Special Needs Plan (C-SNP) with a confirmed diagnosis, or for a Medicare Savings Program that can open the door to a D-SNP — we'll check both."}},{"@type":"Question","name":"Do you speak Spanish?","acceptedAnswer":{"@type":"Answer","text":"Yes — our entire team is bilingual, same agent throughout, no handoffs."}}]}</script>
 
 <style>
-/* ============================================================
-   DESIGN SYSTEM — Inter + Poppins v4
-   Brand: purple #452068 | pink #ff1090
-   ============================================================ */
-html,body{overflow-x:hidden;max-width:100%}
-*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-:root{
-  --purple:#452068;--purple-dark:#2f1550;--purple-light:#f7f2fb;
-  --pink:#ff1090;--pink-hover:#c40074;
-  --white:#fff;--off-white:#fdfaf7;
-  --gray-mid:#ece5f0;--gray-text:#6f6478;
-  --black:#241a30;--ink:#4a4051;--wa:#25D366;
+/* Task 1.7 — scroll-to-top: WCAG 48×48 target, brand purple, visible shadow */
+#scrollToTop {
+  display: none;
+  position: fixed;
+  bottom: 28px;
+  right: 28px;
+  width: 48px;
+  height: 48px;
+  min-width: 48px;
+  min-height: 48px;
+  background: #452068;
+  color: #fff;
+  border: none;
+  border-radius: 50%;
+  font-size: 22px;
+  font-weight: 700;
+  cursor: pointer;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 16px rgba(69,32,104,.35);
+  z-index: 998;
+  transition: background .2s, transform .15s;
 }
-body{font-family:'Inter',Arial,Helvetica,sans-serif;color:var(--black);line-height:1.65;font-size:16px;background:#fff;-webkit-font-smoothing:antialiased}
-h1,h2,h3{font-family:'Poppins',Arial,Helvetica,sans-serif;line-height:1.2}
-a{text-decoration:none;color:var(--purple)}
-a:hover{color:var(--pink)}
-img{max-width:100%;height:auto}
-
-/* ---- Utility grid classes (MANDATORY MOBILE) ---- */
-.grid-3col{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
-.grid-2col{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
-
-/* ---- Section padding ---- */
-.section-pad{padding:56px}
-
-/* ---- Buttons ---- */
-.btn-pink{display:inline-flex;align-items:center;gap:8px;background:var(--pink);color:#fff;padding:15px 28px;border-radius:12px;font-family:'Inter',sans-serif;font-weight:700;font-size:15.5px;box-shadow:0 8px 22px rgba(255,16,144,.25);transition:background .2s,transform .15s;text-decoration:none}
-.btn-pink:hover{background:var(--pink-hover);color:#fff;transform:translateY(-2px)}
-.btn-outline-purple{display:inline-flex;align-items:center;gap:8px;background:transparent;color:var(--purple);padding:13px 24px;border-radius:12px;border:2px solid var(--purple);font-family:'Inter',sans-serif;font-weight:700;font-size:15.5px;transition:background .2s,color .2s;text-decoration:none}
-.btn-outline-purple:hover{background:var(--purple);color:#fff}
-.btn-outline-white{display:inline-flex;align-items:center;gap:8px;background:transparent;color:#fff;padding:13px 24px;border-radius:12px;border:2px solid rgba(255,255,255,.6);font-family:'Inter',sans-serif;font-weight:700;font-size:15.5px;transition:background .2s;text-decoration:none}
-.btn-outline-white:hover{background:rgba(255,255,255,.15);color:#fff}
-
-/* ---- Benefit / step cards ---- */
-.bcard{border:1px solid var(--gray-mid);border-radius:14px;padding:22px;background:#fff}
-.bcard .bc-title{font-weight:700;font-size:14.5px;color:var(--black);margin-bottom:6px}
-.bcard .bc-body{font-size:13px;color:var(--gray-text);line-height:1.55}
-
-/* ---- Step numbered ---- */
-.step-num{width:36px;height:36px;border-radius:50%;background:var(--pink);color:#fff;font-weight:700;font-size:14px;display:flex;align-items:center;justify-content:center;margin-bottom:12px;flex-shrink:0}
-
-/* ---- Eligibility box ---- */
-.elig-box{background:var(--off-white);border:1px solid var(--gray-mid);border-radius:18px;padding:26px}
-.elig-box h3{font-size:18px;color:var(--purple);margin-bottom:14px}
-
-/* ---- Income table ---- */
-.income-table{width:100%;border-collapse:collapse;font-size:13px;background:#fff;border-radius:12px;overflow:hidden}
-.income-table th{text-align:left;padding:12px 14px;font-weight:700;color:var(--black);background:#fff}
-.income-table td{padding:12px 14px;border-top:1px solid var(--gray-mid);vertical-align:middle}
-.income-table td:first-child{font-weight:700;color:var(--purple)}
-.income-table tr:last-child td{border-bottom:1px solid var(--gray-mid)}
-
-/* ---- Hero ---- */
-.hero-outer{background:linear-gradient(135deg,var(--off-white) 0%,var(--purple-light) 100%);padding:56px}
-.hero-inner{max-width:1160px;margin:0 auto}
-.hero-grid{display:grid;grid-template-columns:1.05fr 0.95fr;gap:52px;align-items:center}
-.hero-badge{display:inline-flex;align-items:center;gap:8px;background:#fff0f8;color:var(--pink-hover);padding:8px 16px;border-radius:999px;font-size:13px;font-weight:700;margin-bottom:18px}
-.hero-badge-dot{width:7px;height:7px;border-radius:50%;background:var(--pink)}
-.hero h1{font-size:clamp(28px,4vw,38px);font-weight:700;color:var(--black);margin-bottom:14px}
-.hero-sub{font-size:16px;line-height:1.65;color:var(--gray-text);margin-bottom:24px}
-.hero-btns{display:flex;gap:14px;flex-wrap:wrap}
-
-/* Eligibility card in hero */
-.elig-card{background:#fff;border-radius:18px;padding:24px;box-shadow:0 20px 50px rgba(69,32,104,.14)}
-.elig-card h3{font-size:13px;text-transform:uppercase;letter-spacing:.5px;color:var(--gray-text);margin-bottom:14px;display:flex;align-items:center;gap:8px}
-.elig-card h3::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--pink)}
-.erow{display:flex;gap:11px;align-items:flex-start;padding:8px 0}
-.erow .ck{width:22px;height:22px;border-radius:50%;background:#eafaf2;color:#16a34a;font-weight:700;font-size:13px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
-.erow .et{font-size:13.5px;line-height:1.4}
-.elig-foot{margin-top:12px;background:var(--purple-light);border-radius:10px;padding:11px 13px;font-size:12.5px;color:var(--gray-text)}
-
-/* Trust strip */
-.trust-strip{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:28px}
-.tstat{text-align:center;padding:16px 10px;background:#fff;border:1px solid var(--gray-mid);border-radius:14px}
-.tstat b{display:block;font-size:22px;font-family:'Poppins',sans-serif;color:var(--purple)}
-.tstat span{font-size:12px;color:var(--gray-text)}
-
-/* ---- Condition checks ---- */
-.cond-check{display:flex;gap:8px;font-size:13px;color:var(--ink);align-items:center}
-.cond-check svg{flex-shrink:0}
-
-/* ---- FAQ accordion ---- */
-.faq-wrap{display:flex;flex-direction:column;gap:10px}
-.faq-item{border:1px solid var(--gray-mid);border-radius:14px;overflow:hidden}
-.faq-item details{margin:0}
-.faq-item summary{padding:18px 20px;display:flex;justify-content:space-between;align-items:center;cursor:pointer;font-weight:700;font-size:14.5px;color:var(--black);list-style:none;gap:12px}
-.faq-item summary::-webkit-details-marker{display:none}
-.faq-item summary::after{content:"+";color:var(--pink);font-size:20px;font-weight:700;flex-shrink:0}
-.faq-item details[open] summary::after{content:"−"}
-.faq-item .faq-ans{padding:0 20px 18px;font-size:13.5px;color:var(--gray-text);line-height:1.65}
-
-/* ---- Form ---- */
-.form-outer{background:var(--purple-light);padding:56px}
-.form-card{max-width:560px;margin:0 auto;background:#fff;border-radius:22px;padding:34px;box-shadow:0 20px 50px rgba(69,32,104,.12)}
-.ff-input{width:100%;box-sizing:border-box;padding:13px 14px;border-radius:10px;border:1.5px solid #ddd2e6;font-size:14.5px;font-family:'Inter',sans-serif;color:var(--black);outline:none;transition:border-color .2s;background:#fff}
-.ff-input:focus{border-color:var(--purple)}
-.ff-input::placeholder{color:#a79db2}
-
-/* ---- Footer ---- */
-.footer-wrap{background:#fff;padding:56px 56px 32px;border-top:1px solid var(--gray-mid)}
-.footer-grid{display:grid;grid-template-columns:1.3fr 1fr 1fr 1fr;gap:32px;margin-bottom:36px}
-
-/* ---- Scroll to top ---- */
-#scrollToTop{position:fixed;bottom:28px;right:28px;width:44px;height:44px;background:var(--purple);color:#fff;border:none;border-radius:50%;font-size:18px;cursor:pointer;display:none;align-items:center;justify-content:center;box-shadow:0 4px 14px rgba(69,32,104,.3);transition:background .2s,transform .2s;z-index:999}
-
-/* ============================================================
-   V4 NAV
-   ============================================================ */
-.v4-nav-dropdown{display:none}
-.v4-nav-item:hover .v4-nav-dropdown{display:block}
-.v4-nav-mobile-btn{display:none;background:none;border:none;cursor:pointer;padding:8px}
-#v4-mobile-menu{display:none;position:fixed;top:0;left:0;right:0;bottom:0;background:#fff;z-index:999;overflow-y:auto;padding:24px}
-#v4-mobile-menu.open{display:block}
-@media(max-width:900px){
-  .v4-nav-desktop{display:none !important}
-  .v4-nav-mobile-btn{display:flex !important;align-items:center}
-}
-
-/* ============================================================
-   MANDATORY MOBILE — ≤640px
-   ============================================================ */
-@media(max-width:640px){
-  .grid-3col{grid-template-columns:1fr !important;gap:14px !important}
-  .grid-2col{grid-template-columns:1fr !important;gap:14px !important}
-  .section-pad{padding:20px !important}
-  .hero-outer{padding:20px !important}
-  .hero-grid{grid-template-columns:1fr !important;gap:24px !important}
-  .trust-strip{grid-template-columns:repeat(2,1fr) !important;gap:10px !important}
-  .hero h1{font-size:26px !important}
-  .hero-btns{flex-direction:column;align-items:flex-start}
-  .form-outer{padding:20px !important}
-  .footer-wrap{padding:40px 20px 88px !important}
-  .footer-grid{grid-template-columns:1fr !important;gap:24px !important}
-}
-
-/* ============================================================
-   GENERAL RESPONSIVE (>640px)
-   ============================================================ */
-@media(max-width:900px){
-  .hero-grid{grid-template-columns:1fr;gap:28px}
-  .trust-strip{grid-template-columns:repeat(2,1fr)}
-}
-@media(max-width:768px){
-  .footer-grid{grid-template-columns:repeat(2,1fr)}
-  .top-bar-right{flex-wrap:wrap;justify-content:center;gap:8px}
-}
+#scrollToTop:hover { background: #ff1090; transform: translateY(-2px); }
+#scrollToTop:focus-visible { outline: 3px solid #ff1090; outline-offset: 3px; }
 </style>
 <style>
 .v4-nav-dropdown { display: none; }
@@ -709,7 +587,7 @@ img{max-width:100%;height:auto}
 </div>
 
 <!-- Scroll to top -->
-<button id="scrollToTop" aria-label="Back to top" style="position:fixed;bottom:28px;right:28px;width:44px;height:44px;background:#452068;color:#fff;border:none;border-radius:50%;font-size:18px;cursor:pointer;display:none;align-items:center;justify-content:center;box-shadow:0 4px 14px rgba(69,32,104,.3);transition:background .2s,transform .2s;z-index:999">&#8679;</button>
+<button id="scrollToTop" aria-label="Back to top">↑</button>
 
 <!-- ============================================================
      SCRIPTS
@@ -811,17 +689,6 @@ img{max-width:100%;height:auto}
 </script>
 
 <!-- Scroll to top -->
-<script>
-(function(){
-  var btn=document.getElementById('scrollToTop');
-  if(!btn)return;
-  window.addEventListener('scroll',function(){btn.style.display=window.pageYOffset>300?'flex':'none';});
-  btn.addEventListener('click',function(){window.scrollTo({top:0,behavior:'smooth'});});
-  btn.addEventListener('mouseenter',function(){btn.style.background='#ff1090';});
-  btn.addEventListener('mouseleave',function(){btn.style.background='#452068';});
-})();
-</script>
-
 </div>
       <!-- FOOTER -->
       <div id="site-footer" style="background:#fff;color:#241a30;padding:56px 56px 24px;border-top:1px solid #ece5f0">
@@ -995,5 +862,18 @@ img{max-width:100%;height:auto}
 })();
 </script>
 
+<script>
+(function(){
+  var s = document.getElementById('scrollToTop');
+  if (!s) return;
+  var prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  window.addEventListener('scroll', function(){
+    s.style.display = window.pageYOffset > 300 ? 'flex' : 'none';
+  });
+  s.addEventListener('click', function(){
+    window.scrollTo({ top: 0, behavior: prefersReduced ? 'instant' : 'smooth' });
+  });
+})();
+</script>
 </body>
 </html>
