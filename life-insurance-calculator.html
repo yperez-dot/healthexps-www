@@ -722,7 +722,8 @@ function goStepId(id){
   document.getElementById(id).classList.add('active');
   S.step = idx >= 0 ? idx + 1 : S.step;
   updateProgress();
-  window.scrollTo({top:0,behavior:'smooth'});
+  const el = document.getElementById(id);
+  if(el){ const top = el.getBoundingClientRect().top + window.pageYOffset - 100; window.scrollTo({top: Math.max(0, top), behavior:'smooth'}); }
   gtag('event','calc_step',{'step':id});
 }
 
