@@ -501,15 +501,15 @@ img { max-width: 100%; height: auto; }
                 <input type="text" name="last_name" placeholder="Last Name" required style="padding:13px 14px;border-radius:10px;border:1px solid #ddd2e6;font-size:14.5px;font-family:Inter,sans-serif;width:100%;box-sizing:border-box;"/>
               </div>
               <input type="tel" name="phone" placeholder="Phone Number" required style="width:100%;box-sizing:border-box;padding:13px 14px;border-radius:10px;border:1px solid #ddd2e6;font-size:14.5px;margin-bottom:12px;font-family:Inter,sans-serif;"/>
-              <input type="email" name="email" placeholder="Email Address" required style="width:100%;box-sizing:border-box;padding:13px 14px;border-radius:10px;border:1px solid #ddd2e6;font-size:14.5px;margin-bottom:16px;font-family:Inter,sans-serif;"/>
-              <label style="display:flex;gap:10px;align-items:flex-start;font-size:12px;line-height:1.5;margin-bottom:18px;cursor:pointer">
-                <input type="checkbox" name="consent" id="privConsent" required style="margin-top:3px;flex-shrink:0;"/>
-                <span style="color:#8a8093">By submitting this form, I consent to receive calls, texts, and emails from The Health Experts Insurance. Consent is not required to purchase services.</span>
-              </label>
+              <input type="email" name="email" placeholder="Email Address" required style="width:100%;box-sizing:border-box;padding:13px 14px;border-radius:10px;border:1px solid #ddd2e6;font-size:14.5px;margin-bottom:12px;font-family:Inter,sans-serif;"/>
               <div style="margin-bottom:14px">
                 <label style="display:block;font-size:12px;font-weight:700;color:#241a30;margin-bottom:5px;text-transform:uppercase;letter-spacing:.3px">Additional Notes <span style="color:#a79db2;font-weight:400;text-transform:none">(optional)</span></label>
                 <textarea name="notes" rows="3" placeholder="Anything you'd like to share about your situation?" style="resize:vertical;width:100%;padding:12px 14px;border:1.5px solid #ddd2e6;border-radius:10px;font-family:Inter,sans-serif;font-size:14.5px;color:#241a30;background:white;outline:none;box-sizing:border-box;"></textarea>
               </div>
+              <label style="display:flex;gap:10px;align-items:flex-start;font-size:12px;line-height:1.5;margin-bottom:18px;cursor:pointer">
+                <input type="checkbox" name="consent" id="privConsent" required style="margin-top:3px;flex-shrink:0;"/>
+                <span style="color:#8a8093">By submitting this form, I consent to receive calls, texts, and emails from The Health Experts Insurance. Consent is not required to purchase services.</span>
+              </label>
               <p id="priv-form-error" style="display:none;color:#c40074;font-size:13px;margin-bottom:10px;"></p>
               <button type="submit" id="privFormBtn" style="width:100%;background:#ff1090;color:#fff;border:none;padding:15px;border-radius:10px;font-size:15.5px;font-weight:700;cursor:pointer;font-family:Inter,sans-serif;box-shadow:0 8px 22px rgba(255,16,144,.25);">Get my free quote →</button>
             </form>
