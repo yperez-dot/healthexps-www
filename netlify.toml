@@ -356,12 +356,11 @@
   status = 410
   force = true
 
-# WILDCARD CATCH-ALL — MUST REMAIN LAST
+# 404 handler — serve 404.html for any unmatched route (replaces the 200 catch-all that was silently serving homepage content)
 [[redirects]]
   from = "/*"
-  to = "/index.html"
-  status = 200
-  force = false
+  to = "/404.html"
+  status = 404
 
 # GROUP: Missing Wix /post/ → /blog/ redirects (fixed 2026-07-15)
 [[redirects]]
