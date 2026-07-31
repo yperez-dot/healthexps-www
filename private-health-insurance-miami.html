@@ -160,6 +160,10 @@ img { max-width: 100%; height: auto; }
   .priv-cost-grid { grid-template-columns: repeat(2, 1fr) !important; }
   .priv-carriers-wrap { gap: 8px !important; }
 }
+@media (max-width: 640px) {
+  .footer-grid { grid-template-columns: 1fr !important; gap: 24px !important; }
+  .footer-wrap { padding: 40px 20px 88px !important; }
+}
 @media (max-width: 480px) {
   .priv-cost-grid { grid-template-columns: 1fr !important; }
 }
@@ -502,6 +506,10 @@ img { max-width: 100%; height: auto; }
                 <input type="checkbox" name="consent" id="privConsent" required style="margin-top:3px;flex-shrink:0;"/>
                 <span style="color:#8a8093">By submitting this form, I consent to receive calls, texts, and emails from The Health Experts Insurance. Consent is not required to purchase services.</span>
               </label>
+              <div style="margin-bottom:14px">
+                <label style="display:block;font-size:12px;font-weight:700;color:#241a30;margin-bottom:5px;text-transform:uppercase;letter-spacing:.3px">Additional Notes <span style="color:#a79db2;font-weight:400;text-transform:none">(optional)</span></label>
+                <textarea name="notes" rows="3" placeholder="Anything you'd like to share about your situation?" style="resize:vertical;width:100%;padding:12px 14px;border:1.5px solid #ddd2e6;border-radius:10px;font-family:Inter,sans-serif;font-size:14.5px;color:#241a30;background:white;outline:none;box-sizing:border-box;"></textarea>
+              </div>
               <p id="priv-form-error" style="display:none;color:#c40074;font-size:13px;margin-bottom:10px;"></p>
               <button type="submit" id="privFormBtn" style="width:100%;background:#ff1090;color:#fff;border:none;padding:15px;border-radius:10px;font-size:15.5px;font-weight:700;cursor:pointer;font-family:Inter,sans-serif;box-shadow:0 8px 22px rgba(255,16,144,.25);">Get my free quote →</button>
             </form>
@@ -522,9 +530,9 @@ img { max-width: 100%; height: auto; }
     </div><!-- end PAGE CONTENT -->
 
     <!-- FOOTER -->
-    <div style="background:#fff;color:#241a30;padding:56px 56px 24px;border-top:1px solid #ece5f0">
+    <div class="footer-wrap" style="background:#fff;color:#241a30;padding:56px 56px 24px;border-top:1px solid #ece5f0">
       <div style="max-width:1160px;margin:0 auto">
-        <div style="display:grid;grid-template-columns:1.3fr 1fr 1fr 1fr;gap:32px;margin-bottom:36px">
+        <div class="footer-grid" style="display:grid;grid-template-columns:1.3fr 1fr 1fr 1fr;gap:32px;margin-bottom:36px">
           <div>
             <img src="/images/logo.webp" alt="The Health Experts Insurance" style="height:70px;width:auto;margin-bottom:16px"/>
             <p style="font-size:13.5px;color:#6f6478;line-height:1.6;max-width:260px">Independent bilingual health insurance brokers. Office in Doral, FL.</p>

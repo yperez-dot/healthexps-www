@@ -154,10 +154,34 @@ img { max-width: 100%; height: auto; }
   .aca-how-grid { grid-template-columns: 1fr !important; }
   .aca-carriers-flex { gap: 8px !important; }
   .aca-compare-table { font-size: 13px !important; }
+  .footer-grid { grid-template-columns: 1fr !important; gap: 24px !important; }
+  .footer-wrap { padding: 40px 20px 88px !important; }
   .aca-subsidy-grid { grid-template-columns: 1fr !important; }
   .aca-hero-btns { flex-direction: column !important; align-items: center !important; }
   .aca-stats-bar { flex-direction: column !important; gap: 16px !important; }
   .aca-final-btns { flex-direction: column !important; align-items: center !important; }
+}
+@media (max-width: 640px) {
+  /* ACA comparison table: tighter on mobile, feature label spans full width */
+  .aca-compare-table {
+    grid-template-columns: 1fr 1fr !important;
+    font-size: 12px !important;
+    border-radius: 12px !important;
+  }
+  /* Hide empty corner cell */
+  .aca-compare-table > div:first-child { display: none !important; }
+  /* Feature labels (positions 4,7,10,13,16 — every 3n+1 after corner) */
+  .aca-compare-table > div:nth-child(3n+4) {
+    grid-column: 1 / -1 !important;
+    background: #f0eaf5 !important;
+    font-size: 11px !important;
+    text-transform: uppercase;
+    letter-spacing: .4px;
+    padding: 8px 12px !important;
+    color: #7b6587 !important;
+    border-top: 2px solid #e4d8f0 !important;
+  }
+  .aca-compare-table > div { padding: 10px 10px !important; line-height: 1.4; }
 }
 @media (max-width: 480px) {
   .aca-benefits-grid { grid-template-columns: 1fr !important; }
@@ -748,9 +772,9 @@ img { max-width: 100%; height: auto; }
   </div>
 
   <!-- ═══════ FOOTER ═══════ -->
-  <div style="background:#fff;color:#241a30;padding:56px 56px 24px;border-top:1px solid #ece5f0">
+  <div class="footer-wrap" style="background:#fff;color:#241a30;padding:56px 56px 24px;border-top:1px solid #ece5f0">
     <div style="max-width:1160px;margin:0 auto">
-      <div style="display:grid;grid-template-columns:1.3fr 1fr 1fr 1fr;gap:32px;margin-bottom:36px">
+      <div class="footer-grid" style="display:grid;grid-template-columns:1.3fr 1fr 1fr 1fr;gap:32px;margin-bottom:36px">
         <div>
           <img src="/images/logo.webp" alt="The Health Experts Insurance" style="height:70px;width:auto;margin-bottom:16px"/>
           <p style="font-size:13.5px;color:#6f6478;line-height:1.6;max-width:260px">Independent bilingual health insurance brokers. Office in Doral, FL.</p>

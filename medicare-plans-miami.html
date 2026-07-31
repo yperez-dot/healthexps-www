@@ -248,8 +248,7 @@ img { max-width: 100%; height: auto; }
   .three-col { grid-template-columns: 1fr !important; }
   .two-col   { grid-template-columns: 1fr !important; }
   .lead-grid { grid-template-columns: 1fr !important; gap: 32px !important; }
-  .comp-table { grid-template-columns: 1fr !important; }
-  .comp-table .ct-header, .comp-table .ct-cell, .comp-table .ct-label { text-align: left; }
+  /* comp-table: keep 3-col at 900px, fix at 640px below */
 }
 @media (max-width: 768px) {
   .v4-nav-desktop { display: none !important; }
@@ -264,6 +263,17 @@ img { max-width: 100%; height: auto; }
   .steps-grid { grid-template-columns: 1fr !important; }
   .myth-grid { grid-template-columns: 1fr !important; }
   .edu-grid { grid-template-columns: 1fr 1fr !important; }
+}
+@media (max-width: 640px) {
+  /* Comparison table: 2-col mobile (label spans full width, values side by side) */
+  .comp-table { grid-template-columns: 1fr 1fr !important; }
+  .comp-table .ct-header:first-child { display: none !important; }
+  .comp-table .ct-label { grid-column: 1 / -1; font-size: 11px; text-transform: uppercase; letter-spacing: .4px; background: #f0eaf5; padding: 8px 14px; color: #7b6587; }
+  .comp-table .ct-header { font-size: 13px; padding: 12px 10px; }
+  .comp-table .ct-cell { font-size: 12.5px; padding: 10px 8px; text-align: center; }
+  /* Footer: stack columns */
+  .footer-grid { grid-template-columns: 1fr !important; gap: 24px !important; }
+  .footer-wrap { padding: 40px 20px 88px !important; }
 }
 @media (max-width: 480px) {
   .hero-btns { flex-direction: column; align-items: flex-start; }
@@ -652,6 +662,10 @@ img { max-width: 100%; height: auto; }
                 <input type="checkbox" id="v4Consent" style="margin-top:3px"/>
                 <span style="color:#8a8093"><strong>Permission to Contact:</strong> I consent to receive e-mails, telephone calls, text messages, and artificial or pre-recorded messages from licensed insurance agents with The Health Experts Insurance, regarding health insurance plans and related products and services, at the e-mail address and telephone number provided above, including my wireless number (if provided), and regardless of whether it is on any do not call list, using an automated telephone dialing system. I understand that my wireless carrier&rsquo;s standard message and data rates apply. I understand that I may revoke this consent at any time. I understand that I have the option to speak with a licensed insurance agent without granting this consent by calling <a href="tel:18003806821" style="color:#452068;">1-800-380-6821</a> TTY 711.</span>
               </label>
+              <div style="margin-bottom:14px">
+                <label style="display:block;font-size:12px;font-weight:700;color:#241a30;margin-bottom:5px;text-transform:uppercase;letter-spacing:.3px">Additional Notes <span style="color:#a79db2;font-weight:400;text-transform:none">(optional)</span></label>
+                <textarea id="v4Notes" name="notes" rows="3" placeholder="Anything you'd like to share about your situation?" style="resize:vertical;width:100%;padding:12px 14px;border:1.5px solid #ddd2e6;border-radius:10px;font-family:Inter,sans-serif;font-size:14.5px;color:#241a30;background:white;outline:none;box-sizing:border-box;"></textarea>
+              </div>
               <p id="v4Error" style="display:none;color:#c40074;font-size:13px;margin-bottom:8px;">Please fill in all required fields.</p>
               <button id="v4Submit" type="submit" style="background:#ff1090;color:#fff;width:100%;padding:15px;border-radius:12px;border:none;font-size:15.5px;font-weight:700;cursor:pointer;font-family:Poppins,sans-serif;">Book My Free Consultation &rarr;</button>
             </form>
@@ -831,9 +845,9 @@ img { max-width: 100%; height: auto; }
   </div><!-- /main content -->
 
   <!-- FOOTER -->
-  <div style="background:#fff;color:#241a30;padding:56px 56px 24px;border-top:1px solid #ece5f0">
+  <div class="footer-wrap" style="background:#fff;color:#241a30;padding:56px 56px 24px;border-top:1px solid #ece5f0">
     <div style="max-width:1160px;margin:0 auto">
-      <div style="display:grid;grid-template-columns:1.3fr 1fr 1fr 1fr;gap:32px;margin-bottom:36px">
+      <div class="footer-grid" style="display:grid;grid-template-columns:1.3fr 1fr 1fr 1fr;gap:32px;margin-bottom:36px">
         <div>
           <img src="/images/logo.webp" alt="The Health Experts Insurance" style="height:70px;width:auto;margin-bottom:16px"/>
           <p style="font-size:13.5px;color:#6f6478;line-height:1.6;max-width:260px">Independent bilingual health insurance brokers. Office in Doral, FL.</p>
@@ -932,6 +946,7 @@ img { max-width: 100%; height: auto; }
           phone: phone,
           email: email,
           coverage_type: coverage,
+          notes: (document.getElementById('v4Notes') || {}).value || '',
           source: 'Medicare Plans Page Form',
           page: window.location.href,
           submitted_at: new Date().toISOString()
