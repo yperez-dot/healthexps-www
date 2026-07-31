@@ -330,37 +330,6 @@ input:focus, textarea:focus, select:focus { outline: 2px solid #ff1090; outline-
       </div>
     </div>
 
-    <!-- ELIGIBILITY CHECKER -->
-    <div class="section-pad" style="background:#fff;padding:48px 56px">
-      <div style="max-width:560px;margin:0 auto">
-        <h2 style="text-align:center;font-family:Poppins,sans-serif;font-size:24px;font-weight:700;color:#241a30;margin:0 0 8px">Check your eligibility</h2>
-        <p style="text-align:center;color:#6f6478;font-size:14px;margin:0 0 24px">Enter your income and household size &#8212; estimates only, assets matter too.</p>
-        <div style="background:#fff;border:1px solid #ece5f0;border-radius:22px;padding:32px;box-shadow:0 16px 40px rgba(69,32,104,.08)">
-          <label for="mspIncome" style="display:block;font-size:13px;font-weight:600;color:#4a4051;margin-bottom:6px">Monthly income (before taxes)</label>
-          <input type="number" id="mspIncome" placeholder="e.g. 1400" class="msp-form-input" style="margin-bottom:18px"/>
-          <label style="display:block;font-size:13px;font-weight:600;color:#4a4051;margin-bottom:8px">Household size</label>
-          <div style="display:flex;flex-direction:column;gap:10px;margin-bottom:20px">
-            <button id="mspIndBtn" class="msp-hs-btn active" onclick="setMspSize('individual')">Just me (individual)</button>
-            <button id="mspCplBtn" class="msp-hs-btn" onclick="setMspSize('couple')">Me + spouse (couple)</button>
-          </div>
-          <button onclick="calcMsp()" style="width:100%;border:none;padding:15px 20px;border-radius:10px;font-weight:700;font-size:14.5px;font-family:'Inter',sans-serif;cursor:pointer;background:#ff1090;color:#fff;box-sizing:border-box;transition:background .2s" onmouseover="this.style.background='#c40074'" onmouseout="this.style.background='#ff1090'">Check My Eligibility &#8594;</button>
-        </div>
-        <div id="mspResult" style="display:none;margin-top:22px">
-          <div style="background:#452068;border-radius:18px;padding:26px;color:#fff;text-align:center;margin-bottom:16px">
-            <div style="font-size:12px;font-weight:700;opacity:.75;letter-spacing:.06em;margin-bottom:8px">BASED ON YOUR INCOME</div>
-            <div id="mspResultTier" style="font-family:Poppins,sans-serif;font-weight:700;font-size:20px"></div>
-          </div>
-          <div style="background:#f7f2fb;border-radius:14px;padding:20px 22px;margin-bottom:18px">
-            <div id="mspResultBody" style="font-size:13.5px;color:#4a4051;line-height:1.6"></div>
-          </div>
-          <div style="text-align:center">
-            <a href="/contact" style="display:inline-block;background:#ff1090;color:#fff;padding:14px 24px;border-radius:999px;font-weight:700;font-size:14px">Get help applying &#8594;</a>
-            <div style="font-size:11.5px;color:#a79db2;margin-top:14px">Estimate only &#8212; actual eligibility also depends on assets.</div>
-          </div>
-        </div>
-      </div>
-    </div>
-
     <!-- WHAT IS MSP -->
     <div class="section-pad" style="background:#fdfaf7;padding:48px 56px">
       <div style="max-width:800px;margin:0 auto">
@@ -436,6 +405,37 @@ input:focus, textarea:focus, select:focus { outline: 2px solid #ff1090; outline-
           </div>
 
         </div><!-- /msp-programs-grid -->
+      </div>
+    </div>
+
+    <!-- ELIGIBILITY CHECKER -->
+    <div class="section-pad" style="background:#fff;padding:48px 56px">
+      <div style="max-width:560px;margin:0 auto">
+        <h2 style="text-align:center;font-family:Poppins,sans-serif;font-size:24px;font-weight:700;color:#241a30;margin:0 0 8px">Check your eligibility</h2>
+        <p style="text-align:center;color:#6f6478;font-size:14px;margin:0 0 24px">Enter your income and household size &#8212; estimates only, assets matter too.</p>
+        <div style="background:#fff;border:1px solid #ece5f0;border-radius:22px;padding:32px;box-shadow:0 16px 40px rgba(69,32,104,.08)">
+          <label for="mspIncome" style="display:block;font-size:13px;font-weight:600;color:#4a4051;margin-bottom:6px">Monthly income (before taxes)</label>
+          <input type="number" id="mspIncome" placeholder="e.g. 1400" class="msp-form-input" style="margin-bottom:18px"/>
+          <label style="display:block;font-size:13px;font-weight:600;color:#4a4051;margin-bottom:8px">Household size</label>
+          <div style="display:flex;flex-direction:column;gap:10px;margin-bottom:20px">
+            <button id="mspIndBtn" class="msp-hs-btn active" onclick="setMspSize('individual')">Just me (individual)</button>
+            <button id="mspCplBtn" class="msp-hs-btn" onclick="setMspSize('couple')">Me + spouse (couple)</button>
+          </div>
+          <button onclick="calcMsp()" style="width:100%;border:none;padding:15px 20px;border-radius:10px;font-weight:700;font-size:14.5px;font-family:'Inter',sans-serif;cursor:pointer;background:#ff1090;color:#fff;box-sizing:border-box;transition:background .2s" onmouseover="this.style.background='#c40074'" onmouseout="this.style.background='#ff1090'">Check My Eligibility &#8594;</button>
+        </div>
+        <div id="mspResult" style="display:none;margin-top:22px">
+          <div style="background:#452068;border-radius:18px;padding:26px;color:#fff;text-align:center;margin-bottom:16px">
+            <div style="font-size:12px;font-weight:700;opacity:.75;letter-spacing:.06em;margin-bottom:8px">BASED ON YOUR INCOME</div>
+            <div id="mspResultTier" style="font-family:Poppins,sans-serif;font-weight:700;font-size:20px"></div>
+          </div>
+          <div style="background:#f7f2fb;border-radius:14px;padding:20px 22px;margin-bottom:18px">
+            <div id="mspResultBody" style="font-size:13.5px;color:#4a4051;line-height:1.6"></div>
+          </div>
+          <div style="text-align:center">
+            <a href="/contact" style="display:inline-block;background:#ff1090;color:#fff;padding:14px 24px;border-radius:999px;font-weight:700;font-size:14px">Get help applying &#8594;</a>
+            <div style="font-size:11.5px;color:#a79db2;margin-top:14px">Estimate only &#8212; actual eligibility also depends on assets.</div>
+          </div>
+        </div>
       </div>
     </div>
 
