@@ -2,10 +2,14 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
+<link rel="icon" href="/favicon.ico" type="image/x-icon">
 <link rel="stylesheet" href="css/global.css">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>IRMAA Calculator 2026 | Health Experts</title>
 <meta name="description" content="Calculate your 2026 Medicare IRMAA surcharge based on your income. Estimate your Part B and Part D premium. Bilingual brokers in Miami help you for free.">
+<link rel="canonical" href="https://www.healthexps.com/irmaa-calculator/">
+<link rel="alternate" hreflang="en" href="https://www.healthexps.com/irmaa-calculator/">
+
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-SJSGF3E9MD"></script>
 <script>
@@ -14,346 +18,617 @@
   gtag('js', new Date());
   gtag('config', 'G-SJSGF3E9MD');
 </script>
-<style>
-*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
-body{font-family:Arial,Helvetica,sans-serif;background:#f4eefa;min-height:100vh;padding-bottom:60px;}
-input{font-family:Arial,Helvetica,sans-serif;}
-button{font-family:Arial,Helvetica,sans-serif;}
-a{text-decoration:none;}
 
-.header{background:#452068;padding:14px 24px;display:flex;justify-content:space-between;align-items:center;}
-.header-brand{color:white;font-weight:700;font-size:15px;}
-.lang-wrap{display:flex;gap:6px;}
-.lang-btn{background:transparent;border:1.5px solid rgba(255,255,255,0.4);border-radius:50px;padding:4px 14px;font-weight:700;font-size:13.5px;cursor:pointer;color:rgba(255,255,255,0.7);transition:all 0.2s;}
-.lang-btn.active{background:white;color:#452068;}
+<!-- Fonts: Inter + Poppins -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 
-.hero{overflow-x:hidden;background:linear-gradient(135deg,#311549 0%,#452068 70%);padding:40px 24px 56px;text-align:center;position:relative;}
-.hero::after{content:'';position:absolute;bottom:-1px;left:0;right:0;height:40px;background:#f4eefa;clip-path:ellipse(55% 100% at 50% 100%);}
-.hero-tag{display:inline-block;background:rgba(255,255,255,0.12);border:1px solid rgba(255,255,255,0.25);border-radius:50px;padding:5px 16px;color:white;font-size:13.5px;font-weight:700;margin-bottom:14px;letter-spacing:0.06em;text-transform:uppercase;}
-.hero h1{color:white;font-size:clamp(24px,5vw,32px);font-weight:700;margin-bottom:10px;line-height:1.2;}
-.hero p{color:rgba(255,255,255,0.85);font-size:16px;max-width:480px;margin:0 auto;}
-
-.shell{max-width:680px;margin:0 auto;padding:0 20px 60px;}
-
-.card{background:white;border-radius:16px;padding:28px;box-shadow:0 4px 24px rgba(69,32,104,0.12);margin-top:32px;}
-
-.field{margin-bottom:20px;}
-.field-label{display:block;font-size:13px;font-weight:700;color:#452068;text-transform:uppercase;letter-spacing:0.05em;margin-bottom:8px;}
-.input-wrap{position:relative;}
-.input-prefix{position:absolute;left:14px;top:50%;transform:translateY(-50%);color:#6b7280;font-size:16px;font-weight:600;pointer-events:none;}
-.field input{width:100%;height:48px;padding-left:28px;padding-right:14px;border:2px solid #e8e0f4;border-radius:10px;font-size:16px;outline:none;color:#111827;transition:border-color 0.2s;}
-.field input:focus{border-color:#452068;}
-.field input.no-prefix{padding-left:14px;}
-
-.toggle-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
-.toggle-btn{padding:12px 10px;border:2px solid #e8e0f4;border-radius:10px;background:white;color:#6b7280;font-weight:400;font-size:14px;cursor:pointer;text-align:center;transition:all 0.15s;}
-.toggle-btn.active{border-color:#452068;background:#f4eefa;color:#452068;font-weight:700;}
-
-.calc-btn{width:100%;height:52px;background:#ff1090;color:white;border:none;border-radius:50px;font-size:17px;font-weight:700;cursor:pointer;transition:all 0.2s;letter-spacing:0.01em;margin-top:4px;}
-.calc-btn:hover{background:#d4006d;}
-
-/* RESULTS */
-.result-wrap{margin-top:20px;}
-
-.tier-badge{border-radius:16px;padding:20px 24px;margin-bottom:16px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;border:2px solid;}
-.tier-badge-label{font-size:13.5px;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;margin-bottom:4px;}
-.tier-badge-income{font-size:15px;color:#6b7280;}
-.tier-badge-amount{font-size:28px;font-weight:700;}
-
-.result-card{background:white;border-radius:14px;padding:20px 24px;box-shadow:0 2px 16px rgba(69,32,104,0.10);margin-bottom:16px;}
-.result-section-title{font-size:13px;font-weight:700;color:#452068;text-transform:uppercase;letter-spacing:0.05em;margin-bottom:16px;}
-.result-row{display:flex;justify-content:space-between;align-items:center;padding:10px 0;border-bottom:1px solid #f4eefa;}
-.result-row:last-child{border-bottom:none;}
-.result-row-label{font-size:15px;color:#6b7280;}
-.result-row-label.highlight{color:#dc2626;}
-.result-row-value{font-size:15px;font-weight:700;color:#111827;}
-.result-row-value.highlight{color:#dc2626;}
-.result-total-row{display:flex;justify-content:space-between;align-items:center;padding:14px 0 0;margin-top:4px;}
-.result-total-label{font-size:16px;font-weight:700;color:#452068;}
-.result-total-value{font-size:26px;font-weight:700;color:#452068;}
-.result-total-unit{font-size:14px;font-weight:400;color:#6b7280;}
-.result-annual-row{display:flex;justify-content:space-between;align-items:center;padding:6px 0 0;}
-.result-annual-label{font-size:14px;color:#6b7280;}
-.result-annual-value{font-size:18px;font-weight:700;color:#6b7280;}
-
-.no-irmaa{background:#f0fdf4;border:2px solid #16a34a;border-radius:14px;padding:20px 24px;margin-bottom:16px;}
-.no-irmaa-title{font-size:18px;font-weight:700;color:#16a34a;margin-bottom:6px;}
-.no-irmaa-desc{font-size:15px;color:#166534;line-height:1.6;}
-
-.appeal-box{background:#fffbeb;border:2px solid #fde68a;border-left:4px solid #d97706;border-radius:14px;padding:18px 20px;margin-bottom:16px;}
-.appeal-title{font-size:15px;font-weight:700;color:#92400e;margin-bottom:6px;}
-.appeal-desc{font-size:14px;color:#78350f;line-height:1.7;margin-bottom:12px;}
-.appeal-btn{display:inline-block;background:#d97706;color:white;padding:10px 20px;border-radius:50px;font-size:14px;font-weight:700;}
-
-.tiers-toggle{width:100%;background:white;border:2px solid #452068;border-radius:12px;padding:12px 20px;color:#452068;font-weight:700;font-size:14px;cursor:pointer;margin-bottom:8px;transition:all 0.2s;}
-.tiers-toggle:hover{background:#f4eefa;}
-
-.tiers-table{background:white;border-radius:14px;padding:20px 24px;box-shadow:0 2px 16px rgba(69,32,104,0.10);margin-bottom:16px;}
-.tier-row{display:flex;justify-content:space-between;align-items:center;padding:12px 14px;border-radius:10px;margin-bottom:8px;background:#f9fafb;border:2px solid transparent;transition:all 0.15s;}
-.tier-row.yours{border-color:var(--tc-border);background:var(--tc-bg);}
-.tier-row-info{}
-.tier-row-name{font-size:13px;font-weight:700;color:#6b7280;margin-bottom:2px;}
-.tier-row-name.yours{color:var(--tc-text);}
-.tier-row-income{font-size:13.5px;color:#9ca3af;}
-.tier-row-premium{font-size:18px;font-weight:700;color:#111827;}
-.tier-row-premium.yours{color:var(--tc-text);}
-.tier-row-unit{font-size:13.5px;color:#9ca3af;}
-
-.cta-box{background:linear-gradient(135deg,#311549,#452068);border-radius:16px;padding:24px;text-align:center;margin-bottom:16px;}
-.cta-title{font-size:18px;font-weight:700;color:white;margin-bottom:8px;}
-.cta-desc{font-size:14px;color:rgba(255,255,255,0.85);margin-bottom:20px;line-height:1.6;}
-.cta-btn{display:inline-block;background:#ff1090;color:white;padding:13px 28px;border-radius:50px;font-weight:700;font-size:15px;}
-.cta-btn:hover{background:#d4006d;}
-
-@media(max-width:480px){
-  .hero{overflow-x:hidden;padding:32px 20px 48px;}
-  .card{padding:20px 16px;}
-  .toggle-grid{grid-template-columns:1fr;}
-  .tier-badge{flex-direction:column;align-items:flex-start;}
-}
-</style>
-<link rel="canonical" href="https://www.healthexps.com/irmaa-calculator/">
-<script type="application/ld+json">{"@context": "https://schema.org", "@type": "InsuranceAgency", "name": "The Health Experts Insurance", "url": "https://www.healthexps.com", "telephone": "+18003806821", "address": {"@type": "PostalAddress", "streetAddress": "1695 NW 110 Ave, Suite 224", "addressLocality": "Doral", "addressRegion": "FL", "postalCode": "33172", "addressCountry": "US"}, "areaServed": ["Miami-Dade County", "Broward County", "Florida"], "priceRange": "Free", "description": "Independent bilingual health insurance brokers in Doral, FL. We compare 14+ carriers for Medicare, ACA, and private health insurance at no cost."}</script>
+<!-- JSON-LD: InsuranceAgency -->
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"InsuranceAgency","name":"The Health Experts Insurance","url":"https://www.healthexps.com","telephone":"+18003806821","address":{"@type":"PostalAddress","streetAddress":"1695 NW 110 Ave, Suite 224","addressLocality":"Doral","addressRegion":"FL","postalCode":"33172","addressCountry":"US"},"areaServed":["Miami-Dade County","Broward County","Florida"],"priceRange":"Free","description":"Independent bilingual health insurance brokers in Doral, FL. We compare 14+ carriers for Medicare, ACA, and private health insurance at no cost."}</script>
+<!-- JSON-LD: BreadcrumbList -->
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "BreadcrumbList",
   "itemListElement": [
-    {
-      "@type": "ListItem",
-      "position": 1,
-      "name": "Home",
-      "item": "https://www.healthexps.com"
-    },
-    {
-      "@type": "ListItem",
-      "position": 2,
-      "name": "Calculadora IRMAA 2026",
-      "item": "https://www.healthexps.com/irmaa-calculator"
-    }
+    {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.healthexps.com"},
+    {"@type": "ListItem", "position": 2, "name": "Resources", "item": "https://www.healthexps.com/resources"},
+    {"@type": "ListItem", "position": 3, "name": "IRMAA Calculator 2026", "item": "https://www.healthexps.com/irmaa-calculator"}
   ]
 }
 </script>
+<!-- JSON-LD: WebPage -->
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "WebPage",
-  "name": "Calculadora IRMAA 2026",
+  "name": "IRMAA Calculator 2026",
   "url": "https://www.healthexps.com/irmaa-calculator",
   "inLanguage": "en",
-  "isPartOf": {
-    "@type": "WebSite",
-    "url": "https://www.healthexps.com"
-  }
+  "isPartOf": {"@type": "WebSite", "url": "https://www.healthexps.com"}
 }
 </script>
+
+<style>
+/* ============================================================
+   RESET & BASE — Inter + Poppins, THEI brand
+   Purple #452068 | Pink #ff1090
+   ============================================================ */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html, body { overflow-x: hidden; max-width: 100%; }
+body {
+  font-family: 'Inter', Arial, Helvetica, sans-serif;
+  color: #241a30;
+  line-height: 1.65;
+  font-size: 16px;
+  background: #fff;
+  -webkit-font-smoothing: antialiased;
+}
+a { color: #452068; text-decoration: none; }
+a:hover { color: #ff1090; }
+img { max-width: 100%; height: auto; }
+
+/* ============================================================
+   NAV — v4 desktop + mobile
+   ============================================================ */
+.v4-nav-dropdown { display: none; }
+.v4-nav-item:hover .v4-nav-dropdown { display: block; }
+.v4-nav-mobile-btn { display: none; background: none; border: none; cursor: pointer; padding: 8px; }
+#v4-mobile-menu {
+  display: none; position: fixed; top: 0; left: 0; right: 0; bottom: 0;
+  background: #fff; z-index: 999; overflow-y: auto; padding: 24px;
+}
+#v4-mobile-menu.open { display: block; }
+@media (max-width: 900px) {
+  .v4-nav-desktop { display: none !important; }
+  .v4-nav-mobile-btn { display: flex !important; align-items: center; }
+}
+@media (min-width: 901px) {
+  .v4-nav-mobile-btn { display: none !important; }
+  .v4-nav-desktop { display: flex !important; }
+}
+
+/* ============================================================
+   UTILITY BAR
+   ============================================================ */
+.top-bar-wrap {
+  background: #2f1550;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 9px 56px;
+  font-size: 13px;
+  flex-wrap: wrap;
+  gap: 8px;
+  font-family: 'Inter', sans-serif;
+}
+.top-bar-left { display: flex; align-items: center; gap: 14px; }
+.top-bar-right { display: flex; align-items: center; gap: 16px; }
+
+/* Language toggle */
+.lang-toggle {
+  display: flex;
+  align-items: center;
+  border: 1.5px solid rgba(255,255,255,0.4);
+  border-radius: 50px;
+  overflow: hidden;
+}
+.lang-btn {
+  background: transparent;
+  border: none;
+  font-size: 13.5px;
+  font-weight: 700;
+  padding: 3px 10px;
+  color: rgba(255,255,255,0.75);
+  cursor: pointer;
+  font-family: 'Inter', sans-serif;
+  transition: all 0.15s;
+}
+.lang-btn.active { background: white; color: #452068; }
+
+/* ============================================================
+   BREADCRUMB
+   ============================================================ */
+.irmaa-breadcrumb {
+  padding: 14px 56px;
+  background: #f7f2fb;
+  font-size: 13px;
+  color: #6f6478;
+  font-family: 'Inter', sans-serif;
+}
+.irmaa-breadcrumb a { color: #452068; font-weight: 600; }
+.irmaa-breadcrumb a:hover { color: #ff1090; }
+
+/* ============================================================
+   HERO
+   ============================================================ */
+.irmaa-hero {
+  background: linear-gradient(135deg, #fdfaf7 0%, #f7f2fb 100%);
+  padding: 56px 56px 48px;
+  text-align: center;
+}
+.irmaa-hero-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: #fff0f8;
+  color: #c40074;
+  padding: 8px 16px;
+  border-radius: 999px;
+  font-size: 13px;
+  font-weight: 700;
+  margin-bottom: 18px;
+  font-family: 'Inter', sans-serif;
+}
+.irmaa-hero h1 {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 700;
+  font-size: 34px;
+  line-height: 1.25;
+  color: #241a30;
+  margin: 0 0 14px;
+}
+.irmaa-hero-sub {
+  font-size: 15.5px;
+  line-height: 1.6;
+  color: #6f6478;
+  margin: 0 auto 10px;
+  max-width: 520px;
+}
+.irmaa-hero-link {
+  display: inline-block;
+  cursor: pointer;
+  font-size: 13.5px;
+  font-weight: 700;
+  color: #c40074;
+  text-decoration: none;
+}
+.irmaa-hero-link:hover { color: #ff1090; }
+
+/* ============================================================
+   CALCULATOR SECTION
+   ============================================================ */
+.calc-section {
+  background: #fff;
+  padding: 48px 56px 80px;
+}
+.calc-inner {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* Warning box */
+.irmaa-warning {
+  background: #fff7ec;
+  border: 1px solid #f3d9a8;
+  border-radius: 14px;
+  padding: 18px 22px;
+  display: flex;
+  gap: 14px;
+  align-items: flex-start;
+  margin-bottom: 24px;
+}
+.irmaa-warning-icon {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: #f0a500;
+  color: #fff;
+  font-weight: 800;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  font-size: 16px;
+  font-style: normal;
+}
+.irmaa-warning-text {
+  font-size: 13.5px;
+  color: #5a4a2f;
+  line-height: 1.55;
+}
+
+/* Calculator card */
+.calc-card {
+  background: #fff;
+  border: 1px solid #ece5f0;
+  border-radius: 22px;
+  padding: 36px;
+  box-shadow: 0 16px 40px rgba(69,32,104,.08);
+}
+
+/* Labels — 14px */
+.calc-label {
+  display: block;
+  font-size: 14px;
+  font-weight: 600;
+  color: #4a4051;
+  margin-bottom: 6px;
+  font-family: 'Inter', sans-serif;
+}
+
+/* Inputs — 16px, 2px border */
+.calc-input {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 13px 14px;
+  border-radius: 10px;
+  border: 2px solid #ddd2e6;
+  font-size: 16px;
+  font-family: 'Inter', sans-serif;
+  color: #241a30;
+  margin-bottom: 20px;
+  outline: none;
+  transition: border-color 0.2s;
+}
+.calc-input:focus { border-color: #452068; }
+.calc-input:last-of-type { margin-bottom: 22px; }
+
+/* Filing status chips */
+.filing-chips {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+.filing-chip {
+  padding: 13px 16px;
+  border-radius: 10px;
+  border: 2px solid #ddd2e6;
+  cursor: pointer;
+  font-size: 14px;
+  color: #4a4051;
+  background: #fff;
+  transition: border-color 0.15s, background 0.15s, color 0.15s;
+  font-family: 'Inter', sans-serif;
+  text-align: left;
+  user-select: none;
+}
+.filing-chip.active {
+  border-color: #452068;
+  background: #f7f2fb;
+  color: #452068;
+  font-weight: 700;
+}
+
+/* Calculate button */
+.calc-btn-primary {
+  width: 100%;
+  border: none;
+  padding: 15px 20px;
+  border-radius: 10px;
+  font-weight: 700;
+  font-size: 14.5px;
+  font-family: 'Inter', sans-serif;
+  cursor: pointer;
+  background: #ff1090;
+  color: #fff;
+  box-sizing: border-box;
+  transition: background 0.2s;
+}
+.calc-btn-primary:hover { background: #c40074; }
+
+/* Results wrapper */
+#result-wrap { margin-top: 24px; }
+
+/* Fine print — 13.5px */
+.irmaa-fine-print {
+  font-size: 13.5px;
+  color: #a79db2;
+  text-align: center;
+  margin-top: 8px;
+  line-height: 1.5;
+}
+
+/* ============================================================
+   FOOTER
+   ============================================================ */
+.footer-wrap {
+  background: #fff;
+  color: #241a30;
+  padding: 56px 56px 24px;
+  border-top: 1px solid #ece5f0;
+  font-family: 'Inter', sans-serif;
+}
+.footer-inner { max-width: 1160px; margin: 0 auto; }
+.footer-grid {
+  display: grid;
+  grid-template-columns: 1.3fr 1fr 1fr 1fr;
+  gap: 32px;
+  margin-bottom: 36px;
+}
+
+/* ============================================================
+   SCROLL TO TOP
+   ============================================================ */
+#scrollToTop {
+  position: fixed; bottom: 28px; right: 28px;
+  width: 44px; height: 44px;
+  background: #452068; color: white;
+  border: none; border-radius: 50%;
+  font-size: 18px; cursor: pointer;
+  display: none;
+  align-items: center; justify-content: center;
+  box-shadow: 0 4px 14px rgba(69,32,104,.3);
+  transition: background 0.2s, transform 0.2s;
+  z-index: 999;
+}
+#scrollToTop:hover { background: #ff1090; transform: translateY(-3px); }
+
+/* ============================================================
+   MOBILE RESPONSIVE — mandatory breakpoints
+   ============================================================ */
+@media (max-width: 768px) {
+  .top-bar-wrap { padding: 9px 20px; }
+  .v4-nav-outer { padding-left: 20px !important; padding-right: 20px !important; }
+  .irmaa-breadcrumb { padding: 12px 20px; }
+  .top-bar-right { flex-wrap: wrap; justify-content: flex-end; gap: 8px; }
+}
+
+@media (max-width: 640px) {
+  /* Section paddings: 56px → 20px */
+  .irmaa-hero { padding: 20px 20px 32px; }
+  .calc-section { padding: 24px 16px 56px; }
+  .irmaa-breadcrumb { padding: 10px 16px; }
+  .footer-wrap { padding: 32px 20px 20px; }
+
+  /* Hero */
+  .irmaa-hero h1 { font-size: 26px; }
+  .irmaa-hero-sub { font-size: 14px; }
+
+  /* Calc card */
+  .calc-card { padding: 20px 16px; border-radius: 16px; }
+
+  /* ALL 2-col grids → 1-col */
+  .irmaa-results-grid { grid-template-columns: 1fr !important; }
+
+  /* Override dynamically generated 2-col result grids from JS */
+  #result-wrap div[style*="grid-template-columns:1fr 1fr"] {
+    grid-template-columns: 1fr !important;
+  }
+
+  /* Footer: 4-col → 1-col */
+  .footer-grid { grid-template-columns: 1fr !important; gap: 24px !important; }
+
+  /* Top bar */
+  .top-bar-wrap { padding: 9px 16px; }
+  .top-bar-right { gap: 8px; }
+
+  /* Scroll-to-top */
+  #scrollToTop { bottom: 18px; right: 18px; width: 40px; height: 40px; font-size: 16px; }
+}
+</style>
 </head>
-<body>
-<header style="position:sticky;top:0;z-index:100;box-shadow:0 2px 12px rgba(69,32,104,0.12);">
-  <div style="background:#452068;padding:8px 0;">
-    <div style="max-width:1060px;margin:0 auto;padding:0 24px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px;">
-      <div style="display:flex;align-items:center;gap:16px;">
-        <a href="tel:18003806821" style="color:white;font-size:14px;font-weight:700;text-decoration:none;display:flex;align-items:center;gap:6px;">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 1.27h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.91a16 16 0 0 0 6.29 6.29l.91-.91a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-          1-800-380-6821
-        </a>
-        <span style="color:rgba(255,255,255,0.4);">|</span>
-        <span style="color:rgba(255,255,255,0.75);font-size:13px;">English &amp; Spanish</span>
+
+<body style="font-family:'Inter',Arial,Helvetica,sans-serif;color:#241a30;background:#fff">
+
+  <!-- ===== UTILITY BAR ===== -->
+  <div class="top-bar-wrap">
+    <div class="top-bar-left">
+      <a href="tel:18003806821" style="color:#fff;font-weight:700;text-decoration:none;">1-800-380-6821</a>
+      <span style="opacity:.5">|</span>
+      <span style="opacity:.85">English &amp; Espa&ntilde;ol</span>
+    </div>
+    <div class="top-bar-right">
+      <a href="https://wa.me/13054646888" style="color:#fff;opacity:.9;font-weight:600;text-decoration:none;" onclick="gtag('event','whatsapp_click',{'page':window.location.pathname})">WhatsApp</a>
+      <a href="https://calendly.com/healthexps-info/" target="_blank" rel="noopener" style="background:#ff1090;color:#fff;padding:7px 16px;border-radius:999px;font-weight:700;font-size:12.5px;text-decoration:none;">Schedule Free Consultation</a>
+      <div class="lang-toggle">
+        <button id="btn-en" class="lang-btn active" onclick="setLang('en')">EN</button>
+        <button id="btn-es" class="lang-btn" onclick="setLang('es')">ES</button>
       </div>
-      <div style="display:flex;align-items:center;gap:10px;">
-        <a href="https://wa.me/13054646888" target="_blank" rel="noopener" style="background:#25D366;color:white;display:inline-flex;align-items:center;gap:6px;padding:8px 14px;border-radius:50px;font-weight:700;font-size:13px;text-decoration:none;" onclick="gtag('event','whatsapp_click',{'page':window.location.pathname})">
-          <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.123.556 4.116 1.526 5.845L0 24l6.335-1.508A11.945 11.945 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.818 9.818 0 01-5.006-1.368l-.359-.214-3.728.887.916-3.636-.234-.374A9.818 9.818 0 1112 21.818z"/></svg>
-          WhatsApp
-        </a>
-        <a href="https://calendly.com/healthexps-info/" target="_blank" rel="noopener" style="background:#ff1090;color:white;display:inline-block;padding:8px 18px;border-radius:50px;font-weight:700;font-size:13px;text-decoration:none;">Schedule Free Consultation →</a>
-        <div style="display:flex;align-items:center;border:1.5px solid rgba(255,255,255,0.4);border-radius:50px;overflow:hidden;">
-          <span style="background:white;color:#452068;font-size:13.5px;font-weight:700;padding:3px 10px;">EN</span>
-          <a href="https://www.healthexps.com/es/planes-de-medicare-miami" style="font-size:13.5px;font-weight:700;padding:3px 10px;color:rgba(255,255,255,0.75);text-decoration:none;">ES</a>
+    </div>
+  </div>
+
+  <!-- ===== NAV ===== -->
+  <div class="v4-nav-outer" style="display:flex;align-items:center;justify-content:space-between;padding:14px 56px;border-bottom:1px solid #ece5f0;position:sticky;top:0;background:#fff;z-index:500">
+    <a href="/"><img src="/images/logo.webp" alt="The Health Experts Insurance" style="height:80px;width:auto;cursor:pointer"/></a>
+    <div class="v4-nav-desktop" style="display:flex;align-items:center;gap:26px;font-size:14.5px;font-weight:600;color:#3a2f47">
+      <a href="/" style="cursor:pointer;color:#3a2f47;">Home</a>
+      <div class="v4-nav-item" style="position:relative">
+        <a href="/medicare-plans-miami" style="cursor:pointer;display:flex;align-items:center;gap:4px;color:#3a2f47;">Insurance &#9662;</a>
+        <div class="v4-nav-dropdown" style="position:absolute;top:100%;left:-14px;padding-top:12px;z-index:20">
+          <div style="background:#fff;border:2px solid #ece5f0;border-radius:12px;box-shadow:0 16px 36px rgba(69,32,104,.16);padding:8px;min-width:230px;display:flex;flex-direction:column">
+            <a href="/medicare-plans-miami" style="padding:10px 14px;border-radius:8px;font-weight:600;color:#3a2f47;">Medicare Plans</a>
+            <a href="/private-health-insurance-miami" style="padding:10px 14px;border-radius:8px;font-weight:600;color:#3a2f47;">Private Health Insurance</a>
+            <a href="/aca-plans-miami" style="padding:10px 14px;border-radius:8px;font-weight:600;color:#3a2f47;">ACA Marketplace Plans</a>
+            <a href="/cobra-alternatives-miami" style="padding:10px 14px;border-radius:8px;color:#3a2f47;font-weight:600;">COBRA Alternatives</a>
+            <a href="/dental-vision-miami" style="padding:10px 14px;border-radius:8px;font-weight:600;color:#3a2f47;">Dental &amp; Vision</a>
+          </div>
         </div>
       </div>
+      <div class="v4-nav-item" style="position:relative">
+        <span style="cursor:pointer;display:flex;align-items:center;gap:4px">Guides &#9662;</span>
+        <div class="v4-nav-dropdown" style="position:absolute;top:100%;left:-14px;padding-top:12px;z-index:20">
+          <div style="background:#fff;border:2px solid #ece5f0;border-radius:12px;box-shadow:0 16px 36px rgba(69,32,104,.16);padding:8px;min-width:240px;display:flex;flex-direction:column">
+            <a href="/medicare/what-is-medicare" style="padding:10px 14px;border-radius:8px;font-weight:600;color:#3a2f47;">What Is Medicare</a>
+            <a href="/medicare/new-to-medicare" style="padding:10px 14px;border-radius:8px;font-weight:600;color:#3a2f47;">New to Medicare</a>
+            <a href="/medicare/medicare-costs" style="padding:10px 14px;border-radius:8px;font-weight:600;color:#3a2f47;">Medicare Costs &amp; IRMAA</a>
+            <a href="/medicare-advantage-miami" style="padding:10px 14px;border-radius:8px;font-weight:600;color:#3a2f47;">Medicare Advantage Guide</a>
+            <a href="/medicare-supplement-miami" style="padding:10px 14px;border-radius:8px;font-weight:600;color:#3a2f47;">Medicare Supplement Guide</a>
+            <a href="/medicare-savings-program" style="padding:10px 14px;border-radius:8px;font-weight:600;color:#3a2f47;">Medicare Savings Program</a>
+            <a href="/find-my-plan" style="padding:10px 14px;border-radius:8px;font-weight:600;color:#3a2f47;">Find My Plan Quiz</a>
+          </div>
+        </div>
+      </div>
+      <a href="/faq" style="cursor:pointer;color:#3a2f47;">FAQ</a>
+      <a href="/resources" style="cursor:pointer;color:#3a2f47;">Resources</a>
+      <a href="/blog" style="cursor:pointer;color:#3a2f47;">Blog</a>
+      <a href="/medicare-agent-miami" style="padding:10px 14px;border-radius:8px;font-weight:600;color:#3a2f47;">About Us</a>
+      <a href="/contact" style="cursor:pointer;color:#3a2f47;">Contact</a>
+    </div>
+    <div style="display:flex;align-items:center;gap:12px">
+      <a href="tel:18003806821" class="v4-nav-desktop" style="color:#241a30;font-weight:700;font-size:14.5px;text-decoration:none;">1-800-380-6821</a>
+      <a href="/contact" class="v4-nav-desktop" style="background:#452068;color:#fff;padding:11px 20px;border-radius:10px;font-weight:700;font-size:14px;text-decoration:none;">Free Consultation</a>
+      <button class="v4-nav-mobile-btn" id="v4HamburgerBtn" aria-label="Open menu" aria-expanded="false" aria-controls="v4-mobile-menu">
+        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#241a30" stroke-width="2.2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+      </button>
     </div>
   </div>
-  <div style="background:white;border-bottom:2px solid #f4eefa;">
-    <div style="max-width:1060px;margin:0 auto;padding:0 24px;">
-      <nav style="display:flex;align-items:center;justify-content:space-between;height:76px;">
-        <a href="/"><img src="/images/logo.webp" alt="The Health Experts Insurance" style="height:72px;width:auto;display:block;"></a>
-        <ul id="nav-links" style="display:flex;align-items:center;gap:4px;list-style:none;margin:0;padding:0;position:relative;">
-          <button id="nav-close-btn" style="display:none;position:absolute;top:8px;right:12px;background:none;border:none;font-size:28px;font-weight:400;color:#452068;cursor:pointer;line-height:1;padding:4px 8px;" aria-label="Close menu">×</button>
-          <li><a href="/" style="padding:8px 12px;color:#452068;font-weight:600;font-size:14px;border-radius:6px;text-decoration:none;">Home</a></li>
-          <li style="position:relative;" class="has-dropdown">
-            <a href="/medicare-plans-miami" style="padding:8px 12px;color:#452068;font-weight:600;font-size:14px;border-radius:6px;text-decoration:none;background:#f4eefa;">Insurance ▾</a>
-            <ul style="display:none;position:absolute;top:100%;left:0;min-width:210px;background:white;border-radius:12px;box-shadow:0 8px 24px rgba(0,0,0,0.12);border-top:3px solid #ff1090;padding:8px 0;z-index:200;list-style:none;margin:0;" class="dropdown">
-              <li><a href="/medicare-plans-miami" style="display:block;padding:10px 18px;color:#452068;font-size:14px;font-weight:700;text-decoration:none;">Medicare Plans</a></li>
-              <li><a href="/private-health-insurance-miami" style="display:block;padding:10px 18px;color:#555;font-size:14px;text-decoration:none;">Private Health Insurance</a></li>
-              <li><a href="/aca-plans-miami" style="display:block;padding:10px 18px;color:#555;font-size:14px;text-decoration:none;">ACA Marketplace Plans</a></li>
-              <li><a href="/cobra-alternatives-miami" style="display:block;padding:10px 18px;color:#555;font-size:14px;text-decoration:none;">COBRA Alternatives</a></li>
-              <li><a href="/dental-vision-miami" style="display:block;padding:10px 18px;color:#555;font-size:14px;text-decoration:none;">Dental &amp; Vision</a></li>
-            </ul>
-          </li>
-          <li style="position:relative;" class="has-dropdown">
-            <a href="/medicare/what-is-medicare" style="padding:8px 12px;color:#452068;font-weight:600;font-size:14px;border-radius:6px;text-decoration:none;">Guides ▾</a>
-            <ul style="display:none;position:absolute;top:100%;left:0;min-width:210px;background:white;border-radius:12px;box-shadow:0 8px 24px rgba(0,0,0,0.12);border-top:3px solid #ff1090;padding:8px 0;z-index:200;list-style:none;margin:0;" class="dropdown">
-              <li><a href="/medicare/what-is-medicare" style="display:block;padding:10px 18px;color:#452068;font-size:14px;font-weight:700;text-decoration:none;">What Is Medicare</a></li>
-              <li><a href="/medicare/new-to-medicare" style="display:block;padding:10px 18px;color:#555;font-size:14px;text-decoration:none;">New to Medicare</a></li>
-              <li><a href="/medicare/medicare-costs" style="display:block;padding:10px 18px;color:#555;font-size:14px;text-decoration:none;">Medicare Costs & IRMAA</a></li>
-              <li><a href="/medicare-advantage-miami" style="display:block;padding:10px 18px;color:#555;font-size:14px;text-decoration:none;">Medicare Advantage Guide</a></li>
-              <li><a href="/medicare-supplement-miami" style="display:block;padding:10px 18px;color:#555;font-size:14px;text-decoration:none;">Medicare Supplement Guide</a></li>
-              <li><a href="/medicare-savings-program" style="display:block;padding:10px 18px;color:#555;font-size:14px;text-decoration:none;">Medicare Savings Program</a></li>
-            </ul>
-          </li>
-          <li><a href="/faq" style="padding:8px 12px;color:#452068;font-weight:600;font-size:14px;border-radius:6px;text-decoration:none;">FAQ</a></li>
-          <li style="position:relative;">
-            <a href="/resources" style="padding:8px 12px;color:#452068;font-weight:600;font-size:14px;border-radius:6px;text-decoration:none;">Resources</a>
-          </li>
-          <li><a href="/blog" style="padding:8px 12px;color:#452068;font-weight:600;font-size:14px;border-radius:6px;text-decoration:none;">Blog</a></li>
-          <li><a href="/medicare-agent-miami" style="padding:8px 12px;color:#452068;font-weight:600;font-size:14px;border-radius:6px;text-decoration:none;">About Us</a></li>
-          <li><a href="/contact" style="padding:8px 12px;color:#452068;font-weight:600;font-size:14px;border-radius:6px;text-decoration:none;">Contact</a></li>
-        </ul>
-        <button id="nav-toggle" style="display:none;background:none;border:none;cursor:pointer;padding:8px;" aria-label="Menu">
-          <span style="display:block;width:24px;height:2px;background:#452068;margin:5px 0;border-radius:2px;"></span>
-          <span style="display:block;width:24px;height:2px;background:#452068;margin:5px 0;border-radius:2px;"></span>
-          <span style="display:block;width:24px;height:2px;background:#452068;margin:5px 0;border-radius:2px;"></span>
-        </button>
-      </nav>
-    </div>
-  </div>
-</header>
-<style>
- .dropdown a:hover{background:#f4eefa !important;color:#452068 !important;}
- li:hover > .dropdown{display:block !important;}
- @media (max-width: 768px) {
-  #nav-toggle { display: block !important; }
-  #nav-links { display: none !important; }
-  #nav-links.open {
-    display: flex !important;
-    flex-direction: column;
-    position: fixed !important;
-    top: 0 !important;
-    right: 0 !important;
-    bottom: auto;
-    left: 15% !important;
-    width: 85% !important;
-    max-width: none !important;
-    height: auto;
-    min-height: auto;
-    max-height: 100vh;
-    background: white;
-    padding: 56px 24px 24px;
-    box-shadow: -4px 0 24px rgba(0,0,0,0.15);
-    gap: 12px;
-    z-index: 999;
-    text-align: left;
-    align-items: flex-start;
-    overflow-y: auto;
-  }
-  #nav-links.open > li { width: 100%; }
-  #nav-links.open > li > a {
-    display: block;
-    text-align: left;
-    font-size: 18px;
-    font-weight: 700;
-    color: #452068;
-    padding: 8px 0;
-    width: 100%;
-    white-space: nowrap;
-    overflow: visible;
-  }
-  #nav-links.open #nav-close-btn {
-    display: block !important;
-    position: fixed;
-    top: 12px;
-    right: 16px;
-    z-index: 1000;
-    font-size: 28px;
-    font-weight: 300;
-    color: #452068;
-    background: none;
-    border: none;
-    cursor: pointer;
-  }
-  #nav-links .dropdown {
-    display: none !important;
-    position: static !important;
-    box-shadow: none !important;
-    border: none !important;
-    padding: 4px 0 4px 16px !important;
-    background: #f9f7fc;
-    border-radius: 8px;
-    margin-top: 4px;
-  }
-  #nav-links .dropdown a {
-    font-size: 16px !important;
-    font-weight: 500 !important;
-    padding: 6px 12px !important;
-    white-space: nowrap !important;
-    overflow: visible !important;
-    display: block !important;
-    color: #452068 !important;
-  }
-  #nav-links li.open .dropdown { display: block !important; }
- }
- @media (min-width: 769px) {
-  #nav-toggle { display: none !important; }
-  #nav-links { display: flex !important; }
- }
-</style>
-<div style="padding:10px 24px;">
-  <a href="/resources" style="display:inline-flex;align-items:center;gap:6px;font-size:14px;font-weight:600;color:#452068;text-decoration:none;">
-    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 5l-7 7 7 7"/></svg>
-    Back to Resources
-  </a>
-</div>
 
-<div class="hero">
-  <div class="hero-tag" id="hero-tag">Free tool · 2026</div>
-  <h1 id="hero-title">2026 IRMAA Calculator</h1>
-  <p id="hero-sub">Find out exactly what you'll pay for Medicare based on your income.</p>
-</div>
-
-<div style="max-width:900px;margin:20px auto;padding:0 24px;">
-  <p id="intro-text" style="font-size:15px;color:#555;line-height:1.8;text-align:center;">Medicare uses your income from 2 years ago to determine if you owe an IRMAA surcharge on top of your standard Part B and Part D premiums. Enter your 2024 Modified Adjusted Gross Income (MAGI) below to see exactly what you'll pay in 2026. Results are estimates — if your income has changed significantly, you may be able to appeal your IRMAA. A licensed broker can help you understand your options at no cost.</p>
-</div>
-
-<div class="shell">
-  <div class="card">
-    <div class="field">
-      <label class="field-label" id="lbl-income">2024 Modified Adjusted Gross Income (MAGI)</label>
-      <div style="background:#fff8e7;border:2px solid #fcd34d;border-radius:10px;padding:10px 14px;margin-bottom:10px;display:flex;align-items:flex-start;gap:8px;">
-        <span style="font-size:16px;flex-shrink:0;">⚠</span>
-        <p id="income-note" style="font-size:13px;color:#92400e;line-height:1.6;margin:0;">Medicare uses your tax return from <strong>2 years ago</strong>. For 2026, they use your <strong>2024</strong> income.</p>
-      </div>
-      <div class="input-wrap">
-        <span class="input-prefix">$</span>
-        <input type="number" id="input-income" placeholder="e.g. 120000" onkeydown="if(event.key==='Enter')calculate()">
-      </div>
+  <!-- ===== MOBILE MENU PANEL ===== -->
+  <div id="v4-mobile-menu" role="dialog" aria-label="Navigation menu">
+    <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:28px">
+      <a href="/"><img src="/images/logo.webp" alt="The Health Experts Insurance" style="height:56px;width:auto"/></a>
+      <button id="v4MobileClose" aria-label="Close menu" style="background:none;border:none;cursor:pointer;padding:8px">
+        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#241a30" stroke-width="2.2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      </button>
     </div>
-    <div class="field">
-      <label class="field-label" id="lbl-filing">Tax filing status</label>
-      <div class="toggle-grid">
-        <button class="toggle-btn active" id="btn-single" onclick="setFiling('single')">
-          <span id="lbl-single">Single / Married filing separately</span>
-        </button>
-        <button class="toggle-btn" id="btn-joint" onclick="setFiling('joint')">
-          <span id="lbl-joint">Casado, declaración conjunta</span>
-        </button>
+    <nav style="display:flex;flex-direction:column;gap:4px;font-size:16px;font-weight:600;color:#241a30">
+      <a href="/" style="padding:14px 4px;border-bottom:1px solid #ece5f0;color:#241a30;">Home</a>
+      <div style="padding:14px 4px 4px;font-size:13px;font-weight:700;color:#8a6aaa;text-transform:uppercase;letter-spacing:.06em">Insurance</div>
+      <a href="/medicare-plans-miami" style="padding:11px 12px;border-radius:8px;color:#241a30;font-weight:600;font-size:15px;">Medicare Plans</a>
+      <a href="/private-health-insurance-miami" style="padding:11px 12px;border-radius:8px;color:#241a30;font-weight:600;font-size:15px;">Private Health Insurance</a>
+      <a href="/aca-plans-miami" style="padding:11px 12px;border-radius:8px;color:#241a30;font-weight:600;font-size:15px;">ACA Marketplace Plans</a>
+      <a href="/cobra-alternatives-miami" style="padding:11px 12px;border-radius:8px;color:#241a30;font-weight:600;font-size:15px;">COBRA Alternatives</a>
+      <a href="/dental-vision-miami" style="padding:11px 12px;border-radius:8px;color:#241a30;font-weight:600;font-size:15px;">Dental &amp; Vision</a>
+      <div style="padding:14px 4px 4px;font-size:13px;font-weight:700;color:#8a6aaa;text-transform:uppercase;letter-spacing:.06em;margin-top:8px">Guides</div>
+      <a href="/medicare/what-is-medicare" style="padding:11px 12px;border-radius:8px;color:#241a30;font-weight:600;font-size:15px;">What Is Medicare</a>
+      <a href="/medicare/new-to-medicare" style="padding:11px 12px;border-radius:8px;color:#241a30;font-weight:600;font-size:15px;">New to Medicare</a>
+      <a href="/medicare/medicare-costs" style="padding:11px 12px;border-radius:8px;color:#241a30;font-weight:600;font-size:15px;">Medicare Costs &amp; IRMAA</a>
+      <a href="/medicare-advantage-miami" style="padding:11px 12px;border-radius:8px;color:#241a30;font-weight:600;font-size:15px;">Medicare Advantage Guide</a>
+      <a href="/medicare-supplement-miami" style="padding:11px 12px;border-radius:8px;color:#241a30;font-weight:600;font-size:15px;">Medicare Supplement Guide</a>
+      <a href="/medicare-savings-program" style="padding:11px 12px;border-radius:8px;color:#241a30;font-weight:600;font-size:15px;">Medicare Savings Program</a>
+      <a href="/find-my-plan" style="padding:11px 12px;border-radius:8px;color:#241a30;font-weight:600;font-size:15px;">Find My Plan Quiz</a>
+      <div style="margin-top:8px;border-top:1px solid #ece5f0;padding-top:12px;display:flex;flex-direction:column;gap:4px">
+        <a href="/faq" style="padding:12px 4px;color:#241a30;border-bottom:1px solid #ece5f0;">FAQ</a>
+        <a href="/resources" style="padding:12px 4px;color:#241a30;border-bottom:1px solid #ece5f0;">Resources</a>
+        <a href="/blog" style="padding:12px 4px;color:#241a30;border-bottom:1px solid #ece5f0;">Blog</a>
+        <a href="/medicare-agent-miami" style="padding:12px 4px;color:#241a30;border-bottom:1px solid #ece5f0;">About Us</a>
+        <a href="/contact" style="padding:12px 4px;color:#241a30;">Contact</a>
       </div>
-    </div>
-    <div class="field">
-      <label class="field-label" id="lbl-partd">Your Part D plan monthly premium (optional)</label>
-      <div class="input-wrap">
-        <span class="input-prefix">$</span>
-        <input type="number" id="input-partd" placeholder="e.g. 28.50" onkeydown="if(event.key==='Enter')calculate()">
+      <div style="margin-top:20px;display:flex;flex-direction:column;gap:12px">
+        <a href="tel:18003806821" style="background:#241a30;color:#fff;padding:16px;border-radius:12px;font-weight:700;font-size:16px;text-align:center;">1-800-380-6821</a>
+        <a href="/contact" onclick="document.getElementById('v4-mobile-menu').classList.remove('open');document.getElementById('v4HamburgerBtn').setAttribute('aria-expanded','false');" style="background:#ff1090;color:#fff;padding:16px;border-radius:12px;font-weight:700;font-size:16px;text-align:center;">Book Free Consultation</a>
       </div>
-    </div>
-    <button class="calc-btn" onclick="calculate()" id="btn-calc">Calcular mi IRMAA →</button>
+    </nav>
   </div>
 
-  <div class="result-wrap" id="result-wrap" style="display:none;"></div>
-</div>
+  <!-- ===== BREADCRUMB ===== -->
+  <div class="irmaa-breadcrumb">
+    <a href="/">Home</a> / <a href="/resources">Resources</a> / IRMAA Calculator
+  </div>
 
-<script>
+  <!-- ===== HERO ===== -->
+  <div class="irmaa-hero">
+    <div class="irmaa-hero-pill" id="hero-tag">Free Tool &middot; 2026</div>
+    <h1 id="hero-title">2026 IRMAA Calculator</h1>
+    <p class="irmaa-hero-sub" id="hero-sub">Find out exactly what you&rsquo;ll pay for Medicare based on your income.</p>
+    <a href="/faq#what-is-irmaa" class="irmaa-hero-link">New to IRMAA? See what it means &rarr;</a>
+  </div>
+
+  <!-- ===== CALCULATOR SECTION ===== -->
+  <div class="calc-section">
+    <div class="calc-inner">
+
+      <!-- Warning box -->
+      <div class="irmaa-warning">
+        <div class="irmaa-warning-icon">!</div>
+        <div class="irmaa-warning-text" id="income-note">
+          Medicare uses your tax return from <strong style="color:#241a30">2 years ago</strong>. For 2026, that means your <strong style="color:#241a30">2024</strong> income.
+        </div>
+      </div>
+
+      <!-- Calculator card -->
+      <div class="calc-card">
+
+        <label class="calc-label" id="lbl-income">2024 Modified Adjusted Gross Income (MAGI)</label>
+        <input type="number" id="input-income" class="calc-input" placeholder="e.g. 150000" onkeydown="if(event.key==='Enter')calculate()">
+
+        <label class="calc-label" id="lbl-filing" style="margin-bottom:8px">Tax filing status</label>
+        <div class="filing-chips">
+          <div id="btn-single" class="filing-chip active" onclick="setFiling('single')">
+            <span id="lbl-single">Single / Married filing separately</span>
+          </div>
+          <div id="btn-joint" class="filing-chip" onclick="setFiling('joint')">
+            <span id="lbl-joint">Married, filing jointly</span>
+          </div>
+        </div>
+
+        <label class="calc-label" id="lbl-partd">Your Part D plan monthly premium (optional)</label>
+        <input type="number" id="input-partd" class="calc-input" style="margin-bottom:22px" placeholder="e.g. 35" onkeydown="if(event.key==='Enter')calculate()">
+
+        <button id="btn-calc" class="calc-btn-primary" onclick="calculate()">Calculate my IRMAA &rarr;</button>
+
+      </div>
+
+      <!-- Results container — populated by JS -->
+      <div id="result-wrap" style="display:none;margin-top:24px;"></div>
+
+    </div>
+  </div>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="footer-wrap">
+    <div class="footer-inner">
+      <div class="footer-grid">
+        <!-- Col 1: Brand -->
+        <div>
+          <img src="/images/logo.webp" alt="The Health Experts Insurance" style="height:70px;width:auto;margin-bottom:16px"/>
+          <p style="font-size:13.5px;color:#6f6478;line-height:1.6;max-width:260px">Independent bilingual health insurance brokers. Office in Doral, FL.</p>
+          <div style="display:flex;flex-direction:column;gap:4px;margin-top:14px;font-size:13.5px">
+            <a href="tel:18003806821" style="color:#452068;font-weight:700;">1-800-380-6821</a>
+            <a href="https://wa.me/13054646888" style="color:#452068;font-weight:700;" onclick="gtag('event','whatsapp_click',{'page':window.location.pathname})">WhatsApp</a>
+            <a href="mailto:info@healthexps.com" style="color:#452068;font-weight:700;">info@healthexps.com</a>
+          </div>
+          <p style="font-size:13.5px;color:#4a4051;margin-top:14px">1695 NW 110 Ave, Ste 224<br/>Doral, FL 33172</p>
+        </div>
+        <!-- Col 2: Medicare -->
+        <div>
+          <div style="font-weight:700;font-size:12.5px;letter-spacing:.06em;margin-bottom:14px;color:#452068">MEDICARE</div>
+          <div style="display:flex;flex-direction:column;gap:9px;font-size:13.5px">
+            <a href="/medicare-plans-miami" style="color:#241a30;font-weight:700;">Medicare Plans</a>
+            <a href="/medicare-advantage-miami" style="color:#4a4051;">Medicare Advantage</a>
+            <a href="/medicare-supplement-miami" style="color:#4a4051;">Medicare Supplement</a>
+            <a href="/medicare-plans-miami#dsnp" style="color:#4a4051;">Dual Eligible (D-SNP)</a>
+            <a href="/medicare-plan-finder" style="color:#4a4051;">Medicare Plan Finder</a>
+            <a href="/avmed-medicare-florida" style="color:#4a4051;">AvMed Transition</a>
+          </div>
+        </div>
+        <!-- Col 3: Medicare Guides -->
+        <div>
+          <div style="font-weight:700;font-size:12.5px;letter-spacing:.06em;margin-bottom:14px;color:#452068">MEDICARE GUIDES</div>
+          <div style="display:flex;flex-direction:column;gap:9px;font-size:13.5px">
+            <a href="/medicare/what-is-medicare" style="color:#4a4051;">What Is Medicare</a>
+            <a href="/medicare/new-to-medicare" style="color:#4a4051;">New to Medicare</a>
+            <a href="/medicare/medicare-costs" style="color:#4a4051;">Medicare Costs &amp; IRMAA</a>
+            <a href="/medicare-advantage-miami" style="color:#4a4051;">Medicare Advantage Guide</a>
+            <a href="/medicare-supplement-miami" style="color:#4a4051;">Medicare Supplement Guide</a>
+            <a href="/medicare-savings-program" style="color:#4a4051;">Medicare Savings Program</a>
+          </div>
+        </div>
+        <!-- Col 4: More -->
+        <div>
+          <div style="font-weight:700;font-size:12.5px;letter-spacing:.06em;margin-bottom:14px;color:#452068">MORE</div>
+          <div style="display:flex;flex-direction:column;gap:9px;font-size:13.5px">
+            <a href="/private-health-insurance-miami" style="color:#4a4051;">Private Health Insurance</a>
+            <a href="/aca-plans-miami" style="color:#4a4051;">ACA Marketplace Plans</a>
+            <a href="/cobra-alternatives-miami" style="color:#4a4051;">COBRA Alternatives</a>
+            <a href="/dental-vision-miami" style="color:#4a4051;">Dental &amp; Vision</a>
+            <a href="/medicare-agent-miami" style="color:#4a4051;">About Us</a>
+            <a href="/contact" style="color:#4a4051;">Contact</a>
+            <a href="/es/" style="color:#4a4051;">Sitio en Espa&ntilde;ol</a>
+          </div>
+        </div>
+      </div>
+      <!-- Legal row -->
+      <div style="border-top:1px solid #ece5f0;padding-top:20px;font-size:13px;color:#4a4051">
+        &copy; 2026 The Health Experts Insurance. <a href="/privacy" style="color:#452068;font-weight:600">Privacy Policy &amp; Terms</a>
+      </div>
+      <div style="padding-top:12px;font-size:13.5px;color:#a79db2;line-height:1.6">
+        Medicare has not reviewed or endorsed this information. We do not offer every plan available in your area. We currently represent 14 organizations offering 82 products in your area. Please contact Medicare.gov, 1-800-MEDICARE, or your local SHIP program for information about all your options.
+      </div>
+    </div>
+  </footer>
+
+  <!-- ===== SCROLL TO TOP ===== -->
+  <button id="scrollToTop" aria-label="Back to top">&#8593;</button>
+
+  <!-- ===== CALCULATOR JS (logic preserved verbatim from existing irmaa-calculator.html) ===== -->
+  <script>
 const TIERS = [
-  {max_s:106000,max_j:212000,premium:185.00,surcharge:0,label_es:'Estándar',label_en:'Standard',partD:0},
+  {max_s:106000,max_j:212000,premium:185.00,surcharge:0,label_es:'Est\u00e1ndar',label_en:'Standard',partD:0},
   {max_s:133000,max_j:266000,premium:259.00,surcharge:74.00,label_es:'Nivel 1',label_en:'Tier 1',partD:13.70},
   {max_s:167000,max_j:334000,premium:370.00,surcharge:185.00,label_es:'Nivel 2',label_en:'Tier 2',partD:35.30},
   {max_s:200000,max_j:400000,premium:481.00,surcharge:296.00,label_es:'Nivel 3',label_en:'Tier 3',partD:57.00},
@@ -375,23 +650,23 @@ let filing = 'single';
 
 const T = {
   es:{
-    tag:'Herramienta gratuita · 2026',
+    tag:'Herramienta gratuita \u00b7 2026',
     title:'Calculadora IRMAA 2026',
-    sub:'Descubre exactamente cuánto pagarás por Medicare según tus ingresos.',
+    sub:'Descubre exactamente cu\u00e1nto pagar\u00e1s por Medicare seg\u00fan tus ingresos.',
     income:'Ingreso bruto ajustado modificado (MAGI) 2024',
-    income_note:'Medicare usa tu declaración de impuestos de <strong>hace 2 años</strong>. Para el 2026, usan tus ingresos del <strong>2024</strong>. ',
+    income_note:'Medicare usa tu declaraci\u00f3n de impuestos de <strong>hace 2 a\u00f1os</strong>. Para el 2026, usan tus ingresos del <strong>2024</strong>.',
     income_ph:'ej. 120000',
     filing:'Estado civil para impuestos',
     single:'Soltero / Casado por separado',
-    joint:'Casado, declaración conjunta',
+    joint:'Casado, declaraci\u00f3n conjunta',
     partd:'Prima mensual de tu plan Parte D (opcional)',
     partd_ph:'ej. 28.50',
-    calc:'Calcular mi IRMAA →',
+    calc:'Calcular mi IRMAA \u2192',
     your_tier:'Tu nivel',
     income_s:'Ingreso individual',
     income_j:'Ingreso matrimonial',
     no_irmaa:'No pagas IRMAA',
-    no_irmaa_d:'Tus ingresos están por debajo del umbral. Pagas la prima estándar de la Parte B de $202.90/mes.',
+    no_irmaa_d:'Tus ingresos est\u00e1n por debajo del umbral. Pagas la prima est\u00e1ndar de la Parte B de $202.90/mes.',
     your_result:'Tu resultado 2026',
     base:'Prima base Parte B',
     surcharge:'Recargo IRMAA Parte B',
@@ -400,20 +675,20 @@ const T = {
     total_mo:'Total mensual estimado',
     total_yr:'Total anual estimado',
     per_mo:'/mes',
-    per_yr:'/año',
-    appeal_t:'¿Acabas de jubilarte?',
-    appeal_d:'Si tu ingreso bajó recientemente por jubilación, divorcio u otro evento de vida, puedes apelar tu IRMAA con el Formulario SSA-44 y usar tus ingresos actuales en lugar de los de 2024.',
-    appeal_btn:'Hablar sobre mi apelación →',
-    tiers_show:'Ver todos los niveles IRMAA 2026 ↓',
-    tiers_hide:'Ocultar niveles ↑',
-    tiers_title:'Niveles IRMAA 2026 — Parte B',
-    yours_label:'← Tu nivel',
-    cta_t:'¿Quieres reducir tu IRMAA?',
-    cta_d:'Nuestros corredores bilingües te explican tus opciones — incluyendo cómo apelar si tus ingresos han bajado. Gratis, sin obligación.',
-    cta_btn:'Consulta gratuita →',
+    per_yr:'/a\u00f1o',
+    appeal_t:'\u00bfAcabas de jubilarte?',
+    appeal_d:'Si tu ingreso baj\u00f3 recientemente por jubilaci\u00f3n, divorcio u otro evento de vida, puedes apelar tu IRMAA con el Formulario SSA-44 y usar tus ingresos actuales en lugar de los de 2024.',
+    appeal_btn:'Hablar sobre mi apelaci\u00f3n \u2192',
+    tiers_show:'Ver todos los niveles IRMAA 2026 \u2193',
+    tiers_hide:'Ocultar niveles \u2191',
+    tiers_title:'Niveles IRMAA 2026 \u2014 Parte B',
+    yours_label:'\u2190 Tu nivel',
+    cta_t:'\u00bfQuieres reducir tu IRMAA?',
+    cta_d:'Nuestros corredores biling\u00fces te explican tus opciones \u2014 incluyendo c\u00f3mo apelar si tus ingresos han bajado. Gratis, sin obligaci\u00f3n.',
+    cta_btn:'Consulta gratuita \u2192',
   },
   en:{
-    tag:'Free tool · 2026',
+    tag:'Free tool \u00b7 2026',
     title:'2026 IRMAA Calculator',
     sub:'See exactly what you\'ll pay for Medicare based on your income.',
     income:'2024 Modified Adjusted Gross Income (MAGI)',
@@ -424,7 +699,7 @@ const T = {
     joint:'Married filing jointly',
     partd:'Your Part D plan monthly premium (optional)',
     partd_ph:'e.g. 28.50',
-    calc:'Calculate my IRMAA →',
+    calc:'Calculate my IRMAA \u2192',
     your_tier:'Your tier',
     income_s:'Individual income',
     income_j:'Joint income',
@@ -441,14 +716,14 @@ const T = {
     per_yr:'/yr',
     appeal_t:'Recently retired?',
     appeal_d:'If your income dropped due to retirement, divorce, or another life event, you can appeal your IRMAA using Form SSA-44 and use your current income instead of your 2024 return.',
-    appeal_btn:'Talk about my appeal →',
-    tiers_show:'View all 2026 IRMAA tiers ↓',
-    tiers_hide:'Hide tiers ↑',
-    tiers_title:'2026 IRMAA Tiers — Part B',
-    yours_label:'← Your tier',
+    appeal_btn:'Talk about my appeal \u2192',
+    tiers_show:'View all 2026 IRMAA tiers \u2193',
+    tiers_hide:'Hide tiers \u2191',
+    tiers_title:'2026 IRMAA Tiers \u2014 Part B',
+    yours_label:'\u2190 Your tier',
     cta_t:'Want to reduce your IRMAA?',
-    cta_d:'Our bilingual brokers walk you through your options — including how to appeal if your income has dropped. Free, no obligation.',
-    cta_btn:'Free consultation →',
+    cta_d:'Our bilingual brokers walk you through your options \u2014 including how to appeal if your income has dropped. Free, no obligation.',
+    cta_btn:'Free consultation \u2192',
   }
 };
 
@@ -540,13 +815,10 @@ function calculate(){
   h+='<div style="background:#fffbeb;border:2px solid #fde68a;border-left:4px solid #d97706;border-radius:14px;padding:18px 20px;margin-bottom:16px;">';
   h+='<div style="font-size:15px;font-weight:700;color:#92400e;margin-bottom:6px;">'+t.appeal_t+'</div>';
   h+='<p style="font-size:14px;color:#78350f;line-height:1.7;margin:0 0 12px;">'+t.appeal_d+'</p>';
-  h+='<a href="https://wa.me/13054646888" target="_blank" style="display:inline-block;background:#d97706;color:white;padding:10px 20px;border-radius:50px;font-size:14px;font-weight:700;text-decoration:none;" onclick="gtag('event','whatsapp_click',{'page':window.location.pathname})">'+t.appeal_btn+'</a>';
+  h+='<a href="https://wa.me/13054646888" target="_blank" style="display:inline-block;background:#d97706;color:white;padding:10px 20px;border-radius:50px;font-size:14px;font-weight:700;text-decoration:none;" onclick="gtag(\'event\',\'whatsapp_click\',{\'page\':window.location.pathname})">'+t.appeal_btn+'</a>';
   h+='</div>';
 
-  // Tiers toggle button
-
-
-  // Tiers table - hidden initially
+  // Tiers table
   h+='<div id="tiers-table" style="display:block;background:white;border-radius:14px;padding:20px 24px;box-shadow:0 2px 16px rgba(69,32,104,0.10);margin-bottom:16px;">';
   h+='<div style="font-size:13px;font-weight:700;color:#452068;text-transform:uppercase;letter-spacing:0.05em;margin-bottom:16px;">'+(lang==='es'?'Niveles IRMAA 2026 - Parte B':'2026 IRMAA Tiers - Part B')+'</div>';
   for(var i=0;i<TIERS.length;i++){
@@ -567,7 +839,7 @@ function calculate(){
   }
   h+='</div>';
 
-  // CTA box
+  // Share section
   h+='<div style="border-top:2px dashed #e8e0f4;margin:8px 0 20px;padding-top:20px;text-align:center;">';
   h+='<div style="font-size:13px;font-weight:700;color:#9ca3af;text-transform:uppercase;letter-spacing:0.08em;margin-bottom:8px;">'+(lang==='es'?'Conoces a alguien que necesita saber esto?':'Know someone who needs to see this?')+'</div>';
   h+='<div style="font-size:16px;font-weight:700;color:#452068;margin-bottom:16px;">'+(lang==='es'?'Comparte esta calculadora gratuita':'Share this free calculator')+'</div>';
@@ -577,100 +849,92 @@ function calculate(){
   var irmaaSVG='<svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.123.556 4.116 1.526 5.845L0 24l6.335-1.508A11.945 11.945 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.818 9.818 0 01-5.006-1.368l-.359-.214-3.728.887.916-3.636-.234-.374A9.818 9.818 0 1112 21.818z"/></svg>';
   var irmaaWaLabel=lang==='es'?'Enviar por WhatsApp':'Share via WhatsApp';
   h+='<a href="'+irmaaWaURL+'" target="_blank" style="display:inline-flex;align-items:center;gap:8px;background:#25D366;color:white;padding:13px 24px;border-radius:50px;font-weight:700;font-size:15px;text-decoration:none;">'+irmaaSVG+irmaaWaLabel+'</a>';
-  h+='<button id="copy-link-btn" style="display:inline-flex;align-items:center;gap:8px;background:white;color:#452068;padding:13px 24px;border-radius:50px;font-weight:700;font-size:15px;border:2px solid #e8e0f4;cursor:pointer;font-family:Arial;box-shadow:0 2px 8px rgba(0,0,0,0.06);">&#128279; '+(lang==='es'?'Copiar enlace':'Copy link')+'</button>';
+  h+='<button id="copy-link-btn" style="display:inline-flex;align-items:center;gap:8px;background:white;color:#452068;padding:13px 24px;border-radius:50px;font-weight:700;font-size:15px;border:2px solid #e8e0f4;cursor:pointer;font-family:Inter,sans-serif;box-shadow:0 2px 8px rgba(0,0,0,0.06);">&#128279; '+(lang==='es'?'Copiar enlace':'Copy link')+'</button>';
   h+='</div></div>';
 
   h+='<div style="background:linear-gradient(135deg,#311549,#452068);border-radius:16px;padding:24px;text-align:center;margin-bottom:16px;">';
   h+='<div style="font-size:18px;font-weight:700;color:white;margin-bottom:8px;">'+t.cta_t+'</div>';
   h+='<p style="font-size:14px;color:rgba(255,255,255,0.85);margin-bottom:20px;line-height:1.6;">'+t.cta_d+'</p>';
-  h+='<a href="https://calendly.com/healthexps-info/" target="_blank" style="display:inline-block;background:#ff1090;color:white;padding:13px 28px;border-radius:50px;font-weight:700;font-size:15px;text-decoration:none;">'+t.cta_btn+'</a>';
+  h+='<a href="https://calendly.com/healthexps-info/" target="_blank" rel="noopener" style="display:inline-block;background:#ff1090;color:white;padding:13px 28px;border-radius:50px;font-weight:700;font-size:15px;text-decoration:none;">'+t.cta_btn+'</a>';
   h+='</div>';
 
-  // Share section
-  var shareURL=window.location.href;
-  var shareTextES='Calcula tu IRMAA de Medicare 2026 gratis - herramienta bilingue de The Health Experts Insurance';
-  var shareTextEN='Calculate your 2026 Medicare IRMAA for free - bilingual tool by The Health Experts Insurance';
-  var shareText=lang==='es'?shareTextES:shareTextEN;
-  var shareTitleES='Comparte esta herramienta';
-  var shareTitleEN='Share this calculator';
-  var shareDescES='Ayuda a tus amigos y familiares a evitar sorpresas costosas con Medicare.';
-  var shareDescEN='Help your friends and family avoid costly Medicare surprises.';
+  h+='<p style="font-size:13.5px;color:#a79db2;text-align:center;margin-top:8px;line-height:1.5;">Estimate only, based on published 2026 CMS figures \u2014 not an official quote.</p>';
+
+  // Share section — reuse variables
   var wrap=document.getElementById('result-wrap');
   wrap.innerHTML=h;
   wrap.style.display='block';
   try{wrap.scrollIntoView({behavior:'smooth',block:'start'});}catch(e){wrap.scrollIntoView(true);}
   var cpBtn=document.getElementById('copy-link-btn');
   if(cpBtn){cpBtn.onclick=function(){navigator.clipboard.writeText(window.location.href).then(function(){cpBtn.textContent=lang==='es'?'Copiado!':'Copied!';setTimeout(function(){cpBtn.textContent=lang==='es'?'Copiar enlace':'Copy link';},2000);});};}
-
-
 }
 
-
 setLang('en');
-</script>
-<footer style="background:#fafafa;border-top:3px solid #f4eefa;padding:52px 0 24px;">
-  <div style="max-width:1060px;margin:0 auto;padding:0 24px;">
-    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:36px;margin-bottom:44px;">
-      <div>
-        <img src="/images/logo.webp" alt="The Health Experts Insurance" style="height:64px;width:auto;margin-bottom:14px;">
-        <p style="font-size:14px;color:#555;line-height:1.6;margin:0 0 14px;">Independent bilingual health insurance brokers. Office in Doral, FL.</p>
-        <p style="font-size:15px;margin-bottom:6px;"><a href="tel:18003806821" style="color:#452068;font-weight:600;text-decoration:none;">1-800-380-6821</a></p>
-        <p style="font-size:15px;margin-bottom:6px;"><a href="https://wa.me/13054646888" style="color:#452068;font-weight:600;text-decoration:none;" onclick="gtag('event','whatsapp_click',{'page':window.location.pathname})">WhatsApp</a></p>
-        <p style="font-size:15px;margin-bottom:6px;"><a href="mailto:info@healthexps.com" style="color:#452068;font-weight:600;text-decoration:none;">info@healthexps.com</a></p>
-        <p style="font-size:14px;color:#555;margin-top:8px;">1695 NW 110 Ave, Ste 224<br>Doral, FL 33172</p>
-      </div>
-      <div>
-        <h3 style="color:#452068;font-size:13px;text-transform:uppercase;letter-spacing:1px;margin:0 0 14px;">Medicare</h3>
-        <ul style="list-style:none;padding:0;margin:0;">
-          <li style="margin-bottom:8px;"><a href="/medicare-plans-miami" style="color:#452068;font-size:15px;font-weight:700;text-decoration:none;">Medicare Plans</a></li>
-          <li style="margin-bottom:8px;"><a href="/medicare-advantage-miami" style="color:#555;font-size:15px;text-decoration:none;">Medicare Advantage</a></li>
-          <li style="margin-bottom:8px;"><a href="/medicare-supplement-miami" style="color:#555;font-size:15px;text-decoration:none;">Medicare Supplement</a></li>
-          <li style="margin-bottom:8px;"><a href="/medicare-plan-finder" style="color:#555;font-size:15px;text-decoration:none;">Medicare Plan Finder</a></li>
-          <li style="margin-bottom:8px;"><a href="/avmed-medicare-florida" style="color:#555;font-size:15px;text-decoration:none;">AvMed Transition</a></li>
-        </ul>
-      </div>
-      <div>
-        <h3 style="color:#452068;font-size:13px;text-transform:uppercase;letter-spacing:1px;margin:0 0 14px;">Medicare Guides</h3>
-        <ul style="list-style:none;padding:0;margin:0;">
-          <li style="margin-bottom:8px;"><a href="/medicare/what-is-medicare" style="color:#555;font-size:15px;text-decoration:none;">What Is Medicare</a></li>
-          <li style="margin-bottom:8px;"><a href="/medicare/new-to-medicare" style="color:#555;font-size:15px;text-decoration:none;">New to Medicare</a></li>
-          <li style="margin-bottom:8px;"><a href="/medicare/medicare-costs" style="color:#555;font-size:15px;text-decoration:none;">Medicare Costs & IRMAA</a></li>
-          <li style="margin-bottom:8px;"><a href="/medicare-advantage-miami" style="color:#555;font-size:15px;text-decoration:none;">Medicare Advantage Guide</a></li>
-          <li style="margin-bottom:8px;"><a href="/medicare-supplement-miami" style="color:#555;font-size:15px;text-decoration:none;">Medicare Supplement Guide</a></li>
-          <li style="margin-bottom:8px;"><a href="/medicare-savings-program" style="color:#555;font-size:15px;text-decoration:none;">Medicare Savings Program</a></li>
-        </ul>
-      </div>
-      <div>
-        <h3 style="color:#452068;font-size:13px;text-transform:uppercase;letter-spacing:1px;margin:0 0 14px;">More</h3>
-        <ul style="list-style:none;padding:0;margin:0;">
-          <li style="margin-bottom:8px;"><a href="/private-health-insurance-miami" style="color:#555;font-size:15px;text-decoration:none;">Private Health Insurance</a></li>
-          <li style="margin-bottom:8px;"><a href="/aca-plans-miami" style="color:#555;font-size:15px;text-decoration:none;">ACA Marketplace Plans</a></li>
-          <li style="margin-bottom:8px;"><a href="/cobra-alternatives-miami" style="color:#555;font-size:15px;text-decoration:none;">COBRA Alternatives</a></li>
-          <li style="margin-bottom:8px;"><a href="/dental-vision-miami" style="color:#555;font-size:15px;text-decoration:none;">Dental &amp; Vision</a></li>
-          <li style="margin-bottom:8px;"><a href="/medicare-agent-miami" style="color:#555;font-size:15px;text-decoration:none;">About Us</a></li>
-          <li style="margin-bottom:8px;"><a href="/contact" style="color:#555;font-size:15px;text-decoration:none;">Contact</a></li>
-          <li style="margin-bottom:8px;"><a href="https://www.healthexps.com/es/planes-de-medicare-miami" style="color:#555;font-size:15px;text-decoration:none;">Sitio en Español</a></li>
-        </ul>
-      </div>
-    </div>
-    <div style="border-top:1px solid #e5e5e5;padding-top:20px;">
-      <p style="font-size:13.5px;color:#666;margin:0;">© 2026 The Health Experts Insurance. <a href="/privacy" style="color:#452068;text-decoration:none;">Privacy Policy &amp; Terms</a></p>
-      <p style="font-size:13px;color:#aaa;margin-top:10px;line-height:1.7;">Medicare has not reviewed or endorsed this information. We do not offer every plan available in your area. We currently represent 14 organizations offering 82 products in your area. Please contact Medicare.gov, 1-800-MEDICARE, or your local SHIP program for information about all your options.</p>
-    </div>
-  </div>
-</footer>
+  </script>
 
+  <!-- ===== NAV JS (verbatim from index.html) ===== -->
+  <script>
+(function(){
+  var btn = document.getElementById('v4HamburgerBtn');
+  var closeBtn = document.getElementById('v4MobileClose');
+  var menu = document.getElementById('v4-mobile-menu');
+  if (!btn || !menu) return;
+  function openMenu(){
+    menu.classList.add('open');
+    btn.setAttribute('aria-expanded','true');
+    document.body.style.overflow='hidden';
+  }
+  function closeMenu(){
+    menu.classList.remove('open');
+    btn.setAttribute('aria-expanded','false');
+    document.body.style.overflow='';
+  }
+  btn.addEventListener('click', openMenu);
+  if (closeBtn) closeBtn.addEventListener('click', closeMenu);
+  // Close on Escape
+  document.addEventListener('keydown', function(e){ if(e.key==='Escape') closeMenu(); });
+})();
+  </script>
 
-<button id="scrollToTop" aria-label="Back to top">↑</button>
-<script>
+  <script>
+// V4 nav mobile — hover for desktop, click for mobile
+(function(){
+  var navItems = document.querySelectorAll('.v4-nav-item');
+  function isMobile(){ return window.innerWidth <= 900; }
+  navItems.forEach(function(item){
+    var drop = item.querySelector('.v4-nav-dropdown');
+    if (!drop) return;
+    // Desktop: CSS handles hover; Mobile: toggle on click
+    item.addEventListener('click', function(e){
+      if (!isMobile()) return;
+      var open = drop.style.display === 'block';
+      // Close all
+      navItems.forEach(function(ni){ var d = ni.querySelector('.v4-nav-dropdown'); if(d) d.style.display=''; });
+      drop.style.display = open ? '' : 'block';
+    });
+  });
+  // Close on outside click
+  document.addEventListener('click', function(e){
+    if (!isMobile()) return;
+    navItems.forEach(function(item){
+      if (!item.contains(e.target)){
+        var drop = item.querySelector('.v4-nav-dropdown');
+        if(drop) drop.style.display='';
+      }
+    });
+  });
+})();
+  </script>
+
+  <!-- ===== SCROLL TO TOP JS ===== -->
+  <script>
 (function(){
   const btn=document.getElementById('scrollToTop');
   if(!btn)return;
-  window.addEventListener('scroll',function(){btn.style.display=window.pageYOffset>300?'block':'none';});
+  window.addEventListener('scroll',function(){btn.style.display=window.pageYOffset>300?'flex':'none';});
   btn.addEventListener('click',function(){window.scrollTo({top:0,behavior:'smooth'});});
-  btn.addEventListener('mouseenter',function(){btn.style.background='#ff1090';btn.style.transform='translateY(-3px)';});
-  btn.addEventListener('mouseleave',function(){btn.style.background='#452068';btn.style.transform='translateY(0)';});
 })();
-</script>
+  </script>
+
 </body>
 </html>
