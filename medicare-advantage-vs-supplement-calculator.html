@@ -1,607 +1,944 @@
 <!DOCTYPE html>
-<html lang="en"><!-- medigap-v13 -->
+<html lang="en">
 <head>
 <meta charset="UTF-8">
+<link rel="icon" href="/favicon.ico" type="image/x-icon">
 <link rel="stylesheet" href="css/global.css">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>Medicare Advantage vs. Supplement Calculator | Health Experts</title>
 <meta name="description" content="Free Medicare Advantage vs. Medigap cost calculator. Compare your total costs at 5, 10, and 20 years based on age, premiums, and healthcare usage. Bilingual Miami brokers.">
 <link rel="canonical" href="https://www.healthexps.com/medicare-advantage-vs-supplement-calculator/">
 <link rel="alternate" hreflang="en" href="https://www.healthexps.com/medicare-advantage-vs-supplement-calculator/">
+
+<!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-SJSGF3E9MD"></script>
 <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-SJSGF3E9MD');</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<!-- JSON-LD Schema -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": "Medicare Advantage vs. Supplement Calculator",
+  "url": "https://www.healthexps.com/medicare-advantage-vs-supplement-calculator/",
+  "description": "Free tool to compare Medicare Advantage and Medicare Supplement costs at 5, 10, and 20 years.",
+  "provider": {
+    "@type": "InsuranceAgency",
+    "name": "The Health Experts Insurance",
+    "url": "https://www.healthexps.com",
+    "telephone": "+1-800-380-6821"
+  }
+}
+</script>
+
 <style>
-*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
-html,body{overflow-x:hidden;max-width:100%;}
-body{font-family:Arial,Helvetica,sans-serif;background:#f8f7fc;min-height:100vh;color:#1a1a1a;}
-a{text-decoration:none;color:#452068;}
+/* ============================================================
+   DESIGN SYSTEM — Inter + Poppins | THEI v4
+   Purple #452068 | Pink #ff1090
+   ============================================================ */
+html, body { overflow-x: hidden; max-width: 100%; }
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-/* LANG TOGGLE */
-.lang-bar{background:#452068;padding:10px 24px;display:flex;justify-content:space-between;align-items:center;}
-.lang-bar a{color:white;font-weight:700;font-size:14px;}
-.lang-btns{display:flex;gap:6px;}
-.lang-btn{background:transparent;border:1.5px solid rgba(255,255,255,0.4);border-radius:50px;padding:4px 14px;font-weight:700;font-size:13.5px;cursor:pointer;color:rgba(255,255,255,0.75);font-family:Arial;}
-.lang-btn.active{background:white;color:#452068;border-color:white;}
+:root {
+  --purple:       #452068;
+  --purple-dark:  #2f1550;
+  --purple-light: #f7f2fb;
+  --pink:         #ff1090;
+  --pink-hover:   #c40074;
+  --white:        #ffffff;
+  --off-white:    #fdfaf7;
+  --gray-light:   #f7f7f7;
+  --gray-mid:     #ece5f0;
+  --gray-text:    #6f6478;
+  --black:        #241a30;
+  --radius:       16px;
+  --shadow:       0 4px 20px rgba(69,32,104,0.10);
+  --shadow-lg:    0 16px 48px rgba(69,32,104,0.16);
+  --font-body:    'Inter', Arial, Helvetica, sans-serif;
+  --font-head:    'Poppins', Arial, Helvetica, sans-serif;
+}
 
-/* HERO */
-.hero{background:linear-gradient(135deg,#311549 0%,#452068 100%);padding:48px 24px 64px;text-align:center;position:relative;}
-.hero::after{content:'';position:absolute;bottom:-1px;left:0;right:0;height:48px;background:#f8f7fc;clip-path:ellipse(60% 100% at 50% 100%);}
-.hero-tag{display:inline-block;background:rgba(255,255,255,0.15);border:1px solid rgba(255,255,255,0.3);border-radius:50px;padding:5px 16px;color:white;font-size:13.5px;font-weight:700;margin-bottom:14px;letter-spacing:0.06em;text-transform:uppercase;}
-.hero h1{color:white;font-size:clamp(22px,4vw,30px);font-weight:700;margin-bottom:10px;line-height:1.25;}
-.hero p{color:rgba(255,255,255,0.82);font-size:16px;max-width:520px;margin:0 auto;}
+body {
+  font-family: var(--font-body);
+  color: var(--black);
+  line-height: 1.65;
+  font-size: 17px;
+  background: var(--white);
+  -webkit-font-smoothing: antialiased;
+}
 
-/* SHELL */
-.shell{max-width:600px;margin:0 auto;padding:40px 20px 80px;}
+h1, h2, h3 { font-family: var(--font-head); line-height: 1.2; }
+a { color: var(--purple); text-decoration: none; }
+a:hover { color: var(--pink); }
+img { max-width: 100%; height: auto; }
 
-/* STEP CARD */
-.step-card{background:white;border-radius:20px;padding:32px 28px;box-shadow:0 4px 32px rgba(69,32,104,0.10);}
-.step-label{font-size:13px;font-weight:700;color:#ff1090;text-transform:uppercase;letter-spacing:0.08em;margin-bottom:8px;}
-.step-title{font-size:22px;font-weight:700;color:#1a1a1a;margin-bottom:24px;line-height:1.3;}
+/* V4 Nav dropdown hover */
+.v4-nav-dropdown { display: none; }
+.v4-nav-item:hover .v4-nav-dropdown { display: block; }
+.v4-nav-mobile-btn { display: none; background: none; border: none; cursor: pointer; padding: 8px; }
+#v4-mobile-menu { display: none; position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: #fff; z-index: 999; overflow-y: auto; padding: 24px; }
+#v4-mobile-menu.open { display: block; }
+@media (max-width: 900px) {
+  .v4-nav-desktop { display: none !important; }
+  .v4-nav-mobile-btn { display: flex !important; align-items: center; }
+}
+@media (max-width: 768px) {
+  .top-bar-inner { padding-left: 20px !important; padding-right: 20px !important; }
+  .v4-nav-outer { padding-left: 20px !important; padding-right: 20px !important; }
+}
 
-/* PROGRESS */
-.progress-wrap{margin-bottom:28px;}
-.progress-bg{background:#e5e5e5;border-radius:50px;height:5px;margin-bottom:8px;}
-.progress-fill{background:linear-gradient(90deg,#452068,#ff1090);border-radius:50px;height:5px;transition:width 0.4s;}
-.progress-lbl{font-size:13px;color:#888;text-align:right;}
+/* ============================================================
+   CALCULATOR PAGE STYLES
+   ============================================================ */
+.calc-breadcrumb {
+  padding: 14px 56px;
+  background: var(--purple-light);
+  font-size: 13px;
+  color: var(--gray-text);
+}
+.calc-breadcrumb a {
+  font-weight: 600;
+  color: var(--purple);
+  cursor: pointer;
+}
+.calc-breadcrumb a:hover { color: var(--pink); }
 
-/* FIELDS */
-.field{margin-bottom:20px;}
-.field label{display:block;font-size:14px;font-weight:700;color:#452068;margin-bottom:6px;}
-.field input{width:100%;padding:13px 16px;border:2px solid #e5e5e5;border-radius:10px;font-size:16px;font-family:Arial;transition:border-color 0.2s;}
-.field input:focus{outline:none;border-color:#452068;}
-.field-hint{font-size:13.5px;color:#888;margin-top:5px;}
+.calc-hero {
+  background: linear-gradient(135deg, #fdfaf7 0%, #f7f2fb 100%);
+  padding: 56px 56px 48px;
+  text-align: center;
+}
+.calc-hero-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: #fff0f8;
+  color: #c40074;
+  padding: 8px 16px;
+  border-radius: 999px;
+  font-size: 13px;
+  font-weight: 700;
+  margin-bottom: 18px;
+}
+.calc-hero h1 {
+  font-family: var(--font-head);
+  font-weight: 700;
+  font-size: clamp(26px, 4vw, 34px);
+  line-height: 1.25;
+  color: var(--black);
+  margin: 0 0 14px;
+}
+.calc-hero p {
+  font-size: 15.5px;
+  line-height: 1.6;
+  color: var(--gray-text);
+  margin: 0 auto;
+  max-width: 520px;
+}
 
-/* USAGE BUTTONS */
-.usage-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:4px;}
-.usage-btn{padding:14px 8px;border:2px solid #e5e5e5;border-radius:12px;cursor:pointer;text-align:center;background:white;font-family:Arial;transition:all 0.18s;}
-.usage-btn:hover{border-color:#452068;background:#f4eefa;}
-.usage-btn.selected{border-color:#452068;background:#f4eefa;}
-.usage-main{font-size:14px;font-weight:700;color:#1a1a1a;}
-.usage-sub{font-size:13.5px;color:#888;margin-top:3px;line-height:1.4;}
+.calc-body {
+  background: var(--white);
+  padding: 48px 56px 80px;
+}
+.calc-shell {
+  max-width: 640px;
+  margin: 0 auto;
+}
+.calc-card {
+  background: var(--white);
+  border: 1px solid var(--gray-mid);
+  border-radius: 22px;
+  padding: 36px;
+  box-shadow: 0 16px 40px rgba(69,32,104,.08);
+}
 
-/* BUTTONS */
-.btn-continue{width:100%;background:#ff1090;color:white;border:none;padding:15px;border-radius:50px;font-size:16px;font-weight:700;cursor:pointer;font-family:Arial;transition:background 0.2s;margin-top:8px;}
-.btn-continue:hover{background:#d4006d;}
-.btn-continue:disabled{background:#e5e5e5;cursor:not-allowed;}
-.btn-back{background:none;border:none;color:#888;font-size:14px;cursor:pointer;font-family:Arial;margin-top:14px;display:block;text-align:center;width:100%;}
-.btn-back:hover{color:#452068;}
+/* Progress */
+.calc-progress-label {
+  font-size: 12.5px;
+  font-weight: 700;
+  color: var(--pink-hover);
+  text-align: center;
+  margin-bottom: 22px;
+}
+.calc-progress-bar {
+  height: 4px;
+  background: var(--gray-mid);
+  border-radius: 999px;
+  margin-bottom: 28px;
+  overflow: hidden;
+}
+.calc-progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--purple), var(--pink));
+  border-radius: 999px;
+  transition: width 0.35s ease;
+}
 
-/* RESULTS */
-.result-wrap{display:none;}
+/* Step headings */
+.calc-step-title {
+  font-weight: 700;
+  font-size: 17px;
+  color: var(--black);
+  margin-bottom: 4px;
+  text-align: center;
+}
+.calc-step-sub {
+  font-size: 13px;
+  color: var(--gray-text);
+  text-align: center;
+  margin-bottom: 20px;
+}
 
-.result-header{text-align:center;margin-bottom:28px;}
-.result-rec{display:inline-block;padding:10px 24px;border-radius:50px;font-size:15px;font-weight:700;margin-bottom:16px;}
-.result-title{font-size:24px;font-weight:700;color:#1a1a1a;margin-bottom:8px;line-height:1.3;}
-.result-sub{font-size:15px;color:#666;line-height:1.6;}
+/* Fields */
+.calc-field { margin-bottom: 16px; }
+.calc-field label {
+  display: block;
+  font-size: 13px;
+  font-weight: 600;
+  color: #4a4051;
+  margin-bottom: 6px;
+}
+.calc-field input {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 13px 14px;
+  border-radius: 10px;
+  border: 1px solid #ddd2e6;
+  font-size: 14.5px;
+  font-family: var(--font-body);
+  color: var(--black);
+  transition: border-color .2s;
+}
+.calc-field input:focus { outline: none; border-color: var(--purple); }
+.calc-field-hint { font-size: 12px; color: #a79db2; margin-top: 4px; }
 
-/* MONTHLY CARDS */
-.monthly-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:24px;}
-.mo-card{border-radius:14px;padding:20px;text-align:center;}
-.mo-card.ma{background:#fff0f8;border:2px solid #ff1090;}
-.mo-card.mg{background:#f0fdf4;border:2px solid #16a34a;}
-.mo-plan{font-size:13.5px;font-weight:700;text-transform:uppercase;letter-spacing:0.06em;margin-bottom:6px;}
-.mo-card.ma .mo-plan{color:#ff1090;}
-.mo-card.mg .mo-plan{color:#16a34a;}
-.mo-amount{font-size:28px;font-weight:700;color:#1a1a1a;}
-.mo-label{font-size:13.5px;color:#888;margin-top:4px;}
+/* Usage buttons */
+.calc-usage-list { display: flex; flex-direction: column; gap: 10px; }
+.calc-usage-btn {
+  padding: 14px 18px;
+  border: 2px solid var(--gray-mid);
+  border-radius: 12px;
+  cursor: pointer;
+  background: var(--white);
+  font-family: var(--font-body);
+  text-align: left;
+  transition: border-color .2s, background .2s, box-shadow .2s;
+}
+.calc-usage-btn:hover { border-color: var(--purple); background: var(--purple-light); }
+.calc-usage-btn.selected { border-color: var(--purple); background: var(--purple-light); }
+.calc-usage-btn .calc-usage-main { font-weight: 700; font-size: 15px; color: var(--black); }
+.calc-usage-btn .calc-usage-sub { font-size: 12.5px; font-weight: 400; color: var(--gray-text); margin-top: 2px; }
+.calc-usage-btn.selected .calc-usage-main { color: var(--purple); }
 
-/* COST TABLE */
-.cost-table{width:100%;border-collapse:collapse;margin-bottom:20px;font-size:15px;}
-.cost-table th{padding:12px 14px;text-align:right;font-size:13.5px;font-weight:700;text-transform:uppercase;letter-spacing:0.05em;color:#888;border-bottom:2px solid #e5e5e5;}
-.cost-table th:first-child{text-align:left;}
-.cost-table td{padding:13px 14px;text-align:right;border-bottom:1px solid #f4eefa;}
-.cost-table td:first-child{text-align:left;font-weight:600;color:#555;}
-.cost-table tr:last-child td{font-weight:700;font-size:16px;border-bottom:none;}
-.cost-table .ma-col{color:#ff1090;}
-.cost-table .diff-col{color:#452068;font-weight:700;}
-.cost-table th.ma-hd{color:#ff1090;}
-.cost-table th.mg-hd{color:#16a34a;}
-.cost-table th.diff-hd{color:#452068;}
+/* Nav buttons */
+.calc-btn-row { display: flex; gap: 10px; margin-top: 26px; }
+.calc-btn-back {
+  flex: 0 0 auto;
+  background: var(--white);
+  border: 2px solid var(--gray-mid);
+  color: var(--purple);
+  padding: 14px 20px;
+  border-radius: 10px;
+  font-weight: 700;
+  font-size: 14.5px;
+  cursor: pointer;
+  font-family: var(--font-body);
+  transition: border-color .2s;
+}
+.calc-btn-back:hover { border-color: var(--purple); }
+.calc-btn-next {
+  flex: 1;
+  border: none;
+  padding: 14px 20px;
+  border-radius: 10px;
+  font-weight: 700;
+  font-size: 14.5px;
+  font-family: var(--font-body);
+  cursor: pointer;
+  background: var(--pink);
+  color: var(--white);
+  transition: background .2s;
+}
+.calc-btn-next:hover { background: var(--pink-hover); }
 
-/* SAVINGS CALLOUT */
-.savings-box{border-radius:14px;padding:20px 24px;margin-bottom:20px;text-align:center;}
-.savings-headline{font-size:17px;font-weight:700;line-height:1.4;margin-bottom:6px;}
-.savings-disclaimer{font-size:13px;color:#888;line-height:1.5;}
+/* Results */
+.calc-result-header { text-align: center; margin-bottom: 24px; }
+.calc-result-title { font-weight: 700; font-size: 19px; color: var(--black); margin-bottom: 6px; }
+.calc-result-sub { font-size: 13px; color: var(--gray-text); }
 
-/* DISCLAIMER */
-.calc-disclaimer{font-size:13.5px;color:#aaa;line-height:1.6;margin-bottom:20px;padding:14px;background:#f9f9f9;border-radius:10px;}
+.calc-compare-table {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 0;
+  border: 1px solid var(--gray-mid);
+  border-radius: 16px;
+  overflow: hidden;
+  margin-bottom: 20px;
+}
+.calc-th {
+  padding: 14px;
+  font-size: 12.5px;
+  font-weight: 700;
+  text-align: center;
+  border-bottom: 1px solid var(--gray-mid);
+}
+.calc-th.label-col { background: #fdfaf7; color: var(--black); }
+.calc-th.ma-col-h { background: #fff0f8; color: var(--pink-hover); }
+.calc-th.mg-col-h { background: #f0fdf4; color: #15803d; }
+.calc-td {
+  padding: 12px 14px;
+  font-size: 13px;
+  text-align: center;
+  border-top: 1px solid var(--gray-mid);
+}
+.calc-td.label-col { font-weight: 600; color: #4a4051; text-align: left; }
+.calc-td.ma-col { color: var(--pink); font-weight: 700; }
+.calc-td.mg-col { color: #16a34a; font-weight: 700; }
+.calc-td.winner { background: #fff8fe; }
 
-/* CTAs */
-.result-ctas{display:flex;flex-direction:column;gap:10px;}
-.btn-agent{display:block;background:#ff1090;color:white;text-align:center;padding:15px;border-radius:50px;font-size:16px;font-weight:700;text-decoration:none;transition:background 0.2s;}
-.btn-agent:hover{background:#d4006d;color:white;}
-.btn-startover{background:none;border:none;color:#888;font-size:14px;cursor:pointer;font-family:Arial;text-align:center;margin-top:4px;}
-.btn-startover:hover{color:#452068;}
+.calc-verdict {
+  background: var(--purple-light);
+  border-radius: 14px;
+  padding: 18px 20px;
+  text-align: center;
+  margin-bottom: 22px;
+}
+.calc-verdict-main { font-weight: 700; font-size: 14.5px; color: var(--black); }
+.calc-verdict-disc { font-size: 12px; color: #8a8093; margin-top: 6px; }
 
-@media(max-width:480px){
-  .step-card{padding:24px 18px;}
-  .monthly-grid{grid-template-columns:1fr 1fr;}
-  .mo-amount{font-size:22px;}
-  .cost-table{font-size:14px;}
-  .cost-table th,.cost-table td{padding:10px 8px;}
+.calc-result-ctas {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.calc-cta-primary {
+  cursor: pointer;
+  background: var(--pink);
+  color: var(--white);
+  padding: 14px 24px;
+  border-radius: 999px;
+  font-weight: 700;
+  font-size: 14px;
+  border: none;
+  font-family: var(--font-body);
+  text-decoration: none;
+  display: inline-block;
+  transition: background .2s;
+}
+.calc-cta-primary:hover { background: var(--pink-hover); color: var(--white); }
+.calc-cta-restart {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  background: none;
+  border: none;
+  font-size: 13px;
+  color: #a79db2;
+  text-decoration: underline;
+  font-family: var(--font-body);
+  cursor: pointer;
+}
+.calc-cta-restart:hover { color: var(--purple); }
+
+/* FOOTER */
+.footer-wrap {
+  background: var(--white);
+  color: var(--black);
+  padding: 56px 56px 24px;
+  border-top: 1px solid var(--gray-mid);
+}
+.footer-grid {
+  display: grid;
+  grid-template-columns: 1.3fr 1fr 1fr 1fr;
+  gap: 32px;
+  margin-bottom: 36px;
+}
+.footer-copy {
+  border-top: 1px solid var(--gray-mid);
+  padding-top: 20px;
+  font-size: 13px;
+  color: #4a4051;
+}
+.footer-tpmo {
+  padding-top: 12px;
+  font-size: 13.5px;
+  color: #a79db2;
+  line-height: 1.6;
+}
+
+/* Scroll to top */
+#scrollToTop {
+  position: fixed; bottom: 28px; right: 28px;
+  width: 44px; height: 44px;
+  background: var(--purple); color: white;
+  border: none; border-radius: 50%;
+  font-size: 18px; cursor: pointer;
+  display: none; align-items: center; justify-content: center;
+  box-shadow: 0 4px 14px rgba(69,32,104,.3);
+  transition: background .2s, transform .2s; z-index: 999;
+}
+
+/* Mobile */
+@media (max-width: 640px) {
+  .footer-grid { grid-template-columns: 1fr !important; gap: 24px !important; }
+  .footer-wrap { padding: 40px 20px 88px !important; }
+  .calc-grid, .result-grid, .compare-grid { grid-template-columns: 1fr !important; }
+  .calc-breadcrumb { padding: 12px 20px; }
+  .calc-hero { padding: 36px 20px 32px; }
+  .calc-body { padding: 24px 16px 60px; }
+  .calc-card { padding: 24px 20px; }
+  .calc-compare-table { grid-template-columns: 1fr 1fr 1fr; }
+}
+@media (max-width: 480px) {
+  .calc-compare-table { font-size: 11.5px; }
+  .calc-th, .calc-td { padding: 10px 8px; }
 }
 </style>
 </head>
+
 <body>
+<div style="font-family:Inter,sans-serif;color:#241a30;background:#fff">
 
-<!-- LANG BAR -->
-<div class="lang-bar">
-  <a href="/">&#8592; healthexps.com</a>
-  <div class="lang-btns">
-    <button class="lang-btn active" id="btn-en" onclick="setLang('en')">EN</button>
-    <button class="lang-btn" id="btn-es" onclick="setLang('es')">ES</button>
-  </div>
-</div>
-
-
-<!-- MINIMAL NAV (required) -->
-<header style="background:white;border-bottom:2px solid #f4eefa;padding:0 24px;">
-  <nav style="max-width:1060px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;height:64px;">
-    <a href="/"><img src="/images/logo.webp" alt="The Health Experts Insurance" style="height:48px;width:auto;display:block;"></a>
-    <a href="tel:18003806821" style="color:#452068;font-weight:700;font-size:14px;text-decoration:none;">1-800-380-6821</a>
-    <button id="nav-toggle" style="display:none;background:none;border:none;cursor:pointer;padding:8px;" aria-label="Menu">
-      <span style="display:block;width:24px;height:2px;background:#452068;margin:5px 0;border-radius:2px;"></span>
-      <span style="display:block;width:24px;height:2px;background:#452068;margin:5px 0;border-radius:2px;"></span>
-      <span style="display:block;width:24px;height:2px;background:#452068;margin:5px 0;border-radius:2px;"></span>
-    </button>
-  </nav>
-</header>
-
-<!-- HERO -->
-<div class="hero">
-  <div class="hero-tag" id="h-tag">Free tool</div>
-  <h1 id="h-title">Medicare Advantage vs. Supplement</h1>
-  <p id="h-sub">See your total cost at 5, 10, and 20 years — based on your numbers.</p>
-</div>
-
-<!-- SHELL -->
-<div class="shell">
-
-  <!-- PROGRESS -->
-  <div class="progress-wrap" id="progress-wrap">
-    <div class="progress-bg"><div class="progress-fill" id="progress-fill" style="width:25%;"></div></div>
-    <div class="progress-lbl" id="progress-lbl">Question 1 of 4</div>
+  <!-- utility bar -->
+  <div class="top-bar-inner" style="background:#2f1550;color:#fff;display:flex;align-items:center;justify-content:space-between;padding:9px 56px;font-size:13px">
+    <div style="display:flex;align-items:center;gap:14px">
+      <a href="tel:18003806821" style="color:#fff;font-weight:700">1-800-380-6821</a>
+      <span style="opacity:.5">|</span>
+      <span style="opacity:.85">English &amp; Espa&ntilde;ol</span>
+    </div>
+    <div style="display:flex;align-items:center;gap:16px">
+      <a href="https://wa.me/13054646888" style="color:#fff;opacity:.9;font-weight:600" onclick="gtag('event','whatsapp_click',{'page':window.location.pathname})">WhatsApp</a>
+      <a href="/contact" style="background:#ff1090;color:#fff;padding:7px 16px;border-radius:999px;font-weight:700;font-size:12.5px">Schedule Free Consultation &rarr;</a>
+    </div>
   </div>
 
-  <!-- STEP 1: Basics -->
-  <div class="step-card" id="step-1">
-    <div class="step-label" id="s1-lbl">Your basics</div>
-    <div class="step-title" id="s1-title">Tell us about you</div>
-    <div class="field">
-      <label id="l-age">Your current age</label>
-      <input type="number" id="i-age" value="65" min="60" max="90" placeholder="65">
-    </div>
-    <div class="field">
-      <label id="l-pb">Monthly Part B premium ($)</label>
-      <input type="number" id="i-pb" value="202.90" step="0.01" placeholder="202.90">
-      <div class="field-hint" id="h-pb">$202.90 is the standard 2026 premium.</div>
-    </div>
-    <button class="btn-continue" onclick="goStep(2)" id="b1">Continue &rarr;</button>
-  </div>
+  <!-- nav -->
+  <div class="v4-nav-outer" style="display:flex;align-items:center;justify-content:space-between;padding:14px 56px;border-bottom:1px solid #ece5f0;position:sticky;top:0;background:#fff;z-index:500">
+    <a href="/"><img src="/images/logo.webp" alt="The Health Experts Insurance" style="height:80px;width:auto;cursor:pointer"/></a>
+    <div class="v4-nav-desktop" style="display:flex;align-items:center;gap:26px;font-size:14.5px;font-weight:600;color:#3a2f47">
+      <a href="/" style="cursor:pointer">Home</a>
 
-  <!-- STEP 2: Medicare Advantage -->
-  <div class="step-card" id="step-2" style="display:none;">
-    <div class="step-label" id="s2-lbl">Medicare Advantage</div>
-    <div class="step-title" id="s2-title">Your Advantage plan details</div>
-    <div class="field">
-      <label id="l-map">Monthly plan premium ($)</label>
-      <input type="number" id="i-map" value="0" min="0" placeholder="0">
-      <div class="field-hint" id="h-map">Many plans in South Florida have $0 premium.</div>
-    </div>
-    <div class="field">
-      <label id="l-mao">Annual out-of-pocket maximum ($)</label>
-      <input type="number" id="i-mao" value="5000" min="0" max="9250" placeholder="5000">
-      <div class="field-hint" id="h-mao">2026 limit: $9,250. Typical: $4,000–$6,000.</div>
-    </div>
-    <button class="btn-continue" onclick="goStep(3)" id="b2">Continue &rarr;</button>
-    <button class="btn-back" onclick="goStep(1)" id="b2b">&larr; Back</button>
-  </div>
-
-  <!-- STEP 3: Supplement -->
-  <div class="step-card" id="step-3" style="display:none;">
-    <div class="step-label" id="s3-lbl">Medicare Supplement</div>
-    <div class="step-title" id="s3-title">Your Supplement plan details</div>
-    <div class="field">
-      <label id="l-mgp">Monthly Plan G premium ($)</label>
-      <input type="number" id="i-mgp" value="165" min="0" placeholder="165">
-      <div class="field-hint" id="h-mgp" data-en="Typical Florida range: $100–$220/mo depending on age." data-es="Rango típico en Florida: $148–$355/mes según la edad.">Typical Florida range: $100–$220/mo depending on age.</div>
-    </div>
-    <div class="field">
-      <label id="l-pdp">Monthly Part D premium ($)</label>
-      <input type="number" id="i-pdp" value="35" min="0" placeholder="35">
-      <div class="field-hint" id="h-pdp">You need Part D with Medigap. Average: $25–$60/mo.</div>
-    </div>
-    <button class="btn-continue" onclick="goStep(4)" id="b3">Continue &rarr;</button>
-    <button class="btn-back" onclick="goStep(2)" id="b3b">&larr; Back</button>
-  </div>
-
-  <!-- STEP 4: Usage -->
-  <div class="step-card" id="step-4" style="display:none;">
-    <div class="step-label" id="s4-lbl">Your usage</div>
-    <div class="step-title" id="s4-title">How much healthcare do you typically use?</div>
-    <div class="usage-grid">
-      <button class="usage-btn" id="u-low" onclick="setUsage('low')">
-        <div class="usage-main" id="ul-main">Light</div>
-        <div class="usage-sub" id="ul-sub">Routine visits, generally healthy</div>
-      </button>
-      <button class="usage-btn selected" id="u-med" onclick="setUsage('med')">
-        <div class="usage-main" id="um-main">Moderate</div>
-        <div class="usage-sub" id="um-sub">Some specialists, medications</div>
-      </button>
-      <button class="usage-btn" id="u-high" onclick="setUsage('high')">
-        <div class="usage-main" id="uh-main">Frequent</div>
-        <div class="usage-sub" id="uh-sub">Multiple specialists, chronic conditions</div>
-      </button>
-    </div>
-    <button class="btn-continue" onclick="calc()" id="b4" style="margin-top:20px;">See my comparison &rarr;</button>
-    <button class="btn-back" onclick="goStep(3)" id="b4b">&larr; Back</button>
-  </div>
-
-  <!-- RESULTS -->
-  <div class="result-wrap" id="result-wrap">
-    <div class="step-card" id="result-card">
-      <div class="result-header">
-        <div class="result-rec" id="res-rec-badge"></div>
-        <div class="result-title" id="res-title"></div>
-        <div class="result-sub" id="res-sub"></div>
-      </div>
-
-      <div class="monthly-grid">
-        <div class="mo-card ma">
-          <div class="mo-plan" id="r-mal">Medicare Advantage</div>
-          <div class="mo-amount" id="r-ma-mo"></div>
-          <div class="mo-label" id="r-mo-lbl">/month</div>
-        </div>
-        <div class="mo-card mg">
-          <div class="mo-plan" id="r-mgl">Medicare Supplement</div>
-          <div class="mo-amount" id="r-mg-mo"></div>
-          <div class="mo-label" id="r-mo-lbl2">/month</div>
+      <div class="v4-nav-item" style="position:relative">
+        <a href="/medicare-plans-miami" style="cursor:pointer;display:flex;align-items:center;gap:4px">Insurance &#9660;</a>
+        <div class="v4-nav-dropdown" style="position:absolute;top:100%;left:-14px;padding-top:12px;z-index:20">
+          <div style="background:#fff;border:2px solid #ece5f0;border-radius:12px;box-shadow:0 16px 36px rgba(69,32,104,.16);padding:8px;min-width:230px;display:flex;flex-direction:column">
+            <a href="/medicare-plans-miami" style="padding:10px 14px;border-radius:8px;font-weight:600">Medicare Plans</a>
+            <a href="/private-health-insurance-miami" style="padding:10px 14px;border-radius:8px;font-weight:600">Private Health Insurance</a>
+            <a href="/aca-plans-miami" style="padding:10px 14px;border-radius:8px;font-weight:600">ACA Marketplace Plans</a>
+            <a href="/cobra-alternatives-miami" style="padding:10px 14px;border-radius:8px;color:#3a2f47;font-weight:600">COBRA Alternatives</a>
+            <a href="/dental-vision-miami" style="padding:10px 14px;border-radius:8px;font-weight:600">Dental &amp; Vision</a>
+          </div>
         </div>
       </div>
 
-      <table class="cost-table" id="res-table">
-        <thead>
-          <tr>
-            <th id="th-yr"></th>
-            <th class="ma-hd" id="th-ma">Advantage</th>
-            <th class="mg-hd" id="th-mg">Supplement</th>
-            <th class="diff-hd" id="th-diff">Difference</th>
-          </tr>
-        </thead>
-        <tbody id="res-tbody"></tbody>
-      </table>
-
-      <div class="savings-box" id="savings-box">
-        <div class="savings-headline" id="savings-headline"></div>
-        <div class="savings-disclaimer" id="savings-disc"></div>
+      <div class="v4-nav-item" style="position:relative">
+        <span style="cursor:pointer;display:flex;align-items:center;gap:4px">Guides &#9660;</span>
+        <div class="v4-nav-dropdown" style="position:absolute;top:100%;left:-14px;padding-top:12px;z-index:20">
+          <div style="background:#fff;border:2px solid #ece5f0;border-radius:12px;box-shadow:0 16px 36px rgba(69,32,104,.16);padding:8px;min-width:240px;display:flex;flex-direction:column">
+            <a href="/medicare/what-is-medicare" style="padding:10px 14px;border-radius:8px;font-weight:600">What Is Medicare</a>
+            <a href="/medicare/new-to-medicare" style="padding:10px 14px;border-radius:8px;font-weight:600">New to Medicare</a>
+            <a href="/medicare/medicare-costs" style="padding:10px 14px;border-radius:8px;font-weight:600">Medicare Costs &amp; IRMAA</a>
+            <a href="/medicare-advantage-miami" style="padding:10px 14px;border-radius:8px;font-weight:600">Medicare Advantage Guide</a>
+            <a href="/medicare-supplement-miami" style="padding:10px 14px;border-radius:8px;font-weight:600">Medicare Supplement Guide</a>
+            <a href="/medicare-savings-program" style="padding:10px 14px;border-radius:8px;font-weight:600">Medicare Savings Program</a>
+            <a href="/find-my-plan" style="padding:10px 14px;border-radius:8px;font-weight:600">Find My Plan Quiz</a>
+          </div>
+        </div>
       </div>
 
-      <div class="calc-disclaimer" id="res-disclaimer"></div>
+      <a href="/faq" style="cursor:pointer">FAQ</a>
+      <a href="/resources" style="cursor:pointer">Resources</a>
+      <a href="/blog" style="cursor:pointer">Blog</a>
+      <a href="/medicare-agent-miami" style="padding:10px 14px;border-radius:8px;font-weight:600">About Us</a>
+      <a href="/contact" style="cursor:pointer">Contact</a>
+    </div>
+    <div style="display:flex;align-items:center;gap:12px">
+      <a href="tel:18003806821" class="v4-nav-desktop" style="color:#241a30;font-weight:700;font-size:14.5px">1-800-380-6821</a>
+      <a href="/contact" class="v4-nav-desktop" style="background:#452068;color:#fff;padding:11px 20px;border-radius:10px;font-weight:700;font-size:14px">Free Consultation</a>
+      <!-- Hamburger -->
+      <button class="v4-nav-mobile-btn" id="v4HamburgerBtn" aria-label="Open menu" aria-expanded="false" aria-controls="v4-mobile-menu">
+        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#241a30" stroke-width="2.2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+      </button>
+    </div>
+  </div>
 
-      <div class="result-ctas">
-        <a href="https://calendly.com/healthexps-info/" target="_blank" rel="noopener" class="btn-agent" id="res-cta"></a>
-        <button class="btn-startover" onclick="restart()" id="res-restart">Start over</button>
+  <!-- Mobile nav panel -->
+  <div id="v4-mobile-menu" role="dialog" aria-label="Navigation menu">
+    <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:28px">
+      <a href="/"><img src="/images/logo.webp" alt="The Health Experts Insurance" style="height:56px;width:auto"/></a>
+      <button id="v4MobileClose" aria-label="Close menu" style="background:none;border:none;cursor:pointer;padding:8px">
+        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#241a30" stroke-width="2.2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      </button>
+    </div>
+    <nav style="display:flex;flex-direction:column;gap:4px;font-size:16px;font-weight:600;color:#241a30">
+      <a href="/" style="padding:14px 4px;border-bottom:1px solid #ece5f0;color:#241a30">Home</a>
+      <div style="padding:14px 4px 4px;font-size:13px;font-weight:700;color:#8a6aaa;text-transform:uppercase;letter-spacing:.06em">Insurance</div>
+      <a href="/medicare-plans-miami" style="padding:11px 12px;border-radius:8px;color:#241a30;font-weight:600;font-size:15px">Medicare Plans</a>
+      <a href="/private-health-insurance-miami" style="padding:11px 12px;border-radius:8px;color:#241a30;font-weight:600;font-size:15px">Private Health Insurance</a>
+      <a href="/aca-plans-miami" style="padding:11px 12px;border-radius:8px;color:#241a30;font-weight:600;font-size:15px">ACA Marketplace Plans</a>
+      <a href="/cobra-alternatives-miami" style="padding:11px 12px;border-radius:8px;color:#241a30;font-weight:600;font-size:15px">COBRA Alternatives</a>
+      <a href="/dental-vision-miami" style="padding:11px 12px;border-radius:8px;color:#241a30;font-weight:600;font-size:15px">Dental &amp; Vision</a>
+      <div style="padding:14px 4px 4px;font-size:13px;font-weight:700;color:#8a6aaa;text-transform:uppercase;letter-spacing:.06em;margin-top:8px">Guides</div>
+      <a href="/medicare/what-is-medicare" style="padding:11px 12px;border-radius:8px;color:#241a30;font-weight:600;font-size:15px">What Is Medicare</a>
+      <a href="/medicare/new-to-medicare" style="padding:11px 12px;border-radius:8px;color:#241a30;font-weight:600;font-size:15px">New to Medicare</a>
+      <a href="/medicare/medicare-costs" style="padding:11px 12px;border-radius:8px;color:#241a30;font-weight:600;font-size:15px">Medicare Costs &amp; IRMAA</a>
+      <a href="/medicare-advantage-miami" style="padding:11px 12px;border-radius:8px;color:#241a30;font-weight:600;font-size:15px">Medicare Advantage Guide</a>
+      <a href="/medicare-supplement-miami" style="padding:11px 12px;border-radius:8px;color:#241a30;font-weight:600;font-size:15px">Medicare Supplement Guide</a>
+      <a href="/medicare-savings-program" style="padding:11px 12px;border-radius:8px;color:#241a30;font-weight:600;font-size:15px">Medicare Savings Program</a>
+      <a href="/find-my-plan" style="padding:11px 12px;border-radius:8px;color:#241a30;font-weight:600;font-size:15px">Find My Plan Quiz</a>
+      <div style="margin-top:8px;border-top:1px solid #ece5f0;padding-top:12px;display:flex;flex-direction:column;gap:4px">
+        <a href="/faq" style="padding:12px 4px;color:#241a30;border-bottom:1px solid #ece5f0">FAQ</a>
+        <a href="/resources" style="padding:12px 4px;color:#241a30;border-bottom:1px solid #ece5f0">Resources</a>
+        <a href="/blog" style="padding:12px 4px;color:#241a30;border-bottom:1px solid #ece5f0">Blog</a>
+        <a href="/medicare-agent-miami" style="padding:12px 4px;color:#241a30;border-bottom:1px solid #ece5f0">About Us</a>
+        <a href="/contact" style="padding:12px 4px;color:#241a30">Contact</a>
+      </div>
+      <div style="margin-top:20px;display:flex;flex-direction:column;gap:12px">
+        <a href="tel:18003806821" style="background:#241a30;color:#fff;padding:16px;border-radius:12px;font-weight:700;font-size:16px;text-align:center">1-800-380-6821</a>
+        <a href="/contact" onclick="document.getElementById('v4-mobile-menu').classList.remove('open');document.getElementById('v4HamburgerBtn').setAttribute('aria-expanded','false');" style="background:#ff1090;color:#fff;padding:16px;border-radius:12px;font-weight:700;font-size:16px;text-align:center">Book Free Consultation &rarr;</a>
+      </div>
+    </nav>
+  </div>
+
+  <!-- BREADCRUMB -->
+  <div class="calc-breadcrumb">
+    <a href="/">Home</a> / <a href="/resources">Resources</a> / MA vs. Supplement Calculator
+  </div>
+
+  <!-- HERO -->
+  <div class="calc-hero">
+    <div class="calc-hero-pill">Free Tool</div>
+    <h1>Medicare Advantage vs. Supplement Calculator</h1>
+    <p>See your estimated total cost at 5, 10, and 20 years &mdash; free, no signup required.</p>
+  </div>
+
+  <!-- CALCULATOR BODY -->
+  <div class="calc-body">
+    <div class="calc-shell">
+      <div class="calc-card" id="calc-card">
+
+        <!-- STEP 1: Basics -->
+        <div id="step-1">
+          <div class="calc-progress-label" id="prog-label">Step 1 of 4</div>
+          <div class="calc-progress-bar"><div class="calc-progress-fill" id="prog-fill" style="width:25%"></div></div>
+          <div class="calc-step-title">Your basics</div>
+          <div class="calc-field" style="margin-top:18px;">
+            <label>Your current age</label>
+            <input type="number" id="i-age" value="65" min="60" max="90" placeholder="65">
+          </div>
+          <div class="calc-field">
+            <label>Monthly Part B premium ($)</label>
+            <input type="number" id="i-pb" value="202.90" step="0.01" placeholder="202.90">
+            <div class="calc-field-hint">$202.90 is the standard 2026 premium.</div>
+          </div>
+          <div class="calc-btn-row">
+            <button class="calc-btn-next" onclick="goStep(2)">Continue &rarr;</button>
+          </div>
+        </div>
+
+        <!-- STEP 2: Medicare Advantage -->
+        <div id="step-2" style="display:none">
+          <div class="calc-progress-label" id="prog-label-2">Step 2 of 4</div>
+          <div class="calc-progress-bar"><div class="calc-progress-fill" style="width:50%"></div></div>
+          <div class="calc-step-title">Medicare Advantage plan</div>
+          <div class="calc-step-sub">All-in-one plan through a private insurer</div>
+          <div class="calc-field">
+            <label>Monthly plan premium ($)</label>
+            <input type="number" id="i-map" value="0" min="0" placeholder="0">
+            <div class="calc-field-hint">Many plans in South Florida have $0 premium.</div>
+          </div>
+          <div class="calc-field">
+            <label>Annual out-of-pocket maximum ($)</label>
+            <input type="number" id="i-mao" value="5000" min="0" max="9350" placeholder="5000">
+            <div class="calc-field-hint">2026 limit: $9,350. Typical: $4,000&ndash;$6,000.</div>
+          </div>
+          <div class="calc-btn-row">
+            <button class="calc-btn-back" onclick="goStep(1)">&larr; Back</button>
+            <button class="calc-btn-next" onclick="goStep(3)">Continue &rarr;</button>
+          </div>
+        </div>
+
+        <!-- STEP 3: Medicare Supplement -->
+        <div id="step-3" style="display:none">
+          <div class="calc-progress-label">Step 3 of 4</div>
+          <div class="calc-progress-bar"><div class="calc-progress-fill" style="width:75%"></div></div>
+          <div class="calc-step-title">Medicare Supplement (Medigap)</div>
+          <div class="calc-step-sub">Works alongside Original Medicare</div>
+          <div class="calc-field">
+            <label>Monthly Plan G premium ($)</label>
+            <input type="number" id="i-mgp" value="165" min="0" placeholder="165">
+            <div class="calc-field-hint" id="h-mgp">Typical Florida range: $148&ndash;$355/mo, depending on age.</div>
+          </div>
+          <div class="calc-field">
+            <label>Part D plan premium ($)</label>
+            <input type="number" id="i-pdp" value="35" min="0" placeholder="35">
+            <div class="calc-field-hint">You need Part D with Medigap. Average: $25&ndash;$60/mo.</div>
+          </div>
+          <div class="calc-btn-row">
+            <button class="calc-btn-back" onclick="goStep(2)">&larr; Back</button>
+            <button class="calc-btn-next" onclick="goStep(4)">Continue &rarr;</button>
+          </div>
+        </div>
+
+        <!-- STEP 4: Usage -->
+        <div id="step-4" style="display:none">
+          <div class="calc-progress-label">Step 4 of 4</div>
+          <div class="calc-progress-bar"><div class="calc-progress-fill" style="width:90%"></div></div>
+          <div class="calc-step-title">How much healthcare do you typically use?</div>
+          <div class="calc-usage-list" style="margin-top:18px;">
+            <button class="calc-usage-btn" id="u-low" onclick="setUsage('low')">
+              <div class="calc-usage-main">Light</div>
+              <div class="calc-usage-sub">Routine visits, generally healthy</div>
+            </button>
+            <button class="calc-usage-btn selected" id="u-med" onclick="setUsage('med')">
+              <div class="calc-usage-main">Moderate</div>
+              <div class="calc-usage-sub">Some specialists, medications</div>
+            </button>
+            <button class="calc-usage-btn" id="u-high" onclick="setUsage('high')">
+              <div class="calc-usage-main">Frequent</div>
+              <div class="calc-usage-sub">Multiple specialists, chronic conditions</div>
+            </button>
+          </div>
+          <div class="calc-btn-row">
+            <button class="calc-btn-back" onclick="goStep(3)">&larr; Back</button>
+            <button class="calc-btn-next" onclick="runCalc()">See my results &rarr;</button>
+          </div>
+        </div>
+
+        <!-- RESULTS (hidden until calc runs) -->
+        <div id="step-results" style="display:none">
+          <div class="calc-result-header">
+            <div class="calc-result-title">Your estimated total cost</div>
+            <div class="calc-result-sub" id="res-usage-label">Premiums + expected out-of-pocket, based on your moderate usage level.</div>
+          </div>
+
+          <!-- Comparison table -->
+          <div class="calc-compare-table" id="res-table">
+            <!-- Header row -->
+            <div class="calc-th label-col"></div>
+            <div class="calc-th ma-col-h">Advantage</div>
+            <div class="calc-th mg-col-h">Supplement</div>
+            <!-- 5 yr row -->
+            <div class="calc-td label-col" style="border-top:1px solid #ece5f0;">5 years</div>
+            <div class="calc-td ma-col" id="res-ma5" style="border-top:1px solid #ece5f0;"></div>
+            <div class="calc-td mg-col" id="res-mg5" style="border-top:1px solid #ece5f0;"></div>
+            <!-- 10 yr row -->
+            <div class="calc-td label-col" style="border-top:1px solid #ece5f0;">10 years</div>
+            <div class="calc-td ma-col" id="res-ma10" style="border-top:1px solid #ece5f0;"></div>
+            <div class="calc-td mg-col" id="res-mg10" style="border-top:1px solid #ece5f0;"></div>
+            <!-- 20 yr row -->
+            <div class="calc-td label-col" style="border-top:1px solid #ece5f0;border-bottom:1px solid #ece5f0;">20 years</div>
+            <div class="calc-td ma-col" id="res-ma20" style="border-top:1px solid #ece5f0;border-bottom:1px solid #ece5f0;"></div>
+            <div class="calc-td mg-col" id="res-mg20" style="border-top:1px solid #ece5f0;border-bottom:1px solid #ece5f0;"></div>
+          </div>
+
+          <!-- Verdict -->
+          <div class="calc-verdict">
+            <div class="calc-verdict-main" id="res-verdict"></div>
+            <div class="calc-verdict-disc">Estimate only &mdash; actual costs depend on your real usage and plan details.</div>
+          </div>
+
+          <!-- CTAs -->
+          <div class="calc-result-ctas">
+            <a href="https://wa.me/13054646888" target="_blank" rel="noopener" class="calc-cta-primary" onclick="gtag('event','calc_cta_wa',{'page':window.location.pathname})">Talk to an agent about this &rarr;</a>
+            <button class="calc-cta-restart" onclick="restartCalc()">Start over</button>
+          </div>
+
+          <!-- Disclaimer -->
+          <div style="margin-top:24px;font-size:12.5px;color:#a79db2;line-height:1.6;padding:14px;background:#fdfaf7;border-radius:10px;">
+            Part B premium applied to both options. Annual increases: 5% Advantage premiums, 4% Supplement premiums. Out-of-pocket costs estimated based on usage level (light: 15%, moderate: 40%, frequent: 85% of annual max). Results are educational estimates, not official quotes. A licensed broker can compare real plans at no cost to you.
+          </div>
+        </div>
+
+      </div><!-- /calc-card -->
+
+      <!-- CTA below calculator -->
+      <div style="margin-top:32px;text-align:center;">
+        <p style="font-size:14px;color:#6f6478;margin-bottom:14px;">Want a personalized quote from a licensed broker?</p>
+        <a href="tel:18003806821" style="display:inline-flex;align-items:center;gap:8px;background:#452068;color:#fff;padding:14px 28px;border-radius:12px;font-weight:700;font-size:15px;">Call 1-800-380-6821</a>
       </div>
     </div>
   </div>
 
-</div><!-- /shell -->
+  <!-- FOOTER -->
+  <div class="footer-wrap">
+    <div style="max-width:1160px;margin:0 auto">
+      <div class="footer-grid">
+        <div>
+          <img src="/images/logo.webp" alt="The Health Experts Insurance" style="height:70px;width:auto;margin-bottom:16px"/>
+          <p style="font-size:13.5px;color:#6f6478;line-height:1.6;max-width:260px">Independent bilingual health insurance brokers. Office in Doral, FL.</p>
+          <div style="display:flex;flex-direction:column;gap:4px;margin-top:14px;font-size:13.5px">
+            <a href="tel:18003806821" style="color:#452068;font-weight:700">1-800-380-6821</a>
+            <a href="https://wa.me/13054646888" style="color:#452068;font-weight:700" onclick="gtag('event','whatsapp_click',{'page':window.location.pathname})">WhatsApp</a>
+            <a href="mailto:info@healthexps.com" style="color:#452068;font-weight:700">info@healthexps.com</a>
+          </div>
+          <p style="font-size:13.5px;color:#4a4051;margin-top:14px">1695 NW 110 Ave, Ste 224<br/>Doral, FL 33172</p>
+        </div>
+        <div>
+          <div style="font-weight:700;font-size:12.5px;letter-spacing:.06em;margin-bottom:14px;color:#452068">MEDICARE</div>
+          <div style="display:flex;flex-direction:column;gap:9px;font-size:13.5px">
+            <a href="/medicare-plans-miami" style="color:#241a30;font-weight:700">Medicare Plans</a>
+            <a href="/medicare-advantage-miami" style="color:#4a4051">Medicare Advantage</a>
+            <a href="/medicare-supplement-miami" style="color:#4a4051">Medicare Supplement</a>
+            <a href="/medicare-plans-miami#dsnp" style="color:#4a4051">Dual Eligible (D-SNP)</a>
+            <a href="/medicare-plan-finder" style="color:#4a4051">Medicare Plan Finder</a>
+            <a href="/avmed-medicare-florida" style="color:#4a4051">AvMed Transition</a>
+          </div>
+        </div>
+        <div>
+          <div style="font-weight:700;font-size:12.5px;letter-spacing:.06em;margin-bottom:14px;color:#452068">MEDICARE GUIDES</div>
+          <div style="display:flex;flex-direction:column;gap:9px;font-size:13.5px">
+            <a href="/medicare/what-is-medicare" style="color:#4a4051">What Is Medicare</a>
+            <a href="/medicare/new-to-medicare" style="color:#4a4051">New to Medicare</a>
+            <a href="/medicare/medicare-costs" style="color:#4a4051">Medicare Costs &amp; IRMAA</a>
+            <a href="/medicare-advantage-miami" style="color:#4a4051">Medicare Advantage Guide</a>
+            <a href="/medicare-supplement-miami" style="color:#4a4051">Medicare Supplement Guide</a>
+            <a href="/medicare-savings-program" style="color:#4a4051">Medicare Savings Program</a>
+          </div>
+        </div>
+        <div>
+          <div style="font-weight:700;font-size:12.5px;letter-spacing:.06em;margin-bottom:14px;color:#452068">MORE</div>
+          <div style="display:flex;flex-direction:column;gap:9px;font-size:13.5px">
+            <a href="/private-health-insurance-miami" style="color:#4a4051">Private Health Insurance</a>
+            <a href="/aca-plans-miami" style="color:#4a4051">ACA Marketplace Plans</a>
+            <a href="/cobra-alternatives-miami" style="color:#4a4051">COBRA Alternatives</a>
+            <a href="/dental-vision-miami" style="color:#4a4051">Dental &amp; Vision</a>
+            <a href="/medicare-agent-miami" style="color:#4a4051">About Us</a>
+            <a href="/contact" style="color:#4a4051">Contact</a>
+            <a href="/es/" style="color:#4a4051">Sitio en Espa&ntilde;ol</a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-copy">
+        &copy; 2026 The Health Experts Insurance. <a href="/privacy" style="color:#452068;font-weight:600">Privacy Policy &amp; Terms</a>
+      </div>
+      <div class="footer-tpmo">
+        Medicare has not reviewed or endorsed this information. We do not offer every plan available in your area. We currently represent 14 organizations offering 82 products in your area. Please contact Medicare.gov, 1-800-MEDICARE, or your local SHIP program for information about all your options.
+      </div>
+    </div>
+  </div>
 
-<!-- FOOTER TPMO -->
-<footer style="background:#fafafa;border-top:2px solid #f4eefa;padding:24px;text-align:center;">
-  <p style="font-size:13px;color:#aaa;line-height:1.7;max-width:680px;margin:0 auto;">Medicare has not reviewed or endorsed this information. We do not offer every plan available in your area. We currently represent 14 organizations offering 82 products in your area. Please contact Medicare.gov, 1-800-MEDICARE, or your local SHIP program for information about all your options.</p>
-</footer>
+</div><!-- /wrapper -->
 
+<!-- Scroll to top -->
+<button id="scrollToTop" aria-label="Back to top">&#8593;</button>
+
+<!-- ============================================================
+     CALCULATOR JAVASCRIPT
+     ============================================================ -->
 <script>
-// ── State ─────────────────────────────────────────────────────────────────────
-var L = 'en';
-var U = 'med'; // default usage
-var UF = { low: 0.15, med: 0.40, high: 0.85 };
-var PBD = 283; // 2026 Part B deductible
+(function(){
 
-// ── Translations ──────────────────────────────────────────────────────────────
-var TL = {
-  en: {
-    tag: 'Free tool', title: 'Medicare Advantage vs. Supplement',
-    sub: 'See your total cost at 1, 5, and 10 years — based on your numbers.',
-    s1lbl: 'Your basics', s1title: 'Tell us about you',
-    lage: 'Your current age', lpb: 'Monthly Part B premium ($)', hpb: '$202.90 is the standard 2026 premium.',
-    s2lbl: 'Medicare Advantage', s2title: 'Your Advantage plan details',
-    lmap: 'Monthly plan premium ($)', hmap: 'Many plans in South Florida have $0 premium.',
-    lmao: 'Annual out-of-pocket maximum ($)', hmao: '2026 limit: $9,250. Typical: $4,000–$6,000.',
-    s3lbl: 'Medicare Supplement', s3title: 'Your Supplement plan details',
-    lmgp: 'Monthly Plan G premium ($)', hmgp: 'Typical Florida range: $100–$220/mo depending on age.',
-    lpdp: 'Monthly Part D premium ($)', hpdp: 'You need Part D with Medigap. Average: $25–$60/mo.',
-    s4lbl: 'Your usage', s4title: 'How much healthcare do you typically use?',
-    ulm: 'Light', uls: 'Routine visits, generally healthy',
-    umm: 'Moderate', ums: 'Some specialists, medications',
-    uhm: 'Frequent', uhs: 'Multiple specialists, chronic conditions',
-    cont: 'Continue →', back: '← Back', see: 'See my comparison →',
-    q: 'Question', of: 'of', qcount: '4',
-    mal: 'Medicare Advantage', mgl: 'Medicare Supplement',
-    mo: '/month', yrh: 'Years', diff: 'Difference',
-    yr1: '1 year', yr5: '5 years', yr10: '10 years',
-    wma: 'Medicare Advantage may be better for you',
-    wmg: 'Medicare Supplement may be better for you',
-    wtie: 'Costs are very similar',
-    dma: 'Based on your usage, Advantage has lower projected costs. Always verify your doctors are in-network.',
-    dmg: 'Based on your usage, Supplement has lower projected costs — with no network restrictions.',
-    dtie: 'Costs are close. The right choice depends on your doctors and preferences.',
-    saves: function(plan, amt, yrs) { return plan + ' may save you about ' + amt + ' over ' + yrs + ' years, based on these numbers.'; },
-    savedisc: 'Estimate only — actual costs depend on your real usage and plan details.',
-    disclaimer: 'Part B premium applied to both options. Annual increases: 5% Advantage, 4% Supplement. Out-of-pocket costs estimated based on usage level. Results are educational estimates, not official quotes. A licensed broker can compare real plans at no cost.',
-    cta: 'Talk to an agent about this →', restart: 'Start over'
-  },
-  es: {
-    tag: 'Herramienta gratuita', title: 'Medicare Advantage vs. Suplementario',
-    sub: 'Vea su costo total a 1, 5 y 10 años — con sus números.',
-    s1lbl: 'Sus datos básicos', s1title: 'Cuéntenos sobre usted',
-    lage: 'Su edad actual', lpb: 'Prima mensual de la Parte B ($)', hpb: '$202.90 es la prima estándar 2026.',
-    s2lbl: 'Medicare Advantage', s2title: 'Detalles de su plan Advantage',
-    lmap: 'Prima mensual del plan ($)', hmap: 'Muchos planes en Florida del Sur tienen prima de $0.',
-    lmao: 'Máximo anual de bolsillo ($)', hmao: 'Límite 2026: $9,250. Típico: $4,000–$6,000.',
-    s3lbl: 'Medicare Suplementario', s3title: 'Detalles de su plan Suplementario',
-    lmgp: 'Prima mensual del Plan G ($)', hmgp: 'Rango típico en Florida: $148–$355/mes según la edad.',
-    lpdp: 'Prima mensual del Plan Parte D ($)', hpdp: 'Necesita la Parte D con Medigap. Promedio: $25–$60/mes.',
-    s4lbl: 'Su uso', s4title: '¿Cuánta atención médica usa normalmente?',
-    ulm: 'Poca', uls: 'Visitas rutinarias, generalmente sano',
-    umm: 'Moderada', ums: 'Algunos especialistas, medicamentos',
-    uhm: 'Frecuente', uhs: 'Múltiples especialistas, condiciones crónicas',
-    cont: 'Continuar →', back: '← Volver', see: 'Ver mi comparación →',
-    q: 'Pregunta', of: 'de', qcount: '4',
-    mal: 'Medicare Advantage', mgl: 'Medicare Suplementario',
-    mo: '/mes', yrh: 'Años', diff: 'Diferencia',
-    yr1: '1 año', yr5: '5 años', yr10: '10 años',
-    wma: 'Medicare Advantage puede ser mejor para usted',
-    wmg: 'Medicare Suplementario puede ser mejor para usted',
-    wtie: 'Los costos son muy similares',
-    dma: 'Según su uso, Advantage tiene costos proyectados más bajos. Verifique que sus médicos estén en la red.',
-    dmg: 'Según su uso, Suplementario tiene costos proyectados más bajos — sin restricciones de red.',
-    dtie: 'Los costos son similares. La decisión depende de sus médicos y preferencias.',
-    saves: function(plan, amt, yrs) { return plan + ' podría ahorrarle unos ' + amt + ' en ' + yrs + ' años, según estos números.'; },
-    savedisc: 'Solo estimado — los costos reales dependen de su uso y detalles del plan.',
-    disclaimer: 'Prima Parte B aplicada a ambas opciones. Aumentos anuales: 5% Advantage, 4% Suplementario. Costos de bolsillo estimados según nivel de uso. Los resultados son estimaciones educativas, no cotizaciones oficiales. Un corredor licenciado puede comparar planes reales sin costo.',
-    cta: 'Hablar con un corredor sobre esto →', restart: 'Empezar de nuevo'
+  // ── State ────────────────────────────────────────────────────────────────
+  var currentStep = 1;
+  var usageLevel = 'med';
+  var USAGE_FACTORS = { low: 0.15, med: 0.40, high: 0.85 };
+  var USAGE_LABELS  = { low: 'light', med: 'moderate', high: 'frequent' };
+
+  // ── Plan G age-based rate lookup (Florida typical midpoints, 2026) ────────
+  var PG_RATES = {
+    60:148,61:151,62:155,63:159,64:162,
+    65:170,66:178,67:185,68:192,69:200,
+    70:210,71:218,72:227,73:236,74:244,
+    75:254,76:265,77:277,78:290,79:302,
+    80:315
+  };
+  function getPGRate(age) {
+    age = Math.min(80, Math.max(60, Math.round(age)));
+    return PG_RATES[age] || 215;
   }
-};
 
-// ── Helpers ───────────────────────────────────────────────────────────────────
-function g(id) { return document.getElementById(id); }
-function f(n) { return '$' + Math.round(n).toLocaleString('en-US'); }
-function fDiff(n) { return n > 0 ? '+' + f(n) : f(n); }
+  // ── Helpers ───────────────────────────────────────────────────────────────
+  function g(id) { return document.getElementById(id); }
+  function fmt(n) { return '$' + Math.round(n).toLocaleString('en-US'); }
 
-var currentStep = 1;
+  // ── Step navigation ───────────────────────────────────────────────────────
+  window.goStep = function(n) {
+    g('step-' + currentStep).style.display = 'none';
+    currentStep = n;
+    g('step-' + n).style.display = 'block';
 
-// ── Language ──────────────────────────────────────────────────────────────────
-function setLang(l) {
-  L = l;
-  var t = TL[l];
-  g('btn-en').className = 'lang-btn' + (l === 'en' ? ' active' : '');
-  g('btn-es').className = 'lang-btn' + (l === 'es' ? ' active' : '');
-  document.documentElement.lang = l;
-  g('h-tag').textContent = t.tag;
-  g('h-title').textContent = t.title;
-  g('h-sub').textContent = t.sub;
-  // Step labels
-  g('s1-lbl').textContent = t.s1lbl; g('s1-title').textContent = t.s1title;
-  g('l-age').textContent = t.lage; g('l-pb').textContent = t.lpb; g('h-pb').textContent = t.hpb;
-  g('s2-lbl').textContent = t.s2lbl; g('s2-title').textContent = t.s2title;
-  g('l-map').textContent = t.lmap; g('h-map').textContent = t.hmap;
-  g('l-mao').textContent = t.lmao; g('h-mao').textContent = t.hmao;
-  g('s3-lbl').textContent = t.s3lbl; g('s3-title').textContent = t.s3title;
-  g('l-mgp').textContent = t.lmgp; g('h-mgp').textContent = t.hmgp;
-  g('l-pdp').textContent = t.lpdp; g('h-pdp').textContent = t.hpdp;
-  g('s4-lbl').textContent = t.s4lbl; g('s4-title').textContent = t.s4title;
-  g('ul-main').textContent = t.ulm; g('ul-sub').textContent = t.uls;
-  g('um-main').textContent = t.umm; g('um-sub').textContent = t.ums;
-  g('uh-main').textContent = t.uhm; g('uh-sub').textContent = t.uhs;
-  // Buttons
-  ['b1','b2','b3'].forEach(function(id){ g(id).innerHTML = t.cont; });
-  ['b2b','b3b','b4b'].forEach(function(id){ g(id).textContent = t.back; });
-  g('b4').innerHTML = t.see;
-  updateProgress();
-}
-
-// ── Navigation ────────────────────────────────────────────────────────────────
-
-// ── Plan G age-based rate lookup (Florida typical midpoints, 2026) ─────────────
-// Source: Florida Medigap market data. User can always override.
-var PG_RATES = {
-  60:148,61:151,62:155,63:159,64:162,
-  65:170,66:178,67:185,68:192,69:200,
-  70:210,71:218,72:227,73:236,74:244,
-  75:254,76:265,77:277,78:290,79:302,
-  80:315
-};
-function getPGRate(age) {
-  age = Math.min(80, Math.max(60, Math.round(age)));
-  return PG_RATES[age] || 215;
-}
-
-function goStep(n) {
-  g('step-' + currentStep).style.display = 'none';
-  currentStep = n;
-  g('step-' + n).style.display = 'block';
-  updateProgress();
-  // Auto-fill Plan G premium based on age when arriving at step 3
-  if (n === 3) {
-    var age = parseFloat(g('i-age').value) || 65;
-    var suggested = getPGRate(age);
-    g('i-mgp').value = suggested;
-    // Update hint
-    var t = TL[L];
-    var hintEl = g('h-mgp');
-    if (hintEl) {
-      var range = Math.round(suggested * 0.85) + '–$' + Math.round(suggested * 1.15);
-      hintEl.textContent = (L === 'es' ? 'Estimado típico para su edad: ~$' : 'Typical for your age: ~$') + suggested + '/mo. ' + (L === 'es' ? 'Puede ajustarlo.' : 'You can adjust this.');
+    // Auto-fill Plan G based on age when reaching step 3
+    if (n === 3) {
+      var age = parseFloat(g('i-age').value) || 65;
+      var suggested = getPGRate(age);
+      g('i-mgp').value = suggested;
+      var hEl = g('h-mgp');
+      if (hEl) hEl.textContent = 'Typical for your age (~' + age + '): ~$' + suggested + '/mo. You can adjust this.';
     }
-  }
-  window.scrollTo({ top: 0, behavior: 'smooth' });
-}
 
-function updateProgress() {
-  var t = TL[L];
-  var pct = (currentStep / 4) * 100;
-  g('progress-fill').style.width = pct + '%';
-  g('progress-lbl').textContent = t.q + ' ' + currentStep + ' ' + t.of + ' ' + t.qcount;
-  g('progress-wrap').style.display = currentStep <= 4 ? 'block' : 'none';
-}
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
 
-// ── Usage ─────────────────────────────────────────────────────────────────────
-function setUsage(u) {
-  U = u;
-  ['low','med','high'].forEach(function(k) {
-    g('u-' + k).className = 'usage-btn' + (k === u ? ' selected' : '');
-  });
-}
+  // ── Usage selection ───────────────────────────────────────────────────────
+  window.setUsage = function(level) {
+    usageLevel = level;
+    ['low','med','high'].forEach(function(k){
+      var btn = g('u-' + k);
+      if (btn) btn.className = 'calc-usage-btn' + (k === level ? ' selected' : '');
+    });
+  };
 
-// ── Calculate ─────────────────────────────────────────────────────────────────
-function calc() {
-  var t = TL[L];
-  var pb  = parseFloat(g('i-pb').value)  || 202.90;
-  var mp  = parseFloat(g('i-map').value) || 0;
-  var mo  = parseFloat(g('i-mao').value) || 5000;
-  var gp  = parseFloat(g('i-mgp').value) || 165;
-  var pd  = parseFloat(g('i-pdp').value) || 35;
-
-  var fac   = UF[U];
-  var maOP  = mo * fac;         // MA out-of-pocket this year
-  var mgOP  = PBD;              // Medigap: just Part B deductible
-
-  // Monthly totals (Year 1)
-  var maMo = Math.round(pb + mp);
-  var mgMo = Math.round(pb + gp + pd);
-
-  // Cumulative costs at 1, 5, 10 years
-  function cumCost(premBase, premGrowth, oop, oopGrowth, yrs) {
+  // ── Cumulative cost helper ────────────────────────────────────────────────
+  // Sums annual costs with compound growth over N years
+  function cumCost(monthlyBase, premGrowth, annualOop, oopGrowth, years) {
     var total = 0;
-    for (var i = 1; i <= yrs; i++) {
-      total += premBase * Math.pow(1 + premGrowth, i - 1) * 12 + oop * Math.pow(1 + oopGrowth, i - 1);
+    for (var i = 1; i <= years; i++) {
+      var prem = monthlyBase * 12 * Math.pow(1 + premGrowth, i - 1);
+      var oop  = annualOop * Math.pow(1 + oopGrowth, i - 1);
+      total += prem + oop;
     }
     return total;
   }
 
-  var maBase = pb + mp;
-  var mgBase = pb + gp + pd;
+  // ── Run calculation ───────────────────────────────────────────────────────
+  window.runCalc = function() {
+    var pb  = parseFloat(g('i-pb').value)  || 202.90;
+    var mp  = parseFloat(g('i-map').value) || 0;
+    var mo  = parseFloat(g('i-mao').value) || 5000;
+    var gp  = parseFloat(g('i-mgp').value) || 165;
+    var pd  = parseFloat(g('i-pdp').value) || 35;
 
-  var ma1  = cumCost(maBase, 0.05, maOP, 0.03, 1);
-  var ma5  = cumCost(maBase, 0.05, maOP, 0.03, 5);
-  var ma10 = cumCost(maBase, 0.05, maOP, 0.03, 10);
+    var fac  = USAGE_FACTORS[usageLevel];
+    var maOop = mo * fac;          // MA expected out-of-pocket (usage % of max)
+    var mgOop = 240;               // Medigap: ~Part B deductible only (Plan G covers most else)
 
-  var mg1  = cumCost(mgBase, 0.04, mgOP, 0, 1);
-  var mg5  = cumCost(mgBase, 0.04, mgOP, 0, 5);
-  var mg10 = cumCost(mgBase, 0.04, mgOP, 0, 10);
+    // Monthly premium bases
+    var maMo = pb + mp;
+    var mgMo = pb + gp + pd;
 
-  // Winner at 10 years
-  var diff10 = Math.abs(ma10 - mg10);
-  var tie = diff10 < 500;
-  var maWins = ma10 < mg10 && !tie;
-  var mgWins = mg10 < ma10 && !tie;
-  var winnerName = maWins ? t.mal : mgWins ? t.mgl : '';
-  var savingsAmt = f(diff10);
+    // Cumulative totals: MA grows at 5% premium + 3% OOP; MG at 4% premium
+    var ma5  = cumCost(maMo, 0.05, maOop, 0.03, 5);
+    var ma10 = cumCost(maMo, 0.05, maOop, 0.03, 10);
+    var ma20 = cumCost(maMo, 0.05, maOop, 0.03, 20);
 
-  // ── Build results ──────────────────────────────────────────────────────────
-  // Hide steps
-  g('step-' + currentStep).style.display = 'none';
-  g('progress-wrap').style.display = 'none';
+    var mg5  = cumCost(mgMo, 0.04, mgOop, 0, 5);
+    var mg10 = cumCost(mgMo, 0.04, mgOop, 0, 10);
+    var mg20 = cumCost(mgMo, 0.04, mgOop, 0, 20);
 
-  // Recommendation badge
-  var badge = g('res-rec-badge');
-  if (maWins) {
-    badge.style.background = '#fff0f8'; badge.style.color = '#ff1090'; badge.style.border = '1.5px solid #ff1090';
-  } else if (mgWins) {
-    badge.style.background = '#f0fdf4'; badge.style.color = '#16a34a'; badge.style.border = '1.5px solid #16a34a';
-  } else {
-    badge.style.background = '#f4eefa'; badge.style.color = '#452068'; badge.style.border = '1.5px solid #452068';
-  }
-  badge.textContent = maWins ? t.wma : mgWins ? t.wmg : t.wtie;
+    // Populate table
+    g('res-ma5').textContent  = fmt(ma5);
+    g('res-mg5').textContent  = fmt(mg5);
+    g('res-ma10').textContent = fmt(ma10);
+    g('res-mg10').textContent = fmt(mg10);
+    g('res-ma20').textContent = fmt(ma20);
+    g('res-mg20').textContent = fmt(mg20);
 
-  g('res-title').textContent = '';
-  g('res-sub').textContent = maWins ? t.dma : mgWins ? t.dmg : t.dtie;
+    // Highlight winner column at 20 years
+    var ma20cells = ['res-ma5','res-ma10','res-ma20'];
+    var mg20cells = ['res-mg5','res-mg10','res-mg20'];
+    if (ma20 < mg20 - 500) {
+      ma20cells.forEach(function(id){ var el=g(id); if(el) el.style.background='#fff0f8'; });
+    } else if (mg20 < ma20 - 500) {
+      mg20cells.forEach(function(id){ var el=g(id); if(el) el.style.background='#f0fdf4'; });
+    }
 
-  // Monthly cards
-  g('r-mal').textContent = t.mal;
-  g('r-mgl').textContent = t.mgl;
-  g('r-ma-mo').textContent = f(maMo);
-  g('r-mg-mo').textContent = f(mgMo);
-  g('r-mo-lbl').textContent = t.mo;
-  g('r-mo-lbl2').textContent = t.mo;
+    // Verdict
+    var diff20 = Math.abs(ma20 - mg20);
+    var verdict;
+    if (ma20 < mg20 - 500) {
+      verdict = 'Based on your ' + USAGE_LABELS[usageLevel] + ' usage, Medicare Advantage may save you about ' + fmt(diff20) + ' over 20 years. Verify your doctors are in-network.';
+    } else if (mg20 < ma20 - 500) {
+      verdict = 'Based on your ' + USAGE_LABELS[usageLevel] + ' usage, Medicare Supplement may save you about ' + fmt(diff20) + ' over 20 years \u2014 with no network restrictions.';
+    } else {
+      verdict = 'Based on your ' + USAGE_LABELS[usageLevel] + ' usage, costs are close. The best choice depends on your doctors and preferences.';
+    }
+    g('res-verdict').textContent = verdict;
 
-  // Table headers
-  g('th-yr').textContent = t.yrh;
-  g('th-ma').textContent = t.mal;
-  g('th-mg').textContent = t.mgl;
-  g('th-diff').textContent = t.diff;
+    // Usage label
+    g('res-usage-label').textContent = 'Premiums + expected out-of-pocket, based on your ' + USAGE_LABELS[usageLevel] + ' usage level.';
 
-  // Table rows
-  var rows = [
-    { lbl: t.yr1,  ma: ma1,  mg: mg1 },
-    { lbl: t.yr5,  ma: ma5,  mg: mg5 },
-    { lbl: t.yr10, ma: ma10, mg: mg10 },
-  ];
-  var tbody = g('res-tbody');
-  tbody.innerHTML = '';
-  rows.forEach(function(row, idx) {
-    var diff = row.mg - row.ma;
-    var tr = document.createElement('tr');
-    var winnerCol = diff > 200 ? 'ma-col' : diff < -200 ? '' : '';
-    tr.innerHTML = '<td>' + row.lbl + '</td>' +
-      '<td class="ma-col">' + f(row.ma) + '</td>' +
-      '<td>' + f(row.mg) + '</td>' +
-      '<td class="diff-col">' + (diff > 0 ? '+' + f(diff) : f(Math.abs(diff))) + (diff > 0 ? ' saved' : '') + '</td>';
-    tbody.appendChild(tr);
-  });
+    // Show results, hide steps
+    g('step-4').style.display = 'none';
+    g('step-results').style.display = 'block';
 
-  // Savings callout
-  var sb = g('savings-box');
-  if (maWins) {
-    sb.style.background = '#fff0f8'; sb.style.border = '2px solid #ff1090';
-    g('savings-headline').style.color = '#ff1090';
-    g('savings-headline').textContent = t.saves(t.mal, savingsAmt, '10');
-  } else if (mgWins) {
-    sb.style.background = '#f0fdf4'; sb.style.border = '2px solid #16a34a';
-    g('savings-headline').style.color = '#16a34a';
-    g('savings-headline').textContent = t.saves(t.mgl, savingsAmt, '10');
-  } else {
-    sb.style.background = '#f4eefa'; sb.style.border = '2px solid #452068';
-    g('savings-headline').style.color = '#452068';
-    g('savings-headline').textContent = t.wtie;
-  }
-  g('savings-disc').textContent = t.savedisc;
+    // Track GA4 event
+    if (window.gtag) {
+      gtag('event', 'calculator_complete', {
+        usage_level: usageLevel,
+        ma_20yr: Math.round(ma20),
+        mg_20yr: Math.round(mg20)
+      });
+    }
 
-  g('res-disclaimer').textContent = t.disclaimer;
-  g('res-cta').textContent = t.cta;
-  g('res-restart').textContent = t.restart;
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
 
-  g('result-wrap').style.display = 'block';
-  window.scrollTo({ top: 0, behavior: 'smooth' });
-}
+  // ── Restart ───────────────────────────────────────────────────────────────
+  window.restartCalc = function() {
+    g('step-results').style.display = 'none';
+    // Reset winner highlights
+    ['res-ma5','res-ma10','res-ma20','res-mg5','res-mg10','res-mg20'].forEach(function(id){
+      var el = g(id); if(el) el.style.background = '';
+    });
+    currentStep = 1;
+    g('step-1').style.display = 'block';
+    setUsage('med');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
 
-// ── Restart ───────────────────────────────────────────────────────────────────
-function restart() {
-  g('result-wrap').style.display = 'none';
-  currentStep = 1;
-  g('step-1').style.display = 'block';
-  g('progress-wrap').style.display = 'block';
-  setUsage('med');
-  updateProgress();
-  window.scrollTo({ top: 0, behavior: 'smooth' });
-}
-
-// Init
-setLang('en');
-</script>
-
-<button id="scrollToTop" aria-label="Back to top" style="display:none;position:fixed;bottom:28px;right:28px;width:44px;height:44px;border-radius:50%;background:#452068;color:white;border:none;font-size:20px;cursor:pointer;box-shadow:0 4px 14px rgba(69,32,104,.35);transition:background .2s,transform .15s;z-index:999;">↑</button>
-<script>
-(function(){
-  const btn=document.getElementById('scrollToTop');
-  if(!btn)return;
-  window.addEventListener('scroll',function(){btn.style.display=window.pageYOffset>300?'block':'none';});
-  btn.addEventListener('click',function(){window.scrollTo({top:0,behavior:'smooth'});});
-  btn.addEventListener('mouseenter',function(){btn.style.background='#ff1090';btn.style.transform='translateY(-3px)';});
-  btn.addEventListener('mouseleave',function(){btn.style.background='#452068';btn.style.transform='translateY(0)';});
 })();
 </script>
+
+<!-- V4 nav hamburger -->
+<script>
+(function(){
+  var btn = document.getElementById('v4HamburgerBtn');
+  var closeBtn = document.getElementById('v4MobileClose');
+  var menu = document.getElementById('v4-mobile-menu');
+  if (!btn || !menu) return;
+  function openMenu(){ menu.classList.add('open'); btn.setAttribute('aria-expanded','true'); document.body.style.overflow='hidden'; }
+  function closeMenu(){ menu.classList.remove('open'); btn.setAttribute('aria-expanded','false'); document.body.style.overflow=''; }
+  btn.addEventListener('click', openMenu);
+  if (closeBtn) closeBtn.addEventListener('click', closeMenu);
+  document.addEventListener('keydown', function(e){ if(e.key==='Escape') closeMenu(); });
+})();
+</script>
+
+<!-- V4 nav dropdown (desktop hover / mobile click) -->
+<script>
+(function(){
+  var navItems = document.querySelectorAll('.v4-nav-item');
+  function isMobile(){ return window.innerWidth <= 900; }
+  navItems.forEach(function(item){
+    var drop = item.querySelector('.v4-nav-dropdown');
+    if (!drop) return;
+    item.addEventListener('click', function(e){
+      if (!isMobile()) return;
+      var open = drop.style.display === 'block';
+      navItems.forEach(function(ni){ var d=ni.querySelector('.v4-nav-dropdown'); if(d) d.style.display=''; });
+      drop.style.display = open ? '' : 'block';
+    });
+  });
+  document.addEventListener('click', function(e){
+    if (!isMobile()) return;
+    navItems.forEach(function(item){
+      if (!item.contains(e.target)){
+        var drop = item.querySelector('.v4-nav-dropdown');
+        if (drop) drop.style.display='';
+      }
+    });
+  });
+})();
+</script>
+
+<!-- Scroll to top -->
+<script>
+(function(){
+  var btn = document.getElementById('scrollToTop');
+  if (!btn) return;
+  window.addEventListener('scroll', function(){ btn.style.display = window.pageYOffset > 300 ? 'flex' : 'none'; });
+  btn.addEventListener('click', function(){ window.scrollTo({top:0,behavior:'smooth'}); });
+  btn.addEventListener('mouseenter', function(){ btn.style.background='#ff1090'; btn.style.transform='translateY(-3px)'; });
+  btn.addEventListener('mouseleave', function(){ btn.style.background='#452068'; btn.style.transform='translateY(0)'; });
+})();
+</script>
+
 </body>
 </html>
