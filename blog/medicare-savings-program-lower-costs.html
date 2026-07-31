@@ -400,5 +400,19 @@ footer{text-align:center;padding:24px;font-size:13px;color:#6b6478;}
 </script>
 
 
+
+<style>
+#scrollToTop{display:none;position:fixed;bottom:28px;right:28px;width:44px;height:44px;background:#452068;color:#fff;border:none;border-radius:50%;font-size:22px;cursor:pointer;align-items:center;justify-content:center;box-shadow:0 4px 14px rgba(69,32,104,.3);z-index:998;}
+#scrollToTop:hover{background:#ff1090;}
+</style>
+<button id="scrollToTop" aria-label="Scroll to top">↑</button>
+<script>
+(function(){
+  var btn=document.getElementById('scrollToTop');
+  if(!btn)return;
+  window.addEventListener('scroll',function(){btn.style.display=window.pageYOffset>300?'flex':'none';});
+  btn.addEventListener('click',function(){window.scrollTo({top:0,behavior:'smooth'});});
+})();
+</script>
 </body>
 </html>
