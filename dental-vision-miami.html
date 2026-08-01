@@ -413,7 +413,6 @@ img { max-width: 100%; height: auto; }
   box-shadow: 0 4px 14px rgba(69,32,104,.3);
   transition: background .2s, transform .2s; z-index: 999;
 #scrollToTop:hover { background: var(--purple-dark); transform: translateY(-2px); }
-<button id="scrollToTop" aria-label="Scroll to top" onclick="window.scrollTo({top:0,behavior:'smooth'})">&#8679;</button>
   var btn = document.getElementById('scrollToTop');
   if (!btn) return;
     btn.style.display = window.scrollY > 400 ? 'flex' : 'none';
