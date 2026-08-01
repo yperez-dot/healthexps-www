@@ -356,6 +356,20 @@
   status = 410
   force = true
 
+
+# Task 2.1 — Consolidate /medicare/medicare-costs into /medicare-irmaa-penalties
+[[redirects]]
+  from = "/medicare/medicare-costs"
+  to = "/medicare-irmaa-penalties"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/medicare/medicare-costs/"
+  to = "/medicare-irmaa-penalties"
+  status = 301
+  force = true
+
 # 404 handler — serve 404.html for any unmatched route (replaces the 200 catch-all that was silently serving homepage content)
 [[redirects]]
   from = "/*"
