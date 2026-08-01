@@ -44,6 +44,12 @@ For 2026, the first IRMAA threshold is $109,000 for a single filer and $218,000 
 <tr><td>$500,000 or more</td><td>$750,000 or more</td><td>$689.90</td><td>+$91.00</td></tr>
 </tbody>
 </table>
+<div style="background:#fff7ec;border-left:4px solid #c40074;padding:16px 20px;margin:20px 0;border-radius:0 8px 8px 0;">
+<p style="font-weight:700;font-size:15px;color:#241a30;margin:0 0 8px;">⚠️ Married filing separately? Your IRMAA works differently.</p>
+<p style="font-size:15px;color:#5a4a2f;line-height:1.65;margin:0 0 10px;">If you lived with your spouse at any point during the year but filed separately, there's no gradual bracket — income above $109,000 puts you at <strong>$649.20/month</strong>, and above $391,000 you're at the top tier, <strong>$689.90/month</strong>. There's no room in between.</p>
+<p style="font-size:13.5px;color:#7a6a4f;margin:0;">Source: <a href="https://secure.ssa.gov/poms.nsf/lnx/0601101020" target="_blank" rel="noopener" style="color:#452068;font-weight:600;">SSA POMS HI 01101.020</a></p>
+</div>
+
 
 Part D IRMAA adds a further income-based amount, $14.50 to $91.00 per month, paid to Medicare directly — even if your drug plan's premium is $0.
 

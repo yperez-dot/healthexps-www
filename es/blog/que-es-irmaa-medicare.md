@@ -44,6 +44,12 @@ Para 2026, el primer nivel de IRMAA comienza en $109,000 para una persona que de
 <tr><td>$500,000 o más</td><td>$750,000 o más</td><td>$689.90</td><td>+$91.00</td></tr>
 </tbody>
 </table>
+<div style="background:#fff7ec;border-left:4px solid #c40074;padding:16px 20px;margin:20px 0;border-radius:0 8px 8px 0;">
+<p style="font-weight:700;font-size:15px;color:#241a30;margin:0 0 8px;">⚠️ ¿Casado pero declaró por separado? Su IRMAA funciona diferente.</p>
+<p style="font-size:15px;color:#5a4a2f;line-height:1.65;margin:0 0 10px;">Si vivió con su cónyuge en algún momento del año pero presentó su declaración de impuestos por separado, no hay escalones graduales — con ingresos superiores a $109,000 pagaría <strong>$649.20 al mes</strong>, y por encima de $391,000 llega al nivel máximo: <strong>$689.90 al mes</strong>. No hay puntos intermedios.</p>
+<p style="font-size:13.5px;color:#7a6a4f;margin:0;">Fuente: <a href="https://secure.ssa.gov/poms.nsf/lnx/0601101020" target="_blank" rel="noopener" style="color:#452068;font-weight:600;">SSA POMS HI 01101.020</a></p>
+</div>
+
 
 El IRMAA de la Parte D añade un monto adicional según los ingresos, de $14.50 a $91.00 al mes, que se paga directamente a Medicare — aunque la prima de su plan de medicamentos sea $0.
 
