@@ -132,6 +132,125 @@
 <link rel="alternate" hreflang="en" href="https://www.healthexps.com/medicare-savings-program"/>
 <link rel="alternate" hreflang="es" href="https://www.healthexps.com/es/medicare/programa-ahorros-medicare"/>
 <link rel="alternate" hreflang="x-default" href="https://www.healthexps.com/medicare-savings-program"/>
+
+<style>
+/* Restored: classes missing after Task 1.7 */
+
+/* ============================================================
+   DESIGN SYSTEM — Inter + Poppins, THEI brand #452068 / #ff1090
+   ============================================================ */
+html, body { overflow-x: hidden; max-width: 100%; }
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: 'Inter', Arial, Helvetica, sans-serif; color: #241a30; background: #fff; -webkit-font-smoothing: antialiased; }
+a { color: #452068; text-decoration: none; }
+a:hover { color: #ff1090; }
+img { max-width: 100%; height: auto; }
+::placeholder { color: #a79db2; }
+input:focus, textarea:focus, select:focus { outline: 2px solid #ff1090; outline-offset: 1px; }
+
+/* ---- Nav dropdown ---- */
+.v4-nav-dropdown { display: none; }
+.v4-nav-item:hover .v4-nav-dropdown { display: block; }
+.v4-nav-mobile-btn { display: none; background: none; border: none; cursor: pointer; padding: 8px; }
+#v4-mobile-menu {
+  display: none; position: fixed; top: 0; left: 0; right: 0; bottom: 0;
+  background: #fff; z-index: 999; overflow-y: auto; padding: 24px;
+}
+#v4-mobile-menu.open { display: block; }
+@media (max-width: 900px) {
+  .v4-nav-desktop { display: none !important; }
+  .v4-nav-mobile-btn { display: flex !important; align-items: center; }
+}
+
+/* ---- Utility bar + nav mobile padding ---- */
+@media (max-width: 768px) {
+  .top-bar-inner { padding-left: 20px !important; padding-right: 20px !important; }
+  .v4-nav-outer  { padding-left: 20px !important; padding-right: 20px !important; }
+}
+
+/* ============================================================
+   MANDATORY MOBILE CSS — every grid + all section padding
+   ============================================================ */
+@media (max-width: 640px) {
+  /* Section padding: 56px → 20px */
+  .section-pad { padding-left: 20px !important; padding-right: 20px !important; }
+
+  /* 2-col programs grid → 1-col */
+  .msp-programs-grid { grid-template-columns: 1fr !important; }
+
+  /* 4-col steps grid → 1-col */
+  .msp-steps-grid { grid-template-columns: 1fr !important; }
+
+  /* 3-col guides grid → 1-col */
+  .msp-guides-grid { grid-template-columns: 1fr !important; }
+
+  /* 2-col form name row → 1-col */
+  .ff-row { grid-template-columns: 1fr !important; }
+
+  /* Hero stats flex → column */
+  .msp-hero-stats { flex-direction: column; gap: 12px !important; align-items: center; }
+
+  /* CTA buttons → column */
+  .msp-cta-btns { flex-direction: column; align-items: center; gap: 10px !important; }
+
+  /* Footer */
+  .footer-grid { grid-template-columns: 1fr !important; gap: 24px !important; }
+  .footer-wrap { padding: 40px 20px 88px !important; }
+}
+
+/* ---- Scroll to top ---- */
+#scrollToTop {
+  position: fixed; bottom: 28px; right: 28px;
+  width: 44px; height: 44px;
+  background: #452068; color: white; border: none; border-radius: 50%;
+  cursor: pointer; display: none;
+  align-items: center; justify-content: center;
+  box-shadow: 0 4px 14px rgba(69,32,104,.3);
+  transition: background .2s, transform .2s; z-index: 999;
+}
+#scrollToTop:hover { background: #5a2a86; transform: translateY(-2px); }
+
+/* ---- Eligibility checker ---- */
+.msp-hs-btn {
+  width: 100%; padding: 12px 14px; border-radius: 10px;
+  border: 2px solid #ddd2e6; cursor: pointer; text-align: left;
+  font-size: 14px; font-weight: 600; font-family: 'Inter', sans-serif;
+  background: #fff; color: #241a30; transition: border-color .2s, background .2s;
+}
+.msp-hs-btn.active { border-color: #452068; background: #f7f2fb; color: #452068; }
+
+/* ---- Form inputs ---- */
+.msp-form-input {
+  width: 100%; box-sizing: border-box;
+  padding: 13px 14px; border-radius: 10px;
+  border: 1px solid #ddd2e6; font-size: 14.5px;
+  font-family: 'Inter', sans-serif; color: #241a30; background: #fff;
+  display: block;
+}
+.ff-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 12px; }
+
+.msp-submit-btn {
+  width: 100%; border: none; padding: 15px 20px; border-radius: 10px;
+  font-weight: 700; font-size: 14.5px; font-family: 'Inter', sans-serif;
+  cursor: pointer; background: #ff1090; color: #fff;
+  box-sizing: border-box; transition: background .2s;
+}
+.msp-submit-btn:hover { background: #c40074; }
+.msp-submit-btn:disabled { background: #b0a8bc; cursor: not-allowed; }
+
+/* ---- FAQ accordion ---- */
+.msp-faq-answer { display: none; }
+.msp-faq-answer.open { display: block; }
+.msp-faq-btn {
+  width: 100%; padding: 18px 20px;
+  display: flex; justify-content: space-between; align-items: center;
+  cursor: pointer; font-weight: 700; font-size: 14.5px; color: #241a30;
+  background: none; border: none; text-align: left;
+  font-family: 'Inter', sans-serif; line-height: 1.4;
+}
+.msp-faq-btn:hover { color: #452068; }
+
+</style>
 </head>
 
 <body>
