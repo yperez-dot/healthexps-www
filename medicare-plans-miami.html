@@ -664,6 +664,12 @@ img { max-width: 100%; height: auto; }
           <div>
             <form id="v4LeadForm" novalidate>
               <div style="font-weight:700;font-size:17px;color:#241a30;margin-bottom:16px">Request Your Free Consultation</div>
+              <div class="ff-row" style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:12px">
+                <input placeholder="First Name" id="v4First" name="first_name" value="" style="padding:13px 14px;border-radius:10px;border:2px solid #ddd2e6;font-size:16px;font-family:Inter,sans-serif;"/>
+                <input placeholder="Last Name" id="v4Last" name="last_name" value="" style="padding:13px 14px;border-radius:10px;border:2px solid #ddd2e6;font-size:16px;font-family:Inter,sans-serif;"/>
+              </div>
+              <input placeholder="Phone Number" id="v4Phone" name="phone" value="" style="width:100%;box-sizing:border-box;padding:13px 14px;border-radius:10px;border:2px solid #ddd2e6;font-size:16px;margin-bottom:12px;font-family:Inter,sans-serif;"/>
+              <input placeholder="Email Address" id="v4Email" name="email" value="" style="width:100%;box-sizing:border-box;padding:13px 14px;border-radius:10px;border:2px solid #ddd2e6;font-size:16px;margin-bottom:12px;font-family:Inter,sans-serif;"/>
               <select id="v4Coverage" name="coverage_type" style="width:100%;box-sizing:border-box;padding:13px 14px;border-radius:10px;border:2px solid #ddd2e6;font-size:16px;margin-bottom:12px;font-family:Inter,sans-serif;color:#241a30;appearance:none;">
                 <option value="">What are you looking for?</option>
                 <option value="medicare-advantage">Medicare Advantage</option>
@@ -674,12 +680,6 @@ img { max-width: 100%; height: auto; }
                 <option value="private">Private Health Insurance</option>
                 <option value="notsure">Not sure &mdash; help me compare</option>
               </select>
-              <div class="ff-row" style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:12px">
-                <input placeholder="First Name" id="v4First" name="first_name" value="" style="padding:13px 14px;border-radius:10px;border:2px solid #ddd2e6;font-size:16px;font-family:Inter,sans-serif;"/>
-                <input placeholder="Last Name" id="v4Last" name="last_name" value="" style="padding:13px 14px;border-radius:10px;border:2px solid #ddd2e6;font-size:16px;font-family:Inter,sans-serif;"/>
-              </div>
-              <input placeholder="Phone Number" id="v4Phone" name="phone" value="" style="width:100%;box-sizing:border-box;padding:13px 14px;border-radius:10px;border:2px solid #ddd2e6;font-size:16px;margin-bottom:12px;font-family:Inter,sans-serif;"/>
-              <input placeholder="Email Address" id="v4Email" name="email" value="" style="width:100%;box-sizing:border-box;padding:13px 14px;border-radius:10px;border:2px solid #ddd2e6;font-size:16px;margin-bottom:12px;font-family:Inter,sans-serif;"/>
               <div style="margin-bottom:14px">
                 <label style="display:block;font-size:13.5px;font-weight:700;color:#241a30;margin-bottom:5px;text-transform:uppercase;letter-spacing:.3px">Additional Notes <span style="color:#a79db2;font-weight:400;text-transform:none">(optional)</span></label>
                 <textarea id="v4Notes" name="notes" rows="3" placeholder="Anything you'd like to share about your situation?" style="resize:vertical;width:100%;padding:12px 14px;border:2px solid #ddd2e6;border-radius:10px;font-family:Inter,sans-serif;font-size:16px;color:#241a30;background:white;outline:none;box-sizing:border-box;"></textarea>
@@ -930,7 +930,7 @@ img { max-width: 100%; height: auto; }
 <button id="scrollToTop" aria-label="Back to top">↑</button>
 
 <!-- LEAD FORM SCRIPT -->
-<script>
+<script defer>
 (function(){
   var WEBHOOK = 'https://services.leadconnectorhq.com/hooks/RINM4TCnM4hN06UA1aK0/webhook-trigger/dc6c8b35-9480-412e-b56d-4a4c8c7bd438';
   var form = document.getElementById('v4LeadForm');
@@ -949,11 +949,14 @@ img { max-width: 100%; height: auto; }
 
     first = first.trim(); last = last.trim(); phone = phone.trim(); email = email.trim();
 
+    var covEl = document.getElementById('v4Coverage');
     if (!first || !last || !phone || !email || !coverage || !consent) {
       err.style.display = 'block';
       err.textContent = 'Please fill in all required fields.';
+      if (!coverage && covEl) covEl.style.border = '2px solid #c40074';
       return;
     }
+    if (covEl) covEl.style.border = '2px solid #ddd2e6';
     btn.disabled = true;
     btn.textContent = 'Sending...';
     err.style.display = 'none';
