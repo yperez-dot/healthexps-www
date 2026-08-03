@@ -107,18 +107,121 @@
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-SJSGF3E9MD"></script>
 <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-SJSGF3E9MD');</script>
 </head>
+
 <body>
-<!-- v4-nav stub for pre-commit -->
-<div class="v4-nav-outer" style="display:flex;align-items:center;justify-content:space-between;padding:12px 24px;border-bottom:1px solid #ece5f0;position:sticky;top:0;background:#fff;z-index:500">
-  <a href="/"><img src="/images/logo.webp" alt="The Health Experts Insurance" style="height:56px;width:auto"/></a>
-  <div style="display:flex;gap:20px;font-size:14px;font-weight:600">
-    <a href="/" style="color:#241a30">Home</a>
-    <a href="/medicare-plans-miami" style="color:#241a30">Insurance</a>
-    <a href="/resources" style="color:#241a30">Resources</a>
-    <a href="/blog" style="color:#241a30">Blog</a>
-    <a href="/contact" style="color:#241a30">Contact</a>
-    <a href="tel:18003806821" style="color:#241a30;font-weight:700">1-800-380-6821</a>
+<div style="font-family:Inter,sans-serif;color:#241a30;background:#fff">
+
+<!-- ============================================================
+     UTILITY BAR (verbatim from index.html v4)
+     ============================================================ -->
+<div class="top-bar-inner">
+  <div class="top-bar-left">
+    <a href="tel:18003806821" style="color:#fff;display:flex;align-items:center;" aria-label="Call 1-800-380-6821"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 1.27h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.91a16 16 0 0 0 6.29 6.29l.91-.91a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg></a>
+    <span style="display:inline-flex;align-items:center;border:1px solid rgba(255,255,255,0.35);border-radius:999px;padding:3px 10px;gap:3px;font-size:12px;"><span style="opacity:.65;font-weight:400">EN</span><span style="opacity:.35;margin:0 1px">|</span><a href="/es/" style="color:#fff;text-decoration:none;font-weight:700">ES</a></span>
   </div>
+  <div class="top-bar-right">
+    <a href="https://wa.me/13054646888" onclick="gtag('event','whatsapp_click',{'page':window.location.pathname})" style="display:inline-flex;align-items:center;gap:6px;background:#25D366;color:#fff;padding:5px 12px;border-radius:999px;font-weight:700;font-size:12.5px;text-decoration:none;">📱 WhatsApp</a>
+  </div>
+</div>
+
+<!-- ============================================================
+     NAV (verbatim from index.html v4)
+     ============================================================ -->
+<div class="v4-nav-outer">
+  <a href="/"><img src="/images/logo.webp" alt="The Health Experts Insurance" style="height:80px;width:auto;cursor:pointer"/></a>
+  <div class="v4-nav-desktop" style="display:flex;align-items:center;gap:26px;font-size:14.5px;font-weight:600;color:#3a2f47">
+    <a href="/" style="cursor:pointer">Home</a>
+
+    <div class="v4-nav-item" style="position:relative">
+            <a href="/medicare-plans-miami" style="cursor:pointer;display:flex;align-items:center;gap:4px">Insurance ▾</a>
+              <div class="v4-nav-dropdown" style="position:absolute;top:100%;left:-14px;padding-top:12px;z-index:20">
+                <div style="background:#fff;border:2px solid #ece5f0;border-radius:12px;box-shadow:0 16px 36px rgba(69,32,104,.16);padding:8px;min-width:230px;display:flex;flex-direction:column">
+                  <a href="/medicare-plans-miami" style="padding:10px 14px;border-radius:8px;cursor:pointer;font-weight:600">Medicare Plans</a>
+                  <a href="/medicare-advantage-miami" style="padding:10px 14px;border-radius:8px;cursor:pointer;font-weight:600">Medicare Advantage</a>
+                  <a href="/medicare-supplement-miami" style="padding:10px 14px;border-radius:8px;cursor:pointer;font-weight:600">Medicare Supplement</a>
+                  <a href="/aca-plans-miami" style="padding:10px 14px;border-radius:8px;cursor:pointer;font-weight:600">ACA Marketplace Plans</a>
+                  <a href="/private-health-insurance-miami" style="padding:10px 14px;border-radius:8px;cursor:pointer;font-weight:600">Private Health Insurance</a>
+                  <a href="/cobra-alternatives-miami" style="padding:10px 14px;border-radius:8px;cursor:pointer;font-weight:600">COBRA Alternatives</a>
+                  <a href="/dental-vision-miami" style="padding:10px 14px;border-radius:8px;cursor:pointer;font-weight:600">Dental &amp; Vision</a>
+                  <a href="/life-insurance-miami" style="padding:10px 14px;border-radius:8px;cursor:pointer;font-weight:600">Life Insurance</a>
+                  <a href="/final-expense-insurance" style="padding:10px 14px;border-radius:8px;cursor:pointer;font-weight:600">Final Expense</a>
+                </div>
+              </div>
+          </div>
+
+          <div class="v4-nav-item" style="position:relative">
+            <span style="cursor:pointer;display:flex;align-items:center;gap:4px">Guides ▾</span>
+              <div class="v4-nav-dropdown" style="position:absolute;top:100%;left:-14px;padding-top:12px;z-index:20">
+                <div style="background:#fff;border:2px solid #ece5f0;border-radius:12px;box-shadow:0 16px 36px rgba(69,32,104,.16);padding:8px;min-width:240px;display:flex;flex-direction:column">
+                  <a href="/medicare/what-is-medicare" style="padding:10px 14px;border-radius:8px;cursor:pointer;font-weight:600">What Is Medicare</a>
+                  <a href="/medicare/new-to-medicare" style="padding:10px 14px;border-radius:8px;cursor:pointer;font-weight:600">New to Medicare</a>
+                  <a href="/medicare-irmaa-penalties" style="padding:10px 14px;border-radius:8px;cursor:pointer;font-weight:600">Medicare Costs &amp; IRMAA</a>
+                  <a href="/medicare-savings-program" style="padding:10px 14px;border-radius:8px;cursor:pointer;font-weight:600">Medicare Savings Program</a>
+                  <a href="/medicare-myths" style="padding:10px 14px;border-radius:8px;cursor:pointer;font-weight:600">Medicare Myths &amp; Facts</a>
+                  <a href="/medicare-annual-enrollment-2027" style="padding:10px 14px;border-radius:8px;cursor:pointer;font-weight:600">Annual Enrollment (AEP)</a>
+                  <a href="/medicare-plan-finder" style="padding:10px 14px;border-radius:8px;cursor:pointer;font-weight:600">Medicare Plan Finder</a>
+                  <a href="/avmed-medicare-florida" style="padding:10px 14px;border-radius:8px;cursor:pointer;font-weight:600">AvMed Transition</a>
+                  <a href="/independent-health-insurance-broker" style="padding:10px 14px;border-radius:8px;cursor:pointer;font-weight:600">Independent Broker</a>
+                </div>
+              </div>
+          </div>
+
+    <a href="/faq" style="cursor:pointer">FAQ</a>
+    <a href="/resources" style="cursor:pointer">Resources</a> <a href="/blog" style="cursor:pointer">Blog</a> <a href="/medicare-agent-miami" style="padding:10px 14px;border-radius:8px;cursor:pointer;font-weight:600">About Us</a>
+    <a href="/contact" style="cursor:pointer">Contact</a>
+  </div>
+  <div style="display:flex;align-items:center;gap:12px">
+    <a href="tel:18003806821" class="v4-nav-desktop" style="color:#241a30;font-weight:700;font-size:14.5px">1-800-380-6821</a>
+    <a href="/contact" class="v4-nav-desktop" style="background:#452068;color:#fff;padding:11px 20px;border-radius:10px;font-weight:700;font-size:14px">Free Consultation</a>
+    <button class="v4-nav-mobile-btn" id="v4HamburgerBtn" aria-label="Open menu" aria-expanded="false" aria-controls="v4-mobile-menu">
+      <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#241a30" stroke-width="2.2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+    </button>
+  </div>
+</div>
+
+<!-- ============================================================
+     MOBILE NAV PANEL (verbatim from index.html v4)
+     ============================================================ -->
+<div id="v4-mobile-menu" role="dialog" aria-label="Navigation menu">
+  <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:28px">
+    <a href="/"><img src="/images/logo.webp" alt="The Health Experts Insurance" style="height:56px;width:auto"/></a>
+    <button id="v4MobileClose" aria-label="Close menu" style="background:none;border:none;cursor:pointer;padding:8px">
+      <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#241a30" stroke-width="2.2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+    </button>
+  </div>
+  <nav style="display:flex;flex-direction:column;gap:4px;font-size:16px;font-weight:600;color:#241a30">
+    <a href="/" style="padding:14px 4px;border-bottom:1px solid #ece5f0;color:#241a30">Home</a>
+    <div style="padding:14px 4px 4px;font-size:13px;font-weight:700;color:#8a6aaa;text-transform:uppercase;letter-spacing:.06em">Insurance</div>
+    <a href="/medicare-plans-miami" style="padding:11px 12px;border-radius:8px;color:#241a30;font-weight:600;font-size:15px">Medicare Plans</a>
+    <a href="/private-health-insurance-miami" style="padding:11px 12px;border-radius:8px;color:#241a30;font-weight:600;font-size:15px">Private Health Insurance</a>
+    <a href="/aca-plans-miami" style="padding:11px 12px;border-radius:8px;color:#241a30;font-weight:600;font-size:15px">ACA Marketplace Plans</a>
+    <a href="/cobra-alternatives-miami" style="padding:11px 12px;border-radius:8px;color:#241a30;font-weight:600;font-size:15px">COBRA Alternatives</a>
+    <a href="/dental-vision-miami" style="padding:11px 12px;border-radius:8px;color:#241a30;font-weight:600;font-size:15px">Dental &amp; Vision</a>
+    <div style="padding:14px 4px 4px;font-size:13px;font-weight:700;color:#8a6aaa;text-transform:uppercase;letter-spacing:.06em;margin-top:8px">Guides</div>
+    <a href="/medicare/what-is-medicare" style="padding:11px 12px;border-radius:8px;color:#241a30;font-weight:600;font-size:15px">What Is Medicare</a>
+    <a href="/medicare/new-to-medicare" style="padding:11px 12px;border-radius:8px;color:#241a30;font-weight:600;font-size:15px">New to Medicare</a>
+    <a href="/medicare-irmaa-penalties" style="padding:11px 12px;border-radius:8px;color:#241a30;font-weight:600;font-size:15px">Medicare Costs &amp; IRMAA</a>
+    <a href="/medicare-advantage-miami" style="padding:11px 12px;border-radius:8px;color:#241a30;font-weight:600;font-size:15px">Medicare Advantage Guide</a>
+    <a href="/medicare-supplement-miami" style="padding:11px 12px;border-radius:8px;color:#241a30;font-weight:600;font-size:15px">Medicare Supplement Guide</a>
+    <a href="/medicare-savings-program" style="padding:11px 12px;border-radius:8px;color:#241a30;font-weight:600;font-size:15px">Medicare Savings Program</a>
+    <a href="/find-my-plan" style="padding:11px 12px;border-radius:8px;color:#241a30;font-weight:600;font-size:15px">Find My Plan Quiz</a>
+    <div style="margin-top:8px;border-top:1px solid #ece5f0;padding-top:12px;display:flex;flex-direction:column;gap:4px">
+      <a href="/faq" style="padding:12px 4px;color:#241a30;border-bottom:1px solid #ece5f0">FAQ</a>
+      <a href="/resources" style="padding:12px 4px;color:#241a30;border-bottom:1px solid #ece5f0">Resources</a> <a href="/blog" style="padding:12px 4px;color:#241a30;border-bottom:1px solid #ece5f0">Blog</a> <a href="/medicare-agent-miami" style="padding:12px 4px;color:#241a30;border-bottom:1px solid #ece5f0">About Us</a>
+      <a href="/contact" style="padding:12px 4px;color:#241a30">Contact</a>
+    </div>
+    <div style="margin-top:20px;display:flex;flex-direction:column;gap:12px">
+      <a href="tel:18003806821" style="background:#241a30;color:#fff;padding:16px;border-radius:12px;font-weight:700;font-size:16px;text-align:center">1-800-380-6821</a>
+      <a href="/contact" onclick="document.getElementById('v4-mobile-menu').classList.remove('open');document.getElementById('v4HamburgerBtn').setAttribute('aria-expanded','false');" style="background:#ff1090;color:#fff;padding:16px;border-radius:12px;font-weight:700;font-size:16px;text-align:center">Book Free Consultation →</a>
+    </div>
+  </nav>
+</div>
+
+<!-- ============================================================
+     BREADCRUMB (from v4 design source — medigap section)
+     ============================================================ -->
+<div class="breadcrumb">
+  <a href="/">Home</a> / <a href="/resources">Resources</a> / Medigap Plan Calculator
 </div>
 <div class="wrap">
 <header>
@@ -432,5 +535,192 @@ function startOver(){
   document.querySelectorAll('.choice').forEach(function(c){c.classList.remove('selected')});
 }
 </script>
+<!-- FOOTER -->
+      <div id="site-footer" style="background:#fff;color:#241a30;padding:56px 56px 24px;border-top:1px solid #ece5f0">
+        <div style="max-width:1160px;margin:0 auto">
+          <div id="footer-grid" style="display:grid;grid-template-columns:1.3fr 1fr 1fr 1fr;gap:32px;margin-bottom:36px">
+            <div>
+              <img src="/images/logo.webp" alt="The Health Experts Insurance" style="height:70px;width:auto;margin-bottom:16px"/>
+              <p style="font-size:13.5px;color:#6f6478;line-height:1.6;max-width:260px">Independent bilingual health insurance brokers. Office in Doral, FL.</p>
+              <div style="display:flex;flex-direction:column;gap:4px;margin-top:14px;font-size:13.5px">
+                <a href="tel:18003806821" style="color:#452068;font-weight:700">1-800-380-6821</a>
+                <a href="https://wa.me/13054646888" style="color:#452068;font-weight:700" onclick="gtag('event','whatsapp_click',{'page':window.location.pathname})">WhatsApp</a>
+                <a href="mailto:info@healthexps.com" style="color:#452068;font-weight:700">info@healthexps.com</a>
+              </div>
+              <p style="font-size:13.5px;color:#4a4051;margin-top:14px">1695 NW 110 Ave, Ste 224<br/>Doral, FL 33172</p>
+            </div>
+            <div>
+              <div style="font-weight:700;font-size:12.5px;letter-spacing:.06em;margin-bottom:14px;color:#452068">MEDICARE</div>
+              <div style="display:flex;flex-direction:column;gap:9px;font-size:13.5px">
+                <a href="/medicare-plans-miami" style="cursor:pointer;color:#241a30;font-weight:700">Medicare Plans</a>
+                <a href="/medicare-advantage-miami" style="color:#4a4051">Medicare Advantage</a>
+                <a href="/medicare-supplement-miami" style="color:#4a4051">Medicare Supplement</a>
+                <a href="/medicare-dual-eligible-miami" style="cursor:pointer;color:#4a4051">Dual Eligible (D-SNP)</a>
+                <a href="/medicare-plan-finder" style="cursor:pointer;color:#4a4051">Medicare Plan Finder</a>
+                <a href="/avmed-medicare-florida" style="color:#4a4051">AvMed Transition</a>
+              </div>
+            </div>
+            <div>
+              <div style="font-weight:700;font-size:12.5px;letter-spacing:.06em;margin-bottom:14px;color:#452068">MEDICARE GUIDES</div>
+              <div style="display:flex;flex-direction:column;gap:9px;font-size:13.5px">
+                <a href="/medicare/what-is-medicare" style="cursor:pointer;color:#4a4051">What Is Medicare</a>
+                <a href="/medicare/new-to-medicare" style="cursor:pointer;color:#4a4051">New to Medicare</a>
+                <a href="/medicare-irmaa-penalties" style="cursor:pointer;color:#4a4051">Medicare Costs &amp; IRMAA</a>
+                <a href="/medicare-advantage-miami" style="cursor:pointer;color:#4a4051">Medicare Advantage Guide</a>
+                <a href="/medicare-supplement-miami" style="cursor:pointer;color:#4a4051">Medicare Supplement Guide</a>
+                <a href="/medicare-savings-program" style="cursor:pointer;color:#4a4051">Medicare Savings Program</a>
+              </div>
+            </div>
+            <div>
+              <div style="font-weight:700;font-size:12.5px;letter-spacing:.06em;margin-bottom:14px;color:#452068">MORE</div>
+              <div style="display:flex;flex-direction:column;gap:9px;font-size:13.5px">
+                <a href="/private-health-insurance-miami" style="cursor:pointer;color:#4a4051">Private Health Insurance</a>
+                <a href="/aca-plans-miami" style="cursor:pointer;color:#4a4051">ACA Marketplace Plans</a>
+                <a href="/cobra-alternatives-miami" style="cursor:pointer;color:#4a4051">COBRA Alternatives</a>
+                <a href="/dental-vision-miami" style="cursor:pointer;color:#4a4051">Dental &amp; Vision</a>
+                <a href="/medicare-agent-miami" style="cursor:pointer;color:#4a4051">About Us</a>
+                <a href="/contact" style="cursor:pointer;color:#4a4051">Contact</a>
+                <a href="/es/" style="color:#4a4051">Sitio en Espa&ntilde;ol</a>
+              </div>
+            </div>
+          </div>
+          <div style="border-top:1px solid #ece5f0;padding-top:20px;font-size:13px;color:#4a4051">
+            © 2026 The Health Experts Insurance. <a href="/privacy" style="color:#452068;font-weight:600">Privacy Policy &amp; Terms</a>
+          </div>
+          <div style="padding-top:12px;font-size:13.5px;color:#a79db2;line-height:1.6">
+            Medicare has not reviewed or endorsed this information. We do not offer every plan available in your area. We currently represent 14 organizations offering 82 products in your area. Please contact Medicare.gov, 1-800-MEDICARE, or your local SHIP program for information about all your options.
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+<script>
+(function(){
+  var WEBHOOK = 'https://services.leadconnectorhq.com/hooks/RINM4TCnM4hN06UA1aK0/webhook-trigger/dc6c8b35-9480-412e-b56d-4a4c8c7bd438';
+  var form = document.getElementById('v4LeadForm');
+  if (!form) return;
+
+  form.addEventListener('submit', async function(e) {
+    e.preventDefault();
+    var btn      = document.getElementById('v4Submit');
+    var err      = document.getElementById('v4Error');
+    var first    = (document.getElementById('v4First') || {}).value || '';
+    var last     = (document.getElementById('v4Last') || {}).value || '';
+    var phone    = (document.getElementById('v4Phone') || {}).value || '';
+    var email    = (document.getElementById('v4Email') || {}).value || '';
+    var coverage = (document.getElementById('v4Coverage') || {}).value || '';
+    var consent  = document.getElementById('v4Consent') && document.getElementById('v4Consent').checked;
+
+    first = first.trim(); last = last.trim(); phone = phone.trim(); email = email.trim();
+
+    if (!first || !last || !phone || !email || !coverage || !consent) {
+      err.style.display = 'block';
+      err.textContent = 'Please fill in all required fields.';
+      return;
+    }
+    btn.disabled = true;
+    btn.textContent = 'Sending...';
+    err.style.display = 'none';
+
+    try {
+      var res = await fetch(WEBHOOK, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          first_name: first,
+          last_name: last,
+          phone: phone,
+          email: email,
+          coverage_type: coverage,
+          source: 'Homepage Form',
+          page: window.location.href,
+          submitted_at: new Date().toISOString()
+        })
+      });
+      if (res.ok) {
+        form.style.display = 'none';
+        var success = document.getElementById('v4Success');
+        if (success) success.style.display = 'block';
+      } else { throw new Error('Server error'); }
+    } catch(ex) {
+      btn.disabled = false;
+      btn.textContent = 'Book My Free Consultation →';
+      err.style.display = 'block';
+      err.textContent = 'Something went wrong. Please try again or call 1-800-380-6821.';
+    }
+  });
+})();
+</script>
+
+<script>
+// V4 hamburger toggle
+(function(){
+  var btn = document.getElementById('v4HamburgerBtn');
+  var closeBtn = document.getElementById('v4MobileClose');
+  var menu = document.getElementById('v4-mobile-menu');
+  if (!btn || !menu) return;
+  function openMenu(){
+    menu.classList.add('open');
+    btn.setAttribute('aria-expanded','true');
+    document.body.style.overflow='hidden';
+  }
+  function closeMenu(){
+    menu.classList.remove('open');
+    btn.setAttribute('aria-expanded','false');
+    document.body.style.overflow='';
+  }
+  btn.addEventListener('click', openMenu);
+  if (closeBtn) closeBtn.addEventListener('click', closeMenu);
+  // Close on Escape
+  document.addEventListener('keydown', function(e){ if(e.key==='Escape') closeMenu(); });
+})();
+</script>
+
+<script>
+// V4 nav mobile — hover for desktop, click for mobile
+(function(){
+  var navItems = document.querySelectorAll('.v4-nav-item');
+  function isMobile(){ return window.innerWidth <= 900; }
+  navItems.forEach(function(item){
+    var drop = item.querySelector('.v4-nav-dropdown');
+    if (!drop) return;
+    // Desktop: CSS handles hover; Mobile: toggle on click
+    item.addEventListener('click', function(e){
+      if (!isMobile()) return;
+      var open = drop.style.display === 'block';
+      // Close all
+      navItems.forEach(function(ni){ var d = ni.querySelector('.v4-nav-dropdown'); if(d) d.style.display=''; });
+      drop.style.display = open ? '' : 'block';
+    });
+  });
+  // Close on outside click
+  document.addEventListener('click', function(e){
+    if (!isMobile()) return;
+    navItems.forEach(function(item){
+      if (!item.contains(e.target)){
+        var drop = item.querySelector('.v4-nav-dropdown');
+        if(drop) drop.style.display='';
+      }
+    });
+  });
+})();
+</script>
+
+<button id="scrollToTop" aria-label="Back to top">↑</button>
+<script>
+(function(){
+  var s = document.getElementById('scrollToTop');
+  if (!s) return;
+  var prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  window.addEventListener('scroll', function(){
+    s.style.display = window.pageYOffset > 300 ? 'flex' : 'none';
+  });
+  s.addEventListener('click', function(){
+    window.scrollTo({ top: 0, behavior: prefersReduced ? 'instant' : 'smooth' });
+  });
+})();
+</script>
+
 </body>
 </html>

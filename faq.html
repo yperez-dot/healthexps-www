@@ -743,5 +743,39 @@ img { max-width: 100%; height: auto; }
   });
 })();
 </script>
+<script>
+// FAQ category filter
+function filterCat(cat, el) {
+  // Update active pill
+  document.querySelectorAll('.cat-btn').forEach(function(b){ b.classList.remove('active'); });
+  el.classList.add('active');
+  // Show/hide sections and items
+  document.querySelectorAll('.faq-section').forEach(function(sec) {
+    if (cat === 'all' || sec.dataset.cat === cat) {
+      sec.style.display = '';
+    } else {
+      sec.style.display = 'none';
+    }
+  });
+}
+// FAQ accordion
+document.querySelectorAll('.faq-q').forEach(function(q) {
+  q.addEventListener('click', function() {
+    var item = q.closest('.faq-item');
+    var isOpen = item.classList.contains('open');
+    // Close all
+    document.querySelectorAll('.faq-item').forEach(function(i) {
+      i.classList.remove('open');
+      var btn = i.querySelector('.faq-q');
+      if (btn) btn.setAttribute('aria-expanded', 'false');
+    });
+    // Open clicked (if was closed)
+    if (!isOpen) {
+      item.classList.add('open');
+      q.setAttribute('aria-expanded', 'true');
+    }
+  });
+});
+</script>
 </body>
 </html>
