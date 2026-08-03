@@ -533,3 +533,96 @@
   from = "/*"
   to = "/404.html"
   status = 404
+
+# GROUP: Duplicate content consolidation — 2026-08-03
+# Medicare enrollment cluster → /blog/medicare-enrollment-periods-explained/
+[[redirects]]
+  from = "/blog/mastering-medicare-essential-tips-to-avoid-common-enrollment-mistakes/"
+  to = "/blog/medicare-enrollment-periods-explained/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/blog/mastering-medicare-essential-tips-to-avoid-common-enrollment-mistakes"
+  to = "/blog/medicare-enrollment-periods-explained/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/blog/understanding-medicare-enrollment-periods-a-comprehensive-guide/"
+  to = "/blog/medicare-enrollment-periods-explained/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/blog/mastering-the-medicare-enrollment-process-your-guide-to-a-stress-free-experience/"
+  to = "/blog/medicare-enrollment-periods-explained/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/blog/unlocking-medicare-enrollment-periods-your-complete-guide-to-health-insurance-benefits/"
+  to = "/blog/medicare-enrollment-periods-explained/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/blog/navigating-the-medicare-enrollment-process-step-by-step-instructions/"
+  to = "/blog/medicare-enrollment-periods-explained/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/blog/missed-your-medicare-enrollment-period-heres-your-essential-guide/"
+  to = "/blog/medicare-enrollment-periods-explained/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/blog/open-enrollment-vs-annual-enrollment-period-whats-the-difference/"
+  to = "/blog/medicare-enrollment-periods-explained/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/blog/exploring-special-enrollment-periods-who-qualifies/"
+  to = "/blog/medicare-enrollment-periods-explained/"
+  status = 301
+  force = true
+
+# Private health insurance cluster → /blog/private-health-insurance-basics-plans-costs-and-coverage-explained/
+[[redirects]]
+  from = "/blog/private-health-insurance-basics/"
+  to = "/blog/private-health-insurance-basics-plans-costs-and-coverage-explained/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/blog/private-health-insurance-made-easy-a-guide-for-families/"
+  to = "/blog/private-health-insurance-basics-plans-costs-and-coverage-explained/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/blog/private-health-insurance-a-simple-guide-for-your-family/"
+  to = "/blog/private-health-insurance-basics-plans-costs-and-coverage-explained/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/blog/private-health-insurance-simple-guide-for-families/"
+  to = "/blog/private-health-insurance-basics-plans-costs-and-coverage-explained/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/blog/master-private-health-insurance-a-guide-for-your-family/"
+  to = "/blog/private-health-insurance-basics-plans-costs-and-coverage-explained/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/blog/understand-private-health-insurance-a-simple-family-guide/"
+  to = "/blog/private-health-insurance-basics-plans-costs-and-coverage-explained/"
+  status = 301
+  force = true
