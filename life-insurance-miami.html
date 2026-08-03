@@ -914,25 +914,25 @@ img { max-width: 100%; height: auto; }
 <script>
 (function(){
   var WEBHOOK = 'https://services.leadconnectorhq.com/hooks/RINM4TCnM4hN06UA1aK0/webhook-trigger/dc6c8b35-9480-412e-b56d-4a4c8c7bd438';
-  var form = document.getElementById('v4LeadForm');
+  var form = document.getElementById('lifeLeadForm');
   if (!form) return;
 
   form.addEventListener('submit', async function(e) {
     e.preventDefault();
-    var btn      = document.getElementById('v4Submit');
-    var err      = document.getElementById('v4Error');
-    var first    = (document.getElementById('v4First') || {}).value || '';
-    var last     = (document.getElementById('v4Last') || {}).value || '';
-    var phone    = (document.getElementById('v4Phone') || {}).value || '';
-    var email    = (document.getElementById('v4Email') || {}).value || '';
-    var coverage = (document.getElementById('v4Coverage') || {}).value || '';
-    var consent  = document.getElementById('v4Consent') && document.getElementById('v4Consent').checked;
+    var btn      = document.getElementById('lifeSubmitBtn');
+    var err      = document.getElementById('lifeFormError');
+    var first    = (document.getElementById('lifeFirst') || {}).value || '';
+    var last     = (document.getElementById('lifeLast') || {}).value || '';
+    var phone    = (document.getElementById('lifePhone') || {}).value || '';
+    var email    = (document.getElementById('lifeEmail') || {}).value || '';
+    var coverage = (document.getElementById('lifeCoverageType') || {}).value || '';
+    var notes    = (document.getElementById('lifeNotes') || {}).value || '';
+    var consent  = document.getElementById('lifeConsent') && document.getElementById('lifeConsent').checked;
 
     first = first.trim(); last = last.trim(); phone = phone.trim(); email = email.trim();
 
     if (!first || !last || !phone || !email || !coverage || !consent) {
       err.style.display = 'block';
-      err.textContent = 'Please fill in all required fields.';
       return;
     }
     btn.disabled = true;
@@ -949,19 +949,26 @@ img { max-width: 100%; height: auto; }
           phone: phone,
           email: email,
           coverage_type: coverage,
-          source: 'Homepage Form',
+          notes: notes,
+          source: 'Life Insurance Page',
           page: window.location.href,
           submitted_at: new Date().toISOString()
         })
       });
       if (res.ok) {
-        form.style.display = 'none';
-        var success = document.getElementById('v4Success');
+        document.getElementById('lifeFormWrap').style.display = 'none';
+        var success = document.getElementById('lifeFormSuccess');
         if (success) success.style.display = 'block';
+        if (typeof gtag === 'function') {
+          gtag('event', 'form_submit', {
+            'form_id': 'life_insurance',
+            'page': window.location.pathname
+          });
+        }
       } else { throw new Error('Server error'); }
     } catch(ex) {
       btn.disabled = false;
-      btn.textContent = 'Book My Free Consultation →';
+      btn.textContent = 'Get My Free Quote →';
       err.style.display = 'block';
       err.textContent = 'Something went wrong. Please try again or call 1-800-380-6821.';
     }

@@ -542,7 +542,7 @@ img { max-width: 100%; height: auto; }
             <span style="color:#8a8093">By submitting this form, I consent to receive calls, texts, and emails from The Health Experts Insurance, including automated dialing. Consent is not required to purchase services.</span>
           </label>
           <p id="acaError" style="display:none;color:#c40074;font-size:13px;margin-bottom:10px;">Please fill in all required fields.</p>
-          <button id="acaSubmit" type="submit" style="background:#ff1090;color:#fff;width:100%;padding:15px;border-radius:12px;border:none;font-size:15.5px;font-weight:700;cursor:pointer;font-family:Poppins,sans-serif;box-shadow:0 8px 22px rgba(255,16,144,.25);">Check my options free →</button>
+          <button id="acaSubmit" type="submit" style="background:#ff1090;color:#fff;width:100%;padding:15px;border-radius:12px;border:none;font-size:15.5px;font-weight:700;cursor:pointer;font-family:Poppins,sans-serif;box-shadow:0 8px 22px rgba(255,16,144,.25);">Check My Options Free →</button>
         </form>
       </div>
 
@@ -836,25 +836,25 @@ img { max-width: 100%; height: auto; }
 <script>
 (function(){
   var WEBHOOK = 'https://services.leadconnectorhq.com/hooks/RINM4TCnM4hN06UA1aK0/webhook-trigger/dc6c8b35-9480-412e-b56d-4a4c8c7bd438';
-  var form = document.getElementById('v4LeadForm');
+  var form = document.getElementById('acaLeadForm');
   if (!form) return;
 
   form.addEventListener('submit', async function(e) {
     e.preventDefault();
-    var btn      = document.getElementById('v4Submit');
-    var err      = document.getElementById('v4Error');
-    var first    = (document.getElementById('v4First') || {}).value || '';
-    var last     = (document.getElementById('v4Last') || {}).value || '';
-    var phone    = (document.getElementById('v4Phone') || {}).value || '';
-    var email    = (document.getElementById('v4Email') || {}).value || '';
-    var coverage = (document.getElementById('v4Coverage') || {}).value || '';
-    var consent  = document.getElementById('v4Consent') && document.getElementById('v4Consent').checked;
+    var btn      = document.getElementById('acaSubmit');
+    var err      = document.getElementById('acaError');
+    var first    = (document.getElementById('acaFirst') || {}).value || '';
+    var last     = (document.getElementById('acaLast') || {}).value || '';
+    var phone    = (document.getElementById('acaPhone') || {}).value || '';
+    var email    = (document.getElementById('acaEmail') || {}).value || '';
+    var coverage = (document.getElementById('acaNeed') || {}).value || '';
+    var notes    = (document.getElementById('acaNotes') || {}).value || '';
+    var consent  = document.getElementById('acaConsent') && document.getElementById('acaConsent').checked;
 
     first = first.trim(); last = last.trim(); phone = phone.trim(); email = email.trim();
 
     if (!first || !last || !phone || !email || !coverage || !consent) {
       err.style.display = 'block';
-      err.textContent = 'Please fill in all required fields.';
       return;
     }
     btn.disabled = true;
@@ -871,19 +871,26 @@ img { max-width: 100%; height: auto; }
           phone: phone,
           email: email,
           coverage_type: coverage,
-          source: 'Homepage Form',
+          notes: notes,
+          source: 'ACA Plans Page',
           page: window.location.href,
           submitted_at: new Date().toISOString()
         })
       });
       if (res.ok) {
         form.style.display = 'none';
-        var success = document.getElementById('v4Success');
+        var success = document.getElementById('acaSuccess');
         if (success) success.style.display = 'block';
+        if (typeof gtag === 'function') {
+          gtag('event', 'form_submit', {
+            'form_id': 'aca_plans',
+            'page': window.location.pathname
+          });
+        }
       } else { throw new Error('Server error'); }
     } catch(ex) {
       btn.disabled = false;
-      btn.textContent = 'Book My Free Consultation →';
+      btn.textContent = 'Check My Options Free →';
       err.style.display = 'block';
       err.textContent = 'Something went wrong. Please try again or call 1-800-380-6821.';
     }
