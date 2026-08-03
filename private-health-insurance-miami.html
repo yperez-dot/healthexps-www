@@ -516,8 +516,14 @@ img { max-width: 100%; height: auto; }
               <div style="font-size:13.5px;color:#6f6478">A licensed bilingual broker will reach out within 1 business hour.</div>
             </div>
             <form id="privForm" action="https://services.leadconnectorhq.com/hooks/RINM4TCnM4hN06UA1aK0/webhook-trigger/9eebf549-c131-4d43-8432-0f6628211899" method="POST">
+              <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:12px">
+                <input type="text" name="first_name" placeholder="First Name" required style="padding:13px 14px;border-radius:10px;border:2px solid #ddd2e6;font-size:16px;font-family:Inter,sans-serif;width:100%;box-sizing:border-box;"/>
+                <input type="text" name="last_name" placeholder="Last Name" required style="padding:13px 14px;border-radius:10px;border:2px solid #ddd2e6;font-size:16px;font-family:Inter,sans-serif;width:100%;box-sizing:border-box;"/>
+              </div>
+              <input type="tel" name="phone" placeholder="Phone Number" required style="width:100%;box-sizing:border-box;padding:13px 14px;border-radius:10px;border:2px solid #ddd2e6;font-size:16px;margin-bottom:12px;font-family:Inter,sans-serif;"/>
+              <input type="email" name="email" placeholder="Email Address" required style="width:100%;box-sizing:border-box;padding:13px 14px;border-radius:10px;border:2px solid #ddd2e6;font-size:16px;margin-bottom:12px;font-family:Inter,sans-serif;"/>
               <select name="private_reason" style="width:100%;box-sizing:border-box;padding:13px 14px;border-radius:10px;border:2px solid #ddd2e6;font-size:16px;margin-bottom:12px;font-family:Inter,sans-serif;color:#241a30;background:#fff;appearance:none;-webkit-appearance:none;">
-                <option value="">What brought you here?</option>
+                <option value="">What coverage do you need?</option>
                 <option value="lostjob">I lost my job coverage</option>
                 <option value="cobra">COBRA is too expensive</option>
                 <option value="selfemployed">I'm self-employed</option>
@@ -526,12 +532,6 @@ img { max-width: 100%; height: auto; }
                 <option value="business">I own a small business</option>
                 <option value="notsure">Not sure — help me compare</option>
               </select>
-              <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:12px">
-                <input type="text" name="first_name" placeholder="First Name" required style="padding:13px 14px;border-radius:10px;border:2px solid #ddd2e6;font-size:16px;font-family:Inter,sans-serif;width:100%;box-sizing:border-box;"/>
-                <input type="text" name="last_name" placeholder="Last Name" required style="padding:13px 14px;border-radius:10px;border:2px solid #ddd2e6;font-size:16px;font-family:Inter,sans-serif;width:100%;box-sizing:border-box;"/>
-              </div>
-              <input type="tel" name="phone" placeholder="Phone Number" required style="width:100%;box-sizing:border-box;padding:13px 14px;border-radius:10px;border:2px solid #ddd2e6;font-size:16px;margin-bottom:12px;font-family:Inter,sans-serif;"/>
-              <input type="email" name="email" placeholder="Email Address" required style="width:100%;box-sizing:border-box;padding:13px 14px;border-radius:10px;border:2px solid #ddd2e6;font-size:16px;margin-bottom:12px;font-family:Inter,sans-serif;"/>
               <div style="margin-bottom:14px">
                 <label style="display:block;font-size:13.5px;font-weight:700;color:#241a30;margin-bottom:5px;text-transform:uppercase;letter-spacing:.3px">Additional Notes <span style="color:#a79db2;font-weight:400;text-transform:none">(optional)</span></label>
                 <textarea name="notes" rows="3" placeholder="Anything you'd like to share about your situation?" style="resize:vertical;width:100%;padding:12px 14px;border:2px solid #ddd2e6;border-radius:10px;font-family:Inter,sans-serif;font-size:16px;color:#241a30;background:white;outline:none;box-sizing:border-box;"></textarea>
