@@ -528,11 +528,6 @@
   from = "/service-page/medicare-made-easy"
   to = "/medicare-plans-miami"
   status = 301
-# 404 handler — serve 404.html for any unmatched route (replaces the 200 catch-all that was silently serving homepage content)
-[[redirects]]
-  from = "/*"
-  to = "/404.html"
-  status = 404
 
 # GROUP: Duplicate content consolidation — 2026-08-03
 # Medicare enrollment cluster → /blog/medicare-enrollment-periods-explained/
@@ -626,3 +621,9 @@
   to = "/blog/private-health-insurance-basics-plans-costs-and-coverage-explained/"
   status = 301
   force = true
+
+# 404 handler — serve 404.html for any unmatched route (replaces the 200 catch-all that was silently serving homepage content)
+[[redirects]]
+  from = "/*"
+  to = "/404.html"
+  status = 404
