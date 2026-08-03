@@ -2,773 +2,110 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<link rel="icon" href="/favicon.ico" type="image/x-icon">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="stylesheet" href="/css/global.css">
-
-<title>Medigap Plan Calculator — Plan G vs N vs High-Deductible G | Health Experts</title>
-
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-SJSGF3E9MD"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-SJSGF3E9MD');
-</script>
-
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-
-<meta name="description" content="Free Medigap calculator comparing Plan G, Plan N, and High-Deductible Plan G costs over 25 years. See how premiums grow with age. Bilingual Miami brokers.">
-<link rel="canonical" href="https://www.healthexps.com/medigap-calculator/">
-
-<!-- JSON-LD Schema — InsuranceAgency -->
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"InsuranceAgency","name":"The Health Experts Insurance","url":"https://www.healthexps.com","telephone":"+18003806821","address":{"@type":"PostalAddress","streetAddress":"1695 NW 110 Ave, Suite 224","addressLocality":"Doral","addressRegion":"FL","postalCode":"33172","addressCountry":"US"},"areaServed":["Miami-Dade County","Broward County","Florida"],"priceRange":"Free","description":"Independent bilingual health insurance brokers in Doral, FL. We compare 14+ carriers for Medicare, ACA, and private health insurance at no cost."}</script>
-
-<!-- JSON-LD Schema — BreadcrumbList -->
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "BreadcrumbList",
-  "itemListElement": [
-    {"@type":"ListItem","position":1,"name":"Home","item":"https://www.healthexps.com"},
-    {"@type":"ListItem","position":2,"name":"Resources","item":"https://www.healthexps.com/resources"},
-    {"@type":"ListItem","position":3,"name":"Medigap Plan Calculator — Plan G vs N vs High-Deductible G","item":"https://www.healthexps.com/medigap-calculator"}
-  ]
-}
-</script>
-
-<!-- JSON-LD Schema — WebPage -->
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "WebPage",
-  "name": "Medigap Plan Calculator — Plan G vs N vs High-Deductible G",
-  "url": "https://www.healthexps.com/medigap-calculator",
-  "inLanguage": "en",
-  "isPartOf": {"@type":"WebSite","url":"https://www.healthexps.com"}
-}
-</script>
-
-
+<title>Medigap Plan Calculator — Compare Plan G, Plan N &amp; HD Plan G | Health Experts</title>
 <style>
-/* ============================================================
-   DESIGN SYSTEM — v4 redesign · Inter + Poppins
-   THEI brand: purple #452068 · pink #ff1090
-   ============================================================ */
-html, body { overflow-x: hidden; max-width: 100%; }
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
-:root {
-  --purple:       #452068;
-  --purple-dark:  #2f1550;
-  --purple-light: #f7f2fb;
-  --pink:         #ff1090;
-  --pink-hover:   #c40074;
-  --white:        #ffffff;
-  --off-white:    #fdfaf7;
-  --gray-mid:     #ece5f0;
-  --gray-text:    #6f6478;
-  --black:        #241a30;
-  --planG:        #2563eb;
-  --planN:        #10b981;
-  --hdg:          #f59e0b;
-  --panel-bg:     #faf8fc;
-  --font-body:    'Inter', Arial, Helvetica, sans-serif;
-  --font-head:    'Poppins', Arial, Helvetica, sans-serif;
-}
-
-body {
-  font-family: var(--font-body);
-  color: var(--black);
-  line-height: 1.65;
-  font-size: 17px;
-  background: var(--white);
-  -webkit-font-smoothing: antialiased;
-}
-h1, h2, h3 { font-family: var(--font-head); line-height: 1.2; }
-a { color: var(--purple); text-decoration: none; }
-a:hover { color: var(--pink); }
-img { max-width: 100%; height: auto; }
-
-/* ============================================================
-   UTILITY BAR
-   ============================================================ */
-.top-bar-inner {
-  background: var(--purple-dark);
-  color: #fff;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 9px 56px;
-  font-size: 13px;
-}
-.top-bar-left  { display: flex; align-items: center; gap: 14px; }
-.top-bar-right { display: flex; align-items: center; gap: 16px; }
-
-/* ============================================================
-   V4 NAV
-   ============================================================ */
-.v4-nav-outer {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 14px 56px;
-  border-bottom: 1px solid var(--gray-mid);
-  position: sticky;
-  top: 0;
-  background: var(--white);
-  z-index: 500;
-}
-.v4-nav-dropdown { display: none; }
-.v4-nav-item:hover .v4-nav-dropdown { display: block; }
-.v4-nav-mobile-btn {
-  display: none;
-  background: none;
-  border: none;
-  cursor: pointer;
-  padding: 8px;
-}
-#v4-mobile-menu {
-  top: 0; left: 0; right: 0; bottom: 0;
-  background: #fff;
-  z-index: 999;
-  overflow-y: auto;
-  padding: 24px;
-}
-#v4-mobile-menu.open { display: block; }
-
-/* ============================================================
-   BREADCRUMB
-   ============================================================ */
-.breadcrumb {
-  padding: 14px 56px;
-  background: var(--purple-light);
-  font-size: 13px;
-  color: var(--gray-text);
-}
-.breadcrumb a { font-weight: 600; color: var(--purple); }
-.breadcrumb a:hover { color: var(--pink); }
-
-/* ============================================================
-   CALCULATOR WRAPPER
-   ============================================================ */
-.mg-wrap {
-  max-width: 980px;
-  margin: 0 auto;
-  padding: 0 24px 100px;
-}
-
-/* Hero */
-.mg-hero {
-  background: linear-gradient(135deg, var(--purple) 0%, #5a2a86 100%);
-  color: #fff;
-  border-radius: 20px;
-  padding: 36px 28px;
-  margin-top: 12px;
-  margin-bottom: 24px;
-}
-.eyebrow {
-  display: inline-block;
-  background: rgba(255,255,255,.18);
-  color: #fff;
-  font-size: 12px;
-  font-weight: 700;
-  letter-spacing: .6px;
-  text-transform: uppercase;
-  padding: 5px 12px;
-  border-radius: 999px;
-  margin-bottom: 14px;
-}
-.mg-hero h1 {
-  font-family: var(--font-head);
-  font-size: clamp(22px, 4vw, 32px);
-  font-weight: 700;
-  margin-bottom: 10px;
-}
-.mg-hero p {
-  font-size: 15.5px;
-  opacity: .92;
-  max-width: 560px;
-  line-height: 1.6;
-}
-
-/* Language toggle */
-.lang {
-  display: inline-flex;
-  border: 2px solid rgba(255,255,255,.35);
-  border-radius: 999px;
-  overflow: hidden;
-  margin-top: 18px;
-}
-.lang button {
-  border: 0;
-  background: transparent;
-  color: rgba(255,255,255,.75);
-  font-family: var(--font-body);
-  font-weight: 700;
-  font-size: 13px;
-  padding: 7px 14px;
-  cursor: pointer;
-  transition: background .2s, color .2s;
-}
-.lang button.on { background: #fff; color: var(--purple); }
-
-/* Tabs — class "tabs" kept for JS compatibility */
-.tabs {
-  display: flex;
-  gap: 4px;
-  background: var(--panel-bg);
-  border: 2px solid var(--gray-mid);
-  border-radius: 14px;
-  padding: 5px;
-  margin-bottom: 20px;
-  overflow-x: auto;
-  -webkit-overflow-scrolling: touch;
-}
-.tabs button {
-  flex: 1 0 auto;
-  min-width: 72px;
-  border: 0;
-  background: transparent;
-  font-family: var(--font-body);
-  font-size: 13px;
-  color: var(--gray-text);
-  padding: 11px 10px;
-  border-radius: 10px;
-  white-space: nowrap;
-  transition: background .15s, color .15s, box-shadow .15s;
-}
-.tabs button.on {
-  background: #fff;
-  color: var(--purple);
-  box-shadow: 0 1px 4px rgba(69,32,104,.14);
-}
-
-/* Panels */
-.panel { display: none; }
-.panel.on { display: block; }
-
-/* ============================================================
-   CALCULATOR SIDEBAR GRID (desktop)
-   ============================================================ */
-.calc-grid { display: block; }
-
-/* Form card */
-.group {
-  border: 2px solid var(--gray-mid);
-  border-radius: 16px;
-  padding: 20px;
-  margin-bottom: 14px;
-  background: #fff;
-  box-shadow: 0 4px 16px rgba(69,32,104,.06);
-}
-.group h3 {
-  font-size: 14px;
-  font-weight: 700;
-  color: var(--purple);
-  margin-bottom: 4px;
-  letter-spacing: .03em;
-}
-.group .hint {
-  font-size: 13.5px;
-  color: var(--gray-text);
-  margin-bottom: 14px;
-  line-height: 1.5;
-}
-.field { margin-bottom: 14px; }
-.field:last-child { margin-bottom: 0; }
-
-/* Labels — 14px per accessibility requirement */
-label {
-  display: block;
-  font-size: 14px;
-  font-weight: 700;
-  margin-bottom: 6px;
-  color: var(--black);
-  line-height: 1.35;
-}
-
-/* Inputs — 16px font, 2px border per accessibility requirement */
-input[type=number], input[type=text] {
-  width: 100%;
-  border: 2px solid var(--gray-mid);
-  border-radius: 10px;
-  padding: 12px 14px;
-  font-family: var(--font-body);
-  font-size: 16px;
-  color: var(--black);
-  background: #fff;
-  outline: none;
-  transition: border-color .2s;
-  -webkit-appearance: none;
-  appearance: none;
-}
-input[type=number].has-pre  { padding-left: 28px; }
-input[type=number].has-post { padding-right: 36px; }
-input[type=number]:focus, input[type=text]:focus {
-  border-color: var(--purple);
-  outline: 2px solid rgba(69,32,104,.15);
-  outline-offset: 1px;
-}
-input[type=number]::placeholder { color: #a79db2; }
-
-.inputwrap { position: relative; display: flex; align-items: center; }
-.inputwrap .pre {
-  position: absolute; left: 12px;
-  color: var(--gray-text); font-size: 15px; pointer-events: none;
-}
-.inputwrap .post {
-  position: absolute; right: 12px;
-  color: var(--gray-text); font-size: 14px; pointer-events: none;
-}
-
-/* sub — 13.5px fine print */
-.sub {
-  font-size: 13.5px;
-  color: var(--gray-text);
-  margin-top: 5px;
-  line-height: 1.45;
-}
-
-/* ============================================================
-   MULTI-COLUMN INPUT GRIDS (each has unique class)
-   ============================================================ */
-
-/* 3-col: Monthly premiums */
-.grid-premiums-3col {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  gap: 14px;
-}
-
-/* 3-col: Annual increase rates */
-.grid-rates-3col {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  gap: 14px;
-}
-
-/* 2-col: Plan N usage */
-.grid-usage-2col {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 14px;
-}
-
-.usagerow {
-  display: grid;
-  grid-template-columns: 1fr auto;
-  gap: 10px;
-}
-.pill {
-  display: inline-block;
-  font-size: 13.5px;
-  font-weight: 700;
-  border: 2px solid var(--gray-mid);
-  border-radius: 999px;
-  padding: 6px 12px;
-  color: var(--gray-text);
-  white-space: nowrap;
-}
-
-/* Checkbox */
-.check {
-  display: flex;
-  align-items: flex-start;
-  gap: 9px;
-  font-size: 14px;
-  font-weight: 600;
-  cursor: pointer;
-}
-.check input[type=checkbox] {
-  width: 18px;
-  height: 18px;
-  min-width: 18px;
-  margin-top: 2px;
-  accent-color: var(--purple);
-  cursor: pointer;
-  border: 2px solid var(--gray-mid);
-  border-radius: 4px;
-  flex-shrink: 0;
-}
-
-/* CTA button */
-.cta-btn {
-  display: block;
-  width: 100%;
-  text-align: center;
-  background: var(--purple);
-  color: #fff;
-  border: 0;
-  border-radius: 12px;
-  padding: 16px;
-  font-family: var(--font-body);
-  font-size: 16px;
-  font-weight: 700;
-  cursor: pointer;
-  transition: background .2s, transform .15s;
-  margin-top: 4px;
-  text-decoration: none;
-}
-.cta-btn:hover { background: #5a2a86; color: #fff; transform: translateY(-1px); }
-.cta-btn.pink  { background: var(--pink); }
-.cta-btn.pink:hover { background: var(--pink-hover); color: #fff; }
-
-/* ============================================================
-   RESULTS SECTION
-   ============================================================ */
-.results { display: none; margin-top: 8px; }
-.results.on { display: block; }
-
-/* 3-col: Summary cards (unique class) */
-.grid-summary-3col {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  gap: 12px;
-  margin-bottom: 18px;
-}
-
-/* Summary card styles (JS generates HTML with these classes) */
-.scard { border: 2px solid var(--gray-mid); border-radius: 14px; padding: 16px; position: relative; }
-.scard.g { background: #eef4ff; border-color: #d6e4ff; }
-.scard.n { background: #eafaf3; border-color: #cdeede; }
-.scard.h { background: #fff4e6; border-color: #ffe2bd; }
-.scard .head { display: flex; align-items: center; justify-content: space-between; margin-bottom: 10px; }
-.scard .head .nm { font-size: 15px; font-weight: 700; }
-.scard.g .nm { color: var(--planG); }
-.scard.n .nm { color: var(--planN); }
-.scard.h .nm { color: var(--hdg); }
-.scard .line { display: flex; justify-content: space-between; align-items: baseline; font-size: 13.5px; color: var(--gray-text); margin-bottom: 8px; }
-.scard .line b { font-size: 16px; color: var(--black); font-weight: 700; }
-.scard .total { border-top: 1px solid rgba(0,0,0,.08); padding-top: 10px; margin-top: 4px; }
-.scard .total .line { margin-bottom: 0; }
-.scard .total b { font-size: 19px; }
-.scard.g .total b { color: var(--planG); }
-.scard.n .total b { color: var(--planN); }
-.scard.h .total b { color: var(--hdg); }
-.scard .lowtag { font-size: 10px; font-weight: 700; background: var(--purple); color: #fff; padding: 3px 9px; border-radius: 999px; }
-
-/* 5-col: Year totals grid (unique class) */
-.grid-years-5col {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
-  gap: 10px;
-  margin-bottom: 18px;
-}
-
-/* Year card styles (JS generates HTML) */
-.ycard { border: 2px solid var(--gray-mid); border-radius: 12px; padding: 14px; text-align: center; background: #fff; }
-.ycard .yt { font-size: 14px; font-weight: 700; color: var(--black); }
-.ycard .yr { font-size: 12.5px; color: var(--gray-text); margin-bottom: 8px; }
-.ycard .yl { font-size: 13px; text-align: left; display: flex; justify-content: space-between; margin-bottom: 3px; }
-.ycard .yl .gv { color: var(--planG); font-weight: 700; }
-.ycard .yl .nv { color: var(--planN); font-weight: 700; }
-.ycard .yl .hv { color: var(--hdg); font-weight: 700; }
-
-/* 3-col: 10-year card row (unique class) */
-.grid-cardrow-3col {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  gap: 12px;
-  margin-bottom: 8px;
-}
-
-/* Plan card styles (JS generates HTML) */
-.pcard { border: 2px solid var(--gray-mid); border-radius: 14px; padding: 16px; position: relative; overflow: hidden; background: #fff; }
-.pcard .bar { position: absolute; left: 0; top: 0; bottom: 0; width: 5px; }
-.pcard .nm { font-size: 13px; font-weight: 700; margin-bottom: 2px; color: var(--gray-text); }
-.pcard .big { font-size: 24px; font-weight: 700; color: var(--black); }
-.pcard .lbl { font-size: 13px; color: var(--gray-text); }
-.pcard.best { box-shadow: 0 0 0 2px var(--purple); }
-.pcard .tag { position: absolute; top: 10px; right: 10px; font-size: 10px; font-weight: 700; background: var(--purple); color: #fff; padding: 3px 8px; border-radius: 999px; }
-
-/* Verdict */
-#verdict {
-  font-size: 14px;
-  background: var(--panel-bg);
-  border: 2px solid var(--gray-mid);
-  border-radius: 12px;
-  padding: 14px;
-  margin-top: 6px;
-  line-height: 1.6;
-}
-
-/* CTA block (results) */
-.ctablock {
-  background: linear-gradient(135deg, var(--purple) 0%, #5a2a86 100%);
-  border-radius: 18px;
-  padding: 28px;
-  text-align: center;
-  margin-top: 16px;
-  color: #fff;
-}
-.ctablock h3 { font-size: 18px; font-weight: 700; color: #fff; margin-bottom: 8px; font-family: var(--font-head); }
-.ctablock p  { font-size: 13.5px; opacity: .88; margin-bottom: 18px; line-height: 1.55; }
-
-/* 2-col: CTA buttons (unique class) */
-.grid-cta-btns-2col {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 10px;
-  max-width: 420px;
-  margin: 0 auto;
-}
-.grid-cta-btns-2col a { display: block; }
-
-/* ============================================================
-   CHART TAB
-   ============================================================ */
-.chartbox {
-  border: 2px solid var(--gray-mid);
-  border-radius: 14px;
-  padding: 18px;
-  background: #fff;
-}
-.chartbox h3 { font-size: 16px; text-align: center; margin-bottom: 14px; color: var(--black); }
-svg { width: 100%; height: auto; display: block; }
-.legend {
-  display: flex;
-  gap: 18px;
-  flex-wrap: wrap;
-  margin-top: 12px;
-  font-size: 13px;
-  font-weight: 700;
-}
-.legend span { display: inline-flex; align-items: center; gap: 6px; }
-.legend i { width: 14px; height: 3px; border-radius: 2px; display: inline-block; }
-
-/* ============================================================
-   DATA TABLE
-   ============================================================ */
-table { width: 100%; border-collapse: collapse; table-layout: fixed; }
-th, td {
-  text-align: left;
-  vertical-align: middle;
-  word-wrap: break-word;
-  padding: 10px 8px;
-  font-size: 13px;
-  border-bottom: 1px solid var(--gray-mid);
-}
-th { color: var(--purple); font-size: 12px; font-weight: 700; }
-tbody tr:nth-child(even) { background: var(--panel-bg); }
-.gcol { color: var(--planG); font-weight: 700; }
-.ncol { color: var(--planN); font-weight: 700; }
-.hcol { color: var(--hdg); font-weight: 700; }
-
-/* ============================================================
-   BENEFITS TABLE
-   ============================================================ */
-.ben td:first-child { font-weight: 700; font-size: 13.5px; }
-.note { font-size: 13.5px; color: var(--gray-text); margin-top: 10px; line-height: 1.55; }
-
-/* ============================================================
-   ABOUT / PROSE
-   ============================================================ */
-.prose { border: 2px solid var(--gray-mid); border-radius: 14px; padding: 20px; background: #fff; }
-.prose h3 { color: var(--purple); font-size: 16px; margin: 16px 0 6px; }
-.prose h3:first-child { margin-top: 0; }
-.prose p { font-size: 14px; margin-bottom: 10px; line-height: 1.65; }
-.prose ul { margin: 0 0 10px 20px; }
-.prose li { font-size: 14px; margin-bottom: 6px; line-height: 1.6; }
-
-/* Disclaimer — 13.5px fine print */
-.disclaimer {
-  font-size: 13.5px;
-  color: var(--gray-text);
-  margin-top: 28px;
-  line-height: 1.65;
-  text-align: center;
-  padding: 0 8px;
-}
-
-/* ============================================================
-   FOOTER — footer-wrap + footer-grid per spec
-   ============================================================ */
-.footer-wrap {
-  background: var(--white);
-  color: var(--black);
-  padding: 56px 56px 24px;
-  border-top: 2px solid var(--gray-mid);
-}
-.footer-inner { max-width: 1160px; margin: 0 auto; }
-
-/* 4-col: footer grid (unique class) */
-.footer-grid {
-  display: grid;
-  grid-template-columns: 1.3fr 1fr 1fr 1fr;
-  gap: 32px;
-  margin-bottom: 36px;
-}
-
-.footer-col-title {
-  font-weight: 700;
-  font-size: 12.5px;
-  letter-spacing: .06em;
-  text-transform: uppercase;
-  margin-bottom: 14px;
-  color: var(--purple);
-}
-.footer-links { display: flex; flex-direction: column; gap: 9px; font-size: 13.5px; }
-.footer-links a { color: #4a4051; }
-.footer-links a:hover { color: var(--pink); }
-.footer-links a.fw { color: var(--purple); font-weight: 700; }
-.footer-bottom { border-top: 1px solid var(--gray-mid); padding-top: 20px; font-size: 13px; color: #4a4051; }
-.footer-legal { padding-top: 12px; font-size: 13.5px; color: #a79db2; line-height: 1.7; }
-
-/* ============================================================
-   SCROLL TO TOP
-   ============================================================ */
-#scrollToTop {
-  position: fixed;
-  bottom: 28px; right: 28px;
-  width: 46px; height: 46px;
-  background: var(--purple);
-  color: white; border: none; border-radius: 50%;
-  font-size: 18px; cursor: pointer;
-  display: none;
-  align-items: center; justify-content: center;
-  box-shadow: 0 4px 14px rgba(69,32,104,.3);
-  transition: background .2s, transform .2s;
-  z-index: 999;
-}
-#scrollToTop:hover { background: var(--pink); transform: translateY(-3px); }
-
-/* ============================================================
-   DESKTOP SIDEBAR — 820px+
-   ============================================================ */
-@media (min-width: 820px) {
-  .calc-grid {
-    display: grid;
-    grid-template-columns: 320px 1fr;
-    gap: 20px;
-    align-items: start;
+  :root{
+    --navy:#4b1e63; --coral:#e5148c; --coral-dark:#c40f78;
+    --sky:#f3edf9; --ink:#2a2333; --muted:#6b6376; --line:#e4dcec; --card:#ffffff; --radius:14px;
+    --green:#0f8a5f; --green-bg:#e7f6ef;
   }
-  .calc-side { position: sticky; top: 84px; }
-  .grid-summary-3col { grid-template-columns: 1fr 1fr 1fr; }
-}
-
-/* ============================================================
-   TABLET — ≤900px
-   ============================================================ */
-@media (max-width: 900px) {
-  .v4-nav-desktop   { display: none !important; }
-  .v4-nav-mobile-btn { display: flex !important; align-items: center; }
-  .top-bar-inner  { padding-left: 24px !important; padding-right: 24px !important; }
-  .v4-nav-outer   { padding-left: 20px !important; padding-right: 20px !important; }
-  .breadcrumb     { padding-left: 24px; padding-right: 24px; }
-}
-
-/* ============================================================
-   MANDATORY MOBILE — ≤640px
-   ALL 3-col → 1-col | ALL 2-col → 1-col
-   Section padding 56px → 20px
-   Footer: footer-wrap + footer-grid mobile
-   ============================================================ */
-@media (max-width: 640px) {
-  /* ALL 3-col → 1-col */
-  .grid-premiums-3col  { grid-template-columns: 1fr !important; }
-  .grid-rates-3col     { grid-template-columns: 1fr !important; }
-  .grid-summary-3col   { grid-template-columns: 1fr !important; }
-  .grid-cardrow-3col   { grid-template-columns: 1fr !important; }
-  .grid-cta-btns-2col  { grid-template-columns: 1fr !important; }
-
-  /* ALL 2-col → 1-col */
-  .grid-usage-2col     { grid-template-columns: 1fr !important; }
-
-  /* 5-col years → 2-col on mobile */
-  .grid-years-5col     { grid-template-columns: 1fr 1fr !important; }
-
-  /* Footer: 4-col → 1-col */
-  .footer-wrap  { padding: 40px 20px 20px !important; }
-  .footer-grid  { grid-template-columns: 1fr !important; gap: 24px !important; }
-
-  /* Section padding 56px → 20px */
-  .breadcrumb   { padding: 12px 20px !important; }
-  .mg-wrap      { padding: 0 16px 80px !important; }
-  .mg-hero      { padding: 24px 20px !important; border-radius: 14px !important; }
-
-  /* Top bar mobile */
-  .top-bar-inner { padding: 8px 16px !important; flex-wrap: wrap; gap: 8px; }
-  .top-bar-right { flex-wrap: wrap; justify-content: flex-end; gap: 8px; }
-
-  /* Form group */
-  .group { padding: 18px 14px !important; }
-
-  /* Tabs */
-  .tabs         { padding: 4px !important; }
-  .tabs button  { font-size: 12px !important; padding: 9px 7px !important; min-width: 56px !important; }
-
-  /* Typography */
-  .mg-hero h1   { font-size: 20px !important; }
-  .mg-hero p    { font-size: 14px !important; }
-
-  /* Unstick sidebar */
-  .calc-side    { position: static !important; top: auto !important; }
-}
-
-/* Very small screens */
-@media (max-width: 380px) {
-  .grid-years-5col { grid-template-columns: 1fr !important; }
-  var s=document.getElementById('scrollToTop');
-  if(!s)return;
-  s.style.cssText='display:none;position:fixed;bottom:28px;right:28px;width:44px;height:44px;background:#452068;color:#fff;border:none;border-radius:50%;font-size:22px;cursor:pointer;align-items:center;justify-content:center;box-shadow:0 4px 14px rgba(69,32,104,.3);z-index:998;';
-  window.addEventListener('scroll',function(){s.style.display=window.pageYOffset>300?'flex':'none';});
-  s.addEventListener('click',function(){window.scrollTo({top:0,behavior:'smooth'});});
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Helvetica Neue",Arial,sans-serif;background:var(--sky);color:var(--ink);min-height:100vh;padding:24px 16px 64px}
+  .wrap{max-width:640px;margin:0 auto}
+  header{text-align:center;margin-bottom:24px}
+  .eyebrow{display:inline-block;background:var(--navy);color:#fff;font-size:11px;font-weight:700;letter-spacing:.08em;border-radius:999px;padding:5px 14px;margin-bottom:10px}
+  h1{color:var(--navy);font-size:26px;margin-bottom:8px}
+  header p{color:var(--muted);font-size:15px;max-width:480px;margin:0 auto}
+  .learn-link{margin-top:12px;text-align:center}
+  .learn-link a{font-size:14px;color:var(--navy);font-weight:700;text-decoration:none;border-bottom:1.5px solid var(--coral)}
+  .progress{display:flex;gap:6px;margin:20px 0}
+  .progress div{height:5px;flex:1;background:var(--line);border-radius:3px}
+  .progress div.done{background:var(--coral)}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:24px;box-shadow:0 1px 3px rgba(20,56,92,.06);margin-bottom:16px}
+  .step-label{font-size:13px;font-weight:700;color:var(--coral);text-transform:uppercase;letter-spacing:.06em;margin-bottom:6px}
+  h2{color:var(--navy);font-size:20px;margin-bottom:6px;line-height:1.3}
+  .help{color:var(--muted);font-size:15px;margin-bottom:18px;line-height:1.6}
+  .age-box{display:flex;align-items:center;gap:16px;justify-content:center;margin:16px 0}
+  .age-box button{width:44px;height:44px;border-radius:50%;border:2px solid var(--navy);background:#fff;color:var(--navy);font-size:22px;cursor:pointer;font-weight:700}
+  .age-box .num{font-size:40px;font-weight:700;color:var(--navy);min-width:70px;text-align:center}
+  .choices{display:flex;flex-direction:column;gap:10px}
+  .choice{border:2px solid var(--line);border-radius:12px;padding:16px;cursor:pointer;background:#fff;text-align:left;font-family:inherit;transition:border-color .15s,background .15s}
+  .choice:hover{border-color:var(--navy)}
+  .choice.selected{border-color:var(--coral);background:#fdf4ef}
+  .choice .t{font-weight:700;font-size:17px;color:var(--navy);display:block;margin-bottom:3px}
+  .choice .d{font-size:14px;color:var(--muted)}
+  .nav-btns{display:flex;gap:10px;margin-top:20px}
+  .btn{flex:1;border:none;border-radius:10px;padding:15px;font-size:16px;font-weight:700;cursor:pointer;font-family:inherit}
+  .btn-primary{background:var(--coral);color:#fff}
+  .btn-primary:hover{background:var(--coral-dark)}
+  .btn-secondary{background:#fff;border:2px solid var(--line);color:var(--muted)}
+  .advanced-toggle{font-size:14px;color:var(--navy);text-decoration:underline;cursor:pointer;text-align:center;margin-top:14px}
+  #advancedPanel{display:none;margin-top:16px;padding-top:16px;border-top:1px solid var(--line)}
+  #advancedPanel label{display:block;font-size:13px;font-weight:700;color:var(--navy);margin-bottom:5px;margin-top:12px}
+  #advancedPanel input{width:100%;padding:9px 10px;font-size:15px;border:1.5px solid var(--line);border-radius:8px;font-family:inherit}
+  #resultView{display:none}
+  .winner-banner{background:var(--green-bg);border:1.5px solid var(--green);border-radius:12px;padding:18px;text-align:center;margin-bottom:18px}
+  .winner-banner .label{font-size:14px;color:var(--green);font-weight:700;text-transform:uppercase;letter-spacing:.04em}
+  .winner-banner .plan{font-size:24px;font-weight:700;color:var(--navy);margin:4px 0}
+  .winner-banner .save{font-size:15px;color:var(--ink)}
+  .plan-rows{display:flex;flex-direction:column;gap:10px;margin-bottom:8px}
+  .includes-note{font-size:13px;color:var(--muted);text-align:center;margin-bottom:18px;line-height:1.5}
+  .plan-row{display:flex;align-items:center;justify-content:space-between;padding:14px 16px;border-radius:10px;border:1.5px solid var(--line);background:#fff}
+  .plan-row.best{border-color:var(--green);background:var(--green-bg)}
+  .plan-row .name{font-weight:700;color:var(--navy);font-size:16px}
+  .plan-row .cost{font-size:18px;font-weight:700;color:var(--ink)}
+  .plain-explain{font-size:15px;color:var(--ink);line-height:1.6;background:var(--sky);border-radius:10px;padding:14px;margin-bottom:18px}
+  .chart-wrap{position:relative;height:220px;margin-bottom:18px}
+  .cta-block{text-align:center;padding-top:6px;border-top:1px solid var(--line)}
+  .cta-block p{font-size:15px;color:var(--muted);margin-bottom:12px}
+  .contact-btns{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+  .contact-btns a{display:block;text-align:center;text-decoration:none;padding:13px;border-radius:10px;font-size:15px;font-weight:700}
+  .btn-call{background:var(--navy);color:#fff}
+  .btn-wa{background:#25d366;color:#fff}
+  .startover{text-align:center;margin-top:14px;font-size:14px;color:var(--muted);text-decoration:underline;cursor:pointer}
+  .section-label{font-size:14px;font-weight:700;color:var(--navy);text-transform:uppercase;letter-spacing:.04em;margin:20px 0 10px}
+  .breakdown-grid{display:grid;grid-template-columns:1fr;gap:10px;margin-bottom:8px}
+  .breakdown-card{border:1.5px solid var(--line);border-radius:10px;padding:14px 16px;background:#fff}
+  .breakdown-card.best{border-color:var(--green);background:var(--green-bg)}
+  .breakdown-card .pname{font-size:16px;font-weight:700;color:var(--navy);margin-bottom:8px}
+  .midpoint-note{font-size:12px;color:var(--coral-dark);font-weight:700;margin:-4px 0 8px}
+  .cta-urge{font-size:15px;color:var(--ink);margin-bottom:12px;line-height:1.6}
+  .breakdown-card .line{display:flex;justify-content:space-between;font-size:15px;color:var(--muted);margin-bottom:6px}
+  .breakdown-card .line span:last-child{color:var(--ink);font-weight:500}
+  .breakdown-card .total{display:flex;justify-content:space-between;font-size:17px;font-weight:700;color:var(--navy);margin-top:8px;padding-top:8px;border-top:1px solid var(--line)}
+  .milestone-table{border:1px solid var(--line);border-radius:10px;overflow:hidden;margin-bottom:8px}
+  .milestone-row{display:grid;grid-template-columns:56px 1fr 1fr 1fr;gap:0;padding:12px 10px;font-size:14px;align-items:center}
+  .milestone-row:nth-child(even){background:var(--sky)}
+  .milestone-row.head{background:var(--navy);color:#fff;font-weight:700;font-size:13px;text-transform:uppercase}
+  .milestone-row .yr{font-weight:700;color:var(--navy)}
+  .milestone-row.head .yr{color:#fff}
+  .milestone-row .amt{color:var(--ink)}
+  .milestone-row .amt.win{color:var(--green);font-weight:700}
+  @media (max-width:480px){.milestone-row{grid-template-columns:44px 1fr 1fr 1fr;font-size:13px;padding:10px 6px}}
+  .benefits-table{border:1px solid var(--line);border-radius:10px;overflow:hidden;margin-bottom:8px}
+  .benefits-row{display:grid;grid-template-columns:1.8fr 1fr 1fr 1fr;gap:0;padding:12px 10px;font-size:14px;align-items:center;text-align:center}
+  .benefits-row span:first-child{text-align:left;color:var(--ink)}
+  .benefits-row:nth-child(even):not(.head){background:var(--sky)}
+  .benefits-row.head{background:var(--navy);color:#fff;font-weight:700;font-size:13px;text-transform:uppercase}
+  .benefits-row.head span:first-child{color:#fff}
+  .yes{color:var(--green);font-weight:700}
+  .partial{color:#b7791f;font-weight:700}
+  .no{color:#b32d2d;font-weight:700}
+  .benefits-footnote{font-size:13px;color:var(--muted);line-height:1.6;margin-bottom:16px}
+  .disclaimer-box{background:#fff3cd;border:1px solid #e6c766;border-radius:8px;padding:12px 14px;font-size:14px;color:#7a5d00;margin-bottom:16px;line-height:1.6}
+  @media (max-width:480px){.benefits-row{grid-template-columns:1.4fr 1fr 1fr 1fr;font-size:12px;padding:10px 6px}}
+  .about-toggle{font-size:14px;color:var(--navy);font-weight:700;text-align:center;cursor:pointer;padding:10px 0;margin-bottom:8px}
+  #aboutPanel{display:none;background:var(--sky);border-radius:10px;padding:16px;margin-bottom:16px}
+  .about-section{margin-bottom:14px}
+  .about-section:last-child{margin-bottom:0}
+  .about-h{font-size:13px;font-weight:700;color:var(--navy);text-transform:uppercase;letter-spacing:.03em;margin-bottom:6px}
+  .about-section ul{margin:0;padding-left:18px}
+  .about-section li{font-size:14px;color:var(--ink);line-height:1.7}
+  .about-note{font-size:13px;color:var(--muted);font-style:italic;margin-top:8px;line-height:1.6}
 </style>
-<style>
-/* Task 1.7 — scroll-to-top: WCAG 48×48 target, brand purple, visible shadow */
-#scrollToTop {
-  display: none;
-  position: fixed;
-  bottom: 28px;
-  right: 28px;
-  width: 48px;
-  height: 48px;
-  min-width: 48px;
-  min-height: 48px;
-  background: #452068;
-  color: #fff;
-  border: none;
-  border-radius: 50%;
-  font-size: 22px;
-  font-weight: 700;
-  cursor: pointer;
-  align-items: center;
-  justify-content: center;
-  box-shadow: 0 4px 16px rgba(69,32,104,.35);
-  z-index: 998;
-  transition: background .2s, transform .15s;
-}
-#scrollToTop:hover { background: #ff1090; transform: translateY(-2px); }
-#scrollToTop:focus-visible { outline: 3px solid #ff1090; outline-offset: 3px; }
-</style>
-<style>
-.v4-nav-dropdown { display: none; }
-.v4-nav-item:hover .v4-nav-dropdown { display: block; }
-.v4-nav-mobile-btn { display: none; background:none; border:none; cursor:pointer; padding:8px; }
-#v4-mobile-menu { display:none; position:fixed; top:0; left:0; right:0; bottom:0; background:#fff; z-index:999; overflow-y:auto; padding:24px; }
-#v4-mobile-menu.open { display:block; }
-@media(max-width:768px) {
-  .v4-nav-desktop { display: none !important; }
-  .v4-nav-mobile-btn { display: flex !important; align-items:center; }
-  .v4-nav-outer { padding-left:20px !important; padding-right:20px !important; }
-  .top-bar-inner { padding-left:20px !important; padding-right:20px !important; }
-}
-</style>
-<style>
-#v4-mobile-menu a, .v4-nav-outer a, .v4-nav-desktop a { text-decoration: none !important; }
-#v4-mobile-menu nav a:hover { color: #ff1090 !important; }
-</style>
-
-<style>
-@media(max-width:768px){
-  #footer-grid{grid-template-columns:1fr!important;gap:28px!important;}
-  #site-footer{padding:40px 20px 24px!important;}
-}
-</style>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-SJSGF3E9MD"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-SJSGF3E9MD');</script>
 </head>
 
 <body>
@@ -886,259 +223,319 @@ tbody tr:nth-child(even) { background: var(--panel-bg); }
 <div class="breadcrumb">
   <a href="/">Home</a> / <a href="/resources">Resources</a> / Medigap Plan Calculator
 </div>
+<div class="wrap">
+<header>
+    <span class="eyebrow">FREE TOOL</span>
+    <h1>Which Medigap plan is right for you?</h1>
+    <p>Answer 2 quick questions. We'll show you which plan usually costs less — Plan G, Plan N, or High-Deductible Plan G.</p>
+    <div class="learn-link"><a href="/medicare-supplement-miami">New to these plans? Learn about Medicare Supplement coverage →</a></div>
+  </header>
 
-<!-- ============================================================
-     CALCULATOR CONTENT (from v4 design source — isMedigap section)
-     ============================================================ -->
-<div class="mg-wrap">
+  <div class="progress"><div id="p1" class="done"></div><div id="p2"></div><div id="p3"></div></div>
 
-  <!-- Hero -->
-  <div class="mg-hero">
-    <span class="eyebrow" data-i="eyebrow">Free Tool · v1</span>
-    <h1 data-i="h1">Medigap Plan Calculator</h1>
-    <p data-i="sub">Compare Plan G, Plan N, and High-Deductible Plan G. See your total costs grow over 25 years — and which plan saves you the most.</p>
-    <div class="lang" style="margin-top:18px">
-      <button id="enBtn" class="on" onclick="setLang('en')">EN</button>
-      <button id="esBtn" onclick="setLang('es')">ES</button>
+  <div class="card" id="step1">
+    <div class="step-label">Step 1 of 2</div>
+    <h2>How old are you?</h2>
+    <div class="help">Most people sign up for Medigap at 65. <span id="ageNote"></span></div>
+    <div class="age-box">
+      <button onclick="changeAge(-1)">−</button>
+      <div class="num" id="ageNum">65</div>
+      <button onclick="changeAge(1)">+</button>
+    </div>
+    <div class="nav-btns">
+      <button class="btn btn-primary" onclick="goStep(2)">Next</button>
     </div>
   </div>
 
-  <!-- Tabs — class "tabs" required by JS (verbatim JS uses .tabs button) -->
-  <div class="tabs">
-    <button class="on" data-tab="calc" onclick="setTab('calc')" data-i="tCalc">Calculator</button>
-    <button data-tab="charts" onclick="setTab('charts')" data-i="tCharts">Charts</button>
-    <button data-tab="data" onclick="setTab('data')" data-i="tData">Data</button>
-    <button data-tab="benefits" onclick="setTab('benefits')" data-i="tBenefits">Benefits</button>
-    <button data-tab="about" onclick="setTab('about')" data-i="tAbout">About</button>
+  <div class="card" id="step2" style="display:none">
+    <div class="step-label">Step 2 of 2</div>
+    <h2>How often do you go to the doctor?</h2>
+    <div class="help">This helps us guess your yearly costs. You can pick your best guess.</div>
+    <div class="choices" id="usageChoices">
+      <button class="choice" data-v="low" onclick="pickUsage('low',this)">
+        <span class="t">Not very often</span>
+        <span class="d">A checkup once or twice a year</span>
+      </button>
+      <button class="choice" data-v="med" onclick="pickUsage('med',this)">
+        <span class="t">A few times a year</span>
+        <span class="d">Regular checkups plus a specialist visit or two</span>
+      </button>
+      <button class="choice" data-v="high" onclick="pickUsage('high',this)">
+        <span class="t">Often</span>
+        <span class="d">Ongoing health needs, frequent visits</span>
+      </button>
+    </div>
+    <div class="advanced-toggle" onclick="toggleAdvanced()">I know my exact premium quotes — let me enter them</div>
+    <div id="advancedPanel">
+      <label>Plan G monthly premium ($)</label>
+      <input type="number" id="advG" placeholder="e.g. 210">
+      <label>Plan N monthly premium ($)</label>
+      <input type="number" id="advN" placeholder="e.g. 165">
+      <label>High-Deductible Plan G monthly premium ($)</label>
+      <input type="number" id="advHD" placeholder="e.g. 65">
+    </div>
+    <div class="nav-btns">
+      <button class="btn btn-secondary" onclick="goStep(1)">Back</button>
+      <button class="btn btn-primary" onclick="calculate()">See my results</button>
+    </div>
   </div>
 
-  <!-- ===== CALCULATOR PANEL ===== -->
-  <div class="panel on" id="p-calc">
-    <div class="calc-grid">
+  <div class="card" id="resultView">
+    <div class="winner-banner">
+      <div class="label">Usually costs you less</div>
+      <div class="plan" id="winnerName">Plan N</div>
+      <div class="save" id="winnerSave">Saves about $4,200 over 20 years vs. Plan G</div>
+    </div>
 
-      <!-- SIDEBAR FORM -->
-      <div class="calc-side">
+    <div class="plan-rows" id="planRows"></div>
+    <div class="includes-note">Includes your plan premium, the standard Part B premium ($202.90/mo), and estimated out-of-pocket costs based on your answers.</div>
 
-        <!-- YOUR INFO -->
-        <div class="group">
-          <h3 data-i="gYou">Your information</h3>
-          <div class="field">
-            <label data-i="age">Your age</label>
-            <div class="inputwrap" style="max-width:160px">
-              <input type="number" id="age" value="65" min="60" max="90">
-            </div>
-            <div class="sub" data-i="ageHint">Most people start Medigap at 65.</div>
-          </div>
-        </div>
+    <div class="plain-explain" id="plainExplain"></div>
 
-        <!-- MONTHLY PREMIUMS — 3-col grid -->
-        <div class="group">
-          <h3 data-i="gPrem">Monthly premiums</h3>
-          <div class="hint" data-i="premHint">Florida typical ranges shown. We can pull real quotes for your zip.</div>
-          <div class="grid-premiums-3col">
-            <div class="field">
-              <label data-i="pgPrem">Plan G premium</label>
-              <div class="inputwrap"><span class="pre">$</span><input class="has-pre" type="number" id="gPrem" value="200"></div>
-              <div class="sub" data-i="pgHint">FL range: $148–$355/mo by age.</div>
-            </div>
-            <div class="field">
-              <label data-i="pnPrem">Plan N premium</label>
-              <div class="inputwrap"><span class="pre">$</span><input class="has-pre" type="number" id="nPrem" value="165"></div>
-              <div class="sub" data-i="pnHint">Usually lower than Plan G.</div>
-            </div>
-            <div class="field">
-              <label data-i="hdPrem">HD Plan G premium</label>
-              <div class="inputwrap"><span class="pre">$</span><input class="has-pre" type="number" id="hPrem" value="65"></div>
-              <div class="sub" data-i="hdHint">Lowest premium, higher out-of-pocket.</div>
-            </div>
-          </div>
-        </div>
+    <div class="section-label">This year's cost (age <span id="thisYearAge"></span>)</div>
+    <div class="breakdown-grid" id="yearBreakdown"></div>
 
-        <!-- ANNUAL INCREASE RATES — 3-col grid -->
-        <div class="group">
-          <h3 data-i="gInc">Annual increase rates</h3>
-          <div class="hint" data-i="incHint">How much premiums rise each year. These are realistic Florida defaults — adjust if you have actual rate history.</div>
-          <div class="grid-rates-3col">
-            <div class="field">
-              <label data-i="gInc2">Plan G increase</label>
-              <div class="inputwrap"><input class="has-post" type="number" id="gInc" value="12" step="0.5"><span class="post">%</span></div>
-            </div>
-            <div class="field">
-              <label data-i="nInc2">Plan N increase</label>
-              <div class="inputwrap"><input class="has-post" type="number" id="nInc" value="10" step="0.5"><span class="post">%</span></div>
-            </div>
-            <div class="field">
-              <label data-i="hInc2">High-Deductible Plan G increase</label>
-              <div class="inputwrap"><input class="has-post" type="number" id="hInc" value="6" step="0.5"><span class="post">%</span></div>
-            </div>
-          </div>
-        </div>
+    <div class="section-label">Which plan wins over time</div>
+    <div class="help" style="margin-bottom:12px">The cheapest plan can change the longer you keep it. Here's the lowest total cost at each milestone.</div>
+    <div class="milestone-table" id="milestoneTable"></div>
 
-        <!-- PLAN N USAGE — 2-col grid -->
-        <div class="group">
-          <h3 data-i="gUse">Plan N usage (annual)</h3>
-          <div class="hint" data-i="useHint">Plan N has small copays: up to $20 per office visit, $50 per ER visit.</div>
-          <div class="grid-usage-2col">
-            <div class="field">
-              <div class="usagerow">
-                <label style="margin:0" data-i="office">Office visits per year</label>
-                <span class="pill">$20 <span data-i="perVisit">/visit</span></span>
-              </div>
-              <input type="number" id="office" value="6" min="0" style="margin-top:8px">
-            </div>
-            <div class="field">
-              <div class="usagerow">
-                <label style="margin:0" data-i="er">ER visits per year</label>
-                <span class="pill">$50 <span data-i="perVisit2">/visit</span></span>
-              </div>
-              <input type="number" id="er" value="0" min="0" style="margin-top:8px">
-            </div>
-          </div>
-        </div>
+    <div class="chart-wrap"><canvas id="costChart"></canvas></div>
 
-        <!-- HD OOP -->
-        <div class="group">
-          <h3 data-i="gHdg">High-Deductible Plan G out-of-pocket</h3>
-          <div class="hint" data-i="hdgHint">Estimated yearly out-of-pocket before the plan pays. 2026 max deductible: $2,950.</div>
-          <div class="field">
-            <div class="inputwrap"><span class="pre">$</span><input class="has-pre" type="number" id="hdgOOP" value="1500" min="0" max="2950"></div>
-            <div class="sub"><span data-i="range">Range:</span> $0 – $2,950</div>
-          </div>
-        </div>
+    <div class="section-label">What each plan actually covers</div>
+    <div class="benefits-table">
+      <div class="benefits-row head"><span>Covered</span><span>Plan G</span><span>Plan N</span><span>HD Plan G</span></div>
+      <div class="benefits-row"><span>Hospital costs (Part A)</span><span class="yes">✓</span><span class="yes">✓</span><span class="yes">✓*</span></div>
+      <div class="benefits-row"><span>Doctor visits (Part B)</span><span class="yes">✓</span><span class="partial">✓**</span><span class="yes">✓*</span></div>
+      <div class="benefits-row"><span>Skilled nursing care</span><span class="yes">✓</span><span class="yes">✓</span><span class="yes">✓*</span></div>
+      <div class="benefits-row"><span>Part A deductible</span><span class="yes">✓</span><span class="yes">✓</span><span class="yes">✓*</span></div>
+      <div class="benefits-row"><span>Doctor bills over Medicare's rate</span><span class="yes">✓</span><span class="no">✗</span><span class="yes">✓*</span></div>
+      <div class="benefits-row"><span>Emergencies while traveling abroad</span><span class="yes">✓</span><span class="yes">✓</span><span class="yes">✓*</span></div>
+    </div>
+    <div class="benefits-footnote">* After you pay the $2,875 annual deductible yourself (Medicare.gov, 2026). ** Plan N covers this in full except a copay of up to $20 per office visit and up to $50 per ER visit that doesn't lead to admission.</div>
 
-        <!-- PART B CHECKBOX -->
-        <div class="group">
-          <label class="check">
-            <input type="checkbox" id="incB">
-            <span data-i="partB">Include Medicare Part B premium in all plans ($202.90/mo, 2026)</span>
-          </label>
-        </div>
+    <div class="disclaimer-box" style="background:#f7f2fb;border:1px solid #c9aee0;color:#2a2333;font-size:13px;line-height:1.6;border-radius:8px;padding:12px 14px;margin-bottom:16px">The Health Experts Insurance is a licensed, independent insurance brokerage in Doral, FL. Medicare Supplement Insurance (Medigap) plans are offered by private insurance companies and are standardized by the federal government, but premiums vary by carrier, age, gender, and health status. We do not offer every plan available in your area; we currently represent 14 organizations offering 82 products. Premium estimates shown are Florida medians sourced from Medicare.gov Plan Finder and are for comparison purposes only — your actual rate may differ. This is not a complete description of benefits. Contact Medicare.gov, 1-800-MEDICARE, or your local State Health Insurance Assistance Program (SHIP) for information on all available options. Not affiliated with or endorsed by the U.S. government or the federal Medicare program.</div>
 
-        <button class="cta-btn" onclick="calc()" data-i="run">See my projection</button>
-
-      </div><!-- /calc-side -->
-
-      <!-- RESULTS MAIN -->
-      <div class="calc-main">
-        <div class="results" id="results">
-
-          <!-- Per-plan summary — 3-col grid -->
-          <div class="grid-summary-3col" id="summary"></div>
-
-          <!-- Year totals — 5-col grid -->
-          <div class="grid-years-5col" id="yeargrid"></div>
-
-          <!-- 10-year cards — 3-col grid -->
-          <h3 style="margin:18px 0 12px;font-size:16px;color:var(--purple)" data-i="resTitle">Your 10-year total cost</h3>
-          <div class="grid-cardrow-3col">
-            <div class="pcard" id="card-g">
-              <span class="bar" style="background:var(--planG)"></span>
-              <div class="nm">Plan G</div>
-              <div class="big" id="g10">$0</div>
-              <div class="lbl" data-i="over10">over 10 years</div>
-            </div>
-            <div class="pcard" id="card-n">
-              <span class="bar" style="background:var(--planN)"></span>
-              <div class="nm">Plan N</div>
-              <div class="big" id="n10">$0</div>
-              <div class="lbl" data-i="over10b">over 10 years</div>
-            </div>
-            <div class="pcard" id="card-h">
-              <span class="bar" style="background:var(--hdg)"></span>
-              <div class="nm" data-i="hdgShort">High-Deductible G</div>
-              <div class="big" id="h10">$0</div>
-              <div class="lbl" data-i="over10c">over 10 years</div>
-            </div>
-          </div>
-
-          <p id="verdict" style="font-size:14px;background:var(--panel-bg);border:2px solid var(--gray-mid);border-radius:12px;padding:14px;margin-top:6px"></p>
-          <p class="sub" style="text-align:center;margin-top:6px" data-i="seeCharts">See the Charts and Data tabs for the full 25-year breakdown.</p>
-
-          <!-- CTA block -->
-          <div class="ctablock">
-            <h3 data-i="ctaH">Want real numbers for your situation?</h3>
-            <p data-i="ctaP">These are estimates. We'll pull actual quotes from 14 carriers for your zip code — free, no obligation.</p>
-            <div class="grid-cta-btns-2col">
-              <a class="cta-btn" href="https://calendly.com/healthexps-info/" data-i="ctaBook">Book a free consultation</a>
-              <a class="cta-btn pink" href="#" id="quizLink" data-i="ctaQuiz">Compare my plans</a>
-            </div>
-          </div>
-
-        </div><!-- /results -->
-      </div><!-- /calc-main -->
-
-    </div><!-- /calc-grid -->
-  </div><!-- /p-calc -->
-
-  <!-- ===== CHARTS PANEL ===== -->
-  <div class="panel" id="p-charts">
-    <div class="chartbox">
-      <h3 data-i="chartTitle">Estimated total cost over time</h3>
-      <div id="chart"></div>
-      <div class="legend">
-        <span><i style="background:var(--planG)"></i> Plan G</span>
-        <span><i style="background:var(--planN)"></i> Plan N</span>
-        <span><i style="background:var(--hdg)"></i> <span data-i="hdgShort2">High-Deductible G</span></span>
+    <div class="about-toggle" onclick="toggleAbout()">How we calculated these numbers <span id="aboutArrow">▾</span></div>
+    <div id="aboutPanel">
+      <div class="about-section">
+        <div class="about-h">Real, verified figures</div>
+        <ul>
+          <li>Part B premium: $202.90/month (CMS, 2026)</li>
+          <li>Part B deductible: $283/year (CMS, 2026)</li>
+          <li>High-Deductible Plan G total deductible: $2,875/year (Medicare.gov Plan Finder, 2026)</li>
+          <li>Plan G premium default ($374/mo): median across all Florida carriers on Medicare.gov, blended for men and women, age 65 non-smoker</li>
+          <li>Plan N premium default ($287/mo): same method, full carrier list</li>
+          <li>HD Plan G premium default ($127/mo): same method, full carrier list</li>
+          <li>Plan N and HD Plan G increase rates (both 2.4%/year): derived from real Medicare.gov premiums at multiple ages — Plan N at 65/70/75, HD Plan G at 65/75. The two landed within a rounding error of each other, which is a good consistency check. See note below on what this does and doesn't prove</li>
+          <li>Plan G's increase rate (2.1%/year): same method, using real premiums at 65 ($374), 70 ($405), and 75 ($458) — close to Plan N and HD Plan G's rate, another good consistency check</li>
+          <li>Plan N copay structure: up to $20/office visit, up to $50/ER visit (standardized nationally by CMS)</li>
+          <li>What each plan covers (the benefits table above): standardized nationally, same for every carrier</li>
+        </ul>
+      </div>
+      <div class="about-section">
+        <div class="about-h">Still simplified</div>
+        <ul>
+          <li>Sex-blended pricing: since we don't ask male/female, the default hides real price differences between the two — anyone who wants their actual rate should call or use "I know my exact quotes"</li>
+          <li>Only ages 65, 70, and 75 have real data — ages in between or beyond are interpolated using the rates above, not individually verified</li>
+        </ul>
+        <div class="about-note">Important nuance: comparing 65/70/75-year-olds today shows how much MORE an older applicant pays right now — a reasonable stand-in for how one person's own premium grows over time, but not the same thing as tracking one real policy's price over 10 years. Every plan's premium and increase rate is now sourced from real Medicare.gov data for a 65+ Florida applicant.</div>
       </div>
     </div>
-    <p class="sub" style="text-align:center;margin-top:12px" data-i="chartNote">Run the calculator first to populate this chart.</p>
-  </div>
 
-  <!-- ===== DATA PANEL ===== -->
-  <div class="panel" id="p-data">
-    <div class="chartbox" style="padding:0;overflow:hidden">
-      <table>
-        <thead><tr>
-          <th data-i="thYear">Year</th>
-          <th data-i="thAge">Age</th>
-          <th class="gcol">Plan G</th>
-          <th class="ncol">Plan N</th>
-          <th class="hcol" data-i="thHdg">HD-G</th>
-        </tr></thead>
-        <tbody id="dataBody">
-          <tr><td colspan="5" style="text-align:left;color:var(--gray-text);padding:18px" data-i="dataEmpty">Run the calculator first to see year-by-year costs.</td></tr>
-        </tbody>
-      </table>
-    </div>
-  </div>
-
-  <!-- ===== BENEFITS PANEL ===== -->
-  <div class="panel" id="p-benefits">
-    <div class="chartbox" style="padding:0;overflow:hidden">
-      <table class="ben">
-        <thead><tr>
-          <th data-i="thBenefit">Benefit</th>
-          <th class="gcol">Plan G</th>
-          <th class="ncol">Plan N</th>
-          <th class="hcol" data-i="thHdg2">HD-G</th>
-        </tr></thead>
-        <tbody id="benBody"></tbody>
-      </table>
-    </div>
-    <p class="note" id="benNote"></p>
-  </div>
-
-  <!-- ===== ABOUT PANEL ===== -->
-  <div class="panel" id="p-about">
-    <div class="prose" id="aboutProse"></div>
-    <div class="ctablock">
-      <h3 data-i="ctaH2">Talk to a licensed bilingual broker</h3>
-      <p data-i="ctaP2">We serve Miami-Dade and Broward in English and Spanish. No cost, no pressure.</p>
-      <div class="grid-cta-btns-2col">
-        <a class="cta-btn" href="https://calendly.com/healthexps-info/" data-i="ctaBook2">Book a free consultation</a>
-        <a class="cta-btn pink" href="tel:18003806821" data-i="ctaCall">Call 1-800-380-6821</a>
+    <div class="cta-block">
+      <p class="cta-urge">These are median rates across 25+ Florida carriers, blended for men and women since we don't ask your sex. Your exact rate depends on your gender, health, and the specific carrier — real prices range from about $77 to $522/month depending on the plan and company. A 10-minute call gets you real quotes from every carrier, compared side by side, always free.</p>
+      <div class="contact-btns">
+        <a class="btn-call" href="tel:18003806821">Call for my real quote</a>
+        <a class="btn-wa" href="https://wa.me/13054646888">WhatsApp us</a>
       </div>
+      <div class="learn-link" style="margin-top:12px"><a href="/medicare-supplement-miami">Read our full Medicare Supplement guide →</a></div>
+      <div class="startover" onclick="startOver()">Start over</div>
     </div>
   </div>
 
-  <p class="disclaimer" id="disc"></p>
+</div>
 
-</div><!-- /mg-wrap -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.js"></script>
+<script>
+/* ============================================================
+   SAMPLE PLACEHOLDER RATE DATA — replace with real FL Medigap
+   quotes before this goes live. Structure mirrors the existing
+   life-estimate-calculator.html pattern on the site.
+   ============================================================ */
+var DEFAULT_PREMIUMS_BY_AGE = {
+  65:{G:374,N:287,HD:127},
+  70:{G:405,N:316,HD:138},
+  75:{G:458,N:360,HD:161}
+};
+var INCREASE_RATE = {G:0.021,N:0.024,HD:0.024};
+var USAGE_COPAYS = { low:{visits:2,er:0}, med:{visits:5,er:0}, high:{visits:10,er:1} };
+var YEARS = 20;
+var PART_B_PREMIUM_ANNUAL = 202.90*12;
+var PART_B_DEDUCTIBLE_ANNUAL = 283;
+var HD_G_TOTAL_DEDUCTIBLE = 2875;
 
-<!-- ============================================================
-     FOOTER (verbatim from index.html v4 · classes: footer-wrap + footer-grid)
-     ============================================================ -->
-      <!-- FOOTER -->
+var state = { age:65, usage:null, useAdvanced:false };
+
+function changeAge(d){
+  state.age = Math.max(65, Math.min(85, state.age+d));
+  document.getElementById('ageNum').textContent = state.age;
+  document.getElementById('ageNote').textContent = [65,70,75].indexOf(state.age)>-1 ? '' : 'Between our real data points (65/70/75) — estimated by interpolating.';
+}
+function goStep(n){
+  document.getElementById('step1').style.display = n===1?'block':'none';
+  document.getElementById('step2').style.display = n===2?'block':'none';
+  document.getElementById('p1').className = 'done';
+  document.getElementById('p2').className = n>=2?'done':'';
+}
+function pickUsage(v,el){
+  state.usage = v;
+  document.querySelectorAll('.choice').forEach(function(c){c.classList.remove('selected')});
+  el.classList.add('selected');
+}
+function toggleAbout(){
+  var p = document.getElementById('aboutPanel');
+  var open = p.style.display === 'block';
+  p.style.display = open ? 'none' : 'block';
+  document.getElementById('aboutArrow').textContent = open ? '▾' : '▴';
+}
+function toggleAdvanced(){
+  state.useAdvanced = !state.useAdvanced;
+  document.getElementById('advancedPanel').style.display = state.useAdvanced ? 'block' : 'none';
+}
+function nearestAgeBand(age){
+  var bands = Object.keys(DEFAULT_PREMIUMS_BY_AGE).map(Number).sort(function(a,b){return a-b});
+  var best = bands[0];
+  bands.forEach(function(b){ if (age>=b) best=b; });
+  return best;
+}
+function calculate(){
+  if (!state.usage) state.usage='med';
+  var band = nearestAgeBand(state.age);
+  var base = DEFAULT_PREMIUMS_BY_AGE[band];
+  var G = state.useAdvanced && document.getElementById('advG').value ? parseFloat(document.getElementById('advG').value) : base.G;
+  var N = state.useAdvanced && document.getElementById('advN').value ? parseFloat(document.getElementById('advN').value) : base.N;
+  var HD = state.useAdvanced && document.getElementById('advHD').value ? parseFloat(document.getElementById('advHD').value) : base.HD;
+
+  var usage = USAGE_COPAYS[state.usage];
+  var nCopayYearly = usage.visits*20 + usage.er*50;
+
+  var totals = {}; var yearlyChart = {G:[],N:[],HD:[]};
+  ['G','N','HD'].forEach(function(k){
+    var premium = {G:G,N:N,HD:HD}[k];
+    var rate = INCREASE_RATE[k];
+    var total = 0;
+    for (var y=0;y<YEARS;y++){
+      var yearPremium = premium * Math.pow(1+rate,y) * 12;
+      var hdOutOfPocket = {low:600,med:1500,high:HD_G_TOTAL_DEDUCTIBLE}[state.usage];
+      var yearExtra = k==='N' ? nCopayYearly : (k==='HD' ? hdOutOfPocket : 0);
+      var yearDeductible = k==='HD' ? 0 : PART_B_DEDUCTIBLE_ANNUAL;
+      total += yearPremium + yearExtra + yearDeductible + PART_B_PREMIUM_ANNUAL;
+      yearlyChart[k].push(Math.round(total));
+    }
+    totals[k]=Math.round(total);
+  });
+
+  var order = ['G','N','HD'].sort(function(a,b){return totals[a]-totals[b]});
+  var winner = order[0];
+  var names = {G:'Plan G',N:'Plan N',HD:'High-Deductible Plan G'};
+  var savingsVsG = totals.G - totals[winner];
+
+  document.getElementById('winnerName').textContent = names[winner];
+  document.getElementById('winnerSave').textContent = winner==='G'
+    ? 'The most predictable costs over ' + YEARS + ' years'
+    : 'Saves about $' + savingsVsG.toLocaleString() + ' over ' + YEARS + ' years vs. Plan G';
+
+  var rows = document.getElementById('planRows');
+  rows.innerHTML='';
+  order.forEach(function(k){
+    var row = document.createElement('div');
+    row.className = 'plan-row' + (k===winner?' best':'');
+    var allInMonthly = Math.round(yearlyChart[k][0]/12);
+    row.innerHTML = '<span class="name">'+names[k]+'</span><span class="cost">$'+allInMonthly.toLocaleString()+'/mo</span>';
+    rows.appendChild(row);
+  });
+
+  document.getElementById('thisYearAge').textContent = state.age;
+  var bd = document.getElementById('yearBreakdown');
+  bd.innerHTML='';
+  var premiums = {G:G,N:N,HD:HD};
+  ['G','N','HD'].forEach(function(k){
+    var card = document.createElement('div');
+    card.className='breakdown-card'+(k===winner?' best':'');
+    var deductibleLine = k==='HD' ? '' : '<div class="line"><span>Part B deductible</span><span>$'+PART_B_DEDUCTIBLE_ANNUAL.toLocaleString()+'</span></div>';
+    var extraLine = k==='N'
+      ? '<div class="line"><span>Copays</span><span>$'+nCopayYearly.toLocaleString()+'</span></div>'
+      : (k==='HD' ? '<div class="line"><span>Est. out-of-pocket</span><span>$'+{low:600,med:1500,high:HD_G_TOTAL_DEDUCTIBLE}[state.usage].toLocaleString()+'</span></div>' : '');
+    card.innerHTML =
+      '<div class="pname">'+names[k]+'</div>'+
+      '<div class="line"><span>Annual premium</span><span>$'+Math.round(premiums[k]*12).toLocaleString()+'</span></div>'+
+      deductibleLine+
+      extraLine+
+      '<div class="line"><span>Part B premium</span><span>$'+Math.round(PART_B_PREMIUM_ANNUAL).toLocaleString()+'</span></div>'+
+      '<div class="total"><span>Total</span><span>$'+yearlyChart[k][0].toLocaleString()+'</span></div>';
+    bd.appendChild(card);
+  });
+
+  var milestones = [5,10,15,20];
+  var mt = document.getElementById('milestoneTable');
+  mt.innerHTML = '<div class="milestone-row head"><span class="yr">Year</span><span>Plan G</span><span>Plan N</span><span>HD Plan G</span></div>';
+  milestones.forEach(function(m){
+    var idx = m-1;
+    var vals = {G:yearlyChart.G[idx],N:yearlyChart.N[idx],HD:yearlyChart.HD[idx]};
+    var best = Object.keys(vals).reduce(function(a,b){return vals[a]<vals[b]?a:b});
+    var row = document.createElement('div');
+    row.className='milestone-row';
+    row.innerHTML =
+      '<span class="yr">'+m+'yr</span>'+
+      '<span class="amt'+(best==='G'?' win':'')+'">$'+vals.G.toLocaleString()+'</span>'+
+      '<span class="amt'+(best==='N'?' win':'')+'">$'+vals.N.toLocaleString()+'</span>'+
+      '<span class="amt'+(best==='HD'?' win':'')+'">$'+vals.HD.toLocaleString()+'</span>';
+    mt.appendChild(row);
+  });
+
+  var explainMap = {
+    low: 'Because you rarely go to the doctor, a lower monthly premium usually beats a plan with a higher premium but fewer copays.',
+    med: 'With a few doctor visits a year, this plan balances your monthly premium against what you would pay at each visit.',
+    high: 'Since you visit the doctor often, a plan that covers more up front can save you money even with a higher monthly premium.'
+  };
+  document.getElementById('plainExplain').textContent = explainMap[state.usage];
+
+  document.getElementById('step2').style.display='none';
+  document.getElementById('resultView').style.display='block';
+  document.getElementById('p3').className='done';
+
+  if (window._medigapChart) window._medigapChart.destroy();
+  var ctx = document.getElementById('costChart');
+  window._medigapChart = new Chart(ctx,{
+    type:'line',
+    data:{
+      labels: Array.from({length:YEARS},function(_,i){return 'Yr '+(i+1)}),
+      datasets:[
+        {label:'Plan G',data:yearlyChart.G,borderColor:'#4b1e63',backgroundColor:'rgba(75,30,99,0.08)',borderWidth:2,pointRadius:0,fill:true},
+        {label:'Plan N',data:yearlyChart.N,borderColor:'#e5148c',backgroundColor:'rgba(229,20,140,0.08)',borderWidth:2,pointRadius:0,fill:true},
+        {label:'HD Plan G',data:yearlyChart.HD,borderColor:'#0f8a5f',backgroundColor:'rgba(15,138,95,0.08)',borderWidth:2,pointRadius:0,fill:true}
+      ]
+    },
+    options:{
+      responsive:true,maintainAspectRatio:false,
+      plugins:{legend:{display:false}},
+      scales:{
+        y:{ticks:{callback:function(v){return '$'+(v/1000)+'k'}}},
+        x:{ticks:{maxTicksLimit:6}}
+      }
+    }
+  });
+}
+function startOver(){
+  document.getElementById('resultView').style.display='none';
+  document.getElementById('step1').style.display='block';
+  document.getElementById('p2').className=''; document.getElementById('p3').className='';
+  state = { age:65, usage:null, useAdvanced:false };
+  document.getElementById('ageNum').textContent='65';
+  document.querySelectorAll('.choice').forEach(function(c){c.classList.remove('selected')});
+}
+</script>
+<!-- FOOTER -->
       <div id="site-footer" style="background:#fff;color:#241a30;padding:56px 56px 24px;border-top:1px solid #ece5f0">
         <div style="max-width:1160px;margin:0 auto">
           <div id="footer-grid" style="display:grid;grid-template-columns:1.3fr 1fr 1fr 1fr;gap:32px;margin-bottom:36px">
@@ -1324,5 +721,6 @@ tbody tr:nth-child(even) { background: var(--panel-bg); }
   });
 })();
 </script>
+
 </body>
 </html>
