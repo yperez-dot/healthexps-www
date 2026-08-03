@@ -1203,36 +1203,6 @@ img { max-width: 100%; height: auto; }
 </script>
 
 <script>
-// V4 nav mobile — hover for desktop, click for mobile
-(function(){
-  var navItems = document.querySelectorAll('.v4-nav-item');
-  function isMobile(){ return window.innerWidth <= 900; }
-  navItems.forEach(function(item){
-    var drop = item.querySelector('.v4-nav-dropdown');
-    if (!drop) return;
-    // Desktop: CSS handles hover; Mobile: toggle on click
-    item.addEventListener('click', function(e){
-      if (!isMobile()) return;
-      var open = drop.style.display === 'block';
-      // Close all
-      navItems.forEach(function(ni){ var d = ni.querySelector('.v4-nav-dropdown'); if(d) d.style.display=''; });
-      drop.style.display = open ? '' : 'block';
-    });
-  });
-  // Close on outside click
-  document.addEventListener('click', function(e){
-    if (!isMobile()) return;
-    navItems.forEach(function(item){
-      if (!item.contains(e.target)){
-        var drop = item.querySelector('.v4-nav-dropdown');
-        if(drop) drop.style.display='';
-      }
-    });
-  });
-})();
-</script>
-
-<script>
 (function(){
   var s = document.getElementById('scrollToTop');
   if (!s) return;
