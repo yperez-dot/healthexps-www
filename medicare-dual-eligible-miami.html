@@ -622,7 +622,7 @@ img{max-width:100%;height:auto}
         <!-- Topic dropdown -->
         <div style="margin-bottom:12px">
           <label style="display:block;font-size:12px;font-weight:700;color:var(--black);margin-bottom:5px;text-transform:uppercase;letter-spacing:.3px">What can we help you with? <em style="color:#dc2626;font-style:normal">*</em></label>
-          <select id="dsnpCoverage" name="coverage_type" class="ff-input" style="appearance:none;-webkit-appearance:none;cursor:pointer">
+          <select id="dsnpCoverage" name="coverage_type" class="ff-input" style="appearance:none;-webkit-appearance:none;cursor:pointer" required>
             <option value="">Select a topic&hellip;</option>
             <option value="Dual Eligible (D-SNP)">Dual Eligible (D-SNP)</option>
             <option value="Medicare + Medicaid help">Medicare + Medicaid help</option>
@@ -636,24 +636,24 @@ img{max-width:100%;height:auto}
         <div class="grid-2col" style="margin-bottom:12px">
           <div>
             <label style="display:block;font-size:12px;font-weight:700;color:var(--black);margin-bottom:5px;text-transform:uppercase;letter-spacing:.3px">First Name <em style="color:#dc2626;font-style:normal">*</em></label>
-            <input id="dsnpFirst" name="first_name" placeholder="First Name" class="ff-input"/>
+            <input id="dsnpFirst" name="first_name" placeholder="First Name" class="ff-input" required/>
           </div>
           <div>
             <label style="display:block;font-size:12px;font-weight:700;color:var(--black);margin-bottom:5px;text-transform:uppercase;letter-spacing:.3px">Last Name <em style="color:#dc2626;font-style:normal">*</em></label>
-            <input id="dsnpLast" name="last_name" placeholder="Last Name" class="ff-input"/>
+            <input id="dsnpLast" name="last_name" placeholder="Last Name" class="ff-input" required/>
           </div>
         </div>
 
         <!-- Phone -->
         <div style="margin-bottom:12px">
           <label style="display:block;font-size:12px;font-weight:700;color:var(--black);margin-bottom:5px;text-transform:uppercase;letter-spacing:.3px">Phone Number <em style="color:#dc2626;font-style:normal">*</em></label>
-          <input id="dsnpPhone" name="phone" type="tel" placeholder="(305) 000-0000" class="ff-input"/>
+          <input id="dsnpPhone" name="phone" type="tel" placeholder="(305) 000-0000" class="ff-input" required/>
         </div>
 
         <!-- Email -->
         <div style="margin-bottom:12px">
           <label style="display:block;font-size:12px;font-weight:700;color:var(--black);margin-bottom:5px;text-transform:uppercase;letter-spacing:.3px">Email Address <em style="color:#dc2626;font-style:normal">*</em></label>
-          <input id="dsnpEmail" name="email" type="email" placeholder="you@example.com" class="ff-input"/>
+          <input id="dsnpEmail" name="email" type="email" placeholder="you@example.com" class="ff-input" required/>
         </div>
 
         <!-- Additional Notes (BEFORE consent) -->

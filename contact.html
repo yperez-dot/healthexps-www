@@ -525,7 +525,7 @@ img { max-width: 100%; height: auto; }
         <div id="cFormBody">
           <div class="ff">
             <label for="cCoverage">What are you looking for? <em>*</em></label>
-            <select id="cCoverage">
+            <select id="cCoverage" required>
               <option value="">Select a topic...</option>
               <option value="Medicare — Advantage, Supplement or Part D">Medicare &mdash; Advantage, Supplement or Part D</option>
               <option value="ACA Marketplace Plan">ACA Marketplace Plan</option>
@@ -543,22 +543,22 @@ img { max-width: 100%; height: auto; }
           <div class="ff-row">
             <div class="ff">
               <label for="cFirst">First Name <em>*</em></label>
-              <input type="text" id="cFirst" placeholder="First name"/>
+              <input type="text" id="cFirst" placeholder="First name" required/>
             </div>
             <div class="ff">
               <label for="cLast">Last Name <em>*</em></label>
-              <input type="text" id="cLast" placeholder="Last name"/>
+              <input type="text" id="cLast" placeholder="Last name" required/>
             </div>
           </div>
 
           <div class="ff">
             <label for="cPhone">Phone Number <em>*</em></label>
-            <input type="tel" id="cPhone" placeholder="(305) 000-0000"/>
+            <input type="tel" id="cPhone" placeholder="(305) 000-0000" required/>
           </div>
 
           <div class="ff">
             <label for="cEmail">Email Address <em>*</em></label>
-            <input type="email" id="cEmail" placeholder="you@example.com"/>
+            <input type="email" id="cEmail" placeholder="you@example.com" required/>
           </div>
 
           <!-- Additional Notes BEFORE consent checkbox -->

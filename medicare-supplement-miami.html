@@ -741,7 +741,7 @@ img{max-width:100%;height:auto;}
         <form id="msLeadForm" novalidate>
           <div style="margin-bottom:12px;">
             <label class="form-label" for="msInterest">What are you looking for? <span style="color:#c40074;">*</span></label>
-            <select id="msInterest" name="interest" class="form-select">
+            <select id="msInterest" name="interest" class="form-select" required>
               <option value="">Select an option</option>
               <option value="Medicare Supplement/Medigap">Medicare Supplement / Medigap</option>
               <option value="Medicare Advantage">Medicare Advantage</option>
@@ -753,22 +753,22 @@ img{max-width:100%;height:auto;}
           <div class="form-name-row">
             <div>
               <label class="form-label" for="msFirst">First Name <span style="color:#c40074;">*</span></label>
-              <input type="text" id="msFirst" name="first_name" placeholder="First Name" class="form-input">
+              <input type="text" id="msFirst" name="first_name" placeholder="First Name" class="form-input" required>
             </div>
             <div>
               <label class="form-label" for="msLast">Last Name <span style="color:#c40074;">*</span></label>
-              <input type="text" id="msLast" name="last_name" placeholder="Last Name" class="form-input">
+              <input type="text" id="msLast" name="last_name" placeholder="Last Name" class="form-input" required>
             </div>
           </div>
 
           <div style="margin-bottom:12px;">
             <label class="form-label" for="msPhone">Phone Number <span style="color:#c40074;">*</span></label>
-            <input type="tel" id="msPhone" name="phone" placeholder="(305) 000-0000" class="form-input">
+            <input type="tel" id="msPhone" name="phone" placeholder="(305) 000-0000" class="form-input" required>
           </div>
 
           <div style="margin-bottom:12px;">
             <label class="form-label" for="msEmail">Email Address <span style="color:#c40074;">*</span></label>
-            <input type="email" id="msEmail" name="email" placeholder="your@email.com" class="form-input">
+            <input type="email" id="msEmail" name="email" placeholder="your@email.com" class="form-input" required>
           </div>
 
           <div style="margin-bottom:16px;">

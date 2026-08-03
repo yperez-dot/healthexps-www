@@ -1283,7 +1283,7 @@ img { max-width: 100%; height: auto; }
 
           <div class="ff">
             <label for="mapd-coverage">What can we help you with? <em>*</em></label>
-            <select id="mapd-coverage" name="coverage_type">
+            <select id="mapd-coverage" name="coverage_type" required>
               <option value="">Select an option...</option>
               <option value="Medicare Advantage">Medicare Advantage</option>
               <option value="Medicare Supplement/Medigap">Medicare Supplement / Medigap</option>
@@ -1294,14 +1294,14 @@ img { max-width: 100%; height: auto; }
           </div>
 
           <div class="ff-row">
-            <input type="text" id="mapd-first" name="first_name" placeholder="First Name" style="padding:13px 14px;border-radius:10px;border:2px solid #ddd2e6;font-size:16px;font-family:var(--font-body);" />
-            <input type="text" id="mapd-last" name="last_name" placeholder="Last Name" style="padding:13px 14px;border-radius:10px;border:2px solid #ddd2e6;font-size:16px;font-family:var(--font-body);" />
+            <input type="text" id="mapd-first" name="first_name" placeholder="First Name" style="padding:13px 14px;border-radius:10px;border:2px solid #ddd2e6;font-size:16px;font-family:var(--font-body);"  required/>
+            <input type="text" id="mapd-last" name="last_name" placeholder="Last Name" style="padding:13px 14px;border-radius:10px;border:2px solid #ddd2e6;font-size:16px;font-family:var(--font-body);"  required/>
           </div>
           <div class="ff">
-            <input type="tel" id="mapd-phone" name="phone" placeholder="Phone Number" style="width:100%;box-sizing:border-box;padding:13px 14px;border-radius:10px;border:2px solid #ddd2e6;font-size:16px;font-family:var(--font-body);" />
+            <input type="tel" id="mapd-phone" name="phone" placeholder="Phone Number" style="width:100%;box-sizing:border-box;padding:13px 14px;border-radius:10px;border:2px solid #ddd2e6;font-size:16px;font-family:var(--font-body);"  required/>
           </div>
           <div class="ff">
-            <input type="email" id="mapd-email" name="email" placeholder="Email Address" style="width:100%;box-sizing:border-box;padding:13px 14px;border-radius:10px;border:2px solid #ddd2e6;font-size:16px;font-family:var(--font-body);" />
+            <input type="email" id="mapd-email" name="email" placeholder="Email Address" style="width:100%;box-sizing:border-box;padding:13px 14px;border-radius:10px;border:2px solid #ddd2e6;font-size:16px;font-family:var(--font-body);"  required/>
           </div>
           <div class="ff">
             <label for="mapd-notes">Additional notes (doctors, medications, questions)</label>
