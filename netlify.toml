@@ -622,6 +622,18 @@
   status = 301
   force = true
 
+[[redirects]]
+  from = "/enrollment-calculator"
+  to = "/medicare-enrollment-calculator/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/enrollment-calculator/"
+  to = "/medicare-enrollment-calculator/"
+  status = 301
+  force = true
+
 # 404 handler — serve 404.html for any unmatched route (replaces the 200 catch-all that was silently serving homepage content)
 [[redirects]]
   from = "/*"
