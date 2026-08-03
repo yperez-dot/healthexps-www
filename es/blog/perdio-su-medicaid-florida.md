@@ -86,6 +86,6 @@ Vale la pena volver a solicitar o apelar directamente con el estado antes de bus
 }
 </script>
 
-*The Health Experts Insurance es una agencia de seguros independiente y licenciada en Doral, FL. [Añadir aviso TPMO estándar donde se mencionen productos de Medicare — versión 2027.]*
+*The Health Experts Insurance es una agencia de corretaje de seguros independiente y licenciada en Doral, FL. No ofrecemos todos los planes disponibles en su área. Actualmente representamos organizaciones que ofrecen productos en su área. Comuníquese con Medicare.gov, llame al 1-800-MEDICARE, o contacte a su Programa Estatal de Asistencia con el Seguro de Salud (SHIP) para obtener información sobre todas sus opciones. Este contenido tiene fines informativos únicamente y no constituye asesoría legal, fiscal o financiera.*
 
-<!-- ⚠️ NOTA EDITOR: fecha de publicación (2026-08-05) es tentativa — confirmar contra el calendario de contenido AEP antes de publicar, evitar choque con otros posts esa semana. Confirmar también el slug del contrapeso EN (hreflang_en) una vez ese post exista en el pipeline. -->
+
