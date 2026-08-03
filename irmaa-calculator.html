@@ -497,7 +497,7 @@ img { max-width: 100%; height: auto; }
         </div>
       </div>
       <a href="/faq" style="cursor:pointer;color:#3a2f47;">FAQ</a>
-      <a href="/resources" style="cursor:pointer;color:#3a2f47;">Resources</a> <a href="/medicare-agent-miami" style="padding:10px 14px;border-radius:8px;font-weight:600;color:#3a2f47;">About Us</a>
+      <a href="/resources" style="cursor:pointer;color:#3a2f47;">Resources</a> <a href="/blog" style="cursor:pointer;color:#3a2f47;">Blog</a> <a href="/medicare-agent-miami" style="padding:10px 14px;border-radius:8px;font-weight:600;color:#3a2f47;">About Us</a>
       <a href="/contact" style="cursor:pointer;color:#3a2f47;">Contact</a>
     </div>
     <div style="display:flex;align-items:center;gap:12px">
@@ -535,7 +535,7 @@ img { max-width: 100%; height: auto; }
       <a href="/find-my-plan" style="padding:11px 12px;border-radius:8px;color:#241a30;font-weight:600;font-size:15px;">Find My Plan Quiz</a>
       <div style="margin-top:8px;border-top:1px solid #ece5f0;padding-top:12px;display:flex;flex-direction:column;gap:4px">
         <a href="/faq" style="padding:12px 4px;color:#241a30;border-bottom:1px solid #ece5f0;">FAQ</a>
-        <a href="/resources" style="padding:12px 4px;color:#241a30;border-bottom:1px solid #ece5f0;">Resources</a> <a href="/medicare-agent-miami" style="padding:12px 4px;color:#241a30;border-bottom:1px solid #ece5f0;">About Us</a>
+        <a href="/resources" style="padding:12px 4px;color:#241a30;border-bottom:1px solid #ece5f0;">Resources</a> <a href="/blog" style="padding:12px 4px;color:#241a30;border-bottom:1px solid #ece5f0;">Blog</a> <a href="/medicare-agent-miami" style="padding:12px 4px;color:#241a30;border-bottom:1px solid #ece5f0;">About Us</a>
         <a href="/contact" style="padding:12px 4px;color:#241a30;">Contact</a>
       </div>
       <div style="margin-top:20px;display:flex;flex-direction:column;gap:12px">
@@ -716,6 +716,147 @@ img { max-width: 100%; height: auto; }
     }
   });
 })();
+</script>
+
+<script>
+// ── IRMAA Calculator Logic ────────────────────────────────────────────────────
+var currentFiling = 'single';
+var currentLang = 'en';
+
+// 2026 IRMAA brackets (based on 2024 MAGI)
+// Source: CMS 2026 Medicare Part B/D Premium and IRMAA Final Rule
+var BRACKETS = {
+  single: [
+    { max: 106000,  partB: 0,      partD: 0 },
+    { max: 133000,  partB: 70.00,  partD: 12.90 },
+    { max: 167000,  partB: 176.60, partD: 33.30 },
+    { max: 200000,  partB: 283.20, partD: 53.80 },
+    { max: 500000,  partB: 389.80, partD: 74.20 },
+    { max: Infinity,partB: 419.30, partD: 81.00 }
+  ],
+  joint: [
+    { max: 212000,  partB: 0,      partD: 0 },
+    { max: 266000,  partB: 70.00,  partD: 12.90 },
+    { max: 334000,  partB: 176.60, partD: 33.30 },
+    { max: 400000,  partB: 283.20, partD: 53.80 },
+    { max: 750000,  partB: 389.80, partD: 74.20 },
+    { max: Infinity,partB: 419.30, partD: 81.00 }
+  ]
+};
+
+var STANDARD_PART_B = 202.90;
+
+var COPY = {
+  en: {
+    noIRMAA: 'Good news — at your income level, you do not pay an IRMAA surcharge.',
+    hasIRMAA: 'Your estimated monthly Medicare costs:',
+    partBLabel: 'Part B premium (incl. IRMAA)',
+    partDLabel: 'Part D IRMAA surcharge',
+    totalLabel: 'Total monthly Medicare cost',
+    noteLabel: 'Note: Part D IRMAA is added on top of whatever your plan\'s own premium is. Enter your Part D premium above for a more accurate total.',
+    discLabel: 'Estimates based on 2026 CMS figures. Actual costs depend on your specific Part D plan. Contact Medicare.gov or 1-800-MEDICARE for official information.',
+    ctaLabel: 'Want help reducing your Medicare costs? Our licensed bilingual brokers compare options for free.',
+    callLabel: 'Call 1-800-380-6821',
+    waLabel: 'WhatsApp us',
+    errLabel: 'Please enter your annual income.'
+  },
+  es: {
+    noIRMAA: 'Buenas noticias — con su nivel de ingresos, no paga el recargo IRMAA.',
+    hasIRMAA: 'Sus costos mensuales estimados de Medicare:',
+    partBLabel: 'Prima de la Parte B (incl. IRMAA)',
+    partDLabel: 'Recargo IRMAA de la Parte D',
+    totalLabel: 'Costo mensual total de Medicare',
+    noteLabel: 'Nota: El IRMAA de la Parte D se agrega encima de la prima de su plan. Ingrese su prima de la Parte D arriba para un total más preciso.',
+    discLabel: 'Estimaciones basadas en cifras de CMS 2026. Los costos reales dependen de su plan específico de la Parte D.',
+    ctaLabel: '¿Quiere ayuda para reducir sus costos de Medicare? Nuestros corredores bilingües comparan opciones gratis.',
+    callLabel: 'Llame al 1-800-380-6821',
+    waLabel: 'Escríbanos por WhatsApp',
+    errLabel: 'Por favor ingrese su ingreso anual.'
+  }
+};
+
+function setFiling(type) {
+  currentFiling = type;
+  document.getElementById('btn-single').classList.toggle('active', type === 'single');
+  document.getElementById('btn-joint').classList.toggle('active', type === 'joint');
+}
+
+function setLang(lang) {
+  currentLang = lang;
+  document.getElementById('btn-en').classList.toggle('active', lang === 'en');
+  document.getElementById('btn-es').classList.toggle('active', lang === 'es');
+  // Hide results when language changes
+  document.getElementById('result-wrap').style.display = 'none';
+}
+
+function fmt(n) {
+  return '$' + n.toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+}
+
+function calculate() {
+  var incomeEl = document.getElementById('input-income');
+  var partDEl  = document.getElementById('input-partd');
+  var resultEl = document.getElementById('result-wrap');
+  var c = COPY[currentLang];
+
+  var income = parseFloat(incomeEl.value);
+  if (!income || isNaN(income) || income < 0) {
+    incomeEl.style.borderColor = '#e5148c';
+    resultEl.innerHTML = '<p style="color:#e5148c;font-weight:600;margin-bottom:8px">' + c.errLabel + '</p>';
+    resultEl.style.display = 'block';
+    return;
+  }
+  incomeEl.style.borderColor = '';
+
+  var partDPremium = parseFloat(partDEl.value) || 0;
+  var brackets = BRACKETS[currentFiling];
+  var bracket = brackets[brackets.length - 1];
+  for (var i = 0; i < brackets.length; i++) {
+    if (income <= brackets[i].max) { bracket = brackets[i]; break; }
+  }
+
+  var totalPartB = STANDARD_PART_B + bracket.partB;
+  var totalPartD = partDPremium + bracket.partD;
+  var total = totalPartB + totalPartD;
+
+  var html = '';
+  if (bracket.partB === 0) {
+    html += '<div style="background:#e7f6ef;border:1.5px solid #0f8a5f;border-radius:12px;padding:18px;margin-bottom:16px;text-align:center">';
+    html += '<div style="font-size:22px;margin-bottom:6px">✅</div>';
+    html += '<div style="font-weight:700;color:#0f8a5f;font-size:16px">' + c.noIRMAA + '</div>';
+    html += '<div style="color:#444;font-size:14px;margin-top:8px">Standard Part B: ' + fmt(STANDARD_PART_B) + '/month</div>';
+    html += '</div>';
+  } else {
+    html += '<div style="background:#f4eefa;border:1.5px solid #452068;border-radius:12px;padding:18px;margin-bottom:16px">';
+    html += '<div style="font-weight:700;color:#452068;margin-bottom:14px;font-size:16px">' + c.hasIRMAA + '</div>';
+    html += '<div style="display:flex;justify-content:space-between;padding:10px 0;border-bottom:1px solid #e4dcec;font-size:15px"><span>' + c.partBLabel + '</span><span style="font-weight:700;color:#452068">' + fmt(totalPartB) + '</span></div>';
+    if (partDPremium > 0 || bracket.partD > 0) {
+      html += '<div style="display:flex;justify-content:space-between;padding:10px 0;border-bottom:1px solid #e4dcec;font-size:15px"><span>' + c.partDLabel + '</span><span style="font-weight:700;color:#452068">+' + fmt(bracket.partD) + '</span></div>';
+      if (partDPremium > 0) {
+        html += '<div style="display:flex;justify-content:space-between;padding:10px 0;border-bottom:1px solid #e4dcec;font-size:15px"><span>Part D plan premium</span><span style="font-weight:700;color:#452068">' + fmt(partDPremium) + '</span></div>';
+      }
+    }
+    html += '<div style="display:flex;justify-content:space-between;padding:12px 0 4px;font-size:18px;font-weight:700;color:#311549"><span>' + c.totalLabel + '</span><span>' + fmt(total) + '/mo</span></div>';
+    html += '</div>';
+    if (bracket.partD > 0) {
+      html += '<p style="font-size:13px;color:#666;margin-bottom:14px;line-height:1.6">' + c.noteLabel + '</p>';
+    }
+  }
+
+  html += '<div style="background:#fff;border:1.5px solid #e4dcec;border-radius:12px;padding:18px;text-align:center">';
+  html += '<p style="font-size:15px;color:#444;margin-bottom:14px">' + c.ctaLabel + '</p>';
+  html += '<a href="tel:18003806821" style="display:block;background:#452068;color:#fff;padding:13px;border-radius:10px;font-weight:700;text-decoration:none;margin-bottom:10px">' + c.callLabel + '</a>';
+  html += '<a href="https://wa.me/13054646888" onclick="gtag(\'event\',\'whatsapp_click\',{\'page\':window.location.pathname})" style="display:block;background:#25d366;color:#fff;padding:13px;border-radius:10px;font-weight:700;text-decoration:none">' + c.waLabel + '</a>';
+  html += '</div>';
+  html += '<p style="font-size:12px;color:#999;margin-top:14px;line-height:1.6">' + c.discLabel + '</p>';
+
+  resultEl.innerHTML = html;
+  resultEl.style.display = 'block';
+  resultEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
+
+  gtag('event', 'irmaa_calculated', { income: income, filing: currentFiling });
+}
+// ─────────────────────────────────────────────────────────────────────────────
 </script>
 
 <script>
