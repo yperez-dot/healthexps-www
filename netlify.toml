@@ -533,9 +533,3 @@
   from = "/*"
   to = "/404.html"
   status = 404
-
-# Host guard — blocks reverse-proxy mirrors from serving our content
-# Allows: www.healthexps.com, healthexps.com, *.netlify.app (deploy previews + local)
-[[edge_functions]]
-  function = "host-guard"
-  path = "/*"
