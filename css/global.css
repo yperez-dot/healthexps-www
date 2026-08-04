@@ -44,8 +44,12 @@
 }
 
 /* v4 nav mobile breakpoint — added 2026-08-04 */
+
+/* footer default columns */
+#footer-grid{grid-template-columns:1.3fr 1fr 1fr 1fr;}
+
 @media(max-width:900px){.v4-nav-desktop{display:none!important;}.v4-nav-mobile-btn{display:flex!important;align-items:center;}}
 
 /* footer mobile fix — added 2026-08-04 */
-@media(max-width:768px){#site-footer{padding:40px 20px 24px!important;}#footer-grid{grid-template-columns:1fr 1fr!important;gap:20px!important;}}
-@media(max-width:480px){#footer-grid{grid-template-columns:1fr!important;}}
+@media(max-width:900px){#site-footer{padding:40px 20px 24px;}#footer-grid{grid-template-columns:1fr 1fr;gap:20px;}}
+@media(max-width:480px){#footer-grid{grid-template-columns:1fr;}}
