@@ -42,3 +42,6 @@
   box-shadow: 0 6px 16px rgba(69, 32, 104, 0.4);
   transform: translateY(-2px);
 }
+
+/* v4 nav mobile breakpoint — added 2026-08-04 */
+@media(max-width:900px){.v4-nav-desktop{display:none!important;}.v4-nav-mobile-btn{display:flex!important;align-items:center;}}
