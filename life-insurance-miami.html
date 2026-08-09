@@ -274,7 +274,16 @@ img { max-width: 100%; height: auto; }
   gap: 18px;
 }
 .life-situation-card {
+  cursor: pointer;
+  text-decoration: none;
+  display: block;
+  transition: box-shadow .18s, transform .18s;
   border: 1px solid var(--gray-mid); border-radius: 16px; padding: 24px;
+}
+.life-situation-card:hover {
+  box-shadow: 0 8px 28px rgba(69,32,104,.18);
+  transform: translateY(-2px);
+  border-color: var(--pink);
 }
 .life-situation-card.highlight {
   background: var(--purple-light);
@@ -680,26 +689,26 @@ img { max-width: 100%; height: auto; }
       <h2 style="text-align:center;font-family:Poppins,sans-serif;font-size:28px;font-weight:700;color:#241a30;margin:0 0 8px">Who this is for</h2>
       <p style="text-align:center;color:#6f6478;font-size:15px;margin:0 0 36px">Find the situation that sounds like yours.</p>
       <div class="life-situations-grid">
-        <div class="life-situation-card">
+        <a href="/life-insurance-calculator/" class="life-situation-card">
           <div class="life-situation-title">I have a family depending on my income</div>
           <div class="life-situation-desc">Make sure they are financially protected if something happens to you.</div>
-        </div>
-        <div class="life-situation-card">
+        </a>
+        <a href="/life-insurance-calculator/" class="life-situation-card">
           <div class="life-situation-title">I am self-employed with no employer coverage</div>
           <div class="life-situation-desc">No workplace policy means you are building your own safety net from scratch.</div>
-        </div>
-        <div class="life-situation-card">
+        </a>
+        <a href="/life-insurance-calculator/" class="life-situation-card">
           <div class="life-situation-title">I am turning 65 and reviewing my coverage</div>
           <div class="life-situation-desc">See how life insurance fits alongside your Medicare decisions.</div>
-        </div>
-        <div class="life-situation-card">
+        </a>
+        <a href="/life-insurance-calculator/" class="life-situation-card">
           <div class="life-situation-title">I want to leave something for my kids</div>
           <div class="life-situation-desc">A tax-free legacy, funeral costs covered, or help with a first home.</div>
-        </div>
-        <div class="life-situation-card">
+        </a>
+        <a href="/life-insurance-calculator/" class="life-situation-card">
           <div class="life-situation-title">I am a small business owner</div>
           <div class="life-situation-desc">Key person coverage or buy-sell funding to protect what you have built.</div>
-        </div>
+        </a>
         <div class="life-situation-card highlight">
           <div>
             <div style="font-weight:700;font-size:15px;color:#452068;margin-bottom:6px">Not sure which fits?</div>
