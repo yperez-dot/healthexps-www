@@ -1801,9 +1801,9 @@ function computeCoverage() {
     return;
   }
 
+  // Round UP to nearest $50K (ceiling). 20x income cap is an underwriting note for agents, not applied here.
   let recommended = Math.ceil(net_need / 50000) * 50000;
   if (net_need > 0 && net_need < 50000) recommended = 50000;
-  recommended = Math.min(recommended, S.income * 20);
 
   S.net_need = net_need;
   S.recommended = recommended;
@@ -1852,14 +1852,11 @@ function renderResult() {
 
   document.getElementById('breakdown-subtotal-val').textContent = fmt(S.gross_need);
 
+  // Always show existing-coverage row — transparency principle (show every input even at $0)
   const covRow = document.getElementById('breakdown-coverage-row');
-  if (S.existing_coverage > 0) {
-    covRow.style.display = '';
-    document.getElementById('breakdown-coverage-label').textContent = `Less: coverage you already have`;
-    document.getElementById('breakdown-coverage-val').textContent = '−' + fmt(S.existing_coverage);
-  } else {
-    covRow.style.display = 'none';
-  }
+  covRow.style.display = '';
+  document.getElementById('breakdown-coverage-label').textContent = 'Less: coverage you already have';
+  document.getElementById('breakdown-coverage-val').textContent = S.existing_coverage > 0 ? '−' + fmt(S.existing_coverage) : '$0';
 
   const savRow = document.getElementById('breakdown-savings-row');
   if (S.liquid_savings > 0) {
@@ -1914,12 +1911,35 @@ function startToolB() {
   goScreen('s6');
 }
 
-function emailResult() {
+async function emailResult() {
   const email = document.getElementById('email-input').value.trim();
-  if (!email) return;
+  if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) return;
   S.email = email;
-  submitToGHL('partial');
-  document.getElementById('email-input').value = '';
+  const btn = document.querySelector('#email-section .cont-btn');
+  const inp = document.getElementById('email-input');
+  btn.textContent = 'Sending...';
+  btn.disabled = true;
+  btn.classList.remove('on');
+  btn.style.opacity = '0.7';
+  try {
+    await submitToGHL('partial');
+    inp.style.display = 'none';
+    btn.style.display = 'none';
+    const confirm = document.createElement('p');
+    confirm.style.cssText = 'color:#25a244;font-weight:700;font-size:14px;margin:8px 0 0;';
+    confirm.textContent = 'Sent! Check your inbox.';
+    document.getElementById('email-section').appendChild(confirm);
+  } catch(e) {
+    btn.textContent = 'Send';
+    btn.disabled = false;
+    btn.classList.add('on');
+    btn.style.opacity = '';
+    const err = document.getElementById('email-error') || document.createElement('p');
+    err.id = 'email-error';
+    err.style.cssText = 'color:#d32f2f;font-size:13px;margin:6px 0 0;';
+    err.textContent = 'Could not send — please call us at 1-800-380-6821.';
+    document.getElementById('email-section').appendChild(err);
+  }
 }
 
 // === TOOL B HANDLERS ===
