@@ -1598,7 +1598,9 @@ function goScreen(id) {
   document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
   document.getElementById(id).classList.add('active');
   updateProgress(id);
-  window.scrollTo({ top: 0, behavior: 'smooth' });
+  // Scroll to top of calculator (not page top) — prevents jarring nav-jump on mobile
+  var anchor = document.getElementById('prog-wrap') || document.getElementById('calc-container');
+  if (anchor) anchor.scrollIntoView({ behavior: 'smooth', block: 'start' });
   saveState();
 }
 
