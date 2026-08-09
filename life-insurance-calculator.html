@@ -165,6 +165,33 @@ input[type=range]::-webkit-slider-thumb{appearance:none;-webkit-appearance:none;
 #scrollToTop:hover { background: #ff1090; transform: translateY(-2px); }
 #scrollToTop:focus-visible { outline: 3px solid #ff1090; outline-offset: 3px; }
 </style>
+<style>
+/* Compliance strip */
+.calc-compliance{background:#f7f2fb;border-top:1px solid #ece5f0;padding:28px 56px;}
+.calc-disclaimer,.calc-license,.calc-help{font-size:12.5px;color:#6f6478;line-height:1.7;margin-bottom:8px;}
+.calc-license{font-weight:600;color:#452068;}
+.calc-help a{color:#452068;font-weight:600;text-decoration:none;}
+.calc-help a:hover{color:#ff1090;}
+@media(max-width:767px){.calc-compliance{padding:20px 16px;}}
+/* Sticky mobile CTA */
+.sticky-cta{display:none;position:fixed;bottom:0;left:0;right:0;z-index:900;background:#452068;padding:10px 12px;gap:8px;}
+.sticky-cta__item{flex:1;text-align:center;padding:13px 8px;border-radius:10px;font-weight:700;font-size:14px;text-decoration:none;display:block;}
+.sticky-cta__item--call{background:#fff;color:#452068;}
+.sticky-cta__item--wa{background:#25D366;color:#fff;}
+@media(max-width:767px){.sticky-cta{display:flex;} .card-wrap{padding-bottom:76px;}}
+/* Breadcrumb */
+nav.calc-breadcrumb{background:#fdfaf7;padding:12px 56px;border-bottom:1px solid #ece5f0;font-size:13.5px;color:#6f6478;}
+nav.calc-breadcrumb a{color:#452068;font-weight:600;text-decoration:none;}
+nav.calc-breadcrumb a:hover{color:#ff1090;}
+nav.calc-breadcrumb [aria-current="page"]{color:#6f6478;}
+@media(max-width:767px){nav.calc-breadcrumb{padding:10px 16px;font-size:12.5px;}}
+</style>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://www.healthexps.com/"},{"@type":"ListItem","position":2,"name":"Life Insurance","item":"https://www.healthexps.com/life-insurance-miami/"},{"@type":"ListItem","position":3,"name":"Coverage Calculator","item":"https://www.healthexps.com/life-insurance-calculator/"}]}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebApplication","name":"Life Insurance Coverage Calculator","url":"https://www.healthexps.com/life-insurance-calculator/","applicationCategory":"FinanceApplication","operatingSystem":"All","browserRequirements":"Requires JavaScript","inLanguage":"en-US","description":"Free calculator that estimates how much life insurance coverage you need based on income, dependents, debts, and existing coverage.","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"provider":{"@type":"InsuranceAgency","name":"The Health Experts Insurance","telephone":"+1-800-380-6821","url":"https://www.healthexps.com/","address":{"@type":"PostalAddress","streetAddress":"1695 NW 110 Ave, Ste 224","addressLocality":"Doral","addressRegion":"FL","postalCode":"33172","addressCountry":"US"}}}
+</script>
 </head>
 <body>
 <div style="font-family:Inter,sans-serif;color:#241a30;background:#fff">
@@ -280,15 +307,15 @@ input[type=range]::-webkit-slider-thumb{appearance:none;-webkit-appearance:none;
         </nav>
       </div>
 
-  <div style="background:#fdfaf7;padding:12px 56px;border-bottom:1px solid #ece5f0;">
-    <div style="max-width:1160px;margin:0 auto;font-size:13.5px;color:#6f6478;">
-      <a href="/" style="color:#452068;font-weight:600;">Home</a>
-      <span style="margin:0 8px;opacity:.5;">/</span>
-      <a href="/life-insurance-miami" style="color:#452068;font-weight:600;">Life Insurance</a>
-      <span style="margin:0 8px;opacity:.5;">/</span>
-      Calculator
+  <nav class="calc-breadcrumb" aria-label="Breadcrumb">
+    <div style="max-width:1160px;margin:0 auto;">
+      <a href="/">Home</a>
+      <span aria-hidden="true" style="margin:0 8px;opacity:.5;">/</span>
+      <a href="/life-insurance-miami/">Life Insurance</a>
+      <span aria-hidden="true" style="margin:0 8px;opacity:.5;">/</span>
+      <span aria-current="page">Coverage Calculator</span>
     </div>
-  </div>
+  </nav>
 
 <!-- Hero -->
 <div class="hero">
@@ -1295,6 +1322,11 @@ updateMortgage(6);
 updateProgress();
 </script>
 </div><!-- /calc wrapper -->
+<section class="calc-compliance">
+  <p class="calc-disclaimer">Rates shown are estimated monthly premiums for illustrative purposes only. Actual rates vary by carrier, health history, age, and coverage amount. No rate is guaranteed until a policy is issued. Contact a licensed agent for your exact quote.</p>
+  <p class="calc-license">The Health Experts Insurance &middot; Florida License #L110034 &middot; 1695 NW 110 Ave, Ste 224, Doral, FL 33172 &middot; Not affiliated with any government program or federal Medicare program.</p>
+  <p class="calc-help">Questions? Call <a href="tel:18003806821">1-800-380-6821</a> or <a href="https://wa.me/13054646888">message us on WhatsApp</a>. Se habla espa&ntilde;ol.</p>
+</section>
 <!-- FOOTER -->
       <div id="site-footer" style="background:#fff;color:#241a30;padding:56px 56px 24px;border-top:1px solid #ece5f0">
         <div style="max-width:1160px;margin:0 auto">
@@ -1481,5 +1513,9 @@ updateProgress();
   });
 })();
 </script>
+<div class="sticky-cta" role="complementary">
+  <a href="tel:18003806821" class="sticky-cta__item sticky-cta__item--call">Call 1-800-380-6821</a>
+  <a href="https://wa.me/13054646888" class="sticky-cta__item sticky-cta__item--wa">WhatsApp</a>
+</div>
 </body>
 </html>

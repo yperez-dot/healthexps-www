@@ -1,0 +1,41 @@
+{
+  "_note": "Annual rate per $1,000 of coverage. Source: Insurance Toolkits FL 2026-08-09 (PP column = real carrier rates, weighted avg across coverage tiers). Preferred and Standard are industry-typical multiples — IVAN MUST REPLACE WITH REAL CARRIER RATE CARDS BEFORE GO-LIVE. Tobacco multiplier = 2.6x on the non-tobacco rate for that class.",
+  "_source": "Insurance Toolkits, FL, 20yr term, Preferred Plus, non-smoker, 2026-08-09",
+  "_ivan_action_required": "Replace preferred and standard columns with verified rate card data. Confirm preferred_plus column. Sign off before deploy.",
+  "tobacco_multiplier": 2.6,
+  "term20": {
+    "F": {
+      "25-29": { "preferred_plus": 0.4349, "preferred": 0.4887, "standard": 0.6744 },
+      "30-34": { "preferred_plus": 0.4409, "preferred": 0.5275, "standard": 0.7279 },
+      "35-39": { "preferred_plus": 0.4926, "preferred": 0.6207, "standard": 0.8566 },
+      "40-44": { "preferred_plus": 0.6436, "preferred": 0.8320, "standard": 1.1482 },
+      "45-49": { "preferred_plus": 0.9507, "preferred": 1.1685, "standard": 1.6125 },
+      "50-54": { "preferred_plus": 1.3934, "preferred": 1.7272, "standard": 2.3835 },
+      "55-59": { "preferred_plus": 2.1502, "preferred": 2.7073, "standard": 3.7361 },
+      "60-64": { "preferred_plus": 4.0091, "preferred": 5.3638, "standard": 7.4020 }
+    },
+    "M": {
+      "25-29": { "preferred_plus": 0.5218, "preferred": 0.6185, "standard": 0.8535 },
+      "30-34": { "preferred_plus": 0.5151, "preferred": 0.6476, "standard": 0.8937 },
+      "35-39": { "preferred_plus": 0.5549, "preferred": 0.7211, "standard": 0.9951 },
+      "40-44": { "preferred_plus": 0.7517, "preferred": 0.9899, "standard": 1.3661 },
+      "45-49": { "preferred_plus": 1.1863, "preferred": 1.4665, "standard": 2.0238 },
+      "50-54": { "preferred_plus": 1.7809, "preferred": 2.2056, "standard": 3.0437 },
+      "55-59": { "preferred_plus": 2.9224, "preferred": 3.5111, "standard": 4.8453 },
+      "60-64": { "preferred_plus": 5.7127, "preferred": 6.9255, "standard": 9.5572 }
+    }
+  },
+  "final_expense_10k_monthly": {
+    "_note": "Monthly premium ranges for $10K Level FEX coverage. [low, high] across carriers. Source: Insurance Toolkits 2026-08-09.",
+    "F": {
+      "50": [24.24, 43.02], "55": [27.60, 45.58], "60": [32.71, 51.10],
+      "65": [40.77, 64.51], "70": [52.88, 83.41], "75": [70.94, 126.81],
+      "80": [98.42, 176.91], "85": [135.89, 268.62]
+    },
+    "M": {
+      "50": [30.50, 47.70], "55": [35.75, 59.17], "60": [43.12, 73.81],
+      "65": [53.97, 92.75], "70": [69.78, 116.44], "75": [97.10, 167.12],
+      "80": [135.78, 229.03], "85": [187.58, 377.51]
+    }
+  }
+}
