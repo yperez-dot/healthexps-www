@@ -981,6 +981,12 @@ nav.calc-breadcrumb [aria-current="page"] {
     <div style="font-size: 13px; color: var(--gt); line-height: 1.6; margin-top: 12px;" id="savings-note">We only count half your savings  -  your family should keep an emergency cushion, not drain the account.</div>
   </div>
 
+  <!-- Advisory: shown when recommended > income × 20x (underwriting signal, not a hard cap) -->
+  <!-- NOTE: 20x multiple needs Ivan's confirmation — may vary by age band before go-live -->
+  <div id="advisory-block" style="display:none;background:#fff8e1;border:1px solid #ffe082;border-radius:10px;padding:14px 16px;margin-bottom:20px;font-size:13.5px;color:#5d4037;line-height:1.6;">
+    <span id="advisory-text"></span>
+  </div>
+
   <button class="btn-primary" onclick="startToolB()"><span id="result-cta">See what this costs me</span></button>
   <button class="btn-call" onclick="window.location.href='tel:18003806821'"><span id="call-cta">Call 1-800-380-6821</span></button>
   <a href="https://wa.me/13054646888" onclick="gtag('event','whatsapp_click',{'page':window.location.pathname})" class="btn-wa"><span id="wa-cta">WhatsApp us</span></a>
@@ -1868,6 +1874,20 @@ function renderResult() {
   }
 
   document.getElementById('breakdown-net-val').textContent = fmt(S.net_need);
+
+  // Advisory: show when recommended > income × 20x underwriting threshold
+  // NOTE: 20x multiple flagged for Ivan's confirmation — may vary by age band
+  const CARRIER_INCOME_MULTIPLE = 20; // TODO: confirm with Ivan before go-live
+  const advisoryBlock = document.getElementById('advisory-block');
+  if (S.income > 0 && S.recommended > S.income * CARRIER_INCOME_MULTIPLE) {
+    const approxMax = S.income * CARRIER_INCOME_MULTIPLE;
+    document.getElementById('advisory-text').textContent =
+      'This is what the math says you\'d ideally have. At your income, carriers typically approve up to about ' +
+      fmt(approxMax) + '. Your agent will help you find the right amount you can actually qualify for.';
+    advisoryBlock.style.display = '';
+  } else {
+    advisoryBlock.style.display = 'none';
+  }
 
   // College toggle
   const collegeSection = document.getElementById('college-section');
