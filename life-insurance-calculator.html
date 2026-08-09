@@ -37,6 +37,8 @@ body {
   background: var(--gray);
   font-size: 16px;
   min-height: 100vh;
+  overflow-x: hidden;
+  max-width: 100%;
 }
 
 /* Hero */
@@ -288,12 +290,13 @@ body {
 
 /* Result screen */
 .result-number {
-  font-size: 56px;
+  font-size: clamp(32px, 10vw, 56px);
   font-weight: 700;
   color: var(--purple);
   text-align: center;
   margin-bottom: 6px;
   line-height: 1.1;
+  word-break: break-word;
 }
 
 .result-label {
@@ -811,7 +814,7 @@ nav.calc-breadcrumb [aria-current="page"] {
   <p id="hero-sub">Find out how much coverage you need and what it costs.</p>
   <div class="lang-toggle">
     <button class="lang-btn active" onclick="setLang('en')" id="lb-en">English</button>
-    <button class="lang-btn" onclick="setLang('es')" id="lb-es">Espaol</button>
+    <button class="lang-btn" onclick="setLang('es')" id="lb-es">Espa&ntilde;ol</button>
   </div>
 </div>
 
@@ -1139,7 +1142,7 @@ nav.calc-breadcrumb [aria-current="page"] {
         <input type="radio" name="lang-radio" value="en" checked onchange="setLanguageRadio('en')"> <span id="lang-en">English</span>
       </label>
       <label style="display: flex; align-items: center; gap: 8px; cursor: pointer;">
-        <input type="radio" name="lang-radio" value="es" onchange="setLanguageRadio('es')"> <span id="lang-es">Espaol</span>
+        <input type="radio" name="lang-radio" value="es" onchange="setLanguageRadio('es')"> <span id="lang-es">Espa&ntilde;ol</span>
       </label>
     </div>
   </div>
@@ -1221,7 +1224,7 @@ nav.calc-breadcrumb [aria-current="page"] {
         <div style="display: flex; flex-direction: column; gap: 9px; font-size: 13.5px;">
           <a href="/medicare-plans-miami" style="cursor: pointer; color: #4a4051;">Medicare Plans</a>
           <a href="/dental-vision-miami" style="cursor: pointer; color: #4a4051;">Dental & Vision</a>
-          <a href="/es/" style="color: #4a4051;">Sitio en Espaol</a>
+          <a href="/es/" style="color: #4a4051;">Sitio en Espa&ntilde;ol</a>
         </div>
       </div>
     </div>
@@ -1393,7 +1396,7 @@ const STRINGS = {
     gatePhone: "Phone Number",
     langPref: "Preferred language",
     langEn: "English",
-    langEs: "Espaol",
+    langEs: "Espa&ntilde;ol",
     consentText: "I agree to be contacted by a licensed agent at The Health Experts Insurance.",
     gateBtn: "Show My Rate",
     rateHeadline: "Your estimated monthly cost",
@@ -1479,7 +1482,7 @@ const STRINGS = {
     gatePhone: "Numero de Telefono",
     langPref: "Idioma preferido",
     langEn: "English",
-    langEs: "Espaol",
+    langEs: "Espa&ntilde;ol",
     consentText: "Acepto ser contactado por un agente licenciado de The Health Experts Insurance.",
     gateBtn: "Mostrar Mi Tarifa",
     rateHeadline: "Su costo mensual estimado",
