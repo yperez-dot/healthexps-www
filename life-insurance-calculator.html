@@ -370,9 +370,23 @@ input[type=range]::-webkit-slider-thumb{appearance:none;-webkit-appearance:none;
     </button>
   </div>
 
+  <!-- ── STEP: Sex ── -->
+  <div class="screen" id="s-gender">
+    <button class="back-btn" onclick="goStepId('s-prod')">← Back</button>
+    <div class="step-q" id="sgender-q">What is your biological sex?</div>
+    <div class="step-sub" id="sgender-sub">Used to calculate accurate rate estimates.</div>
+    <div class="opts" id="sgender-opts">
+      <div class="opt sel" onclick="selectSex(this,'M')" id="sex-m"><span id="sex-m-lbl">Male</span></div>
+      <div class="opt" onclick="selectSex(this,'F')" id="sex-f"><span id="sex-f-lbl">Female</span></div>
+    </div>
+    <button class="cont-btn on" id="sgender-btn" onclick="goStepId('s2')">
+      <span id="sgender-btn-lbl">Continue →</span>
+    </button>
+  </div>
+
   <!-- ── STEP 2: Date of Birth ── -->
   <div class="screen" id="s2">
-    <button class="back-btn" onclick="goStepId('s-prod')">← Back</button>
+    <button class="back-btn" onclick="goStepId('s-gender')">← Back</button>
 
     <div class="step-q" id="s2-q">What is your date of birth?</div>
     <div class="step-sub" id="s2-sub">This determines which plans are available to you.</div>
@@ -590,6 +604,7 @@ const S = {
   lang: 'en',
   step: 1,
   priorities: new Set(),
+  sex: 'M',
   ageKey: null,
   ageLabel: '',
   childAge: null,
@@ -599,8 +614,8 @@ const S = {
   phone: ''
 };
 
-const TOTAL = 10;
-const STEP_ORDER = ['s1','s-prod','s2','s3n','s3','s4t','s5h','s4','s5','s6'];
+const TOTAL = 11;
+const STEP_ORDER = ['s1','s-prod','s-gender','s2','s3n','s3','s4t','s5h','s4','s5','s6'];
 
 // ─── Income slider steps ──────────────────────────────────────────────────────
 const INCOME_STEPS = [
@@ -618,7 +633,18 @@ const RATES = {
   10000:  {50:[25,25],55:[30,30],60:[35,35],65:[40,45],70:[50,55],75:[70,75],80:[98,105],85:[135,150]},
   100000: {25:[8,10],30:[10,12],35:[11,15],40:[13,20],45:[15,25],50:[19,30],55:[30,50],60:[50,75]},
   250000: {25:[14,18],30:[16,22],35:[20,28],40:[26,38],45:[32,50],50:[40,65],55:[65,100],60:[100,150]},
-  500000: {25:[22,30],30:[25,35],35:[32,48],40:[44,65],45:[58,90],50:[72,115],55:[118,180],60:[185,265]}
+  500000: {
+    M:{25:[17.73,24.43],30:[17.73,27.56],35:[19.98,33.11],40:[27.95,47.72],45:[45.42,70.25],50:[69.28,104.92],55:[114.41,167.45],60:[203.93,333.29]},
+    F:{25:[13.26,17.23],30:[13.71,20.41],35:[17.00,27.52],40:[23.58,38.88],45:[35.81,54.35],50:[54.40,80.41],55:[83.41,131.26],60:[143.23,273.84]}
+  },
+  750000: {
+    M:{25:[25.88,35.67],30:[25.88,40.24],35:[28.69,48.38],40:[40.80,69.66],45:[66.30,102.56],50:[102.64,156.09],55:[167.03,244.46],60:[297.71,486.55]},
+    F:{25:[19.36,25.16],30:[20.01,29.80],35:[23.93,39.99],40:[34.43,56.76],45:[52.28,79.34],50:[80.33,119.33],55:[121.76,191.62],60:[209.10,399.77]}
+  },
+  1000000: {
+    M:{25:[31.45,45.58],30:[28.90,50.90],35:[32.30,63.64],40:[48.45,92.02],45:[84.15,135.88],50:[128.35,207.26],55:[230.35,325.08],60:[482.80,645.98]},
+    F:{25:[22.95,32.68],30:[22.95,38.70],35:[28.05,52.46],40:[39.95,74.82],45:[65.45,104.92],50:[96.05,158.24],55:[165.75,252.84],60:[344.96,530.27]}
+  }
 };
 
 // Whole Life approx. monthly rates ($25,000 coverage)
@@ -754,6 +780,12 @@ function goStepId(id){
   const el = document.getElementById(id);
   if(el && S.step <= 1){ const top = el.getBoundingClientRect().top + window.pageYOffset - 100; window.scrollTo({top: Math.max(0, top), behavior:'smooth'}); }
   gtag('event','calc_step',{'step':id});
+}
+
+function selectSex(el, val){
+  document.querySelectorAll('#sgender-opts .opt').forEach(o=>o.classList.remove('sel'));
+  el.classList.add('sel');
+  S.sex = val;
 }
 
 function selectTobacco(el, val){
@@ -1086,13 +1118,15 @@ function showResult(){
     productTypeLabel = cc.termType;
   }
 
-  // Find the right age key
-  const ageKeys = Object.keys(rateTable).map(Number).sort((a,b)=>a-b);
+  // Find the right age key — use gender-split table when available
+  const genderTable = (rateTable && rateTable.M) ? (rateTable[S.sex] || rateTable['M']) : rateTable;
+  const ageKeys = Object.keys(genderTable).map(Number).sort((a,b)=>a-b);
   let ageKey = ageKeys[0];
   for(const k of ageKeys){ if(S.ageKey >= k) ageKey = k; }
-  const raw = rateTable[ageKey] || [0,0];
+  const raw = genderTable[ageKey] || [0,0];
   const tobaccoMult = S.tobacco === 'yes' ? 1.4 : 1.0;
-  const healthMult = S.healthClass === 'preferred_plus' ? 0.85 : S.healthClass === 'standard' ? 1.2 : S.healthClass === 'substandard' ? 1.5 : 1.0;
+  // Base rates are Preferred Plus; adjust up for other health classes
+  const healthMult = S.healthClass === 'preferred_plus' ? 1.0 : S.healthClass === 'standard' ? 1.4 : S.healthClass === 'substandard' ? 1.8 : 1.1;
   const lo = Math.round(raw[0] * tobaccoMult * healthMult);
   const hi = Math.round(raw[1] * tobaccoMult * healthMult);
 
