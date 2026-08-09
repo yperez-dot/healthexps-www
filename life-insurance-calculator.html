@@ -314,37 +314,6 @@ body {
   text-align: center;
 }
 
-/* College toggle */
-.college-toggle {
-  display: flex;
-  gap: 8px;
-  margin-bottom: 24px;
-  flex-wrap: wrap;
-  justify-content: center;
-}
-
-.college-btn {
-  padding: 12px 16px;
-  border: 2px solid #e8e0f4;
-  border-radius: 10px;
-  background: #fff;
-  font-size: 14px;
-  font-weight: 600;
-  cursor: pointer;
-  transition: all .15s;
-}
-
-.college-btn:hover {
-  border-color: var(--purple);
-  background: var(--pl);
-}
-
-.college-btn.active {
-  border-color: var(--purple);
-  background: var(--purple);
-  color: #fff;
-}
-
 /* Breakdown table */
 .breakdown-table {
   width: 100%;
@@ -960,20 +929,10 @@ nav.calc-breadcrumb [aria-current="page"] {
   
   <div class="result-explanation" id="result-explanation"></div>
 
-  <div id="college-section" style="margin-bottom: 24px;">
-    <div style="font-weight: 600; font-size: 14px; margin-bottom: 12px;" id="college-prompt">How much college funding?</div>
-    <div class="college-toggle" id="college-toggle">
-      <button class="college-btn" onclick="setCollegeFunding(80000)">Full cost (80K)</button>
-      <button class="college-btn active" onclick="setCollegeFunding(40000)">Help with costs (40K)</button>
-      <button class="college-btn" onclick="setCollegeFunding(0)">Not funding</button>
-    </div>
-  </div>
-
   <div style="margin-bottom: 24px;">
     <div style="font-weight: 600; font-size: 14px; margin-bottom: 12px;" id="breakdown-title">Here's exactly how we got that</div>
     <table class="breakdown-table" id="breakdown-table">
       <tr><td id="breakdown-income-label">Replace your income for X years</td><td id="breakdown-income-val">0</td></tr>
-      <tr id="breakdown-edu-row" style="display: none;"><td id="breakdown-edu-label">College fund</td><td id="breakdown-edu-val">0</td></tr>
       <tr><td id="breakdown-debt-label">Pay off mortgage and debts</td><td id="breakdown-debt-val">0</td></tr>
       <tr><td id="breakdown-final-label">Final expenses</td><td id="breakdown-final-val">$15,000</td></tr>
       <tr style="background: var(--pl);"><td id="breakdown-subtotal-label">Subtotal</td><td id="breakdown-subtotal-val">0</td></tr>
@@ -1289,10 +1248,8 @@ const S = {
   net_need: 0,
   years_to_replace: 0,
   income_replacement: 0,
-  edu_fund: 0,
   debt_payoff: 0,
   offsets: 0,
-  edu_per_child: 40000,
   // Tool B
   dob: '',
   age: 0,
@@ -1789,19 +1746,15 @@ function computeCoverage() {
   const PV_FACTOR = 0.85;
   const income_replacement = S.income * years * PV_FACTOR;
 
-  const edu_fund = S.has_children && S.youngest_child_age < 18
-    ? S.child_count * S.edu_per_child * (S.youngest_child_age === 19 ? 0.4 : 1)
-    : 0;
-
+  // Education fund removed from formula (Q3 still drives YEARS_TO_REPLACE for income replacement)
   const debt_payoff = S.mortgage_balance + S.other_debt;
   const final_expenses = 15000;
-  const gross_need = income_replacement + edu_fund + debt_payoff + final_expenses;
+  const gross_need = income_replacement + debt_payoff + final_expenses;
   const offsets = S.existing_coverage + (S.liquid_savings * 0.5);
   const net_need = gross_need - offsets;
 
   S.years_to_replace = years;
   S.income_replacement = income_replacement;
-  S.edu_fund = edu_fund;
   S.debt_payoff = debt_payoff;
   S.offsets = offsets;
   S.gross_need = gross_need;
@@ -1839,7 +1792,6 @@ function renderResult() {
   // Explanation
   const parts = [];
   if (S.has_children) parts.push(`replace your income for ${S.years_to_replace} years`);
-  if (S.child_count > 0) parts.push(`cover college for ${S.child_count} ${S.child_count === 1 ? 'child' : 'children'}`);
   if (S.mortgage_balance > 0) parts.push(`pay off your mortgage`);
   parts.push(`handle final expenses`);
   const explanation = `That's enough to ${parts.join(', ')}${S.offsets > 0 ? '  -  minus what you already have' : '.'} `;
@@ -1849,15 +1801,6 @@ function renderResult() {
   document.getElementById('breakdown-income-label').textContent = `Replace your income for ${S.years_to_replace} years`;
   document.getElementById('breakdown-income-val').textContent = fmt(S.income_replacement);
   
-  const eduRow = document.getElementById('breakdown-edu-row');
-  if (S.edu_fund > 0) {
-    eduRow.style.display = '';
-    document.getElementById('breakdown-edu-label').textContent = `College fund (${S.child_count} ${S.child_count === 1 ? 'child' : 'children'})`;
-    document.getElementById('breakdown-edu-val').textContent = fmt(S.edu_fund);
-  } else {
-    eduRow.style.display = 'none';
-  }
-
   document.getElementById('breakdown-debt-label').textContent = `Pay off mortgage and debts`;
   document.getElementById('breakdown-debt-val').textContent = fmt(S.debt_payoff);
 
@@ -1894,17 +1837,6 @@ function renderResult() {
     advisoryBlock.style.display = 'none';
   }
 
-  // College toggle
-  const collegeSection = document.getElementById('college-section');
-  if (S.has_children && S.youngest_child_age < 18) {
-    collegeSection.style.display = '';
-    document.querySelectorAll('#college-toggle .college-btn').forEach(b => b.classList.remove('active'));
-    if (S.edu_per_child === 80000) document.querySelectorAll('#college-toggle .college-btn')[0].classList.add('active');
-    else if (S.edu_per_child === 40000) document.querySelectorAll('#college-toggle .college-btn')[1].classList.add('active');
-    else if (S.edu_per_child === 0) document.querySelectorAll('#college-toggle .college-btn')[2].classList.add('active');
-  } else {
-    collegeSection.style.display = 'none';
-  }
 }
 
 function animateNumber() {
@@ -1924,13 +1856,6 @@ function animateNumber() {
   tick();
 }
 
-function setCollegeFunding(amount) {
-  S.edu_per_child = amount;
-  computeCoverage();
-  renderResult();
-  animateNumber();
-  saveState();
-}
 
 function startToolB() {
   goScreen('s6');
