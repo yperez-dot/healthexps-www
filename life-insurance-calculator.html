@@ -1687,7 +1687,7 @@ function goScreen(id) {
   // Don't scroll when landing on intro screen — user is at top of page already
   if (id === 'sIntro') { saveState(); return; }
   var anchor = document.getElementById('prog-wrap') || document.getElementById('calc-container');
-  if (anchor) anchor.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  if (anchor) anchor.scrollIntoView({ behavior: 'instant', block: 'start' });
   saveState();
 }
 
