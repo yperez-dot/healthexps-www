@@ -828,7 +828,7 @@ nav.calc-breadcrumb [aria-current="page"] {
     <label id="zip-lbl">ZIP Code</label>
     <input type="text" id="zip-input" inputmode="numeric" maxlength="5" placeholder="" oninput="checkZip()">
   </div>
-  <button class="cont-btn off" id="zip-btn" onclick="goScreen('s2')"><span id="zip-btn-lbl">Continue</span></button>
+  <button class="cont-btn off" id="zip-btn" onclick="proceedFromZip()"><span id="zip-btn-lbl">Continue</span></button>
 </div>
 
 <!-- Q2: Dependents -->
@@ -872,7 +872,7 @@ nav.calc-breadcrumb [aria-current="page"] {
     </div>
   </div>
   
-  <button class="cont-btn off" id="s3-btn" onclick="goScreen('s4')"><span id="s3-btn-lbl">Continue</span></button>
+  <button class="cont-btn off" id="s3-btn" onclick="proceedFromChildren()"><span id="s3-btn-lbl">Continue</span></button>
 </div>
 
 <!-- Q4: Debts -->
@@ -912,7 +912,7 @@ nav.calc-breadcrumb [aria-current="page"] {
     </div>
   </div>
 
-  <button class="cont-btn off" id="s4-btn" onclick="goScreen('s5')"><span id="s4-btn-lbl">Continue</span></button>
+  <button class="cont-btn off" id="s4-btn" onclick="proceedFromDebt()"><span id="s4-btn-lbl">Continue</span></button>
 </div>
 
 <!-- Q5: Safety Net -->
@@ -1301,6 +1301,7 @@ const S = {
   other_debt_set: false,
   coverage_set: false,
   savings_set: false,
+  editReturn: false,
   // Computed
   recommended: 0,
   gross_need: 0,
@@ -1690,6 +1691,7 @@ function updateCustomIncome() {
 
 function proceedFromIncome() {
   if (S.income <= 0) return;
+  if (S.editReturn) { S.editReturn = false; renderReview(); goScreen('sReview'); saveState(); return; }
   goScreen('sZip');
   saveState();
 }
@@ -1722,6 +1724,14 @@ function toggleDependent(el, key) {
 function proceedFromDependents() {
   if (S.dependents.length === 0) return;
   S.has_children = S.dependents.includes('children');
+  if (S.editReturn) {
+    S.editReturn = false;
+    if (!S.has_children) { S.child_count = 0; S.youngest_child_age = 0; }
+    renderReview();
+    goScreen('sReview');
+    saveState();
+    return;
+  }
   if (S.has_children) {
     goScreen('s3');
   } else {
@@ -1857,7 +1867,15 @@ function computeCoverage() {
 
 function showResult() {
   computeCoverage();
-  
+
+  if (S.editReturn) {
+    S.editReturn = false;
+    renderReview();
+    goScreen('sReview');
+    saveState();
+    return;
+  }
+
   if (S.product_fit === 'final_expense' || S.recommended === 0) {
     goScreen('sFEX');
     return;
@@ -2346,14 +2364,30 @@ function updateCustomSavings() {
 
 // === REVIEW SCREEN ===
 function renderReview() {
+  // Bracket label maps — display what the user saw, not computed midpoints
+  var INCOME_LBL = {30000:'Under $40,000', 57500:'$40,000\u2013$75,000', 100000:'$75,000\u2013$125,000', 162500:'$125,000\u2013$200,000', 250000:'$200,000+'};
+  var MORT_LBL   = {0:'Renting / $0', 100000:'Under $150K', 225000:'$150K\u2013$300K', 400000:'$300K\u2013$500K', 650000:'Over $500K'};
+  var DEBT_LBL   = {0:'None', 12500:'Under $25K', 50000:'$25K\u2013$75K', 120000:'Over $75K'};
+  var SAV_LBL    = {5000:'Under $10K', 30000:'$10K\u2013$50K', 100000:'$50K\u2013$150K', 250000:'Over $150K'};
+  var AGE_LBL    = {3:'Under 5', 8:'5\u201310', 14:'11\u201316', 19:'17\u201321'};
+
   var depLabels = {spouse:'Spouse or partner',children:'Children (under 21)',parents:'Aging parents/relatives',business:'Business or partner',none:'No dependents'};
   var deps = S.dependents.length ? S.dependents.map(function(d){return depLabels[d]||d;}).join(', ') : 'None';
-  var income = S.income ? '$' + S.income.toLocaleString() + '/yr' : '\u2014';
+
+  var income = INCOME_LBL[S.income] || (S.income ? fmt(S.income) + '/yr' : '\u2014');
   var zip = S.zip || '\u2014';
-  var mort = S.mortgage_balance ? fmt(S.mortgage_balance) : '$0 (renting)';
-  var debt = S.other_debt ? fmt(S.other_debt) : '$0';
-  var sav = S.liquid_savings ? fmt(S.liquid_savings) : '$0';
-  var cov = S.existing_unknown ? 'Not sure' : (S.existing_coverage ? fmt(S.existing_coverage) : '$0');
+  var mort = MORT_LBL.hasOwnProperty(S.mortgage_balance) ? MORT_LBL[S.mortgage_balance] : (S.mortgage_set ? fmt(S.mortgage_balance) : '\u2014');
+  var debt = DEBT_LBL.hasOwnProperty(S.other_debt) ? DEBT_LBL[S.other_debt] : (S.other_debt_set ? fmt(S.other_debt) : '\u2014');
+  var sav  = SAV_LBL.hasOwnProperty(S.liquid_savings) ? SAV_LBL[S.liquid_savings] : (S.savings_set ? fmt(S.liquid_savings) : '\u2014');
+  var cov;
+  if (S.existing_unknown) { cov = 'Not sure'; }
+  else if (!S.coverage_set) { cov = '\u2014'; }
+  else if (S.existing_coverage === 0) { cov = 'None'; }
+  else if (S.existing_coverage === S.income) { cov = '~1\u00d7 my salary'; }
+  else if (S.existing_coverage === S.income * 2) { cov = '~2\u00d7 my salary'; }
+  else if (S.existing_coverage === 250000) { cov = '$250K or more'; }
+  else { cov = fmt(S.existing_coverage); }
+  var childAge = AGE_LBL[S.youngest_child_age] || String(S.youngest_child_age);
   var rec = S.recommended ? fmt(S.recommended) : '\u2014';
 
   // [label, value, editScreen or null]
@@ -2362,7 +2396,7 @@ function renderReview() {
     ['ZIP code', zip, 'sZip'],
     ['Dependents', deps, 's2']
   ];
-  if (S.has_children) rows.push(['Youngest child age', 'age ' + S.youngest_child_age, 's3']);
+  if (S.has_children) rows.push(['Youngest child age', childAge, 's3']);
   rows = rows.concat([
     ['Mortgage balance', mort, 's4'],
     ['Other debt', debt, 's4'],
@@ -2375,7 +2409,7 @@ function renderReview() {
   var h = '<table style="width:100%;border-collapse:collapse;">';
   rows.forEach(function(r) {
     var label = r[0], value = r[1], screen = r[2];
-    var editLink = screen ? ' <a onclick="goScreen(\'' + screen + '\')" style="' + EDIT_STYLE + '">Edit</a>' : '';
+    var editLink = screen ? ' <a onclick="editScreen(\'' + screen + '\')" style="' + EDIT_STYLE + '">Edit</a>' : '';
     h += '<tr><td style="padding:9px 0;border-bottom:1px solid #f0e8fa;color:var(--gt);font-size:14px;">' + label + '</td>';
     h += '<td style="padding:9px 0;border-bottom:1px solid #f0e8fa;font-weight:600;text-align:right;font-size:14px;">' + value + editLink + '</td></tr>';
   });
@@ -2446,6 +2480,32 @@ function checkZip() {
 //   life_calc_product_fit    life_calc_score          life_calc_language
 //   life_calc_completion     life_calc_timestamp
 
+
+// === EDIT-RETURN HELPERS ===
+function editScreen(id) {
+  S.editReturn = true;
+  saveState();
+  goScreen(id);
+}
+
+function proceedFromZip() {
+  if (S.editReturn) { S.editReturn = false; renderReview(); goScreen('sReview'); saveState(); return; }
+  goScreen('s2');
+  saveState();
+}
+
+function proceedFromChildren() {
+  if (S.editReturn) { S.editReturn = false; renderReview(); goScreen('sReview'); saveState(); return; }
+  goScreen('s4');
+  saveState();
+}
+
+function proceedFromDebt() {
+  if (S.editReturn) { S.editReturn = false; renderReview(); goScreen('sReview'); saveState(); return; }
+  goScreen('s5');
+  saveState();
+}
+
 // === RESTART ===
 function restart() {
   S.income = 0;
@@ -2462,6 +2522,7 @@ function restart() {
   S.other_debt_set = false;
   S.coverage_set = false;
   S.savings_set = false;
+  S.editReturn = false;
   S.existing_coverage = 0;
   S.existing_unknown = false;
   S.liquid_savings = 0;
