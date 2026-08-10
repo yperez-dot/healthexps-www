@@ -1,0 +1,2555 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Life Insurance Calculator Miami | Free Coverage Estimate</title>
+<meta name="description" content="Answer 5 questions and see exactly how much life insurance you need  -  with the math shown. Free, no email required. Bilingual Miami agents.">
+<link rel="canonical" href="https://www.healthexps.com/life-insurance-calculator/">
+<link rel="stylesheet" href="/css/global.css">
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-SJSGF3E9MD"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-SJSGF3E9MD');</script>
+<style>
+:root {
+  --purple: #452068;
+  --pd: #311549;
+  --pl: #f4eefa;
+  --pink: #ff1090;
+  --ph: #d4006d;
+  --green: #25D366;
+  --gray: #f7f7f7;
+  --gt: #666;
+  --black: #1a1a1a;
+  --font: Arial, Helvetica, sans-serif;
+  --r: 14px;
+  --sh: 0 4px 24px rgba(69, 32, 104, .10);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--font);
+  color: var(--black);
+  background: var(--gray);
+  font-size: 16px;
+  min-height: 100vh;
+  overflow-x: hidden;
+  max-width: 100%;
+}
+
+/* Hero */
+.hero {
+  background: linear-gradient(135deg, var(--pd), var(--purple));
+  padding: 32px 24px 28px;
+  text-align: center;
+}
+
+.hero h1 {
+  color: #fff;
+  font-size: clamp(22px, 4vw, 34px);
+  font-weight: 700;
+  margin-bottom: 10px;
+  line-height: 1.25;
+}
+
+.hero p {
+  color: rgba(255, 255, 255, .85);
+  font-size: 16px;
+  max-width: 480px;
+  margin: 0 auto 20px;
+}
+
+.lang-toggle {
+  display: flex;
+  gap: 10px;
+  max-width: 260px;
+  margin: 0 auto;
+  justify-content: center;
+}
+
+.lang-btn {
+  flex: 0 1 120px;
+  padding: 9px 12px;
+  border: 2px solid rgba(255, 255, 255, .35);
+  border-radius: 10px;
+  background: transparent;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+  color: rgba(255, 255, 255, .8);
+  transition: all .15s;
+}
+
+.lang-btn.active {
+  border-color: #fff;
+  background: rgba(255, 255, 255, .15);
+  color: #fff;
+}
+
+/* Progress */
+.prog-wrap {
+  background: var(--pd);
+  padding: 0 20px 14px;
+}
+
+.prog-bar {
+  height: 4px;
+  background: rgba(255, 255, 255, .2);
+  border-radius: 99px;
+  overflow: hidden;
+}
+
+.prog-fill {
+  height: 100%;
+  background: var(--pink);
+  border-radius: 99px;
+  transition: width .4s ease;
+  width: 0%;
+}
+
+.prog-lbl {
+  color: rgba(255, 255, 255, .65);
+  font-size: 13.5px;
+  margin-top: 6px;
+  text-align: right;
+}
+
+/* Card */
+.card-wrap {
+  max-width: 540px;
+  margin: 20px auto;
+  padding: 0 16px 60px;
+}
+
+.screen {
+  display: none;
+  background: #fff;
+  border-radius: var(--r);
+  box-shadow: var(--sh);
+  padding: 28px 24px;
+  animation: fi .2s ease;
+  min-height: 0;
+}
+
+.screen.active {
+  display: block;
+}
+
+@keyframes fi {
+  from { opacity: 0; transform: translateY(6px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Step question */
+.step-q {
+  font-size: 21px;
+  font-weight: 700;
+  color: var(--black);
+  margin-bottom: 6px;
+  line-height: 1.3;
+}
+
+.step-sub {
+  font-size: 14px;
+  color: var(--gt);
+  margin-bottom: 22px;
+}
+
+/* Option cards */
+.opts {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 26px;
+}
+
+.opt {
+  padding: 14px 16px;
+  border: 2px solid #e8e0f4;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--black);
+  transition: all .15s;
+  background: #fff;
+  text-align: left;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  min-height: 48px;
+}
+
+.opt:hover {
+  border-color: var(--purple);
+  background: var(--pl);
+}
+
+.opt.sel {
+  border-color: var(--purple);
+  background: var(--pl);
+  color: var(--purple);
+}
+
+.opt-chk {
+  opacity: 0;
+  color: var(--purple);
+  font-size: 18px;
+  flex-shrink: 0;
+}
+
+.opt.sel .opt-chk {
+  opacity: 1;
+}
+
+.opts-2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  margin-bottom: 26px;
+}
+
+.opts-2 .opt {
+  justify-content: center;
+  text-align: center;
+}
+
+/* Fields */
+.field {
+  margin-bottom: 18px;
+}
+
+.field label {
+  display: block;
+  font-size: 13.5px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: .05em;
+  color: #555;
+  margin-bottom: 8px;
+}
+
+.field input,
+.field select {
+  width: 100%;
+  padding: 14px 16px;
+  border: 2px solid #e8e0f4;
+  border-radius: 10px;
+  font-size: 16px;
+  color: var(--black);
+  outline: none;
+  transition: border .2s;
+  font-family: var(--font);
+}
+
+.field input:focus,
+.field select:focus {
+  border-color: var(--purple);
+}
+
+/* Buttons */
+.cont-btn {
+  width: 100%;
+  padding: 16px;
+  border-radius: 50px;
+  border: none;
+  font-size: 17px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all .2s;
+}
+
+.cont-btn.on {
+  background: linear-gradient(135deg, var(--purple), var(--pink));
+  color: #fff;
+}
+
+.cont-btn.off {
+  background: #e8e0f4;
+  color: #bbb;
+  cursor: not-allowed;
+}
+
+.back-btn {
+  background: none;
+  border: none;
+  color: var(--gt);
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  padding: 0;
+  margin-bottom: 20px;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+/* Result screen */
+.result-number {
+  font-size: clamp(32px, 10vw, 56px);
+  font-weight: 700;
+  color: var(--purple);
+  text-align: center;
+  margin-bottom: 6px;
+  line-height: 1.1;
+  word-break: break-word;
+}
+
+.result-label {
+  font-size: 16px;
+  color: var(--gt);
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.result-explanation {
+  font-size: 16px;
+  color: var(--black);
+  line-height: 1.6;
+  margin-bottom: 24px;
+  text-align: center;
+}
+
+/* Breakdown table */
+.breakdown-table {
+  width: 100%;
+  margin-bottom: 20px;
+  border-collapse: collapse;
+  table-layout: fixed;
+  text-align: left;
+  vertical-align: middle;
+}
+
+.breakdown-table td {
+  padding: 10px 12px;
+  border-bottom: 1px solid #e8e0f4;
+  word-wrap: break-word;
+  font-size: 14px;
+}
+
+.breakdown-table td:last-child {
+  text-align: right;
+}
+
+.breakdown-table tr:last-child td {
+  border-bottom: none;
+  font-weight: 700;
+  color: var(--purple);
+  font-size: 15px;
+  padding-top: 10px;
+}
+
+.breakdown-table tr:nth-child(n+6) {
+  background: var(--pl);
+}
+
+/* CTAs */
+.btn-primary {
+  display: block;
+  text-align: center;
+  padding: 20px 16px;
+  background: linear-gradient(135deg, var(--purple), var(--pink));
+  color: #fff;
+  border-radius: 50px;
+  font-weight: 700;
+  font-size: 18px;
+  text-decoration: none;
+  margin-bottom: 28px;
+  border: none;
+  cursor: pointer;
+  transition: all .2s;
+  box-shadow: 0 6px 20px rgba(255,16,144,.35);
+  width: 100%;
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 28px rgba(255,16,144,.45);
+}
+
+.btn-secondary {
+  display: block;
+  text-align: center;
+  padding: 16px;
+  background: #fff;
+  color: var(--purple);
+  border: 2px solid var(--purple);
+  border-radius: 50px;
+  font-weight: 700;
+  font-size: 16px;
+  text-decoration: none;
+  margin-bottom: 12px;
+  cursor: pointer;
+  transition: all .2s;
+}
+
+.btn-secondary:hover {
+  background: var(--pl);
+}
+
+.btn-call {
+  display: block;
+  text-align: center;
+  padding: 16px;
+  background: var(--purple);
+  color: #fff;
+  border-radius: 50px;
+  font-weight: 700;
+  font-size: 16px;
+  text-decoration: none;
+  margin-bottom: 12px;
+  border: none;
+  cursor: pointer;
+}
+
+.btn-wa {
+  display: block;
+  text-align: center;
+  padding: 16px;
+  background: var(--green);
+  color: #fff;
+  border-radius: 50px;
+  font-weight: 700;
+  font-size: 16px;
+  text-decoration: none;
+  margin-bottom: 12px;
+  border: none;
+  cursor: pointer;
+}
+
+/* Consent */
+.consent-wrap {
+  margin-bottom: 20px;
+  padding: 16px;
+  background: var(--pl);
+  border-radius: 10px;
+}
+
+.consent-summary {
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+  cursor: pointer;
+  font-size: 14px;
+  color: var(--black);
+}
+
+.consent-summary input[type="checkbox"] {
+  width: 20px;
+  height: 20px;
+  margin-top: 2px;
+  flex-shrink: 0;
+  cursor: pointer;
+}
+
+.consent-expander {
+  background: none;
+  border: none;
+  color: var(--purple);
+  font-weight: 600;
+  font-size: 13px;
+  cursor: pointer;
+  text-decoration: underline;
+  margin-top: 8px;
+}
+
+.consent-full {
+  margin-top: 12px;
+  font-size: 12px;
+  color: #555;
+  line-height: 1.6;
+  background: #fff;
+  padding: 12px;
+  border-radius: 8px;
+  display: none;
+}
+
+/* Disclaimer */
+.disc {
+  font-size: 13px;
+  color: #aaa;
+  line-height: 1.7;
+  margin-top: 22px;
+  text-align: left;
+}
+
+.restart {
+  text-align: center;
+  margin-top: 18px;
+}
+
+.restart a {
+  color: var(--purple);
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+/* Email input for result screen */
+.email-capture {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 12px;
+}
+
+.email-capture input {
+  flex: 1;
+  padding: 14px 16px;
+  border: 2px solid #e8e0f4;
+  border-radius: 10px;
+  font-size: 16px;
+  outline: none;
+}
+
+.email-capture button {
+  padding: 14px 20px;
+  background: linear-gradient(135deg, var(--purple), var(--pink));
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  font-weight: 700;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+/* Compliance strip */
+.calc-compliance {
+  background: #f7f2fb;
+  border-top: 1px solid #ece5f0;
+  padding: 28px 56px;
+}
+
+.calc-disclaimer, .calc-license, .calc-help {
+  font-size: 12.5px;
+  color: #6f6478;
+  line-height: 1.7;
+  margin-bottom: 8px;
+}
+
+.calc-license {
+  font-weight: 600;
+  color: #452068;
+}
+
+.calc-help a {
+  color: #452068;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.calc-help a:hover {
+  color: #ff1090;
+}
+
+@media(max-width: 767px) {
+  .calc-compliance {
+    padding: 20px 16px;
+  }
+}
+
+/* Sticky mobile CTA */
+.sticky-cta {
+  display: none;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 900;
+  background: #452068;
+  padding: 10px 12px;
+  gap: 8px;
+}
+
+.sticky-cta__item {
+  flex: 1;
+  text-align: center;
+  padding: 13px 8px;
+  border-radius: 10px;
+  font-weight: 700;
+  font-size: 14px;
+  text-decoration: none;
+  display: block;
+}
+
+.sticky-cta__item--call {
+  background: #fff;
+  color: #452068;
+}
+
+.sticky-cta__item--wa {
+  background: #25D366;
+  color: #fff;
+}
+
+@media(max-width: 767px) {
+  .sticky-cta {
+    display: flex;
+  }
+  .card-wrap {
+    padding-bottom: 76px;
+  }
+}
+
+/* Breadcrumb */
+nav.calc-breadcrumb {
+  background: #fdfaf7;
+  padding: 12px 56px;
+  border-bottom: 1px solid #ece5f0;
+  font-size: 13.5px;
+  color: #6f6478;
+}
+
+nav.calc-breadcrumb a {
+  color: #452068;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+nav.calc-breadcrumb a:hover {
+  color: #ff1090;
+}
+
+nav.calc-breadcrumb [aria-current="page"] {
+  color: #6f6478;
+}
+
+@media(max-width: 767px) {
+  nav.calc-breadcrumb {
+    padding: 10px 16px;
+    font-size: 12.5px;
+  }
+}
+
+/* Scroll to top */
+#scrollToTop {
+  display: none;
+  position: fixed;
+  bottom: 28px;
+  right: 28px;
+  width: 48px;
+  height: 48px;
+  min-width: 48px;
+  min-height: 48px;
+  background: #452068;
+  color: #fff;
+  border: none;
+  border-radius: 50%;
+  font-size: 22px;
+  font-weight: 700;
+  cursor: pointer;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 16px rgba(69, 32, 104, .35);
+  z-index: 998;
+  transition: background .2s, transform .15s;
+}
+
+#scrollToTop::before {
+  content: '\2191';
+  font-size: 22px;
+  font-weight: 700;
+}
+
+#scrollToTop:hover {
+  background: #ff1090;
+  transform: translateY(-2px);
+}
+
+#scrollToTop:focus-visible {
+  outline: 3px solid #ff1090;
+  outline-offset: 3px;
+}
+
+/* Utility */
+.hidden {
+  display: none !important;
+}
+
+.text-center {
+  text-align: center;
+}
+
+/* Responsive */
+@media(max-width: 480px) {
+  .opts-2 {
+    grid-template-columns: 1fr;
+  }
+}
+
+</style>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@600;700;800&display=swap" rel="stylesheet">
+<style>
+.v4-nav-dropdown { display: none; }
+.v4-nav-item:hover .v4-nav-dropdown { display: block; }
+.v4-nav-mobile-btn { display: none; background: none; border: none; cursor: pointer; padding: 8px; }
+#v4-mobile-menu { display: none; position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: #fff; z-index: 999; overflow-y: auto; padding: 24px; }
+#v4-mobile-menu.open { display: block; }
+@media(max-width: 768px) {
+  .v4-nav-desktop { display: none !important; }
+  .v4-nav-mobile-btn { display: flex !important; align-items: center; }
+  .v4-nav-outer { padding-left: 20px !important; padding-right: 20px !important; }
+  .top-bar-inner { padding-left: 20px !important; padding-right: 20px !important; }
+}
+</style>
+<style>
+#v4-mobile-menu a, .v4-nav-outer a, .v4-nav-desktop a { text-decoration: none !important; }
+#v4-mobile-menu nav a:hover { color: #ff1090 !important; }
+</style>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://www.healthexps.com/"},{"@type":"ListItem","position":2,"name":"Life Insurance","item":"https://www.healthexps.com/life-insurance-miami/"},{"@type":"ListItem","position":3,"name":"Coverage Calculator","item":"https://www.healthexps.com/life-insurance-calculator/"}]}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebApplication","name":"Life Insurance Coverage Calculator","url":"https://www.healthexps.com/life-insurance-calculator/","applicationCategory":"FinanceApplication","operatingSystem":"All","browserRequirements":"Requires JavaScript","inLanguage":"en-US","description":"Free calculator that estimates how much life insurance coverage you need based on income, dependents, debts, and existing coverage.","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"provider":{"@type":"InsuranceAgency","name":"The Health Experts Insurance","telephone":"+1-800-380-6821","url":"https://www.healthexps.com/","address":{"@type":"PostalAddress","streetAddress":"1695 NW 110 Ave, Ste 224","addressLocality":"Doral","addressRegion":"FL","postalCode":"33172","addressCountry":"US"}}}
+</script>
+</head>
+<body>
+<div style="font-family: Inter, sans-serif; color: #241a30; background: #fff;">
+
+<!-- Utility bar -->
+<div class="top-bar-inner" style="background: #2f1550; color: #fff; display: flex; align-items: center; justify-content: space-between; padding: 9px 56px; font-size: 13px;">
+  <div style="display: flex; align-items: center; gap: 12px;">
+    <a href="tel:18003806821" style="color: #fff; display: flex; align-items: center;" aria-label="Call 1-800-380-6821">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 1.27h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.91a16 16 0 0 0 6.29 6.29l.91-.91a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+    </a>
+    <span style="display: inline-flex; align-items: center; border: 1px solid rgba(255,255,255,0.35); border-radius: 999px; padding: 3px 10px; gap: 3px; font-size: 12px;">
+      <span style="opacity: .65; font-weight: 400;">EN</span>
+      <span style="opacity: .35; margin: 0 1px;">|</span>
+      <a href="/es/" style="color: #fff; text-decoration: none; font-weight: 700;">ES</a>
+    </span>
+  </div>
+  <div style="display: flex; align-items: center; gap: 16px;">
+    <a href="https://wa.me/13054646888" onclick="gtag('event','whatsapp_click',{'page':window.location.pathname})" style="display: inline-flex; align-items: center; gap: 6px; background: #25D366; color: #fff; padding: 5px 12px; border-radius: 999px; font-weight: 700; font-size: 12.5px; text-decoration: none;">WhatsApp</a>
+  </div>
+</div>
+
+<!-- Nav -->
+<div class="v4-nav-outer" style="display: flex; align-items: center; justify-content: space-between; padding: 14px 56px; border-bottom: 1px solid #ece5f0; position: sticky; top: 0; background: #fff; z-index: 500;">
+  <a href="/"><img src="/images/logo.webp" alt="The Health Experts Insurance" style="height: 80px; width: auto; cursor: pointer;"/></a>
+  <div class="v4-nav-desktop" style="display: flex; align-items: center; gap: 26px; font-size: 14.5px; font-weight: 600; color: #3a2f47;">
+    <a href="/" style="cursor: pointer;">Home</a>
+    <div class="v4-nav-item" style="position: relative;">
+      <a href="/medicare-plans-miami" style="cursor: pointer; display: flex; align-items: center; gap: 4px;">Insurance</a>
+      <div class="v4-nav-dropdown" style="position: absolute; top: 100%; left: -14px; padding-top: 12px; z-index: 20;">
+        <div style="background: #fff; border: 2px solid #ece5f0; border-radius: 12px; box-shadow: 0 16px 36px rgba(69,32,104,.16); padding: 8px; min-width: 230px; display: flex; flex-direction: column;">
+          <a href="/life-insurance-miami" style="padding: 10px 14px; border-radius: 8px; cursor: pointer; font-weight: 600;">Life Insurance</a>
+          <a href="/final-expense-insurance" style="padding: 10px 14px; border-radius: 8px; cursor: pointer; font-weight: 600;">Final Expense</a>
+        </div>
+      </div>
+    </div>
+    <a href="/contact" style="cursor: pointer;">Contact</a>
+  </div>
+  <div style="display: flex; align-items: center; gap: 12px;">
+    <a href="tel:18003806821" class="v4-nav-desktop" style="color: #241a30; font-weight: 700; font-size: 14.5px;">1-800-380-6821</a>
+    <a href="#lead-form" class="v4-nav-desktop" style="background: #452068; color: #fff; padding: 11px 20px; border-radius: 10px; font-weight: 700; font-size: 14px;">Free Consultation</a>
+    <button class="v4-nav-mobile-btn" id="v4HamburgerBtn" aria-label="Open menu" aria-expanded="false" aria-controls="v4-mobile-menu">
+      <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#241a30" stroke-width="2.2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+    </button>
+  </div>
+</div>
+
+<!-- Mobile nav -->
+<div id="v4-mobile-menu" role="dialog" aria-label="Navigation menu">
+  <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 28px;">
+    <a href="/"><img src="/images/logo.webp" alt="The Health Experts Insurance" style="height: 56px; width: auto;"/></a>
+    <button id="v4MobileClose" aria-label="Close menu" style="background: none; border: none; cursor: pointer; padding: 8px;">
+      <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#241a30" stroke-width="2.2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+    </button>
+  </div>
+  <nav style="display: flex; flex-direction: column; gap: 4px; font-size: 16px; font-weight: 600; color: #241a30;">
+    <a href="/" style="padding: 14px 4px; border-bottom: 1px solid #ece5f0; color: #241a30;">Home</a>
+    <a href="/life-insurance-miami" style="padding: 11px 12px; border-radius: 8px; color: #241a30; font-weight: 600; font-size: 15px;">Life Insurance</a>
+    <a href="/final-expense-insurance" style="padding: 11px 12px; border-radius: 8px; color: #241a30; font-weight: 600; font-size: 15px;">Final Expense</a>
+    <a href="/contact" style="padding: 12px 4px; color: #241a30;">Contact</a>
+  </nav>
+</div>
+
+<nav class="calc-breadcrumb" aria-label="Breadcrumb">
+  <div style="max-width: 1160px; margin: 0 auto;">
+    <a href="/">Home</a>
+    <span aria-hidden="true" style="margin: 0 8px; opacity: .5;">/</span>
+    <a href="/life-insurance-miami/">Life Insurance</a>
+    <span aria-hidden="true" style="margin: 0 8px; opacity: .5;">/</span>
+    <span aria-current="page">Coverage Calculator</span>
+  </div>
+</nav>
+
+<!-- Hero -->
+<div class="hero">
+  <h1 id="hero-title">Life Insurance Calculator</h1>
+  <p id="hero-sub">Find out how much coverage you need and what it costs.</p>
+  <div class="lang-toggle">
+    <button class="lang-btn active" onclick="setLang('en')" id="lb-en">English</button>
+    <button class="lang-btn" onclick="setLang('es')" id="lb-es">Espa&ntilde;ol</button>
+  </div>
+</div>
+
+<!-- Progress bar -->
+<div class="prog-wrap" id="prog-wrap">
+  <div class="prog-bar"><div class="prog-fill" id="prog-fill"></div></div>
+  <div class="prog-lbl" id="prog-lbl"></div>
+</div>
+
+<div class="card-wrap">
+
+<!-- TOOL A: Questions 1-5 -->
+
+<!-- Q1: Income -->
+<div class="screen active" id="s1">
+  <div class="step-q" id="s1-q">What's your household income before taxes?</div>
+  <div class="step-sub" id="s1-sub">An estimate is fine  -  this is the income your family would need to replace.</div>
+  <div class="opts" id="s1-opts">
+    <div class="opt" onclick="selectIncome(this, 30000)"><span>Under $40,000</span><span class="opt-chk">✔</span></div>
+    <div class="opt" onclick="selectIncome(this, 57500)"><span>$40,000 - $75,000</span><span class="opt-chk">✔</span></div>
+    <div class="opt" onclick="selectIncome(this, 100000)"><span>$75,000 - $125,000</span><span class="opt-chk">✔</span></div>
+    <div class="opt" onclick="selectIncome(this, 162500)"><span>$125,000 - $200,000</span><span class="opt-chk">✔</span></div>
+    <div class="opt" onclick="selectIncome(this, 250000)"><span>$200,000+</span><span class="opt-chk">✔</span></div>
+    <div class="opt" onclick="toggleCustomIncome(this)"><span id="custom-txt">I'd rather enter my exact number</span><span class="opt-chk">✔</span></div>
+  </div>
+  <div class="field hidden" id="custom-income-field">
+    <label>Annual Income</label>
+    <input type="number" id="custom-income" placeholder="Enter amount" min="0" max="9999999" oninput="updateCustomIncome()">
+    <button class="cont-btn on" onclick="proceedFromIncome()" style="margin-top: 12px;">Continuar</button>
+  </div>
+  <button class="cont-btn off" id="s1-btn" onclick="proceedFromIncome()"><span id="s1-btn-lbl">Continue</span></button>
+</div>
+
+<!-- ZIP Code screen -->
+<div class="screen" id="sZip">
+  <button class="back-btn" onclick="goScreen('s1')">Back</button>
+  <div class="step-q" id="zip-q">What's your ZIP code?</div>
+  <div class="step-sub" id="zip-sub">We use this to route you to the right carriers in your area.</div>
+  <div class="field">
+    <label id="zip-lbl">ZIP Code</label>
+    <input type="text" id="zip-input" inputmode="numeric" maxlength="5" placeholder="" oninput="checkZip()">
+  </div>
+  <button class="cont-btn off" id="zip-btn" onclick="goScreen('s2')"><span id="zip-btn-lbl">Continue</span></button>
+</div>
+
+<!-- Q2: Dependents -->
+<div class="screen" id="s2">
+  <button class="back-btn" onclick="goScreen('sZip')">Back</button>
+  <div class="step-q" id="s2-q">Who would be financially affected if your income stopped?</div>
+  <div class="step-sub" id="s2-sub">Select all that apply.</div>
+  <div class="opts" id="s2-opts">
+    <div class="opt" onclick="toggleDependent(this, 'spouse')"><span id="dep-spouse">Spouse or partner</span><span class="opt-chk">✔</span></div>
+    <div class="opt" onclick="toggleDependent(this, 'children')"><span id="dep-children">Children under 21</span><span class="opt-chk">✔</span></div>
+    <div class="opt" onclick="toggleDependent(this, 'parents')"><span id="dep-parents">Aging parents or relatives</span><span class="opt-chk">✔</span></div>
+    <div class="opt" onclick="toggleDependent(this, 'business')"><span id="dep-business">A business or business partner</span><span class="opt-chk">✔</span></div>
+    <div class="opt" onclick="toggleDependent(this, 'none')"><span id="dep-none">Nobody depends on me financially</span><span class="opt-chk">✔</span></div>
+  </div>
+  <button class="cont-btn off" id="s2-btn" onclick="proceedFromDependents()"><span id="s2-btn-lbl">Continue</span></button>
+</div>
+
+<!-- Q3: Children Detail (Conditional) -->
+<div class="screen" id="s3">
+  <button class="back-btn" onclick="goScreen('s2')">Back</button>
+  <div class="step-q" id="s3-q">How many children, and how old is the youngest?</div>
+  <div class="step-sub" id="s3-sub">Under 21 and financially dependent on you.</div>
+  
+  <div style="margin-bottom: 20px;">
+    <div style="font-weight: 600; font-size: 14px; margin-bottom: 10px;">Number of children</div>
+    <div class="opts-2" id="s3-count-opts">
+      <div class="opt" onclick="selectChildCount(this, 1)"><span>1</span><span class="opt-chk">✔</span></div>
+      <div class="opt" onclick="selectChildCount(this, 2)"><span>2</span><span class="opt-chk">✔</span></div>
+      <div class="opt" onclick="selectChildCount(this, 3)"><span>3</span><span class="opt-chk">✔</span></div>
+      <div class="opt" onclick="selectChildCount(this, 4)"><span>4+</span><span class="opt-chk">✔</span></div>
+    </div>
+  </div>
+
+  <div>
+    <div style="font-weight: 600; font-size: 14px; margin-bottom: 10px;">Youngest child's age</div>
+    <div class="opts-2" id="s3-age-opts">
+      <div class="opt" onclick="selectChildAge(this, 3)"><span>Under 5</span><span class="opt-chk">✔</span></div>
+      <div class="opt" onclick="selectChildAge(this, 8)"><span>5-10</span><span class="opt-chk">✔</span></div>
+      <div class="opt" onclick="selectChildAge(this, 14)"><span>11-16</span><span class="opt-chk">✔</span></div>
+      <div class="opt" onclick="selectChildAge(this, 19)"><span>17-21</span><span class="opt-chk">✔</span></div>
+    </div>
+  </div>
+  
+  <button class="cont-btn off" id="s3-btn" onclick="goScreen('s4')"><span id="s3-btn-lbl">Continue</span></button>
+</div>
+
+<!-- Q4: Debts -->
+<div class="screen" id="s4">
+  <button class="back-btn" onclick="goScreen('s3')">Back</button>
+  <div class="step-q" id="s4-q">How much debt would you leave behind?</div>
+  <div class="step-sub" id="s4-sub">Mortgage, car loans, credit cards, student loans. Enter 0 if you rent and carry no debt.</div>
+  
+  <div style="margin-bottom: 20px;">
+    <div style="font-weight: 600; font-size: 14px; margin-bottom: 10px;" id="s4-mort-lbl">Mortgage balance</div>
+    <div class="opts" id="s4-mort-opts">
+      <div class="opt" onclick="selectMortgage(this, 0)"><span>0 / I rent</span><span class="opt-chk">✔</span></div>
+      <div class="opt" onclick="selectMortgage(this, 100000)"><span>Under $150K</span><span class="opt-chk">✔</span></div>
+      <div class="opt" onclick="selectMortgage(this, 225000)"><span>$150K-$300K</span><span class="opt-chk">✔</span></div>
+      <div class="opt" onclick="selectMortgage(this, 400000)"><span>$300K-$500K</span><span class="opt-chk">✔</span></div>
+      <div class="opt" onclick="selectMortgage(this, 650000)"><span>Over $500K</span><span class="opt-chk">✔</span></div>
+      <div class="opt" onclick="toggleCustomMortgage(this)"><span id="custom-mort-txt">I'd rather enter my exact number</span><span class="opt-chk">✔</span></div>
+    </div>
+    <div class="field hidden" id="custom-mort-field">
+      <label>Mortgage balance ($)</label>
+      <input type="number" id="custom-mort" placeholder="Enter amount" min="0" max="9999999" oninput="updateCustomMortgage()">
+    </div>
+  </div>
+
+  <div>
+    <div style="font-weight: 600; font-size: 14px; margin-bottom: 10px;" id="s4-other-lbl">Other debt (auto, credit cards, student loans)</div>
+    <div class="opts" id="s4-other-opts">
+      <div class="opt" onclick="selectOtherDebt(this, 0)"><span>None</span><span class="opt-chk">✔</span></div>
+      <div class="opt" onclick="selectOtherDebt(this, 12500)"><span>Under $25K</span><span class="opt-chk">✔</span></div>
+      <div class="opt" onclick="selectOtherDebt(this, 50000)"><span>$25K-$75K</span><span class="opt-chk">✔</span></div>
+      <div class="opt" onclick="selectOtherDebt(this, 120000)"><span>Over $75K</span><span class="opt-chk">✔</span></div>
+      <div class="opt" onclick="toggleCustomOtherDebt(this)"><span id="custom-debt-txt">I'd rather enter my exact number</span><span class="opt-chk">✔</span></div>
+    </div>
+    <div class="field hidden" id="custom-debt-field">
+      <label>Other debt ($)</label>
+      <input type="number" id="custom-debt" placeholder="Enter amount" min="0" max="9999999" oninput="updateCustomOtherDebt()">
+    </div>
+  </div>
+
+  <button class="cont-btn off" id="s4-btn" onclick="goScreen('s5')"><span id="s4-btn-lbl">Continue</span></button>
+</div>
+
+<!-- Q5: Safety Net -->
+<div class="screen" id="s5">
+  <button class="back-btn" onclick="goScreen('s4')">Back</button>
+  <div class="step-q" id="s5-q">What safety net is already in place?</div>
+  <div class="step-sub" id="s5-sub">We subtract this so we don't sell you coverage you don't need.</div>
+
+  <div style="margin-bottom: 20px;">
+    <div style="font-weight: 600; font-size: 14px; margin-bottom: 10px;" id="s5-cov-lbl">Life insurance you already have, including through work</div>
+    <div class="opts" id="s5-cov-opts">
+      <div class="opt" onclick="selectExistingCov(this, 0)"><span>None</span><span class="opt-chk">✔</span></div>
+      <div class="opt" onclick="selectExistingCov(this, -1)"><span>About 1x my salary</span><span class="opt-chk">✔</span></div>
+      <div class="opt" onclick="selectExistingCov(this, -2)"><span>About 2x my salary</span><span class="opt-chk">✔</span></div>
+      <div class="opt" onclick="selectExistingCov(this, 250000)"><span>$250K or more</span><span class="opt-chk">✔</span></div>
+      <div class="opt" onclick="selectExistingCov(this, 'unknown')"><span id="not-sure">Not sure</span><span class="opt-chk">✔</span></div>
+    </div>
+  </div>
+
+  <div>
+    <div style="font-weight: 600; font-size: 14px; margin-bottom: 10px;" id="s5-sav-lbl">Savings and investments you could access</div>
+    <div class="opts" id="s5-sav-opts">
+      <div class="opt" onclick="selectSavings(this, 5000)"><span>Under $10K</span><span class="opt-chk">✔</span></div>
+      <div class="opt" onclick="selectSavings(this, 30000)"><span>$10K-$50K</span><span class="opt-chk">✔</span></div>
+      <div class="opt" onclick="selectSavings(this, 100000)"><span>$50K-$150K</span><span class="opt-chk">✔</span></div>
+      <div class="opt" onclick="selectSavings(this, 250000)"><span>Over $150K</span><span class="opt-chk">✔</span></div>
+      <div class="opt" onclick="toggleCustomSavings(this)"><span id="custom-sav-txt">I'd rather enter my exact number</span><span class="opt-chk">✔</span></div>
+    </div>
+    <div class="field hidden" id="custom-sav-field">
+      <label>Savings &amp; investments ($)</label>
+      <input type="number" id="custom-sav" placeholder="Enter amount" min="0" max="9999999" oninput="updateCustomSavings()">
+    </div>
+  </div>
+
+  <button class="cont-btn off" id="s5-btn" onclick="showResult()"><span id="s5-btn-lbl">See My Coverage Need</span></button>
+</div>
+
+<!-- TOOL A RESULT -->
+<div class="screen" id="sResult">
+  <button class="back-btn" onclick="goScreen('s5')">Back</button>
+  
+  <div class="result-number" id="result-number">0</div>
+  <div class="result-label" id="result-label">in coverage</div>
+  
+  <div class="result-explanation" id="result-explanation"></div>
+
+  <div style="margin-bottom: 24px;">
+    <div style="font-weight: 600; font-size: 14px; margin-bottom: 12px;" id="breakdown-title">Here's exactly how we got that</div>
+    <table class="breakdown-table" id="breakdown-table">
+      <tr><td id="breakdown-income-label">Replace your income for X years</td><td id="breakdown-income-val">0</td></tr>
+      <tr><td id="breakdown-debt-label">Pay off mortgage and debts</td><td id="breakdown-debt-val">0</td></tr>
+      <tr><td id="breakdown-final-label">Final expenses</td><td id="breakdown-final-val">$15,000</td></tr>
+      <tr style="background: var(--pl);"><td id="breakdown-subtotal-label">Subtotal</td><td id="breakdown-subtotal-val">0</td></tr>
+      <tr id="breakdown-coverage-row" style="display: none;"><td id="breakdown-coverage-label">Less: coverage you already have</td><td id="breakdown-coverage-val">0</td></tr>
+      <tr id="breakdown-savings-row" style="display: none;"><td id="breakdown-savings-label">Less: half of your savings</td><td id="breakdown-savings-val">0</td></tr>
+      <tr style="background: var(--pl);"><td id="breakdown-net-label">Your coverage need</td><td id="breakdown-net-val">0</td></tr>
+    </table>
+    <div style="font-size: 13px; color: var(--gt); line-height: 1.6; margin-top: 12px;" id="savings-note">We only count half your savings  -  your family should keep an emergency cushion, not drain the account.</div>
+  </div>
+
+  <!-- Advisory: shown when recommended > income × 20x (underwriting signal, not a hard cap) -->
+  <!-- NOTE: 20x multiple needs Ivan's confirmation — may vary by age band before go-live -->
+  <div id="advisory-block" style="display:none;background:#fff8e1;border:1px solid #ffe082;border-radius:10px;padding:14px 16px;margin-bottom:20px;font-size:13.5px;color:#5d4037;line-height:1.6;">
+    <span id="advisory-text"></span>
+  </div>
+
+  <button class="btn-primary" onclick="startToolB()"><span id="result-cta">See what this costs me</span></button>
+  <!-- Call button removed — duplicates sticky footer bar below -->
+  <a href="https://wa.me/13054646888" onclick="gtag('event','whatsapp_click',{'page':window.location.pathname})" style="display:block;text-align:center;font-size:13.5px;color:var(--gt);text-decoration:none;margin-bottom:16px;"><span id="wa-cta">Prefer WhatsApp? Message us instead</span></a>
+
+  <div id="email-section" style="margin-top: 16px;">
+    <div style="font-size: 13px; color: var(--gt); margin-bottom: 10px;" id="email-prompt">Email me this result:</div>
+    <div class="email-capture">
+      <input type="email" id="email-input" placeholder="Your email" style="margin-bottom: 0;">
+      <button onclick="emailResult()" class="cont-btn on" style="width: auto; padding: 14px 16px; margin: 0;">Send</button>
+    </div>
+  </div>
+
+  <div class="restart">
+    <a onclick="restart()" id="restart-link">Change my answers</a>
+  </div>
+
+  <div class="disc" id="result-disc">Estimated coverage need for illustrative purposes only. Actual quotes vary by carrier, health history, and coverage amount. Contact a licensed agent for your exact quote.</div>
+</div>
+
+<!-- FINAL EXPENSE PATH -->
+<div class="screen" id="sFEX">
+  <button class="back-btn" onclick="goScreen('s5')">Back</button>
+  
+  <div style="text-align: center; margin-bottom: 32px;">
+    <div style="font-size: 20px; font-weight: 700; color: var(--purple); margin-bottom: 16px;" id="fex-title">Final Expense Insurance</div>
+    <div style="font-size: 16px; line-height: 1.6; color: var(--black); margin-bottom: 20px;" id="fex-msg">Based on what you shared, a guaranteed-acceptance final expense policy may be your best fit.</div>
+    <div style="font-size: 14px; color: var(--gt); line-height: 1.6;">No medical exam. No health questions. Coverage from $5,000 to $50,000, fixed premiums that never increase.</div>
+  </div>
+
+  <a href="https://wa.me/13054646888" onclick="gtag('event','whatsapp_click',{'page':window.location.pathname})" class="btn-primary" id="fex-wa">Talk to a licensed agent</a>
+  <button class="btn-call" onclick="window.location.href='tel:18003806821'" id="fex-call">Call 1-800-380-6821</button>
+
+  <div class="restart" style="margin-top: 24px;">
+    <a onclick="restart()" id="fex-restart">Change my answers</a>
+  </div>
+</div>
+
+
+<!-- Review answers before health questions -->
+<div class="screen" id="sReview">
+  <button class="back-btn" onclick="goScreen('sResult')">Back</button>
+  <div class="step-q" id="review-q">Before your health questions...</div>
+  <div class="step-sub" id="review-sub">Here's what we'll use from your answers. Everything look right?</div>
+  <div id="review-list" style="margin-bottom:24px;"></div>
+  <button class="cont-btn on" onclick="goScreen('s6')"><span id="review-btn-lbl">Looks right — Continue</span></button>
+</div>
+
+<!-- Email mini-gate before rate screen -->
+<div class="screen" id="sEmailGate">
+  <button class="back-btn" onclick="goScreen('s9')">Back</button>
+  <div class="step-q" id="email-gate-q">One quick step before your rate</div>
+  <div class="step-sub" id="email-gate-sub">Enter your email to see your estimated monthly cost — no name or phone needed yet.</div>
+  <div class="field">
+    <label id="email-gate-lbl">Email Address</label>
+    <input type="email" id="email-gate-input" placeholder="your@email.com" oninput="checkEmailGate()">
+  </div>
+  <button class="cont-btn off" id="email-gate-btn" onclick="submitEmailGate()"><span id="email-gate-btn-lbl">See My Rate →</span></button>
+  <p style="font-size:13px;color:var(--gt);text-align:center;margin-top:14px;line-height:1.6;">🔒 We never sell your information. <a href="/privacy" style="color:var(--purple);font-weight:600;">Privacy Policy</a></p>
+</div>
+
+<!-- TOOL B: Questions 6-9 + Gate -->
+
+<!-- Q6: Date of Birth -->
+<div class="screen" id="s6">
+  <button class="back-btn" onclick="goScreen('sResult')">Back</button>
+  <div class="step-q" id="s6-q">When were you born?</div>
+  <div class="step-sub" id="s6-sub">This helps us calculate your rate.</div>
+
+  <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 10px; margin-bottom: 20px;">
+    <div class="field" style="margin-bottom: 0;">
+      <label id="dob-month-lbl">Month</label>
+      <select id="dob-month" onchange="checkDOB()">
+        <option value="">Select</option>
+        <option value="1">January</option>
+        <option value="2">February</option>
+        <option value="3">March</option>
+        <option value="4">April</option>
+        <option value="5">May</option>
+        <option value="6">June</option>
+        <option value="7">July</option>
+        <option value="8">August</option>
+        <option value="9">September</option>
+        <option value="10">October</option>
+        <option value="11">November</option>
+        <option value="12">December</option>
+      </select>
+    </div>
+    <div class="field" style="margin-bottom: 0;">
+      <label id="dob-day-lbl">Day</label>
+      <select id="dob-day" onchange="checkDOB()">
+        <option value="">Select</option>
+      </select>
+    </div>
+    <div class="field" style="margin-bottom: 0;">
+      <label id="dob-year-lbl">Year</label>
+      <select id="dob-year" onchange="checkDOB()">
+        <option value="">Select</option>
+      </select>
+    </div>
+  </div>
+
+  <button class="cont-btn off" id="s6-btn" onclick="goScreen('s7')"><span id="s6-btn-lbl">Continue</span></button>
+</div>
+
+<!-- Q7: Sex -->
+<div class="screen" id="s7">
+  <button class="back-btn" onclick="goScreen('s6')">Back</button>
+  <div class="step-q" id="s7-q">Sex as listed on your insurance application</div>
+  <div class="step-sub" id="s7-sub">Carriers use this to set rates. It's required on every application.</div>
+  <div class="opts" id="s7-opts">
+    <div class="opt" onclick="selectSex(this, 'F')"><span id="sex-f">Female</span><span class="opt-chk">✔</span></div>
+    <div class="opt" onclick="selectSex(this, 'M')"><span id="sex-m">Male</span><span class="opt-chk">✔</span></div>
+  </div>
+  <button class="cont-btn off" id="s7-btn" onclick="goScreen('s8')"><span id="s7-btn-lbl">Continue</span></button>
+</div>
+
+<!-- Q8: Tobacco -->
+<div class="screen" id="s8">
+  <button class="back-btn" onclick="goScreen('s7')">Back</button>
+  <div class="step-q" id="s8-q">Have you used any tobacco or nicotine in the last 12 months?</div>
+  <div class="step-sub" id="s8-sub">Cigarettes, cigars, vaping, chew, patches, or gum.</div>
+  <div class="opts" id="s8-opts">
+    <div class="opt" onclick="selectTobacco(this, false)"><span id="tob-no">No</span><span class="opt-chk">✔</span></div>
+    <div class="opt" onclick="selectTobacco(this, true)"><span id="tob-yes">Yes</span><span class="opt-chk">✔</span></div>
+  </div>
+  <button class="cont-btn off" id="s8-btn" onclick="goScreen('s9')"><span id="s8-btn-lbl">Continue</span></button>
+</div>
+
+<!-- Q9: Health -->
+<div class="screen" id="s9">
+  <button class="back-btn" onclick="goScreen('s8')">Back</button>
+  <div class="step-q" id="s9-q">In the last 5 years, have you been treated for any of these?</div>
+  <div class="step-sub" id="s9-sub">Check all that apply. Being honest gets you an accurate number.</div>
+  <div class="opts" id="s9-opts">
+    <div class="opt" onclick="toggleCondition(this, 'cardiac')"><span id="cond-cardiac">Heart disease, heart attack, or stroke</span><span class="opt-chk">✔</span></div>
+    <div class="opt" onclick="toggleCondition(this, 'cancer')"><span id="cond-cancer">Cancer (other than basal cell skin cancer)</span><span class="opt-chk">✔</span></div>
+    <div class="opt" onclick="toggleCondition(this, 'diabetes')"><span id="cond-diabetes">Diabetes</span><span class="opt-chk">✔</span></div>
+    <div class="opt" onclick="toggleCondition(this, 'respiratory')"><span id="cond-respiratory">COPD, emphysema, or sleep apnea</span><span class="opt-chk">✔</span></div>
+    <div class="opt" onclick="toggleCondition(this, 'organ')"><span id="cond-organ">Kidney or liver disease</span><span class="opt-chk">✔</span></div>
+    <div class="opt" onclick="toggleCondition(this, 'controlled_bp')"><span id="cond-bp">High blood pressure or cholesterol, controlled with medication</span><span class="opt-chk">✔</span></div>
+    <div class="opt" onclick="toggleCondition(this, 'none')"><span id="cond-none">None of these</span><span class="opt-chk">✔</span></div>
+  </div>
+  <button class="cont-btn off" id="s9-btn" onclick="proceedFromHealth()"><span id="s9-btn-lbl">Continue</span></button>
+</div>
+
+<!-- Gate: Contact -->
+<div class="screen" id="sGate">
+  <button class="back-btn" onclick="goScreen('sRate')">Back</button>
+  <div class="step-q" id="gate-q">Where should we send your rate?</div>
+  <div class="step-sub" id="gate-sub">A licensed Florida agent will confirm your exact number with 14+ carriers. No obligation, no spam.</div>
+
+  <div class="field">
+    <label id="gate-fname-lbl">First Name</label>
+    <input type="text" id="gate-fname" placeholder="First name" oninput="checkGate()">
+  </div>
+  <div class="field">
+    <label id="gate-lname-lbl">Last Name</label>
+    <input type="text" id="gate-lname" placeholder="Last name" oninput="checkGate()">
+  </div>
+  <div class="field">
+    <label id="gate-email-lbl">Email Address</label>
+    <input type="email" id="gate-email" placeholder="" oninput="checkGate()" onblur="abandonCapture()">
+  </div>
+  <div class="field">
+    <label id="gate-phone-lbl">Phone Number</label>
+    <input type="tel" id="gate-phone" placeholder="(305) 000-0000" oninput="checkGate()">
+  </div>
+
+  <div style="margin-bottom: 20px;">
+    <div style="font-weight: 600; font-size: 14px; margin-bottom: 10px;" id="lang-pref-lbl">Preferred language</div>
+    <div style="display: flex; gap: 16px;">
+      <label style="display: flex; align-items: center; gap: 8px; cursor: pointer;">
+        <input type="radio" name="lang-radio" value="en" checked onchange="setLanguageRadio('en')"> <span id="lang-en">English</span>
+      </label>
+      <label style="display: flex; align-items: center; gap: 8px; cursor: pointer;">
+        <input type="radio" name="lang-radio" value="es" onchange="setLanguageRadio('es')"> <span id="lang-es">Espa&ntilde;ol</span>
+      </label>
+    </div>
+  </div>
+
+  <p style="font-size:13px;color:var(--gt);line-height:1.6;margin-bottom:12px;">🔒 We never sell or share your personal information. <a href="/privacy" style="color:var(--purple);font-weight:600;" id="gate-privacy-link">Privacy Policy</a></p>
+  <div class="consent-wrap" id="consent-wrap">
+    <label class="consent-summary" style="display: flex; gap: 12px; align-items: flex-start;">
+      <input type="checkbox" id="consent-chk" onchange="checkGate()">
+      <span id="consent-text">I agree to be contacted by a licensed agent at The Health Experts Insurance.</span>
+    </label>
+    <button type="button" class="consent-expander" id="consent-expander">View full consent</button>
+    <div class="consent-full" id="consent-full">
+      <strong>TCPA Notice & Consent</strong>
+      <p style="margin-top: 8px;">By providing your phone number and checking this box, you authorize The Health Experts Insurance, its agents, and representatives to contact you via phone, text, email, or other electronic means at the number you provided, even if that number is on the National Do Not Call Registry. Standard message and data rates apply. You understand you're not required to agree to this to purchase services, and you can revoke this consent at any time.</p>
+    </div>
+  </div>
+
+  <button class="cont-btn off" id="gate-btn" onclick="submitGate()"><span id="gate-btn-lbl">Show My Rate</span></button>
+</div>
+
+<!-- Rate Result -->
+<div class="screen" id="sRate">
+  <button class="back-btn" onclick="goScreen('s9')">Back</button>
+  
+  <div style="text-align: center; margin-bottom: 32px;">
+    <div style="font-size: 18px; color: var(--gt); margin-bottom: 12px;" id="rate-headline">Your estimated monthly cost</div>
+    <div style="font-size: 48px; font-weight: 700; color: var(--purple); margin-bottom: 4px;" id="rate-range">$0 - $0</div>
+    <div style="font-size: 16px; color: var(--gt); margin-bottom: 20px;" id="rate-coverage">for $X,XXX,XXX in 20-year term coverage</div>
+    <div style="font-size: 13px; color: #aaa; line-height: 1.7; margin-bottom: 20px;" id="rate-disc">Estimated monthly premiums for illustrative purposes only. Actual rates vary by carrier, health history, and coverage amount. No rate is guaranteed until a policy is issued. Contact a licensed agent for your exact quote.</div>
+  </div>
+
+  <button class="btn-primary" onclick="goScreen('sGate')" id="rate-exact-btn" style="margin-bottom:16px;"><span id="rate-exact-cta">Get My Exact Quote →</span></button>
+
+  <div class="restart" style="margin-top: 24px;">
+    <a onclick="restart()" id="rate-restart">Start over</a>
+  </div>
+</div>
+
+</div><!-- /card-wrap -->
+
+<section class="calc-compliance">
+  <p class="calc-disclaimer">Rates shown are estimated monthly premiums for illustrative purposes only. Actual rates vary by carrier, health history, age, and coverage amount. No rate is guaranteed until a policy is issued. Contact a licensed agent for your exact quote.</p>
+  <p class="calc-license">The Health Experts Insurance · Florida License #L110034 · 1695 NW 110 Ave, Ste 224, Doral, FL 33172 · Not affiliated with any government program or federal Medicare program.</p>
+  <p class="calc-help">Questions? Call <a href="tel:18003806821">1-800-380-6821</a> or <a href="https://wa.me/13054646888">message us on WhatsApp</a>. Se habla espa&ntilde;ol.</p>
+</section>
+
+<!-- FOOTER -->
+<div id="site-footer" style="background: #fff; color: #241a30; padding: 56px 56px 24px; border-top: 1px solid #ece5f0;">
+  <style>@media(max-width:767px){#site-footer{padding:32px 20px 20px!important;}#footer-grid{grid-template-columns:1fr!important;gap:24px!important;}}</style>
+  <div style="max-width: 1160px; margin: 0 auto;">
+    <div id="footer-grid" style="display: grid; grid-template-columns: 1.3fr 1fr 1fr 1fr; gap: 32px; margin-bottom: 36px;">
+      <div>
+        <img src="/images/logo.webp" alt="The Health Experts Insurance" style="height: 70px; width: auto; margin-bottom: 16px;"/>
+        <p style="font-size: 13.5px; color: #6f6478; line-height: 1.6; max-width: 260px;">Independent bilingual health insurance brokers. Office in Doral, FL.</p>
+        <div style="display: flex; flex-direction: column; gap: 4px; margin-top: 14px; font-size: 13.5px;">
+          <a href="tel:18003806821" style="color: #452068; font-weight: 700;">1-800-380-6821</a>
+          <a href="https://wa.me/13054646888" style="color: #452068; font-weight: 700;" onclick="gtag('event','whatsapp_click',{'page':window.location.pathname});">WhatsApp</a>
+          <a href="mailto:info@healthexps.com" style="color: #452068; font-weight: 700;">info@healthexps.com</a>
+        </div>
+        <p style="font-size: 13.5px; color: #4a4051; margin-top: 14px;">1695 NW 110 Ave, Ste 224<br/>Doral, FL 33172</p>
+      </div>
+      <div>
+        <div style="font-weight: 700; font-size: 12.5px; letter-spacing: .06em; margin-bottom: 14px; color: #452068;">LIFE INSURANCE</div>
+        <div style="display: flex; flex-direction: column; gap: 9px; font-size: 13.5px;">
+          <a href="/life-insurance-miami" style="cursor: pointer; color: #241a30; font-weight: 700;">Life Insurance</a>
+          <a href="/final-expense-insurance" style="color: #4a4051;">Final Expense</a>
+          <a href="/life-insurance-calculator" style="cursor: pointer; color: #4a4051;">Coverage Calculator</a>
+        </div>
+      </div>
+      <div>
+        <div style="font-weight: 700; font-size: 12.5px; letter-spacing: .06em; margin-bottom: 14px; color: #452068;">COMPANY</div>
+        <div style="display: flex; flex-direction: column; gap: 9px; font-size: 13.5px;">
+          <a href="/medicare-agent-miami" style="cursor: pointer; color: #4a4051;">About Us</a>
+          <a href="/contact" style="cursor: pointer; color: #4a4051;">Contact</a>
+          <a href="/privacy" style="cursor: pointer; color: #4a4051;">Privacy Policy</a>
+        </div>
+      </div>
+      <div>
+        <div style="font-weight: 700; font-size: 12.5px; letter-spacing: .06em; margin-bottom: 14px; color: #452068;">MORE</div>
+        <div style="display: flex; flex-direction: column; gap: 9px; font-size: 13.5px;">
+          <a href="/medicare-plans-miami" style="cursor: pointer; color: #4a4051;">Medicare Plans</a>
+          <a href="/dental-vision-miami" style="cursor: pointer; color: #4a4051;">Dental & Vision</a>
+          <a href="/es/" style="color: #4a4051;">Sitio en Espa&ntilde;ol</a>
+        </div>
+      </div>
+    </div>
+    <div style="border-top: 1px solid #ece5f0; padding-top: 20px; font-size: 13px; color: #4a4051;">
+      2026 The Health Experts Insurance. <a href="/privacy" style="color: #452068; font-weight: 600;">Privacy Policy & Terms</a>
+    </div>
+  </div>
+</div>
+
+</div><!-- /wrapper -->
+
+<button id="scrollToTop" aria-label="Back to top"></button>
+
+<div class="sticky-cta" role="complementary">
+  <a href="tel:18003806821" class="sticky-cta__item sticky-cta__item--call">Call 1-800-380-6821</a>
+  <a href="https://wa.me/13054646888" class="sticky-cta__item sticky-cta__item--wa">WhatsApp</a>
+</div>
+
+<script>
+window.LIFE_RATES = {
+  "term20": {
+    "F": {
+      "25-29": {"preferred_plus": 0.4349, "preferred": 0.4887, "standard": 0.6744, "graded": 0.9441},
+      "30-34": {"preferred_plus": 0.4409, "preferred": 0.5275, "standard": 0.7279, "graded": 1.0190},
+      "35-39": {"preferred_plus": 0.4926, "preferred": 0.6207, "standard": 0.8566, "graded": 1.1992},
+      "40-44": {"preferred_plus": 0.6436, "preferred": 0.8320, "standard": 1.1482, "graded": 1.6075},
+      "45-49": {"preferred_plus": 0.9507, "preferred": 1.1685, "standard": 1.6125, "graded": 2.2575},
+      "50-54": {"preferred_plus": 1.3934, "preferred": 1.7272, "standard": 2.3835, "graded": 3.3368},
+      "55-59": {"preferred_plus": 2.1502, "preferred": 2.7073, "standard": 3.7361, "graded": 5.2306},
+      "60-64": {"preferred_plus": 4.0091, "preferred": 5.3638, "standard": 7.4020, "graded": 10.3628}
+    },
+    "M": {
+      "25-29": {"preferred_plus": 0.5218, "preferred": 0.6185, "standard": 0.8535, "graded": 1.1949},
+      "30-34": {"preferred_plus": 0.5151, "preferred": 0.6476, "standard": 0.8937, "graded": 1.2511},
+      "35-39": {"preferred_plus": 0.5549, "preferred": 0.7211, "standard": 0.9951, "graded": 1.3932},
+      "40-44": {"preferred_plus": 0.7517, "preferred": 0.9899, "standard": 1.3661, "graded": 1.9126},
+      "45-49": {"preferred_plus": 1.1863, "preferred": 1.4665, "standard": 2.0238, "graded": 2.8333},
+      "50-54": {"preferred_plus": 1.7809, "preferred": 2.2056, "standard": 3.0437, "graded": 4.2612},
+      "55-59": {"preferred_plus": 2.9224, "preferred": 3.5111, "standard": 4.8453, "graded": 6.7835},
+      "60-64": {"preferred_plus": 5.7127, "preferred": 6.9255, "standard": 9.5572, "graded": 13.3801}
+    }
+  },
+  "tobacco_multiplier": 2.6
+};
+
+// === STATE ===
+const S = {
+  // Tool A
+  income: 0,
+  zip: '',
+  dependents: [],
+  child_count: 0,
+  youngest_child_age: 0,
+  has_children: false,
+  mortgage_balance: 0,
+  other_debt: 0,
+  existing_coverage: 0,
+  existing_unknown: false,
+  liquid_savings: 0,
+  mortgage_set: false,
+  other_debt_set: false,
+  coverage_set: false,
+  savings_set: false,
+  // Computed
+  recommended: 0,
+  gross_need: 0,
+  net_need: 0,
+  years_to_replace: 0,
+  income_replacement: 0,
+  debt_payoff: 0,
+  offsets: 0,
+  // Tool B
+  dob: '',
+  age: 0,
+  sex: '',
+  tobacco: false,
+  conditions: [],
+  rate_class: '',
+  product_fit: '',
+  quoted_low: 0,
+  quoted_high: 0,
+  score: 0,
+  // Gate
+  fname: '',
+  lname: '',
+  email: '',
+  phone: '',
+  language: 'en',
+  // Meta
+  completion: '',
+  timestamp: '',
+  abandonFired: false
+};
+
+// Strings
+const STRINGS = {
+  en: {
+    heroTitle: "Life Insurance Calculator",
+    heroSub: "Find out how much coverage you need and what it costs.",
+    q1q: "What's your household income before taxes?",
+    q1sub: "An estimate is fine  -  this is the income your family would need to replace.",
+    customTxt: "I'd rather enter my exact number",
+    q2q: "Who would be financially affected if your income stopped?",
+    q2sub: "Select all that apply.",
+    depSpouse: "Spouse or partner",
+    depChildren: "Children under 21",
+    depParents: "Aging parents or relatives",
+    depBusiness: "A business or business partner",
+    depNone: "Nobody depends on me financially",
+    q3q: "How many children, and how old is the youngest?",
+    q3sub: "Under 21 and financially dependent on you.",
+    numChildren: "Number of children",
+    youngestAge: "Youngest child's age",
+    q4q: "How much debt would you leave behind?",
+    q4sub: "Mortgage, car loans, credit cards, student loans. Enter 0 if you rent and carry no debt.",
+    mortLabel: "Mortgage balance",
+    otherLabel: "Other debt (auto, credit cards, student loans)",
+    q5q: "What safety net is already in place?",
+    q5sub: "We subtract this so we don't sell you coverage you don't need.",
+    covLabel: "Life insurance you already have, including through work",
+    savLabel: "Savings and investments you could access",
+    notSure: "Not sure",
+    resultNum: "in coverage",
+    collegePrompt: "How much college funding?",
+    breakdownTitle: "Here's exactly how we got that",
+    incomeRow: "Replace your income for X years",
+    eduRow: "College fund",
+    debtRow: "Pay off mortgage and debts",
+    finalRow: "Final expenses",
+    subtotalRow: "Subtotal",
+    coverageRow: "Less: coverage you already have",
+    savingsRow: "Less: half of your savings",
+    netRow: "Your coverage need",
+    savingsNote: "We only count half your savings  -  your family should keep an emergency cushion, not drain the account.",
+    resultCta: "See what this costs me",
+    callCta: "Call 1-800-380-6821",
+    waCta: "WhatsApp us",
+    emailPrompt: "Email me this result:",
+    restartLink: "Change my answers",
+    resultDisc: "Estimated coverage need for illustrative purposes only. Actual quotes vary by carrier, health history, and coverage amount. Contact a licensed agent for your exact quote.",
+    fexTitle: "Final Expense Insurance",
+    fexMsg: "Based on what you shared, a guaranteed-acceptance final expense policy may be your best fit.",
+    fexNote: "No medical exam. No health questions. Coverage from $5,000 to $50,000, fixed premiums that never increase.",
+    fexWa: "Talk to a licensed agent",
+    q6q: "When were you born?",
+    q6sub: "This helps us calculate your rate.",
+    dobMonth: "Month",
+    dobDay: "Day",
+    dobYear: "Year",
+    q7q: "Sex as listed on your insurance application",
+    q7sub: "Carriers use this to set rates. It's required on every application.",
+    sexF: "Female",
+    sexM: "Male",
+    q8q: "Have you used any tobacco or nicotine in the last 12 months?",
+    q8sub: "Cigarettes, cigars, vaping, chew, patches, or gum.",
+    tobNo: "No",
+    tobYes: "Yes",
+    q9q: "In the last 5 years, have you been treated for any of these?",
+    q9sub: "Check all that apply. Being honest gets you an accurate number.",
+    cardiac: "Heart disease, heart attack, or stroke",
+    cancer: "Cancer (other than basal cell skin cancer)",
+    diabetes: "Diabetes",
+    respiratory: "COPD, emphysema, or sleep apnea",
+    organ: "Kidney or liver disease",
+    controlledBp: "High blood pressure or cholesterol, controlled with medication",
+    none: "None of these",
+    gateQ: "Get Your Exact Quote",
+    gateSub: "A licensed agent will confirm your exact rate with 14+ carriers — free, no obligation.",
+    rateExactCta: "Get My Exact Quote →",
+    gateFname: "First Name",
+    gateLname: "Last Name",
+    gateEmail: "Email Address",
+    gatePhone: "Phone Number",
+    langPref: "Preferred language",
+    langEn: "English",
+    langEs: "Español",
+    consentText: "I agree to be contacted by a licensed agent at The Health Experts Insurance.",
+    gateBtn: "Show My Rate",
+    rateHeadline: "Your estimated monthly cost",
+    rateDisc: "Estimated monthly premiums for illustrative purposes only. Actual rates vary by carrier, health history, and coverage amount. No rate is guaranteed until a policy is issued. Contact a licensed agent for your exact quote.",
+    progOf: "Step",
+    progOfOf: "of"
+  },
+  es: {
+    heroTitle: "Calculadora de Seguro de Vida",
+    heroSub: "Descubra cuánta cobertura necesita y cuánto cuesta.",
+    q1q: "¿Cuál es el ingreso de su hogar antes de impuestos?",
+    q1sub: "Un estimado está bien — este es el ingreso que su familia necesitaría reemplazar.",
+    customTxt: "Prefiero ingresar mi número exacto",
+    q2q: "¿Quién se vería afectado económicamente si sus ingresos se detuvieran?",
+    q2sub: "Seleccione todo lo que aplique.",
+    depSpouse: "Cónyuge o pareja",
+    depChildren: "Hijos menores de 21",
+    depParents: "Padres o parientes ancianos",
+    depBusiness: "Un negocio o socio comercial",
+    depNone: "Nadie depende de mí económicamente",
+    q3q: "¿Cuántos hijos tiene, y qué edad tiene el menor?",
+    q3sub: "Menores de 21 y dependientes económicamente de usted.",
+    numChildren: "Número de hijos",
+    youngestAge: "Edad del hijo menor",
+    q4q: "¿Cuánta deuda dejaría atrás?",
+    q4sub: "Hipoteca, préstamos para autos, tarjetas de crédito, préstamos estudiantiles. Ingrese 0 si renta o no tiene deuda.",
+    mortLabel: "Balance de hipoteca",
+    otherLabel: "Otra deuda (autos, tarjetas de crédito, préstamos estudiantiles)",
+    q5q: "¿Qué red de seguridad ya existe?",
+    q5sub: "Restamos esto para no venderle cobertura que no necesita.",
+    covLabel: "Seguro de vida que ya tiene, incluyendo por su empleador",
+    savLabel: "Ahorros e inversiones a los que puede acceder",
+    notSure: "No estoy seguro",
+    resultNum: "de cobertura",
+    collegePrompt: "¿Cuánta financiación universitaria?",
+    breakdownTitle: "Así es como lo calculamos",
+    incomeRow: "Reemplazo de ingresos por X años",
+    eduRow: "Fondo educativo",
+    debtRow: "Pagar hipoteca y deudas",
+    finalRow: "Gastos finales",
+    subtotalRow: "Subtotal",
+    coverageRow: "Menos: cobertura que ya tiene",
+    savingsRow: "Menos: mitad de sus ahorros",
+    netRow: "Su necesidad de cobertura",
+    savingsNote: "Solo contamos la mitad de sus ahorros — su familia debería mantener un colchón de emergencia, no drenar la cuenta.",
+    resultCta: "Ver cuánto cuesta",
+    callCta: "Llamar al 1-800-380-6821",
+    waCta: "WhatsApp",
+    emailPrompt: "Envíame este resultado por email:",
+    restartLink: "Cambiar mis respuestas",
+    resultDisc: "Necesidad de cobertura estimada solo para propósitos ilustrativos. Las cotizaciones reales varían según asegurador, historial de salud y cantidad de cobertura. Contacte un agente licenciado para su cotización exacta.",
+    fexTitle: "Seguro de Gastos Finales",
+    fexMsg: "Basado en lo que compartió, una póliza de gastos finales de aceptación garantizada puede ser su mejor opción.",
+    fexNote: "Sin examen médico. Sin preguntas de salud. Cobertura de $5,000 a $50,000, primas fijas que nunca aumentan.",
+    fexWa: "Hablar con un agente licenciado",
+    q6q: "¿Cuándo nació?",
+    q6sub: "Esto nos ayuda a calcular su tarifa.",
+    dobMonth: "Mes",
+    dobDay: "Día",
+    dobYear: "Año",
+    q7q: "Sexo según su solicitud de seguro",
+    q7sub: "Las aseguradoras lo usan para establecer tarifas. Es obligatorio en cada solicitud.",
+    sexF: "Mujer",
+    sexM: "Hombre",
+    q8q: "¿Ha usado tabaco o nicotina en los últimos 12 meses?",
+    q8sub: "Cigarrillos, puros, vapeo, masticable, parches o chicle.",
+    tobNo: "No",
+    tobYes: "Sí",
+    q9q: "En los últimos 5 años, ¿ha sido tratado por alguno de estos?",
+    q9sub: "Marque todo lo que aplique. Ser honesto le da un número más preciso.",
+    cardiac: "Enfermedad del corazón, infarto o accidente cerebrovascular",
+    cancer: "Cáncer (excepto cáncer de piel de células basales)",
+    diabetes: "Diabetes",
+    respiratory: "EPOC, enfisema o apnea del sueño",
+    organ: "Enfermedad de riñones o hígado",
+    controlledBp: "Presión arterial alta o colesterol alto, controlado con medicación",
+    none: "Ninguno de estos",
+    gateQ: "Obtenga Su Cotización Exacta",
+    gateSub: "Un agente licenciado confirmará su tarifa exacta con 14+ aseguradoras — gratis, sin obligación.",
+    rateExactCta: "Obtener Mi Cotización Exacta →",
+    gateFname: "Nombre",
+    gateLname: "Apellido",
+    gateEmail: "Correo Electrónico",
+    gatePhone: "Número de Teléfono",
+    langPref: "Idioma preferido",
+    langEn: "English",
+    langEs: "Español",
+    consentText: "Acepto ser contactado por un agente licenciado de The Health Experts Insurance.",
+    gateBtn: "Mostrar Mi Tarifa",
+    rateHeadline: "Su costo mensual estimado",
+    rateDisc: "Primas mensuales estimadas solo para propósitos ilustrativos. Las tarifas reales varían según asegurador, historial de salud y cantidad de cobertura. Ninguna tarifa se garantiza hasta que se emita una póliza. Contacte un agente licenciado para su cotización exacta.",
+    progOf: "Paso",
+    progOfOf: "de"
+  }
+};
+
+function str(key) {
+  return STRINGS[S.language][key] || STRINGS['en'][key] || key;
+}
+
+// === UTILITIES ===
+function fmt(n) {
+  if (n >= 1000000) return '$' + (n / 1000000).toFixed(2).replace(/\.?0+$/, '') + 'M'; // e.g. $1.13M not $1.1M
+  if (n >= 1000) return '$' + (n / 1000).toFixed(0) + 'K';
+  return '$' + n.toLocaleString();
+}
+
+function saveState() {
+  sessionStorage.setItem('life_calc_v2', JSON.stringify(S));
+}
+
+function loadState() {
+  const saved = sessionStorage.getItem('life_calc_v2');
+  if (saved) {
+    const data = JSON.parse(saved);
+    Object.assign(S, data);
+    if (typeof S.dependents === 'string') S.dependents = [];
+    if (typeof S.conditions === 'string') S.conditions = [];
+  }
+}
+
+function setLang(l) {
+  S.language = l;
+  document.getElementById('lb-en').classList.toggle('active', l === 'en');
+  document.getElementById('lb-es').classList.toggle('active', l === 'es');
+  updateUI();
+  saveState();
+}
+
+function updateUI() {
+  document.getElementById('hero-title').textContent = str('heroTitle');
+  document.getElementById('hero-sub').textContent = str('heroSub');
+  document.getElementById('s1-q').textContent = str('q1q');
+  document.getElementById('s1-sub').textContent = str('q1sub');
+  document.getElementById('custom-txt').textContent = str('customTxt');
+  document.getElementById('s2-q').textContent = str('q2q');
+  document.getElementById('s2-sub').textContent = str('q2sub');
+  document.getElementById('dep-spouse').textContent = str('depSpouse');
+  document.getElementById('dep-children').textContent = str('depChildren');
+  document.getElementById('dep-parents').textContent = str('depParents');
+  document.getElementById('dep-business').textContent = str('depBusiness');
+  document.getElementById('dep-none').textContent = str('depNone');
+  document.getElementById('s3-q').textContent = str('q3q');
+  document.getElementById('s3-sub').textContent = str('q3sub');
+  document.getElementById('s4-q').textContent = str('q4q');
+  document.getElementById('s4-sub').textContent = str('q4sub');
+  document.getElementById('s4-mort-lbl').textContent = str('mortLabel');
+  document.getElementById('s4-other-lbl').textContent = str('otherLabel');
+  document.getElementById('s5-q').textContent = str('q5q');
+  document.getElementById('s5-sub').textContent = str('q5sub');
+  document.getElementById('s5-cov-lbl').textContent = str('covLabel');
+  document.getElementById('s5-sav-lbl').textContent = str('savLabel');
+  document.getElementById('not-sure').textContent = str('notSure');
+  document.getElementById('result-label').textContent = str('resultNum');
+  document.getElementById('college-prompt').textContent = str('collegePrompt');
+  document.getElementById('breakdown-title').textContent = str('breakdownTitle');
+  document.getElementById('result-cta').textContent = str('resultCta');
+  document.getElementById('call-cta').textContent = str('callCta');
+  document.getElementById('wa-cta').textContent = str('waCta');
+  document.getElementById('email-prompt').textContent = str('emailPrompt');
+  document.getElementById('restart-link').textContent = str('restartLink');
+  document.getElementById('result-disc').textContent = str('resultDisc');
+  document.getElementById('fex-title').textContent = str('fexTitle');
+  document.getElementById('fex-msg').textContent = str('fexMsg');
+  document.getElementById('s6-q').textContent = str('q6q');
+  document.getElementById('s6-sub').textContent = str('q6sub');
+  document.getElementById('dob-month-lbl').textContent = str('dobMonth');
+  document.getElementById('dob-day-lbl').textContent = str('dobDay');
+  document.getElementById('dob-year-lbl').textContent = str('dobYear');
+  document.getElementById('s7-q').textContent = str('q7q');
+  document.getElementById('s7-sub').textContent = str('q7sub');
+  document.getElementById('sex-f').textContent = str('sexF');
+  document.getElementById('sex-m').textContent = str('sexM');
+  document.getElementById('s8-q').textContent = str('q8q');
+  document.getElementById('s8-sub').textContent = str('q8sub');
+  document.getElementById('tob-no').textContent = str('tobNo');
+  document.getElementById('tob-yes').textContent = str('tobYes');
+  document.getElementById('s9-q').textContent = str('q9q');
+  document.getElementById('s9-sub').textContent = str('q9sub');
+  document.getElementById('cond-cardiac').textContent = str('cardiac');
+  document.getElementById('cond-cancer').textContent = str('cancer');
+  document.getElementById('cond-diabetes').textContent = str('diabetes');
+  document.getElementById('cond-respiratory').textContent = str('respiratory');
+  document.getElementById('cond-organ').textContent = str('organ');
+  document.getElementById('cond-bp').textContent = str('controlledBp');
+  document.getElementById('cond-none').textContent = str('none');
+  document.getElementById('gate-q').textContent = str('gateQ');
+  document.getElementById('gate-sub').textContent = str('gateSub');
+  document.getElementById('gate-fname-lbl').textContent = str('gateFname');
+  document.getElementById('gate-lname-lbl').textContent = str('gateLname');
+  document.getElementById('gate-email-lbl').textContent = str('gateEmail');
+  document.getElementById('gate-phone-lbl').textContent = str('gatePhone');
+  document.getElementById('lang-pref-lbl').textContent = str('langPref');
+  document.getElementById('lang-en').textContent = str('langEn');
+  document.getElementById('lang-es').textContent = str('langEs');
+  document.getElementById('consent-text').textContent = str('consentText');
+  document.getElementById('gate-btn-lbl').textContent = str('gateBtn');
+  document.getElementById('rate-headline').textContent = str('rateHeadline');
+  document.getElementById('rate-disc').textContent = str('rateDisc');
+  var rateExact = document.getElementById('rate-exact-cta');
+  if (rateExact) rateExact.textContent = str('rateExactCta') || 'Get My Exact Quote →';
+}
+
+function goScreen(id) {
+  document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+  updateProgress(id);
+  // Pre-fill ZIP when navigating back to sZip
+  if (id === 'sZip') {
+    var zinp = document.getElementById('zip-input');
+    if (zinp && S.zip) { zinp.value = S.zip; checkZip(); }
+  }
+  // Pre-fill s1-btn state when navigating back to s1
+  if (id === 's1') {
+    var s1b = document.getElementById('s1-btn');
+    if (s1b) s1b.className = 'cont-btn ' + (S.income > 0 ? 'on' : 'off');
+  }
+  var anchor = document.getElementById('prog-wrap') || document.getElementById('calc-container');
+  if (anchor) anchor.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  saveState();
+}
+
+function updateProgress(screenId) {
+  const toolA = ['s1', 'sZip', 's2', 's3', 's4', 's5'];
+  const toolB = ['s6', 's7', 's8', 's9', 'sGate'];
+  const inToolA = toolA.includes(screenId);
+  const inToolB = toolB.includes(screenId);
+
+  let step = 0, total = 5;
+  if (screenId === 's1')   { step = 1; total = S.has_children ? 6 : 5; }
+  else if (screenId === 'sZip') { step = 2; total = S.has_children ? 6 : 5; }
+  else if (screenId === 's2')   { step = 3; total = S.has_children ? 6 : 5; }
+  else if (screenId === 's3')   { step = 4; total = 6; }
+  else if (screenId === 's4')   { step = S.has_children ? 5 : 4; total = S.has_children ? 6 : 5; }
+  else if (screenId === 's5')   { step = S.has_children ? 6 : 5; total = S.has_children ? 6 : 5; }
+  else if (screenId === 's6') { step = 1; total = 4; }
+  else if (screenId === 's7') { step = 2; total = 4; }
+  else if (screenId === 's8') { step = 3; total = 4; }
+  else if (screenId === 's9') { step = 4; total = 4; }
+  
+  if (inToolA || inToolB) {
+    const pct = step > 0 ? Math.round((step / total) * 100) : 0;
+    document.getElementById('prog-fill').style.width = pct + '%';
+    const label = step > 0 ? `${str('progOf')} ${step} ${str('progOfOf')} ${total}` : '';
+    document.getElementById('prog-lbl').textContent = label;
+    document.getElementById('prog-wrap').style.display = inToolA || inToolB ? 'block' : 'none';
+  } else {
+    document.getElementById('prog-wrap').style.display = 'none';
+  }
+}
+
+// === TOOL A HANDLERS ===
+function selectIncome(el, val) {
+  if (val === null) return;
+  document.querySelectorAll('#s1-opts .opt').forEach(o => o.classList.remove('sel'));
+  el.classList.add('sel');
+  S.income = val;
+  document.getElementById('custom-income-field').classList.add('hidden');
+  document.getElementById('s1-btn').className = 'cont-btn on';
+  saveState();
+}
+
+function toggleCustomIncome(el) {
+  document.querySelectorAll('#s1-opts .opt').forEach(o => o.classList.remove('sel'));
+  el.classList.add('sel');
+  document.getElementById('custom-income-field').classList.remove('hidden');
+  document.getElementById('s1-btn').className = 'cont-btn off';
+}
+
+function updateCustomIncome() {
+  const val = parseInt(document.getElementById('custom-income').value) || 0;
+  S.income = Math.max(0, val);
+}
+
+function proceedFromIncome() {
+  if (S.income <= 0) return;
+  goScreen('sZip');
+  saveState();
+}
+
+function toggleDependent(el, key) {
+  if (key === 'none') {
+    if (S.dependents.includes('none')) {
+      S.dependents = [];
+      el.classList.remove('sel');
+    } else {
+      S.dependents = ['none'];
+      document.querySelectorAll('#s2-opts .opt').forEach(o => o.classList.remove('sel'));
+      el.classList.add('sel');
+    }
+  } else {
+    const idx = S.dependents.indexOf('none');
+    if (idx >= 0) S.dependents.splice(idx, 1);
+    el.classList.toggle('sel');
+    if (el.classList.contains('sel')) {
+      if (!S.dependents.includes(key)) S.dependents.push(key);
+    } else {
+      const i = S.dependents.indexOf(key);
+      if (i >= 0) S.dependents.splice(i, 1);
+    }
+  }
+  document.getElementById('s2-btn').className = 'cont-btn ' + (S.dependents.length > 0 ? 'on' : 'off');
+  saveState();
+}
+
+function proceedFromDependents() {
+  if (S.dependents.length === 0) return;
+  S.has_children = S.dependents.includes('children');
+  if (S.has_children) {
+    goScreen('s3');
+  } else {
+    S.child_count = 0;
+    S.youngest_child_age = 0;
+    goScreen('s4');
+  }
+  saveState();
+}
+
+function selectChildCount(el, n) {
+  document.querySelectorAll('#s3-count-opts .opt').forEach(o => o.classList.remove('sel'));
+  el.classList.add('sel');
+  S.child_count = n;
+  checkS3();
+}
+
+function selectChildAge(el, age) {
+  document.querySelectorAll('#s3-age-opts .opt').forEach(o => o.classList.remove('sel'));
+  el.classList.add('sel');
+  S.youngest_child_age = age;
+  checkS3();
+}
+
+function checkS3() {
+  const ready = S.child_count > 0 && S.youngest_child_age > 0;
+  document.getElementById('s3-btn').className = 'cont-btn ' + (ready ? 'on' : 'off');
+  saveState();
+}
+
+function selectMortgage(el, val) {
+  document.querySelectorAll('#s4-mort-opts .opt').forEach(o => o.classList.remove('sel'));
+  el.classList.add('sel');
+  S.mortgage_balance = val;
+  S.mortgage_set = true;
+  document.getElementById('custom-mort-field').classList.add('hidden');
+  checkS4();
+}
+
+function selectOtherDebt(el, val) {
+  document.querySelectorAll('#s4-other-opts .opt').forEach(o => o.classList.remove('sel'));
+  el.classList.add('sel');
+  S.other_debt = val;
+  S.other_debt_set = true;
+  document.getElementById('custom-debt-field').classList.add('hidden');
+  checkS4();
+}
+
+function checkS4() {
+  const ready = S.mortgage_set && S.other_debt_set;
+  document.getElementById('s4-btn').className = 'cont-btn ' + (ready ? 'on' : 'off');
+  saveState();
+}
+
+function selectExistingCov(el, val) {
+  document.querySelectorAll('#s5-cov-opts .opt').forEach(o => o.classList.remove('sel'));
+  el.classList.add('sel');
+  if (val === 'unknown') {
+    S.existing_coverage = 0;
+    S.existing_unknown = true;
+  } else if (val === -1) {
+    S.existing_coverage = S.income;
+    S.existing_unknown = false;
+  } else if (val === -2) {
+    S.existing_coverage = S.income * 2;
+    S.existing_unknown = false;
+  } else {
+    S.existing_coverage = val;
+    S.existing_unknown = false;
+  }
+  S.coverage_set = true;
+  checkS5();
+}
+
+function selectSavings(el, val) {
+  document.querySelectorAll('#s5-sav-opts .opt').forEach(o => o.classList.remove('sel'));
+  el.classList.add('sel');
+  S.liquid_savings = val;
+  S.savings_set = true;
+  document.getElementById('custom-sav-field').classList.add('hidden');
+  checkS5();
+}
+
+function checkS5() {
+  const ready = S.coverage_set && S.savings_set;
+  document.getElementById('s5-btn').className = 'cont-btn ' + (ready ? 'on' : 'off');
+  saveState();
+}
+
+// === COVERAGE CALCULATION ===
+function computeCoverage() {
+  let years = 0;
+  if (S.has_children) {
+    years = Math.max(5, Math.min(18, 21 - S.youngest_child_age));
+  } else if (S.dependents.includes('spouse')) {
+    years = 10;
+  } else if (S.dependents.includes('parents') || S.dependents.includes('business')) {
+    years = 5;
+  } else {
+    years = 0;
+  }
+
+  const PV_FACTOR = 0.85;
+  const income_replacement = S.income * years * PV_FACTOR;
+
+  // Education fund removed from formula (Q3 still drives YEARS_TO_REPLACE for income replacement)
+  const debt_payoff = S.mortgage_balance + S.other_debt;
+  const final_expenses = 15000;
+  const gross_need = income_replacement + debt_payoff + final_expenses;
+  const offsets = S.existing_coverage + (S.liquid_savings * 0.5);
+  const net_need = gross_need - offsets;
+
+  S.years_to_replace = years;
+  S.income_replacement = income_replacement;
+  S.debt_payoff = debt_payoff;
+  S.offsets = offsets;
+  S.gross_need = gross_need;
+
+  if (net_need <= 0 || S.dependents.includes('none') || S.dependents.length === 0) {
+    S.recommended = 0;
+    S.product_fit = 'final_expense';
+    return;
+  }
+
+  // Round UP to nearest $50K (ceiling). 20x income cap is an underwriting note for agents, not applied here.
+  let recommended = Math.ceil(net_need / 50000) * 50000;
+  if (net_need > 0 && net_need < 50000) recommended = 50000;
+
+  S.net_need = net_need;
+  S.recommended = recommended;
+  S.product_fit = 'term_20';
+}
+
+function showResult() {
+  computeCoverage();
+  
+  if (S.product_fit === 'final_expense' || S.recommended === 0) {
+    goScreen('sFEX');
+    return;
+  }
+
+  renderResult();
+  animateNumber();
+  goScreen('sResult');
+  // Scroll to the headline number, not the progress bar (which is hidden on result screen)
+  setTimeout(function() {
+    var el = document.getElementById('result-number');
+    if (el) el.scrollIntoView({ behavior: 'smooth', block: 'center' });
+  }, 80);
+  saveState();
+}
+
+function renderResult() {
+  // Explanation
+  const parts = [];
+  if (S.has_children) parts.push(`replace your income for ${S.years_to_replace} years`);
+  if (S.mortgage_balance > 0) parts.push(`pay off your mortgage`);
+  parts.push(`handle final expenses`);
+  const explanation = `That's enough to ${parts.join(', ')}${S.offsets > 0 ? '  -  minus what you already have' : '.'} `;
+  document.getElementById('result-explanation').textContent = explanation;
+
+  // Breakdown table
+  document.getElementById('breakdown-income-label').textContent = `Replace your income for ${S.years_to_replace} years`;
+  document.getElementById('breakdown-income-val').textContent = fmt(S.income_replacement);
+  
+  document.getElementById('breakdown-debt-label').textContent = `Pay off mortgage and debts`;
+  document.getElementById('breakdown-debt-val').textContent = fmt(S.debt_payoff);
+
+  document.getElementById('breakdown-subtotal-val').textContent = fmt(S.gross_need);
+
+  // Always show existing-coverage row — transparency principle (show every input even at $0)
+  const covRow = document.getElementById('breakdown-coverage-row');
+  covRow.style.display = '';
+  document.getElementById('breakdown-coverage-label').textContent = 'Less: coverage you already have';
+  document.getElementById('breakdown-coverage-val').textContent = S.existing_coverage > 0 ? '−' + fmt(S.existing_coverage) : '$0';
+
+  const savRow = document.getElementById('breakdown-savings-row');
+  if (S.liquid_savings > 0) {
+    savRow.style.display = '';
+    document.getElementById('breakdown-savings-label').textContent = `Less: half of your savings`;
+    document.getElementById('breakdown-savings-val').textContent = '−' + fmt(S.liquid_savings * 0.5);
+  } else {
+    savRow.style.display = 'none';
+  }
+
+  document.getElementById('breakdown-net-val').textContent = fmt(S.net_need);
+
+  // Advisory: show when recommended > income × 20x underwriting threshold
+  // NOTE: 20x multiple flagged for Ivan's confirmation — may vary by age band
+  const CARRIER_INCOME_MULTIPLE = 20; // TODO: confirm with Ivan before go-live
+  const advisoryBlock = document.getElementById('advisory-block');
+  if (S.income > 0 && S.recommended > S.income * CARRIER_INCOME_MULTIPLE) {
+    const approxMax = S.income * CARRIER_INCOME_MULTIPLE;
+    document.getElementById('advisory-text').textContent =
+      'This is what the math says you\'d ideally have. At your income, carriers typically approve up to about ' +
+      fmt(approxMax) + '. Your agent will help you find the right amount you can actually qualify for.';
+    advisoryBlock.style.display = '';
+  } else {
+    advisoryBlock.style.display = 'none';
+  }
+
+}
+
+function animateNumber() {
+  const el = document.getElementById('result-number');
+  const target = S.recommended;
+  let current = 0;
+  const duration = 1200;
+  const start = Date.now();
+  
+  function tick() {
+    const elapsed = Date.now() - start;
+    const progress = Math.min(elapsed / duration, 1);
+    current = Math.round(progress * target);
+    el.textContent = '$' + current.toLocaleString();
+    if (progress < 1) requestAnimationFrame(tick);
+  }
+  tick();
+}
+
+
+function startToolB() {
+  renderReview();
+  goScreen('sReview');
+}
+
+async function emailResult() {
+  const email = document.getElementById('email-input').value.trim();
+  if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) return;
+  S.email = email;
+  const btn = document.querySelector('#email-section .cont-btn');
+  const inp = document.getElementById('email-input');
+  btn.textContent = 'Sending...';
+  btn.disabled = true;
+  btn.classList.remove('on');
+  btn.style.opacity = '0.7';
+  try {
+    await submitToGHL('partial');
+    inp.style.display = 'none';
+    btn.style.display = 'none';
+    const confirm = document.createElement('p');
+    confirm.style.cssText = 'color:#25a244;font-weight:700;font-size:14px;margin:8px 0 0;';
+    confirm.textContent = 'Sent! Check your inbox.';
+    document.getElementById('email-section').appendChild(confirm);
+  } catch(e) {
+    btn.textContent = 'Send';
+    btn.disabled = false;
+    btn.classList.add('on');
+    btn.style.opacity = '';
+    const err = document.getElementById('email-error') || document.createElement('p');
+    err.id = 'email-error';
+    err.style.cssText = 'color:#d32f2f;font-size:13px;margin:6px 0 0;';
+    err.textContent = 'Could not send — please call us at 1-800-380-6821.';
+    document.getElementById('email-section').appendChild(err);
+  }
+}
+
+// === TOOL B HANDLERS ===
+function populateDOB() {
+  const now = new Date();
+  const yearSelect = document.getElementById('dob-year');
+  yearSelect.innerHTML = '<option value="">Select</option>';
+  for (let y = now.getFullYear() - 18; y >= now.getFullYear() - 80; y--) {
+    const opt = document.createElement('option');
+    opt.value = y;
+    opt.textContent = y;
+    yearSelect.appendChild(opt);
+  }
+
+  const daySelect = document.getElementById('dob-day');
+  daySelect.innerHTML = '<option value="">Select</option>';
+  for (let d = 1; d <= 31; d++) {
+    const opt = document.createElement('option');
+    opt.value = d;
+    opt.textContent = d;
+    daySelect.appendChild(opt);
+  }
+}
+
+function checkDOB() {
+  const m = parseInt(document.getElementById('dob-month').value) || 0;
+  const d = parseInt(document.getElementById('dob-day').value) || 0;
+  const y = parseInt(document.getElementById('dob-year').value) || 0;
+  
+  if (!m || !d || !y) {
+    document.getElementById('s6-btn').className = 'cont-btn off';
+    return;
+  }
+
+  const dob = new Date(y, m - 1, d);
+  const now = new Date();
+  let age = now.getFullYear() - dob.getFullYear();
+  const monthDiff = now.getMonth() - dob.getMonth();
+  if (monthDiff < 0 || (monthDiff === 0 && now.getDate() < dob.getDate())) age--;
+
+  S.dob = `${y}-${String(m).padStart(2, '0')}-${String(d).padStart(2, '0')}`;
+  S.age = age;
+  document.getElementById('s6-btn').className = 'cont-btn on';
+  saveState();
+}
+
+function selectSex(el, val) {
+  document.querySelectorAll('#s7-opts .opt').forEach(o => o.classList.remove('sel'));
+  el.classList.add('sel');
+  S.sex = val;
+  document.getElementById('s7-btn').className = 'cont-btn on';
+  saveState();
+}
+
+function selectTobacco(el, val) {
+  document.querySelectorAll('#s8-opts .opt').forEach(o => o.classList.remove('sel'));
+  el.classList.add('sel');
+  S.tobacco = val;
+  document.getElementById('s8-btn').className = 'cont-btn on';
+  saveState();
+}
+
+function toggleCondition(el, key) {
+  if (key === 'none') {
+    if (S.conditions.includes('none')) {
+      S.conditions = [];
+      el.classList.remove('sel');
+    } else {
+      S.conditions = ['none'];
+      document.querySelectorAll('#s9-opts .opt').forEach(o => o.classList.remove('sel'));
+      el.classList.add('sel');
+    }
+  } else {
+    const idx = S.conditions.indexOf('none');
+    if (idx >= 0) S.conditions.splice(idx, 1);
+    el.classList.toggle('sel');
+    if (el.classList.contains('sel')) {
+      if (!S.conditions.includes(key)) S.conditions.push(key);
+    } else {
+      const i = S.conditions.indexOf(key);
+      if (i >= 0) S.conditions.splice(i, 1);
+    }
+  }
+  document.getElementById('s9-btn').className = 'cont-btn ' + (S.conditions.length >= 0 ? 'on' : 'off');
+  saveState();
+}
+
+// === GATE ===
+function checkGate() {
+  const fname = document.getElementById('gate-fname').value.trim();
+  const lname = document.getElementById('gate-lname').value.trim();
+  const email = document.getElementById('gate-email').value.trim();
+  const phone = document.getElementById('gate-phone').value.trim();
+  const consent = document.getElementById('consent-chk').checked;
+  
+  const emailOk = /^[^@]+@[^@]+\.[^@]+$/.test(email);
+  const phoneOk = phone.replace(/\D/g, '').length >= 10;
+  const ready = fname && lname && emailOk && phoneOk && consent;
+  
+  S.fname = fname;
+  S.lname = lname;
+  S.email = email;
+  S.phone = phone;
+  
+  document.getElementById('gate-btn').className = 'cont-btn ' + (ready ? 'on' : 'off');
+  saveState();
+}
+
+function abandonCapture() {
+  if (S.abandonFired) return;
+  const email = document.getElementById('gate-email').value.trim();
+  const emailOk = /^[^@]+@[^@]+\.[^@]+$/.test(email);
+  if (emailOk) {
+    S.email = email;
+    S.abandonFired = true;
+    submitToGHL('abandoned');
+    saveState();
+  }
+}
+
+function setLanguageRadio(l) {
+  S.language = l;
+  saveState();
+}
+
+function submitGate() {
+  if (!document.getElementById('gate-fname').value || !document.getElementById('gate-email').value) return;
+  S.fname = document.getElementById('gate-fname').value.trim();
+  S.lname = document.getElementById('gate-lname').value.trim();
+  S.email = document.getElementById('gate-email').value.trim();
+  S.phone = document.getElementById('gate-phone').value.trim();
+
+  submitToGHL('complete');
+
+  document.getElementById('sGate').innerHTML = '<div style="text-align:center;padding:40px 0 24px;">'
+    + '<div style="font-size:52px;margin-bottom:16px;">&#x2705;</div>'
+    + '<div style="font-size:22px;font-weight:700;color:var(--purple);margin-bottom:12px;">You\'re all set!</div>'
+    + '<p style="font-size:16px;color:var(--gt);line-height:1.7;margin-bottom:28px;">A licensed agent from The Health Experts Insurance will reach out shortly to confirm your exact rate with 14+ carriers.</p>'
+    + '<a href="tel:18003806821" style="display:block;text-align:center;padding:16px;background:var(--purple);color:#fff;border-radius:50px;font-weight:700;font-size:16px;text-decoration:none;margin-bottom:12px;">Call now: 1-800-380-6821</a>'
+    + '<a href="https://wa.me/13054646888" onclick="gtag(\'event\',\'whatsapp_click\',{\'page\':window.location.pathname})" style="display:block;text-align:center;padding:16px;background:#25D366;color:#fff;border-radius:50px;font-weight:700;font-size:16px;text-decoration:none;margin-bottom:28px;">Chat on WhatsApp</a>'
+    + '<a onclick="restart()" style="color:var(--purple);font-size:14px;font-weight:600;cursor:pointer;text-decoration:underline;">Start over</a>'
+    + '</div>';
+  saveState();
+}
+
+// === RATE CALCULATION ===
+function getRateClass() {
+  const c = S.conditions;
+  let cls = 'preferred_plus';
+  
+  if (c.includes('cardiac') || c.includes('cancer') || c.includes('respiratory') || c.includes('organ')) {
+    cls = 'graded';
+  } else if (c.includes('diabetes')) {
+    cls = 'standard';
+  } else if (c.includes('controlled_bp')) {
+    cls = 'preferred';
+  }
+  
+  if (S.tobacco) {
+    const steps = ['preferred_plus', 'preferred', 'standard', 'graded'];
+    const idx = steps.indexOf(cls);
+    cls = steps[Math.min(idx + 1, steps.length - 1)];
+  }
+  
+  if (S.age >= 70 && (cls === 'standard' || cls === 'graded')) {
+    cls = 'graded';
+  }
+  
+  S.rate_class = cls;
+}
+
+function calcRate() {
+  const cls = S.rate_class;
+  
+  if (cls === 'graded' || S.age >= 65) {
+    S.product_fit = 'final_expense';
+    S.quoted_low = 0;
+    S.quoted_high = 0;
+    return;
+  }
+  
+  S.product_fit = 'term_20';
+  
+  // Get age band
+  let band = null;
+  if (S.age >= 25 && S.age < 30) band = '25-29';
+  else if (S.age >= 30 && S.age < 35) band = '30-34';
+  else if (S.age >= 35 && S.age < 40) band = '35-39';
+  else if (S.age >= 40 && S.age < 45) band = '40-44';
+  else if (S.age >= 45 && S.age < 50) band = '45-49';
+  else if (S.age >= 50 && S.age < 55) band = '50-54';
+  else if (S.age >= 55 && S.age < 60) band = '55-59';
+  else if (S.age >= 60 && S.age < 65) band = '60-64';
+  
+  if (!band) {
+    S.product_fit = 'final_expense';
+    return;
+  }
+  
+  const sex = S.sex || 'M';
+  const ratePerThousand = window.LIFE_RATES.term20[sex][band][cls];
+  const coverage = S.recommended;
+  const monthlyBase = (coverage / 1000) * ratePerThousand / 12;
+  const monthlyWithTobacco = S.tobacco
+    ? monthlyBase * window.LIFE_RATES.tobacco_multiplier
+    : monthlyBase;
+  
+  S.quoted_low = Math.round(monthlyWithTobacco * 0.85);
+  S.quoted_high = Math.round(monthlyWithTobacco * 1.20);
+}
+
+function showRate() {
+  const classLabel = {preferred_plus:'Excellent health', preferred:'Good health', standard:'Standard health', graded:'Final Expense coverage'};
+  const sexLabel = S.sex === 'F' ? 'Female' : 'Male';
+  const healthLabel = classLabel[S.rate_class] || 'Standard health';
+
+  if (S.product_fit === 'final_expense') {
+    document.getElementById('rate-headline').textContent = 'Final Expense Insurance';
+    document.getElementById('rate-range').textContent = 'Ask about availability';
+    document.getElementById('rate-coverage').textContent = 'Coverage from $5,000 to $50,000';
+    // Pre-filled WhatsApp message for FEX
+    const fexMsg = `Hi THEI! I used your life insurance calculator. I'm ${S.age} (${sexLabel}), ${healthLabel}. I'm interested in Final Expense coverage. Can you help me find the right policy?`;
+    const fexEl = document.getElementById('rate-wa');
+    if (fexEl) fexEl.href = 'https://wa.me/13054646888?text=' + encodeURIComponent(fexMsg);
+    const fexEl2 = document.getElementById('fex-wa');
+    if (fexEl2) fexEl2.href = 'https://wa.me/13054646888?text=' + encodeURIComponent(fexMsg);
+  } else {
+    document.getElementById('rate-headline').textContent = str('rateHeadline');
+    document.getElementById('rate-range').textContent = `$${S.quoted_low} – $${S.quoted_high} / month`;
+    document.getElementById('rate-coverage').textContent = `for ${fmt(S.recommended)} in 20-year term coverage`;
+    // Pre-filled WhatsApp message — agent opens chat already knowing the lead
+    const waMsg = `Hi THEI! I used your life insurance calculator. I'm ${S.age} (${sexLabel}), ${healthLabel}. Looking for Term Life (20-Year) — ${fmt(S.recommended)} in coverage. My estimate was $${S.quoted_low}–$${S.quoted_high}/mo. Can you help me lock in my exact rate?`;
+    const waEl = document.getElementById('rate-wa');
+    if (waEl) waEl.href = 'https://wa.me/13054646888?text=' + encodeURIComponent(waMsg);
+  }
+  
+  submitToGHL('rate_viewed');
+  goScreen('sRate');
+  setTimeout(function() {
+    var el = document.getElementById('rate-headline');
+    if (el) el.scrollIntoView({ behavior: 'smooth', block: 'center' });
+  }, 80);
+  saveState();
+}
+
+// === GHL SUBMISSION ===
+function computeScore() {
+  let score = 0;
+  if (S.recommended >= 1000000) score += 30;
+  else if (S.recommended >= 500000) score += 22;
+  else if (S.recommended >= 250000) score += 14;
+  else score += 6;
+  
+  if (S.has_children) {
+    if (S.youngest_child_age < 10) score += 20;
+    else if (S.youngest_child_age < 18) score += 12;
+  }
+  
+  if (S.existing_coverage === 0) score += 20;
+  else if (S.existing_coverage < S.income) score += 10;
+  
+  const classScore = { preferred_plus: 15, preferred: 12, standard: 8, graded: 4 };
+  score += classScore[S.rate_class] || 0;
+  
+  if (S.income >= 125000) score += 15;
+  else if (S.income >= 75000) score += 10;
+  else if (S.income >= 40000) score += 5;
+  
+  return score;
+}
+
+function buildTags(completion) {
+  const tags = ['life-insurance', `calc_${completion}`];
+  const score = computeScore();
+  if (score >= 70) tags.push('hot-lead');
+  else if (score >= 45) tags.push('warm-lead');
+  else tags.push('nurture-lead');
+  if (S.product_fit === 'final_expense') tags.push('final-expense-fit');
+  if (S.language === 'es') tags.push('spanish-lead');
+  return tags;
+}
+
+async function submitToGHL(completion) {
+  S.completion = completion;
+  S.timestamp = new Date().toISOString();
+  S.score = computeScore();
+  
+  const payload = {
+    firstName: S.fname,
+    lastName: S.lname,
+    email: S.email,
+    phone: S.phone,
+    source: 'life-calculator-v2',
+    tags: buildTags(completion),
+    customFields: {
+      life_calc_zip: S.zip,
+      life_calc_income: S.income,
+      life_calc_dependents: S.dependents.join(','),
+      life_calc_child_count: S.child_count,
+      life_calc_youngest_age: S.youngest_child_age,
+      life_calc_mortgage: S.mortgage_balance,
+      life_calc_other_debt: S.other_debt,
+      life_calc_existing_coverage: S.existing_coverage,
+      life_calc_existing_unknown: S.existing_unknown,
+      life_calc_savings: S.liquid_savings,
+      life_calc_recommended: S.recommended,
+      life_calc_gross_need: S.gross_need,
+      life_calc_dob: S.dob,
+      life_calc_age: S.age,
+      life_calc_sex: S.sex === 'F' ? 'female' : 'male',
+      life_calc_tobacco: S.tobacco,
+      life_calc_conditions: S.conditions.join(',') || 'none',
+      life_calc_rate_class: S.rate_class,
+      life_calc_quoted_low: S.quoted_low,
+      life_calc_quoted_high: S.quoted_high,
+      life_calc_product_fit: S.product_fit,
+      life_calc_score: S.score,
+      life_calc_language: S.language,
+      life_calc_completion: completion,
+      life_calc_timestamp: S.timestamp
+    }
+  };
+
+  try {
+    await fetch('https://services.leadconnectorhq.com/hooks/RINM4TCnM4hN06UA1aK0/webhook-trigger/de6d2504-eb93-4026-95b9-90685b049b10', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(payload)
+    });
+  } catch (e) {
+    console.error('GHL submission failed', e);
+  }
+}
+
+
+// === CUSTOM EXACT-ENTRY HANDLERS ===
+function toggleCustomMortgage(el) {
+  document.querySelectorAll('#s4-mort-opts .opt').forEach(o => o.classList.remove('sel'));
+  el.classList.add('sel');
+  document.getElementById('custom-mort-field').classList.remove('hidden');
+}
+function updateCustomMortgage() {
+  S.mortgage_balance = Math.max(0, parseInt(document.getElementById('custom-mort').value) || 0);
+  S.mortgage_set = true;
+  checkS4();
+}
+function toggleCustomOtherDebt(el) {
+  document.querySelectorAll('#s4-other-opts .opt').forEach(o => o.classList.remove('sel'));
+  el.classList.add('sel');
+  document.getElementById('custom-debt-field').classList.remove('hidden');
+}
+function updateCustomOtherDebt() {
+  S.other_debt = Math.max(0, parseInt(document.getElementById('custom-debt').value) || 0);
+  S.other_debt_set = true;
+  checkS4();
+}
+function toggleCustomSavings(el) {
+  document.querySelectorAll('#s5-sav-opts .opt').forEach(o => o.classList.remove('sel'));
+  el.classList.add('sel');
+  document.getElementById('custom-sav-field').classList.remove('hidden');
+}
+function updateCustomSavings() {
+  S.liquid_savings = Math.max(0, parseInt(document.getElementById('custom-sav').value) || 0);
+  S.savings_set = true;
+  checkS5();
+}
+
+// === REVIEW SCREEN ===
+function renderReview() {
+  var depLabels = {spouse:'Spouse or partner',children:'Children (under 21)',parents:'Aging parents/relatives',business:'Business or partner',none:'No dependents'};
+  var deps = S.dependents.length ? S.dependents.map(function(d){return depLabels[d]||d;}).join(', ') : 'None';
+  var income = S.income ? '$' + S.income.toLocaleString() + '/yr' : '\u2014';
+  var zip = S.zip || '\u2014';
+  var mort = S.mortgage_balance ? fmt(S.mortgage_balance) : '$0 (renting)';
+  var debt = S.other_debt ? fmt(S.other_debt) : '$0';
+  var sav = S.liquid_savings ? fmt(S.liquid_savings) : '$0';
+  var cov = S.existing_unknown ? 'Not sure' : (S.existing_coverage ? fmt(S.existing_coverage) : '$0');
+  var rec = S.recommended ? fmt(S.recommended) : '\u2014';
+
+  // [label, value, editScreen or null]
+  var rows = [
+    ['Household income', income, 's1'],
+    ['ZIP code', zip, 'sZip'],
+    ['Dependents', deps, 's2']
+  ];
+  if (S.has_children) rows.push(['Youngest child age', 'age ' + S.youngest_child_age, 's3']);
+  rows = rows.concat([
+    ['Mortgage balance', mort, 's4'],
+    ['Other debt', debt, 's4'],
+    ['Existing coverage', cov, 's5'],
+    ['Liquid savings', sav, 's5'],
+    ['Coverage estimate', '<strong style="color:var(--purple)">' + rec + '</strong>', null]
+  ]);
+
+  var EDIT_STYLE = 'font-size:12px;color:var(--purple);font-weight:700;cursor:pointer;margin-left:10px;text-decoration:none;';
+  var h = '<table style="width:100%;border-collapse:collapse;">';
+  rows.forEach(function(r) {
+    var label = r[0], value = r[1], screen = r[2];
+    var editLink = screen ? ' <a onclick="goScreen(\'' + screen + '\')" style="' + EDIT_STYLE + '">Edit</a>' : '';
+    h += '<tr><td style="padding:9px 0;border-bottom:1px solid #f0e8fa;color:var(--gt);font-size:14px;">' + label + '</td>';
+    h += '<td style="padding:9px 0;border-bottom:1px solid #f0e8fa;font-weight:600;text-align:right;font-size:14px;">' + value + editLink + '</td></tr>';
+  });
+  h += '</table>';
+  document.getElementById('review-list').innerHTML = h;
+}
+
+// === EMAIL MINI-GATE (before rate) ===
+function checkEmailGate() {
+  var val = document.getElementById('email-gate-input').value.trim();
+  var ok = /^[^@]+@[^@]+\.[^@]+$/.test(val);
+  document.getElementById('email-gate-btn').className = 'cont-btn ' + (ok ? 'on' : 'off');
+}
+function submitEmailGate() {
+  var val = document.getElementById('email-gate-input').value.trim();
+  if (!/^[^@]+@[^@]+\.[^@]+$/.test(val)) return;
+  S.email = val;
+  submitToGHL('partial');
+  showRate();
+}
+
+// === PROCEED FROM HEALTH QUESTIONS ===
+function proceedFromHealth() {
+  getRateClass();
+  calcRate();
+  if (!S.email) {
+    goScreen('sEmailGate');
+  } else {
+    showRate();
+  }
+}
+
+
+// === ZIP VALIDATION ===
+function checkZip() {
+  var val = (document.getElementById('zip-input').value || '').trim();
+  S.zip = val;
+  var btn = document.getElementById('zip-btn');
+  if (btn) btn.className = 'cont-btn ' + (val.length >= 5 ? 'on' : 'off');
+  saveState();
+}
+
+// === GHL TAG REFERENCE ===
+// Build workflows against these tags + custom fields:
+//
+// LIFECYCLE TAGS (on every submitToGHL call):
+//   'life-insurance'     — always present on every submission
+//   'calc_partial'       — email captured (sResult email box or sEmailGate), gate not yet submitted
+//   'calc_rate_viewed'   — rate estimate shown; at least email is on file
+//   'calc_complete'      — full gate (first/last/phone/email/consent) submitted
+//
+// LEAD QUALITY TAGS (added once per complete submission):
+//   'hot-lead'           — score >= 70 (high need, young children, no existing coverage, high income)
+//   'warm-lead'          — score 45–69
+//   'nurture-lead'       — score < 45
+//
+// PRODUCT FIT TAGS:
+//   'final-expense-fit'  — age 65+ OR graded rate class; route to Final Expense flow
+//   'spanish-lead'       — user set language to ES
+//
+// CUSTOM FIELDS (in GHL contact record):
+//   life_calc_zip            life_calc_income         life_calc_dependents
+//   life_calc_child_count    life_calc_youngest_age   life_calc_mortgage
+//   life_calc_other_debt     life_calc_existing_coverage  life_calc_savings
+//   life_calc_recommended    life_calc_dob            life_calc_age
+//   life_calc_sex            life_calc_tobacco        life_calc_conditions
+//   life_calc_rate_class     life_calc_quoted_low     life_calc_quoted_high
+//   life_calc_product_fit    life_calc_score          life_calc_language
+//   life_calc_completion     life_calc_timestamp
+
+// === RESTART ===
+function restart() {
+  S.income = 0;
+  S.zip = '';
+  var zinp = document.getElementById('zip-input'); if (zinp) zinp.value = '';
+  var s1b = document.getElementById('s1-btn'); if (s1b) s1b.className = 'cont-btn off';
+  S.dependents = [];
+  S.child_count = 0;
+  S.youngest_child_age = 0;
+  S.has_children = false;
+  S.mortgage_balance = 0;
+  S.other_debt = 0;
+  S.mortgage_set = false;
+  S.other_debt_set = false;
+  S.coverage_set = false;
+  S.savings_set = false;
+  S.existing_coverage = 0;
+  S.existing_unknown = false;
+  S.liquid_savings = 0;
+  S.recommended = 0;
+  S.dob = '';
+  S.age = 0;
+  S.sex = '';
+  S.tobacco = false;
+  S.conditions = [];
+  S.rate_class = '';
+  S.fname = '';
+  S.lname = '';
+  S.email = '';
+  S.phone = '';
+  S.abandonFired = false;
+  
+  document.querySelectorAll('.opt').forEach(o => o.classList.remove('sel'));
+  document.querySelectorAll('input[type="text"], input[type="email"], input[type="tel"], input[type="number"]').forEach(i => i.value = '');
+  document.getElementById('custom-income-field').classList.add('hidden');
+  document.getElementById('dob-month').value = '';
+  document.getElementById('dob-day').value = '';
+  document.getElementById('dob-year').value = '';
+  document.getElementById('consent-chk').checked = false;
+  
+  goScreen('s1');
+  saveState();
+}
+
+// === SCROLL TO TOP ===
+(function() {
+  const btn = document.getElementById('scrollToTop');
+  window.addEventListener('scroll', () => {
+    btn.style.display = window.pageYOffset > 300 ? 'flex' : 'none';
+  });
+  btn.addEventListener('click', () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+})();
+
+// === MOBILE NAV ===
+(function() {
+  const hamburger = document.getElementById('v4HamburgerBtn');
+  const close = document.getElementById('v4MobileClose');
+  const menu = document.getElementById('v4-mobile-menu');
+  if (hamburger && menu) {
+    hamburger.addEventListener('click', () => {
+      menu.classList.add('open');
+      hamburger.setAttribute('aria-expanded', 'true');
+      document.body.style.overflow = 'hidden';
+    });
+    if (close) {
+      close.addEventListener('click', () => {
+        menu.classList.remove('open');
+        hamburger.setAttribute('aria-expanded', 'false');
+        document.body.style.overflow = '';
+      });
+    }
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && menu.classList.contains('open')) {
+        menu.classList.remove('open');
+        hamburger.setAttribute('aria-expanded', 'false');
+        document.body.style.overflow = '';
+      }
+    });
+  }
+})();
+
+// === CONSENT EXPANDER ===
+(function() {
+  const expander = document.getElementById('consent-expander');
+  const full = document.getElementById('consent-full');
+  if (expander && full) {
+    expander.addEventListener('click', () => {
+      full.style.display = full.style.display === 'none' ? 'block' : 'none';
+      expander.textContent = full.style.display === 'none' ? 'View full consent' : 'Hide full consent';
+    });
+  }
+})();
+
+// === INIT ===
+window.addEventListener('DOMContentLoaded', () => {
+  loadState();
+  populateDOB();
+  updateUI();
+  if (S.income > 0) {
+    // User has data from session storage  -  restore UI
+  }
+});
+</script>
+</body>
+</html>
