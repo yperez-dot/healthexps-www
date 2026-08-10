@@ -806,7 +806,7 @@ nav.calc-breadcrumb [aria-current="page"] {
   <div class="step-q" id="s1-q">What's your household income before taxes?</div>
   <div class="step-sub" id="s1-sub">An estimate is fine  -  this is the income your family would need to replace.</div>
   <div class="opts" id="s1-opts">
-    <div class="opt" onclick="selectIncome(this, 30000)"><span>Under $40,000</span><span class="opt-chk">✔</span></div>
+    <div class="opt" onclick="selectIncome(this, 30000)"><span>Menos de $40,000</span><span class="opt-chk">✔</span></div>
     <div class="opt" onclick="selectIncome(this, 57500)"><span>$40,000 - $75,000</span><span class="opt-chk">✔</span></div>
     <div class="opt" onclick="selectIncome(this, 100000)"><span>$75,000 - $125,000</span><span class="opt-chk">✔</span></div>
     <div class="opt" onclick="selectIncome(this, 162500)"><span>$125,000 - $200,000</span><span class="opt-chk">✔</span></div>
@@ -816,13 +816,13 @@ nav.calc-breadcrumb [aria-current="page"] {
   <div class="field hidden" id="custom-income-field">
     <label>Annual Income</label>
     <input type="number" id="custom-income" placeholder="Enter amount" min="0" max="9999999" oninput="updateCustomIncome()">
-    <button class="cont-btn on" onclick="proceedFromIncome()" style="margin-top: 12px;">Continue</button>
+    <button class="cont-btn on" onclick="proceedFromIncome()" style="margin-top: 12px;">Continuar</button>
   </div>
 </div>
 
 <!-- Q2: Dependents -->
 <div class="screen" id="s2">
-  <button class="back-btn" onclick="goScreen('s1')">Back</button>
+  <button class="back-btn" onclick="goScreen('s1')">← Volver</button>
   <div class="step-q" id="s2-q">Who would be financially affected if your income stopped?</div>
   <div class="step-sub" id="s2-sub">Select all that apply.</div>
   <div class="opts" id="s2-opts">
@@ -832,17 +832,17 @@ nav.calc-breadcrumb [aria-current="page"] {
     <div class="opt" onclick="toggleDependent(this, 'business')"><span id="dep-business">A business or business partner</span><span class="opt-chk">✔</span></div>
     <div class="opt" onclick="toggleDependent(this, 'none')"><span id="dep-none">Nobody depends on me financially</span><span class="opt-chk">✔</span></div>
   </div>
-  <button class="cont-btn off" id="s2-btn" onclick="proceedFromDependents()"><span id="s2-btn-lbl">Continue</span></button>
+  <button class="cont-btn off" id="s2-btn" onclick="proceedFromDependents()"><span id="s2-btn-lbl">Continuar</span></button>
 </div>
 
 <!-- Q3: Children Detail (Conditional) -->
 <div class="screen" id="s3">
-  <button class="back-btn" onclick="goScreen('s2')">Back</button>
+  <button class="back-btn" onclick="goScreen('s2')">← Volver</button>
   <div class="step-q" id="s3-q">How many children, and how old is the youngest?</div>
   <div class="step-sub" id="s3-sub">Under 21 and financially dependent on you.</div>
   
   <div style="margin-bottom: 20px;">
-    <div style="font-weight: 600; font-size: 14px; margin-bottom: 10px;">Number of children</div>
+    <div style="font-weight: 600; font-size: 14px; margin-bottom: 10px;">Número de hijos</div>
     <div class="opts-2" id="s3-count-opts">
       <div class="opt" onclick="selectChildCount(this, 1)"><span>1</span><span class="opt-chk">✔</span></div>
       <div class="opt" onclick="selectChildCount(this, 2)"><span>2</span><span class="opt-chk">✔</span></div>
@@ -852,60 +852,60 @@ nav.calc-breadcrumb [aria-current="page"] {
   </div>
 
   <div>
-    <div style="font-weight: 600; font-size: 14px; margin-bottom: 10px;">Youngest child's age</div>
+    <div style="font-weight: 600; font-size: 14px; margin-bottom: 10px;">Edad del hijo menor</div>
     <div class="opts-2" id="s3-age-opts">
-      <div class="opt" onclick="selectChildAge(this, 3)"><span>Under 5</span><span class="opt-chk">✔</span></div>
-      <div class="opt" onclick="selectChildAge(this, 8)"><span>5-10</span><span class="opt-chk">✔</span></div>
-      <div class="opt" onclick="selectChildAge(this, 14)"><span>11-16</span><span class="opt-chk">✔</span></div>
-      <div class="opt" onclick="selectChildAge(this, 19)"><span>17-21</span><span class="opt-chk">✔</span></div>
+      <div class="opt" onclick="selectChildAge(this, 3)"><span>Menos de 5 años</span><span class="opt-chk">✔</span></div>
+      <div class="opt" onclick="selectChildAge(this, 8)"><span>5–10 años</span><span class="opt-chk">✔</span></div>
+      <div class="opt" onclick="selectChildAge(this, 14)"><span>11–16 años</span><span class="opt-chk">✔</span></div>
+      <div class="opt" onclick="selectChildAge(this, 19)"><span>17–21 años</span><span class="opt-chk">✔</span></div>
     </div>
   </div>
   
-  <button class="cont-btn off" id="s3-btn" onclick="goScreen('s4')"><span id="s3-btn-lbl">Continue</span></button>
+  <button class="cont-btn off" id="s3-btn" onclick="goScreen('s4')"><span id="s3-btn-lbl">Continuar</span></button>
 </div>
 
 <!-- Q4: Debts -->
 <div class="screen" id="s4">
-  <button class="back-btn" onclick="goScreen('s3')">Back</button>
+  <button class="back-btn" onclick="goScreen('s3')">← Volver</button>
   <div class="step-q" id="s4-q">How much debt would you leave behind?</div>
   <div class="step-sub" id="s4-sub">Mortgage, car loans, credit cards, student loans. Enter 0 if you rent and carry no debt.</div>
   
   <div style="margin-bottom: 20px;">
     <div style="font-weight: 600; font-size: 14px; margin-bottom: 10px;" id="s4-mort-lbl">Mortgage balance</div>
     <div class="opts" id="s4-mort-opts">
-      <div class="opt" onclick="selectMortgage(this, 0)"><span>0 / I rent</span><span class="opt-chk">✔</span></div>
-      <div class="opt" onclick="selectMortgage(this, 100000)"><span>Under $150K</span><span class="opt-chk">✔</span></div>
+      <div class="opt" onclick="selectMortgage(this, 0)"><span>0 / Rento</span><span class="opt-chk">✔</span></div>
+      <div class="opt" onclick="selectMortgage(this, 100000)"><span>Menos de $150K</span><span class="opt-chk">✔</span></div>
       <div class="opt" onclick="selectMortgage(this, 225000)"><span>$150K-$300K</span><span class="opt-chk">✔</span></div>
       <div class="opt" onclick="selectMortgage(this, 400000)"><span>$300K-$500K</span><span class="opt-chk">✔</span></div>
-      <div class="opt" onclick="selectMortgage(this, 650000)"><span>Over $500K</span><span class="opt-chk">✔</span></div>
+      <div class="opt" onclick="selectMortgage(this, 650000)"><span>Más de $500K</span><span class="opt-chk">✔</span></div>
     </div>
   </div>
 
   <div>
     <div style="font-weight: 600; font-size: 14px; margin-bottom: 10px;" id="s4-other-lbl">Other debt (auto, credit cards, student loans)</div>
     <div class="opts" id="s4-other-opts">
-      <div class="opt" onclick="selectOtherDebt(this, 0)"><span>None</span><span class="opt-chk">✔</span></div>
-      <div class="opt" onclick="selectOtherDebt(this, 12500)"><span>Under $25K</span><span class="opt-chk">✔</span></div>
+      <div class="opt" onclick="selectOtherDebt(this, 0)"><span>Ninguno</span><span class="opt-chk">✔</span></div>
+      <div class="opt" onclick="selectOtherDebt(this, 12500)"><span>Menos de $25K</span><span class="opt-chk">✔</span></div>
       <div class="opt" onclick="selectOtherDebt(this, 50000)"><span>$25K-$75K</span><span class="opt-chk">✔</span></div>
-      <div class="opt" onclick="selectOtherDebt(this, 120000)"><span>Over $75K</span><span class="opt-chk">✔</span></div>
+      <div class="opt" onclick="selectOtherDebt(this, 120000)"><span>Más de $75K</span><span class="opt-chk">✔</span></div>
     </div>
   </div>
 
-  <button class="cont-btn off" id="s4-btn" onclick="goScreen('s5')"><span id="s4-btn-lbl">Continue</span></button>
+  <button class="cont-btn off" id="s4-btn" onclick="goScreen('s5')"><span id="s4-btn-lbl">Continuar</span></button>
 </div>
 
 <!-- Q5: Safety Net -->
 <div class="screen" id="s5">
-  <button class="back-btn" onclick="goScreen('s4')">Back</button>
+  <button class="back-btn" onclick="goScreen('s4')">← Volver</button>
   <div class="step-q" id="s5-q">What safety net is already in place?</div>
   <div class="step-sub" id="s5-sub">We subtract this so we don't sell you coverage you don't need.</div>
 
   <div style="margin-bottom: 20px;">
     <div style="font-weight: 600; font-size: 14px; margin-bottom: 10px;" id="s5-cov-lbl">Life insurance you already have, including through work</div>
     <div class="opts" id="s5-cov-opts">
-      <div class="opt" onclick="selectExistingCov(this, 0)"><span>None</span><span class="opt-chk">✔</span></div>
-      <div class="opt" onclick="selectExistingCov(this, -1)"><span>About 1x my salary</span><span class="opt-chk">✔</span></div>
-      <div class="opt" onclick="selectExistingCov(this, -2)"><span>About 2x my salary</span><span class="opt-chk">✔</span></div>
+      <div class="opt" onclick="selectExistingCov(this, 0)"><span>Ninguna</span><span class="opt-chk">✔</span></div>
+      <div class="opt" onclick="selectExistingCov(this, -1)"><span>Aprox. 1x mi ingreso anual</span><span class="opt-chk">✔</span></div>
+      <div class="opt" onclick="selectExistingCov(this, -2)"><span>Aprox. 2x mi ingreso anual</span><span class="opt-chk">✔</span></div>
       <div class="opt" onclick="selectExistingCov(this, 250000)"><span>$250K or more</span><span class="opt-chk">✔</span></div>
       <div class="opt" onclick="selectExistingCov(this, 'unknown')"><span id="not-sure">Not sure</span><span class="opt-chk">✔</span></div>
     </div>
@@ -914,10 +914,10 @@ nav.calc-breadcrumb [aria-current="page"] {
   <div>
     <div style="font-weight: 600; font-size: 14px; margin-bottom: 10px;" id="s5-sav-lbl">Savings and investments you could access</div>
     <div class="opts" id="s5-sav-opts">
-      <div class="opt" onclick="selectSavings(this, 5000)"><span>Under $10K</span><span class="opt-chk">✔</span></div>
-      <div class="opt" onclick="selectSavings(this, 30000)"><span>$10K-$50K</span><span class="opt-chk">✔</span></div>
-      <div class="opt" onclick="selectSavings(this, 100000)"><span>$50K-$150K</span><span class="opt-chk">✔</span></div>
-      <div class="opt" onclick="selectSavings(this, 250000)"><span>Over $150K</span><span class="opt-chk">✔</span></div>
+      <div class="opt" onclick="selectSavings(this, 5000)"><span>Menos de $10K</span><span class="opt-chk">✔</span></div>
+      <div class="opt" onclick="selectSavings(this, 30000)"><span>$10K–$50K</span><span class="opt-chk">✔</span></div>
+      <div class="opt" onclick="selectSavings(this, 100000)"><span>$50K–$150K</span><span class="opt-chk">✔</span></div>
+      <div class="opt" onclick="selectSavings(this, 250000)"><span>Más de $150K</span><span class="opt-chk">✔</span></div>
     </div>
   </div>
 
@@ -926,7 +926,7 @@ nav.calc-breadcrumb [aria-current="page"] {
 
 <!-- TOOL A RESULT -->
 <div class="screen" id="sResult">
-  <button class="back-btn" onclick="goScreen('s5')">Back</button>
+  <button class="back-btn" onclick="goScreen('s5')">← Volver</button>
   
   <div class="result-number" id="result-number">0</div>
   <div class="result-label" id="result-label">in coverage</div>
@@ -944,7 +944,7 @@ nav.calc-breadcrumb [aria-current="page"] {
       <tr id="breakdown-savings-row" style="display: none;"><td id="breakdown-savings-label">Less: half of your savings</td><td id="breakdown-savings-val">0</td></tr>
       <tr style="background: var(--pl);"><td id="breakdown-net-label">Your coverage need</td><td id="breakdown-net-val">0</td></tr>
     </table>
-    <div style="font-size: 13px; color: var(--gt); line-height: 1.6; margin-top: 12px;" id="savings-note">We only count half your savings  -  your family should keep an emergency cushion, not drain the account.</div>
+    <div style="font-size: 13px; color: var(--gt); line-height: 1.6; margin-top: 12px;" id="savings-note">Solo contamos la mitad de sus ahorros — su familia debe mantener un colchón de emergencia, no agotar la cuenta.</div>
   </div>
 
   <!-- Advisory: shown when recommended > income × 20x (underwriting signal, not a hard cap) -->
@@ -960,13 +960,13 @@ nav.calc-breadcrumb [aria-current="page"] {
   <div id="email-section" style="margin-top: 16px;">
     <div style="font-size: 13px; color: var(--gt); margin-bottom: 10px;" id="email-prompt">Email me this result:</div>
     <div class="email-capture">
-      <input type="email" id="email-input" placeholder="Your email" style="margin-bottom: 0;">
-      <button onclick="emailResult()" class="cont-btn on" style="width: auto; padding: 14px 16px; margin: 0;">Send</button>
+      <input type="email" id="email-input" placeholder="Correo electrónico" style="margin-bottom: 0;">
+      <button onclick="emailResult()" class="cont-btn on" style="width: auto; padding: 14px 16px; margin: 0;">Enviar</button>
     </div>
   </div>
 
   <div class="restart">
-    <a onclick="restart()" id="restart-link">Change my answers</a>
+    <a onclick="restart()" id="restart-link">Cambiar mis respuestas</a>
   </div>
 
   <div class="disc" id="result-disc">Estimated coverage need for illustrative purposes only. Actual quotes vary by carrier, health history, and coverage amount. Contact a licensed agent for your exact quote.</div>
@@ -974,19 +974,19 @@ nav.calc-breadcrumb [aria-current="page"] {
 
 <!-- FINAL EXPENSE PATH -->
 <div class="screen" id="sFEX">
-  <button class="back-btn" onclick="goScreen('s5')">Back</button>
+  <button class="back-btn" onclick="goScreen('s5')">← Volver</button>
   
   <div style="text-align: center; margin-bottom: 32px;">
     <div style="font-size: 20px; font-weight: 700; color: var(--purple); margin-bottom: 16px;" id="fex-title">Final Expense Insurance</div>
     <div style="font-size: 16px; line-height: 1.6; color: var(--black); margin-bottom: 20px;" id="fex-msg">Based on what you shared, a guaranteed-acceptance final expense policy may be your best fit.</div>
-    <div style="font-size: 14px; color: var(--gt); line-height: 1.6;">No medical exam. No health questions. Coverage from $5,000 to $50,000, fixed premiums that never increase.</div>
+    <div style="font-size: 14px; color: var(--gt); line-height: 1.6;">Sin examen médico. Sin preguntas de salud. Cobertura de $5,000 a $50,000, primas fijas que nunca aumentan.</div>
   </div>
 
-  <a href="https://wa.me/13054646888" onclick="gtag('event','whatsapp_click',{'page':window.location.pathname})" class="btn-primary" id="fex-wa">Talk to a licensed agent</a>
-  <button class="btn-call" onclick="window.location.href='tel:18003806821'" id="fex-call">Call 1-800-380-6821</button>
+  <a href="https://wa.me/13054646888" onclick="gtag('event','whatsapp_click',{'page':window.location.pathname})" class="btn-primary" id="fex-wa">Hablar con un agente licenciado</a>
+  <button class="btn-call" onclick="window.location.href='tel:18003806821'" id="fex-call">Llamar 1-800-380-6821</button>
 
   <div class="restart" style="margin-top: 24px;">
-    <a onclick="restart()" id="fex-restart">Change my answers</a>
+    <a onclick="restart()" id="fex-restart">Cambiar mis respuestas</a>
   </div>
 </div>
 
@@ -994,7 +994,7 @@ nav.calc-breadcrumb [aria-current="page"] {
 
 <!-- Q6: Date of Birth -->
 <div class="screen" id="s6">
-  <button class="back-btn" onclick="goScreen('sResult')">Back</button>
+  <button class="back-btn" onclick="goScreen('sResult')">← Volver</button>
   <div class="step-q" id="s6-q">When were you born?</div>
   <div class="step-sub" id="s6-sub">This helps us calculate your rate.</div>
 
@@ -1002,65 +1002,65 @@ nav.calc-breadcrumb [aria-current="page"] {
     <div class="field" style="margin-bottom: 0;">
       <label id="dob-month-lbl">Month</label>
       <select id="dob-month" onchange="checkDOB()">
-        <option value="">Select</option>
-        <option value="1">January</option>
-        <option value="2">February</option>
-        <option value="3">March</option>
-        <option value="4">April</option>
-        <option value="5">May</option>
-        <option value="6">June</option>
-        <option value="7">July</option>
-        <option value="8">August</option>
-        <option value="9">September</option>
-        <option value="10">October</option>
-        <option value="11">November</option>
-        <option value="12">December</option>
+        <option value="">Seleccionar</option>
+        <option value="1">Enero</option>
+        <option value="2">Febrero</option>
+        <option value="3">Marzo</option>
+        <option value="4">Abril</option>
+        <option value="5">Mayo</option>
+        <option value="6">Junio</option>
+        <option value="7">Julio</option>
+        <option value="8">Agosto</option>
+        <option value="9">Septiembre</option>
+        <option value="10">Octubre</option>
+        <option value="11">Noviembre</option>
+        <option value="12">Diciembre</option>
       </select>
     </div>
     <div class="field" style="margin-bottom: 0;">
       <label id="dob-day-lbl">Day</label>
       <select id="dob-day" onchange="checkDOB()">
-        <option value="">Select</option>
+        <option value="">Seleccionar</option>
       </select>
     </div>
     <div class="field" style="margin-bottom: 0;">
       <label id="dob-year-lbl">Year</label>
       <select id="dob-year" onchange="checkDOB()">
-        <option value="">Select</option>
+        <option value="">Seleccionar</option>
       </select>
     </div>
   </div>
 
-  <button class="cont-btn off" id="s6-btn" onclick="goScreen('s7')"><span id="s6-btn-lbl">Continue</span></button>
+  <button class="cont-btn off" id="s6-btn" onclick="goScreen('s7')"><span id="s6-btn-lbl">Continuar</span></button>
 </div>
 
 <!-- Q7: Sex -->
 <div class="screen" id="s7">
-  <button class="back-btn" onclick="goScreen('s6')">Back</button>
+  <button class="back-btn" onclick="goScreen('s6')">← Volver</button>
   <div class="step-q" id="s7-q">Sex as listed on your insurance application</div>
   <div class="step-sub" id="s7-sub">Carriers use this to set rates. It's required on every application.</div>
   <div class="opts" id="s7-opts">
-    <div class="opt" onclick="selectSex(this, 'F')"><span id="sex-f">Female</span><span class="opt-chk">✔</span></div>
-    <div class="opt" onclick="selectSex(this, 'M')"><span id="sex-m">Male</span><span class="opt-chk">✔</span></div>
+    <div class="opt" onclick="selectSex(this, 'F')"><span id="sex-f">Femenino</span><span class="opt-chk">✔</span></div>
+    <div class="opt" onclick="selectSex(this, 'M')"><span id="sex-m">Masculino</span><span class="opt-chk">✔</span></div>
   </div>
-  <button class="cont-btn off" id="s7-btn" onclick="goScreen('s8')"><span id="s7-btn-lbl">Continue</span></button>
+  <button class="cont-btn off" id="s7-btn" onclick="goScreen('s8')"><span id="s7-btn-lbl">Continuar</span></button>
 </div>
 
 <!-- Q8: Tobacco -->
 <div class="screen" id="s8">
-  <button class="back-btn" onclick="goScreen('s7')">Back</button>
+  <button class="back-btn" onclick="goScreen('s7')">← Volver</button>
   <div class="step-q" id="s8-q">Have you used any tobacco or nicotine in the last 12 months?</div>
   <div class="step-sub" id="s8-sub">Cigarettes, cigars, vaping, chew, patches, or gum.</div>
   <div class="opts" id="s8-opts">
     <div class="opt" onclick="selectTobacco(this, false)"><span id="tob-no">No</span><span class="opt-chk">✔</span></div>
     <div class="opt" onclick="selectTobacco(this, true)"><span id="tob-yes">Yes</span><span class="opt-chk">✔</span></div>
   </div>
-  <button class="cont-btn off" id="s8-btn" onclick="goScreen('s9')"><span id="s8-btn-lbl">Continue</span></button>
+  <button class="cont-btn off" id="s8-btn" onclick="goScreen('s9')"><span id="s8-btn-lbl">Continuar</span></button>
 </div>
 
 <!-- Q9: Health -->
 <div class="screen" id="s9">
-  <button class="back-btn" onclick="goScreen('s8')">Back</button>
+  <button class="back-btn" onclick="goScreen('s8')">← Volver</button>
   <div class="step-q" id="s9-q">In the last 5 years, have you been treated for any of these?</div>
   <div class="step-sub" id="s9-sub">Check all that apply. Being honest gets you an accurate number.</div>
   <div class="opts" id="s9-opts">
@@ -1072,22 +1072,22 @@ nav.calc-breadcrumb [aria-current="page"] {
     <div class="opt" onclick="toggleCondition(this, 'controlled_bp')"><span id="cond-bp">High blood pressure or cholesterol, controlled with medication</span><span class="opt-chk">✔</span></div>
     <div class="opt" onclick="toggleCondition(this, 'none')"><span id="cond-none">None of these</span><span class="opt-chk">✔</span></div>
   </div>
-  <button class="cont-btn off" id="s9-btn" onclick="goScreen('sGate')"><span id="s9-btn-lbl">Continue</span></button>
+  <button class="cont-btn off" id="s9-btn" onclick="goScreen('sGate')"><span id="s9-btn-lbl">Continuar</span></button>
 </div>
 
 <!-- Gate: Contact -->
 <div class="screen" id="sGate">
-  <button class="back-btn" onclick="goScreen('s9')">Back</button>
+  <button class="back-btn" onclick="goScreen('s9')">← Volver</button>
   <div class="step-q" id="gate-q">Where should we send your rate?</div>
   <div class="step-sub" id="gate-sub">A licensed Florida agent will confirm your exact number with 14+ carriers. No obligation, no spam.</div>
 
   <div class="field">
     <label id="gate-fname-lbl">First Name</label>
-    <input type="text" id="gate-fname" placeholder="First name" oninput="checkGate()">
+    <input type="text" id="gate-fname" placeholder="Nombre" oninput="checkGate()">
   </div>
   <div class="field">
     <label id="gate-lname-lbl">Last Name</label>
-    <input type="text" id="gate-lname" placeholder="Last name" oninput="checkGate()">
+    <input type="text" id="gate-lname" placeholder="Apellido" oninput="checkGate()">
   </div>
   <div class="field">
     <label id="gate-email-lbl">Email Address</label>
@@ -1099,7 +1099,7 @@ nav.calc-breadcrumb [aria-current="page"] {
   </div>
 
   <div style="margin-bottom: 20px;">
-    <div style="font-weight: 600; font-size: 14px; margin-bottom: 10px;" id="lang-pref-lbl">Preferred language</div>
+    <div style="font-weight: 600; font-size: 14px; margin-bottom: 10px;" id="lang-pref-lbl">Idioma preferido</div>
     <div style="display: flex; gap: 16px;">
       <label style="display: flex; align-items: center; gap: 8px; cursor: pointer;">
         <input type="radio" name="lang-radio" value="en" onchange="setLanguageRadio('en')"> <span id="lang-en">English</span>
@@ -1122,12 +1122,12 @@ nav.calc-breadcrumb [aria-current="page"] {
     </div>
   </div>
 
-  <button class="cont-btn off" id="gate-btn" onclick="submitGate()"><span id="gate-btn-lbl">Show My Rate</span></button>
+  <button class="cont-btn off" id="gate-btn" onclick="submitGate()"><span id="gate-btn-lbl">Ver Mi Tarifa</span></button>
 </div>
 
 <!-- Rate Result -->
 <div class="screen" id="sRate">
-  <button class="back-btn" onclick="goScreen('sGate')">Back</button>
+  <button class="back-btn" onclick="goScreen('sGate')">← Volver</button>
   
   <div style="text-align: center; margin-bottom: 32px;">
     <div style="font-size: 18px; color: var(--gt); margin-bottom: 12px;" id="rate-headline">Your estimated monthly cost</div>
@@ -1136,20 +1136,20 @@ nav.calc-breadcrumb [aria-current="page"] {
     <div style="font-size: 13px; color: #aaa; line-height: 1.7; margin-bottom: 20px;" id="rate-disc">Estimated monthly premiums for illustrative purposes only. Actual rates vary by carrier, health history, and coverage amount. No rate is guaranteed until a policy is issued. Contact a licensed agent for your exact quote.</div>
   </div>
 
-  <button class="btn-call" onclick="window.location.href='tel:18003806821'" id="rate-call">Call 1-800-380-6821</button>
-  <a href="https://wa.me/13054646888" onclick="gtag('event','whatsapp_click',{'page':window.location.pathname})" class="btn-wa" id="rate-wa">WhatsApp us</a>
+  <button class="btn-call" onclick="window.location.href='tel:18003806821'" id="rate-call">Llamar 1-800-380-6821</button>
+  <a href="https://wa.me/13054646888" onclick="gtag('event','whatsapp_click',{'page':window.location.pathname})" class="btn-wa" id="rate-wa">WhatsApp</a>
 
   <div class="restart" style="margin-top: 24px;">
-    <a onclick="restart()" id="rate-restart">Start over</a>
+    <a onclick="restart()" id="rate-restart">Empezar de nuevo</a>
   </div>
 </div>
 
 </div><!-- /card-wrap -->
 
 <section class="calc-compliance">
-  <p class="calc-disclaimer">Rates shown are estimated monthly premiums for illustrative purposes only. Actual rates vary by carrier, health history, age, and coverage amount. No rate is guaranteed until a policy is issued. Contact a licensed agent for your exact quote.</p>
+  <p class="calc-disclaimer">Las tarifas mostradas son primas mensuales estimadas solo para propósitos ilustrativos. Las tarifas reales varían según asegurador, historial de salud, edad y monto de cobertura. Ninguna tarifa se garantiza hasta que se emita una póliza. Contacte un agente licenciado para su cotización exacta.</p>
   <p class="calc-license">The Health Experts Insurance · Florida License #L110034 · 1695 NW 110 Ave, Ste 224, Doral, FL 33172 · Not affiliated with any government program or federal Medicare program.</p>
-  <p class="calc-help">Questions? Call <a href="tel:18003806821">1-800-380-6821</a> or <a href="https://wa.me/13054646888">message us on WhatsApp</a>. Se habla espa&ntilde;ol.</p>
+  <p class="calc-help">¿Preguntas? Llame al <a href="tel:18003806821">1-800-380-6821</a> o <a href="https://wa.me/13054646888">escríbanos por WhatsApp</a>.</p>
 </section>
 
 <!-- FOOTER -->
@@ -1200,10 +1200,10 @@ nav.calc-breadcrumb [aria-current="page"] {
 
 </div><!-- /wrapper -->
 
-<button id="scrollToTop" aria-label="Back to top"></button>
+<button id="scrollToTop" aria-label="Volver arriba"></button>
 
 <div class="sticky-cta" role="complementary">
-  <a href="tel:18003806821" class="sticky-cta__item sticky-cta__item--call">Call 1-800-380-6821</a>
+  <a href="tel:18003806821" class="sticky-cta__item sticky-cta__item--call">Llamar 1-800-380-6821</a>
   <a href="https://wa.me/13054646888" class="sticky-cta__item sticky-cta__item--wa">WhatsApp</a>
 </div>
 
@@ -1906,7 +1906,7 @@ async function emailResult() {
 function populateDOB() {
   const now = new Date();
   const yearSelect = document.getElementById('dob-year');
-  yearSelect.innerHTML = '<option value="">Select</option>';
+  yearSelect.innerHTML = '<option value="">Seleccionar</option>';
   for (let y = now.getFullYear() - 18; y >= now.getFullYear() - 80; y--) {
     const opt = document.createElement('option');
     opt.value = y;
@@ -1915,7 +1915,7 @@ function populateDOB() {
   }
 
   const daySelect = document.getElementById('dob-day');
-  daySelect.innerHTML = '<option value="">Select</option>';
+  daySelect.innerHTML = '<option value="">Seleccionar</option>';
   for (let d = 1; d <= 31; d++) {
     const opt = document.createElement('option');
     opt.value = d;
