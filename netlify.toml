@@ -308,12 +308,6 @@
   force = true
 
 [[redirects]]
-  from = "/independent-healthcare-agents"
-  to = "/independent-health-insurance-broker"
-  status = 301
-  force = true
-
-[[redirects]]
   from = "/faq/mapd-termination"
   to = "/faq"
   status = 301
@@ -322,12 +316,6 @@
 [[redirects]]
   from = "/our-services"
   to = "/"
-  status = 301
-  force = true
-
-[[redirects]]
-  from = "/brokerservices"
-  to = "/medical-insurance-broker"
   status = 301
   force = true
 
