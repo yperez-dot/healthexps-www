@@ -1260,6 +1260,7 @@ nav.calc-breadcrumb [aria-current="page"] {
 window.LIFE_RATES = {
   "term20": {
     "F": {
+      "18-24": {"preferred_plus": 0.0853, "preferred": 0.0940, "standard": 0.1044, "graded": 0.1288},
       "25-29": {"preferred_plus": 0.4349, "preferred": 0.4887, "standard": 0.6744, "graded": 0.9441},
       "30-34": {"preferred_plus": 0.4409, "preferred": 0.5275, "standard": 0.7279, "graded": 1.0190},
       "35-39": {"preferred_plus": 0.4926, "preferred": 0.6207, "standard": 0.8566, "graded": 1.1992},
@@ -1270,6 +1271,7 @@ window.LIFE_RATES = {
       "60-64": {"preferred_plus": 4.0091, "preferred": 5.3638, "standard": 7.4020, "graded": 10.3628}
     },
     "M": {
+      "18-24": {"preferred_plus": 0.0974, "preferred": 0.1044, "standard": 0.1157, "graded": 0.1436},
       "25-29": {"preferred_plus": 0.5218, "preferred": 0.6185, "standard": 0.8535, "graded": 1.1949},
       "30-34": {"preferred_plus": 0.5151, "preferred": 0.6476, "standard": 0.8937, "graded": 1.2511},
       "35-39": {"preferred_plus": 0.5549, "preferred": 0.7211, "standard": 0.9951, "graded": 1.3932},
@@ -2180,7 +2182,8 @@ function calcRate() {
   
   // Get age band
   let band = null;
-  if (S.age >= 25 && S.age < 30) band = '25-29';
+  if (S.age >= 18 && S.age < 25) band = '18-24';
+  else if (S.age >= 25 && S.age < 30) band = '25-29';
   else if (S.age >= 30 && S.age < 35) band = '30-34';
   else if (S.age >= 35 && S.age < 40) band = '35-39';
   else if (S.age >= 40 && S.age < 45) band = '40-44';
