@@ -1304,6 +1304,7 @@ const S = {
   coverage_set: false,
   savings_set: false,
   editReturn: false,
+  from: '',
   // Computed
   recommended: 0,
   gross_need: 0,
@@ -1422,7 +1423,21 @@ const STRINGS = {
     rateHeadline: "Your estimated monthly cost",
     rateDisc: "Estimated monthly premiums for illustrative purposes only. Actual rates vary by carrier, health history, and coverage amount. No rate is guaranteed until a policy is issued. Contact a licensed agent for your exact quote.",
     progOf: "Step",
-    progOfOf: "of"
+    progOfOf: "of",
+    introHeadline: "Life insurance shouldn't feel this confusing.",
+    introHeadlines: {
+      'family':        "Life insurance shouldn't feel this confusing.",
+      'self-employed': "Since you're building your own safety net, let's find the right amount.",
+      'turning65':     "Since you're reviewing coverage around Medicare age, let's see what makes sense now.",
+      'legacy':        "Since you're thinking about a legacy, let's find the right amount to leave behind.",
+      'business':      "Since you're protecting a business, let's start with your numbers."
+    },
+    introBody: "Nobody wants to think about this \u2014 and the industry doesn't make it easier. We built this tool to make it simple: a few quick questions, plain English, no jargon. You'll see roughly what you need and what it costs before you ever talk to anyone.",
+    introCheck1: "Takes about 2 minutes",
+    introCheck2: "Plain-language questions, no insurance-speak",
+    introCheck3: "See your estimate first \u2014 no pressure, no obligation",
+    introBtnLbl: "Start My Free Estimate \u2192",
+    rateExactCta: "Get My Exact Quote \u2192"
   },
   es: {
     heroTitle: "Calculadora de Seguro de Vida",
@@ -1495,6 +1510,13 @@ const STRINGS = {
     controlledBp: "Presión arterial alta o colesterol alto, controlado con medicación",
     none: "Ninguno de estos",
     introHeadline: "El seguro de vida no tiene que ser tan complicado.",
+    introHeadlines: {
+      'family':        "El seguro de vida no tiene que ser tan complicado.",
+      'self-employed': "Como estás construyendo tu propia red de seguridad, encontremos la cantidad correcta.",
+      'turning65':     "Como estás revisando tu cobertura cerca de la edad de Medicare, veamos qué tiene sentido ahora.",
+      'legacy':        "Como estás pensando en dejar un legado, encontremos la cantidad correcta para dejar atrás.",
+      'business':      "Como estás protegiendo un negocio, comencemos con tus números."
+    },
     introBody: "Nadie quiere pensar en esto — y la industria no lo facilita. Creamos esta herramienta para simplificarlo: unas preguntas rápidas, lenguaje claro, sin tecnicismos. Verá aproximadamente lo que necesita y lo que cuesta antes de hablar con alguien.",
     introCheck1: "Toma unos 2 minutos",
     introCheck2: "Preguntas en lenguaje sencillo, sin jerga de seguros",
@@ -2619,9 +2641,29 @@ function restart() {
 
 // === INIT ===
 window.addEventListener('DOMContentLoaded', () => {
+  // Read ?from= param for intro personalization
+  var fromParam = new URLSearchParams(window.location.search).get('from') || '';
+  if (fromParam) { S.from = fromParam; saveState(); }
+
   loadState();
   populateDOB();
   updateUI();
+
+  // Apply personalized intro headline
+  if (S.from) {
+    var lang = S.language || 'en';
+    var t = STRINGS[lang] || STRINGS['en'];
+    var headlines = t.introHeadlines || {};
+    var hl = headlines[S.from] || (STRINGS['en'].introHeadlines || {})[S.from] || t.introHeadline;
+    var introH = document.getElementById('intro-headline');
+    if (introH && hl) introH.textContent = hl;
+    // Business note
+    if (S.from === 'business') {
+      var introB = document.getElementById('intro-body');
+      if (introB) introB.textContent += (lang === 'es' ? ' Nota: si esto es para cobertura de persona clave o acuerdo de compra-venta, menciónaselo a tu agente.' : ' Note: if this is for key-person or buy-sell coverage, mention that to your agent — it may involve different amounts.');
+    }
+  }
+
   if (S.income > 0) {
     // User has data from session storage  -  restore UI
   }
