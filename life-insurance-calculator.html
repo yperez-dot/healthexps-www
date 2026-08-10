@@ -803,10 +803,6 @@ nav.calc-breadcrumb [aria-current="page"] {
 <div class="screen active" id="s1">
   <div class="step-q" id="s1-q">What's your household income before taxes?</div>
   <div class="step-sub" id="s1-sub">An estimate is fine  -  this is the income your family would need to replace.</div>
-  <div class="field" id="zip-field" style="margin-bottom:16px;">
-    <label id="zip-lbl" style="display:block;font-size:13.5px;font-weight:700;text-transform:uppercase;letter-spacing:.05em;color:#555;margin-bottom:8px;">ZIP Code <span id="zip-sub" style="font-weight:400;text-transform:none;font-size:12px;color:#9ca3af;">(optional)</span></label>
-    <input type="text" id="zip-input" inputmode="numeric" maxlength="5" placeholder="e.g. 33172" style="width:160px;padding:10px 14px;border:2px solid #e8e0f4;border-radius:10px;font-size:16px;color:var(--black);outline:none;font-family:var(--font);" oninput="S.zip=this.value.trim();saveState();">
-  </div>
   <div class="opts" id="s1-opts">
     <div class="opt" onclick="selectIncome(this, 30000)"><span>Under $40,000</span><span class="opt-chk">✔</span></div>
     <div class="opt" onclick="selectIncome(this, 57500)"><span>$40,000 - $75,000</span><span class="opt-chk">✔</span></div>
@@ -818,13 +814,26 @@ nav.calc-breadcrumb [aria-current="page"] {
   <div class="field hidden" id="custom-income-field">
     <label>Annual Income</label>
     <input type="number" id="custom-income" placeholder="Enter amount" min="0" max="9999999" oninput="updateCustomIncome()">
-    <button class="cont-btn on" onclick="proceedFromIncome()" style="margin-top: 12px;">Continue</button>
+    <button class="cont-btn on" onclick="proceedFromIncome()" style="margin-top: 12px;">Continuar</button>
   </div>
+  <button class="cont-btn off" id="s1-btn" onclick="proceedFromIncome()"><span id="s1-btn-lbl">Continue</span></button>
+</div>
+
+<!-- ZIP Code screen -->
+<div class="screen" id="sZip">
+  <button class="back-btn" onclick="goScreen('s1')">Back</button>
+  <div class="step-q" id="zip-q">What's your ZIP code?</div>
+  <div class="step-sub" id="zip-sub">We use this to route you to the right carriers in your area.</div>
+  <div class="field">
+    <label id="zip-lbl">ZIP Code</label>
+    <input type="text" id="zip-input" inputmode="numeric" maxlength="5" placeholder="e.g. 33172" oninput="checkZip()">
+  </div>
+  <button class="cont-btn off" id="zip-btn" onclick="goScreen('s2')"><span id="zip-btn-lbl">Continue</span></button>
 </div>
 
 <!-- Q2: Dependents -->
 <div class="screen" id="s2">
-  <button class="back-btn" onclick="goScreen('s1')">Back</button>
+  <button class="back-btn" onclick="goScreen('sZip')">Back</button>
   <div class="step-q" id="s2-q">Who would be financially affected if your income stopped?</div>
   <div class="step-sub" id="s2-sub">Select all that apply.</div>
   <div class="opts" id="s2-opts">
@@ -1178,8 +1187,6 @@ nav.calc-breadcrumb [aria-current="page"] {
   </div>
 
   <button class="btn-primary" onclick="goScreen('sGate')" id="rate-exact-btn" style="margin-bottom:16px;"><span id="rate-exact-cta">Get My Exact Quote →</span></button>
-  <button class="btn-call" onclick="window.location.href='tel:18003806821'" id="rate-call">Call 1-800-380-6821</button>
-  <a href="https://wa.me/13054646888" onclick="gtag('event','whatsapp_click',{'page':window.location.pathname})" class="btn-wa" id="rate-wa">WhatsApp us</a>
 
   <div class="restart" style="margin-top: 24px;">
     <a onclick="restart()" id="rate-restart">Start over</a>
@@ -1614,24 +1621,34 @@ function goScreen(id) {
   document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
   document.getElementById(id).classList.add('active');
   updateProgress(id);
-  // Scroll to top of calculator (not page top) — prevents jarring nav-jump on mobile
+  // Pre-fill ZIP when navigating back to sZip
+  if (id === 'sZip') {
+    var zinp = document.getElementById('zip-input');
+    if (zinp && S.zip) { zinp.value = S.zip; checkZip(); }
+  }
+  // Pre-fill s1-btn state when navigating back to s1
+  if (id === 's1') {
+    var s1b = document.getElementById('s1-btn');
+    if (s1b) s1b.className = 'cont-btn ' + (S.income > 0 ? 'on' : 'off');
+  }
   var anchor = document.getElementById('prog-wrap') || document.getElementById('calc-container');
   if (anchor) anchor.scrollIntoView({ behavior: 'smooth', block: 'start' });
   saveState();
 }
 
 function updateProgress(screenId) {
-  const toolA = ['s1', 's2', 's3', 's4', 's5'];
+  const toolA = ['s1', 'sZip', 's2', 's3', 's4', 's5'];
   const toolB = ['s6', 's7', 's8', 's9', 'sGate'];
   const inToolA = toolA.includes(screenId);
   const inToolB = toolB.includes(screenId);
-  
+
   let step = 0, total = 5;
-  if (screenId === 's1') { step = 1; total = S.has_children ? 5 : 4; }
-  else if (screenId === 's2') { step = 2; total = S.has_children ? 5 : 4; }
-  else if (screenId === 's3') { step = 3; total = 5; }
-  else if (screenId === 's4') { step = S.has_children ? 4 : 3; total = S.has_children ? 5 : 4; }
-  else if (screenId === 's5') { step = S.has_children ? 5 : 4; total = S.has_children ? 5 : 4; }
+  if (screenId === 's1')   { step = 1; total = S.has_children ? 6 : 5; }
+  else if (screenId === 'sZip') { step = 2; total = S.has_children ? 6 : 5; }
+  else if (screenId === 's2')   { step = 3; total = S.has_children ? 6 : 5; }
+  else if (screenId === 's3')   { step = 4; total = 6; }
+  else if (screenId === 's4')   { step = S.has_children ? 5 : 4; total = S.has_children ? 6 : 5; }
+  else if (screenId === 's5')   { step = S.has_children ? 6 : 5; total = S.has_children ? 6 : 5; }
   else if (screenId === 's6') { step = 1; total = 4; }
   else if (screenId === 's7') { step = 2; total = 4; }
   else if (screenId === 's8') { step = 3; total = 4; }
@@ -1655,7 +1672,7 @@ function selectIncome(el, val) {
   el.classList.add('sel');
   S.income = val;
   document.getElementById('custom-income-field').classList.add('hidden');
-  setTimeout(() => goScreen('s2'), 350);
+  document.getElementById('s1-btn').className = 'cont-btn on';
   saveState();
 }
 
@@ -1663,6 +1680,7 @@ function toggleCustomIncome(el) {
   document.querySelectorAll('#s1-opts .opt').forEach(o => o.classList.remove('sel'));
   el.classList.add('sel');
   document.getElementById('custom-income-field').classList.remove('hidden');
+  document.getElementById('s1-btn').className = 'cont-btn off';
 }
 
 function updateCustomIncome() {
@@ -1672,7 +1690,7 @@ function updateCustomIncome() {
 
 function proceedFromIncome() {
   if (S.income <= 0) return;
-  goScreen('s2');
+  goScreen('sZip');
   saveState();
 }
 
@@ -2009,7 +2027,7 @@ function selectSex(el, val) {
   document.querySelectorAll('#s7-opts .opt').forEach(o => o.classList.remove('sel'));
   el.classList.add('sel');
   S.sex = val;
-  setTimeout(() => goScreen('s8'), 350);
+  document.getElementById('s7-btn').className = 'cont-btn on';
   saveState();
 }
 
@@ -2017,7 +2035,7 @@ function selectTobacco(el, val) {
   document.querySelectorAll('#s8-opts .opt').forEach(o => o.classList.remove('sel'));
   el.classList.add('sel');
   S.tobacco = val;
-  setTimeout(() => goScreen('s9'), 350);
+  document.getElementById('s8-btn').className = 'cont-btn on';
   saveState();
 }
 
@@ -2330,28 +2348,36 @@ function updateCustomSavings() {
 function renderReview() {
   var depLabels = {spouse:'Spouse or partner',children:'Children (under 21)',parents:'Aging parents/relatives',business:'Business or partner',none:'No dependents'};
   var deps = S.dependents.length ? S.dependents.map(function(d){return depLabels[d]||d;}).join(', ') : 'None';
-  var income = S.income ? '$' + S.income.toLocaleString() + '/yr' : '—';
+  var income = S.income ? '$' + S.income.toLocaleString() + '/yr' : '\u2014';
+  var zip = S.zip || '\u2014';
   var mort = S.mortgage_balance ? fmt(S.mortgage_balance) : '$0 (renting)';
   var debt = S.other_debt ? fmt(S.other_debt) : '$0';
   var sav = S.liquid_savings ? fmt(S.liquid_savings) : '$0';
   var cov = S.existing_unknown ? 'Not sure' : (S.existing_coverage ? fmt(S.existing_coverage) : '$0');
-  var rec = S.recommended ? fmt(S.recommended) : '—';
+  var rec = S.recommended ? fmt(S.recommended) : '\u2014';
+
+  // [label, value, editScreen or null]
   var rows = [
-    ['Household income', income],
-    ['Dependents', deps]
+    ['Household income', income, 's1'],
+    ['ZIP code', zip, 'sZip'],
+    ['Dependents', deps, 's2']
   ];
-  if (S.has_children) rows.push(['Youngest child age', 'age ' + S.youngest_child_age]);
+  if (S.has_children) rows.push(['Youngest child age', 'age ' + S.youngest_child_age, 's3']);
   rows = rows.concat([
-    ['Mortgage balance', mort],
-    ['Other debt', debt],
-    ['Existing coverage', cov],
-    ['Liquid savings', sav],
-    ['Coverage estimate', '<strong style="color:var(--purple)">' + rec + '</strong>']
+    ['Mortgage balance', mort, 's4'],
+    ['Other debt', debt, 's4'],
+    ['Existing coverage', cov, 's5'],
+    ['Liquid savings', sav, 's5'],
+    ['Coverage estimate', '<strong style="color:var(--purple)">' + rec + '</strong>', null]
   ]);
+
+  var EDIT_STYLE = 'font-size:12px;color:var(--purple);font-weight:700;cursor:pointer;margin-left:10px;text-decoration:none;';
   var h = '<table style="width:100%;border-collapse:collapse;">';
   rows.forEach(function(r) {
-    h += '<tr><td style="padding:9px 0;border-bottom:1px solid #f0e8fa;color:var(--gt);font-size:14px;">' + r[0] + '</td>';
-    h += '<td style="padding:9px 0;border-bottom:1px solid #f0e8fa;font-weight:600;text-align:right;font-size:14px;">' + r[1] + '</td></tr>';
+    var label = r[0], value = r[1], screen = r[2];
+    var editLink = screen ? ' <a onclick="goScreen(\'' + screen + '\')" style="' + EDIT_STYLE + '">Edit</a>' : '';
+    h += '<tr><td style="padding:9px 0;border-bottom:1px solid #f0e8fa;color:var(--gt);font-size:14px;">' + label + '</td>';
+    h += '<td style="padding:9px 0;border-bottom:1px solid #f0e8fa;font-weight:600;text-align:right;font-size:14px;">' + value + editLink + '</td></tr>';
   });
   h += '</table>';
   document.getElementById('review-list').innerHTML = h;
@@ -2382,10 +2408,50 @@ function proceedFromHealth() {
   }
 }
 
+
+// === ZIP VALIDATION ===
+function checkZip() {
+  var val = (document.getElementById('zip-input').value || '').trim();
+  S.zip = val;
+  var btn = document.getElementById('zip-btn');
+  if (btn) btn.className = 'cont-btn ' + (val.length >= 5 ? 'on' : 'off');
+  saveState();
+}
+
+// === GHL TAG REFERENCE ===
+// Build workflows against these tags + custom fields:
+//
+// LIFECYCLE TAGS (on every submitToGHL call):
+//   'life-insurance'     — always present on every submission
+//   'calc_partial'       — email captured (sResult email box or sEmailGate), gate not yet submitted
+//   'calc_rate_viewed'   — rate estimate shown; at least email is on file
+//   'calc_complete'      — full gate (first/last/phone/email/consent) submitted
+//
+// LEAD QUALITY TAGS (added once per complete submission):
+//   'hot-lead'           — score >= 70 (high need, young children, no existing coverage, high income)
+//   'warm-lead'          — score 45–69
+//   'nurture-lead'       — score < 45
+//
+// PRODUCT FIT TAGS:
+//   'final-expense-fit'  — age 65+ OR graded rate class; route to Final Expense flow
+//   'spanish-lead'       — user set language to ES
+//
+// CUSTOM FIELDS (in GHL contact record):
+//   life_calc_zip            life_calc_income         life_calc_dependents
+//   life_calc_child_count    life_calc_youngest_age   life_calc_mortgage
+//   life_calc_other_debt     life_calc_existing_coverage  life_calc_savings
+//   life_calc_recommended    life_calc_dob            life_calc_age
+//   life_calc_sex            life_calc_tobacco        life_calc_conditions
+//   life_calc_rate_class     life_calc_quoted_low     life_calc_quoted_high
+//   life_calc_product_fit    life_calc_score          life_calc_language
+//   life_calc_completion     life_calc_timestamp
+
 // === RESTART ===
 function restart() {
   S.income = 0;
   S.zip = '';
+  var zinp = document.getElementById('zip-input'); if (zinp) zinp.value = '';
+  var s1b = document.getElementById('s1-btn'); if (s1b) s1b.className = 'cont-btn off';
   S.dependents = [];
   S.child_count = 0;
   S.youngest_child_age = 0;
