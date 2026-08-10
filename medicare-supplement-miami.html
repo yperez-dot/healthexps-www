@@ -82,9 +82,7 @@ img{max-width:100%;height:auto;}
 .form-textarea{width:100%;box-sizing:border-box;padding:14px 16px;border-radius:10px;border:2px solid #ddd2e6;font-size:16px;font-family:var(--font-body);color:var(--black);outline:none;resize:vertical;min-height:90px;transition:border-color .2s;}
 .form-textarea:focus{border-color:var(--purple);}
 
-/* FOOTER */
-.footer-wrap{background:#fafafa;border-top:3px solid #f4eefa;padding:52px 0 24px;}
-.footer-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:36px;margin-bottom:44px;}
+
 
 /* SCROLL TO TOP */
 #scrollToTop{position:fixed;bottom:28px;right:28px;width: 48px;height: 48px;background:var(--purple);color:#fff;border:none;border-radius:50%;font-size:18px;cursor:pointer;display:none;align-items:center;justify-content:center;box-shadow:0 4px 14px rgba(69,32,104,.3);transition:background .2s,transform .2s;z-index:999;}
@@ -119,7 +117,6 @@ img{max-width:100%;height:auto;}
   /* CTA buttons */
   .cta-btns-row{flex-direction:column!important;align-items:center!important;}
   /* Footer grid */
-  .footer-grid{grid-template-columns:1fr!important;}
   /* Hero buttons */
   .hero-btns-row{flex-direction:column!important;}
 }
@@ -174,6 +171,8 @@ img{max-width:100%;height:auto;}
             <a href="/aca-plans-miami" style="padding:10px 14px;border-radius:8px;font-weight:600;color:#241a30;">ACA Marketplace Plans</a>
             <a href="/cobra-alternatives-miami" style="padding:10px 14px;border-radius:8px;color:#3a2f47;font-weight:600;">COBRA Alternatives</a>
             <a href="/dental-vision-miami" style="padding:10px 14px;border-radius:8px;font-weight:600;color:#241a30;">Dental &amp; Vision</a>
+            <a href="/life-insurance-miami" style="padding:10px 14px;border-radius:8px;cursor:pointer;font-weight:600">Life Insurance</a>
+            <a href="/final-expense-insurance" style="padding:10px 14px;border-radius:8px;cursor:pointer;font-weight:600">Final Expense</a>
           <a href="/avmed-medicare-florida" style="padding:10px 14px;border-radius:8px;font-weight:600;color:var(--black);">AvMed Transition</a>
           <a href="/medicare-annual-enrollment-2027" style="padding:10px 14px;border-radius:8px;font-weight:600;color:var(--black);">Annual Enrollment (AEP)</a>
           <a href="/independent-health-insurance-broker" style="padding:10px 14px;border-radius:8px;font-weight:600;color:var(--black);">Independent Broker</a>
@@ -222,6 +221,8 @@ img{max-width:100%;height:auto;}
       <a href="/aca-plans-miami" style="padding:11px 12px;border-radius:8px;color:#241a30;font-weight:600;font-size:15px;">ACA Marketplace Plans</a>
       <a href="/cobra-alternatives-miami" style="padding:11px 12px;border-radius:8px;color:#241a30;font-weight:600;font-size:15px;">COBRA Alternatives</a>
       <a href="/dental-vision-miami" style="padding:11px 12px;border-radius:8px;color:#241a30;font-weight:600;font-size:15px;">Dental &amp; Vision</a>
+      <a href="/life-insurance-miami" style="padding:11px 12px;border-radius:8px;color:#241a30;font-weight:600;font-size:15px">Life Insurance</a>
+      <a href="/final-expense-insurance" style="padding:11px 12px;border-radius:8px;color:#241a30;font-weight:600;font-size:15px">Final Expense</a>
       <div style="padding:14px 4px 4px;font-size:13px;font-weight:700;color:#8a6aaa;text-transform:uppercase;letter-spacing:.06em;margin-top:8px;">Guides</div>
       <a href="/medicare/what-is-medicare" style="padding:11px 12px;border-radius:8px;color:#241a30;font-weight:600;font-size:15px;">What Is Medicare</a>
       <a href="/medicare/new-to-medicare" style="padding:11px 12px;border-radius:8px;color:#241a30;font-weight:600;font-size:15px;">New to Medicare</a>
@@ -790,57 +791,62 @@ img{max-width:100%;height:auto;}
   </div>
 
   <!-- FOOTER -->
-  <footer class="footer-wrap">
-    <div style="max-width:1060px;margin:0 auto;padding:0 24px;">
-      <div class="footer-grid">
-        <div>
-          <img src="/images/logo.webp" alt="The Health Experts Insurance" style="height:64px;width:auto;margin-bottom:14px;">
-          <p style="font-size:14px;color:#555;line-height:1.6;margin:0 0 14px;">Independent bilingual health insurance brokers. Office in Doral, FL.</p>
-          <p style="font-size:15px;margin-bottom:6px;"><a href="tel:18003806821" style="color:#452068;font-weight:600;text-decoration:none;">1-800-380-6821</a></p>
-          <p style="font-size:15px;margin-bottom:6px;"><a href="https://wa.me/13054646888" style="color:#452068;font-weight:600;text-decoration:none;" onclick="gtag('event','whatsapp_click',{'page':window.location.pathname})">WhatsApp</a></p>
-          <p style="font-size:15px;margin-bottom:6px;"><a href="mailto:info@healthexps.com" style="color:#452068;font-weight:600;text-decoration:none;">info@healthexps.com</a></p>
-          <p style="font-size:14px;color:#555;margin-top:8px;">1695 NW 110 Ave, Ste 224<br>Doral, FL 33172</p>
-        </div>
-        <div>
-          <h3 style="color:#452068;font-size:13px;text-transform:uppercase;letter-spacing:1px;margin:0 0 14px;">Medicare</h3>
-          <ul style="list-style:none;padding:0;margin:0;">
-            <li style="margin-bottom:8px;"><a href="/medicare-plans-miami" style="color:#452068;font-size:15px;font-weight:700;text-decoration:none;">Medicare Plans</a></li>
-            <li style="margin-bottom:8px;"><a href="/medicare-advantage-miami" style="color:#555;font-size:15px;text-decoration:none;">Medicare Advantage</a></li>
-            <li style="margin-bottom:8px;"><a href="/medicare-supplement-miami" style="color:#555;font-size:15px;text-decoration:none;">Medicare Supplement</a></li>
-            <li style="margin-bottom:8px;"><a href="/medicare-plan-finder" style="color:#555;font-size:15px;text-decoration:none;">Medicare Plan Finder</a></li>
-            <li style="margin-bottom:8px;"><a href="/avmed-medicare-florida" style="color:#555;font-size:15px;text-decoration:none;">AvMed Transition</a></li>
-          </ul>
-        </div>
-        <div>
-          <h3 style="color:#452068;font-size:13px;text-transform:uppercase;letter-spacing:1px;margin:0 0 14px;">Medicare Guides</h3>
-          <ul style="list-style:none;padding:0;margin:0;">
-            <li style="margin-bottom:8px;"><a href="/medicare/what-is-medicare" style="color:#555;font-size:15px;text-decoration:none;">What Is Medicare</a></li>
-            <li style="margin-bottom:8px;"><a href="/medicare/new-to-medicare" style="color:#555;font-size:15px;text-decoration:none;">New to Medicare</a></li>
-            <li style="margin-bottom:8px;"><a href="/medicare-irmaa-penalties" style="color:#555;font-size:15px;text-decoration:none;">Medicare Costs &amp; IRMAA</a></li>
-            <li style="margin-bottom:8px;"><a href="/medicare-advantage-miami" style="color:#555;font-size:15px;text-decoration:none;">Medicare Advantage Guide</a></li>
-            <li style="margin-bottom:8px;"><a href="/medicare-supplement-miami" style="color:#555;font-size:15px;text-decoration:none;">Medicare Supplement Guide</a></li>
-            <li style="margin-bottom:8px;"><a href="/medicare-savings-program" style="color:#555;font-size:15px;text-decoration:none;">Medicare Savings Program</a></li>
-          </ul>
-        </div>
-        <div>
-          <h3 style="color:#452068;font-size:13px;text-transform:uppercase;letter-spacing:1px;margin:0 0 14px;">More</h3>
-          <ul style="list-style:none;padding:0;margin:0;">
-            <li style="margin-bottom:8px;"><a href="/private-health-insurance-miami" style="color:#555;font-size:15px;text-decoration:none;">Private Health Insurance</a></li>
-            <li style="margin-bottom:8px;"><a href="/aca-plans-miami" style="color:#555;font-size:15px;text-decoration:none;">ACA Marketplace Plans</a></li>
-            <li style="margin-bottom:8px;"><a href="/cobra-alternatives-miami" style="color:#555;font-size:15px;text-decoration:none;">COBRA Alternatives</a></li>
-            <li style="margin-bottom:8px;"><a href="/dental-vision-miami" style="color:#555;font-size:15px;text-decoration:none;">Dental &amp; Vision</a></li>
-            <li style="margin-bottom:8px;"><a href="/medicare-agent-miami" style="color:#555;font-size:15px;text-decoration:none;">About Us</a></li>
-            <li style="margin-bottom:8px;"><a href="/contact" style="color:#555;font-size:15px;text-decoration:none;">Contact</a></li>
-            <li style="margin-bottom:8px;"><a href="/es/medicare-suplementario-miami" style="color:#555;font-size:15px;text-decoration:none;">Sitio en Español</a></li>
-          </ul>
+      <div id="site-footer" style="background:#fff;color:#241a30;padding:56px 56px 24px;border-top:1px solid #ece5f0">
+        <div style="max-width:1160px;margin:0 auto">
+          <div id="footer-grid" style="display:grid;grid-template-columns:1.3fr 1fr 1fr 1fr;gap:32px;margin-bottom:36px">
+            <div>
+              <img src="/images/logo.webp" alt="The Health Experts Insurance" style="height:70px;width:auto;margin-bottom:16px"/>
+              <p style="font-size:13.5px;color:#6f6478;line-height:1.6;max-width:260px">Independent bilingual health insurance brokers. Office in Doral, FL.</p>
+              <div style="display:flex;flex-direction:column;gap:4px;margin-top:14px;font-size:13.5px">
+                <a href="tel:18003806821" style="color:#452068;font-weight:700">1-800-380-6821</a>
+                <a href="https://wa.me/13054646888" style="color:#452068;font-weight:700" onclick="gtag('event','whatsapp_click',{'page':window.location.pathname})">WhatsApp</a>
+                <a href="mailto:info@healthexps.com" style="color:#452068;font-weight:700">info@healthexps.com</a>
+              </div>
+              <p style="font-size:13.5px;color:#4a4051;margin-top:14px">1695 NW 110 Ave, Ste 224<br/>Doral, FL 33172</p>
+            </div>
+            <div>
+              <div style="font-weight:700;font-size:12.5px;letter-spacing:.06em;margin-bottom:14px;color:#452068">MEDICARE</div>
+              <div style="display:flex;flex-direction:column;gap:9px;font-size:13.5px">
+                <a href="/medicare-plans-miami" style="cursor:pointer;color:#241a30;font-weight:700">Medicare Plans</a>
+                <a href="/medicare-advantage-miami" style="color:#4a4051">Medicare Advantage</a>
+                <a href="/medicare-supplement-miami" style="color:#4a4051">Medicare Supplement</a>
+                <a href="/medicare-dual-eligible-miami" style="cursor:pointer;color:#4a4051">Dual Eligible (D-SNP)</a>
+                <a href="/medicare-plan-finder" style="cursor:pointer;color:#4a4051">Medicare Plan Finder</a>
+                <a href="/avmed-medicare-florida" style="color:#4a4051">AvMed Transition</a>
+              </div>
+            </div>
+            <div>
+              <div style="font-weight:700;font-size:12.5px;letter-spacing:.06em;margin-bottom:14px;color:#452068">MEDICARE GUIDES</div>
+              <div style="display:flex;flex-direction:column;gap:9px;font-size:13.5px">
+                <a href="/medicare/what-is-medicare" style="cursor:pointer;color:#4a4051">What Is Medicare</a>
+                <a href="/medicare/new-to-medicare" style="cursor:pointer;color:#4a4051">New to Medicare</a>
+                <a href="/medicare-irmaa-penalties" style="cursor:pointer;color:#4a4051">Medicare Costs &amp; IRMAA</a>
+                <a href="/medicare-advantage-miami" style="cursor:pointer;color:#4a4051">Medicare Advantage Guide</a>
+                <a href="/medicare-supplement-miami" style="cursor:pointer;color:#4a4051">Medicare Supplement Guide</a>
+                <a href="/medicare-savings-program" style="cursor:pointer;color:#4a4051">Medicare Savings Program</a>
+              </div>
+            </div>
+            <div>
+              <div style="font-weight:700;font-size:12.5px;letter-spacing:.06em;margin-bottom:14px;color:#452068">MORE</div>
+              <div style="display:flex;flex-direction:column;gap:9px;font-size:13.5px">
+                <a href="/private-health-insurance-miami" style="cursor:pointer;color:#4a4051">Private Health Insurance</a>
+                <a href="/aca-plans-miami" style="cursor:pointer;color:#4a4051">ACA Marketplace Plans</a>
+                <a href="/cobra-alternatives-miami" style="cursor:pointer;color:#4a4051">COBRA Alternatives</a>
+                <a href="/dental-vision-miami" style="cursor:pointer;color:#4a4051">Dental &amp; Vision</a>
+                <a href="/medicare-agent-miami" style="cursor:pointer;color:#4a4051">About Us</a>
+                <a href="/contact" style="cursor:pointer;color:#4a4051">Contact</a>
+                <a href="/es/" style="color:#4a4051">Sitio en Espa&ntilde;ol</a>
+              </div>
+            </div>
+          </div>
+          <div style="border-top:1px solid #ece5f0;padding-top:20px;font-size:13px;color:#4a4051">
+            © 2026 The Health Experts Insurance. <a href="/privacy" style="color:#452068;font-weight:600">Privacy Policy &amp; Terms</a>
+          </div>
+          <div style="padding-top:12px;font-size:13.5px;color:#a79db2;line-height:1.6">
+            Medicare has not reviewed or endorsed this information. We do not offer every plan available in your area. We currently represent 14 organizations offering 82 products in your area. Please contact Medicare.gov, 1-800-MEDICARE, or your local SHIP program for information about all your options.
+          </div>
         </div>
       </div>
-      <div style="border-top:1px solid #e5e5e5;padding-top:20px;">
-        <p style="font-size:13.5px;color:#666;margin:0;">&#169; 2026 The Health Experts Insurance. <a href="/privacy" style="color:#452068;text-decoration:none;">Privacy Policy &amp; Terms</a></p>
-        <p style="font-size:13px;color:#aaa;margin-top:10px;line-height:1.7;">Medicare has not reviewed or endorsed this information. We do not offer every plan available in your area. We currently represent 14 organizations offering 82 products in your area. Please contact Medicare.gov, 1-800-MEDICARE, or your local SHIP program for information about all your options.</p>
-      </div>
-    </div>
-  </footer>
 
   <!-- SCROLL TO TOP -->
   <button id="scrollToTop" aria-label="Back to top">↑</button>
