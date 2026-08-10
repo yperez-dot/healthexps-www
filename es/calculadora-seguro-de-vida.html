@@ -1141,10 +1141,6 @@ nav.calc-breadcrumb [aria-current="page"] {
     <input type="text" id="gate-lname" placeholder="Last name" oninput="checkGate()">
   </div>
   <div class="field">
-    <label id="gate-email-lbl">Email Address</label>
-    <input type="email" id="gate-email" placeholder="" oninput="checkGate()" onblur="abandonCapture()">
-  </div>
-  <div class="field">
     <label id="gate-phone-lbl">Phone Number</label>
     <input type="tel" id="gate-phone" placeholder="(305) 000-0000" oninput="checkGate()">
   </div>
@@ -1632,7 +1628,7 @@ function updateUI() {
   document.getElementById('gate-sub').textContent = str('gateSub');
   document.getElementById('gate-fname-lbl').textContent = str('gateFname');
   document.getElementById('gate-lname-lbl').textContent = str('gateLname');
-  document.getElementById('gate-email-lbl').textContent = str('gateEmail');
+  // gate-email-lbl removed (email collected at mini-gate)
   document.getElementById('gate-phone-lbl').textContent = str('gatePhone');
   document.getElementById('lang-pref-lbl').textContent = str('langPref');
   document.getElementById('lang-en').textContent = str('langEn');
@@ -2151,33 +2147,23 @@ function toggleCondition(el, key) {
 function checkGate() {
   const fname = document.getElementById('gate-fname').value.trim();
   const lname = document.getElementById('gate-lname').value.trim();
-  const email = document.getElementById('gate-email').value.trim();
   const phone = document.getElementById('gate-phone').value.trim();
   const consent = document.getElementById('consent-chk').checked;
   
-  const emailOk = /^[^@]+@[^@]+\.[^@]+$/.test(email);
   const phoneOk = phone.replace(/\D/g, '').length >= 10;
-  const ready = fname && lname && emailOk && phoneOk && consent;
+  const ready = fname && lname && phoneOk && consent;
   
   S.fname = fname;
   S.lname = lname;
-  S.email = email;
   S.phone = phone;
+  // S.email already set from email mini-gate
   
   document.getElementById('gate-btn').className = 'cont-btn ' + (ready ? 'on' : 'off');
   saveState();
 }
 
 function abandonCapture() {
-  if (S.abandonFired) return;
-  const email = document.getElementById('gate-email').value.trim();
-  const emailOk = /^[^@]+@[^@]+\.[^@]+$/.test(email);
-  if (emailOk) {
-    S.email = email;
-    S.abandonFired = true;
-    submitToGHL('abandoned');
-    saveState();
-  }
+  // Email captured at mini-gate — no action needed here
 }
 
 function setLanguageRadio(l) {
@@ -2186,11 +2172,11 @@ function setLanguageRadio(l) {
 }
 
 function submitGate() {
-  if (!document.getElementById('gate-fname').value || !document.getElementById('gate-email').value) return;
+  if (!document.getElementById('gate-fname').value) return;
   S.fname = document.getElementById('gate-fname').value.trim();
   S.lname = document.getElementById('gate-lname').value.trim();
-  S.email = document.getElementById('gate-email').value.trim();
   S.phone = document.getElementById('gate-phone').value.trim();
+  // S.email already set from email mini-gate
 
   submitToGHL('complete');
 
