@@ -1786,6 +1786,11 @@ function showResult() {
   renderResult();
   animateNumber();
   goScreen('sResult');
+  // Scroll to the headline number, not the progress bar (which is hidden on result screen)
+  setTimeout(function() {
+    var el = document.getElementById('result-number');
+    if (el) el.scrollIntoView({ behavior: 'smooth', block: 'center' });
+  }, 80);
   saveState();
 }
 
