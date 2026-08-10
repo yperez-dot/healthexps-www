@@ -761,4 +761,13 @@
   <xhtml:link rel="alternate" hreflang="es" href="https://www.healthexps.com/es/gastos-finales-miami"/>
   <xhtml:link rel="alternate" hreflang="en" href="https://www.healthexps.com/final-expense-insurance"/>
 </url>
+
+<url>
+  <loc>https://www.healthexps.com/es/calculadora-seguro-de-vida</loc>
+  <lastmod>2026-08-10</lastmod>
+  <changefreq>monthly</changefreq>
+  <priority>0.7</priority>
+  <xhtml:link rel="alternate" hreflang="es" href="https://www.healthexps.com/es/calculadora-seguro-de-vida"/>
+  <xhtml:link rel="alternate" hreflang="en" href="https://www.healthexps.com/life-insurance-calculator"/>
+</url>
 </urlset>
