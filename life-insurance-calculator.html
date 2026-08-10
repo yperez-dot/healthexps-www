@@ -2408,6 +2408,11 @@ async function submitToGHL(completion) {
       rate_class: S.rate_class,
       lead_score: S.score,
       // === Additional context fields ===
+      // Breakdown display fields for email template
+      life_calc_income_replacement: S.income_replacement ? Math.round(S.income_replacement).toLocaleString('en-US', {style:'currency',currency:'USD',maximumFractionDigits:0}) : '$0',
+      life_calc_debt_payoff: S.debt_payoff ? Math.round(S.debt_payoff).toLocaleString('en-US', {style:'currency',currency:'USD',maximumFractionDigits:0}) : '$0',
+      life_calc_offsets: S.offsets ? Math.round(S.offsets).toLocaleString('en-US', {style:'currency',currency:'USD',maximumFractionDigits:0}) : '$0',
+      life_calc_coverage_display: S.recommended ? Math.round(S.recommended).toLocaleString('en-US', {style:'currency',currency:'USD',maximumFractionDigits:0}) : '$0',
       life_calc_language: S.language,
       life_calc_completion: completion,
       life_calc_timestamp: S.timestamp,
