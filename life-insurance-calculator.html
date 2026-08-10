@@ -1057,8 +1057,8 @@ nav.calc-breadcrumb [aria-current="page"] {
     <div style="font-size: 14px; color: var(--gt); line-height: 1.6;">No medical exam. No health questions. Coverage from $5,000 to $50,000, fixed premiums that never increase.</div>
   </div>
 
-  <a href="https://wa.me/13054646888" onclick="gtag('event','whatsapp_click',{'page':window.location.pathname})" class="btn-primary" id="fex-wa">Talk to a licensed agent</a>
-  <button class="btn-call" onclick="window.location.href='tel:18003806821'" id="fex-call">Call 1-800-380-6821</button>
+  <button class="btn-primary" onclick="goScreen('sGate')" id="fex-wa"><span id="fex-cta-lbl">Get My Free Consultation →</span></button>
+  <p style="font-size:13px;color:var(--gt);text-align:center;margin-top:12px;line-height:1.6;">A licensed agent will reach out to find the right Final Expense plan for you — no medical exam required.</p>
 
   <div class="restart" style="margin-top: 24px;">
     <a onclick="restart()" id="fex-restart">Change my answers</a>
@@ -1446,7 +1446,8 @@ const STRINGS = {
     fexTitle: "Final Expense Insurance",
     fexMsg: "Based on what you shared, a guaranteed-acceptance final expense policy may be your best fit.",
     fexNote: "No medical exam. No health questions. Coverage from $5,000 to $50,000, fixed premiums that never increase.",
-    fexWa: "Talk to a licensed agent",
+    fexWa: "Get My Free Consultation →",
+    fexCtaLbl: "Get My Free Consultation →",
     q6q: "When were you born?",
     q6sub: "This helps us calculate your rate.",
     dobMonth: "Month",
@@ -1547,7 +1548,8 @@ const STRINGS = {
     fexTitle: "Seguro de Gastos Finales",
     fexMsg: "Basado en lo que compartió, una póliza de gastos finales de aceptación garantizada puede ser su mejor opción.",
     fexNote: "Sin examen médico. Sin preguntas de salud. Cobertura de $5,000 a $50,000, primas fijas que nunca aumentan.",
-    fexWa: "Hablar con un agente licenciado",
+    fexWa: "Obtener Mi Consulta Gratuita →",
+    fexCtaLbl: "Obtener Mi Consulta Gratuita →",
     q6q: "¿Cuándo nació?",
     q6sub: "Esto nos ayuda a calcular su tarifa.",
     dobMonth: "Mes",
@@ -1713,6 +1715,7 @@ function updateUI() {
   var ic2 = document.getElementById('intro-check2'); if (ic2) ic2.childNodes[ic2.childNodes.length-1].textContent = ' ' + str('introCheck2');
   var ic3 = document.getElementById('intro-check3'); if (ic3) ic3.childNodes[ic3.childNodes.length-1].textContent = ' ' + str('introCheck3');
   var introBtn = document.getElementById('intro-btn-lbl'); if (introBtn) introBtn.textContent = str('introBtnLbl');
+  var fexCta = document.getElementById('fex-cta-lbl'); if (fexCta) fexCta.textContent = str('fexCtaLbl') || 'Get My Free Consultation →';
 }
 
 function goScreen(id) {
