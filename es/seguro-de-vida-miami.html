@@ -499,6 +499,8 @@ img{max-width:100%;height:auto;}
     <div style="background:#fff;border-radius:22px;padding:34px;box-shadow:0 30px 60px rgba(0,0,0,.25)">
       <div id="vidaFormBody">
         <form id="vidaLeadForm" novalidate>
+                  <!-- Honeypot: hidden from humans, bots fill it in -->
+                  <input type="text" name="_hp_name" id="_hp_name" autocomplete="off" tabindex="-1" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0;pointer-events:none;" value="">
           <div style="font-weight:700;font-size:17px;color:#241a30;margin-bottom:6px;text-align:center">Habla con un agente de seguro de vida</div>
           <div style="font-size:13.5px;color:#6f6478;text-align:center;margin-bottom:18px">Un agente bilingüe licenciado te contactará en 1 hora hábil.</div>
           <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:12px">
@@ -605,9 +607,14 @@ img{max-width:100%;height:auto;}
 (function(){
   var WEBHOOK='https://services.leadconnectorhq.com/hooks/RINM4TCnM4hN06UA1aK0/webhook-trigger/dc6c8b35-9480-412e-b56d-4a4c8c7bd438';
   var form=document.getElementById('vidaLeadForm');
+  var _formLoadTime = Date.now(); // bot timing check
   if(!form)return;
   form.addEventListener('submit',async function(e){
     e.preventDefault();
+    // Bot checks: honeypot field filled or form submitted too fast (<3s)
+    var _hp = (document.getElementById('_hp_name') || {}).value || '';
+    if (_hp) return; // honeypot triggered — silent drop
+    if (Date.now() - _formLoadTime < 3000) return; // submitted in under 3 seconds — bot
     var btn=document.getElementById('vidaSubmit');
     var err=document.getElementById('vidaError');
     var first=(document.getElementById('vidaFirst')||{}).value||'';

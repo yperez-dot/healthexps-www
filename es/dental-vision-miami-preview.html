@@ -371,6 +371,8 @@ a{color:var(--purple);text-decoration:none;}a:hover{color:var(--pink);}
           <p style="font-size:15px;color:#6f6478;margin-bottom:28px;text-align:center">Un agente bilingüe con licencia te ayudará a comparar opciones sin costo.</p>
           <div id="dvFormWrap">
             <form id="dvLeadForm" novalidate>
+                  <!-- Honeypot: hidden from humans, bots fill it in -->
+                  <input type="text" name="_hp_name" id="_hp_name" autocomplete="off" tabindex="-1" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0;pointer-events:none;" value="">
               <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:16px">
                 <div>
                   <label for="dv_first" class="form-label">Su nombre <em style="color:#ff1090">*</em></label>
@@ -510,9 +512,14 @@ a{color:var(--purple);text-decoration:none;}a:hover{color:var(--pink);}
 (function(){
   var WEBHOOK = 'https://services.leadconnectorhq.com/hooks/RINM4TCnM4hN06UA1aK0/webhook-trigger/dc6c8b35-9480-412e-b56d-4a4c8c7bd438';
   var form = document.getElementById('dvLeadForm');
+  var _formLoadTime = Date.now(); // bot timing check
   if(!form) return;
   form.addEventListener('submit', async function(e){
     e.preventDefault();
+    // Bot checks: honeypot field filled or form submitted too fast (<3s)
+    var _hp = (document.getElementById('_hp_name') || {}).value || '';
+    if (_hp) return; // honeypot triggered — silent drop
+    if (Date.now() - _formLoadTime < 3000) return; // submitted in under 3 seconds — bot
     var btn = document.getElementById('dvSubmit');
     var err = document.getElementById('dvError');
     var first=(document.getElementById('dv_first')||{}).value||'';

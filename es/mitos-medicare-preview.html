@@ -507,6 +507,8 @@ a{color:var(--purple);text-decoration:none;}a:hover{color:var(--pink);}
       <p style="font-size:16px;color:#6f6478;line-height:1.7;margin-bottom:24px;max-width:560px;margin-left:auto;margin-right:auto;">Cada situación de Medicare es diferente. Nuestros corredores bilingüen con licencia en Doral, FL han ayudado a miles de familias del sur de Florida a navegar Medicare — sin costo para usted.</p>
       <div style="background:white;border-radius:16px;padding:32px;max-width:580px;margin:0 auto;box-shadow:0 8px 24px rgba(69,32,104,.12)">
         <form id="mitosForm" action="https://services.leadconnectorhq.com/hooks/RINM4TCnM4hN06UA1aK0/webhook-trigger/dc6c8b35-9480-412e-b56d-4a4c8c7bd438" method="POST" novalidate>
+                  <!-- Honeypot: hidden from humans, bots fill it in -->
+                  <input type="text" name="_hp_name" id="_hp_name" autocomplete="off" tabindex="-1" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0;pointer-events:none;" value="">
           <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:12px">
             <div>
               <label style="display:block;font-size:13px;font-weight:700;color:#333;margin-bottom:5px">Nombre <em style="color:#ff1090">*</em></label>
@@ -629,9 +631,14 @@ function toggleMyth(btn){
   }
 
   var form=document.getElementById('mitosForm');
+  var _formLoadTime = Date.now(); // bot timing check
   if(form){
     form.addEventListener('submit',function(e){
       e.preventDefault();
+    // Bot checks: honeypot field filled or form submitted too fast (<3s)
+    var _hp = (document.getElementById('_hp_name') || {}).value || '';
+    if (_hp) return; // honeypot triggered — silent drop
+    if (Date.now() - _formLoadTime < 3000) return; // submitted in under 3 seconds — bot
       var consent=document.getElementById('mitos_consent');
       if(!consent||!consent.checked){alert('Por favor acepte el consentimiento.');return;}
       var submitBtn=form.querySelector('button[type="submit"]');

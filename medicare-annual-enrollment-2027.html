@@ -647,6 +647,8 @@ h1,h2,h3,h4{font-family:'Poppins',sans-serif;}
       <div class="form-title">Book my free 2027 plan review</div>
       <p class="form-sub">A licensed bilingual broker will reach out within 1 business hour to schedule your review.</p>
       <form id="aepForm" novalidate>
+                  <!-- Honeypot: hidden from humans, bots fill it in -->
+                  <input type="text" name="_hp_name" id="_hp_name" autocomplete="off" tabindex="-1" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0;pointer-events:none;" value="">
         <input type="hidden" name="source" value="AEP 2027 Page">
         <input type="hidden" name="page_url" value="https://www.healthexps.com/medicare-annual-enrollment-2027/">
 
@@ -833,6 +835,7 @@ h1,h2,h3,h4{font-family:'Poppins',sans-serif;}
 /* ---- FORM SUBMISSION ---- */
 (function(){
   var form = document.getElementById('aepForm');
+  var _formLoadTime = Date.now(); // bot timing check
   var successDiv = document.getElementById('formSuccess');
   var partialDiv = document.getElementById('formPartialSuccess');
   var formBody = document.getElementById('formBody');
@@ -842,6 +845,10 @@ h1,h2,h3,h4{font-family:'Poppins',sans-serif;}
 
   form.addEventListener('submit', function(e){
     e.preventDefault();
+    // Bot checks: honeypot field filled or form submitted too fast (<3s)
+    var _hp = (document.getElementById('_hp_name') || {}).value || '';
+    if (_hp) return; // honeypot triggered — silent drop
+    if (Date.now() - _formLoadTime < 3000) return; // submitted in under 3 seconds — bot
 
     var fname = document.getElementById('aep_first_name').value.trim();
     var lname = document.getElementById('aep_last_name').value.trim();

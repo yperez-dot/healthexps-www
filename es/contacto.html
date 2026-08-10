@@ -498,6 +498,8 @@ for(var k=0;k<_navLinks.length;k++){
  <div style="font-size:14px;color:#166534;">Nos comunicaremos con usted dentro de 1 hora hábil. Para servicio más rápido, escríbanos por WhatsApp al (305) 464-6888.</div>
  </div>
  <form action="https://services.leadconnectorhq.com/hooks/RINM4TCnM4hN06UA1aK0/webhook-trigger/VIGENUzik6Z1M83Y5cea" method="POST" id="esContactForm">
+  <!-- Honeypot: hidden from humans, bots fill it in -->
+  <input type="text" name="_hp_name" id="_hp_name" autocomplete="off" tabindex="-1" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0;pointer-events:none;" value="">
  <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:16px;">
  <div>
  <label style="display:block;font-size:13px;font-weight:700;color:#452068;text-transform:uppercase;letter-spacing:.05em;margin-bottom:6px;">Nombre</label>
@@ -542,6 +544,7 @@ for(var k=0;k<_navLinks.length;k++){
  </div>
 </section>
 <script>
+var _formLoadTime_es = Date.now();
 document.getElementById('esContactForm').addEventListener('submit',function(e){
  e.preventDefault();
  var form=this;

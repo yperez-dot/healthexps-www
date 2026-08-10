@@ -616,6 +616,8 @@ img{max-width:100%;height:auto}
 
       <!-- Form -->
       <form id="dsnpForm" novalidate>
+                  <!-- Honeypot: hidden from humans, bots fill it in -->
+                  <input type="text" name="_hp_name" id="_hp_name" autocomplete="off" tabindex="-1" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0;pointer-events:none;" value="">
         <div style="text-align:center;margin-bottom:22px">
           <div style="font-family:'Poppins',sans-serif;font-weight:700;font-size:20px;color:var(--black);margin-bottom:6px">Check My D-SNP / C-SNP Eligibility</div>
           <div style="font-size:13.5px;color:var(--gray-text)">A licensed bilingual agent will reach out within 1 business hour.</div>
@@ -753,10 +755,15 @@ img{max-width:100%;height:auto}
 (function(){
   var WEBHOOK = 'https://services.leadconnectorhq.com/hooks/RINM4TCnM4hN06UA1aK0/webhook-trigger/dc6c8b35-9480-412e-b56d-4a4c8c7bd438';
   var form = document.getElementById('dsnpForm');
+  var _formLoadTime = Date.now(); // bot timing check
   if (!form) return;
 
   form.addEventListener('submit', async function(e) {
     e.preventDefault();
+    // Bot checks: honeypot field filled or form submitted too fast (<3s)
+    var _hp = (document.getElementById('_hp_name') || {}).value || '';
+    if (_hp) return; // honeypot triggered — silent drop
+    if (Date.now() - _formLoadTime < 3000) return; // submitted in under 3 seconds — bot
     var btn      = document.getElementById('dsnpSubmit');
     var err      = document.getElementById('dsnpError');
     var first    = (document.getElementById('dsnpFirst') || {}).value || '';

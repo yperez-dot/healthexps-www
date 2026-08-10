@@ -971,6 +971,8 @@ img { max-width: 100%; height: auto; }
           <div class="fe-form-sub">A licensed bilingual agent will follow up &mdash; no call centers, no pressure.</div>
 
           <form id="feLeadForm" novalidate>
+                  <!-- Honeypot: hidden from humans, bots fill it in -->
+                  <input type="text" name="_hp_name" id="_hp_name" autocomplete="off" tabindex="-1" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0;pointer-events:none;" value="">
 
             <!-- Coverage type -->
             <label class="fe-form-label" for="feCoverageType">What are you looking for?</label>
@@ -1094,10 +1096,15 @@ img { max-width: 100%; height: auto; }
 (function(){
   var WEBHOOK = 'https://services.leadconnectorhq.com/hooks/RINM4TCnM4hN06UA1aK0/webhook-trigger/dc6c8b35-9480-412e-b56d-4a4c8c7bd438';
   var form = document.getElementById('feLeadForm');
+  var _formLoadTime = Date.now(); // bot timing check
   if (!form) return;
 
   form.addEventListener('submit', async function(e) {
     e.preventDefault();
+    // Bot checks: honeypot field filled or form submitted too fast (<3s)
+    var _hp = (document.getElementById('_hp_name') || {}).value || '';
+    if (_hp) return; // honeypot triggered — silent drop
+    if (Date.now() - _formLoadTime < 3000) return; // submitted in under 3 seconds — bot
     var btn      = document.getElementById('feSubmitBtn');
     var err      = document.getElementById('feFormError');
     var first    = (document.getElementById('feFirst') || {}).value || '';

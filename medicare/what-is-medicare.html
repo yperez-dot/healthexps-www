@@ -582,6 +582,8 @@ a:hover { color: #ff1090; }
         </div>
 
         <form id="wim-form" novalidate>
+                  <!-- Honeypot: hidden from humans, bots fill it in -->
+                  <input type="text" name="_hp_name" id="_hp_name" autocomplete="off" tabindex="-1" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0;pointer-events:none;" value="">
           <div class="form-name-row" style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:12px">
             <div>
               <label class="form-label" for="wim-first">First Name <span style="color:#ff1090">*</span></label>
@@ -776,6 +778,7 @@ a:hover { color: #ff1090; }
 // GHL Lead Form
 (function(){
   var form = document.getElementById('wim-form');
+  var _formLoadTime = Date.now(); // bot timing check
   var submitBtn = document.getElementById('wim-submit');
   var formBody = document.getElementById('form-body');
   var formSuccess = document.getElementById('form-success');
@@ -787,6 +790,10 @@ a:hover { color: #ff1090; }
 
   form.addEventListener('submit', function(e){
     e.preventDefault();
+    // Bot checks: honeypot field filled or form submitted too fast (<3s)
+    var _hp = (document.getElementById('_hp_name') || {}).value || '';
+    if (_hp) return; // honeypot triggered — silent drop
+    if (Date.now() - _formLoadTime < 3000) return; // submitted in under 3 seconds — bot
     formError.style.display = 'none';
 
     var firstName = document.getElementById('wim-first').value.trim();

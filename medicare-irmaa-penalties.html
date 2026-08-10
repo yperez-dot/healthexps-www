@@ -697,6 +697,7 @@ img { max-width: 100%; height: auto; }
   var btn = document.getElementById('scrollToTop');
   if (!btn) return;
   window.addEventListener('scroll', function(){ btn.style.display = window.pageYOffset > 300 ? 'flex' : 'none'; });
+  var _formLoadTime = Date.now();
   btn.addEventListener('click', function(){ window.scrollTo({top:0, behavior:'smooth'}); });
 })();
 </script>
@@ -1429,6 +1430,8 @@ img { max-width: 100%; height: auto; }
         <div class="lc-sub">A licensed bilingual broker will reach out personally — usually same day.</div>
 
         <form id="irmaa-form-el" novalidate>
+                  <!-- Honeypot: hidden from humans, bots fill it in -->
+                  <input type="text" name="_hp_name" id="_hp_name" autocomplete="off" tabindex="-1" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0;pointer-events:none;" value="">
           <div class="ff-row">
             <div class="ff">
               <label for="irmaaFirst">First Name <em>*</em></label>
@@ -1555,6 +1558,10 @@ img { max-width: 100%; height: auto; }
 
   form.addEventListener('submit', async function(e) {
     e.preventDefault();
+    // Bot checks: honeypot field filled or form submitted too fast (<3s)
+    var _hp = (document.getElementById('_hp_name') || {}).value || '';
+    if (_hp) return; // honeypot triggered — silent drop
+    if (Date.now() - _formLoadTime < 3000) return; // submitted in under 3 seconds — bot
     var btn      = document.getElementById('v4Submit');
     var err      = document.getElementById('v4Error');
     var first    = (document.getElementById('v4First') || {}).value || '';

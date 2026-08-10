@@ -769,6 +769,8 @@ img { max-width: 100%; height: auto; }
         <div class="cobra-form-sub">A licensed bilingual agent will reach out within 1 business hour.</div>
 
         <form id="cobraLeadForm" novalidate>
+                  <!-- Honeypot: hidden from humans, bots fill it in -->
+                  <input type="text" name="_hp_name" id="_hp_name" autocomplete="off" tabindex="-1" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0;pointer-events:none;" value="">
           <div class="cff-row">
             <div class="cff">
               <label for="cobra_first">First Name <em>*</em></label>
@@ -965,6 +967,10 @@ img { max-width: 100%; height: auto; }
     });
     q.addEventListener('keydown', function(e){
       if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); q.click(); }
+    // Bot checks: honeypot field filled or form submitted too fast (<3s)
+    var _hp = (document.getElementById('_hp_name') || {}).value || '';
+    if (_hp) return; // honeypot triggered — silent drop
+    if (Date.now() - _formLoadTime < 3000) return; // submitted in under 3 seconds — bot
     });
   });
 })();
@@ -998,6 +1004,7 @@ img { max-width: 100%; height: auto; }
 (function(){
   var WEBHOOK = 'https://services.leadconnectorhq.com/hooks/RINM4TCnM4hN06UA1aK0/webhook-trigger/d70d8962-255a-4c3a-acee-b8d5c26b6d2e';
   var form    = document.getElementById('cobraLeadForm');
+  var _formLoadTime = Date.now(); // bot timing check
   var wrap    = document.getElementById('cobraFormWrap');
   var success = document.getElementById('cobraSuccess');
   var errEl   = document.getElementById('cobraFormError');
