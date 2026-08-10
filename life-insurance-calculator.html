@@ -797,10 +797,25 @@ nav.calc-breadcrumb [aria-current="page"] {
 
 <div class="card-wrap">
 
+<!-- Intro screen -->
+<div class="screen active" id="sIntro">
+  <div style="text-align:center;padding:8px 0 24px;">
+    <div style="font-size:40px;margin-bottom:16px;">🛡️</div>
+    <div class="step-q" id="intro-headline" style="font-size:22px;margin-bottom:14px;">Life insurance shouldn't feel this confusing.</div>
+    <p id="intro-body" style="font-size:15px;color:var(--gt);line-height:1.7;margin-bottom:24px;text-align:left;">Nobody wants to think about this — and the industry doesn't make it easier. We built this tool to make it simple: a few quick questions, plain English, no jargon. You'll see roughly what you need and what it costs before you ever talk to anyone.</p>
+    <div style="text-align:left;margin-bottom:28px;display:flex;flex-direction:column;gap:10px;">
+      <div id="intro-check1" style="display:flex;align-items:center;gap:10px;font-size:15px;color:var(--black);font-weight:600;"><span style="color:var(--purple);font-size:18px;">✓</span> Takes about 2 minutes</div>
+      <div id="intro-check2" style="display:flex;align-items:center;gap:10px;font-size:15px;color:var(--black);font-weight:600;"><span style="color:var(--purple);font-size:18px;">✓</span> Plain-language questions, no insurance-speak</div>
+      <div id="intro-check3" style="display:flex;align-items:center;gap:10px;font-size:15px;color:var(--black);font-weight:600;"><span style="color:var(--purple);font-size:18px;">✓</span> See your estimate first — no pressure, no obligation</div>
+    </div>
+    <button class="cont-btn on" onclick="goScreen('s1')" id="intro-btn" style="font-size:17px;"><span id="intro-btn-lbl">Start My Free Estimate →</span></button>
+  </div>
+</div>
+
 <!-- TOOL A: Questions 1-5 -->
 
 <!-- Q1: Income -->
-<div class="screen active" id="s1">
+<div class="screen" id="s1">
   <div class="step-q" id="s1-q">What's your household income before taxes?</div>
   <div class="step-sub" id="s1-sub">An estimate is fine  -  this is the income your family would need to replace.</div>
   <div class="opts" id="s1-opts">
