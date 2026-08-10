@@ -284,12 +284,6 @@
   force = true
 
 [[redirects]]
-  from = "/irmaa-lep"
-  to = "/medicare-irmaa-penalties"
-  status = 301
-  force = true
-
-[[redirects]]
   from = "/events"
   to = "/contact"
   status = 301
@@ -410,11 +404,6 @@
 [[redirects]]
   from = "/post/unlocking-benefits-medicare-coverage-for-specific-health-conditions"
   to = "/blog/unlocking-the-secrets-finding-preventative-services-under-medicare"
-  status = 301
-
-[[redirects]]
-  from = "/post/what-is-a-medicare-late-enrollment-penalty-lep"
-  to = "/medicare-irmaa-penalties"
   status = 301
 
 [[redirects]]
