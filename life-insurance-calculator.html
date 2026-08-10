@@ -2115,6 +2115,10 @@ function showRate() {
   
   submitToGHL('complete');
   goScreen('sRate');
+  setTimeout(function() {
+    var el = document.getElementById('rate-headline');
+    if (el) el.scrollIntoView({ behavior: 'smooth', block: 'center' });
+  }, 80);
   saveState();
 }
 
