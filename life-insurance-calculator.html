@@ -803,6 +803,10 @@ nav.calc-breadcrumb [aria-current="page"] {
 <div class="screen active" id="s1">
   <div class="step-q" id="s1-q">What's your household income before taxes?</div>
   <div class="step-sub" id="s1-sub">An estimate is fine  -  this is the income your family would need to replace.</div>
+  <div class="field" id="zip-field" style="margin-bottom:16px;">
+    <label id="zip-lbl" style="display:block;font-size:13.5px;font-weight:700;text-transform:uppercase;letter-spacing:.05em;color:#555;margin-bottom:8px;">ZIP Code <span id="zip-sub" style="font-weight:400;text-transform:none;font-size:12px;color:#9ca3af;">(optional)</span></label>
+    <input type="text" id="zip-input" inputmode="numeric" maxlength="5" placeholder="e.g. 33172" style="width:160px;padding:10px 14px;border:2px solid #e8e0f4;border-radius:10px;font-size:16px;color:var(--black);outline:none;font-family:var(--font);" oninput="S.zip=this.value.trim();saveState();">
+  </div>
   <div class="opts" id="s1-opts">
     <div class="opt" onclick="selectIncome(this, 30000)"><span>Under $40,000</span><span class="opt-chk">✔</span></div>
     <div class="opt" onclick="selectIncome(this, 57500)"><span>$40,000 - $75,000</span><span class="opt-chk">✔</span></div>
@@ -876,6 +880,11 @@ nav.calc-breadcrumb [aria-current="page"] {
       <div class="opt" onclick="selectMortgage(this, 225000)"><span>$150K-$300K</span><span class="opt-chk">✔</span></div>
       <div class="opt" onclick="selectMortgage(this, 400000)"><span>$300K-$500K</span><span class="opt-chk">✔</span></div>
       <div class="opt" onclick="selectMortgage(this, 650000)"><span>Over $500K</span><span class="opt-chk">✔</span></div>
+      <div class="opt" onclick="toggleCustomMortgage(this)"><span id="custom-mort-txt">I'd rather enter my exact number</span><span class="opt-chk">✔</span></div>
+    </div>
+    <div class="field hidden" id="custom-mort-field">
+      <label>Mortgage balance ($)</label>
+      <input type="number" id="custom-mort" placeholder="Enter amount" min="0" max="9999999" oninput="updateCustomMortgage()">
     </div>
   </div>
 
@@ -886,6 +895,11 @@ nav.calc-breadcrumb [aria-current="page"] {
       <div class="opt" onclick="selectOtherDebt(this, 12500)"><span>Under $25K</span><span class="opt-chk">✔</span></div>
       <div class="opt" onclick="selectOtherDebt(this, 50000)"><span>$25K-$75K</span><span class="opt-chk">✔</span></div>
       <div class="opt" onclick="selectOtherDebt(this, 120000)"><span>Over $75K</span><span class="opt-chk">✔</span></div>
+      <div class="opt" onclick="toggleCustomOtherDebt(this)"><span id="custom-debt-txt">I'd rather enter my exact number</span><span class="opt-chk">✔</span></div>
+    </div>
+    <div class="field hidden" id="custom-debt-field">
+      <label>Other debt ($)</label>
+      <input type="number" id="custom-debt" placeholder="Enter amount" min="0" max="9999999" oninput="updateCustomOtherDebt()">
     </div>
   </div>
 
@@ -916,6 +930,11 @@ nav.calc-breadcrumb [aria-current="page"] {
       <div class="opt" onclick="selectSavings(this, 30000)"><span>$10K-$50K</span><span class="opt-chk">✔</span></div>
       <div class="opt" onclick="selectSavings(this, 100000)"><span>$50K-$150K</span><span class="opt-chk">✔</span></div>
       <div class="opt" onclick="selectSavings(this, 250000)"><span>Over $150K</span><span class="opt-chk">✔</span></div>
+      <div class="opt" onclick="toggleCustomSavings(this)"><span id="custom-sav-txt">I'd rather enter my exact number</span><span class="opt-chk">✔</span></div>
+    </div>
+    <div class="field hidden" id="custom-sav-field">
+      <label>Savings &amp; investments ($)</label>
+      <input type="number" id="custom-sav" placeholder="Enter amount" min="0" max="9999999" oninput="updateCustomSavings()">
     </div>
   </div>
 
@@ -986,6 +1005,29 @@ nav.calc-breadcrumb [aria-current="page"] {
   <div class="restart" style="margin-top: 24px;">
     <a onclick="restart()" id="fex-restart">Change my answers</a>
   </div>
+</div>
+
+
+<!-- Review answers before health questions -->
+<div class="screen" id="sReview">
+  <button class="back-btn" onclick="goScreen('sResult')">Back</button>
+  <div class="step-q" id="review-q">Before your health questions...</div>
+  <div class="step-sub" id="review-sub">Here's what we'll use from your answers. Everything look right?</div>
+  <div id="review-list" style="margin-bottom:24px;"></div>
+  <button class="cont-btn on" onclick="goScreen('s6')"><span id="review-btn-lbl">Looks right — Continue</span></button>
+</div>
+
+<!-- Email mini-gate before rate screen -->
+<div class="screen" id="sEmailGate">
+  <button class="back-btn" onclick="goScreen('s9')">Back</button>
+  <div class="step-q" id="email-gate-q">One quick step before your rate</div>
+  <div class="step-sub" id="email-gate-sub">Enter your email to see your estimated monthly cost — no name or phone needed yet.</div>
+  <div class="field">
+    <label id="email-gate-lbl">Email Address</label>
+    <input type="email" id="email-gate-input" placeholder="your@email.com" oninput="checkEmailGate()">
+  </div>
+  <button class="cont-btn off" id="email-gate-btn" onclick="submitEmailGate()"><span id="email-gate-btn-lbl">See My Rate →</span></button>
+  <p style="font-size:13px;color:var(--gt);text-align:center;margin-top:14px;line-height:1.6;">🔒 We never sell your information. <a href="/privacy" style="color:var(--purple);font-weight:600;">Privacy Policy</a></p>
 </div>
 
 <!-- TOOL B: Questions 6-9 + Gate -->
@@ -1070,12 +1112,12 @@ nav.calc-breadcrumb [aria-current="page"] {
     <div class="opt" onclick="toggleCondition(this, 'controlled_bp')"><span id="cond-bp">High blood pressure or cholesterol, controlled with medication</span><span class="opt-chk">✔</span></div>
     <div class="opt" onclick="toggleCondition(this, 'none')"><span id="cond-none">None of these</span><span class="opt-chk">✔</span></div>
   </div>
-  <button class="cont-btn off" id="s9-btn" onclick="goScreen('sGate')"><span id="s9-btn-lbl">Continue</span></button>
+  <button class="cont-btn off" id="s9-btn" onclick="proceedFromHealth()"><span id="s9-btn-lbl">Continue</span></button>
 </div>
 
 <!-- Gate: Contact -->
 <div class="screen" id="sGate">
-  <button class="back-btn" onclick="goScreen('s9')">Back</button>
+  <button class="back-btn" onclick="goScreen('sRate')">Back</button>
   <div class="step-q" id="gate-q">Where should we send your rate?</div>
   <div class="step-sub" id="gate-sub">A licensed Florida agent will confirm your exact number with 14+ carriers. No obligation, no spam.</div>
 
@@ -1108,6 +1150,7 @@ nav.calc-breadcrumb [aria-current="page"] {
     </div>
   </div>
 
+  <p style="font-size:13px;color:var(--gt);line-height:1.6;margin-bottom:12px;">🔒 We never sell or share your personal information. <a href="/privacy" style="color:var(--purple);font-weight:600;" id="gate-privacy-link">Privacy Policy</a></p>
   <div class="consent-wrap" id="consent-wrap">
     <label class="consent-summary" style="display: flex; gap: 12px; align-items: flex-start;">
       <input type="checkbox" id="consent-chk" onchange="checkGate()">
@@ -1125,7 +1168,7 @@ nav.calc-breadcrumb [aria-current="page"] {
 
 <!-- Rate Result -->
 <div class="screen" id="sRate">
-  <button class="back-btn" onclick="goScreen('sGate')">Back</button>
+  <button class="back-btn" onclick="goScreen('s9')">Back</button>
   
   <div style="text-align: center; margin-bottom: 32px;">
     <div style="font-size: 18px; color: var(--gt); margin-bottom: 12px;" id="rate-headline">Your estimated monthly cost</div>
@@ -1134,6 +1177,7 @@ nav.calc-breadcrumb [aria-current="page"] {
     <div style="font-size: 13px; color: #aaa; line-height: 1.7; margin-bottom: 20px;" id="rate-disc">Estimated monthly premiums for illustrative purposes only. Actual rates vary by carrier, health history, and coverage amount. No rate is guaranteed until a policy is issued. Contact a licensed agent for your exact quote.</div>
   </div>
 
+  <button class="btn-primary" onclick="goScreen('sGate')" id="rate-exact-btn" style="margin-bottom:16px;"><span id="rate-exact-cta">Get My Exact Quote →</span></button>
   <button class="btn-call" onclick="window.location.href='tel:18003806821'" id="rate-call">Call 1-800-380-6821</button>
   <a href="https://wa.me/13054646888" onclick="gtag('event','whatsapp_click',{'page':window.location.pathname})" class="btn-wa" id="rate-wa">WhatsApp us</a>
 
@@ -1236,6 +1280,7 @@ window.LIFE_RATES = {
 const S = {
   // Tool A
   income: 0,
+  zip: '',
   dependents: [],
   child_count: 0,
   youngest_child_age: 0,
@@ -1245,6 +1290,10 @@ const S = {
   existing_coverage: 0,
   existing_unknown: false,
   liquid_savings: 0,
+  mortgage_set: false,
+  other_debt_set: false,
+  coverage_set: false,
+  savings_set: false,
   // Computed
   recommended: 0,
   gross_need: 0,
@@ -1348,8 +1397,9 @@ const STRINGS = {
     organ: "Kidney or liver disease",
     controlledBp: "High blood pressure or cholesterol, controlled with medication",
     none: "None of these",
-    gateQ: "Where should we send your rate?",
-    gateSub: "A licensed Florida agent will confirm your exact number with 14+ carriers. No obligation, no spam.",
+    gateQ: "Get Your Exact Quote",
+    gateSub: "A licensed agent will confirm your exact rate with 14+ carriers — free, no obligation.",
+    rateExactCta: "Get My Exact Quote →",
     gateFname: "First Name",
     gateLname: "Last Name",
     gateEmail: "Email Address",
@@ -1434,8 +1484,9 @@ const STRINGS = {
     organ: "Enfermedad de riñones o hígado",
     controlledBp: "Presión arterial alta o colesterol alto, controlado con medicación",
     none: "Ninguno de estos",
-    gateQ: "¿Dónde debemos enviar su tarifa?",
-    gateSub: "Un agente licenciado de Florida confirmará su número exacto con 14+ aseguradoras. Sin obligación, sin spam.",
+    gateQ: "Obtenga Su Cotización Exacta",
+    gateSub: "Un agente licenciado confirmará su tarifa exacta con 14+ aseguradoras — gratis, sin obligación.",
+    rateExactCta: "Obtener Mi Cotización Exacta →",
     gateFname: "Nombre",
     gateLname: "Apellido",
     gateEmail: "Correo Electrónico",
@@ -1555,6 +1606,8 @@ function updateUI() {
   document.getElementById('gate-btn-lbl').textContent = str('gateBtn');
   document.getElementById('rate-headline').textContent = str('rateHeadline');
   document.getElementById('rate-disc').textContent = str('rateDisc');
+  var rateExact = document.getElementById('rate-exact-cta');
+  if (rateExact) rateExact.textContent = str('rateExactCta') || 'Get My Exact Quote →';
 }
 
 function goScreen(id) {
@@ -1602,7 +1655,7 @@ function selectIncome(el, val) {
   el.classList.add('sel');
   S.income = val;
   document.getElementById('custom-income-field').classList.add('hidden');
-  setTimeout(() => goScreen('s2'), 200);
+  setTimeout(() => goScreen('s2'), 350);
   saveState();
 }
 
@@ -1685,6 +1738,8 @@ function selectMortgage(el, val) {
   document.querySelectorAll('#s4-mort-opts .opt').forEach(o => o.classList.remove('sel'));
   el.classList.add('sel');
   S.mortgage_balance = val;
+  S.mortgage_set = true;
+  document.getElementById('custom-mort-field').classList.add('hidden');
   checkS4();
 }
 
@@ -1692,11 +1747,13 @@ function selectOtherDebt(el, val) {
   document.querySelectorAll('#s4-other-opts .opt').forEach(o => o.classList.remove('sel'));
   el.classList.add('sel');
   S.other_debt = val;
+  S.other_debt_set = true;
+  document.getElementById('custom-debt-field').classList.add('hidden');
   checkS4();
 }
 
 function checkS4() {
-  const ready = S.mortgage_balance >= 0 && S.other_debt >= 0;
+  const ready = S.mortgage_set && S.other_debt_set;
   document.getElementById('s4-btn').className = 'cont-btn ' + (ready ? 'on' : 'off');
   saveState();
 }
@@ -1717,6 +1774,7 @@ function selectExistingCov(el, val) {
     S.existing_coverage = val;
     S.existing_unknown = false;
   }
+  S.coverage_set = true;
   checkS5();
 }
 
@@ -1724,11 +1782,13 @@ function selectSavings(el, val) {
   document.querySelectorAll('#s5-sav-opts .opt').forEach(o => o.classList.remove('sel'));
   el.classList.add('sel');
   S.liquid_savings = val;
+  S.savings_set = true;
+  document.getElementById('custom-sav-field').classList.add('hidden');
   checkS5();
 }
 
 function checkS5() {
-  const ready = (S.existing_coverage >= 0 || S.existing_unknown) && S.liquid_savings >= 0;
+  const ready = S.coverage_set && S.savings_set;
   document.getElementById('s5-btn').className = 'cont-btn ' + (ready ? 'on' : 'off');
   saveState();
 }
@@ -1866,7 +1926,8 @@ function animateNumber() {
 
 
 function startToolB() {
-  goScreen('s6');
+  renderReview();
+  goScreen('sReview');
 }
 
 async function emailResult() {
@@ -1948,7 +2009,7 @@ function selectSex(el, val) {
   document.querySelectorAll('#s7-opts .opt').forEach(o => o.classList.remove('sel'));
   el.classList.add('sel');
   S.sex = val;
-  setTimeout(() => goScreen('s8'), 200);
+  setTimeout(() => goScreen('s8'), 350);
   saveState();
 }
 
@@ -1956,7 +2017,7 @@ function selectTobacco(el, val) {
   document.querySelectorAll('#s8-opts .opt').forEach(o => o.classList.remove('sel'));
   el.classList.add('sel');
   S.tobacco = val;
-  setTimeout(() => goScreen('s9'), 200);
+  setTimeout(() => goScreen('s9'), 350);
   saveState();
 }
 
@@ -2029,10 +2090,18 @@ function submitGate() {
   S.lname = document.getElementById('gate-lname').value.trim();
   S.email = document.getElementById('gate-email').value.trim();
   S.phone = document.getElementById('gate-phone').value.trim();
-  
-  getRateClass();
-  calcRate();
-  showRate();
+
+  submitToGHL('complete');
+
+  document.getElementById('sGate').innerHTML = '<div style="text-align:center;padding:40px 0 24px;">'
+    + '<div style="font-size:52px;margin-bottom:16px;">&#x2705;</div>'
+    + '<div style="font-size:22px;font-weight:700;color:var(--purple);margin-bottom:12px;">You\'re all set!</div>'
+    + '<p style="font-size:16px;color:var(--gt);line-height:1.7;margin-bottom:28px;">A licensed agent from The Health Experts Insurance will reach out shortly to confirm your exact rate with 14+ carriers.</p>'
+    + '<a href="tel:18003806821" style="display:block;text-align:center;padding:16px;background:var(--purple);color:#fff;border-radius:50px;font-weight:700;font-size:16px;text-decoration:none;margin-bottom:12px;">Call now: 1-800-380-6821</a>'
+    + '<a href="https://wa.me/13054646888" onclick="gtag(\'event\',\'whatsapp_click\',{\'page\':window.location.pathname})" style="display:block;text-align:center;padding:16px;background:#25D366;color:#fff;border-radius:50px;font-weight:700;font-size:16px;text-decoration:none;margin-bottom:28px;">Chat on WhatsApp</a>'
+    + '<a onclick="restart()" style="color:var(--purple);font-size:14px;font-weight:600;cursor:pointer;text-decoration:underline;">Start over</a>'
+    + '</div>';
+  saveState();
 }
 
 // === RATE CALCULATION ===
@@ -2126,7 +2195,7 @@ function showRate() {
     if (waEl) waEl.href = 'https://wa.me/13054646888?text=' + encodeURIComponent(waMsg);
   }
   
-  submitToGHL('complete');
+  submitToGHL('rate_viewed');
   goScreen('sRate');
   setTimeout(function() {
     var el = document.getElementById('rate-headline');
@@ -2185,6 +2254,7 @@ async function submitToGHL(completion) {
     source: 'life-calculator-v2',
     tags: buildTags(completion),
     customFields: {
+      life_calc_zip: S.zip,
       life_calc_income: S.income,
       life_calc_dependents: S.dependents.join(','),
       life_calc_child_count: S.child_count,
@@ -2223,15 +2293,109 @@ async function submitToGHL(completion) {
   }
 }
 
+
+// === CUSTOM EXACT-ENTRY HANDLERS ===
+function toggleCustomMortgage(el) {
+  document.querySelectorAll('#s4-mort-opts .opt').forEach(o => o.classList.remove('sel'));
+  el.classList.add('sel');
+  document.getElementById('custom-mort-field').classList.remove('hidden');
+}
+function updateCustomMortgage() {
+  S.mortgage_balance = Math.max(0, parseInt(document.getElementById('custom-mort').value) || 0);
+  S.mortgage_set = true;
+  checkS4();
+}
+function toggleCustomOtherDebt(el) {
+  document.querySelectorAll('#s4-other-opts .opt').forEach(o => o.classList.remove('sel'));
+  el.classList.add('sel');
+  document.getElementById('custom-debt-field').classList.remove('hidden');
+}
+function updateCustomOtherDebt() {
+  S.other_debt = Math.max(0, parseInt(document.getElementById('custom-debt').value) || 0);
+  S.other_debt_set = true;
+  checkS4();
+}
+function toggleCustomSavings(el) {
+  document.querySelectorAll('#s5-sav-opts .opt').forEach(o => o.classList.remove('sel'));
+  el.classList.add('sel');
+  document.getElementById('custom-sav-field').classList.remove('hidden');
+}
+function updateCustomSavings() {
+  S.liquid_savings = Math.max(0, parseInt(document.getElementById('custom-sav').value) || 0);
+  S.savings_set = true;
+  checkS5();
+}
+
+// === REVIEW SCREEN ===
+function renderReview() {
+  var depLabels = {spouse:'Spouse or partner',children:'Children (under 21)',parents:'Aging parents/relatives',business:'Business or partner',none:'No dependents'};
+  var deps = S.dependents.length ? S.dependents.map(function(d){return depLabels[d]||d;}).join(', ') : 'None';
+  var income = S.income ? '$' + S.income.toLocaleString() + '/yr' : '—';
+  var mort = S.mortgage_balance ? fmt(S.mortgage_balance) : '$0 (renting)';
+  var debt = S.other_debt ? fmt(S.other_debt) : '$0';
+  var sav = S.liquid_savings ? fmt(S.liquid_savings) : '$0';
+  var cov = S.existing_unknown ? 'Not sure' : (S.existing_coverage ? fmt(S.existing_coverage) : '$0');
+  var rec = S.recommended ? fmt(S.recommended) : '—';
+  var rows = [
+    ['Household income', income],
+    ['Dependents', deps]
+  ];
+  if (S.has_children) rows.push(['Youngest child age', 'age ' + S.youngest_child_age]);
+  rows = rows.concat([
+    ['Mortgage balance', mort],
+    ['Other debt', debt],
+    ['Existing coverage', cov],
+    ['Liquid savings', sav],
+    ['Coverage estimate', '<strong style="color:var(--purple)">' + rec + '</strong>']
+  ]);
+  var h = '<table style="width:100%;border-collapse:collapse;">';
+  rows.forEach(function(r) {
+    h += '<tr><td style="padding:9px 0;border-bottom:1px solid #f0e8fa;color:var(--gt);font-size:14px;">' + r[0] + '</td>';
+    h += '<td style="padding:9px 0;border-bottom:1px solid #f0e8fa;font-weight:600;text-align:right;font-size:14px;">' + r[1] + '</td></tr>';
+  });
+  h += '</table>';
+  document.getElementById('review-list').innerHTML = h;
+}
+
+// === EMAIL MINI-GATE (before rate) ===
+function checkEmailGate() {
+  var val = document.getElementById('email-gate-input').value.trim();
+  var ok = /^[^@]+@[^@]+\.[^@]+$/.test(val);
+  document.getElementById('email-gate-btn').className = 'cont-btn ' + (ok ? 'on' : 'off');
+}
+function submitEmailGate() {
+  var val = document.getElementById('email-gate-input').value.trim();
+  if (!/^[^@]+@[^@]+\.[^@]+$/.test(val)) return;
+  S.email = val;
+  submitToGHL('partial');
+  showRate();
+}
+
+// === PROCEED FROM HEALTH QUESTIONS ===
+function proceedFromHealth() {
+  getRateClass();
+  calcRate();
+  if (!S.email) {
+    goScreen('sEmailGate');
+  } else {
+    showRate();
+  }
+}
+
 // === RESTART ===
 function restart() {
   S.income = 0;
+  S.zip = '';
   S.dependents = [];
   S.child_count = 0;
   S.youngest_child_age = 0;
   S.has_children = false;
   S.mortgage_balance = 0;
   S.other_debt = 0;
+  S.mortgage_set = false;
+  S.other_debt_set = false;
+  S.coverage_set = false;
+  S.savings_set = false;
   S.existing_coverage = 0;
   S.existing_unknown = false;
   S.liquid_savings = 0;
