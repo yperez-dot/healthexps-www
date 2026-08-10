@@ -724,8 +724,13 @@ nav.calc-breadcrumb [aria-current="page"] {
     </div>
   </div>
 
+<!-- Slim header: shown once flow starts, hidden on sIntro -->
+<div id="calc-slim-bar" style="display:none;position:sticky;top:0;background:#fff;border-bottom:1px solid #ece5f0;z-index:501;padding:8px 20px;align-items:center;justify-content:space-between;">
+  <a href="/life-insurance-calculator/"><img src="/images/logo.webp" alt="The Health Experts Insurance" style="height:44px;width:auto;"/></a>
+  <a href="tel:18003806821" style="font-weight:700;font-size:14px;color:#452068;text-decoration:none;">📞 1-800-380-6821</a>
+</div>
   <!-- NAV -->
-  <div class="v4-nav-outer" style="display:flex;align-items:center;justify-content:space-between;padding:14px 56px;border-bottom:1px solid #ece5f0;position:sticky;top:0;background:#fff;z-index:500">
+  <div id="calc-full-nav" class="v4-nav-outer" style="display:flex;align-items:center;justify-content:space-between;padding:14px 56px;border-bottom:1px solid #ece5f0;position:sticky;top:0;background:#fff;z-index:500">
     <a href="/"><img src="/images/logo.webp" alt="The Health Experts Insurance" style="height:80px;width:auto;cursor:pointer"/></a>
     <div class="v4-nav-desktop" style="display:flex;align-items:center;gap:26px;font-size:14.5px;font-weight:600;color:#3a2f47">
       <a href="/" style="cursor:pointer">Home</a>
@@ -900,69 +905,35 @@ nav.calc-breadcrumb [aria-current="page"] {
 <!-- Q3: Children Detail (Conditional) -->
 <div class="screen" id="s3">
   <button class="back-btn" onclick="goScreen('s2')">Back</button>
-  <div class="step-q" id="s3-q">How many children, and how old is the youngest?</div>
+  <div class="step-q" id="s3-q">How old is your youngest child?</div>
   <div class="step-sub" id="s3-sub">Under 21 and financially dependent on you.</div>
-  
-  <div style="margin-bottom: 20px;">
-    <div style="font-weight: 600; font-size: 14px; margin-bottom: 10px;">Number of children</div>
-    <div class="opts-2" id="s3-count-opts">
-      <div class="opt" onclick="selectChildCount(this, 1)"><span>1</span><span class="opt-chk">✔</span></div>
-      <div class="opt" onclick="selectChildCount(this, 2)"><span>2</span><span class="opt-chk">✔</span></div>
-      <div class="opt" onclick="selectChildCount(this, 3)"><span>3</span><span class="opt-chk">✔</span></div>
-      <div class="opt" onclick="selectChildCount(this, 4)"><span>4+</span><span class="opt-chk">✔</span></div>
-    </div>
+  <div class="opts-2" id="s3-age-opts">
+    <div class="opt" onclick="selectChildAge(this, 3)"><span>Under 5</span><span class="opt-chk">✔</span></div>
+    <div class="opt" onclick="selectChildAge(this, 8)"><span>5–10</span><span class="opt-chk">✔</span></div>
+    <div class="opt" onclick="selectChildAge(this, 14)"><span>11–16</span><span class="opt-chk">✔</span></div>
+    <div class="opt" onclick="selectChildAge(this, 19)"><span>17–21</span><span class="opt-chk">✔</span></div>
   </div>
-
-  <div>
-    <div style="font-weight: 600; font-size: 14px; margin-bottom: 10px;">Youngest child's age</div>
-    <div class="opts-2" id="s3-age-opts">
-      <div class="opt" onclick="selectChildAge(this, 3)"><span>Under 5</span><span class="opt-chk">✔</span></div>
-      <div class="opt" onclick="selectChildAge(this, 8)"><span>5-10</span><span class="opt-chk">✔</span></div>
-      <div class="opt" onclick="selectChildAge(this, 14)"><span>11-16</span><span class="opt-chk">✔</span></div>
-      <div class="opt" onclick="selectChildAge(this, 19)"><span>17-21</span><span class="opt-chk">✔</span></div>
-    </div>
-  </div>
-  
   <button class="cont-btn off" id="s3-btn" onclick="proceedFromChildren()"><span id="s3-btn-lbl">Continue</span></button>
 </div>
 
-<!-- Q4: Debts -->
+<!-- Q4: Debts (combined) -->
 <div class="screen" id="s4">
   <button class="back-btn" onclick="goScreen('s3')">Back</button>
-  <div class="step-q" id="s4-q">How much debt would you leave behind?</div>
-  <div class="step-sub" id="s4-sub">Mortgage, car loans, credit cards, student loans. Enter 0 if you rent and carry no debt.</div>
-  
-  <div style="margin-bottom: 20px;">
-    <div style="font-weight: 600; font-size: 14px; margin-bottom: 10px;" id="s4-mort-lbl">Mortgage balance</div>
-    <div class="opts" id="s4-mort-opts">
-      <div class="opt" onclick="selectMortgage(this, 0)"><span>0 / I rent</span><span class="opt-chk">✔</span></div>
-      <div class="opt" onclick="selectMortgage(this, 100000)"><span>Under $150K</span><span class="opt-chk">✔</span></div>
-      <div class="opt" onclick="selectMortgage(this, 225000)"><span>$150K-$300K</span><span class="opt-chk">✔</span></div>
-      <div class="opt" onclick="selectMortgage(this, 400000)"><span>$300K-$500K</span><span class="opt-chk">✔</span></div>
-      <div class="opt" onclick="selectMortgage(this, 650000)"><span>Over $500K</span><span class="opt-chk">✔</span></div>
-      <div class="opt" onclick="toggleCustomMortgage(this)"><span id="custom-mort-txt">I'd rather enter my exact number</span><span class="opt-chk">✔</span></div>
-    </div>
-    <div class="field hidden" id="custom-mort-field">
-      <label>Mortgage balance ($)</label>
-      <input type="number" id="custom-mort" placeholder="Enter amount" min="0" max="9999999" oninput="updateCustomMortgage()">
-    </div>
+  <div class="step-q" id="s4-q">How much total debt would you leave behind?</div>
+  <div class="step-sub" id="s4-sub">Mortgage, car loans, credit cards, student loans combined. Enter $0 if you rent and carry no debt.</div>
+  <div class="opts" id="s4-debt-opts">
+    <div class="opt" onclick="selectDebtTotal(this, 0)"><span id="debt-opt-0">$0 / No debt</span><span class="opt-chk">✔</span></div>
+    <div class="opt" onclick="selectDebtTotal(this, 25000)"><span id="debt-opt-1">Under $50K</span><span class="opt-chk">✔</span></div>
+    <div class="opt" onclick="selectDebtTotal(this, 100000)"><span id="debt-opt-2">$50K – $150K</span><span class="opt-chk">✔</span></div>
+    <div class="opt" onclick="selectDebtTotal(this, 225000)"><span id="debt-opt-3">$150K – $300K</span><span class="opt-chk">✔</span></div>
+    <div class="opt" onclick="selectDebtTotal(this, 450000)"><span id="debt-opt-4">$300K – $600K</span><span class="opt-chk">✔</span></div>
+    <div class="opt" onclick="selectDebtTotal(this, 750000)"><span id="debt-opt-5">Over $600K</span><span class="opt-chk">✔</span></div>
+    <div class="opt" onclick="toggleCustomDebtTotal(this)"><span id="custom-debt-txt">I'd rather enter my exact number</span><span class="opt-chk">✔</span></div>
   </div>
-
-  <div>
-    <div style="font-weight: 600; font-size: 14px; margin-bottom: 10px;" id="s4-other-lbl">Other debt (auto, credit cards, student loans)</div>
-    <div class="opts" id="s4-other-opts">
-      <div class="opt" onclick="selectOtherDebt(this, 0)"><span>None</span><span class="opt-chk">✔</span></div>
-      <div class="opt" onclick="selectOtherDebt(this, 12500)"><span>Under $25K</span><span class="opt-chk">✔</span></div>
-      <div class="opt" onclick="selectOtherDebt(this, 50000)"><span>$25K-$75K</span><span class="opt-chk">✔</span></div>
-      <div class="opt" onclick="selectOtherDebt(this, 120000)"><span>Over $75K</span><span class="opt-chk">✔</span></div>
-      <div class="opt" onclick="toggleCustomOtherDebt(this)"><span id="custom-debt-txt">I'd rather enter my exact number</span><span class="opt-chk">✔</span></div>
-    </div>
-    <div class="field hidden" id="custom-debt-field">
-      <label>Other debt ($)</label>
-      <input type="number" id="custom-debt" placeholder="Enter amount" min="0" max="9999999" oninput="updateCustomOtherDebt()">
-    </div>
+  <div class="field hidden" id="custom-debt-field">
+    <label>Total debt ($)</label>
+    <input type="number" id="custom-debt" placeholder="Enter amount" min="0" max="9999999" oninput="updateCustomDebtTotal()">
   </div>
-
   <button class="cont-btn off" id="s4-btn" onclick="proceedFromDebt()"><span id="s4-btn-lbl">Continue</span></button>
 </div>
 
@@ -980,21 +951,6 @@ nav.calc-breadcrumb [aria-current="page"] {
       <div class="opt" onclick="selectExistingCov(this, -2)"><span>About 2x my salary</span><span class="opt-chk">✔</span></div>
       <div class="opt" onclick="selectExistingCov(this, 250000)"><span>$250K or more</span><span class="opt-chk">✔</span></div>
       <div class="opt" onclick="selectExistingCov(this, 'unknown')"><span id="not-sure">Not sure</span><span class="opt-chk">✔</span></div>
-    </div>
-  </div>
-
-  <div>
-    <div style="font-weight: 600; font-size: 14px; margin-bottom: 10px;" id="s5-sav-lbl">Savings and investments you could access</div>
-    <div class="opts" id="s5-sav-opts">
-      <div class="opt" onclick="selectSavings(this, 5000)"><span>Under $10K</span><span class="opt-chk">✔</span></div>
-      <div class="opt" onclick="selectSavings(this, 30000)"><span>$10K-$50K</span><span class="opt-chk">✔</span></div>
-      <div class="opt" onclick="selectSavings(this, 100000)"><span>$50K-$150K</span><span class="opt-chk">✔</span></div>
-      <div class="opt" onclick="selectSavings(this, 250000)"><span>Over $150K</span><span class="opt-chk">✔</span></div>
-      <div class="opt" onclick="toggleCustomSavings(this)"><span id="custom-sav-txt">I'd rather enter my exact number</span><span class="opt-chk">✔</span></div>
-    </div>
-    <div class="field hidden" id="custom-sav-field">
-      <label>Savings &amp; investments ($)</label>
-      <input type="number" id="custom-sav" placeholder="Enter amount" min="0" max="9999999" oninput="updateCustomSavings()">
     </div>
   </div>
 
@@ -1021,7 +977,7 @@ nav.calc-breadcrumb [aria-current="page"] {
       <tr id="breakdown-savings-row" style="display: none;"><td id="breakdown-savings-label">Less: half of your savings</td><td id="breakdown-savings-val">0</td></tr>
       <tr style="background: var(--pl);"><td id="breakdown-net-label">Your coverage need</td><td id="breakdown-net-val">0</td></tr>
     </table>
-    <div style="font-size: 13px; color: var(--gt); line-height: 1.6; margin-top: 12px;" id="savings-note">We only count half your savings  -  your family should keep an emergency cushion, not drain the account.</div>
+
   </div>
 
   <!-- Advisory: shown when recommended > income × 20x (underwriting signal, not a hard cap) -->
@@ -1414,12 +1370,12 @@ const STRINGS = {
     depParents: "Aging parents or relatives",
     depBusiness: "A business or business partner",
     depNone: "Nobody depends on me financially",
-    q3q: "How many children, and how old is the youngest?",
+    q3q: "How old is your youngest child?",
     q3sub: "Under 21 and financially dependent on you.",
     numChildren: "Number of children",
     youngestAge: "Youngest child's age",
-    q4q: "How much debt would you leave behind?",
-    q4sub: "Mortgage, car loans, credit cards, student loans. Enter 0 if you rent and carry no debt.",
+    q4q: "How much total debt would you leave behind?",
+    q4sub: "Mortgage, car loans, credit cards, student loans combined. Enter $0 if you rent and carry no debt.",
     mortLabel: "Mortgage balance",
     otherLabel: "Other debt (auto, credit cards, student loans)",
     q5q: "What safety net is already in place?",
@@ -1656,12 +1612,9 @@ function updateUI() {
   document.getElementById('s3-sub').textContent = str('q3sub');
   document.getElementById('s4-q').textContent = str('q4q');
   document.getElementById('s4-sub').textContent = str('q4sub');
-  document.getElementById('s4-mort-lbl').textContent = str('mortLabel');
-  document.getElementById('s4-other-lbl').textContent = str('otherLabel');
   document.getElementById('s5-q').textContent = str('q5q');
   document.getElementById('s5-sub').textContent = str('q5sub');
   document.getElementById('s5-cov-lbl').textContent = str('covLabel');
-  document.getElementById('s5-sav-lbl').textContent = str('savLabel');
   document.getElementById('not-sure').textContent = str('notSure');
   document.getElementById('result-label').textContent = str('resultNum');
   document.getElementById('college-prompt').textContent = str('collegePrompt');
@@ -1724,6 +1677,25 @@ function goScreen(id) {
   document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
   document.getElementById(id).classList.add('active');
   updateProgress(id);
+
+  // Item 4: slim bar / full nav
+  var fullNav = document.getElementById('calc-full-nav');
+  var slimBar = document.getElementById('calc-slim-bar');
+  if (id === 'sIntro') {
+    if (fullNav) fullNav.style.display = '';
+    if (slimBar) slimBar.style.display = 'none';
+  } else {
+    if (fullNav) fullNav.style.display = 'none';
+    if (slimBar) slimBar.style.display = 'flex';
+  }
+
+  // Item 5: sticky CTA — hide during active questions
+  var showStickyOn = ['sIntro', 'sResult', 'sRate', 'sFEX'];
+  var stickyCta = document.querySelector('.sticky-cta');
+  if (stickyCta) {
+    stickyCta.style.setProperty('display', showStickyOn.includes(id) ? '' : 'none', 'important');
+  }
+
   // Pre-fill ZIP when navigating back to sZip
   if (id === 'sZip') {
     var zinp = document.getElementById('zip-input');
@@ -1734,10 +1706,18 @@ function goScreen(id) {
     var s1b = document.getElementById('s1-btn');
     if (s1b) s1b.className = 'cont-btn ' + (S.income > 0 ? 'on' : 'off');
   }
-  // Don't scroll when landing on intro screen — user is at top of page already
-  if (id === 'sIntro') { saveState(); return; }
-  var anchor = document.getElementById('prog-wrap') || document.getElementById('calc-container');
-  if (anchor) anchor.scrollIntoView({ behavior: 'instant', block: 'start' });
+
+  // Item 6: scroll to top on every transition
+  window.scrollTo(0, 0);
+
+  // Special: result screen scrolls down to the number
+  if (id === 'sResult') {
+    setTimeout(function() {
+      var el = document.getElementById('result-number');
+      if (el) el.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }, 80);
+  }
+
   saveState();
 }
 
@@ -1846,13 +1826,6 @@ function proceedFromDependents() {
   saveState();
 }
 
-function selectChildCount(el, n) {
-  document.querySelectorAll('#s3-count-opts .opt').forEach(o => o.classList.remove('sel'));
-  el.classList.add('sel');
-  S.child_count = n;
-  checkS3();
-}
-
 function selectChildAge(el, age) {
   document.querySelectorAll('#s3-age-opts .opt').forEach(o => o.classList.remove('sel'));
   el.classList.add('sel');
@@ -1861,26 +1834,35 @@ function selectChildAge(el, age) {
 }
 
 function checkS3() {
-  const ready = S.child_count > 0 && S.youngest_child_age > 0;
+  const ready = S.youngest_child_age > 0;
   document.getElementById('s3-btn').className = 'cont-btn ' + (ready ? 'on' : 'off');
   saveState();
 }
 
-function selectMortgage(el, val) {
-  document.querySelectorAll('#s4-mort-opts .opt').forEach(o => o.classList.remove('sel'));
+function selectDebtTotal(el, val) {
+  document.querySelectorAll('#s4-debt-opts .opt').forEach(o => o.classList.remove('sel'));
   el.classList.add('sel');
   S.mortgage_balance = val;
+  S.other_debt = 0;
   S.mortgage_set = true;
-  document.getElementById('custom-mort-field').classList.add('hidden');
-  checkS4();
-}
-
-function selectOtherDebt(el, val) {
-  document.querySelectorAll('#s4-other-opts .opt').forEach(o => o.classList.remove('sel'));
-  el.classList.add('sel');
-  S.other_debt = val;
   S.other_debt_set = true;
   document.getElementById('custom-debt-field').classList.add('hidden');
+  checkS4();
+}
+function toggleCustomDebtTotal(el) {
+  document.querySelectorAll('#s4-debt-opts .opt').forEach(o => o.classList.remove('sel'));
+  el.classList.add('sel');
+  document.getElementById('custom-debt-field').classList.remove('hidden');
+  S.mortgage_set = false;
+  S.other_debt_set = false;
+  document.getElementById('s4-btn').className = 'cont-btn off';
+}
+function updateCustomDebtTotal() {
+  const val = parseInt(document.getElementById('custom-debt').value) || 0;
+  S.mortgage_balance = Math.max(0, val);
+  S.other_debt = 0;
+  S.mortgage_set = true;
+  S.other_debt_set = true;
   checkS4();
 }
 
@@ -1920,7 +1902,7 @@ function selectSavings(el, val) {
 }
 
 function checkS5() {
-  const ready = S.coverage_set && S.savings_set;
+  const ready = S.coverage_set;
   document.getElementById('s5-btn').className = 'cont-btn ' + (ready ? 'on' : 'off');
   saveState();
 }
@@ -1988,11 +1970,6 @@ function showResult() {
   renderResult();
   animateNumber();
   goScreen('sResult');
-  // Scroll to the headline number, not the progress bar (which is hidden on result screen)
-  setTimeout(function() {
-    var el = document.getElementById('result-number');
-    if (el) el.scrollIntoView({ behavior: 'smooth', block: 'center' });
-  }, 80);
   saveState();
 }
 
@@ -2418,12 +2395,9 @@ async function submitToGHL(completion) {
       life_calc_language: S.language,
       life_calc_completion: completion,
       life_calc_timestamp: S.timestamp,
-      life_calc_child_count: S.child_count,
       life_calc_youngest_age: S.youngest_child_age,
-      life_calc_mortgage: S.mortgage_balance,
-      life_calc_other_debt: S.other_debt,
-      life_calc_existing_coverage: S.existing_coverage,
-      life_calc_savings: S.liquid_savings
+      life_calc_debt_total: S.mortgage_balance,
+      life_calc_existing_coverage: S.existing_coverage
     }
   };
 
@@ -2440,44 +2414,13 @@ async function submitToGHL(completion) {
 
 
 // === CUSTOM EXACT-ENTRY HANDLERS ===
-function toggleCustomMortgage(el) {
-  document.querySelectorAll('#s4-mort-opts .opt').forEach(o => o.classList.remove('sel'));
-  el.classList.add('sel');
-  document.getElementById('custom-mort-field').classList.remove('hidden');
-}
-function updateCustomMortgage() {
-  S.mortgage_balance = Math.max(0, parseInt(document.getElementById('custom-mort').value) || 0);
-  S.mortgage_set = true;
-  checkS4();
-}
-function toggleCustomOtherDebt(el) {
-  document.querySelectorAll('#s4-other-opts .opt').forEach(o => o.classList.remove('sel'));
-  el.classList.add('sel');
-  document.getElementById('custom-debt-field').classList.remove('hidden');
-}
-function updateCustomOtherDebt() {
-  S.other_debt = Math.max(0, parseInt(document.getElementById('custom-debt').value) || 0);
-  S.other_debt_set = true;
-  checkS4();
-}
-function toggleCustomSavings(el) {
-  document.querySelectorAll('#s5-sav-opts .opt').forEach(o => o.classList.remove('sel'));
-  el.classList.add('sel');
-  document.getElementById('custom-sav-field').classList.remove('hidden');
-}
-function updateCustomSavings() {
-  S.liquid_savings = Math.max(0, parseInt(document.getElementById('custom-sav').value) || 0);
-  S.savings_set = true;
-  checkS5();
-}
+// (toggleCustomDebtTotal / updateCustomDebtTotal defined above with selectDebtTotal)
 
 // === REVIEW SCREEN ===
 function renderReview() {
   // Bracket label maps — display what the user saw, not computed midpoints
   var INCOME_LBL = {30000:'Under $40,000', 57500:'$40,000\u2013$75,000', 100000:'$75,000\u2013$125,000', 162500:'$125,000\u2013$200,000', 250000:'$200,000+'};
-  var MORT_LBL   = {0:'Renting / $0', 100000:'Under $150K', 225000:'$150K\u2013$300K', 400000:'$300K\u2013$500K', 650000:'Over $500K'};
-  var DEBT_LBL   = {0:'None', 12500:'Under $25K', 50000:'$25K\u2013$75K', 120000:'Over $75K'};
-  var SAV_LBL    = {5000:'Under $10K', 30000:'$10K\u2013$50K', 100000:'$50K\u2013$150K', 250000:'Over $150K'};
+  var DEBT_TOTAL_LBL = {0:'$0 / No debt', 25000:'Under $50K', 100000:'$50K\u2013$150K', 225000:'$150K\u2013$300K', 450000:'$300K\u2013$600K', 750000:'Over $600K'};
   var AGE_LBL    = {3:'Under 5', 8:'5\u201310', 14:'11\u201316', 19:'17\u201321'};
 
   var depLabels = {spouse:'Spouse or partner',children:'Children (under 21)',parents:'Aging parents/relatives',business:'Business or partner',none:'No dependents'};
@@ -2485,9 +2428,7 @@ function renderReview() {
 
   var income = INCOME_LBL[S.income] || (S.income ? fmt(S.income) + '/yr' : '\u2014');
   var zip = S.zip || '\u2014';
-  var mort = MORT_LBL.hasOwnProperty(S.mortgage_balance) ? MORT_LBL[S.mortgage_balance] : (S.mortgage_set ? fmt(S.mortgage_balance) : '\u2014');
-  var debt = DEBT_LBL.hasOwnProperty(S.other_debt) ? DEBT_LBL[S.other_debt] : (S.other_debt_set ? fmt(S.other_debt) : '\u2014');
-  var sav  = SAV_LBL.hasOwnProperty(S.liquid_savings) ? SAV_LBL[S.liquid_savings] : (S.savings_set ? fmt(S.liquid_savings) : '\u2014');
+  var debtTotal = DEBT_TOTAL_LBL.hasOwnProperty(S.mortgage_balance) ? DEBT_TOTAL_LBL[S.mortgage_balance] : (S.mortgage_set ? fmt(S.mortgage_balance) : '\u2014');
   var cov;
   if (S.existing_unknown) { cov = 'Not sure'; }
   else if (!S.coverage_set) { cov = '\u2014'; }
@@ -2507,10 +2448,8 @@ function renderReview() {
   ];
   if (S.has_children) rows.push(['Youngest child age', childAge, 's3']);
   rows = rows.concat([
-    ['Mortgage balance', mort, 's4'],
-    ['Other debt', debt, 's4'],
+    ['Total debt', debtTotal, 's4'],
     ['Existing coverage', cov, 's5'],
-    ['Liquid savings', sav, 's5'],
     ['Coverage estimate', '<strong style="color:var(--purple)">' + rec + '</strong>', null]
   ]);
 
