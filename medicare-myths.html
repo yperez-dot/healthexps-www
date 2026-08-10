@@ -778,6 +778,8 @@ nav{display:flex;align-items:center;justify-content:space-between;height:76px;}
 <section id="lead-form" class="form-section">
   <div class="form-card">
     <div id="form-content">
+      <!-- Honeypot: hidden from humans, bots fill it in -->
+      <input type="text" name="_hp_name" id="_hp_name" autocomplete="off" tabindex="-1" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0;pointer-events:none;" value="">
       <div class="form-title">Get Your Free Medicare Consultation</div>
       <div class="form-sub">No cost, no obligation. A licensed bilingual agent will follow up shortly.</div>
 
@@ -893,58 +895,70 @@ nav{display:flex;align-items:center;justify-content:space-between;height:76px;}
 <script>
 (function(){
   var WEBHOOK = 'https://services.leadconnectorhq.com/hooks/RINM4TCnM4hN06UA1aK0/webhook-trigger/dc6c8b35-9480-412e-b56d-4a4c8c7bd438';
-  var form = document.getElementById('v4LeadForm');
-  if (!form) return;
+  var _formLoadTime = Date.now();
 
-  form.addEventListener('submit', async function(e) {
-    e.preventDefault();
-    var btn      = document.getElementById('v4Submit');
-    var err      = document.getElementById('v4Error');
-    var first    = (document.getElementById('v4First') || {}).value || '';
-    var last     = (document.getElementById('v4Last') || {}).value || '';
-    var phone    = (document.getElementById('v4Phone') || {}).value || '';
-    var email    = (document.getElementById('v4Email') || {}).value || '';
-    var coverage = (document.getElementById('v4Coverage') || {}).value || '';
-    var consent  = document.getElementById('v4Consent') && document.getElementById('v4Consent').checked;
+  // Enable submit button only when required fields are filled + consent checked
+  function checkFields() {
+    var interest = (document.getElementById('f-interest') || {}).value || '';
+    var first    = ((document.getElementById('f-first') || {}).value || '').trim();
+    var last     = ((document.getElementById('f-last') || {}).value || '').trim();
+    var phone    = ((document.getElementById('f-phone') || {}).value || '').trim();
+    var email    = ((document.getElementById('f-email') || {}).value || '').trim();
+    var consent  = document.getElementById('f-consent') && document.getElementById('f-consent').checked;
+    var ready    = interest && first && last && phone && email && consent;
+    var btn = document.getElementById('f-submit');
+    if (btn) btn.disabled = !ready;
+  }
 
-    first = first.trim(); last = last.trim(); phone = phone.trim(); email = email.trim();
-
-    if (!first || !last || !phone || !email || !coverage || !consent) {
-      err.style.display = 'block';
-      err.textContent = 'Please fill in all required fields.';
-      return;
-    }
-    btn.disabled = true;
-    btn.textContent = 'Sending...';
-    err.style.display = 'none';
-
-    try {
-      var res = await fetch(WEBHOOK, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          first_name: first,
-          last_name: last,
-          phone: phone,
-          email: email,
-          coverage_type: coverage,
-          source: 'Homepage Form',
-          page: window.location.href,
-          submitted_at: new Date().toISOString()
-        })
-      });
-      if (res.ok) {
-        form.style.display = 'none';
-        var success = document.getElementById('v4Success');
-        if (success) success.style.display = 'block';
-      } else { throw new Error('Server error'); }
-    } catch(ex) {
-      btn.disabled = false;
-      btn.textContent = 'Book My Free Consultation →';
-      err.style.display = 'block';
-      err.textContent = 'Something went wrong. Please try again or call 1-800-380-6821.';
-    }
+  ['f-interest','f-first','f-last','f-phone','f-email','f-consent'].forEach(function(id) {
+    var el = document.getElementById(id);
+    if (el) el.addEventListener('change', checkFields);
+    if (el && el.tagName !== 'SELECT') el.addEventListener('input', checkFields);
   });
+
+  window.submitMythsForm = function() {
+    // Bot checks: honeypot field filled or form submitted too fast (<3s)
+    var _hp = (document.getElementById('_hp_name') || {}).value || '';
+    if (_hp) return;
+    if (Date.now() - _formLoadTime < 3000) return;
+
+    var interest = (document.getElementById('f-interest') || {}).value || '';
+    var first    = ((document.getElementById('f-first') || {}).value || '').trim();
+    var last     = ((document.getElementById('f-last') || {}).value || '').trim();
+    var phone    = ((document.getElementById('f-phone') || {}).value || '').trim();
+    var email    = ((document.getElementById('f-email') || {}).value || '').trim();
+    var notes    = ((document.getElementById('f-notes') || {}).value || '').trim();
+    var consent  = document.getElementById('f-consent') && document.getElementById('f-consent').checked;
+
+    if (!interest || !first || !last || !phone || !email || !consent) return;
+
+    var btn = document.getElementById('f-submit');
+    if (btn) { btn.disabled = true; btn.textContent = 'Sending...'; }
+
+    fetch(WEBHOOK, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        first_name: first,
+        last_name: last,
+        phone: phone,
+        email: email,
+        coverage_type: interest,
+        notes: notes,
+        source: 'Medicare Myths Form',
+        page: window.location.href,
+        submitted_at: new Date().toISOString()
+      })
+    }).then(function(res) {
+      if (!res.ok) throw new Error('Server error');
+      var content = document.getElementById('form-content');
+      var success = document.getElementById('form-success');
+      if (content) content.style.display = 'none';
+      if (success) success.style.display = 'block';
+    }).catch(function() {
+      if (btn) { btn.disabled = false; btn.textContent = 'Get Free Consultation →'; }
+    });
+  };
 })();
 </script>
 
