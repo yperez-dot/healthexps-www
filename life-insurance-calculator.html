@@ -1494,6 +1494,12 @@ const STRINGS = {
     organ: "Enfermedad de riñones o hígado",
     controlledBp: "Presión arterial alta o colesterol alto, controlado con medicación",
     none: "Ninguno de estos",
+    introHeadline: "El seguro de vida no tiene que ser tan complicado.",
+    introBody: "Nadie quiere pensar en esto — y la industria no lo facilita. Creamos esta herramienta para simplificarlo: unas preguntas rápidas, lenguaje claro, sin tecnicismos. Verá aproximadamente lo que necesita y lo que cuesta antes de hablar con alguien.",
+    introCheck1: "Toma unos 2 minutos",
+    introCheck2: "Preguntas en lenguaje sencillo, sin jerga de seguros",
+    introCheck3: "Vea su estimado primero — sin presión, sin compromiso",
+    introBtnLbl: "Comenzar Mi Estimado Gratis →",
     gateQ: "Obtenga Su Cotización Exacta",
     gateSub: "Un agente licenciado confirmará su tarifa exacta con 14+ aseguradoras — gratis, sin obligación.",
     rateExactCta: "Obtener Mi Cotización Exacta →",
@@ -1618,6 +1624,12 @@ function updateUI() {
   document.getElementById('rate-disc').textContent = str('rateDisc');
   var rateExact = document.getElementById('rate-exact-cta');
   if (rateExact) rateExact.textContent = str('rateExactCta') || 'Get My Exact Quote →';
+  var introH = document.getElementById('intro-headline'); if (introH) introH.textContent = str('introHeadline');
+  var introB = document.getElementById('intro-body'); if (introB) introB.textContent = str('introBody');
+  var ic1 = document.getElementById('intro-check1'); if (ic1) ic1.childNodes[ic1.childNodes.length-1].textContent = ' ' + str('introCheck1');
+  var ic2 = document.getElementById('intro-check2'); if (ic2) ic2.childNodes[ic2.childNodes.length-1].textContent = ' ' + str('introCheck2');
+  var ic3 = document.getElementById('intro-check3'); if (ic3) ic3.childNodes[ic3.childNodes.length-1].textContent = ' ' + str('introCheck3');
+  var introBtn = document.getElementById('intro-btn-lbl'); if (introBtn) introBtn.textContent = str('introBtnLbl');
 }
 
 function goScreen(id) {
@@ -2550,7 +2562,7 @@ function restart() {
   document.getElementById('dob-year').value = '';
   document.getElementById('consent-chk').checked = false;
   
-  goScreen('s1');
+  goScreen('sIntro');
   saveState();
 }
 
