@@ -1458,7 +1458,7 @@ function str(key) {
 
 // === UTILITIES ===
 function fmt(n) {
-  if (n >= 1000000) return '$' + (n / 1000000).toFixed(1) + 'M';
+  if (n >= 1000000) return '$' + (n / 1000000).toFixed(2).replace(/\.?0+$/, '') + 'M'; // e.g. $1.13M not $1.1M
   if (n >= 1000) return '$' + (n / 1000).toFixed(0) + 'K';
   return '$' + n.toLocaleString();
 }
