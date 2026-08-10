@@ -2102,15 +2102,28 @@ function calcRate() {
 }
 
 function showRate() {
+  const classLabel = {preferred_plus:'Excellent health', preferred:'Good health', standard:'Standard health', graded:'Final Expense coverage'};
+  const sexLabel = S.sex === 'F' ? 'Female' : 'Male';
+  const healthLabel = classLabel[S.rate_class] || 'Standard health';
+
   if (S.product_fit === 'final_expense') {
-    // Show final expense message
     document.getElementById('rate-headline').textContent = 'Final Expense Insurance';
     document.getElementById('rate-range').textContent = 'Ask about availability';
     document.getElementById('rate-coverage').textContent = 'Coverage from $5,000 to $50,000';
+    // Pre-filled WhatsApp message for FEX
+    const fexMsg = `Hi THEI! I used your life insurance calculator. I'm ${S.age} (${sexLabel}), ${healthLabel}. I'm interested in Final Expense coverage. Can you help me find the right policy?`;
+    const fexEl = document.getElementById('rate-wa');
+    if (fexEl) fexEl.href = 'https://wa.me/13054646888?text=' + encodeURIComponent(fexMsg);
+    const fexEl2 = document.getElementById('fex-wa');
+    if (fexEl2) fexEl2.href = 'https://wa.me/13054646888?text=' + encodeURIComponent(fexMsg);
   } else {
     document.getElementById('rate-headline').textContent = str('rateHeadline');
-    document.getElementById('rate-range').textContent = `$${S.quoted_low} - $${S.quoted_high}`;
+    document.getElementById('rate-range').textContent = `$${S.quoted_low} – $${S.quoted_high} / month`;
     document.getElementById('rate-coverage').textContent = `for ${fmt(S.recommended)} in 20-year term coverage`;
+    // Pre-filled WhatsApp message — agent opens chat already knowing the lead
+    const waMsg = `Hi THEI! I used your life insurance calculator. I'm ${S.age} (${sexLabel}), ${healthLabel}. Looking for Term Life (20-Year) — ${fmt(S.recommended)} in coverage. My estimate was $${S.quoted_low}–$${S.quoted_high}/mo. Can you help me lock in my exact rate?`;
+    const waEl = document.getElementById('rate-wa');
+    if (waEl) waEl.href = 'https://wa.me/13054646888?text=' + encodeURIComponent(waMsg);
   }
   
   submitToGHL('complete');
