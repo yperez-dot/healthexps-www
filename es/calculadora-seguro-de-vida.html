@@ -1685,6 +1685,8 @@ function goScreen(id) {
     var s1b = document.getElementById('s1-btn');
     if (s1b) s1b.className = 'cont-btn ' + (S.income > 0 ? 'on' : 'off');
   }
+  // Don't scroll when landing on intro screen
+  if (id === 'sIntro') { saveState(); return; }
   var anchor = document.getElementById('prog-wrap') || document.getElementById('calc-container');
   if (anchor) anchor.scrollIntoView({ behavior: 'smooth', block: 'start' });
   saveState();
