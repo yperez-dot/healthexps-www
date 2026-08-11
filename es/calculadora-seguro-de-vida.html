@@ -797,6 +797,33 @@ details[open] .why-we-ask-chevron { transform:rotate(180deg); }
   38%,100% { opacity:0; transform:translateY(-6px); }
 }
 .calc-status-sub { font-size:12.5px; color:#a89fb8; text-align:center; }
+/* 3-step intro map */
+.steps { margin: 22px 0 26px; text-align:left; }
+.step { display: flex; align-items: flex-start; gap: 14px; position: relative; }
+.step:not(:last-child) { padding-bottom: 26px; }
+.step:not(:last-child)::after {
+  content: "";
+  position: absolute;
+  left: 15px; top: 32px; bottom: 0;
+  width: 2px;
+  background: #e3d9f0;
+}
+.step-num {
+  width: 32px; height: 32px; border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 14px; font-weight: 700; flex-shrink: 0; z-index: 1;
+}
+.step.active .step-num { background: #452068; color: #fff; }
+.step:not(.active) .step-num { background: #fff; border: 2px solid #ddd6e8; color: #a89fb8; }
+.step-text { padding-top: 5px; }
+.step-title { font-size: 15px; font-weight: 700; }
+.step.active .step-title { color: #1a1024; }
+.step:not(.active) .step-title { color: #a89fb8; }
+.step-note { font-size: 12.5px; color: #a89fb8; margin-top: 2px; }
+.agent-badge {
+  display: inline-block; margin-top: 4px; font-size: 11px; font-weight: 700;
+  color: #452068; background: #f4f0fa; border-radius: 6px; padding: 2px 7px;
+}
 </style>
 </head>
 <body>
@@ -932,7 +959,30 @@ details[open] .why-we-ask-chevron { transform:rotate(180deg); }
       <div id="intro-check2" style="display:flex;align-items:center;gap:10px;font-size:15px;color:var(--black);font-weight:600;"><span style="color:var(--purple);font-size:18px;">✓</span> Preguntas en lenguaje sencillo, sin jerga de seguros</div>
       <div id="intro-check3" style="display:flex;align-items:center;gap:10px;font-size:15px;color:var(--black);font-weight:600;"><span style="color:var(--purple);font-size:18px;">✓</span> Vea su estimado primero — sin presión, sin compromiso</div>
     </div>
-    <button class="cont-btn on" onclick="goScreen('s1')" id="intro-btn" style="font-size:17px;"><span id="intro-btn-lbl">Comenzar Mi Estimado Gratis →</span></button>
+    <div class="steps">
+      <div class="step active">
+        <div class="step-num">1</div>
+        <div class="step-text">
+          <div class="step-title">Su necesidad de cobertura</div>
+          <div class="step-note">Ingresos, dependientes, deudas — cerca de 1 minuto</div>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">2</div>
+        <div class="step-text">
+          <div class="step-title">Sus datos básicos</div>
+          <div class="step-note">Fecha de nacimiento, sexo, uso de tabaco</div>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">3</div>
+        <div class="step-text">
+          <div class="step-title">Su estimado</div>
+          <div class="step-note">Vea su número al instante<br><span class="agent-badge">+ un agente bilingüe licenciado lo revisa con usted</span></div>
+        </div>
+      </div>
+    </div>
+    <button class="cont-btn on" onclick="goScreen('s1')" id="intro-btn" style="font-size:17px;"><span id="intro-btn-lbl">Comenzar: Necesidad de Cobertura →</span></button>
   </div>
 </div>
 
@@ -1591,7 +1641,7 @@ const STRINGS = {
     introCheck1: "Takes about 2 minutes",
     introCheck2: "Plain-language questions, no insurance-speak",
     introCheck3: "See your estimate first \u2014 no pressure, no obligation",
-    introBtnLbl: "Start My Free Estimate \u2192",
+    introBtnLbl: "Start: Coverage Needs \u2192",
     rateExactCta: "Get My Exact Quote \u2192"
   },
   es: {
@@ -1676,7 +1726,7 @@ const STRINGS = {
     introCheck1: "Toma unos 2 minutos",
     introCheck2: "Preguntas en lenguaje sencillo, sin jerga de seguros",
     introCheck3: "Vea su estimado primero — sin presión, sin compromiso",
-    introBtnLbl: "Comenzar Mi Estimado Gratis →",
+    introBtnLbl: "Comenzar: Necesidad de Cobertura →",
     gateQ: "Obtenga Su Cotización Exacta",
     gateSub: "Un agente licenciado confirmará su tarifa exacta con 14+ aseguradoras — gratis, sin obligación.",
     rateExactCta: "Obtener Mi Cotización Exacta →",
