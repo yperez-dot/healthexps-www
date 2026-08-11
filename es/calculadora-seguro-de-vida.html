@@ -1605,8 +1605,8 @@ const STRINGS = {
   es: {
     heroTitle: "Calculadora de Seguro de Vida",
     heroSub: "Descubra cuánta cobertura necesita y cuánto cuesta.",
-    q1q: "¿Cuál es el ingreso de su hogar antes de impuestos?",
-    q1sub: "Un estimado está bien — este es el ingreso que su familia necesitaría reemplazar.",
+    q1q: "¿Cuál es su ingreso personal antes de impuestos?",
+    q1sub: "Un estimado está bien — este es el ingreso que su familia necesitaría reemplazar si usted no estuviera.",
     customTxt: "Prefiero ingresar mi número exacto",
     q2q: "¿Quién se vería afectado económicamente si sus ingresos se detuvieran?",
     q2sub: "Seleccione todo lo que aplique.",
@@ -1739,8 +1739,8 @@ function setLang(l) {
 }
 
 function updateUI() {
-  document.getElementById('hero-title').textContent = str('heroTitle');
-  document.getElementById('hero-sub').textContent = str('heroSub');
+  var _ht = document.getElementById('hero-title'); if (_ht) _ht.textContent = str('heroTitle');
+  var _hs = document.getElementById('hero-sub'); if (_hs) _hs.textContent = str('heroSub');
   document.getElementById('s1-q').textContent = str('q1q');
   document.getElementById('s1-sub').textContent = str('q1sub');
   document.getElementById('custom-txt').textContent = str('customTxt');
