@@ -709,6 +709,92 @@ nav.calc-breadcrumb [aria-current="page"] {
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"WebApplication","name":"Life Insurance Coverage Calculator","url":"https://www.healthexps.com/life-insurance-calculator/","applicationCategory":"FinanceApplication","operatingSystem":"All","browserRequirements":"Requires JavaScript","inLanguage":"en-US","description":"Free calculator that estimates how much life insurance coverage you need based on income, dependents, debts, and existing coverage.","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"provider":{"@type":"InsuranceAgency","name":"The Health Experts Insurance","telephone":"+1-800-380-6821","url":"https://www.healthexps.com/","address":{"@type":"PostalAddress","streetAddress":"1695 NW 110 Ave, Ste 224","addressLocality":"Doral","addressRegion":"FL","postalCode":"33172","addressCountry":"US"}}}
 </script>
+
+<style>
+/* ── Info icons ── */
+.opt-info-row { display:flex; align-items:center; gap:8px; margin-bottom:0; }
+.opt-info-row .opt { flex:1; margin-bottom:0; }
+.info-icon-btn {
+  flex-shrink:0; width:24px; height:24px; border-radius:50%;
+  border:1.5px solid #b8a9cc; background:#fff; color:#452068;
+  font-size:12px; font-weight:700; cursor:pointer;
+  display:flex; align-items:center; justify-content:center;
+  transition:background .15s, color .15s;
+}
+.info-icon-btn:hover, .info-icon-btn.open { background:#452068; color:#fff; border-color:#452068; }
+.info-tooltip {
+  display:none; background:#fbf9fe; border:1.5px solid #452068;
+  border-radius:12px; padding:14px 16px; margin:6px 0 10px; position:relative;
+}
+.info-tooltip.visible { display:block; }
+.info-tooltip-close {
+  position:absolute; top:10px; right:14px; font-size:14px;
+  color:#a89fb8; cursor:pointer; background:none; border:none; line-height:1;
+}
+.info-tooltip h4 { font-size:13.5px; color:#452068; margin:0 0 6px; font-weight:700; }
+.info-tooltip p  { font-size:13px; color:#55506a; line-height:1.5; margin:0; }
+
+/* ── Why We Ask ── */
+.why-we-ask {
+  background:#faf9fc; border:1px solid #e8e3f0; border-radius:10px;
+  padding:0; margin-bottom:18px; overflow:hidden;
+}
+.why-we-ask summary {
+  display:flex; align-items:center; gap:8px; padding:12px 14px;
+  font-size:13px; font-weight:700; color:#452068; cursor:pointer; list-style:none;
+}
+.why-we-ask summary::-webkit-details-marker { display:none; }
+.why-we-ask summary::marker { display:none; }
+.why-we-ask-q {
+  width:18px; height:18px; border-radius:50%; border:1.5px solid #452068;
+  font-size:11px; display:flex; align-items:center; justify-content:center; flex-shrink:0;
+}
+.why-we-ask-chevron { margin-left:auto; color:#a89fb8; font-size:11px; transition:transform .2s; }
+details[open] .why-we-ask-chevron { transform:rotate(180deg); }
+.why-we-ask p {
+  font-size:12.5px; color:#66607c; line-height:1.5;
+  padding:0 14px 14px 40px; margin:0;
+}
+
+/* ── Loading screen ── */
+#sLoading { text-align:center; }
+.calc-loading-wrap {
+  display:flex; flex-direction:column; align-items:center; justify-content:center;
+  padding:60px 32px 48px;
+}
+.calc-spinner-wrap { position:relative; width:88px; height:88px; margin-bottom:32px; }
+.calc-spinner-ring {
+  position:absolute; inset:0; border-radius:50%;
+  border:4px solid #ece6f5; border-top-color:#ff1090; border-right-color:#452068;
+  animation:calcSpin 1s linear infinite;
+}
+.calc-spinner-dot {
+  position:absolute; top:50%; left:50%; width:14px; height:14px;
+  margin:-7px 0 0 -7px; border-radius:50%;
+  background:linear-gradient(135deg,#452068,#ff1090);
+  animation:calcPulse 1.4s ease-in-out infinite;
+}
+@keyframes calcSpin { to { transform:rotate(360deg); } }
+@keyframes calcPulse {
+  0%,100% { transform:scale(1); opacity:1; }
+  50%      { transform:scale(1.3); opacity:.7; }
+}
+.calc-status-wrap { position:relative; height:22px; width:100%; margin-bottom:10px; }
+.calc-status-line {
+  position:absolute; width:100%; left:0;
+  font-size:15px; font-weight:700; color:#1a1024; text-align:center;
+  opacity:0; animation:calcStatusCycle 3s ease-in-out infinite;
+}
+.calc-status-line:nth-child(1) { animation-delay:0s; }
+.calc-status-line:nth-child(2) { animation-delay:1s; }
+.calc-status-line:nth-child(3) { animation-delay:2s; }
+@keyframes calcStatusCycle {
+  0%,3%    { opacity:0; transform:translateY(6px); }
+  12%,30%  { opacity:1; transform:translateY(0); }
+  38%,100% { opacity:0; transform:translateY(-6px); }
+}
+.calc-status-sub { font-size:12.5px; color:#a89fb8; text-align:center; }
+</style>
 </head>
 <body>
 <div style="font-family: Inter, sans-serif; color: #241a30; background: #fff;">
@@ -912,6 +998,10 @@ nav.calc-breadcrumb [aria-current="page"] {
     <label id="zip-lbl">ZIP Code</label>
     <input type="text" id="zip-input" inputmode="numeric" maxlength="5" placeholder="" oninput="checkZip()">
   </div>
+  <details class="why-we-ask">
+    <summary><span class="why-we-ask-q">?</span><span id="wya-zip">Why We Ask — About Your Location</span><span class="why-we-ask-chevron">&#9660;</span></summary>
+    <p id="wya-zip-body">We use this to route you to a licensed agent in your area and confirm which carriers are available where you live.</p>
+  </details>
   <button class="cont-btn off" id="zip-btn" onclick="proceedFromZip()"><span id="zip-btn-lbl">Continue</span></button>
 </div>
 
@@ -975,12 +1065,28 @@ nav.calc-breadcrumb [aria-current="page"] {
     <div style="font-weight: 600; font-size: 14px; margin-bottom: 10px;" id="s5-cov-lbl">Life insurance you already have, including through work</div>
     <div class="opts" id="s5-cov-opts">
       <div class="opt" onclick="selectExistingCov(this, 0)"><span>None</span><span class="opt-chk">✔</span></div>
-      <div class="opt" onclick="selectExistingCov(this, -1)"><span>About 1x my salary</span><span class="opt-chk">✔</span></div>
-      <div class="opt" onclick="selectExistingCov(this, -2)"><span>About 2x my salary</span><span class="opt-chk">✔</span></div>
-      <div class="opt" onclick="selectExistingCov(this, 250000)"><span>$250K or more</span><span class="opt-chk">✔</span></div>
+      <div class="opt-info-row">
+        <div class="opt" onclick="selectExistingCov(this, -1)"><span>About 1x my salary</span><span class="opt-chk">✔</span></div>
+        <button class="info-icon-btn" id="ibtn-cov1" onclick="toggleInfo('cov1')" type="button" aria-label="More info">i</button>
+      </div>
+      <div class="info-tooltip" id="tip-cov1"><button class="info-tooltip-close" onclick="closeInfo('cov1')" type="button">&#x2715;</button><h4>What this means</h4><p>Many employers provide life insurance equal to 1 year of your salary as a standard benefit. Check your HR benefits summary to confirm the exact amount.</p></div>
+      <div class="opt-info-row">
+        <div class="opt" onclick="selectExistingCov(this, -2)"><span>About 2x my salary</span><span class="opt-chk">✔</span></div>
+        <button class="info-icon-btn" id="ibtn-cov2" onclick="toggleInfo('cov2')" type="button" aria-label="More info">i</button>
+      </div>
+      <div class="info-tooltip" id="tip-cov2"><button class="info-tooltip-close" onclick="closeInfo('cov2')" type="button">&#x2715;</button><h4>What this means</h4><p>Some employers offer enhanced coverage — 2 years of salary. Check your benefits portal or ask HR if you're not sure.</p></div>
+      <div class="opt-info-row">
+        <div class="opt" onclick="selectExistingCov(this, 250000)"><span>$250K or more</span><span class="opt-chk">✔</span></div>
+        <button class="info-icon-btn" id="ibtn-cov3" onclick="toggleInfo('cov3')" type="button" aria-label="More info">i</button>
+      </div>
+      <div class="info-tooltip" id="tip-cov3"><button class="info-tooltip-close" onclick="closeInfo('cov3')" type="button">&#x2715;</button><h4>What this means</h4><p>This covers any individual policy you own — term, whole, or universal life — worth $250,000 or more. If you have multiple policies, add them together.</p></div>
       <div class="opt" onclick="selectExistingCov(this, 'unknown')"><span id="not-sure">Not sure</span><span class="opt-chk">✔</span></div>
     </div>
   </div>
+  <details class="why-we-ask">
+    <summary><span class="why-we-ask-q">?</span><span id="wya-s5">Why We Ask — About Existing Coverage</span><span class="why-we-ask-chevron">&#9660;</span></summary>
+    <p id="wya-s5-body">We subtract coverage you already have so we don't recommend more than you actually need. If you're not sure, select "Not sure" — your agent will confirm the exact amount.</p>
+  </details>
 
   <button class="cont-btn off" id="s5-btn" onclick="showResult()"><span id="s5-btn-lbl">See My Coverage Need</span></button>
 </div>
@@ -1148,15 +1254,58 @@ nav.calc-breadcrumb [aria-current="page"] {
   <div class="step-q" id="s9-q">In the last 5 years, have you been treated for any of these?</div>
   <div class="step-sub" id="s9-sub">Check all that apply. Being honest gets you an accurate number.</div>
   <div class="opts" id="s9-opts">
-    <div class="opt" onclick="toggleCondition(this, 'cardiac')"><span id="cond-cardiac">Heart disease, heart attack, or stroke</span><span class="opt-chk">✔</span></div>
-    <div class="opt" onclick="toggleCondition(this, 'cancer')"><span id="cond-cancer">Cancer (other than basal cell skin cancer)</span><span class="opt-chk">✔</span></div>
-    <div class="opt" onclick="toggleCondition(this, 'diabetes')"><span id="cond-diabetes">Diabetes</span><span class="opt-chk">✔</span></div>
-    <div class="opt" onclick="toggleCondition(this, 'respiratory')"><span id="cond-respiratory">COPD, emphysema, or sleep apnea</span><span class="opt-chk">✔</span></div>
-    <div class="opt" onclick="toggleCondition(this, 'organ')"><span id="cond-organ">Kidney or liver disease</span><span class="opt-chk">✔</span></div>
-    <div class="opt" onclick="toggleCondition(this, 'controlled_bp')"><span id="cond-bp">High blood pressure or cholesterol, controlled with medication</span><span class="opt-chk">✔</span></div>
+    <div class="opt-info-row">
+      <div class="opt" onclick="toggleCondition(this, 'cardiac')"><span id="cond-cardiac">Heart disease, heart attack, or stroke</span><span class="opt-chk">✔</span></div>
+      <button class="info-icon-btn" id="ibtn-cardiac" onclick="toggleInfo('cardiac')" type="button" aria-label="More info">i</button>
+    </div>
+    <div class="info-tooltip" id="tip-cardiac"><button class="info-tooltip-close" onclick="closeInfo('cardiac')" type="button">&#x2715;</button><h4>Why this matters</h4><p>This includes a diagnosed heart condition, a past heart attack, or a stroke — not just risk factors like family history. If you're unsure, select it; your agent can clarify during the call.</p></div>
+    <div class="opt-info-row">
+      <div class="opt" onclick="toggleCondition(this, 'cancer')"><span id="cond-cancer">Cancer (other than basal cell skin cancer)</span><span class="opt-chk">✔</span></div>
+      <button class="info-icon-btn" id="ibtn-cancer" onclick="toggleInfo('cancer')" type="button" aria-label="More info">i</button>
+    </div>
+    <div class="info-tooltip" id="tip-cancer"><button class="info-tooltip-close" onclick="closeInfo('cancer')" type="button">&#x2715;</button><h4>Why this matters</h4><p>Excludes basal cell skin cancer, which most carriers don't count. Other skin cancers and all internal cancers apply. If you had cancer more than 5 years ago, select "None of these."</p></div>
+    <div class="opt-info-row">
+      <div class="opt" onclick="toggleCondition(this, 'diabetes')"><span id="cond-diabetes">Diabetes</span><span class="opt-chk">✔</span></div>
+      <button class="info-icon-btn" id="ibtn-diabetes" onclick="toggleInfo('diabetes')" type="button" aria-label="More info">i</button>
+    </div>
+    <div class="info-tooltip" id="tip-diabetes"><button class="info-tooltip-close" onclick="closeInfo('diabetes')" type="button">&#x2715;</button><h4>Why this matters</h4><p>Applies to Type 1 and Type 2 diabetes. Well-controlled diabetes with medication often still qualifies for standard rates — selecting this doesn't disqualify you.</p></div>
+    <div class="opt-info-row">
+      <div class="opt" onclick="toggleCondition(this, 'respiratory')"><span id="cond-respiratory">COPD, emphysema, or sleep apnea</span><span class="opt-chk">✔</span></div>
+      <button class="info-icon-btn" id="ibtn-respiratory" onclick="toggleInfo('respiratory')" type="button" aria-label="More info">i</button>
+    </div>
+    <div class="info-tooltip" id="tip-respiratory"><button class="info-tooltip-close" onclick="closeInfo('respiratory')" type="button">&#x2715;</button><h4>Why this matters</h4><p>COPD and emphysema are chronic lung conditions; sleep apnea counts if diagnosed and treated. Mild sleep apnea well-managed with a CPAP often qualifies for preferred rates.</p></div>
+    <div class="opt-info-row">
+      <div class="opt" onclick="toggleCondition(this, 'organ')"><span id="cond-organ">Kidney or liver disease</span><span class="opt-chk">✔</span></div>
+      <button class="info-icon-btn" id="ibtn-organ" onclick="toggleInfo('organ')" type="button" aria-label="More info">i</button>
+    </div>
+    <div class="info-tooltip" id="tip-organ"><button class="info-tooltip-close" onclick="closeInfo('organ')" type="button">&#x2715;</button><h4>Why this matters</h4><p>Includes chronic kidney disease (CKD), kidney failure, cirrhosis, hepatitis C, or other diagnosed liver conditions. Single kidney stones typically don't count.</p></div>
+    <div class="opt-info-row">
+      <div class="opt" onclick="toggleCondition(this, 'controlled_bp')"><span id="cond-bp">High blood pressure or cholesterol, controlled with medication</span><span class="opt-chk">✔</span></div>
+      <button class="info-icon-btn" id="ibtn-bp" onclick="toggleInfo('bp')" type="button" aria-label="More info">i</button>
+    </div>
+    <div class="info-tooltip" id="tip-bp"><button class="info-tooltip-close" onclick="closeInfo('bp')" type="button">&#x2715;</button><h4>Why this matters</h4><p>Controlled BP or cholesterol on medication is very common and usually still qualifies for standard or preferred rates. Select this only if you're currently taking medication for it.</p></div>
     <div class="opt" onclick="toggleCondition(this, 'none')"><span id="cond-none">None of these</span><span class="opt-chk">✔</span></div>
   </div>
+  <details class="why-we-ask">
+    <summary><span class="why-we-ask-q">?</span><span id="wya-s9">Why We Ask — About Your Health</span><span class="why-we-ask-chevron">&#9660;</span></summary>
+    <p id="wya-s9-body">Being upfront here gets you an accurate rate estimate — it doesn't disqualify you. Carriers offer options for almost every health situation, including guaranteed-acceptance plans with no health questions at all.</p>
+  </details>
   <button class="cont-btn off" id="s9-btn" onclick="proceedFromHealth()"><span id="s9-btn-lbl">Continue</span></button>
+</div>
+
+<div class="screen" id="sLoading">
+  <div class="calc-loading-wrap">
+    <div class="calc-spinner-wrap">
+      <div class="calc-spinner-ring"></div>
+      <div class="calc-spinner-dot"></div>
+    </div>
+    <div class="calc-status-wrap">
+      <div class="calc-status-line">Checking your profile…</div>
+      <div class="calc-status-line">Comparing 14+ carriers…</div>
+      <div class="calc-status-line">Calculating your rate…</div>
+    </div>
+    <div class="calc-status-sub" id="loading-sub">This takes just a moment</div>
+  </div>
 </div>
 
 <!-- Gate: Contact -->
@@ -2194,6 +2343,23 @@ function toggleCondition(el, key) {
   saveState();
 }
 
+
+// ── Info icons ──
+function toggleInfo(id) {
+  var tip = document.getElementById('tip-'+id);
+  var btn = document.getElementById('ibtn-'+id);
+  if (!tip||!btn) return;
+  var open = tip.classList.contains('visible');
+  // close all first
+  document.querySelectorAll('.info-tooltip').forEach(function(t){t.classList.remove('visible');});
+  document.querySelectorAll('.info-icon-btn').forEach(function(b){b.classList.remove('open');});
+  if (!open) { tip.classList.add('visible'); btn.classList.add('open'); }
+}
+function closeInfo(id) {
+  var tip = document.getElementById('tip-'+id); if(tip) tip.classList.remove('visible');
+  var btn = document.getElementById('ibtn-'+id); if(btn) btn.classList.remove('open');
+}
+
 // === GATE ===
 function checkGate() {
   const fname = document.getElementById('gate-fname').value.trim();
@@ -2512,7 +2678,16 @@ function submitEmailGate() {
   if (!/^[^@]+@[^@]+\.[^@]+$/.test(val)) return;
   S.email = val;
   submitToGHL('partial');
-  showRate();
+  showRateWithLoading();
+}
+
+function showRateWithLoading() {
+  goScreen('sLoading');
+  setTimeout(function() {
+    showRate();
+    goScreen('sRate');
+    saveState();
+  }, 2600);
 }
 
 // === PROCEED FROM HEALTH QUESTIONS ===
@@ -2522,7 +2697,7 @@ function proceedFromHealth() {
   if (!S.email) {
     goScreen('sEmailGate');
   } else {
-    showRate();
+    showRateWithLoading();
   }
 }
 
