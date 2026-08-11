@@ -954,9 +954,9 @@ details[open] .why-we-ask-chevron { transform:rotate(180deg); }
 <div class="screen" id="s1">
   <button class="back-btn" onclick="goScreen('sIntro')">← Volver</button>
   <div class="step-q" id="s1-q">¿Cuál es su ingreso personal antes de impuestos?</div>
-  <div class="step-sub" id="s1-sub">An estimate is fine  -  this is the income your family would need to replace.</div>
+  <div class="step-sub" id="s1-sub">Un estimado está bien — este es el ingreso que su familia necesitaría reemplazar.</div>
   <div class="opts" id="s1-opts">
-    <div class="opt" onclick="selectIncome(this, 30000)"><span>Under $40,000</span><span class="opt-chk">✔</span></div>
+    <div class="opt" onclick="selectIncome(this, 30000)"><span>Menos de $40,000</span><span class="opt-chk">✔</span></div>
     <div class="opt" onclick="selectIncome(this, 57500)"><span>$40,000 - $75,000</span><span class="opt-chk">✔</span></div>
     <div class="opt" onclick="selectIncome(this, 100000)"><span>$75,000 - $125,000</span><span class="opt-chk">✔</span></div>
     <div class="opt" onclick="selectIncome(this, 162500)"><span>$125,000 - $200,000</span><span class="opt-chk">✔</span></div>
@@ -979,10 +979,10 @@ details[open] .why-we-ask-chevron { transform:rotate(180deg); }
 <!-- ZIP Code screen -->
 <div class="screen" id="sZip">
   <button class="back-btn" onclick="goScreen('s1')">← Volver</button>
-  <div class="step-q" id="zip-q">What's your ZIP code?</div>
-  <div class="step-sub" id="zip-sub">We use this to route you to the right carriers in your area.</div>
+  <div class="step-q" id="zip-q">¿Cuál es su código postal?</div>
+  <div class="step-sub" id="zip-sub">Lo usamos para conectarle con las aseguradoras correctas en su área.</div>
   <div class="field">
-    <label id="zip-lbl">ZIP Code</label>
+    <label id="zip-lbl">Código Postal</label>
     <input type="text" id="zip-input" inputmode="numeric" maxlength="5" placeholder="" oninput="checkZip()">
   </div>
   <details class="why-we-ask">
@@ -995,14 +995,14 @@ details[open] .why-we-ask-chevron { transform:rotate(180deg); }
 <!-- Q2: Dependents -->
 <div class="screen" id="s2">
   <button class="back-btn" onclick="goScreen('sZip')">← Volver</button>
-  <div class="step-q" id="s2-q">Who would be financially affected if your income stopped?</div>
-  <div class="step-sub" id="s2-sub">Select all that apply.</div>
+  <div class="step-q" id="s2-q">¿Quién se vería afectado económicamente si sus ingresos se detuvieran?</div>
+  <div class="step-sub" id="s2-sub">Seleccione todo lo que aplique.</div>
   <div class="opts" id="s2-opts">
-    <div class="opt" onclick="toggleDependent(this, 'spouse')"><span id="dep-spouse">Spouse or partner</span><span class="opt-chk">✔</span></div>
-    <div class="opt" onclick="toggleDependent(this, 'children')"><span id="dep-children">Children under 21</span><span class="opt-chk">✔</span></div>
-    <div class="opt" onclick="toggleDependent(this, 'parents')"><span id="dep-parents">Aging parents or relatives</span><span class="opt-chk">✔</span></div>
-    <div class="opt" onclick="toggleDependent(this, 'business')"><span id="dep-business">A business or business partner</span><span class="opt-chk">✔</span></div>
-    <div class="opt" onclick="toggleDependent(this, 'none')"><span id="dep-none">Nobody depends on me financially</span><span class="opt-chk">✔</span></div>
+    <div class="opt" onclick="toggleDependent(this, 'spouse')"><span id="dep-spouse">Cónyuge o pareja</span><span class="opt-chk">✔</span></div>
+    <div class="opt" onclick="toggleDependent(this, 'children')"><span id="dep-children">Hijos menores de 21 años</span><span class="opt-chk">✔</span></div>
+    <div class="opt" onclick="toggleDependent(this, 'parents')"><span id="dep-parents">Padres mayores o familiares</span><span class="opt-chk">✔</span></div>
+    <div class="opt" onclick="toggleDependent(this, 'business')"><span id="dep-business">Un negocio o socio comercial</span><span class="opt-chk">✔</span></div>
+    <div class="opt" onclick="toggleDependent(this, 'none')"><span id="dep-none">Nadie depende de mí económicamente</span><span class="opt-chk">✔</span></div>
   </div>
   <details class="why-we-ask">
     <summary><span class="why-we-ask-q">?</span><span id="wya-s2">Por qué preguntamos — Dependientes</span><span class="why-we-ask-chevron">&#9660;</span></summary>
@@ -1057,11 +1057,11 @@ details[open] .why-we-ask-chevron { transform:rotate(180deg); }
 <!-- Q5: Safety Net -->
 <div class="screen" id="s5">
   <button class="back-btn" onclick="goScreen('s4')">← Volver</button>
-  <div class="step-q" id="s5-q">What safety net is already in place?</div>
-  <div class="step-sub" id="s5-sub">We subtract this so we don't sell you coverage you don't need.</div>
+  <div class="step-q" id="s5-q">¿Qué red de seguridad ya tiene?</div>
+  <div class="step-sub" id="s5-sub">Restamos esto para no venderle cobertura que no necesita.</div>
 
   <div style="margin-bottom: 20px;">
-    <div style="font-weight: 600; font-size: 14px; margin-bottom: 10px;" id="s5-cov-lbl">Life insurance you already have, including through work</div>
+    <div style="font-weight: 600; font-size: 14px; margin-bottom: 10px;" id="s5-cov-lbl">Seguro de vida que ya tiene, incluyendo el del trabajo</div>
     <div class="opts" id="s5-cov-opts">
       <div class="opt" onclick="selectExistingCov(this, 0)"><span>Ninguna</span><span class="opt-chk">✔</span></div>
       <div class="opt" onclick="selectExistingCov(this, -1)"><span>Aproximadamente 1 vez mi salario</span><div class="opt-right"><button class="info-icon-btn" id="ibtn-cov1" onclick="toggleInfo('cov1');event.stopPropagation();" type="button" aria-label="Más info">i</button><span class="opt-chk">✔</span></div></div>
@@ -1077,12 +1077,12 @@ details[open] .why-we-ask-chevron { transform:rotate(180deg); }
     <summary><span class="why-we-ask-q">?</span><span id="wya-s5">Por qué preguntamos — Cobertura existente</span><span class="why-we-ask-chevron">&#9660;</span></summary>
     <p id="wya-s5-body">Restamos la cobertura que ya tiene para no recomendar más de lo que realmente necesita. Si no está seguro/a, seleccione "No estoy seguro/a" — su agente confirmará el monto exacto.</p>
   </details>
-      <div class="opt" onclick="selectExistingCov(this, -2)"><span>About 2x my salary</span><span class="opt-chk">✔</span></div>
-      <div class="opt" onclick="selectExistingCov(this, 250000)"><span>$250K or more</span><span class="opt-chk">✔</span></div>
-      <div class="opt" onclick="selectExistingCov(this, 'unknown')"><span id="not-sure">Not sure</span><span class="opt-chk">✔</span></div>
+      <div class="opt" onclick="selectExistingCov(this, -2)"><span>Aproximadamente 2 veces mi salario</span><span class="opt-chk">✔</span></div>
+      <div class="opt" onclick="selectExistingCov(this, 250000)"><span>$250K o más</span><span class="opt-chk">✔</span></div>
+      <div class="opt" onclick="selectExistingCov(this, 'unknown')"><span id="not-sure">No estoy seguro/a</span><span class="opt-chk">✔</span></div>
 
 
-  <button class="cont-btn off" id="s5-btn" onclick="showResult()"><span id="s5-btn-lbl">See My Coverage Need</span></button>
+  <button class="cont-btn off" id="s5-btn" onclick="showResult()"><span id="s5-btn-lbl">Ver Mi Necesidad de Cobertura</span></button>
 </div>
 
 <!-- TOOL A RESULT -->
@@ -1090,20 +1090,20 @@ details[open] .why-we-ask-chevron { transform:rotate(180deg); }
   <button class="back-btn" onclick="goScreen('s5')">← Volver</button>
   
   <div class="result-number" id="result-number">0</div>
-  <div class="result-label" id="result-label">in coverage</div>
+  <div class="result-label" id="result-label">de cobertura</div>
   
   <div class="result-explanation" id="result-explanation"></div>
 
   <div style="margin-bottom: 24px;">
-    <div style="font-weight: 600; font-size: 14px; margin-bottom: 12px;" id="breakdown-title">Here's exactly how we got that</div>
+    <div style="font-weight: 600; font-size: 14px; margin-bottom: 12px;" id="breakdown-title">Así es exactamente como lo calculamos</div>
     <table class="breakdown-table" id="breakdown-table">
-      <tr><td id="breakdown-income-label">Replace your income for X years</td><td id="breakdown-income-val">0</td></tr>
-      <tr><td id="breakdown-debt-label">Pay off mortgage and debts</td><td id="breakdown-debt-val">0</td></tr>
-      <tr><td id="breakdown-final-label">Final expenses</td><td id="breakdown-final-val">$15,000</td></tr>
+      <tr><td id="breakdown-income-label">Reemplazar su ingreso por X años</td><td id="breakdown-income-val">0</td></tr>
+      <tr><td id="breakdown-debt-label">Pagar hipoteca y deudas</td><td id="breakdown-debt-val">0</td></tr>
+      <tr><td id="breakdown-final-label">Gastos finales</td><td id="breakdown-final-val">$15,000</td></tr>
       <tr style="background: var(--pl);"><td id="breakdown-subtotal-label">Subtotal</td><td id="breakdown-subtotal-val">0</td></tr>
-      <tr id="breakdown-coverage-row" style="display: none;"><td id="breakdown-coverage-label">Less: coverage you already have</td><td id="breakdown-coverage-val">0</td></tr>
-      <tr id="breakdown-savings-row" style="display: none;"><td id="breakdown-savings-label">Less: half of your savings</td><td id="breakdown-savings-val">0</td></tr>
-      <tr style="background: var(--pl);"><td id="breakdown-net-label">Your coverage need</td><td id="breakdown-net-val">0</td></tr>
+      <tr id="breakdown-coverage-row" style="display: none;"><td id="breakdown-coverage-label">Menos: cobertura que ya tiene</td><td id="breakdown-coverage-val">0</td></tr>
+      <tr id="breakdown-savings-row" style="display: none;"><td id="breakdown-savings-label">Menos: la mitad de sus ahorros</td><td id="breakdown-savings-val">0</td></tr>
+      <tr style="background: var(--pl);"><td id="breakdown-net-label">Su necesidad de cobertura</td><td id="breakdown-net-val">0</td></tr>
     </table>
 
   </div>
@@ -1114,23 +1114,23 @@ details[open] .why-we-ask-chevron { transform:rotate(180deg); }
     <span id="advisory-text"></span>
   </div>
 
-  <button class="btn-primary" onclick="startToolB()"><span id="result-cta">See what this costs me</span></button>
+  <button class="btn-primary" onclick="startToolB()"><span id="result-cta">Ver cuánto me cuesta</span></button>
   <!-- Call button removed — duplicates sticky footer bar below -->
-  <a href="https://wa.me/13054646888" onclick="gtag('event','whatsapp_click',{'page':window.location.pathname})" style="display:block;text-align:center;font-size:13.5px;color:var(--gt);text-decoration:none;margin-bottom:16px;"><span id="wa-cta">Prefer WhatsApp? Message us instead</span></a>
+  <a href="https://wa.me/13054646888" onclick="gtag('event','whatsapp_click',{'page':window.location.pathname})" style="display:block;text-align:center;font-size:13.5px;color:var(--gt);text-decoration:none;margin-bottom:16px;"><span id="wa-cta">¿Prefiere WhatsApp? Escríbanos</span></a>
 
   <div id="email-section" style="margin-top: 16px;">
-    <div style="font-size: 13px; color: var(--gt); margin-bottom: 10px;" id="email-prompt">Email me this result:</div>
+    <div style="font-size: 13px; color: var(--gt); margin-bottom: 10px;" id="email-prompt">Enviarme este resultado:</div>
     <div class="email-capture">
-      <input type="email" id="email-input" placeholder="Your email" style="margin-bottom: 0;">
+      <input type="email" id="email-input" placeholder="Su correo" style="margin-bottom: 0;">
       <button onclick="emailResult()" class="cont-btn on" style="width: auto; padding: 14px 16px; margin: 0;">Send</button>
     </div>
   </div>
 
   <div class="restart">
-    <a onclick="restart()" id="restart-link">Change my answers</a>
+    <a onclick="restart()" id="restart-link">Cambiar mis respuestas</a>
   </div>
 
-  <div class="disc" id="result-disc">Estimated coverage need for illustrative purposes only. Actual quotes vary by carrier, health history, and coverage amount. Contact a licensed agent for your exact quote.</div>
+  <div class="disc" id="result-disc">Necesidad de cobertura estimada solo para fines ilustrativos. Las cotizaciones reales varían según asegurador, historial de salud y monto de cobertura. Comuníquese con un agente licenciado para su cotización exacta.</div>
 </div>
 
 <!-- FINAL EXPENSE PATH -->
@@ -1143,11 +1143,11 @@ details[open] .why-we-ask-chevron { transform:rotate(180deg); }
     <div style="font-size: 14px; color: var(--gt); line-height: 1.6;">No medical exam. No health questions. Coverage from $5,000 to $50,000, fixed premiums that never increase.</div>
   </div>
 
-  <a href="https://wa.me/13054646888" onclick="gtag('event','whatsapp_click',{'page':window.location.pathname})" class="btn-primary" id="fex-wa">Talk to a licensed agent</a>
+  <a href="https://wa.me/13054646888" onclick="gtag('event','whatsapp_click',{'page':window.location.pathname})" class="btn-primary" id="fex-wa">Hablar con un agente licenciado</a>
   <button class="btn-call" onclick="window.location.href='tel:18003806821'" id="fex-call">Call 1-800-380-6821</button>
 
   <div class="restart" style="margin-top: 24px;">
-    <a onclick="restart()" id="fex-restart">Change my answers</a>
+    <a onclick="restart()" id="fex-restart">Cambiar mis respuestas</a>
   </div>
 </div>
 
@@ -1171,7 +1171,7 @@ details[open] .why-we-ask-chevron { transform:rotate(180deg); }
     <input type="email" id="email-gate-input" placeholder="your@email.com" oninput="checkEmailGate()" onblur="abandonCapture()">
   </div>
   <button class="cont-btn off" id="email-gate-btn" onclick="submitEmailGate()"><span id="email-gate-btn-lbl">Ver Mi Tarifa →</span></button>
-  <p style="font-size:13px;color:var(--gt);text-align:center;margin-top:14px;line-height:1.6;">🔒 We never sell your information. <a href="/es/privacidad" style="color:var(--purple);font-weight:600;">Política de Privacidad</a></p>
+  <p style="font-size:13px;color:var(--gt);text-align:center;margin-top:14px;line-height:1.6;">🔒 Nunca vendemos su información. <a href="/es/privacidad" style="color:var(--purple);font-weight:600;">Política de Privacidad</a></p>
 </div>
 
 <!-- TOOL B: Questions 6-9 + Gate -->
@@ -1228,8 +1228,8 @@ details[open] .why-we-ask-chevron { transform:rotate(180deg); }
   <div class="step-q" id="s7-q">Sex as listed on your insurance application</div>
   <div class="step-sub" id="s7-sub">Carriers use this to set rates. It's required on every application.</div>
   <div class="opts" id="s7-opts">
-    <div class="opt" onclick="selectSex(this, 'F')"><span id="sex-f">Female</span><span class="opt-chk">✔</span></div>
-    <div class="opt" onclick="selectSex(this, 'M')"><span id="sex-m">Male</span><span class="opt-chk">✔</span></div>
+    <div class="opt" onclick="selectSex(this, 'F')"><span id="sex-f">Femenino</span><span class="opt-chk">✔</span></div>
+    <div class="opt" onclick="selectSex(this, 'M')"><span id="sex-m">Masculino</span><span class="opt-chk">✔</span></div>
   </div>
   <details class="why-we-ask">
     <summary><span class="why-we-ask-q">?</span><span id="wya-s7">Por qué preguntamos — Sexo</span><span class="why-we-ask-chevron">&#9660;</span></summary>
@@ -1303,15 +1303,15 @@ details[open] .why-we-ask-chevron { transform:rotate(180deg); }
   <div class="step-sub" id="gate-sub">A licensed Florida agent will confirm your exact number with 14+ carriers. No obligation, no spam.</div>
 
   <div class="field">
-    <label id="gate-fname-lbl">First Name</label>
+    <label id="gate-fname-lbl">Nombre</label>
     <input type="text" id="gate-fname" placeholder="First name" oninput="checkGate()" onfocus="captureGateStart()">
   </div>
   <div class="field">
-    <label id="gate-lname-lbl">Last Name</label>
+    <label id="gate-lname-lbl">Apellido</label>
     <input type="text" id="gate-lname" placeholder="Last name" oninput="checkGate()">
   </div>
   <div class="field">
-    <label id="gate-phone-lbl">Phone Number</label>
+    <label id="gate-phone-lbl">Número de teléfono</label>
     <input type="tel" id="gate-phone" placeholder="(305) 000-0000" oninput="checkGate()">
   </div>
 
@@ -1327,20 +1327,20 @@ details[open] .why-we-ask-chevron { transform:rotate(180deg); }
     </div>
   </div>
 
-  <p style="font-size:13px;color:var(--gt);line-height:1.6;margin-bottom:12px;">🔒 We never sell or share your personal information. <a href="/es/privacidad" style="color:var(--purple);font-weight:600;" id="gate-privacy-link">Política de Privacidad</a></p>
+  <p style="font-size:13px;color:var(--gt);line-height:1.6;margin-bottom:12px;">🔒 Nunca vendemos ni compartimos su información personal. <a href="/es/privacidad" style="color:var(--purple);font-weight:600;" id="gate-privacy-link">Política de Privacidad</a></p>
   <div class="consent-wrap" id="consent-wrap">
     <label class="consent-summary" style="display: flex; gap: 12px; align-items: flex-start;">
       <input type="checkbox" id="consent-chk" onchange="checkGate()">
-      <span id="consent-text">I agree to be contacted by a licensed agent at The Health Experts Insurance.</span>
+      <span id="consent-text">Acepto ser contactado/a por un agente licenciado de The Health Experts Insurance.</span>
     </label>
     <button type="button" class="consent-expander" id="consent-expander">View full consent</button>
     <div class="consent-full" id="consent-full">
       <strong>TCPA Notice & Consent</strong>
-      <p style="margin-top: 8px;">By providing your phone number and checking this box, you authorize The Health Experts Insurance, its agents, and representatives to contact you via phone, text, email, or other electronic means at the number you provided, even if that number is on the National Do Not Call Registry. Standard message and data rates apply. You understand you're not required to agree to this to purchase services, and you can revoke this consent at any time.</p>
+      <p style="margin-top: 8px;">Al proporcionar su número de teléfono y marcar esta casilla, autoriza a The Health Experts Insurance, sus agentes y representantes a contactarle por teléfono, mensaje de texto, correo electrónico u otros medios electrónicos al número proporcionado, incluso si ese número está en el Registro Nacional de No Llamar. Se aplican tarifas estándar de mensajes y datos. Entiende que no está obligado/a a aceptar esto para adquirir servicios, y puede revocar este consentimiento en cualquier momento.</p>
     </div>
   </div>
 
-  <button class="cont-btn off" id="gate-btn" onclick="submitGate()"><span id="gate-btn-lbl">Get My Exact Quote</span></button>
+  <button class="cont-btn off" id="gate-btn" onclick="submitGate()"><span id="gate-btn-lbl">Obtener Mi Cotización Exacta</span></button>
 </div>
 
 <!-- Rate Result -->
@@ -1348,16 +1348,16 @@ details[open] .why-we-ask-chevron { transform:rotate(180deg); }
   <button class="back-btn" onclick="goScreen('s9')">← Volver</button>
   
   <div style="text-align: center; margin-bottom: 32px;">
-    <div style="font-size: 18px; color: var(--gt); margin-bottom: 12px;" id="rate-headline">Your estimated monthly cost</div>
+    <div style="font-size: 18px; color: var(--gt); margin-bottom: 12px;" id="rate-headline">Su costo mensual estimado</div>
     <div style="font-size: 48px; font-weight: 700; color: var(--purple); margin-bottom: 4px;" id="rate-range">$0 - $0</div>
     <div style="font-size: 16px; color: var(--gt); margin-bottom: 20px;" id="rate-coverage">for $X,XXX,XXX in 20-year term coverage</div>
     <div style="font-size: 13px; color: #aaa; line-height: 1.7; margin-bottom: 20px;" id="rate-disc">Estimated monthly premiums for illustrative purposes only. Actual rates vary by carrier, health history, and coverage amount. No rate is guaranteed until a policy is issued. Contact a licensed agent for your exact quote.</div>
   </div>
 
-  <button class="btn-primary" onclick="goScreen('sGate')" id="rate-exact-btn" style="margin-bottom:16px;"><span id="rate-exact-cta">Get My Exact Quote →</span></button>
+  <button class="btn-primary" onclick="goScreen('sGate')" id="rate-exact-btn" style="margin-bottom:16px;"><span id="rate-exact-cta">Obtener Mi Cotización Exacta →</span></button>
 
   <div class="restart" style="margin-top: 24px;">
-    <a onclick="restart()" id="rate-restart">Start over</a>
+    <a onclick="restart()" id="rate-restart">Volver a empezar</a>
   </div>
 </div>
 
@@ -1504,15 +1504,15 @@ const STRINGS = {
     heroTitle: "Life Insurance Calculator",
     heroSub: "Find out how much coverage you need and what it costs.",
     q1q: "¿Cuál es su ingreso personal antes de impuestos?",
-    q1sub: "An estimate is fine  -  this is the income your family would need to replace.",
+    q1sub: "Un estimado está bien — este es el ingreso que su familia necesitaría reemplazar.",
     customTxt: "I'd rather enter my exact number",
-    q2q: "Who would be financially affected if your income stopped?",
-    q2sub: "Select all that apply.",
-    depSpouse: "Spouse or partner",
-    depChildren: "Children under 21",
-    depParents: "Aging parents or relatives",
-    depBusiness: "A business or business partner",
-    depNone: "Nobody depends on me financially",
+    q2q: "¿Quién se vería afectado económicamente si sus ingresos se detuvieran?",
+    q2sub: "Seleccione todo lo que aplique.",
+    depSpouse: "Cónyuge o pareja",
+    depChildren: "Hijos menores de 21 años",
+    depParents: "Padres mayores o familiares",
+    depBusiness: "Un negocio o socio comercial",
+    depNone: "Nadie depende de mí económicamente",
     q3q: "How many children, and how old is the youngest?",
     q3sub: "Under 21 and financially dependent on you.",
     numChildren: "Number of children",
@@ -1521,33 +1521,33 @@ const STRINGS = {
     q4sub: "Mortgage, car loans, credit cards, student loans. Enter 0 if you rent and carry no debt.",
     mortLabel: "Mortgage balance",
     otherLabel: "Other debt (auto, credit cards, student loans)",
-    q5q: "What safety net is already in place?",
-    q5sub: "We subtract this so we don't sell you coverage you don't need.",
-    covLabel: "Life insurance you already have, including through work",
+    q5q: "¿Qué red de seguridad ya tiene?",
+    q5sub: "Restamos esto para no venderle cobertura que no necesita.",
+    covLabel: "Seguro de vida que ya tiene, incluyendo el del trabajo",
     savLabel: "Savings and investments you could access",
-    notSure: "Not sure",
-    resultNum: "in coverage",
+    notSure: "No estoy seguro/a",
+    resultNum: "de cobertura",
     collegePrompt: "How much college funding?",
-    breakdownTitle: "Here's exactly how we got that",
-    incomeRow: "Replace your income for X years",
+    breakdownTitle: "Así es exactamente como lo calculamos",
+    incomeRow: "Reemplazar su ingreso por X años",
     eduRow: "College fund",
-    debtRow: "Pay off mortgage and debts",
-    finalRow: "Final expenses",
+    debtRow: "Pagar hipoteca y deudas",
+    finalRow: "Gastos finales",
     subtotalRow: "Subtotal",
-    coverageRow: "Less: coverage you already have",
-    savingsRow: "Less: half of your savings",
-    netRow: "Your coverage need",
+    coverageRow: "Menos: cobertura que ya tiene",
+    savingsRow: "Menos: la mitad de sus ahorros",
+    netRow: "Su necesidad de cobertura",
     savingsNote: "We only count half your savings  -  your family should keep an emergency cushion, not drain the account.",
-    resultCta: "See what this costs me",
+    resultCta: "Ver cuánto me cuesta",
     callCta: "Call 1-800-380-6821",
     waCta: "WhatsApp us",
-    emailPrompt: "Email me this result:",
-    restartLink: "Change my answers",
-    resultDisc: "Estimated coverage need for illustrative purposes only. Actual quotes vary by carrier, health history, and coverage amount. Contact a licensed agent for your exact quote.",
+    emailPrompt: "Enviarme este resultado:",
+    restartLink: "Cambiar mis respuestas",
+    resultDisc: "Necesidad de cobertura estimada solo para fines ilustrativos. Las cotizaciones reales varían según asegurador, historial de salud y monto de cobertura. Comuníquese con un agente licenciado para su cotización exacta.",
     fexTitle: "Final Expense Insurance",
     fexMsg: "Based on what you shared, a guaranteed-acceptance final expense policy may be your best fit.",
     fexNote: "No medical exam. No health questions. Coverage from $5,000 to $50,000, fixed premiums that never increase.",
-    fexWa: "Talk to a licensed agent",
+    fexWa: "Hablar con un agente licenciado",
     q6q: "When were you born?",
     q6sub: "This helps us calculate your rate.",
     dobMonth: "Month",
@@ -1555,8 +1555,8 @@ const STRINGS = {
     dobYear: "Year",
     q7q: "Sex as listed on your insurance application",
     q7sub: "Carriers use this to set rates. It's required on every application.",
-    sexF: "Female",
-    sexM: "Male",
+    sexF: "Femenino",
+    sexM: "Masculino",
     q8q: "Have you used any tobacco or nicotine in the last 12 months?",
     q8sub: "Cigarettes, cigars, vaping, chew, patches, or gum.",
     tobNo: "No",
@@ -1572,7 +1572,7 @@ const STRINGS = {
     none: "None of these",
     gateQ: "Get Your Exact Quote",
     gateSub: "A licensed agent will confirm your exact rate with 14+ carriers — free, no obligation.",
-    rateExactCta: "Get My Exact Quote →",
+    rateExactCta: "Obtener Mi Cotización Exacta →",
     gateFname: "First Name",
     gateLname: "Last Name",
     gateEmail: "Email Address",
