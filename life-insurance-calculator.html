@@ -2432,7 +2432,18 @@ async function emailResult() {
   btn.classList.remove('on');
   btn.style.opacity = '0.7';
   try {
-    await submitToGHL('partial');
+    // Send email directly via Netlify Function (bypasses GHL template system)
+    const emailResp = await fetch('/.netlify/functions/send-email', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        to: email,
+        subject: 'Your Life Insurance Estimate — The Health Experts Insurance',
+        html: buildEmailHtml()
+      })
+    });
+    // Also submit to GHL for CRM (fire and forget)
+    submitToGHL('partial').catch(() => {});
     inp.style.display = 'none';
     btn.style.display = 'none';
     const confirm = document.createElement('p');
