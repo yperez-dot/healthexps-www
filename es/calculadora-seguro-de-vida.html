@@ -716,8 +716,7 @@ nav.calc-breadcrumb [aria-current="page"] {
 
 <style>
 /* ── Info icons ── */
-.opt-info-row { display:flex; align-items:center; gap:8px; margin-bottom:0; }
-.opt-info-row .opt { flex:1; margin-bottom:0; }
+.opt-right { display:flex; align-items:center; gap:8px; flex-shrink:0; }
 .info-icon-btn {
   flex-shrink:0; width:24px; height:24px; border-radius:50%;
   border:1.5px solid #b8a9cc; background:#fff; color:#452068;
@@ -957,6 +956,10 @@ details[open] .why-we-ask-chevron { transform:rotate(180deg); }
     <input type="number" id="custom-income" placeholder="Enter amount" min="0" max="9999999" oninput="updateCustomIncome()">
     <button class="cont-btn on" onclick="proceedFromIncome()" style="margin-top: 12px;">Continuar</button>
   </div>
+  <details class="why-we-ask">
+    <summary><span class="why-we-ask-q">?</span><span id="wya-s1">Por qué preguntamos — Ingresos</span><span class="why-we-ask-chevron">&#9660;</span></summary>
+    <p id="wya-s1-body">Sus ingresos son la base de su estimación de cobertura — nos indica cuánto necesitaría su familia para mantener su estilo de vida si usted no estuviera.</p>
+  </details>
   <button class="cont-btn off" id="s1-btn" onclick="proceedFromIncome()"><span id="s1-btn-lbl">Continue</span></button>
   <p class="trust-note">🔒 Su información nunca se vende &middot; Agentes licenciados en Florida</p>
 </div>
@@ -989,6 +992,10 @@ details[open] .why-we-ask-chevron { transform:rotate(180deg); }
     <div class="opt" onclick="toggleDependent(this, 'business')"><span id="dep-business">A business or business partner</span><span class="opt-chk">✔</span></div>
     <div class="opt" onclick="toggleDependent(this, 'none')"><span id="dep-none">Nobody depends on me financially</span><span class="opt-chk">✔</span></div>
   </div>
+  <details class="why-we-ask">
+    <summary><span class="why-we-ask-q">?</span><span id="wya-s2">Por qué preguntamos — Dependientes</span><span class="why-we-ask-chevron">&#9660;</span></summary>
+    <p id="wya-s2-body">Cuantas más personas dependan de sus ingresos, más cobertura tiene sentido. Usamos esto para asegurarnos de que su estimación refleje su situación real.</p>
+  </details>
   <button class="cont-btn off" id="s2-btn" onclick="proceedFromDependents()"><span id="s2-btn-lbl">Continue</span></button>
 </div>
 
@@ -1003,6 +1010,10 @@ details[open] .why-we-ask-chevron { transform:rotate(180deg); }
     <div class="opt" onclick="selectChildAge(this, 14)"><span>11–16</span><span class="opt-chk">✔</span></div>
     <div class="opt" onclick="selectChildAge(this, 19)"><span>17–21</span><span class="opt-chk">✔</span></div>
   </div>
+  <details class="why-we-ask">
+    <summary><span class="why-we-ask-q">?</span><span id="wya-s3">Por qué preguntamos — Sus hijos</span><span class="why-we-ask-chevron">&#9660;</span></summary>
+    <p id="wya-s3-body">La cobertura debe durar hasta que su hijo menor pueda mantenerse económicamente. Su edad nos indica cuántos años de protección debe considerar.</p>
+  </details>
   <button class="cont-btn off" id="s3-btn" onclick="proceedFromChildren()"><span id="s3-btn-lbl">Continuar</span></button>
 </div>
 
@@ -1024,6 +1035,10 @@ details[open] .why-we-ask-chevron { transform:rotate(180deg); }
     <label>Deuda total ($)</label>
     <input type="number" id="custom-debt" placeholder="Ingrese el monto" min="0" max="9999999" oninput="updateCustomDebtTotal()">
   </div>
+  <details class="why-we-ask">
+    <summary><span class="why-we-ask-q">?</span><span id="wya-s4">Por qué preguntamos — Sus deudas</span><span class="why-we-ask-chevron">&#9660;</span></summary>
+    <p id="wya-s4-body">Las deudas no desaparecen cuando usted falta — se convierten en el problema de su familia. Las incluimos para que su estimación cubra todo lo que necesitarían para mantenerse estables.</p>
+  </details>
   <button class="cont-btn off" id="s4-btn" onclick="proceedFromDebt()"><span id="s4-btn-lbl">Continuar</span></button>
 </div>
 
@@ -1037,20 +1052,11 @@ details[open] .why-we-ask-chevron { transform:rotate(180deg); }
     <div style="font-weight: 600; font-size: 14px; margin-bottom: 10px;" id="s5-cov-lbl">Life insurance you already have, including through work</div>
     <div class="opts" id="s5-cov-opts">
       <div class="opt" onclick="selectExistingCov(this, 0)"><span>Ninguna</span><span class="opt-chk">✔</span></div>
-      <div class="opt-info-row">
-        <div class="opt" onclick="selectExistingCov(this, -1)"><span>Aproximadamente 1 vez mi salario</span><span class="opt-chk">✔</span></div>
-        <button class="info-icon-btn" id="ibtn-cov1" onclick="toggleInfo('cov1')" type="button" aria-label="Más info">i</button>
-      </div>
+      <div class="opt" onclick="selectExistingCov(this, -1)"><span>Aproximadamente 1 vez mi salario</span><div class="opt-right"><button class="info-icon-btn" id="ibtn-cov1" onclick="toggleInfo('cov1');event.stopPropagation();" type="button" aria-label="Más info">i</button><span class="opt-chk">✔</span></div></div>
       <div class="info-tooltip" id="tip-cov1"><button class="info-tooltip-close" onclick="closeInfo('cov1')" type="button">&#x2715;</button><h4>Qué significa esto</h4><p>Muchos empleadores ofrecen un seguro de vida equivalente a 1 año de salario como beneficio. Consulte su resumen de beneficios de RR.HH. para confirmar el monto exacto.</p></div>
-      <div class="opt-info-row">
-        <div class="opt" onclick="selectExistingCov(this, -2)"><span>Aproximadamente 2 veces mi salario</span><span class="opt-chk">✔</span></div>
-        <button class="info-icon-btn" id="ibtn-cov2" onclick="toggleInfo('cov2')" type="button" aria-label="Más info">i</button>
-      </div>
+      <div class="opt" onclick="selectExistingCov(this, -2)"><span>Aproximadamente 2 veces mi salario</span><div class="opt-right"><button class="info-icon-btn" id="ibtn-cov2" onclick="toggleInfo('cov2');event.stopPropagation();" type="button" aria-label="Más info">i</button><span class="opt-chk">✔</span></div></div>
       <div class="info-tooltip" id="tip-cov2"><button class="info-tooltip-close" onclick="closeInfo('cov2')" type="button">&#x2715;</button><h4>Qué significa esto</h4><p>Algunos empleadores ofrecen cobertura mejorada: 2 años de salario. Revise su portal de beneficios o consulte a RR.HH. si no está seguro.</p></div>
-      <div class="opt-info-row">
-        <div class="opt" onclick="selectExistingCov(this, 250000)"><span>$250K o más</span><span class="opt-chk">✔</span></div>
-        <button class="info-icon-btn" id="ibtn-cov3" onclick="toggleInfo('cov3')" type="button" aria-label="Más info">i</button>
-      </div>
+      <div class="opt" onclick="selectExistingCov(this, 250000)"><span>$250K o más</span><div class="opt-right"><button class="info-icon-btn" id="ibtn-cov3" onclick="toggleInfo('cov3');event.stopPropagation();" type="button" aria-label="Más info">i</button><span class="opt-chk">✔</span></div></div>
       <div class="info-tooltip" id="tip-cov3"><button class="info-tooltip-close" onclick="closeInfo('cov3')" type="button">&#x2715;</button><h4>Qué significa esto</h4><p>Esto cubre cualquier póliza individual que tenga — de término, vida entera o universal — con valor de $250,000 o más. Si tiene varias pólizas, súmelas.</p></div>
       <div class="opt" onclick="selectExistingCov(this, 'unknown')"><span id="not-sure">No estoy seguro/a</span><span class="opt-chk">✔</span></div>
     </div>
@@ -1197,6 +1203,10 @@ details[open] .why-we-ask-chevron { transform:rotate(180deg); }
     </div>
   </div>
 
+  <details class="why-we-ask">
+    <summary><span class="why-we-ask-q">?</span><span id="wya-s6">Por qué preguntamos — Su edad</span><span class="why-we-ask-chevron">&#9660;</span></summary>
+    <p id="wya-s6-body">Su edad es uno de los factores más importantes en el precio del seguro de vida. Las tarifas se fijan al momento de solicitar — cuanto más joven sea ahora, más baja será su tarifa.</p>
+  </details>
   <button class="cont-btn off" id="s6-btn" onclick="goScreen('s7')"><span id="s6-btn-lbl">Continue</span></button>
 </div>
 
@@ -1209,6 +1219,10 @@ details[open] .why-we-ask-chevron { transform:rotate(180deg); }
     <div class="opt" onclick="selectSex(this, 'F')"><span id="sex-f">Female</span><span class="opt-chk">✔</span></div>
     <div class="opt" onclick="selectSex(this, 'M')"><span id="sex-m">Male</span><span class="opt-chk">✔</span></div>
   </div>
+  <details class="why-we-ask">
+    <summary><span class="why-we-ask-q">?</span><span id="wya-s7">Por qué preguntamos — Sexo</span><span class="why-we-ask-chevron">&#9660;</span></summary>
+    <p id="wya-s7-body">El sexo biológico al nacer es un factor estándar de suscripción que afecta su estimación de tarifa. Su agente licenciado puede explicar cómo aplica a su situación específica.</p>
+  </details>
   <button class="cont-btn off" id="s7-btn" onclick="goScreen('s8')"><span id="s7-btn-lbl">Continue</span></button>
 </div>
 
@@ -1221,6 +1235,10 @@ details[open] .why-we-ask-chevron { transform:rotate(180deg); }
     <div class="opt" onclick="selectTobacco(this, false)"><span id="tob-no">No</span><span class="opt-chk">✔</span></div>
     <div class="opt" onclick="selectTobacco(this, true)"><span id="tob-yes">Yes</span><span class="opt-chk">✔</span></div>
   </div>
+  <details class="why-we-ask">
+    <summary><span class="why-we-ask-q">?</span><span id="wya-s8">Por qué preguntamos — Tabaco</span><span class="why-we-ask-chevron">&#9660;</span></summary>
+    <p id="wya-s8-body">El uso de tabaco afecta significativamente las tarifas del seguro de vida — a menudo 2–3 veces más altas. Si ha estado libre de tabaco por 12 meses o más, puede calificar para tarifas de no fumador.</p>
+  </details>
   <button class="cont-btn off" id="s8-btn" onclick="goScreen('s9')"><span id="s8-btn-lbl">Continue</span></button>
 </div>
 
@@ -1230,35 +1248,17 @@ details[open] .why-we-ask-chevron { transform:rotate(180deg); }
   <div class="step-q" id="s9-q">In the last 5 years, have you been treated for any of these?</div>
   <div class="step-sub" id="s9-sub">Check all that apply. Being honest gets you an accurate number.</div>
     <div class="opts" id="s9-opts">
-    <div class="opt-info-row">
-      <div class="opt" onclick="toggleCondition(this, 'cardiac')"><span id="cond-cardiac">Enfermedad cardíaca, infarto, o derrame cerebral</span><span class="opt-chk">✔</span></div>
-      <button class="info-icon-btn" id="ibtn-cardiac" onclick="toggleInfo('cardiac')" type="button" aria-label="Más info">i</button>
-    </div>
+    <div class="opt" onclick="toggleCondition(this, 'cardiac')"><span id="cond-cardiac">Enfermedad cardíaca, infarto, o derrame cerebral</span><div class="opt-right"><button class="info-icon-btn" id="ibtn-cardiac" onclick="toggleInfo('cardiac');event.stopPropagation();" type="button" aria-label="Más info">i</button><span class="opt-chk">✔</span></div></div>
     <div class="info-tooltip" id="tip-cardiac"><button class="info-tooltip-close" onclick="closeInfo('cardiac')" type="button">&#x2715;</button><h4>Por qué importa</h4><p>Incluye una condición cardíaca diagnosticada, un infarto pasado o un derrame — no solo factores de riesgo como historial familiar. Si no está seguro/a, seléccionélo; su agente puede aclarar durante la llamada.</p></div>
-    <div class="opt-info-row">
-      <div class="opt" onclick="toggleCondition(this, 'cancer')"><span id="cond-cancer">Cáncer (excepto cáncer de piel de células basales)</span><span class="opt-chk">✔</span></div>
-      <button class="info-icon-btn" id="ibtn-cancer" onclick="toggleInfo('cancer')" type="button" aria-label="Más info">i</button>
-    </div>
+    <div class="opt" onclick="toggleCondition(this, 'cancer')"><span id="cond-cancer">Cáncer (excepto cáncer de piel de células basales)</span><div class="opt-right"><button class="info-icon-btn" id="ibtn-cancer" onclick="toggleInfo('cancer');event.stopPropagation();" type="button" aria-label="Más info">i</button><span class="opt-chk">✔</span></div></div>
     <div class="info-tooltip" id="tip-cancer"><button class="info-tooltip-close" onclick="closeInfo('cancer')" type="button">&#x2715;</button><h4>Por qué importa</h4><p>Excluye el cáncer de piel de células basales, que la mayoría de aseguradoras no cuentan. Aplican otros cánceres de piel y todos los cánceres internos. Si tuvo cáncer hace más de 5 años, seleccione "Ninguna de estas."</p></div>
-    <div class="opt-info-row">
-      <div class="opt" onclick="toggleCondition(this, 'diabetes')"><span id="cond-diabetes">Diabetes</span><span class="opt-chk">✔</span></div>
-      <button class="info-icon-btn" id="ibtn-diabetes" onclick="toggleInfo('diabetes')" type="button" aria-label="Más info">i</button>
-    </div>
+    <div class="opt" onclick="toggleCondition(this, 'diabetes')"><span id="cond-diabetes">Diabetes</span><div class="opt-right"><button class="info-icon-btn" id="ibtn-diabetes" onclick="toggleInfo('diabetes');event.stopPropagation();" type="button" aria-label="Más info">i</button><span class="opt-chk">✔</span></div></div>
     <div class="info-tooltip" id="tip-diabetes"><button class="info-tooltip-close" onclick="closeInfo('diabetes')" type="button">&#x2715;</button><h4>Por qué importa</h4><p>Aplica a diabetes Tipo 1 y Tipo 2. La diabetes bien controlada con medicación a menudo aún califica para tarifas estándar — seleccionar esto no lo descalifica.</p></div>
-    <div class="opt-info-row">
-      <div class="opt" onclick="toggleCondition(this, 'respiratory')"><span id="cond-respiratory">EPOC, enfisema o apnea del sueño</span><span class="opt-chk">✔</span></div>
-      <button class="info-icon-btn" id="ibtn-respiratory" onclick="toggleInfo('respiratory')" type="button" aria-label="Más info">i</button>
-    </div>
+    <div class="opt" onclick="toggleCondition(this, 'respiratory')"><span id="cond-respiratory">EPOC, enfisema o apnea del sueño</span><div class="opt-right"><button class="info-icon-btn" id="ibtn-respiratory" onclick="toggleInfo('respiratory');event.stopPropagation();" type="button" aria-label="Más info">i</button><span class="opt-chk">✔</span></div></div>
     <div class="info-tooltip" id="tip-respiratory"><button class="info-tooltip-close" onclick="closeInfo('respiratory')" type="button">&#x2715;</button><h4>Por qué importa</h4><p>EPOC y enfisema son enfermedades pulmonares crónicas; la apnea del sueño cuenta si está diagnosticada. La apnea leve bien controlada con CPAP a menudo califica para tarifas preferentes.</p></div>
-    <div class="opt-info-row">
-      <div class="opt" onclick="toggleCondition(this, 'organ')"><span id="cond-organ">Enfermedad renal o hepática</span><span class="opt-chk">✔</span></div>
-      <button class="info-icon-btn" id="ibtn-organ" onclick="toggleInfo('organ')" type="button" aria-label="Más info">i</button>
-    </div>
+    <div class="opt" onclick="toggleCondition(this, 'organ')"><span id="cond-organ">Enfermedad renal o hepática</span><div class="opt-right"><button class="info-icon-btn" id="ibtn-organ" onclick="toggleInfo('organ');event.stopPropagation();" type="button" aria-label="Más info">i</button><span class="opt-chk">✔</span></div></div>
     <div class="info-tooltip" id="tip-organ"><button class="info-tooltip-close" onclick="closeInfo('organ')" type="button">&#x2715;</button><h4>Por qué importa</h4><p>Incluye enfermedad renal crónica, insuficiencia renal, cirrosis, hepatitis C u otras condiciones hepáticas diagnosticadas. Los cálculos renales aislados generalmente no aplican.</p></div>
-    <div class="opt-info-row">
-      <div class="opt" onclick="toggleCondition(this, 'controlled_bp')"><span id="cond-bp">Presión alta o colesterol alto, controlado con medicación</span><span class="opt-chk">✔</span></div>
-      <button class="info-icon-btn" id="ibtn-bp" onclick="toggleInfo('bp')" type="button" aria-label="Más info">i</button>
-    </div>
+    <div class="opt" onclick="toggleCondition(this, 'controlled_bp')"><span id="cond-bp">Presión alta o colesterol alto, controlado con medicación</span><div class="opt-right"><button class="info-icon-btn" id="ibtn-bp" onclick="toggleInfo('bp');event.stopPropagation();" type="button" aria-label="Más info">i</button><span class="opt-chk">✔</span></div></div>
     <div class="info-tooltip" id="tip-bp"><button class="info-tooltip-close" onclick="closeInfo('bp')" type="button">&#x2715;</button><h4>Por qué importa</h4><p>La presión o colesterol controlados con medicación es muy común y generalmente aún califica para tarifas estándar o preferentes. Seléccione esto solo si actualmente toma medicación para ello.</p></div>
     <div class="opt" onclick="toggleCondition(this, 'none')"><span id="cond-none">Ninguna de estas</span><span class="opt-chk">✔</span></div>
   </div>

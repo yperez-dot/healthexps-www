@@ -687,6 +687,23 @@ nav.calc-breadcrumb [aria-current="page"] {
   }
 }
 
+/* === QUIET CALLBACK (below intro CTA) === */
+.callback-quiet { max-width: 640px; margin: 18px auto 0; padding: 0 4px; }
+.callback-quiet-line { font-size: 13.5px; color: #66607c; line-height: 1.5; text-align: center; margin-bottom: 12px; }
+.callback-quiet-line a { color: #452068; font-weight: 700; text-decoration: underline; }
+.callback-fields { display: flex; flex-direction: column; gap: 10px; margin-top: 12px; padding-left: 26px; }
+.callback-fields input[type="text"], .callback-fields input[type="tel"] { width: 100%; font-family: inherit; font-size: 14.5px; padding: 12px 14px; border: 1.5px solid #ddd6e8; border-radius: 10px; color: #1a1024; }
+.consent-row { display: flex; align-items: flex-start; gap: 9px; font-size: 12.5px; color: #66607c; line-height: 1.45; }
+.consent-row input[type="checkbox"] { margin-top: 2px; flex-shrink: 0; }
+.consent-row a { color: #452068; text-decoration: underline; }
+
+/* === INTERSTITIAL ESTIMATE BLOCK === */
+.estimate-block { background: #faf7fd; border: 1.5px solid #e3d9f0; border-radius: 14px; padding: 20px; text-align: center; margin-bottom: 22px; }
+.estimate-block .caption { font-size: 12px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: #8a80a0; margin-bottom: 6px; }
+.estimate-block .amount { font-size: 34px; font-weight: 700; color: var(--purple); line-height: 1.1; }
+.estimate-block .edit-link { display: inline-block; margin-top: 10px; font-size: 12.5px; font-weight: 700; color: var(--pink); text-decoration: underline; }
+.interstitial-body { font-size: 14px; color: var(--gt); line-height: 1.5; margin-bottom: 22px; }
+
 </style>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@600;700;800&display=swap" rel="stylesheet">
@@ -716,8 +733,7 @@ nav.calc-breadcrumb [aria-current="page"] {
 
 <style>
 /* ── Info icons ── */
-.opt-info-row { display:flex; align-items:center; gap:8px; margin-bottom:0; }
-.opt-info-row .opt { flex:1; margin-bottom:0; }
+.opt-right { display:flex; align-items:center; gap:8px; flex-shrink:0; }
 .info-icon-btn {
   flex-shrink:0; width:24px; height:24px; border-radius:50%;
   border:1.5px solid #b8a9cc; background:#fff; color:#452068;
@@ -917,34 +933,6 @@ details[open] .why-we-ask-chevron { transform:rotate(180deg); }
     <button class="lang-btn active" onclick="setLang('en')" id="lb-en">English</button>
     <button class="lang-btn" onclick="setLang('es')" id="lb-es">Espa&ntilde;ol</button>
   </div>
-  <div id="calc-hero-qcb" style="background:#fff;border-radius:12px;padding:20px 18px 22px;margin-top:20px;text-align:left;">
-    <h3 style="font-size:15px;font-weight:700;color:#1a1024;margin:0 0 4px;">Prefer to talk it through?</h3>
-    <p style="font-size:13px;color:#66607c;line-height:1.45;margin:0 0 14px;">Call us or message on WhatsApp — no calculator needed.</p>
-    <div id="calc-qcb-form-wrap">
-      <form id="calc-qcb-form" novalidate>
-        <input type="text" name="_hp_name" id="_calc_qcb_hp" autocomplete="off" tabindex="-1" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0;pointer-events:none;" value="">
-        <div style="display:flex;gap:8px;margin-bottom:10px;">
-          <input type="text" id="calc-qcb-name" placeholder="Your name" autocomplete="given-name" oninput="calcQcbCheck()" style="flex:1;min-width:0;font-family:inherit;font-size:13.5px;padding:11px 12px;border:1.5px solid #ddd6e8;border-radius:8px;color:#1a1024;background:#fff;outline:none;box-sizing:border-box;">
-          <input type="tel" id="calc-qcb-phone" placeholder="Phone number" autocomplete="tel" oninput="calcQcbCheck()" style="flex:1;min-width:0;font-family:inherit;font-size:13.5px;padding:11px 12px;border:1.5px solid #ddd6e8;border-radius:8px;color:#1a1024;background:#fff;outline:none;box-sizing:border-box;">
-        </div>
-        <div style="display:flex;align-items:flex-start;gap:8px;margin-bottom:14px;">
-          <input type="checkbox" id="calc-qcb-consent" onchange="calcQcbCheck()" style="margin-top:2px;accent-color:#452068;width:15px;height:15px;flex-shrink:0;cursor:pointer;">
-          <label for="calc-qcb-consent" style="font-size:11px;color:#837c98;line-height:1.45;cursor:pointer;">I agree to be contacted by a licensed agent at The Health Experts Insurance by phone or text at the number provided. <a href="/privacy" style="color:#452068;text-decoration:underline;">View full consent</a></label>
-        </div>
-        <button type="button" id="calc-qcb-btn" disabled onclick="submitCalcQcb()" style="display:block;width:100%;background:#452068;color:#fff;font-family:inherit;font-size:14.5px;font-weight:700;padding:13px 0;border:none;border-radius:30px;text-align:center;cursor:pointer;opacity:.5;transition:opacity .2s;box-sizing:border-box;">Call Me &rarr;</button>
-      </form>
-      <div id="calc-qcb-success" style="display:none;font-size:15px;color:#452068;font-weight:600;text-align:center;padding:12px 0;">Got it &mdash; someone will call you shortly.</div>
-      <div style="display:flex;align-items:center;gap:12px;margin:16px 0;">
-        <div style="flex:1;height:1px;background:#e3ddee;"></div>
-        <span style="font-size:11px;font-weight:700;text-transform:uppercase;color:#a89fb8;">or</span>
-        <div style="flex:1;height:1px;background:#e3ddee;"></div>
-      </div>
-      <a href="https://wa.me/13054646888?text=Hi%2C%20I%27m%20interested%20in%20life%20insurance%20and%20would%20like%20a%20quick%20quote." onclick="calcQcbTrackWa()" target="_blank" rel="noopener" style="display:flex;align-items:center;justify-content:center;gap:8px;background:#25D366;color:#fff;font-family:inherit;font-size:14.5px;font-weight:700;padding:13px 0;border-radius:30px;text-decoration:none;box-sizing:border-box;">
-        <svg viewBox="0 0 24 24" style="width:18px;height:18px;fill:#fff;flex-shrink:0;"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.48 1.32 5L2 22l5.25-1.38c1.45.79 3.08 1.21 4.78 1.21h.01c5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0012.04 2m0 1.67c2.2 0 4.26.86 5.82 2.42a8.225 8.225 0 012.41 5.82c0 4.54-3.7 8.24-8.24 8.24-1.48 0-2.93-.4-4.2-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.188 8.188 0 01-1.26-4.38c.01-4.54 3.71-8.24 8.26-8.24M8.53 7.33c-.16 0-.43.06-.66.31-.22.25-.87.85-.87 2.07 0 1.22.89 2.4 1.01 2.56.12.17 1.75 2.67 4.26 3.73.59.27 1.06.42 1.42.54.6.19 1.14.16 1.57.1.48-.07 1.46-.6 1.67-1.18.21-.58.21-1.07.14-1.18-.07-.1-.25-.16-.52-.29-.27-.14-1.6-.79-1.85-.88-.25-.09-.43-.14-.61.14-.18.27-.7.88-.86 1.06-.16.18-.32.2-.59.07-.27-.14-1.13-.42-2.16-1.34-.8-.71-1.34-1.6-1.5-1.87-.16-.27-.02-.42.12-.55.12-.13.27-.32.41-.48.14-.16.18-.27.27-.45.09-.18.05-.34-.02-.48-.07-.14-.61-1.5-.86-2.05-.22-.5-.45-.44-.61-.44l-.52-.01z"/></svg>
-        WhatsApp Us
-      </a>
-    </div>
-  </div>
 </div>
 
 <!-- Progress bar -->
@@ -967,6 +955,24 @@ details[open] .why-we-ask-chevron { transform:rotate(180deg); }
       <div id="intro-check3" style="display:flex;align-items:center;gap:10px;font-size:15px;color:var(--black);font-weight:600;"><span style="color:var(--purple);font-size:18px;">✓</span> See your estimate first — no pressure, no obligation</div>
     </div>
     <button class="cont-btn on" onclick="goScreen('s1')" id="intro-btn" style="font-size:17px;"><span id="intro-btn-lbl">Start My Free Estimate →</span></button>
+
+    <!-- Demoted callback — quiet, below intro CTA -->
+    <div class="callback-quiet" id="callback-quiet-wrap">
+      <p class="callback-quiet-line" id="qcb-quiet-line">Prefer to talk? Call <a href="tel:+18003806821">1-800-380-6821</a> or <a href="https://wa.me/18003806821">message us on WhatsApp</a>.</p>
+      <details class="why-we-ask">
+        <summary><span class="why-we-ask-q">?</span> <span id="qcb-quiet-summary">Have us call you instead</span> <span class="why-we-ask-chevron">&#9660;</span></summary>
+        <div class="callback-fields">
+          <input type="text" id="qcb-quiet-name" placeholder="Your name" oninput="calcQcbQuietCheck()" />
+          <input type="tel" id="qcb-quiet-phone" placeholder="Phone number" oninput="calcQcbQuietCheck()" />
+          <label class="consent-row">
+            <input type="checkbox" id="qcb-quiet-consent" onchange="calcQcbQuietCheck()" />
+            <span id="qcb-quiet-consent-lbl">I agree to be contacted by a licensed agent at The Health Experts Insurance by phone or text at the number provided. <a href="/privacy">View full consent</a></span>
+          </label>
+          <button class="next-btn" id="qcb-quiet-btn" disabled onclick="submitCalcQcbQuiet()"><span id="qcb-quiet-btn-lbl">Call Me →</span></button>
+          <div id="qcb-quiet-ok" style="display:none;font-size:14px;color:#452068;font-weight:600;text-align:center;padding:8px 0;">Got it — someone will call you shortly.</div>
+        </div>
+      </details>
+    </div>
   </div>
 </div>
 
@@ -990,6 +996,10 @@ details[open] .why-we-ask-chevron { transform:rotate(180deg); }
     <input type="number" id="custom-income" placeholder="Enter amount" min="0" max="9999999" oninput="updateCustomIncome()">
     <button class="cont-btn on" onclick="proceedFromIncome()" style="margin-top: 12px;">Continuar</button>
   </div>
+  <details class="why-we-ask">
+    <summary><span class="why-we-ask-q">?</span><span id="wya-s1">Why We Ask — About Your Income</span><span class="why-we-ask-chevron">&#9660;</span></summary>
+    <p id="wya-s1-body">Your income is the foundation of your coverage estimate — it tells us how much your family would need to maintain their lifestyle if you weren’t here.</p>
+  </details>
   <button class="cont-btn off" id="s1-btn" onclick="proceedFromIncome()"><span id="s1-btn-lbl">Continue</span></button>
   <p class="trust-note">🔒 Your information is never sold &middot; Licensed Florida agents</p>
 </div>
@@ -1022,6 +1032,10 @@ details[open] .why-we-ask-chevron { transform:rotate(180deg); }
     <div class="opt" onclick="toggleDependent(this, 'business')"><span id="dep-business">A business or business partner</span><span class="opt-chk">✔</span></div>
     <div class="opt" onclick="toggleDependent(this, 'none')"><span id="dep-none">Nobody depends on me financially</span><span class="opt-chk">✔</span></div>
   </div>
+  <details class="why-we-ask">
+    <summary><span class="why-we-ask-q">?</span><span id="wya-s2">Why We Ask — About Your Dependents</span><span class="why-we-ask-chevron">&#9660;</span></summary>
+    <p id="wya-s2-body">The more people who rely on your income, the more coverage makes sense. We use this to make sure your estimate reflects your real situation.</p>
+  </details>
   <button class="cont-btn off" id="s2-btn" onclick="proceedFromDependents()"><span id="s2-btn-lbl">Continue</span></button>
 </div>
 
@@ -1036,6 +1050,10 @@ details[open] .why-we-ask-chevron { transform:rotate(180deg); }
     <div class="opt" onclick="selectChildAge(this, 14)"><span>11–16</span><span class="opt-chk">✔</span></div>
     <div class="opt" onclick="selectChildAge(this, 19)"><span>17–21</span><span class="opt-chk">✔</span></div>
   </div>
+  <details class="why-we-ask">
+    <summary><span class="why-we-ask-q">?</span><span id="wya-s3">Why We Ask — About Your Children</span><span class="why-we-ask-chevron">&#9660;</span></summary>
+    <p id="wya-s3-body">Coverage should last until your youngest child can support themselves financially. Their age tells us how many years of protection to factor in.</p>
+  </details>
   <button class="cont-btn off" id="s3-btn" onclick="proceedFromChildren()"><span id="s3-btn-lbl">Continue</span></button>
 </div>
 
@@ -1045,18 +1063,22 @@ details[open] .why-we-ask-chevron { transform:rotate(180deg); }
   <div class="step-q" id="s4-q">How much total debt would you leave behind?</div>
   <div class="step-sub" id="s4-sub">Mortgage, car loans, credit cards, student loans combined. Enter $0 if you rent and carry no debt.</div>
   <div class="opts" id="s4-debt-opts">
-    <div class="opt" onclick="selectDebtTotal(this, 0)"><span id="debt-opt-0">$0 / No debt</span><span class="opt-chk">✔</span></div>
-    <div class="opt" onclick="selectDebtTotal(this, 25000)"><span id="debt-opt-1">Under $50K</span><span class="opt-chk">✔</span></div>
-    <div class="opt" onclick="selectDebtTotal(this, 100000)"><span id="debt-opt-2">$50K – $150K</span><span class="opt-chk">✔</span></div>
-    <div class="opt" onclick="selectDebtTotal(this, 225000)"><span id="debt-opt-3">$150K – $300K</span><span class="opt-chk">✔</span></div>
-    <div class="opt" onclick="selectDebtTotal(this, 450000)"><span id="debt-opt-4">$300K – $600K</span><span class="opt-chk">✔</span></div>
-    <div class="opt" onclick="selectDebtTotal(this, 750000)"><span id="debt-opt-5">Over $600K</span><span class="opt-chk">✔</span></div>
-    <div class="opt" onclick="toggleCustomDebtTotal(this)"><span id="custom-debt-txt">I'd rather enter my exact number</span><span class="opt-chk">✔</span></div>
+    <div class="opt" onclick="selectDebtTotal(this, 0)"><span id="debt-opt-0">None</span><div class="opt-right"><button class="info-icon-btn" onclick="toggleDebtInfo(this);event.stopPropagation();" type="button" aria-label="More info">i</button><span class="opt-chk">✔</span></div></div>
+    <div class="info-tooltip" id="tip-debt"><button class="info-tooltip-close" onclick="closeDebtInfo()" type="button">&#x2715;</button><h4 id="tip-debt-h">What counts as debt</h4><p id="tip-debt-p">Count anything your family would still owe: mortgage, home equity line, car loans, credit cards, student loans, and any loan you co-signed. Don’t count monthly bills like rent, utilities, or insurance premiums. A rough total is fine — we’re sizing your coverage, not auditing you.</p></div>
+    <div class="opt" onclick="selectDebtTotal(this, 25000)"><span id="debt-opt-1">Under $50K</span><div class="opt-right"><button class="info-icon-btn" onclick="toggleDebtInfo(this);event.stopPropagation();" type="button" aria-label="More info">i</button><span class="opt-chk">✔</span></div></div>
+    <div class="opt" onclick="selectDebtTotal(this, 125000)"><span id="debt-opt-2">$50K – $200K</span><div class="opt-right"><button class="info-icon-btn" onclick="toggleDebtInfo(this);event.stopPropagation();" type="button" aria-label="More info">i</button><span class="opt-chk">✔</span></div></div>
+    <div class="opt" onclick="selectDebtTotal(this, 350000)"><span id="debt-opt-3">$200K – $500K</span><div class="opt-right"><button class="info-icon-btn" onclick="toggleDebtInfo(this);event.stopPropagation();" type="button" aria-label="More info">i</button><span class="opt-chk">✔</span></div></div>
+    <div class="opt" onclick="selectDebtTotal(this, 600000)"><span id="debt-opt-4">Over $500K</span><div class="opt-right"><button class="info-icon-btn" onclick="toggleDebtInfo(this);event.stopPropagation();" type="button" aria-label="More info">i</button><span class="opt-chk">✔</span></div></div>
+    <div class="opt" onclick="toggleCustomDebtTotal(this)"><span id="custom-debt-txt">I’d rather enter my exact number</span><span class="opt-chk">✔</span></div>
   </div>
   <div class="field hidden" id="custom-debt-field">
     <label>Total debt ($)</label>
     <input type="number" id="custom-debt" placeholder="Enter amount" min="0" max="9999999" oninput="updateCustomDebtTotal()">
   </div>
+  <details class="why-we-ask">
+    <summary><span class="why-we-ask-q">?</span><span id="wya-s4">Why We Ask — About Your Debt</span><span class="why-we-ask-chevron">&#9660;</span></summary>
+    <p id="wya-s4-body">Debts don’t disappear when you do — they become your family’s problem. We include this so your estimate accounts for everything they’d need to stay financially stable.</p>
+  </details>
   <button class="cont-btn off" id="s4-btn" onclick="proceedFromDebt()"><span id="s4-btn-lbl">Continue</span></button>
 </div>
 
@@ -1070,20 +1092,11 @@ details[open] .why-we-ask-chevron { transform:rotate(180deg); }
     <div style="font-weight: 600; font-size: 14px; margin-bottom: 10px;" id="s5-cov-lbl">Life insurance you already have, including through work</div>
     <div class="opts" id="s5-cov-opts">
       <div class="opt" onclick="selectExistingCov(this, 0)"><span>None</span><span class="opt-chk">✔</span></div>
-      <div class="opt-info-row">
-        <div class="opt" onclick="selectExistingCov(this, -1)"><span>About 1x my salary</span><span class="opt-chk">✔</span></div>
-        <button class="info-icon-btn" id="ibtn-cov1" onclick="toggleInfo('cov1')" type="button" aria-label="More info">i</button>
-      </div>
+      <div class="opt" onclick="selectExistingCov(this, -1)"><span>About 1x my salary</span><div class="opt-right"><button class="info-icon-btn" id="ibtn-cov1" onclick="toggleInfo('cov1');event.stopPropagation();" type="button" aria-label="More info">i</button><span class="opt-chk">✔</span></div></div>
       <div class="info-tooltip" id="tip-cov1"><button class="info-tooltip-close" onclick="closeInfo('cov1')" type="button">&#x2715;</button><h4>What this means</h4><p>Many employers provide life insurance equal to 1 year of your salary as a standard benefit. Check your HR benefits summary to confirm the exact amount.</p></div>
-      <div class="opt-info-row">
-        <div class="opt" onclick="selectExistingCov(this, -2)"><span>About 2x my salary</span><span class="opt-chk">✔</span></div>
-        <button class="info-icon-btn" id="ibtn-cov2" onclick="toggleInfo('cov2')" type="button" aria-label="More info">i</button>
-      </div>
+      <div class="opt" onclick="selectExistingCov(this, -2)"><span>About 2x my salary</span><div class="opt-right"><button class="info-icon-btn" id="ibtn-cov2" onclick="toggleInfo('cov2');event.stopPropagation();" type="button" aria-label="More info">i</button><span class="opt-chk">✔</span></div></div>
       <div class="info-tooltip" id="tip-cov2"><button class="info-tooltip-close" onclick="closeInfo('cov2')" type="button">&#x2715;</button><h4>What this means</h4><p>Some employers offer enhanced coverage — 2 years of salary. Check your benefits portal or ask HR if you're not sure.</p></div>
-      <div class="opt-info-row">
-        <div class="opt" onclick="selectExistingCov(this, 250000)"><span>$250K or more</span><span class="opt-chk">✔</span></div>
-        <button class="info-icon-btn" id="ibtn-cov3" onclick="toggleInfo('cov3')" type="button" aria-label="More info">i</button>
-      </div>
+      <div class="opt" onclick="selectExistingCov(this, 250000)"><span>$250K or more</span><div class="opt-right"><button class="info-icon-btn" id="ibtn-cov3" onclick="toggleInfo('cov3');event.stopPropagation();" type="button" aria-label="More info">i</button><span class="opt-chk">✔</span></div></div>
       <div class="info-tooltip" id="tip-cov3"><button class="info-tooltip-close" onclick="closeInfo('cov3')" type="button">&#x2715;</button><h4>What this means</h4><p>This covers any individual policy you own — term, whole, or universal life — worth $250,000 or more. If you have multiple policies, add them together.</p></div>
       <div class="opt" onclick="selectExistingCov(this, 'unknown')"><span id="not-sure">Not sure</span><span class="opt-chk">✔</span></div>
     </div>
@@ -1163,13 +1176,17 @@ details[open] .why-we-ask-chevron { transform:rotate(180deg); }
 </div>
 
 
-<!-- Review answers before health questions -->
+<!-- Interstitial — coverage estimate before rate questions -->
 <div class="screen" id="sReview">
-  <button class="back-btn" onclick="goScreen('sResult')">Back</button>
-  <div class="step-q" id="review-q">Before your health questions...</div>
-  <div class="step-sub" id="review-sub">Here's what we'll use from your answers. Everything look right?</div>
-  <div id="review-list" style="margin-bottom:24px;"></div>
-  <button class="cont-btn on" onclick="goScreen('s6')"><span id="review-btn-lbl">Looks right — Continue</span></button>
+  <button class="back-btn" onclick="goScreen('sResult')" id="interstitial-back">Back</button>
+  <div class="estimate-block">
+    <div class="caption" id="interstitial-caption">Your coverage need</div>
+    <div class="amount" id="interstitial-amount">—</div>
+    <a href="#" class="edit-link" id="interstitial-edit" onclick="restart(); return false;">Edit my answers</a>
+  </div>
+  <div class="step-q" id="review-q">A few more questions to give you the rate estimate.</div>
+  <div class="interstitial-body" id="review-sub">Just your date of birth, sex, and tobacco use — that’s what carriers use to price a policy. No health exam, no phone call required.</div>
+  <button class="cont-btn on" onclick="goScreen('s6')"><span id="review-btn-lbl">Continue →</span></button>
 </div>
 
 <!-- Email mini-gate before rate screen -->
@@ -1226,6 +1243,10 @@ details[open] .why-we-ask-chevron { transform:rotate(180deg); }
     </div>
   </div>
 
+  <details class="why-we-ask">
+    <summary><span class="why-we-ask-q">?</span><span id="wya-s6">Why We Ask — About Your Age</span><span class="why-we-ask-chevron">&#9660;</span></summary>
+    <p id="wya-s6-body">Your age is one of the biggest factors in life insurance pricing. Rates lock in when you apply — the younger you are now, the lower your rate.</p>
+  </details>
   <button class="cont-btn off" id="s6-btn" onclick="goScreen('s7')"><span id="s6-btn-lbl">Continue</span></button>
 </div>
 
@@ -1238,6 +1259,10 @@ details[open] .why-we-ask-chevron { transform:rotate(180deg); }
     <div class="opt" onclick="selectSex(this, 'F')"><span id="sex-f">Female</span><span class="opt-chk">✔</span></div>
     <div class="opt" onclick="selectSex(this, 'M')"><span id="sex-m">Male</span><span class="opt-chk">✔</span></div>
   </div>
+  <details class="why-we-ask">
+    <summary><span class="why-we-ask-q">?</span><span id="wya-s7">Why We Ask — About Sex</span><span class="why-we-ask-chevron">&#9660;</span></summary>
+    <p id="wya-s7-body">Biological sex at birth is a standard underwriting factor that affects your rate estimate. Your licensed agent can explain how it applies to your specific situation.</p>
+  </details>
   <button class="cont-btn off" id="s7-btn" onclick="goScreen('s8')"><span id="s7-btn-lbl">Continue</span></button>
 </div>
 
@@ -1247,9 +1272,21 @@ details[open] .why-we-ask-chevron { transform:rotate(180deg); }
   <div class="step-q" id="s8-q">Have you used any tobacco or nicotine in the last 12 months?</div>
   <div class="step-sub" id="s8-sub">Cigarettes, cigars, vaping, chew, patches, or gum.</div>
   <div class="opts" id="s8-opts">
-    <div class="opt" onclick="selectTobacco(this, false)"><span id="tob-no">No</span><span class="opt-chk">✔</span></div>
-    <div class="opt" onclick="selectTobacco(this, true)"><span id="tob-yes">Yes</span><span class="opt-chk">✔</span></div>
+    <div class="opt" onclick="selectTobacco(this, false, 'none')"><span id="tob-no">No</span><div class="opt-right"><button class="info-icon-btn" id="ibtn-tob-no" onclick="toggleInfo('tob-no');event.stopPropagation();" type="button" aria-label="More info">i</button><span class="opt-chk">✔</span></div></div>
+    <div class="info-tooltip" id="tip-tob-no"><button class="info-tooltip-close" onclick="closeInfo('tob-no')" type="button">&#x2715;</button><h4 id="tip-tob-no-h">Answer No only if</h4><p id="tip-tob-no-p">No means no tobacco or nicotine in the last 12 months — including vapes, nicotine gum, and patches. Carriers verify this during underwriting, so an accurate answer here avoids a surprise when the real offer comes back.</p></div>
+    <div class="opt" onclick="selectTobacco(this, true, 'cigarettes')"><span id="tob-cig">Yes — cigarettes</span><div class="opt-right"><button class="info-icon-btn" id="ibtn-tob-cig" onclick="toggleInfo('tob-cig');event.stopPropagation();" type="button" aria-label="More info">i</button><span class="opt-chk">✔</span></div></div>
+    <div class="info-tooltip" id="tip-tob-cig"><button class="info-tooltip-close" onclick="closeInfo('tob-cig')" type="button">&#x2715;</button><h4 id="tip-tob-cig-h">What this means</h4><p id="tip-tob-cig-p">Any cigarette use in the last 12 months counts, including occasional or social smoking. Every carrier rates cigarettes as tobacco, so this is the one there’s no variation on.</p></div>
+    <div class="opt" onclick="selectTobacco(this, true, 'cigars')"><span id="tob-cigar">Yes — cigars or pipe</span><div class="opt-right"><button class="info-icon-btn" id="ibtn-tob-cigar" onclick="toggleInfo('tob-cigar');event.stopPropagation();" type="button" aria-label="More info">i</button><span class="opt-chk">✔</span></div></div>
+    <div class="info-tooltip" id="tip-tob-cigar"><button class="info-tooltip-close" onclick="closeInfo('tob-cigar')" type="button">&#x2715;</button><h4 id="tip-tob-cigar-h">This one varies by carrier</h4><p id="tip-tob-cigar-p">Occasional cigar or pipe use is treated differently across carriers — some will still consider non-tobacco rates for a handful of cigars a year. Answer honestly and your advisor will check which carriers apply that.</p></div>
+    <div class="opt" onclick="selectTobacco(this, true, 'vape')"><span id="tob-vape">Yes — vape / e-cigarette</span><div class="opt-right"><button class="info-icon-btn" id="ibtn-tob-vape" onclick="toggleInfo('tob-vape');event.stopPropagation();" type="button" aria-label="More info">i</button><span class="opt-chk">✔</span></div></div>
+    <div class="info-tooltip" id="tip-tob-vape"><button class="info-tooltip-close" onclick="closeInfo('tob-vape')" type="button">&#x2715;</button><h4 id="tip-tob-vape-h">Vaping usually counts</h4><p id="tip-tob-vape-p">Most carriers rate vaping the same as cigarettes, even when the liquid has no nicotine in it. A few treat it more favorably — worth asking your advisor rather than assuming either way.</p></div>
+    <div class="opt" onclick="selectTobacco(this, true, 'chewing')"><span id="tob-chew">Yes — chewing tobacco</span><div class="opt-right"><button class="info-icon-btn" id="ibtn-tob-chew" onclick="toggleInfo('tob-chew');event.stopPropagation();" type="button" aria-label="More info">i</button><span class="opt-chk">✔</span></div></div>
+    <div class="info-tooltip" id="tip-tob-chew"><button class="info-tooltip-close" onclick="closeInfo('tob-chew')" type="button">&#x2715;</button><h4 id="tip-tob-chew-h">What this includes</h4><p id="tip-tob-chew-p">Chewing tobacco, snuff, and dip all count here. Some carriers rate smokeless tobacco more favorably than cigarettes, so this is worth flagging to your advisor.</p></div>
   </div>
+  <details class="why-we-ask">
+    <summary><span class="why-we-ask-q">?</span><span id="wya-s8">Why We Ask — About Tobacco</span><span class="why-we-ask-chevron">&#9660;</span></summary>
+    <p id="wya-s8-body">Tobacco use significantly affects life insurance rates — often 2–3× higher. If you’ve been tobacco-free for 12 months or more, you may qualify for non-smoker pricing.</p>
+  </details>
   <button class="cont-btn off" id="s8-btn" onclick="goScreen('s9')"><span id="s8-btn-lbl">Continue</span></button>
 </div>
 
@@ -1259,35 +1296,17 @@ details[open] .why-we-ask-chevron { transform:rotate(180deg); }
   <div class="step-q" id="s9-q">In the last 5 years, have you been treated for any of these?</div>
   <div class="step-sub" id="s9-sub">Check all that apply. Being honest gets you an accurate number.</div>
   <div class="opts" id="s9-opts">
-    <div class="opt-info-row">
-      <div class="opt" onclick="toggleCondition(this, 'cardiac')"><span id="cond-cardiac">Heart disease, heart attack, or stroke</span><span class="opt-chk">✔</span></div>
-      <button class="info-icon-btn" id="ibtn-cardiac" onclick="toggleInfo('cardiac')" type="button" aria-label="More info">i</button>
-    </div>
+    <div class="opt" onclick="toggleCondition(this, 'cardiac')"><span id="cond-cardiac">Heart disease, heart attack, or stroke</span><div class="opt-right"><button class="info-icon-btn" id="ibtn-cardiac" onclick="toggleInfo('cardiac');event.stopPropagation();" type="button" aria-label="More info">i</button><span class="opt-chk">✔</span></div></div>
     <div class="info-tooltip" id="tip-cardiac"><button class="info-tooltip-close" onclick="closeInfo('cardiac')" type="button">&#x2715;</button><h4>Why this matters</h4><p>This includes a diagnosed heart condition, a past heart attack, or a stroke — not just risk factors like family history. If you're unsure, select it; your agent can clarify during the call.</p></div>
-    <div class="opt-info-row">
-      <div class="opt" onclick="toggleCondition(this, 'cancer')"><span id="cond-cancer">Cancer (other than basal cell skin cancer)</span><span class="opt-chk">✔</span></div>
-      <button class="info-icon-btn" id="ibtn-cancer" onclick="toggleInfo('cancer')" type="button" aria-label="More info">i</button>
-    </div>
+    <div class="opt" onclick="toggleCondition(this, 'cancer')"><span id="cond-cancer">Cancer (other than basal cell skin cancer)</span><div class="opt-right"><button class="info-icon-btn" id="ibtn-cancer" onclick="toggleInfo('cancer');event.stopPropagation();" type="button" aria-label="More info">i</button><span class="opt-chk">✔</span></div></div>
     <div class="info-tooltip" id="tip-cancer"><button class="info-tooltip-close" onclick="closeInfo('cancer')" type="button">&#x2715;</button><h4>Why this matters</h4><p>Excludes basal cell skin cancer, which most carriers don't count. Other skin cancers and all internal cancers apply. If you had cancer more than 5 years ago, select "None of these."</p></div>
-    <div class="opt-info-row">
-      <div class="opt" onclick="toggleCondition(this, 'diabetes')"><span id="cond-diabetes">Diabetes</span><span class="opt-chk">✔</span></div>
-      <button class="info-icon-btn" id="ibtn-diabetes" onclick="toggleInfo('diabetes')" type="button" aria-label="More info">i</button>
-    </div>
+    <div class="opt" onclick="toggleCondition(this, 'diabetes')"><span id="cond-diabetes">Diabetes</span><div class="opt-right"><button class="info-icon-btn" id="ibtn-diabetes" onclick="toggleInfo('diabetes');event.stopPropagation();" type="button" aria-label="More info">i</button><span class="opt-chk">✔</span></div></div>
     <div class="info-tooltip" id="tip-diabetes"><button class="info-tooltip-close" onclick="closeInfo('diabetes')" type="button">&#x2715;</button><h4>Why this matters</h4><p>Applies to Type 1 and Type 2 diabetes. Well-controlled diabetes with medication often still qualifies for standard rates — selecting this doesn't disqualify you.</p></div>
-    <div class="opt-info-row">
-      <div class="opt" onclick="toggleCondition(this, 'respiratory')"><span id="cond-respiratory">COPD, emphysema, or sleep apnea</span><span class="opt-chk">✔</span></div>
-      <button class="info-icon-btn" id="ibtn-respiratory" onclick="toggleInfo('respiratory')" type="button" aria-label="More info">i</button>
-    </div>
+    <div class="opt" onclick="toggleCondition(this, 'respiratory')"><span id="cond-respiratory">COPD, emphysema, or sleep apnea</span><div class="opt-right"><button class="info-icon-btn" id="ibtn-respiratory" onclick="toggleInfo('respiratory');event.stopPropagation();" type="button" aria-label="More info">i</button><span class="opt-chk">✔</span></div></div>
     <div class="info-tooltip" id="tip-respiratory"><button class="info-tooltip-close" onclick="closeInfo('respiratory')" type="button">&#x2715;</button><h4>Why this matters</h4><p>COPD and emphysema are chronic lung conditions; sleep apnea counts if diagnosed and treated. Mild sleep apnea well-managed with a CPAP often qualifies for preferred rates.</p></div>
-    <div class="opt-info-row">
-      <div class="opt" onclick="toggleCondition(this, 'organ')"><span id="cond-organ">Kidney or liver disease</span><span class="opt-chk">✔</span></div>
-      <button class="info-icon-btn" id="ibtn-organ" onclick="toggleInfo('organ')" type="button" aria-label="More info">i</button>
-    </div>
+    <div class="opt" onclick="toggleCondition(this, 'organ')"><span id="cond-organ">Kidney or liver disease</span><div class="opt-right"><button class="info-icon-btn" id="ibtn-organ" onclick="toggleInfo('organ');event.stopPropagation();" type="button" aria-label="More info">i</button><span class="opt-chk">✔</span></div></div>
     <div class="info-tooltip" id="tip-organ"><button class="info-tooltip-close" onclick="closeInfo('organ')" type="button">&#x2715;</button><h4>Why this matters</h4><p>Includes chronic kidney disease (CKD), kidney failure, cirrhosis, hepatitis C, or other diagnosed liver conditions. Single kidney stones typically don't count.</p></div>
-    <div class="opt-info-row">
-      <div class="opt" onclick="toggleCondition(this, 'controlled_bp')"><span id="cond-bp">High blood pressure or cholesterol, controlled with medication</span><span class="opt-chk">✔</span></div>
-      <button class="info-icon-btn" id="ibtn-bp" onclick="toggleInfo('bp')" type="button" aria-label="More info">i</button>
-    </div>
+    <div class="opt" onclick="toggleCondition(this, 'controlled_bp')"><span id="cond-bp">High blood pressure or cholesterol, controlled with medication</span><div class="opt-right"><button class="info-icon-btn" id="ibtn-bp" onclick="toggleInfo('bp');event.stopPropagation();" type="button" aria-label="More info">i</button><span class="opt-chk">✔</span></div></div>
     <div class="info-tooltip" id="tip-bp"><button class="info-tooltip-close" onclick="closeInfo('bp')" type="button">&#x2715;</button><h4>Why this matters</h4><p>Controlled BP or cholesterol on medication is very common and usually still qualifies for standard or preferred rates. Select this only if you're currently taking medication for it.</p></div>
     <div class="opt" onclick="toggleCondition(this, 'none')"><span id="cond-none">None of these</span><span class="opt-chk">✔</span></div>
   </div>
@@ -1365,7 +1384,8 @@ details[open] .why-we-ask-chevron { transform:rotate(180deg); }
   <button class="back-btn" onclick="goScreen('s9')">Back</button>
   
   <div style="text-align: center; margin-bottom: 32px;">
-    <div style="font-size: 18px; color: var(--gt); margin-bottom: 12px;" id="rate-headline">Your estimated monthly cost</div>
+    <div style="font-size: 18px; color: var(--gt); margin-bottom: 8px; display:flex; align-items:center; justify-content:center; gap:8px;" id="rate-headline"><span id="rate-headline-text">Estimated monthly rate — 20-year term</span><button class="info-icon-btn" id="ibtn-rate-term" onclick="toggleInfo('rate-term');event.stopPropagation();" type="button" aria-label="More info" style="flex-shrink:0;">i</button></div>
+    <div class="info-tooltip" id="tip-rate-term" style="text-align:left;margin:-4px 0 12px;"><button class="info-tooltip-close" onclick="closeInfo('rate-term')" type="button">&#x2715;</button><h4 id="tip-rate-term-h">Why 20 years</h4><p id="tip-rate-term-p">Twenty years covers the stretch most families need it most — while children are still at home and a mortgage is still outstanding. Other term lengths are available; your advisor can price 10, 15, or 30 years for you.</p></div>
     <div style="font-size: 48px; font-weight: 700; color: var(--purple); margin-bottom: 4px;" id="rate-range">$0 - $0</div>
     <div style="font-size: 16px; color: var(--gt); margin-bottom: 20px;" id="rate-coverage">for $X,XXX,XXX in 20-year term coverage</div>
     <div style="font-size: 13px; color: #aaa; line-height: 1.7; margin-bottom: 20px;" id="rate-disc">Estimated monthly premiums for illustrative purposes only. Actual rates vary by carrier, health history, and coverage amount. No rate is guaranteed until a policy is issued. Contact a licensed agent for your exact quote.</div>
@@ -1375,6 +1395,36 @@ details[open] .why-we-ask-chevron { transform:rotate(180deg); }
 
   <div class="restart" style="margin-top: 24px;">
     <a onclick="restart()" id="rate-restart">Start over</a>
+  </div>
+
+  <!-- Full-weight callback — after rate estimate -->
+  <div id="calc-hero-qcb" style="background:#fff;border-radius:12px;padding:20px 18px 22px;margin-top:28px;text-align:left;">
+    <h3 style="font-size:15px;font-weight:700;color:#1a1024;margin:0 0 4px;">Prefer to talk it through?</h3>
+    <p style="font-size:13px;color:#66607c;line-height:1.45;margin:0 0 14px;">Call us or message on WhatsApp — no calculator needed.</p>
+    <div id="calc-qcb-form-wrap">
+      <form id="calc-qcb-form" novalidate>
+        <input type="text" name="_hp_name" id="_calc_qcb_hp" autocomplete="off" tabindex="-1" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0;pointer-events:none;" value="">
+        <div style="display:flex;gap:8px;margin-bottom:10px;">
+          <input type="text" id="calc-qcb-name" placeholder="Your name" autocomplete="given-name" oninput="calcQcbCheck()" style="flex:1;min-width:0;font-family:inherit;font-size:13.5px;padding:11px 12px;border:1.5px solid #ddd6e8;border-radius:8px;color:#1a1024;background:#fff;outline:none;box-sizing:border-box;">
+          <input type="tel" id="calc-qcb-phone" placeholder="Phone number" autocomplete="tel" oninput="calcQcbCheck()" style="flex:1;min-width:0;font-family:inherit;font-size:13.5px;padding:11px 12px;border:1.5px solid #ddd6e8;border-radius:8px;color:#1a1024;background:#fff;outline:none;box-sizing:border-box;">
+        </div>
+        <div style="display:flex;align-items:flex-start;gap:8px;margin-bottom:14px;">
+          <input type="checkbox" id="calc-qcb-consent" onchange="calcQcbCheck()" style="margin-top:2px;accent-color:#452068;width:15px;height:15px;flex-shrink:0;cursor:pointer;">
+          <label for="calc-qcb-consent" style="font-size:11px;color:#837c98;line-height:1.45;cursor:pointer;">I agree to be contacted by a licensed agent at The Health Experts Insurance by phone or text at the number provided. <a href="/privacy" style="color:#452068;text-decoration:underline;">View full consent</a></label>
+        </div>
+        <button type="button" id="calc-qcb-btn" disabled onclick="submitCalcQcb()" style="display:block;width:100%;background:#452068;color:#fff;font-family:inherit;font-size:14.5px;font-weight:700;padding:13px 0;border:none;border-radius:30px;text-align:center;cursor:pointer;opacity:.5;transition:opacity .2s;box-sizing:border-box;">Call Me &rarr;</button>
+      </form>
+      <div id="calc-qcb-success" style="display:none;font-size:15px;color:#452068;font-weight:600;text-align:center;padding:12px 0;">Got it &mdash; someone will call you shortly.</div>
+      <div style="display:flex;align-items:center;gap:12px;margin:16px 0;">
+        <div style="flex:1;height:1px;background:#e3ddee;"></div>
+        <span style="font-size:11px;font-weight:700;text-transform:uppercase;color:#a89fb8;">or</span>
+        <div style="flex:1;height:1px;background:#e3ddee;"></div>
+      </div>
+      <a href="https://wa.me/13054646888?text=Hi%2C%20I%27m%20interested%20in%20life%20insurance%20and%20would%20like%20a%20quick%20quote." onclick="calcQcbTrackWa()" target="_blank" rel="noopener" style="display:flex;align-items:center;justify-content:center;gap:8px;background:#25D366;color:#fff;font-family:inherit;font-size:14.5px;font-weight:700;padding:13px 0;border-radius:30px;text-decoration:none;box-sizing:border-box;">
+        <svg viewBox="0 0 24 24" style="width:18px;height:18px;fill:#fff;flex-shrink:0;"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.48 1.32 5L2 22l5.25-1.38c1.45.79 3.08 1.21 4.78 1.21h.01c5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0012.04 2m0 1.67c2.2 0 4.26.86 5.82 2.42a8.225 8.225 0 012.41 5.82c0 4.54-3.7 8.24-8.24 8.24-1.48 0-2.93-.4-4.2-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.188 8.188 0 01-1.26-4.38c.01-4.54 3.71-8.24 8.26-8.24M8.53 7.33c-.16 0-.43.06-.66.31-.22.25-.87.85-.87 2.07 0 1.22.89 2.4 1.01 2.56.12.17 1.75 2.67 4.26 3.73.59.27 1.06.42 1.42.54.6.19 1.14.16 1.57.1.48-.07 1.46-.6 1.67-1.18.21-.58.21-1.07.14-1.18-.07-.1-.25-.16-.52-.29-.27-.14-1.6-.79-1.85-.88-.25-.09-.43-.14-.61.14-.18.27-.7.88-.86 1.06-.16.18-.32.2-.59.07-.27-.14-1.13-.42-2.16-1.34-.8-.71-1.34-1.6-1.5-1.87-.16-.27-.02-.42.12-.55.12-.13.27-.32.41-.48.14-.16.18-.27.27-.45.09-.18.05-.34-.02-.48-.07-.14-.61-1.5-.86-2.05-.22-.5-.45-.44-.61-.44l-.52-.01z"/></svg>
+        WhatsApp Us
+      </a>
+    </div>
   </div>
 </div>
 
@@ -1515,6 +1565,7 @@ const S = {
   age: 0,
   sex: '',
   tobacco: false,
+  tobacco_type: 'none',
   conditions: [],
   rate_class: '',
   product_fit: '',
@@ -1596,7 +1647,23 @@ const STRINGS = {
     q8q: "Have you used any tobacco or nicotine in the last 12 months?",
     q8sub: "Cigarettes, cigars, vaping, chew, patches, or gum.",
     tobNo: "No",
+    tobCig: "Yes — cigarettes",
+    tobCigar: "Yes — cigars or pipe",
+    tobVape: "Yes — vape / e-cigarette",
+    tobChew: "Yes — chewing tobacco",
     tobYes: "Yes",
+    tipDebtH: "What counts as debt",
+    tipDebtP: "Count anything your family would still owe: mortgage, home equity line, car loans, credit cards, student loans, and any loan you co-signed. Don’t count monthly bills like rent, utilities, or insurance premiums. A rough total is fine — we’re sizing your coverage, not auditing you.",
+    tipTobNoH: "Answer No only if",
+    tipTobNoP: "No means no tobacco or nicotine in the last 12 months — including vapes, nicotine gum, and patches. Carriers verify this during underwriting, so an accurate answer here avoids a surprise when the real offer comes back.",
+    tipTobCigH: "What this means",
+    tipTobCigP: "Any cigarette use in the last 12 months counts, including occasional or social smoking. Every carrier rates cigarettes as tobacco, so this is the one there’s no variation on.",
+    tipTobCigarH: "This one varies by carrier",
+    tipTobCigarP: "Occasional cigar or pipe use is treated differently across carriers — some will still consider non-tobacco rates for a handful of cigars a year. Answer honestly and your advisor will check which carriers apply that.",
+    tipTobVapeH: "Vaping usually counts",
+    tipTobVapeP: "Most carriers rate vaping the same as cigarettes, even when the liquid has no nicotine in it. A few treat it more favorably — worth asking your advisor rather than assuming either way.",
+    tipTobChewH: "What this includes",
+    tipTobChewP: "Chewing tobacco, snuff, and dip all count here. Some carriers rate smokeless tobacco more favorably than cigarettes, so this is worth flagging to your advisor.",
     q9q: "In the last 5 years, have you been treated for any of these?",
     q9sub: "Check all that apply. Being honest gets you an accurate number.",
     cardiac: "Heart disease, heart attack, or stroke",
@@ -1609,6 +1676,13 @@ const STRINGS = {
     gateQ: "Get Your Exact Quote",
     gateSub: "A licensed agent will confirm your exact rate with 14+ carriers — free, no obligation.",
     rateExactCta: "Get My Exact Quote →",
+    callbackQuietLine: 'Prefer to talk? Call <a href="tel:+18003806821">1-800-380-6821</a> or <a href="https://wa.me/18003806821">message us on WhatsApp</a>.',
+    callbackQuietSummary: "Have us call you instead",
+    callbackQuietNamePh: "Your name",
+    callbackQuietPhonePh: "Phone number",
+    callbackQuietConsentLbl: 'I agree to be contacted by a licensed agent at The Health Experts Insurance by phone or text at the number provided. <a href="/privacy">View full consent</a>',
+    callbackQuietBtn: "Call Me →",
+    callbackQuietOk: "Got it — someone will call you shortly.",
     gateFname: "First Name",
     gateLname: "Last Name",
     gateEmail: "Email Address",
@@ -1618,7 +1692,10 @@ const STRINGS = {
     langEs: "Español",
     consentText: "I agree to be contacted by a licensed agent at The Health Experts Insurance.",
     gateBtn: "Get My Exact Quote",
-    rateHeadline: "Your estimated monthly cost",
+    rateHeadline: "Estimated monthly rate — 20-year term",
+    rateHeadlineFex: "Final Expense Insurance",
+    tipRateTermH: "Why 20 years",
+    tipRateTermP: "Twenty years covers the stretch most families need it most — while children are still at home and a mortgage is still outstanding. Other term lengths are available; your advisor can price 10, 15, or 30 years for you.",
     rateDisc: "Estimated monthly premiums for illustrative purposes only. Actual rates vary by carrier, health history, and coverage amount. No rate is guaranteed until a policy is issued. Contact a licensed agent for your exact quote.",
     progOf: "Step",
     progOfOf: "of",
@@ -1636,7 +1713,12 @@ const STRINGS = {
     introCheck2: "Plain-language questions, no insurance-speak",
     introCheck3: "See your estimate first \u2014 no pressure, no obligation",
     introBtnLbl: "Start My Free Estimate \u2192",
-    rateExactCta: "Get My Exact Quote \u2192"
+    rateExactCta: "Get My Exact Quote \u2192",
+    interstitialCaption: "Your coverage need",
+    interstitialQ: "A few more questions to give you the rate estimate.",
+    interstitialSub: "Just your date of birth, sex, and tobacco use \u2014 that\u2019s what carriers use to price a policy. No health exam, no phone call required.",
+    interstitialEdit: "Edit my answers",
+    interstitialBtn: "Continue \u2192"
   },
   es: {
     heroTitle: "Calculadora de Seguro de Vida",
@@ -1699,7 +1781,23 @@ const STRINGS = {
     q8q: "¿Ha usado tabaco o nicotina en los últimos 12 meses?",
     q8sub: "Cigarrillos, puros, vapeo, masticable, parches o chicle.",
     tobNo: "No",
+    tobCig: "Sí — cigarrillos",
+    tobCigar: "Sí — cigarro o pipa",
+    tobVape: "Sí — vape / cigarrillo electrónico",
+    tobChew: "Sí — tabaco de mascar",
     tobYes: "Sí",
+    tipDebtH: "Qué cuenta como deuda",
+    tipDebtP: "Cuente todo lo que su familia todavía tendría que pagar: hipoteca, línea de crédito sobre su casa, préstamos de auto, tarjetas de crédito, préstamos estudiantiles y cualquier préstamo que haya cofirmado. No cuente gastos mensuales como renta, servicios o primas de seguro. Un total aproximado está bien — estamos calculando su cobertura, no auditando sus cuentas.",
+    tipTobNoH: "Responda No solo si",
+    tipTobNoP: "No significa nada de tabaco ni nicotina en los últimos 12 meses — incluyendo vapes, chicles de nicotina y parches. Las aseguradoras lo verifican durante la evaluación, así que una respuesta exacta evita sorpresas cuando llegue la oferta real.",
+    tipTobCigH: "Qué significa esto",
+    tipTobCigP: "Cualquier uso de cigarrillos en los últimos 12 meses cuenta, incluso si fuma ocasionalmente o solo en reuniones. Todas las aseguradoras clasifican el cigarrillo como tabaco, así que en esto no hay variación.",
+    tipTobCigarH: "Esto varía según la aseguradora",
+    tipTobCigarP: "El uso ocasional de cigarro o pipa se trata de forma distinta según la aseguradora — algunas todavía consideran tarifas de no fumador si son unos pocos cigarros al año. Responda con honestidad y su asesor verificará cuáles aseguradoras lo aplican.",
+    tipTobVapeH: "El vape generalmente cuenta",
+    tipTobVapeP: "La mayoría de las aseguradoras clasifica el vape igual que el cigarrillo, incluso si el líquido no contiene nicotina. Algunas lo tratan de forma más favorable — vale la pena preguntarle a su asesor en lugar de suponer.",
+    tipTobChewH: "Qué incluye",
+    tipTobChewP: "El tabaco de mascar, el rapé y el dip cuentan aquí. Algunas aseguradoras clasifican el tabaco sin humo de forma más favorable que el cigarrillo, así que vale la pena mencionarlo a su asesor.",
     q9q: "En los últimos 5 años, ¿ha sido tratado por alguno de estos?",
     q9sub: "Marque todo lo que aplique. Ser honesto le da un número más preciso.",
     cardiac: "Enfermedad del corazón, infarto o accidente cerebrovascular",
@@ -1734,11 +1832,26 @@ const STRINGS = {
     langEs: "Español",
     consentText: "Acepto ser contactado por un agente licenciado de The Health Experts Insurance.",
     gateBtn: "Obtener Mi Cotización Exacta",
-    rateHeadline: "Su costo mensual estimado",
+    rateHeadline: "Tarifa mensual estimada — término de 20 años",
+    rateHeadlineFex: "Seguro de Gastos Finales",
+    tipRateTermH: "Por qué 20 años",
+    tipRateTermP: "Veinte años cubren la etapa en que la mayoría de las familias más lo necesita — mientras los hijos siguen en casa y la hipoteca sigue pendiente. Hay otras duraciones disponibles; su asesor puede cotizarle 10, 15 o 30 años.",
     rateDisc: "Primas mensuales estimadas solo para propósitos ilustrativos. Las tarifas reales varían según asegurador, historial de salud y cantidad de cobertura. Ninguna tarifa se garantiza hasta que se emita una póliza. Contacte un agente licenciado para su cotización exacta.",
     progOf: "Paso",
     progOfOf: "de",
-    progStart: "Comenzando"
+    progStart: "Comenzando",
+    callbackQuietLine: '¿Prefiere hablar? Llame al <a href="tel:+18003806821">1-800-380-6821</a> o <a href="https://wa.me/18003806821">escríbanos por WhatsApp</a>.',
+    callbackQuietSummary: "Prefiero que me llamen",
+    callbackQuietNamePh: "Su nombre",
+    callbackQuietPhonePh: "Número de teléfono",
+    callbackQuietConsentLbl: 'Acepto ser contactado por un agente licenciado de The Health Experts Insurance por teléfono o mensaje de texto al número proporcionado. <a href="/privacy">Ver consentimiento completo</a>',
+    callbackQuietBtn: "Llámenme →",
+    callbackQuietOk: "Recibido — alguien le llamará en breve.",
+    interstitialCaption: "Su necesidad de cobertura",
+    interstitialQ: "Unas preguntas m\u00e1s para darle el estimado de la tarifa.",
+    interstitialSub: "Solo su fecha de nacimiento, sexo y uso de tabaco \u2014 eso es lo que las aseguradoras usan para calcular el precio. Sin examen m\u00e9dico y sin llamadas.",
+    interstitialEdit: "Editar mis respuestas",
+    interstitialBtn: "Continuar \u2192"
   }
 };
 
@@ -1819,7 +1932,25 @@ function updateUI() {
   document.getElementById('s8-q').textContent = str('q8q');
   document.getElementById('s8-sub').textContent = str('q8sub');
   document.getElementById('tob-no').textContent = str('tobNo');
-  document.getElementById('tob-yes').textContent = str('tobYes');
+  var _e;
+  _e = document.getElementById('tob-cig');    if(_e) _e.textContent = str('tobCig');
+  _e = document.getElementById('tob-cigar');  if(_e) _e.textContent = str('tobCigar');
+  _e = document.getElementById('tob-vape');   if(_e) _e.textContent = str('tobVape');
+  _e = document.getElementById('tob-chew');   if(_e) _e.textContent = str('tobChew');
+  // s4 debt tooltip
+  _e = document.getElementById('tip-debt-h'); if(_e) _e.textContent = str('tipDebtH');
+  _e = document.getElementById('tip-debt-p'); if(_e) _e.textContent = str('tipDebtP');
+  // s8 tobacco tooltips
+  _e = document.getElementById('tip-tob-no-h');    if(_e) _e.textContent = str('tipTobNoH');
+  _e = document.getElementById('tip-tob-no-p');    if(_e) _e.textContent = str('tipTobNoP');
+  _e = document.getElementById('tip-tob-cig-h');   if(_e) _e.textContent = str('tipTobCigH');
+  _e = document.getElementById('tip-tob-cig-p');   if(_e) _e.textContent = str('tipTobCigP');
+  _e = document.getElementById('tip-tob-cigar-h'); if(_e) _e.textContent = str('tipTobCigarH');
+  _e = document.getElementById('tip-tob-cigar-p'); if(_e) _e.textContent = str('tipTobCigarP');
+  _e = document.getElementById('tip-tob-vape-h');  if(_e) _e.textContent = str('tipTobVapeH');
+  _e = document.getElementById('tip-tob-vape-p');  if(_e) _e.textContent = str('tipTobVapeP');
+  _e = document.getElementById('tip-tob-chew-h');  if(_e) _e.textContent = str('tipTobChewH');
+  _e = document.getElementById('tip-tob-chew-p');  if(_e) _e.textContent = str('tipTobChewP');
   document.getElementById('s9-q').textContent = str('q9q');
   document.getElementById('s9-sub').textContent = str('q9sub');
   document.getElementById('cond-cardiac').textContent = str('cardiac');
@@ -1840,7 +1971,25 @@ function updateUI() {
   document.getElementById('lang-es').textContent = str('langEs');
   document.getElementById('consent-text').textContent = str('consentText');
   document.getElementById('gate-btn-lbl').textContent = str('gateBtn');
-  document.getElementById('rate-headline').textContent = str('rateHeadline');
+  var rhl = document.getElementById('rate-headline-text');
+  // Quiet callback i18n
+  var _qcl = document.getElementById('qcb-quiet-line');
+  if (_qcl) _qcl.innerHTML = str('callbackQuietLine');
+  var _qcs = document.getElementById('qcb-quiet-summary');
+  if (_qcs) _qcs.textContent = str('callbackQuietSummary');
+  var _qcnn = document.getElementById('qcb-quiet-name');
+  if (_qcnn) _qcnn.placeholder = str('callbackQuietNamePh');
+  var _qcpp = document.getElementById('qcb-quiet-phone');
+  if (_qcpp) _qcpp.placeholder = str('callbackQuietPhonePh');
+  var _qccl = document.getElementById('qcb-quiet-consent-lbl');
+  if (_qccl) _qccl.innerHTML = str('callbackQuietConsentLbl');
+  var _qcbl = document.getElementById('qcb-quiet-btn-lbl');
+  if (_qcbl) _qcbl.textContent = str('callbackQuietBtn');
+  var _qcok = document.getElementById('qcb-quiet-ok');
+  if (_qcok && _qcok.style.display !== 'none') _qcok.textContent = str('callbackQuietOk');
+  if (rhl) rhl.textContent = str('rateHeadline');
+  var rtih = document.getElementById('tip-rate-term-h'); if(rtih) rtih.textContent = str('tipRateTermH');
+  var rtip = document.getElementById('tip-rate-term-p'); if(rtip) rtip.textContent = str('tipRateTermP');
   document.getElementById('rate-disc').textContent = str('rateDisc');
   var rateExact = document.getElementById('rate-exact-cta');
   if (rateExact) rateExact.textContent = str('rateExactCta') || 'Get My Exact Quote →';
@@ -2321,12 +2470,24 @@ function selectSex(el, val) {
   saveState();
 }
 
-function selectTobacco(el, val) {
+function selectTobacco(el, val, type) {
   document.querySelectorAll('#s8-opts .opt').forEach(o => o.classList.remove('sel'));
   el.classList.add('sel');
   S.tobacco = val;
+  S.tobacco_type = type || (val ? 'yes' : 'none');
   document.getElementById('s8-btn').className = 'cont-btn on';
   saveState();
+}
+function toggleDebtInfo(el) {
+  var tip = document.getElementById('tip-debt');
+  var wasOpen = tip.classList.contains('visible');
+  document.querySelectorAll('.info-tooltip').forEach(function(t){t.classList.remove('visible');});
+  document.querySelectorAll('.info-icon-btn').forEach(function(b){b.classList.remove('open');});
+  if (!wasOpen) { tip.classList.add('visible'); el.classList.add('open'); }
+}
+function closeDebtInfo() {
+  var tip = document.getElementById('tip-debt'); if (tip) tip.classList.remove('visible');
+  document.querySelectorAll('#s4-debt-opts .info-icon-btn').forEach(function(b){b.classList.remove('open');});
 }
 
 function toggleCondition(el, key) {
@@ -2507,7 +2668,9 @@ function showRate() {
   const healthLabel = classLabel[S.rate_class] || 'Standard health';
 
   if (S.product_fit === 'final_expense') {
-    document.getElementById('rate-headline').textContent = 'Final Expense Insurance';
+    var rhlEl = document.getElementById('rate-headline-text');
+    if (rhlEl) rhlEl.textContent = str('rateHeadlineFex') || 'Final Expense Insurance';
+    var termBtn = document.getElementById('ibtn-rate-term'); if (termBtn) termBtn.style.display = 'none';
     document.getElementById('rate-range').textContent = 'Ask about availability';
     document.getElementById('rate-coverage').textContent = 'Coverage from $5,000 to $50,000';
     // Pre-filled WhatsApp message for FEX
@@ -2517,7 +2680,9 @@ function showRate() {
     const fexEl2 = document.getElementById('fex-wa');
     if (fexEl2) fexEl2.href = 'https://wa.me/13054646888?text=' + encodeURIComponent(fexMsg);
   } else {
-    document.getElementById('rate-headline').textContent = str('rateHeadline');
+    var rhlEl2 = document.getElementById('rate-headline-text');
+    if (rhlEl2) rhlEl2.textContent = str('rateHeadline');
+    var termBtn2 = document.getElementById('ibtn-rate-term'); if (termBtn2) termBtn2.style.display = '';
     document.getElementById('rate-range').textContent = `$${S.quoted_low} – $${S.quoted_high} / month`;
     document.getElementById('rate-coverage').textContent = `for ${fmt(S.recommended)} in 20-year term coverage`;
     // Pre-filled WhatsApp message — agent opens chat already knowing the lead
@@ -2592,6 +2757,7 @@ async function submitToGHL(completion) {
       life__dependents: S.dependents.join(','),
       lifesex: S.sex === 'F' ? 'female' : 'male',
       lifetobacco: S.tobacco,
+      life_tobacco_type: S.tobacco_type || 'none',
       lifeconditions: S.conditions.join(',') || 'none',
       coverage_estimate: S.recommended,
       quoted_low_mo: S.quoted_low,
@@ -2629,53 +2795,23 @@ async function submitToGHL(completion) {
 // === CUSTOM EXACT-ENTRY HANDLERS ===
 // (toggleCustomDebtTotal / updateCustomDebtTotal defined above with selectDebtTotal)
 
-// === REVIEW SCREEN ===
+// === INTERSTITIAL SCREEN ===
 function renderReview() {
-  // Bracket label maps — display what the user saw, not computed midpoints
-  var INCOME_LBL = {30000:'Under $40,000', 57500:'$40,000\u2013$75,000', 100000:'$75,000\u2013$125,000', 162500:'$125,000\u2013$200,000', 250000:'$200,000+'};
-  var DEBT_TOTAL_LBL = {0:'$0 / No debt', 25000:'Under $50K', 100000:'$50K\u2013$150K', 225000:'$150K\u2013$300K', 450000:'$300K\u2013$600K', 750000:'Over $600K'};
-  var AGE_LBL    = {3:'Under 5', 8:'5\u201310', 14:'11\u201316', 19:'17\u201321'};
-
-  var depLabels = {spouse:'Spouse or partner',children:'Children (under 21)',parents:'Aging parents/relatives',business:'Business or partner',none:'No dependents'};
-  var deps = S.dependents.length ? S.dependents.map(function(d){return depLabels[d]||d;}).join(', ') : 'None';
-
-  var income = INCOME_LBL[S.income] || (S.income ? fmt(S.income) + '/yr' : '\u2014');
-  var zip = S.zip || '\u2014';
-  var debtTotal = DEBT_TOTAL_LBL.hasOwnProperty(S.mortgage_balance) ? DEBT_TOTAL_LBL[S.mortgage_balance] : (S.mortgage_set ? fmt(S.mortgage_balance) : '\u2014');
-  var cov;
-  if (S.existing_unknown) { cov = 'Not sure'; }
-  else if (!S.coverage_set) { cov = '\u2014'; }
-  else if (S.existing_coverage === 0) { cov = 'None'; }
-  else if (S.existing_coverage === S.income) { cov = '~1\u00d7 my salary'; }
-  else if (S.existing_coverage === S.income * 2) { cov = '~2\u00d7 my salary'; }
-  else if (S.existing_coverage === 250000) { cov = '$250K or more'; }
-  else { cov = fmt(S.existing_coverage); }
-  var childAge = AGE_LBL[S.youngest_child_age] || String(S.youngest_child_age);
-  var rec = S.recommended ? fmt(S.recommended) : '\u2014';
-
-  // [label, value, editScreen or null]
-  var rows = [
-    ['Household income', income, 's1'],
-    ['ZIP code', zip, 'sZip'],
-    ['Dependents', deps, 's2']
-  ];
-  if (S.has_children) rows.push(['Youngest child age', childAge, 's3']);
-  rows = rows.concat([
-    ['Total debt', debtTotal, 's4'],
-    ['Existing coverage', cov, 's5'],
-    ['Coverage estimate', '<strong style="color:var(--purple)">' + rec + '</strong>', null]
-  ]);
-
-  var EDIT_STYLE = 'font-size:12px;color:var(--purple);font-weight:700;cursor:pointer;margin-left:10px;text-decoration:none;';
-  var h = '<table style="width:100%;border-collapse:collapse;">';
-  rows.forEach(function(r) {
-    var label = r[0], value = r[1], screen = r[2];
-    var editLink = screen ? ' <a onclick="editScreen(\'' + screen + '\')" style="' + EDIT_STYLE + '">Edit</a>' : '';
-    h += '<tr><td style="padding:9px 0;border-bottom:1px solid #f0e8fa;color:var(--gt);font-size:14px;">' + label + '</td>';
-    h += '<td style="padding:9px 0;border-bottom:1px solid #f0e8fa;font-weight:600;text-align:right;font-size:14px;">' + value + editLink + '</td></tr>';
-  });
-  h += '</table>';
-  document.getElementById('review-list').innerHTML = h;
+  // Bind live coverage estimate and localize text
+  var amtEl = document.getElementById('interstitial-amount');
+  if (amtEl) amtEl.textContent = S.recommended ? fmt(S.recommended) : '\u2014';
+  var capEl = document.getElementById('interstitial-caption');
+  if (capEl) capEl.textContent = str('interstitialCaption');
+  var qEl = document.getElementById('review-q');
+  if (qEl) qEl.textContent = str('interstitialQ');
+  var subEl = document.getElementById('review-sub');
+  if (subEl) subEl.textContent = str('interstitialSub');
+  var editEl = document.getElementById('interstitial-edit');
+  if (editEl) editEl.textContent = str('interstitialEdit');
+  var btnEl = document.getElementById('review-btn-lbl');
+  if (btnEl) btnEl.textContent = str('interstitialBtn');
+  var backEl = document.getElementById('interstitial-back');
+  if (backEl) backEl.textContent = S.language === 'es' ? '\u2190 Atr\u00e1s' : 'Back';
 }
 
 // === EMAIL MINI-GATE (before rate) ===
@@ -2801,6 +2937,7 @@ function restart() {
   S.age = 0;
   S.sex = '';
   S.tobacco = false;
+  S.tobacco_type = 'none';
   S.conditions = [];
   S.rate_class = '';
   S.fname = '';
@@ -2904,6 +3041,27 @@ window.addEventListener('DOMContentLoaded', () => {
 });
 </script>
 <script>
+// Quiet callback — demoted version below intro CTA
+function calcQcbQuietCheck() {
+  var n = (document.getElementById('qcb-quiet-name')||{}).value||'';
+  var p = (document.getElementById('qcb-quiet-phone')||{}).value||'';
+  var c = document.getElementById('qcb-quiet-consent')&&document.getElementById('qcb-quiet-consent').checked;
+  var btn = document.getElementById('qcb-quiet-btn');
+  if (btn) { btn.disabled = !(n.trim()&&p.trim()&&c); btn.style.opacity = (n.trim()&&p.trim()&&c) ? '1' : '0.5'; }
+}
+function submitCalcQcbQuiet() {
+  var n = (document.getElementById('qcb-quiet-name')||{}).value||'';
+  var p = (document.getElementById('qcb-quiet-phone')||{}).value||'';
+  var c = document.getElementById('qcb-quiet-consent')&&document.getElementById('qcb-quiet-consent').checked;
+  if (!n.trim()||!p.trim()||!c) return;
+  fetch(CALC_QCB_WEBHOOK,{method:'POST',headers:{'Content-Type':'application/json'},
+    body:JSON.stringify({firstName:n,phone:p,tags:['quick-callback','life-insurance','source:intro-quiet'],source:'calc-intro-quiet',
+      customFields:{callback_requested_at:new Date().toISOString()}})});
+  if (typeof gtag==='function') gtag('event','quick_callback_submit',{page:window.location.pathname,source:'calc-intro-quiet'});
+  var wrap = document.getElementById('callback-quiet-wrap');
+  if (wrap) wrap.innerHTML = '<p style="font-size:14px;color:#452068;font-weight:600;text-align:center;padding:12px 0;">' + str('callbackQuietOk') + '</p>';
+}
+
 // Quick-callback strip — calc hero (item 3 batch 2)
 var CALC_QCB_WEBHOOK = 'https://services.leadconnectorhq.com/hooks/RINM4TCnM4hN06UA1aK0/webhook-trigger/dc6c8b35-9480-412e-b56d-4a4c8c7bd438';
 function calcQcbCheck() {
