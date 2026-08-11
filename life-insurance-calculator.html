@@ -2989,7 +2989,7 @@ function restart() {
   document.getElementById('dob-month').value = '';
   document.getElementById('dob-day').value = '';
   document.getElementById('dob-year').value = '';
-  document.getElementById('consent-chk').checked = false;
+  var _cc = document.getElementById('consent-chk'); if (_cc) _cc.checked = false;
   
   goScreen('sIntro');
   saveState();
