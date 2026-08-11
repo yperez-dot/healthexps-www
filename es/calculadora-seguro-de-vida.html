@@ -1134,9 +1134,9 @@ details[open] .why-we-ask-chevron { transform:rotate(180deg); }
   <button class="back-btn" onclick="goScreen('s5')">← Volver</button>
   
   <div style="text-align: center; margin-bottom: 32px;">
-    <div style="font-size: 20px; font-weight: 700; color: var(--purple); margin-bottom: 16px;" id="fex-title">Final Expense Insurance</div>
-    <div style="font-size: 16px; line-height: 1.6; color: var(--black); margin-bottom: 20px;" id="fex-msg">Based on what you shared, a guaranteed-acceptance final expense policy may be your best fit.</div>
-    <div style="font-size: 14px; color: var(--gt); line-height: 1.6;">No medical exam. No health questions. Coverage from $5,000 to $50,000, fixed premiums that never increase.</div>
+    <div style="font-size: 20px; font-weight: 700; color: var(--purple); margin-bottom: 16px;" id="fex-title">Seguro de Gastos Finales</div>
+    <div style="font-size: 16px; line-height: 1.6; color: var(--black); margin-bottom: 20px;" id="fex-msg">Según lo que compartió, una póliza de gastos finales de aceptación garantizada puede ser su mejor opción.</div>
+    <div style="font-size: 14px; color: var(--gt); line-height: 1.6;">Sin examen médico. Sin preguntas de salud. Cobertura desde $5,000 hasta $50,000, primas fijas que nunca aumentan.</div>
   </div>
 
   <a href="https://wa.me/13054646888" onclick="gtag('event','whatsapp_click',{'page':window.location.pathname})" class="btn-primary" id="fex-wa">Hablar con un agente licenciado</a>
@@ -1237,11 +1237,11 @@ details[open] .why-we-ask-chevron { transform:rotate(180deg); }
 <!-- Q8: Tobacco -->
 <div class="screen" id="s8">
   <button class="back-btn" onclick="goScreen('s7')">← Volver</button>
-  <div class="step-q" id="s8-q">Have you used any tobacco or nicotine in the last 12 months?</div>
-  <div class="step-sub" id="s8-sub">Cigarettes, cigars, vaping, chew, patches, or gum.</div>
+  <div class="step-q" id="s8-q">¿Ha usado tabaco o nicotina en los últimos 12 meses?</div>
+  <div class="step-sub" id="s8-sub">Cigarrillos, puros, vapeo, tabaco de mascar, parches o chicle.</div>
   <div class="opts" id="s8-opts">
     <div class="opt" onclick="selectTobacco(this, false)"><span id="tob-no">No</span><span class="opt-chk">✔</span></div>
-    <div class="opt" onclick="selectTobacco(this, true)"><span id="tob-yes">Yes</span><span class="opt-chk">✔</span></div>
+    <div class="opt" onclick="selectTobacco(this, true)"><span id="tob-yes">Sí</span><span class="opt-chk">✔</span></div>
   </div>
   <details class="why-we-ask">
     <summary><span class="why-we-ask-q">?</span><span id="wya-s8">Por qué preguntamos — Tabaco</span><span class="why-we-ask-chevron">&#9660;</span></summary>
@@ -1253,8 +1253,8 @@ details[open] .why-we-ask-chevron { transform:rotate(180deg); }
 <!-- Q9: Health -->
 <div class="screen" id="s9">
   <button class="back-btn" onclick="goScreen('s8')">← Volver</button>
-  <div class="step-q" id="s9-q">In the last 5 years, have you been treated for any of these?</div>
-  <div class="step-sub" id="s9-sub">Check all that apply. Being honest gets you an accurate number.</div>
+  <div class="step-q" id="s9-q">¿En los últimos 5 años, ha sido tratado por alguno de estos?</div>
+  <div class="step-sub" id="s9-sub">Marque todo lo que aplique. Ser honesto le da un número preciso.</div>
     <div class="opts" id="s9-opts">
     <div class="opt" onclick="toggleCondition(this, 'cardiac')"><span id="cond-cardiac">Enfermedad cardíaca, infarto, o derrame cerebral</span><div class="opt-right"><button class="info-icon-btn" id="ibtn-cardiac" onclick="toggleInfo('cardiac');event.stopPropagation();" type="button" aria-label="Más info">i</button><span class="opt-chk">✔</span></div></div>
     <div class="info-tooltip" id="tip-cardiac"><button class="info-tooltip-close" onclick="closeInfo('cardiac')" type="button">&#x2715;</button><h4>Por qué importa</h4><p>Incluye una condición cardíaca diagnosticada, un infarto pasado o un derrame — no solo factores de riesgo como historial familiar. Si no está seguro/a, seléccionélo; su agente puede aclarar durante la llamada.</p></div>
@@ -1346,7 +1346,7 @@ details[open] .why-we-ask-chevron { transform:rotate(180deg); }
   <div style="text-align: center; margin-bottom: 32px;">
     <div style="font-size: 18px; color: var(--gt); margin-bottom: 12px;" id="rate-headline">Su costo mensual estimado</div>
     <div style="font-size: 48px; font-weight: 700; color: var(--purple); margin-bottom: 4px;" id="rate-range">$0 - $0</div>
-    <div style="font-size: 16px; color: var(--gt); margin-bottom: 20px;" id="rate-coverage">for $X,XXX,XXX in 20-year term coverage</div>
+    <div style="font-size: 16px; color: var(--gt); margin-bottom: 20px;" id="rate-coverage">para $X,XXX,XXX en cobertura a término de 20 años</div>
     <div style="font-size: 13px; color: #aaa; line-height: 1.7; margin-bottom: 20px;" id="rate-disc">Estimated monthly premiums for illustrative purposes only. Actual rates vary by carrier, health history, and coverage amount. No rate is guaranteed until a policy is issued. Contact a licensed agent for your exact quote.</div>
   </div>
 
@@ -1387,7 +1387,7 @@ details[open] .why-we-ask-chevron { transform:rotate(180deg); }
         </div>
       </div>
       <div>
-        <div style="font-weight: 700; font-size: 12.5px; letter-spacing: .06em; margin-bottom: 14px; color: #452068;">COMPANY</div>
+        <div style="font-weight: 700; font-size: 12.5px; letter-spacing: .06em; margin-bottom: 14px; color: #452068;">EMPRESA</div>
         <div style="display: flex; flex-direction: column; gap: 9px; font-size: 13.5px;">
           <a href="/es/agente-de-medicare-miami" style="cursor: pointer; color: #4a4051;">Conócenos</a>
           <a href="/es/contacto" style="cursor: pointer; color: #4a4051;">Contacto</a>
@@ -1395,7 +1395,7 @@ details[open] .why-we-ask-chevron { transform:rotate(180deg); }
         </div>
       </div>
       <div>
-        <div style="font-weight: 700; font-size: 12.5px; letter-spacing: .06em; margin-bottom: 14px; color: #452068;">MORE</div>
+        <div style="font-weight: 700; font-size: 12.5px; letter-spacing: .06em; margin-bottom: 14px; color: #452068;">MÁS</div>
         <div style="display: flex; flex-direction: column; gap: 9px; font-size: 13.5px;">
           <a href="/es/planes-de-medicare-miami" style="cursor: pointer; color: #4a4051;">Planes Medicare</a>
           <a href="/es/dental-vision-miami" style="cursor: pointer; color: #4a4051;">Dental y Visión</a>
@@ -1542,7 +1542,7 @@ const STRINGS = {
     resultDisc: "Necesidad de cobertura estimada solo para fines ilustrativos. Las cotizaciones reales varían según asegurador, historial de salud y monto de cobertura. Comuníquese con un agente licenciado para su cotización exacta.",
     fexTitle: "Final Expense Insurance",
     fexMsg: "Based on what you shared, a guaranteed-acceptance final expense policy may be your best fit.",
-    fexNote: "No medical exam. No health questions. Coverage from $5,000 to $50,000, fixed premiums that never increase.",
+    fexNote: "Sin examen médico. Sin preguntas de salud. Cobertura desde $5,000 hasta $50,000, primas fijas que nunca aumentan.",
     fexWa: "Hablar con un agente licenciado",
     q6q: "When were you born?",
     q6sub: "This helps us calculate your rate.",
@@ -1734,75 +1734,72 @@ function setLang(l) {
   saveState();
 }
 
+function s(id, val) { var el = document.getElementById(id); if (el) el.textContent = val; }
+
 function updateUI() {
-  var _ht = document.getElementById('hero-title'); if (_ht) _ht.textContent = str('heroTitle');
-  var _hs = document.getElementById('hero-sub'); if (_hs) _hs.textContent = str('heroSub');
-  document.getElementById('s1-q').textContent = str('q1q');
-  document.getElementById('s1-sub').textContent = str('q1sub');
-  document.getElementById('custom-txt').textContent = str('customTxt');
-  document.getElementById('s2-q').textContent = str('q2q');
-  document.getElementById('s2-sub').textContent = str('q2sub');
-  document.getElementById('dep-spouse').textContent = str('depSpouse');
-  document.getElementById('dep-children').textContent = str('depChildren');
-  document.getElementById('dep-parents').textContent = str('depParents');
-  document.getElementById('dep-business').textContent = str('depBusiness');
-  document.getElementById('dep-none').textContent = str('depNone');
-  document.getElementById('s3-q').textContent = str('q3q');
-  document.getElementById('s3-sub').textContent = str('q3sub');
-  document.getElementById('s4-q').textContent = str('q4q');
-  document.getElementById('s4-sub').textContent = str('q4sub');
-  document.getElementById('s5-q').textContent = str('q5q');
-  document.getElementById('s5-sub').textContent = str('q5sub');
-  document.getElementById('s5-cov-lbl').textContent = str('covLabel');
-  document.getElementById('not-sure').textContent = str('notSure');
-  document.getElementById('result-label').textContent = str('resultNum');
-  document.getElementById('college-prompt').textContent = str('collegePrompt');
-  document.getElementById('breakdown-title').textContent = str('breakdownTitle');
-  document.getElementById('result-cta').textContent = str('resultCta');
-  document.getElementById('call-cta').textContent = str('callCta');
-  document.getElementById('wa-cta').textContent = str('waCta');
-  document.getElementById('email-prompt').textContent = str('emailPrompt');
-  document.getElementById('restart-link').textContent = str('restartLink');
-  document.getElementById('result-disc').textContent = str('resultDisc');
-  document.getElementById('fex-title').textContent = str('fexTitle');
-  document.getElementById('fex-msg').textContent = str('fexMsg');
-  document.getElementById('s6-q').textContent = str('q6q');
-  document.getElementById('s6-sub').textContent = str('q6sub');
-  document.getElementById('dob-month-lbl').textContent = str('dobMonth');
-  document.getElementById('dob-day-lbl').textContent = str('dobDay');
-  document.getElementById('dob-year-lbl').textContent = str('dobYear');
-  document.getElementById('s7-q').textContent = str('q7q');
-  document.getElementById('s7-sub').textContent = str('q7sub');
-  document.getElementById('sex-f').textContent = str('sexF');
-  document.getElementById('sex-m').textContent = str('sexM');
-  document.getElementById('s8-q').textContent = str('q8q');
-  document.getElementById('s8-sub').textContent = str('q8sub');
-  document.getElementById('tob-no').textContent = str('tobNo');
-  document.getElementById('tob-yes').textContent = str('tobYes');
-  document.getElementById('s9-q').textContent = str('q9q');
-  document.getElementById('s9-sub').textContent = str('q9sub');
-  document.getElementById('cond-cardiac').textContent = str('cardiac');
-  document.getElementById('cond-cancer').textContent = str('cancer');
-  document.getElementById('cond-diabetes').textContent = str('diabetes');
-  document.getElementById('cond-respiratory').textContent = str('respiratory');
-  document.getElementById('cond-organ').textContent = str('organ');
-  document.getElementById('cond-bp').textContent = str('controlledBp');
-  document.getElementById('cond-none').textContent = str('none');
-  document.getElementById('gate-q').textContent = str('gateQ');
-  document.getElementById('gate-sub').textContent = str('gateSub');
-  document.getElementById('gate-fname-lbl').textContent = str('gateFname');
-  document.getElementById('gate-lname-lbl').textContent = str('gateLname');
-  // gate-email-lbl removed (email collected at mini-gate)
-  document.getElementById('gate-phone-lbl').textContent = str('gatePhone');
-  document.getElementById('lang-pref-lbl').textContent = str('langPref');
-  document.getElementById('lang-en').textContent = str('langEn');
-  document.getElementById('lang-es').textContent = str('langEs');
-  document.getElementById('consent-text').textContent = str('consentText');
-  document.getElementById('gate-btn-lbl').textContent = str('gateBtn');
-  document.getElementById('rate-headline').textContent = str('rateHeadline');
-  document.getElementById('rate-disc').textContent = str('rateDisc');
+  s('s1-q', str('q1q'));
+  s('s1-sub', str('q1sub'));
+  s('custom-txt', str('customTxt'));
+  s('s2-q', str('q2q'));
+  s('s2-sub', str('q2sub'));
+  s('dep-spouse', str('depSpouse'));
+  s('dep-children', str('depChildren'));
+  s('dep-parents', str('depParents'));
+  s('dep-business', str('depBusiness'));
+  s('dep-none', str('depNone'));
+  s('s3-q', str('q3q'));
+  s('s3-sub', str('q3sub'));
+  s('s4-q', str('q4q'));
+  s('s4-sub', str('q4sub'));
+  s('s5-q', str('q5q'));
+  s('s5-sub', str('q5sub'));
+  s('s5-cov-lbl', str('covLabel'));
+  s('not-sure', str('notSure'));
+  s('result-label', str('resultNum'));
+  s('breakdown-title', str('breakdownTitle'));
+  s('result-cta', str('resultCta'));
+  s('wa-cta', str('waCta'));
+  s('email-prompt', str('emailPrompt'));
+  s('restart-link', str('restartLink'));
+  s('result-disc', str('resultDisc'));
+  s('fex-title', str('fexTitle'));
+  s('fex-msg', str('fexMsg'));
+  s('s6-q', str('q6q'));
+  s('s6-sub', str('q6sub'));
+  s('dob-month-lbl', str('dobMonth'));
+  s('dob-day-lbl', str('dobDay'));
+  s('dob-year-lbl', str('dobYear'));
+  s('s7-q', str('q7q'));
+  s('s7-sub', str('q7sub'));
+  s('sex-f', str('sexF'));
+  s('sex-m', str('sexM'));
+  s('s8-q', str('q8q'));
+  s('s8-sub', str('q8sub'));
+  s('tob-no', str('tobNo'));
+  s('tob-yes', str('tobYes'));
+  s('s9-q', str('q9q'));
+  s('s9-sub', str('q9sub'));
+  s('cond-cardiac', str('cardiac'));
+  s('cond-cancer', str('cancer'));
+  s('cond-diabetes', str('diabetes'));
+  s('cond-respiratory', str('respiratory'));
+  s('cond-organ', str('organ'));
+  s('cond-bp', str('controlledBp'));
+  s('cond-none', str('none'));
+  s('gate-q', str('gateQ'));
+  s('gate-sub', str('gateSub'));
+  s('gate-fname-lbl', str('gateFname'));
+  s('gate-lname-lbl', str('gateLname'));
+  s('gate-phone-lbl', str('gatePhone'));
+  s('lang-pref-lbl', str('langPref'));
+  s('lang-en', str('langEn'));
+  s('lang-es', str('langEs'));
+  s('consent-text', str('consentText'));
+  s('gate-btn-lbl', str('gateBtn'));
+  s('rate-headline', str('rateHeadline'));
+  s('rate-disc', str('rateDisc'));
   var rateExact = document.getElementById('rate-exact-cta');
-  if (rateExact) rateExact.textContent = str('rateExactCta') || 'Get My Exact Quote →';
+  if (rateExact) rateExact.textContent = str('rateExactCta');
   var introH = document.getElementById('intro-headline'); if (introH) introH.textContent = str('introHeadline');
   var introB = document.getElementById('intro-body'); if (introB) introB.textContent = str('introBody');
   var ic1 = document.getElementById('intro-check1'); if (ic1) ic1.childNodes[ic1.childNodes.length-1].textContent = ' ' + str('introCheck1');
@@ -2202,7 +2199,7 @@ async function emailResult() {
   S.email = email;
   const btn = document.querySelector('#email-section .cont-btn');
   const inp = document.getElementById('email-input');
-  btn.textContent = 'Sending...';
+  btn.textContent = 'Enviando...';
   btn.disabled = true;
   btn.classList.remove('on');
   btn.style.opacity = '0.7';
@@ -2212,7 +2209,7 @@ async function emailResult() {
     btn.style.display = 'none';
     const confirm = document.createElement('p');
     confirm.style.cssText = 'color:#25a244;font-weight:700;font-size:14px;margin:8px 0 0;';
-    confirm.textContent = 'Sent! Check your inbox.';
+    confirm.textContent = '¡Enviado! Revise su correo.';
     document.getElementById('email-section').appendChild(confirm);
   } catch(e) {
     btn.textContent = 'Enviar';
@@ -2222,7 +2219,7 @@ async function emailResult() {
     const err = document.getElementById('email-error') || document.createElement('p');
     err.id = 'email-error';
     err.style.cssText = 'color:#d32f2f;font-size:13px;margin:6px 0 0;';
-    err.textContent = 'Could not send — please call us at 1-800-380-6821.';
+    err.textContent = 'No se pudo enviar — llámenos al 1-800-380-6821.';
     document.getElementById('email-section').appendChild(err);
   }
 }
@@ -2465,8 +2462,8 @@ function showRate() {
 
   if (S.product_fit === 'final_expense') {
     document.getElementById('rate-headline').textContent = 'Final Expense Insurance';
-    document.getElementById('rate-range').textContent = 'Ask about availability';
-    document.getElementById('rate-coverage').textContent = 'Coverage from $5,000 to $50,000';
+    document.getElementById('rate-range').textContent = 'Consulte disponibilidad';
+    document.getElementById('rate-coverage').textContent = 'Cobertura desde $5,000 hasta $50,000';
     // Pre-filled WhatsApp message for FEX
     const fexMsg = `Hi THEI! I used your life insurance calculator. I'm ${S.age} (${sexLabel}), ${healthLabel}. I'm interested in Final Expense coverage. Can you help me find the right policy?`;
     const fexEl = document.getElementById('rate-wa');
@@ -2475,10 +2472,10 @@ function showRate() {
     if (fexEl2) fexEl2.href = 'https://wa.me/13054646888?text=' + encodeURIComponent(fexMsg);
   } else {
     document.getElementById('rate-headline').textContent = str('rateHeadline');
-    document.getElementById('rate-range').textContent = `$${S.quoted_low} – $${S.quoted_high} / month`;
-    document.getElementById('rate-coverage').textContent = `for ${fmt(S.recommended)} in 20-year term coverage`;
+    document.getElementById('rate-range').textContent = `$${S.quoted_low} – $${S.quoted_high} / mes`;
+    document.getElementById('rate-coverage').textContent = `for ${fmt(S.recommended)} en cobertura a término de 20 años`;
     // Pre-filled WhatsApp message — agent opens chat already knowing the lead
-    const waMsg = `Hi THEI! I used your life insurance calculator. I'm ${S.age} (${sexLabel}), ${healthLabel}. Looking for Term Life (20-Year) — ${fmt(S.recommended)} in coverage. My estimate was $${S.quoted_low}–$${S.quoted_high}/mo. Can you help me lock in my exact rate?`;
+    const waMsg = `¡Hola THEI! Usé su calculadora de seguro de vida. Tengo ${S.age} años (${sexLabel}), ${healthLabel}. Busco seguro de vida a término (20 años) — ${fmt(S.recommended)} en cobertura. Mi estimado fue $${S.quoted_low}–$${S.quoted_high}/mes. ¿Pueden ayudarme a confirmar mi tarifa exacta?`;
     const waEl = document.getElementById('rate-wa');
     if (waEl) waEl.href = 'https://wa.me/13054646888?text=' + encodeURIComponent(waMsg);
   }
@@ -2563,7 +2560,13 @@ async function submitToGHL(completion) {
       life_calc_score: S.score,
       life_calc_language: S.language,
       life_calc_completion: completion,
-      life_calc_timestamp: S.timestamp
+      life_calc_timestamp: S.timestamp,
+      life_calc_income_fmt: typeof fmt === 'function' ? fmt(S.income) : S.income,
+      life_calc_recommended_fmt: typeof fmt === 'function' ? fmt(S.recommended) : S.recommended,
+      life_calc_gross_need_fmt: typeof fmt === 'function' ? fmt(S.gross_need) : S.gross_need,
+      life_calc_net_need_fmt: typeof fmt === 'function' ? fmt(S.net_need) : S.net_need,
+      life_calc_income_replacement_fmt: typeof fmt === 'function' ? fmt(S.income_replacement) : S.income_replacement,
+      life_calc_debt_payoff_fmt: typeof fmt === 'function' ? fmt(S.debt_payoff) : S.debt_payoff
     }
   };
 
@@ -2585,32 +2588,32 @@ async function submitToGHL(completion) {
 // === REVIEW SCREEN ===
 function renderReview() {
   // Bracket label maps — display what the user saw, not computed midpoints
-  var INCOME_LBL = {30000:'Under $40,000', 57500:'$40,000\u2013$75,000', 100000:'$75,000\u2013$125,000', 162500:'$125,000\u2013$200,000', 250000:'$200,000+'};
+  var INCOME_LBL = {30000:'Menos de $40,000', 57500:'$40,000\u2013$75,000', 100000:'$75,000\u2013$125,000', 162500:'$125,000\u2013$200,000', 250000:'$200,000+'};
   var DEBT_TOTAL_LBL = {0:'$0 / Sin deuda', 25000:'Menos de $50K', 100000:'$50K\u2013$150K', 225000:'$150K\u2013$300K', 450000:'$300K\u2013$600K', 750000:'M\u00e1s de $600K'};
   var AGE_LBL    = {3:'Menos de 5', 8:'5\u201310', 14:'11\u201316', 19:'17\u201321'};
 
   var depLabels = {spouse:'C\u00f3nyuge o pareja',children:'Hijos (menores de 21)',parents:'Padres/parientes ancianos',business:'Negocio o socio',none:'Nadie depende de m\u00ed'};
   var deps = S.dependents.length ? S.dependents.map(function(d){return depLabels[d]||d;}).join(', ') : 'Ninguno';
 
-  var income = INCOME_LBL[S.income] || (S.income ? fmt(S.income) + '/yr' : '\u2014');
+  var income = INCOME_LBL[S.income] || (S.income ? fmt(S.income) + '/año' : '\u2014');
   var zip = S.zip || '\u2014';
   var debtTotal = DEBT_TOTAL_LBL.hasOwnProperty(S.mortgage_balance) ? DEBT_TOTAL_LBL[S.mortgage_balance] : (S.mortgage_set ? fmt(S.mortgage_balance) : '\u2014');
   var cov;
-  if (S.existing_unknown) { cov = 'Not sure'; }
+  if (S.existing_unknown) { cov = 'No estoy seguro/a'; }
   else if (!S.coverage_set) { cov = '\u2014'; }
-  else if (S.existing_coverage === 0) { cov = 'None'; }
-  else if (S.existing_coverage === S.income) { cov = '~1\u00d7 my salary'; }
-  else if (S.existing_coverage === S.income * 2) { cov = '~2\u00d7 my salary'; }
-  else if (S.existing_coverage === 250000) { cov = '$250K or more'; }
+  else if (S.existing_coverage === 0) { cov = 'Ninguna'; }
+  else if (S.existing_coverage === S.income) { cov = '~1\u00d7 mi salario'; }
+  else if (S.existing_coverage === S.income * 2) { cov = '~2\u00d7 mi salario'; }
+  else if (S.existing_coverage === 250000) { cov = '$250K o m\u00e1s'; }
   else { cov = fmt(S.existing_coverage); }
   var childAge = AGE_LBL[S.youngest_child_age] || String(S.youngest_child_age);
   var rec = S.recommended ? fmt(S.recommended) : '\u2014';
 
   // [label, value, editScreen or null]
   var rows = [
-    ['Household income', income, 's1'],
-    ['ZIP code', zip, 'sZip'],
-    ['Dependents', deps, 's2']
+    ['Ingreso personal', income, 's1'],
+    ['C\u00f3digo postal', zip, 'sZip'],
+    ['Dependientes', deps, 's2']
   ];
   if (S.has_children) rows.push(['Edad hijo menor', childAge, 's3']);
   rows = rows.concat([
@@ -2623,7 +2626,7 @@ function renderReview() {
   var h = '<table style="width:100%;border-collapse:collapse;">';
   rows.forEach(function(r) {
     var label = r[0], value = r[1], screen = r[2];
-    var editLink = screen ? ' <a onclick="editScreen(\'' + screen + '\')" style="' + EDIT_STYLE + '">Edit</a>' : '';
+    var editLink = screen ? ' <a onclick="editScreen(\'' + screen + '\')" style="' + EDIT_STYLE + '">Editar</a>' : '';
     h += '<tr><td style="padding:9px 0;border-bottom:1px solid #f0e8fa;color:var(--gt);font-size:14px;">' + label + '</td>';
     h += '<td style="padding:9px 0;border-bottom:1px solid #f0e8fa;font-weight:600;text-align:right;font-size:14px;">' + value + editLink + '</td></tr>';
   });
