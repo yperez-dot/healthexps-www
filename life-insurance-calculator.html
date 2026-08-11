@@ -132,7 +132,7 @@ body {
   background: #fff;
   border-radius: var(--r);
   box-shadow: var(--sh);
-  padding: 28px 24px;
+  padding: 32px 24px;
   animation: fi .2s ease;
   min-height: 0;
 }
@@ -158,7 +158,11 @@ body {
 .step-sub {
   font-size: 14px;
   color: var(--gt);
-  margin-bottom: 22px;
+  margin-bottom: 24px;
+}
+.trust-note {
+  font-size: 12px; color: #a89fb8; text-align: center;
+  margin-top: 10px; line-height: 1.5; margin-bottom: 0;
 }
 
 /* Option cards */
@@ -170,7 +174,7 @@ body {
 }
 
 .opt {
-  padding: 14px 16px;
+  padding: 16px 20px;
   border: 2px solid #e8e0f4;
   border-radius: 10px;
   cursor: pointer;
@@ -987,6 +991,7 @@ details[open] .why-we-ask-chevron { transform:rotate(180deg); }
     <button class="cont-btn on" onclick="proceedFromIncome()" style="margin-top: 12px;">Continuar</button>
   </div>
   <button class="cont-btn off" id="s1-btn" onclick="proceedFromIncome()"><span id="s1-btn-lbl">Continue</span></button>
+  <p class="trust-note">🔒 Your information is never sold &middot; Licensed Florida agents</p>
 </div>
 
 <!-- ZIP Code screen -->
@@ -1617,6 +1622,7 @@ const STRINGS = {
     rateDisc: "Estimated monthly premiums for illustrative purposes only. Actual rates vary by carrier, health history, and coverage amount. No rate is guaranteed until a policy is issued. Contact a licensed agent for your exact quote.",
     progOf: "Step",
     progOfOf: "of",
+    progStart: "Getting started",
     introHeadline: "Life insurance shouldn't feel this confusing.",
     introHeadlines: {
       'family':        "Life insurance shouldn't feel this confusing.",
@@ -1731,7 +1737,8 @@ const STRINGS = {
     rateHeadline: "Su costo mensual estimado",
     rateDisc: "Primas mensuales estimadas solo para propósitos ilustrativos. Las tarifas reales varían según asegurador, historial de salud y cantidad de cobertura. Ninguna tarifa se garantiza hasta que se emita una póliza. Contacte un agente licenciado para su cotización exacta.",
     progOf: "Paso",
-    progOfOf: "de"
+    progOfOf: "de",
+    progStart: "Comenzando"
   }
 };
 
@@ -1919,12 +1926,16 @@ function updateProgress(screenId) {
   else if (screenId === 's8') { step = 3; total = 4; }
   else if (screenId === 's9') { step = 4; total = 4; }
   
-  if (inToolA || inToolB) {
+  if (screenId === 'sIntro') {
+    document.getElementById('prog-fill').style.width = '0%';
+    document.getElementById('prog-lbl').textContent = str('progStart');
+    document.getElementById('prog-wrap').style.display = 'block';
+  } else if (inToolA || inToolB) {
     const pct = step > 0 ? Math.round((step / total) * 100) : 0;
     document.getElementById('prog-fill').style.width = pct + '%';
     const label = step > 0 ? `${str('progOf')} ${step} ${str('progOfOf')} ${total}` : '';
     document.getElementById('prog-lbl').textContent = label;
-    document.getElementById('prog-wrap').style.display = inToolA || inToolB ? 'block' : 'none';
+    document.getElementById('prog-wrap').style.display = 'block';
   } else {
     document.getElementById('prog-wrap').style.display = 'none';
   }
