@@ -1118,7 +1118,7 @@ details[open] .why-we-ask-chevron { transform:rotate(180deg); }
     <div style="font-size: 13px; color: var(--gt); margin-bottom: 10px;" id="email-prompt">Enviarme este resultado:</div>
     <div class="email-capture">
       <input type="email" id="email-input" placeholder="Su correo" style="margin-bottom: 0;">
-      <button onclick="emailResult()" class="cont-btn on" style="width: auto; padding: 14px 16px; margin: 0;">Send</button>
+      <button onclick="emailResult()" class="cont-btn on" style="width: auto; padding: 14px 16px; margin: 0;">Enviar</button>
     </div>
   </div>
 
@@ -2125,17 +2125,17 @@ function showResult() {
 function renderResult() {
   // Explanation
   const parts = [];
-  if (S.has_children) parts.push(`replace your income for ${S.years_to_replace} years`);
-  if (S.mortgage_balance > 0) parts.push(`pay off your mortgage`);
-  parts.push(`handle final expenses`);
-  const explanation = `That's enough to ${parts.join(', ')}${S.offsets > 0 ? '  -  minus what you already have' : '.'} `;
+  if (S.has_children) parts.push(`reemplazar su ingreso por ${S.years_to_replace} años`);
+  if (S.mortgage_balance > 0) parts.push(`pagar su hipoteca`);
+  parts.push(`cubrir los gastos finales`);
+  const explanation = `Es suficiente para ${parts.join(', ')}${S.offsets > 0 ? ' — menos lo que ya tiene.' : '.'} `;
   document.getElementById('result-explanation').textContent = explanation;
 
   // Breakdown table
-  document.getElementById('breakdown-income-label').textContent = `Replace your income for ${S.years_to_replace} years`;
+  document.getElementById('breakdown-income-label').textContent = `Reemplazar su ingreso por ${S.years_to_replace} años`;
   document.getElementById('breakdown-income-val').textContent = fmt(S.income_replacement);
   
-  document.getElementById('breakdown-debt-label').textContent = `Pay off mortgage and debts`;
+  document.getElementById('breakdown-debt-label').textContent = `Pagar hipoteca y deudas`;
   document.getElementById('breakdown-debt-val').textContent = fmt(S.debt_payoff);
 
   document.getElementById('breakdown-subtotal-val').textContent = fmt(S.gross_need);
@@ -2143,13 +2143,13 @@ function renderResult() {
   // Always show existing-coverage row — transparency principle (show every input even at $0)
   const covRow = document.getElementById('breakdown-coverage-row');
   covRow.style.display = '';
-  document.getElementById('breakdown-coverage-label').textContent = 'Less: coverage you already have';
+  document.getElementById('breakdown-coverage-label').textContent = 'Menos: cobertura que ya tiene';
   document.getElementById('breakdown-coverage-val').textContent = S.existing_coverage > 0 ? '−' + fmt(S.existing_coverage) : '$0';
 
   const savRow = document.getElementById('breakdown-savings-row');
   if (S.liquid_savings > 0) {
     savRow.style.display = '';
-    document.getElementById('breakdown-savings-label').textContent = `Less: half of your savings`;
+    document.getElementById('breakdown-savings-label').textContent = `Menos: la mitad de sus ahorros`;
     document.getElementById('breakdown-savings-val').textContent = '−' + fmt(S.liquid_savings * 0.5);
   } else {
     savRow.style.display = 'none';
@@ -2215,7 +2215,7 @@ async function emailResult() {
     confirm.textContent = 'Sent! Check your inbox.';
     document.getElementById('email-section').appendChild(confirm);
   } catch(e) {
-    btn.textContent = 'Send';
+    btn.textContent = 'Enviar';
     btn.disabled = false;
     btn.classList.add('on');
     btn.style.opacity = '';
