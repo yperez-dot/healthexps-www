@@ -933,7 +933,7 @@ details[open] .why-we-ask-chevron { transform:rotate(180deg); }
         <div class="step-num">2</div>
         <div class="step-text">
           <div class="step-title">Sus datos básicos</div>
-          <div class="step-note">Fecha de nacimiento, sexo, uso de tabaco</div>
+          <div class="step-note">Fecha de nacimiento, género, uso de tabaco</div>
         </div>
       </div>
       <div class="step">
@@ -1225,15 +1225,15 @@ details[open] .why-we-ask-chevron { transform:rotate(180deg); }
 <!-- Q7: Sex -->
 <div class="screen" id="s7">
   <button class="back-btn" onclick="goScreen('s6')">← Volver</button>
-  <div class="step-q" id="s7-q">Sex as listed on your insurance application</div>
-  <div class="step-sub" id="s7-sub">Carriers use this to set rates. It's required on every application.</div>
+  <div class="step-q" id="s7-q">Género según su solicitud de seguro</div>
+  <div class="step-sub" id="s7-sub">Las aseguradoras lo usan para establecer tarifas. Es obligatorio en cada solicitud.</div>
   <div class="opts" id="s7-opts">
     <div class="opt" onclick="selectSex(this, 'F')"><span id="sex-f">Femenino</span><span class="opt-chk">✔</span></div>
     <div class="opt" onclick="selectSex(this, 'M')"><span id="sex-m">Masculino</span><span class="opt-chk">✔</span></div>
   </div>
   <details class="why-we-ask">
-    <summary><span class="why-we-ask-q">?</span><span id="wya-s7">Por qué preguntamos — Sexo</span><span class="why-we-ask-chevron">&#9660;</span></summary>
-    <p id="wya-s7-body">El sexo biológico al nacer es un factor estándar de suscripción que afecta su estimación de tarifa. Su agente licenciado puede explicar cómo aplica a su situación específica.</p>
+    <summary><span class="why-we-ask-q">?</span><span id="wya-s7">Por qué preguntamos — Género</span><span class="why-we-ask-chevron">&#9660;</span></summary>
+    <p id="wya-s7-body">El género en su solicitud es un factor estándar de suscripción que afecta su estimación de tarifa. Su agente licenciado puede explicar cómo aplica a su situación específica.</p>
   </details>
   <button class="cont-btn off" id="s7-btn" onclick="goScreen('s8')"><span id="s7-btn-lbl">Continuar</span></button>
 </div>
@@ -1553,8 +1553,8 @@ const STRINGS = {
     dobMonth: "Month",
     dobDay: "Day",
     dobYear: "Year",
-    q7q: "Sex as listed on your insurance application",
-    q7sub: "Carriers use this to set rates. It's required on every application.",
+    q7q: "Género según su solicitud de seguro",
+    q7sub: "Las aseguradoras lo usan para establecer tarifas. Es obligatorio en cada solicitud.",
     sexF: "Femenino",
     sexM: "Masculino",
     q8q: "Have you used any tobacco or nicotine in the last 12 months?",
@@ -1655,7 +1655,7 @@ const STRINGS = {
     dobMonth: "Mes",
     dobDay: "Día",
     dobYear: "Año",
-    q7q: "Sexo según su solicitud de seguro",
+    q7q: "Género según su solicitud de seguro",
     q7sub: "Las aseguradoras lo usan para establecer tarifas. Es obligatorio en cada solicitud.",
     sexF: "Mujer",
     sexM: "Hombre",
