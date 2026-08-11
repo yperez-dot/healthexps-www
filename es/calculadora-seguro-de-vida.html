@@ -972,7 +972,7 @@ details[open] .why-we-ask-chevron { transform:rotate(180deg); }
     <summary><span class="why-we-ask-q">?</span><span id="wya-s1">Por qué preguntamos — Ingresos</span><span class="why-we-ask-chevron">&#9660;</span></summary>
     <p id="wya-s1-body">Sus ingresos son la base de su estimación de cobertura — nos indica cuánto necesitaría su familia para mantener su estilo de vida si usted no estuviera.</p>
   </details>
-  <button class="cont-btn off" id="s1-btn" onclick="proceedFromIncome()"><span id="s1-btn-lbl">Continue</span></button>
+  <button class="cont-btn off" id="s1-btn" onclick="proceedFromIncome()"><span id="s1-btn-lbl">Continuar</span></button>
   <p class="trust-note">🔒 Su información nunca se vende &middot; Agentes licenciados en Florida</p>
 </div>
 
@@ -994,7 +994,7 @@ details[open] .why-we-ask-chevron { transform:rotate(180deg); }
 
 <!-- Q2: Dependents -->
 <div class="screen" id="s2">
-  <button class="back-btn" onclick="goScreen('sZip')">Back</button>
+  <button class="back-btn" onclick="goScreen('sZip')">← Volver</button>
   <div class="step-q" id="s2-q">Who would be financially affected if your income stopped?</div>
   <div class="step-sub" id="s2-sub">Select all that apply.</div>
   <div class="opts" id="s2-opts">
@@ -1008,7 +1008,7 @@ details[open] .why-we-ask-chevron { transform:rotate(180deg); }
     <summary><span class="why-we-ask-q">?</span><span id="wya-s2">Por qué preguntamos — Dependientes</span><span class="why-we-ask-chevron">&#9660;</span></summary>
     <p id="wya-s2-body">Cuantas más personas dependan de sus ingresos, más cobertura tiene sentido. Usamos esto para asegurarnos de que su estimación refleje su situación real.</p>
   </details>
-  <button class="cont-btn off" id="s2-btn" onclick="proceedFromDependents()"><span id="s2-btn-lbl">Continue</span></button>
+  <button class="cont-btn off" id="s2-btn" onclick="proceedFromDependents()"><span id="s2-btn-lbl">Continuar</span></button>
 </div>
 
 <!-- Q3: Children Detail (Conditional) -->
@@ -1056,7 +1056,7 @@ details[open] .why-we-ask-chevron { transform:rotate(180deg); }
 
 <!-- Q5: Safety Net -->
 <div class="screen" id="s5">
-  <button class="back-btn" onclick="goScreen('s4')">Back</button>
+  <button class="back-btn" onclick="goScreen('s4')">← Volver</button>
   <div class="step-q" id="s5-q">What safety net is already in place?</div>
   <div class="step-sub" id="s5-sub">We subtract this so we don't sell you coverage you don't need.</div>
 
@@ -1087,7 +1087,7 @@ details[open] .why-we-ask-chevron { transform:rotate(180deg); }
 
 <!-- TOOL A RESULT -->
 <div class="screen" id="sResult">
-  <button class="back-btn" onclick="goScreen('s5')">Back</button>
+  <button class="back-btn" onclick="goScreen('s5')">← Volver</button>
   
   <div class="result-number" id="result-number">0</div>
   <div class="result-label" id="result-label">in coverage</div>
@@ -1135,7 +1135,7 @@ details[open] .why-we-ask-chevron { transform:rotate(180deg); }
 
 <!-- FINAL EXPENSE PATH -->
 <div class="screen" id="sFEX">
-  <button class="back-btn" onclick="goScreen('s5')">Back</button>
+  <button class="back-btn" onclick="goScreen('s5')">← Volver</button>
   
   <div style="text-align: center; margin-bottom: 32px;">
     <div style="font-size: 20px; font-weight: 700; color: var(--purple); margin-bottom: 16px;" id="fex-title">Final Expense Insurance</div>
@@ -1154,23 +1154,23 @@ details[open] .why-we-ask-chevron { transform:rotate(180deg); }
 
 <!-- Review answers before health questions -->
 <div class="screen" id="sReview">
-  <button class="back-btn" onclick="goScreen('sResult')">Back</button>
-  <div class="step-q" id="review-q">Before your health questions...</div>
-  <div class="step-sub" id="review-sub">Here's what we'll use from your answers. Everything look right?</div>
+  <button class="back-btn" onclick="goScreen('sResult')">← Volver</button>
+  <div class="step-q" id="review-q">Antes de sus preguntas de salud...</div>
+  <div class="step-sub" id="review-sub">Esto es lo que usaremos de sus respuestas. ¿Todo se ve correcto?</div>
   <div id="review-list" style="margin-bottom:24px;"></div>
-  <button class="cont-btn on" onclick="goScreen('s6')"><span id="review-btn-lbl">Looks right — Continue</span></button>
+  <button class="cont-btn on" onclick="goScreen('s6')"><span id="review-btn-lbl">Todo está bien — Continuar</span></button>
 </div>
 
 <!-- Email mini-gate before rate screen -->
 <div class="screen" id="sEmailGate">
-  <button class="back-btn" onclick="goScreen('s9')">Back</button>
-  <div class="step-q" id="email-gate-q">One quick step before your rate</div>
-  <div class="step-sub" id="email-gate-sub">Enter your email to see your estimated monthly cost — no name or phone needed yet.</div>
+  <button class="back-btn" onclick="goScreen('s9')">← Volver</button>
+  <div class="step-q" id="email-gate-q">Un paso rápido antes de su tarifa</div>
+  <div class="step-sub" id="email-gate-sub">Ingrese su correo para ver su costo mensual estimado — sin nombre ni teléfono todavía.</div>
   <div class="field">
-    <label id="email-gate-lbl">Email Address</label>
+    <label id="email-gate-lbl">Correo electrónico</label>
     <input type="email" id="email-gate-input" placeholder="your@email.com" oninput="checkEmailGate()" onblur="abandonCapture()">
   </div>
-  <button class="cont-btn off" id="email-gate-btn" onclick="submitEmailGate()"><span id="email-gate-btn-lbl">See My Rate →</span></button>
+  <button class="cont-btn off" id="email-gate-btn" onclick="submitEmailGate()"><span id="email-gate-btn-lbl">Ver Mi Tarifa →</span></button>
   <p style="font-size:13px;color:var(--gt);text-align:center;margin-top:14px;line-height:1.6;">🔒 We never sell your information. <a href="/es/privacidad" style="color:var(--purple);font-weight:600;">Política de Privacidad</a></p>
 </div>
 
@@ -1178,7 +1178,7 @@ details[open] .why-we-ask-chevron { transform:rotate(180deg); }
 
 <!-- Q6: Date of Birth -->
 <div class="screen" id="s6">
-  <button class="back-btn" onclick="goScreen('sResult')">Back</button>
+  <button class="back-btn" onclick="goScreen('sResult')">← Volver</button>
   <div class="step-q" id="s6-q">When were you born?</div>
   <div class="step-sub" id="s6-sub">This helps us calculate your rate.</div>
 
@@ -1219,12 +1219,12 @@ details[open] .why-we-ask-chevron { transform:rotate(180deg); }
     <summary><span class="why-we-ask-q">?</span><span id="wya-s6">Por qué preguntamos — Su edad</span><span class="why-we-ask-chevron">&#9660;</span></summary>
     <p id="wya-s6-body">Su edad es uno de los factores más importantes en el precio del seguro de vida. Las tarifas se fijan al momento de solicitar — cuanto más joven sea ahora, más baja será su tarifa.</p>
   </details>
-  <button class="cont-btn off" id="s6-btn" onclick="goScreen('s7')"><span id="s6-btn-lbl">Continue</span></button>
+  <button class="cont-btn off" id="s6-btn" onclick="goScreen('s7')"><span id="s6-btn-lbl">Continuar</span></button>
 </div>
 
 <!-- Q7: Sex -->
 <div class="screen" id="s7">
-  <button class="back-btn" onclick="goScreen('s6')">Back</button>
+  <button class="back-btn" onclick="goScreen('s6')">← Volver</button>
   <div class="step-q" id="s7-q">Sex as listed on your insurance application</div>
   <div class="step-sub" id="s7-sub">Carriers use this to set rates. It's required on every application.</div>
   <div class="opts" id="s7-opts">
@@ -1235,12 +1235,12 @@ details[open] .why-we-ask-chevron { transform:rotate(180deg); }
     <summary><span class="why-we-ask-q">?</span><span id="wya-s7">Por qué preguntamos — Sexo</span><span class="why-we-ask-chevron">&#9660;</span></summary>
     <p id="wya-s7-body">El sexo biológico al nacer es un factor estándar de suscripción que afecta su estimación de tarifa. Su agente licenciado puede explicar cómo aplica a su situación específica.</p>
   </details>
-  <button class="cont-btn off" id="s7-btn" onclick="goScreen('s8')"><span id="s7-btn-lbl">Continue</span></button>
+  <button class="cont-btn off" id="s7-btn" onclick="goScreen('s8')"><span id="s7-btn-lbl">Continuar</span></button>
 </div>
 
 <!-- Q8: Tobacco -->
 <div class="screen" id="s8">
-  <button class="back-btn" onclick="goScreen('s7')">Back</button>
+  <button class="back-btn" onclick="goScreen('s7')">← Volver</button>
   <div class="step-q" id="s8-q">Have you used any tobacco or nicotine in the last 12 months?</div>
   <div class="step-sub" id="s8-sub">Cigarettes, cigars, vaping, chew, patches, or gum.</div>
   <div class="opts" id="s8-opts">
@@ -1251,12 +1251,12 @@ details[open] .why-we-ask-chevron { transform:rotate(180deg); }
     <summary><span class="why-we-ask-q">?</span><span id="wya-s8">Por qué preguntamos — Tabaco</span><span class="why-we-ask-chevron">&#9660;</span></summary>
     <p id="wya-s8-body">El uso de tabaco afecta significativamente las tarifas del seguro de vida — a menudo 2–3 veces más altas. Si ha estado libre de tabaco por 12 meses o más, puede calificar para tarifas de no fumador.</p>
   </details>
-  <button class="cont-btn off" id="s8-btn" onclick="goScreen('s9')"><span id="s8-btn-lbl">Continue</span></button>
+  <button class="cont-btn off" id="s8-btn" onclick="goScreen('s9')"><span id="s8-btn-lbl">Continuar</span></button>
 </div>
 
 <!-- Q9: Health -->
 <div class="screen" id="s9">
-  <button class="back-btn" onclick="goScreen('s8')">Back</button>
+  <button class="back-btn" onclick="goScreen('s8')">← Volver</button>
   <div class="step-q" id="s9-q">In the last 5 years, have you been treated for any of these?</div>
   <div class="step-sub" id="s9-sub">Check all that apply. Being honest gets you an accurate number.</div>
     <div class="opts" id="s9-opts">
@@ -1298,7 +1298,7 @@ details[open] .why-we-ask-chevron { transform:rotate(180deg); }
 
 <!-- Gate: Contact -->
 <div class="screen" id="sGate">
-  <button class="back-btn" onclick="goScreen('sRate')">Back</button>
+  <button class="back-btn" onclick="goScreen('sRate')">← Volver</button>
   <div class="step-q" id="gate-q">Get Your Exact Quote</div>
   <div class="step-sub" id="gate-sub">A licensed Florida agent will confirm your exact number with 14+ carriers. No obligation, no spam.</div>
 
@@ -1345,7 +1345,7 @@ details[open] .why-we-ask-chevron { transform:rotate(180deg); }
 
 <!-- Rate Result -->
 <div class="screen" id="sRate">
-  <button class="back-btn" onclick="goScreen('s9')">Back</button>
+  <button class="back-btn" onclick="goScreen('s9')">← Volver</button>
   
   <div style="text-align: center; margin-bottom: 32px;">
     <div style="font-size: 18px; color: var(--gt); margin-bottom: 12px;" id="rate-headline">Your estimated monthly cost</div>
