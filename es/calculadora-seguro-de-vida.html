@@ -2561,6 +2561,7 @@ async function submitToGHL(completion) {
       life_calc_language: S.language,
       life_calc_completion: completion,
       life_calc_timestamp: S.timestamp,
+      emailHtml: buildEmailHtml(),
       life_calc_income_fmt: typeof fmt === 'function' ? fmt(S.income) : S.income,
       life_calc_recommended_fmt: typeof fmt === 'function' ? fmt(S.recommended) : S.recommended,
       life_calc_gross_need_fmt: typeof fmt === 'function' ? fmt(S.gross_need) : S.gross_need,

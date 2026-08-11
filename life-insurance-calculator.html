@@ -2771,6 +2771,53 @@ function buildTags(completion) {
   return tags;
 }
 
+function buildEmailHtml() {
+  var lang = S.language || 'en';
+  var es = lang === 'es';
+  var cov   = S.recommended ? Math.round(S.recommended).toLocaleString('en-US',{style:'currency',currency:'USD',maximumFractionDigits:0}) : '$0';
+  var inc   = S.income_replacement ? Math.round(S.income_replacement).toLocaleString('en-US',{style:'currency',currency:'USD',maximumFractionDigits:0}) : '$0';
+  var debt  = S.debt_payoff ? Math.round(S.debt_payoff).toLocaleString('en-US',{style:'currency',currency:'USD',maximumFractionDigits:0}) : '$0';
+  var off   = S.offsets ? '−' + Math.round(S.offsets).toLocaleString('en-US',{style:'currency',currency:'USD',maximumFractionDigits:0}) : '$0';
+  var name  = S.fname || (es ? 'Hola' : 'there');
+  var url   = es ? 'https://healthexps.com/es/calculadora-seguro-de-vida/' : 'https://healthexps.com/life-insurance-calculator/';
+  return `<!DOCTYPE html><html><body style="margin:0;padding:0;background:#f4f0fa;font-family:Arial,sans-serif;">
+<table width="100%" cellpadding="0" cellspacing="0"><tr><td align="center" style="padding:24px 12px;">
+<table width="600" cellpadding="0" cellspacing="0" style="max-width:600px;background:#fff;border-radius:12px;overflow:hidden;">
+  <tr><td style="background:#452068;padding:28px 24px;text-align:center;">
+    <img src="https://healthexps.com/images/logo.webp" alt="The Health Experts Insurance" style="height:44px;margin-bottom:14px;display:block;margin:0 auto 14px;">
+    <div style="font-size:11px;font-weight:700;color:rgba(255,255,255,0.7);letter-spacing:.1em;text-transform:uppercase;margin-bottom:8px;">${es?'TU ESTIMADO DE COBERTURA':'YOUR COVERAGE ESTIMATE'}</div>
+    <div style="font-size:38px;font-weight:700;color:#fff;line-height:1;">${cov}</div>
+    <div style="font-size:12px;color:rgba(255,255,255,0.75);margin-top:6px;">${es?'en cobertura de seguro de vida recomendada':'in recommended life insurance coverage'}</div>
+  </td></tr>
+  <tr><td style="padding:24px;">
+    <p style="font-size:13px;color:#241a30;margin:0 0 14px;">${es?'Hola':'Hi'} ${name},</p>
+    <p style="font-size:13px;color:#555;line-height:1.6;margin:0 0 20px;">${es?'Aquí está el estimado de cobertura de tu sesión con la Calculadora de Seguro de Vida. Así es como llegamos a este número:':'Here\'s the coverage estimate from your Life Insurance Calculator session. Here\'s how we got there:'}</p>
+    <table width="100%" cellpadding="0" cellspacing="0" style="font-size:12.5px;margin-bottom:20px;border-collapse:collapse;">
+      <tr><td colspan="2" style="padding:9px 12px;background:#f4f0fa;color:#452068;font-weight:700;font-size:11px;letter-spacing:.06em;text-transform:uppercase;">${es?'CÓMO LO CALCULAMOS':'HOW WE CALCULATED IT'}</td></tr>
+      <tr><td style="padding:9px 12px;border-bottom:1px solid #f0e8fa;color:#555;">${es?'Reemplazo de ingresos':'Income replacement'}</td><td style="padding:9px 12px;border-bottom:1px solid #f0e8fa;font-weight:600;text-align:right;">${inc}</td></tr>
+      <tr><td style="padding:9px 12px;border-bottom:1px solid #f0e8fa;color:#555;">${es?'Hipoteca y deudas':'Mortgage &amp; debts'}</td><td style="padding:9px 12px;border-bottom:1px solid #f0e8fa;font-weight:600;text-align:right;">${debt}</td></tr>
+      <tr><td style="padding:9px 12px;border-bottom:1px solid #f0e8fa;color:#555;">${es?'Gastos finales':'Final expenses'}</td><td style="padding:9px 12px;border-bottom:1px solid #f0e8fa;font-weight:600;text-align:right;">$15,000</td></tr>
+      <tr><td style="padding:9px 12px;border-bottom:1px solid #f0e8fa;color:#555;">${es?'Menos: cobertura y ahorros existentes':'Less: existing coverage &amp; savings'}</td><td style="padding:9px 12px;border-bottom:1px solid #f0e8fa;font-weight:600;text-align:right;">${off}</td></tr>
+      <tr><td style="padding:9px 12px;background:#f4f0fa;font-weight:700;color:#452068;">${es?'Tu necesidad de cobertura':'Your coverage need'}</td><td style="padding:9px 12px;background:#f4f0fa;font-weight:700;color:#452068;text-align:right;">${cov}</td></tr>
+    </table>
+    <div style="text-align:center;margin-bottom:20px;">
+      <a href="${url}" style="display:inline-block;background:#452068;color:#fff;font-weight:700;font-size:13px;padding:14px 28px;border-radius:50px;text-decoration:none;">${es?'Ver Cuánto Cuesta →':'See What This Costs Me →'}</a>
+    </div>
+    <p style="font-size:12px;color:#888;text-align:center;line-height:1.6;margin-bottom:0;">
+      ${es?'Un agente bilingüe licenciado puede confirmar tu tarifa exacta con 14+ aseguradoras — gratis, sin compromiso.':'A licensed bilingual agent can confirm your exact rate with 14+ carriers — free, no obligation.'}<br>
+      <strong style="color:#452068;">1-800-380-6821</strong> &nbsp;|&nbsp;
+      <a href="https://wa.me/13054646888" style="color:#25D366;font-weight:700;">WhatsApp</a>
+    </p>
+  </td></tr>
+  <tr><td style="background:#f9f6fd;padding:14px 24px;border-top:1px solid #ece5f0;">
+    <p style="font-size:10px;color:#aaa;line-height:1.5;margin:0;">${es?'Necesidad de cobertura estimada solo para fines ilustrativos. Las cotizaciones reales varían según asegurador, historial de salud y monto de cobertura.':'Estimated coverage need for illustrative purposes only. Actual quotes vary by carrier, health history, and coverage amount.'} The Health Experts Insurance &middot; Doral, FL &middot; 1-800-380-6821</p>
+  </td></tr>
+</table>
+</td></tr></table>
+</body></html>`;
+}
+
+
 async function submitToGHL(completion) {
   S.completion = completion;
   S.timestamp = new Date().toISOString();
@@ -2814,7 +2861,8 @@ async function submitToGHL(completion) {
       life_calc_income_replacement_fmt: typeof fmt === 'function' ? fmt(S.income_replacement) : S.income_replacement,
       life_calc_debt_payoff_fmt: typeof fmt === 'function' ? fmt(S.debt_payoff) : S.debt_payoff,
       life_calc_net_need_fmt: typeof fmt === 'function' ? fmt(S.net_need) : S.net_need,
-      life_calc_gross_need_fmt: typeof fmt === 'function' ? fmt(S.gross_need) : S.gross_need
+      life_calc_gross_need_fmt: typeof fmt === 'function' ? fmt(S.gross_need) : S.gross_need,
+      emailHtml: buildEmailHtml()
     }
   };
 
