@@ -1175,12 +1175,12 @@ details[open] .why-we-ask-chevron { transform:rotate(180deg); }
 <!-- Q6: Date of Birth -->
 <div class="screen" id="s6">
   <button class="back-btn" onclick="goScreen('sResult')">← Volver</button>
-  <div class="step-q" id="s6-q">When were you born?</div>
-  <div class="step-sub" id="s6-sub">This helps us calculate your rate.</div>
+  <div class="step-q" id="s6-q">¿Cuándo nació?</div>
+  <div class="step-sub" id="s6-sub">Esto nos ayuda a calcular su tarifa.</div>
 
   <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 10px; margin-bottom: 20px;">
     <div class="field" style="margin-bottom: 0;">
-      <label id="dob-month-lbl">Month</label>
+      <label id="dob-month-lbl">Mes</label>
       <select id="dob-month" onchange="checkDOB()">
         <option value="">Select</option>
         <option value="1">Enero</option>
@@ -1198,13 +1198,13 @@ details[open] .why-we-ask-chevron { transform:rotate(180deg); }
       </select>
     </div>
     <div class="field" style="margin-bottom: 0;">
-      <label id="dob-day-lbl">Day</label>
+      <label id="dob-day-lbl">Día</label>
       <select id="dob-day" onchange="checkDOB()">
         <option value="">Select</option>
       </select>
     </div>
     <div class="field" style="margin-bottom: 0;">
-      <label id="dob-year-lbl">Year</label>
+      <label id="dob-year-lbl">Año</label>
       <select id="dob-year" onchange="checkDOB()">
         <option value="">Select</option>
       </select>
@@ -1544,28 +1544,28 @@ const STRINGS = {
     fexMsg: "Based on what you shared, a guaranteed-acceptance final expense policy may be your best fit.",
     fexNote: "Sin examen médico. Sin preguntas de salud. Cobertura desde $5,000 hasta $50,000, primas fijas que nunca aumentan.",
     fexWa: "Hablar con un agente licenciado",
-    q6q: "When were you born?",
-    q6sub: "This helps us calculate your rate.",
-    dobMonth: "Month",
-    dobDay: "Day",
-    dobYear: "Year",
+    q6q: "¿Cuándo nació?",
+    q6sub: "Esto nos ayuda a calcular su tarifa.",
+    dobMonth: "Mes",
+    dobDay: "Día",
+    dobYear: "Año",
     q7q: "Género según su solicitud de seguro",
     q7sub: "Las aseguradoras lo usan para establecer tarifas. Es obligatorio en cada solicitud.",
     sexF: "Femenino",
     sexM: "Masculino",
-    q8q: "Have you used any tobacco or nicotine in the last 12 months?",
-    q8sub: "Cigarettes, cigars, vaping, chew, patches, or gum.",
+    q8q: "¿Ha usado tabaco o nicotina en los últimos 12 meses?",
+    q8sub: "Cigarrillos, puros, vapeo, tabaco de mascar, parches o chicle.",
     tobNo: "No",
-    tobYes: "Yes",
-    q9q: "In the last 5 years, have you been treated for any of these?",
-    q9sub: "Check all that apply. Being honest gets you an accurate number.",
-    cardiac: "Heart disease, heart attack, or stroke",
-    cancer: "Cancer (other than basal cell skin cancer)",
+    tobYes: "Sí",
+    q9q: "¿En los últimos 5 años, ha sido tratado por alguno de estos?",
+    q9sub: "Marque todo lo que aplique. Ser honesto le da un número preciso.",
+    cardiac: "Enfermedad cardíaca, infarto, o derrame cerebral",
+    cancer: "Cáncer (excepto cáncer de piel de células basales)",
     diabetes: "Diabetes",
-    respiratory: "COPD, emphysema, or sleep apnea",
-    organ: "Kidney or liver disease",
+    respiratory: "EPOC, enfisema o apnea del sueño",
+    organ: "Enfermedad renal o hepática",
     controlledBp: "High blood pressure or cholesterol, controlled with medication",
-    none: "None of these",
+    none: "Ninguna de estas",
     gateQ: "Get Your Exact Quote",
     gateSub: "A licensed agent will confirm your exact rate with 14+ carriers — free, no obligation.",
     rateExactCta: "Obtener Mi Cotización Exacta →",
@@ -2228,7 +2228,7 @@ async function emailResult() {
 function populateDOB() {
   const now = new Date();
   const yearSelect = document.getElementById('dob-year');
-  yearSelect.innerHTML = '<option value="">Select</option>';
+  yearSelect.innerHTML = '<option value="">Seleccionar</option>';
   for (let y = now.getFullYear() - 18; y >= now.getFullYear() - 80; y--) {
     const opt = document.createElement('option');
     opt.value = y;
@@ -2237,7 +2237,7 @@ function populateDOB() {
   }
 
   const daySelect = document.getElementById('dob-day');
-  daySelect.innerHTML = '<option value="">Select</option>';
+  daySelect.innerHTML = '<option value="">Seleccionar</option>';
   for (let d = 1; d <= 31; d++) {
     const opt = document.createElement('option');
     opt.value = d;
@@ -2379,11 +2379,11 @@ function submitGate() {
 
   document.getElementById('sGate').innerHTML = '<div style="text-align:center;padding:40px 0 24px;">'
     + '<div style="font-size:52px;margin-bottom:16px;">&#x2705;</div>'
-    + '<div style="font-size:22px;font-weight:700;color:var(--purple);margin-bottom:12px;">You\'re all set!</div>'
-    + '<p style="font-size:16px;color:var(--gt);line-height:1.7;margin-bottom:28px;">A licensed agent from The Health Experts Insurance will reach out shortly to confirm your exact rate with 14+ carriers.</p>'
-    + '<a href="tel:18003806821" style="display:block;text-align:center;padding:16px;background:var(--purple);color:#fff;border-radius:50px;font-weight:700;font-size:16px;text-decoration:none;margin-bottom:12px;">Call now: 1-800-380-6821</a>'
-    + '<a href="https://wa.me/13054646888" onclick="gtag(\'event\',\'whatsapp_click\',{\'page\':window.location.pathname})" style="display:block;text-align:center;padding:16px;background:#25D366;color:#fff;border-radius:50px;font-weight:700;font-size:16px;text-decoration:none;margin-bottom:28px;">Chat on WhatsApp</a>'
-    + '<a onclick="restart()" style="color:var(--purple);font-size:14px;font-weight:600;cursor:pointer;text-decoration:underline;">Start over</a>'
+    + '<div style="font-size:22px;font-weight:700;color:var(--purple);margin-bottom:12px;">¡Listo!</div>'
+    + '<p style="font-size:16px;color:var(--gt);line-height:1.7;margin-bottom:28px;">Un agente licenciado de The Health Experts Insurance se comunicará pronto para confirmar su tarifa exacta con 14+ aseguradoras.</p>'
+    + '<a href="tel:18003806821" style="display:block;text-align:center;padding:16px;background:var(--purple);color:#fff;border-radius:50px;font-weight:700;font-size:16px;text-decoration:none;margin-bottom:12px;">Llamar: 1-800-380-6821</a>'
+    + '<a href="https://wa.me/13054646888" onclick="gtag(\'event\',\'whatsapp_click\',{\'page\':window.location.pathname})" style="display:block;text-align:center;padding:16px;background:#25D366;color:#fff;border-radius:50px;font-weight:700;font-size:16px;text-decoration:none;margin-bottom:28px;">WhatsApp</a>'
+    + '<a onclick="restart()" style="color:var(--purple);font-size:14px;font-weight:600;cursor:pointer;text-decoration:underline;">Volver a empezar</a>'
     + '</div>';
   saveState();
 }
@@ -2771,7 +2771,7 @@ function restart() {
   document.getElementById('dob-month').value = '';
   document.getElementById('dob-day').value = '';
   document.getElementById('dob-year').value = '';
-  document.getElementById('consent-chk').checked = false;
+  var _cc = document.getElementById('consent-chk'); if (_cc) _cc.checked = false;
   
   goScreen('sIntro');
   saveState();
