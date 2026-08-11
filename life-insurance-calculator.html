@@ -2810,7 +2810,11 @@ async function submitToGHL(completion) {
       life_calc_timestamp: S.timestamp,
       life_calc_youngest_age: S.youngest_child_age,
       life_calc_debt_total: S.mortgage_balance,
-      life_calc_existing_coverage: S.existing_coverage
+      life_calc_existing_coverage: S.existing_coverage,
+      life_calc_income_replacement_fmt: typeof fmt === 'function' ? fmt(S.income_replacement) : S.income_replacement,
+      life_calc_debt_payoff_fmt: typeof fmt === 'function' ? fmt(S.debt_payoff) : S.debt_payoff,
+      life_calc_net_need_fmt: typeof fmt === 'function' ? fmt(S.net_need) : S.net_need,
+      life_calc_gross_need_fmt: typeof fmt === 'function' ? fmt(S.gross_need) : S.gross_need
     }
   };
 
