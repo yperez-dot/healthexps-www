@@ -17,13 +17,21 @@ exports.handler = async (event) => {
     return { statusCode: 400, body: 'Missing required fields' };
   }
 
+  if (!process.env.SMTP_USER || !process.env.SMTP_PASS) {
+    console.error('SMTP_USER / SMTP_PASS environment variables are not set in Netlify.');
+    return {
+      statusCode: 500,
+      body: JSON.stringify({ ok: false, error: 'Email sending is not configured (missing SMTP credentials).' })
+    };
+  }
+
   const transporter = nodemailer.createTransport({
     host: 'smtp.gmail.com',
     port: 587,
     secure: false,
     auth: {
-      user: process.env.SMTP_USER || 'info@healthexps.com',
-      pass: process.env.SMTP_PASS || 'zgponuxckvvvvvwz'
+      user: process.env.SMTP_USER,
+      pass: process.env.SMTP_PASS
     }
   });
 
