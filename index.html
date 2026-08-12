@@ -161,6 +161,20 @@
 /* dc-sub 15px fix */
 #dual-cta .dc-sub{font-size:15px!important;color:#4a4051!important;font-weight:500!important}
 #dual-cta .dc-sub a{font-size:15px!important;color:#4a4051!important;font-weight:500!important;text-decoration:none}
+
+/* ── Mobile polish — Aug 12, 2026 ── */
+@media(max-width:480px){
+  /* Meta banner: wrap CTA link, pad for dismiss X */
+  #meta-banner p{display:block!important}
+  #meta-banner-link{display:inline-block;margin:6px 40px 0 0!important;white-space:normal!important}
+  #meta-banner{padding:12px 44px 12px 16px!important}
+  /* Path strip: full-width buttons */
+  #path-strip .ps-btn-primary,
+  #path-strip .ps-btn-std{display:block;text-align:center;width:100%;box-sizing:border-box}
+  /* Dual CTA: full-width btn */
+  #dual-cta .dc-btn{display:block;width:100%;box-sizing:border-box;text-align:center}
+}
+
 </style>
 <style>
 #v4-mobile-menu a, .v4-nav-outer a, .v4-nav-desktop a { text-decoration: none !important; }
@@ -754,7 +768,7 @@ src="https://www.facebook.com/tr?id=2219926808840253&ev=PageView&noscript=1"/></
   [style*="padding:72px 56px"],
   [style*="padding:88px 56px"] { padding-left: 20px !important; padding-right: 20px !important; }
   /* Hero h1 font size */
-  h1[style*="font-size:50px"] { font-size: 34px !important; line-height: 1.15 !important; }
+  h1[style*="font-size:clamp(32px,5vw,52px)"] { font-size: 34px !important; line-height: 1.15 !important; }
   /* Grids that need to collapse */
   [style*="grid-template-columns:1fr 1fr"],
   [style*="grid-template-columns:0.9fr 1.1fr"],
@@ -900,7 +914,7 @@ src="https://www.facebook.com/tr?id=2219926808840253&ev=PageView&noscript=1"/></
 <div id="meta-banner" style="display:none;background:#452068;color:#fff;padding:12px 20px;text-align:center;position:relative">
   <p style="margin:0;font-size:14px;line-height:1.5;display:inline">
     Looking for <strong>Medicare + Medicaid</strong> help in Miami? Skip the general form — start with our free eligibility check.
-    <a id="meta-banner-link" href="/medicare-dual-eligible-miami" style="color:#ff1090;font-weight:700;white-space:nowrap;margin-left:8px">Check Dual Eligibility →</a>
+    <a id="meta-banner-link" href="/medicare-dual-eligible-miami" style="color:#ff1090;font-weight:700;margin-left:8px">Check Dual Eligibility →</a>
   </p>
   <button onclick="document.getElementById('meta-banner').style.display='none';sessionStorage.setItem('meta_banner_dismissed','1')"
     style="position:absolute;right:12px;top:50%;transform:translateY(-50%);background:none;border:none;color:rgba(255,255,255,.7);font-size:20px;cursor:pointer;padding:4px 8px;line-height:1"
@@ -941,7 +955,7 @@ src="https://www.facebook.com/tr?id=2219926808840253&ev=PageView&noscript=1"/></
                 <span style="width:7px;height:7px;border-radius:50%;background:#ff1090;display:inline-block"></span>
                 Doral, FL &middot; Serving all of South Florida
               </div>
-              <h1 style="font-family:Poppins,sans-serif;font-weight:700;font-size:50px;line-height:1.1;color:#241a30;margin:0 0 20px">Medicare in Miami, explained clearly — in English or Español.</h1>
+              <h1 style="font-family:Poppins,sans-serif;font-weight:700;font-size:clamp(32px,5vw,52px);line-height:1.1;color:#241a30;margin:0 0 20px">Medicare in Miami, explained clearly — in English or Español.</h1>
               <p style="font-size:18.5px;line-height:1.65;color:#6f6478;max-width:480px;margin:0 0 30px">Licensed local brokers. We compare 14+ carriers, verify your doctors and medications, and check Medicaid eligibility — at no cost to you.</p>
               <div id="hero-btns" style="display:flex;gap:14px;margin-bottom:28px;flex-wrap:wrap">
                 <a href="#lead-form" style="background:#ff1090;color:#fff;padding:17px 30px;border-radius:12px;font-weight:700;font-size:16px;box-shadow:0 10px 24px rgba(255,16,144,.28)">Book Your Free Consultation →</a>
