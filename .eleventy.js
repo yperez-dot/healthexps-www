@@ -1,6 +1,19 @@
 const markdownIt = require("markdown-it");
 
 module.exports = function (eleventyConfig) {
+  // Internal docs — never publish these as public pages
+  const internalDocs = [
+    'HOMEPAGE-RULES.md', 'IGOR_README.md', 'NEW-PAGE-CHECKLIST.md',
+    'PENDING_DEPLOY.md', 'README.md', 'competitor-gap-analysis-2026-07-05.md',
+    'seo-audit-2026-07-05.md'
+  ];
+  internalDocs.forEach(f => eleventyConfig.ignores.add(f));
+  // Safety net: ignore all caps .md files and any file with internal markers
+  eleventyConfig.ignores.add('**/*RULES*.md');
+  eleventyConfig.ignores.add('**/*CHECKLIST*.md');
+  eleventyConfig.ignores.add('**/*PENDING*.md');
+  eleventyConfig.ignores.add('**/*README*.md');
+
   // ── Markdown: allow raw HTML (needed for Schema JSON-LD in posts) ──────────
   const md = markdownIt({ html: true, linkify: true, typographer: true });
   eleventyConfig.setLibrary("md", md);

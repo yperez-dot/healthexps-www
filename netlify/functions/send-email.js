@@ -17,6 +17,13 @@ exports.handler = async (event) => {
     return { statusCode: 400, body: 'Missing required fields' };
   }
 
+  // Origin check — only allow requests from healthexps.com
+  const origin = (event.headers.origin || event.headers.referer || '');
+  const allowed = ['https://healthexps.com', 'https://www.healthexps.com'];
+  if (!allowed.some(o => origin.startsWith(o))) {
+    return { statusCode: 403, body: 'Forbidden' };
+  }
+
   if (!process.env.SMTP_USER || !process.env.SMTP_PASS) {
     return { statusCode: 500, body: 'Email not configured' };
   }
