@@ -103,6 +103,31 @@
 }
 #scrollToTop:hover { background: #ff1090; transform: translateY(-2px); }
 #scrollToTop:focus-visible { outline: 3px solid #ff1090; outline-offset: 3px; }
+
+/* ---- Homepage additions: path strip / trust quote / dual CTA (Aug 12) ---- */
+#path-strip .ps-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+#path-strip .ps-card{border-radius:16px;padding:28px}
+#path-strip .ps-card-primary{background:#452068;color:#fff}
+#path-strip .ps-card-std{background:#fff;border:1.5px solid #ece5f0;color:#241a30}
+#path-strip .ps-title{font-family:'Poppins',sans-serif;font-size:17px;font-weight:700;margin-bottom:10px;line-height:1.3}
+#path-strip .ps-body{font-size:13.5px;line-height:1.65;margin-bottom:20px}
+#path-strip .ps-card-primary .ps-body{opacity:.9}
+#path-strip .ps-card-std .ps-body{color:#6f6478}
+#path-strip .ps-btn-primary{display:inline-block;background:#ff1090;color:#fff;padding:11px 20px;border-radius:10px;font-weight:700;font-size:13.5px;text-decoration:none}
+#path-strip .ps-btn-std{display:inline-block;background:#452068;color:#fff;padding:11px 20px;border-radius:10px;font-weight:700;font-size:13.5px;text-decoration:none}
+#trust-quote blockquote{font-size:16.5px;color:#241a30;line-height:1.75;font-style:italic;margin:0 0 12px}
+#trust-quote .tq-attr{font-size:13px;font-weight:700;color:#452068}
+#trust-quote .tq-micro{font-size:12px;color:#6f6478;margin-top:6px}
+#dual-cta h2{font-family:'Poppins',sans-serif;font-size:26px;font-weight:800;color:#241a30;margin-bottom:14px}
+#dual-cta p.dc-body{font-size:15.5px;color:#4a4051;line-height:1.7;margin-bottom:26px;max-width:640px;margin-left:auto;margin-right:auto}
+#dual-cta .dc-btn{display:inline-block;background:#ff1090;color:#fff;padding:15px 32px;border-radius:12px;font-weight:700;font-size:15.5px;text-decoration:none;box-shadow:0 8px 22px rgba(255,16,144,.25)}
+#dual-cta .dc-sub{font-size:13px;color:#6f6478;margin-top:14px}
+@media(max-width:900px){
+  #path-strip .ps-grid{grid-template-columns:1fr}
+  #path-strip,#trust-quote,#dual-cta{padding-left:20px!important;padding-right:20px!important}
+  #dual-cta h2{font-size:21px}
+}
+
 </style>
 <style>
 #v4-mobile-menu a, .v4-nav-outer a, .v4-nav-desktop a { text-decoration: none !important; }
@@ -879,6 +904,38 @@ src="https://www.facebook.com/tr?id=2219926808840253&ev=PageView&noscript=1"/></
           <div style="text-align:center"><div style="font-family:Poppins,sans-serif;font-weight:700;font-size:30px">2019</div><div style="font-size:13px;opacity:.8;margin-top:4px">founded in Doral</div></div>
         </div>
 
+        
+<!-- PATH STRIP — Task 2 / Aug 12, 2026 -->
+<div id="path-strip" style="background:#fdfaf7;padding:44px 56px;border-bottom:1px solid #ece5f0">
+  <div style="max-width:1320px;margin:0 auto">
+    <p style="text-transform:uppercase;letter-spacing:2px;font-size:11px;font-weight:700;color:#452068;margin-bottom:18px">START HERE</p>
+    <div class="ps-grid">
+      <div class="ps-card ps-card-primary">
+        <p class="ps-title">Medicare + Medicaid (Dual / D-SNP)</p>
+        <p class="ps-body">Have both cards? See if you qualify for extra benefits — low premiums on many plans.</p>
+        <a href="/medicare-dual-eligible-miami" class="ps-btn-primary">Check My Eligibility →</a>
+      </div>
+      <div class="ps-card ps-card-std">
+        <p class="ps-title">Turning 65 or on Medicare</p>
+        <p class="ps-body">Advantage, Supplement, or Part D — we compare plans for your doctors and budget.</p>
+        <a href="/medicare-plans-miami" class="ps-btn-std">Compare Medicare Plans →</a>
+      </div>
+      <div class="ps-card ps-card-std">
+        <p class="ps-title">Under 65 or lost coverage</p>
+        <p class="ps-body">ACA Marketplace and private options — 2-minute quiz shows what fits.</p>
+        <a href="/health-insurance-quiz" class="ps-btn-std">Find My Plan →</a>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- TRUST QUOTE — Task 4 / Aug 12, 2026 -->
+<div id="trust-quote" style="background:#fff;padding:36px 56px;border-bottom:1px solid #ece5f0;text-align:center">
+  <div style="max-width:680px;margin:0 auto">
+    <blockquote>"Yahoska took the time to understand my mom's needs and helped her find the best plan — patient, knowledgeable, and genuinely cares."</blockquote>
+    <p class="tq-attr">— Winnie Tseng · Verified Google review</p>
+    <p class="tq-micro">Real families. Real agents. Not a national call center.</p>
+  </div>
+</div>
         <!-- AVMED ALERT -->
         <div id="avmed-alert" style="background:#fff7ec;border-top:1px solid #f3d9a8;border-bottom:1px solid #f3d9a8;padding:14px 24px;text-align:center">
           <p style="margin:0 auto;font-size:14px;color:#5a4a2f;line-height:1.6;max-width:680px"><strong style="color:#241a30">Had Medicare with AvMed?</strong> AvMed exited the Florida Medicare market on January 1, 2026 — you may still qualify for a Special Enrollment Period. <a href="#lead-form" style="font-weight:700;color:#c40074;white-space:nowrap">See my options →</a></p>
@@ -973,6 +1030,16 @@ src="https://www.facebook.com/tr?id=2219926808840253&ev=PageView&noscript=1"/></
         </div>
 
         <!-- LEAD FORM -->
+        
+<!-- DUAL CTA BANNER — Task 3 / Aug 12, 2026 -->
+<div id="dual-cta" style="background:linear-gradient(135deg,#f7f2fb 0%,#fdfaf7 100%);border-top:1px solid #ece5f0;border-bottom:1px solid #ece5f0;padding:56px;text-align:center">
+  <div style="max-width:760px;margin:0 auto">
+    <h2>Have Medicare and Medicaid?</h2>
+    <p class="dc-body">You may qualify for a Dual Special Needs Plan (D-SNP) — one card, coordinated care, and benefits Original Medicare doesn't include. Many people qualify and don't know it. We check for free in 2 minutes.</p>
+    <a href="/medicare-dual-eligible-miami" class="dc-btn">Free Dual Eligibility Check →</a>
+    <p class="dc-sub">Call 1-800-380-6821 · <a href="https://wa.me/17863683093" style="color:#25D366;font-weight:600">WhatsApp</a></p>
+  </div>
+</div>
         <div id="lead-form" class="lead-form-outer" style="background:#452068;padding:88px 56px">
           <div class="lead-grid" style="max-width:1160px;margin:0 auto;display:grid;grid-template-columns:0.9fr 1.1fr;gap:56px;align-items:center">
             <div style="color:#fff">
