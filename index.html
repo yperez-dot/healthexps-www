@@ -891,6 +891,44 @@ src="https://www.facebook.com/tr?id=2219926808840253&ev=PageView&noscript=1"/></
 
       <div>
 
+
+<!-- META TRAFFIC BANNER — Aug 12, 2026 — show only for Meta/FB/IG traffic -->
+<div id="meta-banner" style="display:none;background:#452068;color:#fff;padding:12px 20px;text-align:center;position:relative">
+  <p style="margin:0;font-size:14px;line-height:1.5;display:inline">
+    Looking for <strong>Medicare + Medicaid</strong> help in Miami? Skip the general form — start with our free eligibility check.
+    <a id="meta-banner-link" href="/medicare-dual-eligible-miami" style="color:#ff1090;font-weight:700;white-space:nowrap;margin-left:8px">Check Dual Eligibility →</a>
+  </p>
+  <button onclick="document.getElementById('meta-banner').style.display='none';sessionStorage.setItem('meta_banner_dismissed','1')"
+    style="position:absolute;right:12px;top:50%;transform:translateY(-50%);background:none;border:none;color:rgba(255,255,255,.7);font-size:20px;cursor:pointer;padding:4px 8px;line-height:1"
+    aria-label="Dismiss">×</button>
+</div>
+<script>
+(function(){
+  var src = (new URLSearchParams(window.location.search));
+  var utmSrc = (src.get('utm_source')||'').toLowerCase();
+  var srcParam = (src.get('src')||'').toLowerCase();
+  var metaSources = ['meta','facebook','fb','ig','instagram'];
+  var isMetaTraffic = metaSources.some(function(s){return utmSrc===s||srcParam===s;});
+  if(!isMetaTraffic && sessionStorage.getItem('meta_banner_shown')==='1' && sessionStorage.getItem('meta_banner_dismissed')!=='1'){
+    isMetaTraffic=true;
+  }
+  if(isMetaTraffic && sessionStorage.getItem('meta_banner_dismissed')!=='1'){
+    sessionStorage.setItem('meta_banner_shown','1');
+    var banner = document.getElementById('meta-banner');
+    if(banner){ banner.style.display='block'; }
+    // Preserve full query string on destination link
+    var link = document.getElementById('meta-banner-link');
+    if(link){
+      var qs = window.location.search;
+      var dest = '/medicare-dual-eligible-miami';
+      if(qs){ dest += (qs.includes('?') ? qs : qs) + (qs.includes('utm_medium') ? '' : (qs ? '&' : '?') + 'utm_medium=homepage-banner'); }
+      else { dest += '?utm_medium=homepage-banner'; }
+      link.href = dest;
+    }
+  }
+})();
+</script>
+
         <!-- HERO -->
         <div id="hero-outer" style="background:linear-gradient(135deg,#fdfaf7 0%,#f7f2fb 100%);padding:76px 56px 64px">
           <div id="hero-grid" style="max-width:1320px;margin:0 auto;display:grid;grid-template-columns:1.05fr 0.95fr;gap:64px;align-items:center">
@@ -941,7 +979,7 @@ src="https://www.facebook.com/tr?id=2219926808840253&ev=PageView&noscript=1"/></
     <div class="ps-grid">
       <div class="ps-card ps-card-primary">
         <p class="ps-title">Medicare + Medicaid (Dual / D-SNP)</p>
-        <p class="ps-body">Have both cards? See if you qualify for extra benefits — low premiums on many plans.</p>
+        <p class="ps-body">Have both cards? See if you qualify for extra benefits — $0 premium on many plans.</p>
         <a href="/medicare-dual-eligible-miami" class="ps-btn-primary">Check My Eligibility →</a>
       </div>
       <div class="ps-card ps-card-std">
