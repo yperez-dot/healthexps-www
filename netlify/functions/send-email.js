@@ -17,13 +17,17 @@ exports.handler = async (event) => {
     return { statusCode: 400, body: 'Missing required fields' };
   }
 
+  if (!process.env.SMTP_USER || !process.env.SMTP_PASS) {
+    return { statusCode: 500, body: 'Email not configured' };
+  }
+
   const transporter = nodemailer.createTransport({
     host: 'smtp.gmail.com',
     port: 587,
     secure: false,
     auth: {
-      user: process.env.SMTP_USER || 'info@healthexps.com',
-      pass: process.env.SMTP_PASS || 'zgponuxckvvvvvwz'
+      user: process.env.SMTP_USER,
+      pass: process.env.SMTP_PASS
     }
   });
 
