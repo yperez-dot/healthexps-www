@@ -686,6 +686,32 @@ for(var k=0;k<_navLinks.length;k++){
 
 
 
+<!-- BANNER META TRÁFICO — 12 ago 2026 -->
+<div id="meta-banner" style="display:none;background:#452068;color:#fff;padding:12px 20px;text-align:center;position:relative">
+  <p style="margin:0;font-size:14px;line-height:1.5;display:inline">
+    ¿Busca ayuda con <strong>Medicare y Medicaid</strong> en Miami? Empiece aquí con nuestra verificación gratis de elegibilidad.
+    <a id="meta-banner-link" href="/es/medicare-medicaid-miami" style="color:#ff1090;font-weight:700;white-space:nowrap;margin-left:8px">Verificar elegibilidad Dual →</a>
+  </p>
+  <button onclick="document.getElementById('meta-banner').style.display='none';sessionStorage.setItem('meta_banner_dismissed','1')"
+    style="position:absolute;right:12px;top:50%;transform:translateY(-50%);background:none;border:none;color:rgba(255,255,255,.7);font-size:20px;cursor:pointer;padding:4px 8px;line-height:1"
+    aria-label="Cerrar">×</button>
+</div>
+<script>
+(function(){
+  var src=(new URLSearchParams(window.location.search));
+  var utmSrc=(src.get('utm_source')||'').toLowerCase();
+  var srcParam=(src.get('src')||'').toLowerCase();
+  var metaSources=['meta','facebook','fb','ig','instagram'];
+  var isMetaTraffic=metaSources.some(function(s){return utmSrc===s||srcParam===s;});
+  if(!isMetaTraffic&&sessionStorage.getItem('meta_banner_shown')==='1'&&sessionStorage.getItem('meta_banner_dismissed')!=='1'){isMetaTraffic=true;}
+  if(isMetaTraffic&&sessionStorage.getItem('meta_banner_dismissed')!=='1'){
+    sessionStorage.setItem('meta_banner_shown','1');
+    var b=document.getElementById('meta-banner');if(b)b.style.display='block';
+    var l=document.getElementById('meta-banner-link');
+    if(l){var qs=window.location.search;l.href='/es/medicare-medicaid-miami'+(qs?qs+'&utm_medium=homepage-banner':'?utm_medium=homepage-banner');}
+  }
+})();
+</script>
 <!-- HERO -->
 <section class="hero">
  <div class="container">
