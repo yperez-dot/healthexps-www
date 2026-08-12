@@ -386,6 +386,28 @@ a:hover{color:var(--pink);}
   #dual-cta h2{font-size:21px}
 }
 
+
+/* ---- Homepage CSS fixes — Aug 12, 2026 patch 2 ---- */
+/* Task 1: featured card badge contrast */
+#path-strip .ps-card-primary .badge,
+#path-strip .ps-card-primary [class*="badge"],
+#path-strip .ps-card-primary .ps-label,
+#path-strip .ps-card-primary .ps-badge {
+  background:#EEEDFE !important;
+  color:#26215C !important;
+  font-weight:500 !important;
+}
+#path-strip .ps-card-primary {
+  border:2px solid #534AB7;
+}
+/* Task 2: WhatsApp text in dual CTA — match Call text weight/size/color */
+#dual-cta .dc-sub a[href*="wa.me"] {
+  font-size:inherit !important;
+  font-weight:500 !important;
+  color:inherit !important;
+  text-decoration:none;
+}
+
 </style>
 
 
