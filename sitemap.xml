@@ -746,12 +746,28 @@
 <loc>https://www.healthexps.com/es/blog/cambio-red-uhealth-unitedhealthcare-medicare-advantage/</loc>
 
 <url>
+  <loc>https://www.healthexps.com/life-insurance-miami</loc>
+  <lastmod>2026-08-14</lastmod>
+  <changefreq>monthly</changefreq>
+  <priority>0.8</priority>
+  <xhtml:link rel="alternate" hreflang="en" href="https://www.healthexps.com/life-insurance-miami"/>
+  <xhtml:link rel="alternate" hreflang="es" href="https://www.healthexps.com/es/seguro-de-vida-miami"/>
+</url>
+<url>
   <loc>https://www.healthexps.com/es/seguro-de-vida-miami</loc>
   <lastmod>2026-08-10</lastmod>
   <changefreq>monthly</changefreq>
   <priority>0.7</priority>
   <xhtml:link rel="alternate" hreflang="es" href="https://www.healthexps.com/es/seguro-de-vida-miami"/>
   <xhtml:link rel="alternate" hreflang="en" href="https://www.healthexps.com/life-insurance-miami"/>
+</url>
+<url>
+  <loc>https://www.healthexps.com/final-expense-insurance</loc>
+  <lastmod>2026-08-14</lastmod>
+  <changefreq>monthly</changefreq>
+  <priority>0.8</priority>
+  <xhtml:link rel="alternate" hreflang="en" href="https://www.healthexps.com/final-expense-insurance"/>
+  <xhtml:link rel="alternate" hreflang="es" href="https://www.healthexps.com/es/gastos-finales-miami"/>
 </url>
 <url>
   <loc>https://www.healthexps.com/es/gastos-finales-miami</loc>
@@ -761,7 +777,14 @@
   <xhtml:link rel="alternate" hreflang="es" href="https://www.healthexps.com/es/gastos-finales-miami"/>
   <xhtml:link rel="alternate" hreflang="en" href="https://www.healthexps.com/final-expense-insurance"/>
 </url>
-
+<url>
+  <loc>https://www.healthexps.com/life-insurance-calculator</loc>
+  <lastmod>2026-08-14</lastmod>
+  <changefreq>monthly</changefreq>
+  <priority>0.7</priority>
+  <xhtml:link rel="alternate" hreflang="en" href="https://www.healthexps.com/life-insurance-calculator"/>
+  <xhtml:link rel="alternate" hreflang="es" href="https://www.healthexps.com/es/calculadora-seguro-de-vida"/>
+</url>
 <url>
   <loc>https://www.healthexps.com/es/calculadora-seguro-de-vida</loc>
   <lastmod>2026-08-10</lastmod>
