@@ -564,11 +564,20 @@ img { max-width: 100%; height: auto; }
             <textarea id="cNotes" rows="3" placeholder="Anything you'd like to share about your situation?"></textarea>
           </div>
 
-          <!-- Consent checkbox AFTER notes -->
+          <!-- Consent checkboxes AFTER notes -->
+          <!-- 1. Informational / Appointment Messages (required) -->
           <div class="ff-consent">
-            <input type="checkbox" id="cConsent"/>
+            <input type="checkbox" id="cConsent" required/>
             <label for="cConsent">
-              <strong>Permission to Contact:</strong> I consent to receive e-mails, telephone calls, text messages, and artificial or pre-recorded messages from licensed insurance agents with The Health Experts Insurance, regarding health insurance plans and related products and services, at the e-mail address and telephone number provided above, including my wireless number (if provided), and regardless of whether it is on any do not call list, using an automated telephone dialing system. I understand that my wireless carrier&rsquo;s standard message and data rates apply. I understand that I may revoke this consent at any time. I understand that I have the option to speak with a licensed insurance agent without granting this consent by calling <a href="tel:18003806821">1-800-380-6821</a> TTY 711.
+              <strong>1. Informational / Appointment Messages:</strong> I Consent to Receive SMS Notifications, Alerts and appointment notifications from The Health Experts Insurance. Message frequency varies. Message &amp; data rates may apply. Text HELP for assistance. You can reply STOP to unsubscribe at any time.
+            </label>
+          </div>
+
+          <!-- 2. Marketing Messages (optional) -->
+          <div class="ff-consent">
+            <input type="checkbox" id="cMarketingConsent"/>
+            <label for="cMarketingConsent">
+              <strong>2. Marketing Messages:</strong> By checking this box, I agree to receive occasional marketing messages from The Health Experts Insurance. Message &amp; data rates may apply. Text HELP for assistance. You can reply STOP to unsubscribe at any time.
             </label>
           </div>
 
@@ -723,7 +732,8 @@ function submitContactForm() {
   var phone    = ((document.getElementById('cPhone') || {}).value || '').trim();
   var email    = ((document.getElementById('cEmail') || {}).value || '').trim();
   var notes    = ((document.getElementById('cNotes') || {}).value || '').trim();
-  var consent  = document.getElementById('cConsent') && document.getElementById('cConsent').checked;
+  var consent          = document.getElementById('cConsent') && document.getElementById('cConsent').checked;
+  var marketingConsent = document.getElementById('cMarketingConsent') && document.getElementById('cMarketingConsent').checked;
 
   if (!coverage || !first || !last || !phone || !email || !consent) {
     errEl.style.display = 'block';
@@ -744,9 +754,11 @@ function submitContactForm() {
       phone:         phone,
       email:         email,
       notes:         notes,
-      source:        'Contact Page Form',
-      page:          window.location.href,
-      submitted_at:  new Date().toISOString()
+      source:             'Contact Page Form',
+      page:               window.location.href,
+      submitted_at:       new Date().toISOString(),
+      sms_informational:  true,
+      sms_marketing:      marketingConsent
     })
   })
   .then(function(res){
