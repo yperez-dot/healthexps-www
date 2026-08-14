@@ -126,7 +126,7 @@ Life insurance doesn't have to be complicated. The right policy depends on your 
 
 At **The Health Experts Insurance**, team of licensed agents specializes in helping Florida families find the right life insurance coverage. Whether you need a simple term policy to protect your young family or a final expense plan to give your loved ones peace of mind, we're here to help — in English and in Spanish.
 
-👉 [Connect with us at healthexps.com](https://www.healthexps.com/contact) for a free, no-obligation consultation. Let's make sure your family is protected.
+Start by exploring your options on our [Life Insurance Miami](/life-insurance-miami) page, or use our [free life insurance coverage calculator](/life-insurance-calculator) to get a quick estimate in under 2 minutes. When you're ready to talk, [connect with a licensed bilingual agent](/contact) — free consultation, no pressure. Let's make sure your family is protected.
 
 
 ---

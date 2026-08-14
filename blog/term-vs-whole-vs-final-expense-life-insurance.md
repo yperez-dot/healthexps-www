@@ -150,7 +150,7 @@ Working with a licensed agent who explains policy terms clearly — and who isn'
 
 At **The Health Experts Insurance**, our licensed agents help Florida families and seniors compare life insurance options with zero pressure and full transparency. We speak English and Spanish, and we work with multiple carriers to find the coverage that actually fits your budget and goals.
 
-👉 [Book a free consultation at healthexps.com](https://www.healthexps.com/contact) and let's find the right life insurance solution for you and your family.
+Not sure which type fits your situation? Visit our [Life Insurance Miami](/life-insurance-miami) page for a full overview, check our [Final Expense Insurance](/final-expense-insurance) page if burial coverage is your main concern, or run our [free coverage calculator](/life-insurance-calculator) to see what amount makes sense for your income and family. Ready to compare real quotes? [Book a free consultation](/contact) with a licensed bilingual agent — no pressure, no obligation.
 
 
 ---
