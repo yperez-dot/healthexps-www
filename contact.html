@@ -564,20 +564,11 @@ img { max-width: 100%; height: auto; }
             <textarea id="cNotes" rows="3" placeholder="Anything you'd like to share about your situation?"></textarea>
           </div>
 
-          <!-- Consent checkboxes AFTER notes -->
-          <!-- 1. Informational / Appointment Messages (required) -->
-          <div class="ff-consent">
-            <input type="checkbox" id="cConsent" required/>
-            <label for="cConsent">
-              <strong>1. Informational / Appointment Messages:</strong> I Consent to Receive SMS Notifications, Alerts and appointment notifications from The Health Experts Insurance. Message frequency varies. Message &amp; data rates may apply. Text HELP for assistance. You can reply STOP to unsubscribe at any time.
-            </label>
-          </div>
-
-          <!-- 2. Marketing Messages (optional) -->
+          <!-- Marketing consent (optional) -->
           <div class="ff-consent">
             <input type="checkbox" id="cMarketingConsent"/>
             <label for="cMarketingConsent">
-              <strong>2. Marketing Messages:</strong> By checking this box, I agree to receive occasional marketing messages from The Health Experts Insurance. Message &amp; data rates may apply. Text HELP for assistance. You can reply STOP to unsubscribe at any time.
+              By checking this box, I agree to receive occasional marketing messages from The Health Experts Insurance. Message &amp; data rates may apply. Text HELP for assistance. You can reply STOP to unsubscribe at any time.
             </label>
           </div>
 
@@ -732,10 +723,9 @@ function submitContactForm() {
   var phone    = ((document.getElementById('cPhone') || {}).value || '').trim();
   var email    = ((document.getElementById('cEmail') || {}).value || '').trim();
   var notes    = ((document.getElementById('cNotes') || {}).value || '').trim();
-  var consent          = document.getElementById('cConsent') && document.getElementById('cConsent').checked;
   var marketingConsent = document.getElementById('cMarketingConsent') && document.getElementById('cMarketingConsent').checked;
 
-  if (!coverage || !first || !last || !phone || !email || !consent) {
+  if (!coverage || !first || !last || !phone || !email) {
     errEl.style.display = 'block';
     return;
   }
