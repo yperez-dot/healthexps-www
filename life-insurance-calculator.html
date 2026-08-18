@@ -2044,10 +2044,23 @@ function updateUI() {
   var fexCta = document.getElementById('fex-cta-lbl'); if (fexCta) fexCta.textContent = str('fexCtaLbl') || 'Get My Free Consultation →';
 }
 
+function trackCalcEvent(name, params) {
+  if (typeof gtag !== 'function') return;
+  var payload = Object.assign({
+    page: window.location.pathname,
+    language: (typeof S !== 'undefined' && S.language) || 'en'
+  }, params || {});
+  gtag('event', name, payload);
+}
+
 function goScreen(id) {
   document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
   document.getElementById(id).classList.add('active');
   updateProgress(id);
+  if (id === 's1' && !S.calcStartFired) {
+    S.calcStartFired = true;
+    trackCalcEvent('calc_start');
+  }
 
   // Item 4: slim bar / full nav
   var fullNav = document.getElementById('calc-full-nav');
@@ -2342,6 +2355,14 @@ function showResult() {
     goScreen('sReview');
     saveState();
     return;
+  }
+
+  if (!S.calcNeedFired) {
+    S.calcNeedFired = true;
+    trackCalcEvent('calc_need_viewed', {
+      coverage_estimate: S.recommended || 0,
+      product_fit: S.product_fit || ''
+    });
   }
 
   if (S.product_fit === 'final_expense' || S.recommended === 0) {
@@ -2842,10 +2863,8 @@ async function submitToGHL(completion) {
   S.timestamp = new Date().toISOString();
   S.score = computeScore();
 
-  if (typeof gtag === 'function' && (completion === 'partial' || completion === 'rate_viewed' || completion === 'complete')) {
-    gtag('event', 'calc_' + (completion === 'rate_viewed' ? 'rate_viewed' : completion), {
-      page: window.location.pathname,
-      language: S.language || 'en',
+  if (completion === 'partial' || completion === 'rate_viewed' || completion === 'complete') {
+    trackCalcEvent('calc_' + completion, {
       lead_score: S.score,
       coverage_estimate: S.recommended || 0,
       product_fit: S.product_fit || ''
@@ -2981,6 +3000,13 @@ function checkZip() {
 //   'calc_partial'       — email captured (sResult email box or sEmailGate), gate not yet submitted
 //   'calc_rate_viewed'   — rate estimate shown; at least email is on file
 //   'calc_complete'      — full gate (first/last/phone/email/consent) submitted
+//
+// GA4 EVENTS (gtag, independent of GHL):
+//   calc_start           — first question screen (no PII)
+//   calc_need_viewed     — coverage estimate shown (no email yet)
+//   calc_partial         — email captured
+//   calc_rate_viewed     — monthly rate shown
+//   calc_complete        — full contact gate submitted
 //
 // LEAD QUALITY TAGS (added once per complete submission):
 //   'hot-lead'           — score >= 70 (high need, young children, no existing coverage, high income)
