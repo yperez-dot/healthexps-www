@@ -713,23 +713,26 @@
 
 
   <!-- New blog posts added 2026-07-19 -->
-  <loc>https://www.healthexps.com/blog/are-health-insurance-premiums-subject-to-fica/</loc>
-  <loc>https://www.healthexps.com/blog/florida-health-insurance-subsidy-expiration-2026/</loc>
-  <loc>https://www.healthexps.com/blog/lost-medicaid-coverage-florida/</loc>
-  <loc>https://www.healthexps.com/blog/what-is-irmaa-avoid-medicare-surcharge/</loc>
-  <loc>https://www.healthexps.com/blog/aca-marketplace-health-insurance-miami-2026/</loc>
-  <loc>https://www.healthexps.com/blog/cobra-vs-marketplace-losing-job-coverage/</loc>
-  <loc>https://www.healthexps.com/blog/dual-eligible-medicare-medicaid-miami/</loc>
-  <loc>https://www.healthexps.com/blog/medicare-enrollment-periods-explained/</loc>
-  <loc>https://www.healthexps.com/blog/uhealth-unitedhealthcare-medicare-advantage-network-change/</loc>
+<url><loc>https://www.healthexps.com/blog/are-health-insurance-premiums-subject-to-fica/</loc><lastmod>2026-07-19</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+<url><loc>https://www.healthexps.com/blog/florida-health-insurance-subsidy-expiration-2026/</loc><lastmod>2026-07-19</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+<url><loc>https://www.healthexps.com/blog/lost-medicaid-coverage-florida/</loc><lastmod>2026-07-19</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+<url><loc>https://www.healthexps.com/blog/what-is-irmaa-avoid-medicare-surcharge/</loc><lastmod>2026-07-19</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+<url><loc>https://www.healthexps.com/blog/aca-marketplace-health-insurance-miami-2026/</loc><lastmod>2026-07-19</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+<url><loc>https://www.healthexps.com/blog/cobra-vs-marketplace-losing-job-coverage/</loc><lastmod>2026-07-19</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+<url><loc>https://www.healthexps.com/blog/dual-eligible-medicare-medicaid-miami/</loc><lastmod>2026-07-19</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+<url><loc>https://www.healthexps.com/blog/medicare-enrollment-periods-explained/</loc><lastmod>2026-07-19</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+<url><loc>https://www.healthexps.com/blog/uhealth-unitedhealthcare-medicare-advantage-network-change/</loc><lastmod>2026-07-19</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <!-- ES blog pipeline posts (2026-07-27) — proper url+hreflang entries -->
 <url><loc>https://www.healthexps.com/es/blog/periodos-de-inscripcion-medicare/</loc><lastmod>2026-07-27</lastmod><changefreq>monthly</changefreq><priority>0.7</priority>
   <xhtml:link rel="alternate" hreflang="es" href="https://www.healthexps.com/es/blog/periodos-de-inscripcion-medicare/"/>
   <xhtml:link rel="alternate" hreflang="en" href="https://www.healthexps.com/blog/medicare-enrollment-periods-explained/"/>
 </url>
-<url><loc>https://www.healthexps.com/es/blog/doble-elegibilidad-medicare-medicaid-miami/</loc><lastmod>2026-07-27</lastmod><changefreq>monthly</changefreq><priority>0.7</priority>
+<url><loc>https://www.healthexps.com/es/blog/doble-elegibilidad-medicare-medicaid-miami/</loc><lastmod>2026-08-18</lastmod><changefreq>monthly</changefreq><priority>0.7</priority>
   <xhtml:link rel="alternate" hreflang="es" href="https://www.healthexps.com/es/blog/doble-elegibilidad-medicare-medicaid-miami/"/>
   <xhtml:link rel="alternate" hreflang="en" href="https://www.healthexps.com/blog/dual-eligible-medicare-medicaid-miami/"/>
+</url>
+<url><loc>https://www.healthexps.com/es/blog/costo-medicare-dsnp/</loc><lastmod>2026-08-18</lastmod><changefreq>monthly</changefreq><priority>0.7</priority>
+  <xhtml:link rel="alternate" hreflang="es" href="https://www.healthexps.com/es/blog/costo-medicare-dsnp/"/>
 </url>
 <url><loc>https://www.healthexps.com/es/blog/cobra-vs-mercado-de-salud/</loc><lastmod>2026-07-27</lastmod><changefreq>monthly</changefreq><priority>0.7</priority>
   <xhtml:link rel="alternate" hreflang="es" href="https://www.healthexps.com/es/blog/cobra-vs-mercado-de-salud/"/>
