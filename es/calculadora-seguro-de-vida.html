@@ -2541,6 +2541,16 @@ async function submitToGHL(completion) {
   S.completion = completion;
   S.timestamp = new Date().toISOString();
   S.score = computeScore();
+
+  if (typeof gtag === 'function' && (completion === 'partial' || completion === 'rate_viewed' || completion === 'complete')) {
+    gtag('event', 'calc_' + (completion === 'rate_viewed' ? 'rate_viewed' : completion), {
+      page: window.location.pathname,
+      language: S.language || 'es',
+      lead_score: S.score,
+      coverage_estimate: S.recommended || 0,
+      product_fit: S.product_fit || ''
+    });
+  }
   
   const payload = {
     firstName: S.fname,
