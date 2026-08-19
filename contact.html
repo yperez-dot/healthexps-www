@@ -564,7 +564,14 @@ img { max-width: 100%; height: auto; }
             <textarea id="cNotes" rows="3" placeholder="Anything you'd like to share about your situation?"></textarea>
           </div>
 
-          <!-- Marketing consent (optional) -->
+          <!-- SMS Consent Checkboxes -->
+          <div class="ff-consent">
+            <input type="checkbox" id="cInfoConsent"/>
+            <label for="cInfoConsent">
+              I Consent to Receive SMS Notifications, Alerts and appointment notifications from The Health Experts Insurance. Message frequency varies. Message &amp; data rates may apply. Text HELP for assistance. You can reply STOP to unsubscribe at any time.
+            </label>
+          </div>
+
           <div class="ff-consent">
             <input type="checkbox" id="cMarketingConsent"/>
             <label for="cMarketingConsent">
@@ -723,6 +730,7 @@ function submitContactForm() {
   var phone    = ((document.getElementById('cPhone') || {}).value || '').trim();
   var email    = ((document.getElementById('cEmail') || {}).value || '').trim();
   var notes    = ((document.getElementById('cNotes') || {}).value || '').trim();
+  var infoConsent      = document.getElementById('cInfoConsent') && document.getElementById('cInfoConsent').checked;
   var marketingConsent = document.getElementById('cMarketingConsent') && document.getElementById('cMarketingConsent').checked;
 
   if (!coverage || !first || !last || !phone || !email) {
@@ -747,7 +755,7 @@ function submitContactForm() {
       source:             'Contact Page Form',
       page:               window.location.href,
       submitted_at:       new Date().toISOString(),
-      sms_informational:  true,
+      sms_informational:  infoConsent,
       sms_marketing:      marketingConsent
     })
   })

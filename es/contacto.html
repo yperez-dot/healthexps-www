@@ -533,9 +533,15 @@ for(var k=0;k<_navLinks.length;k++){
  <label style="display:block;font-size:13px;font-weight:700;color:#452068;text-transform:uppercase;letter-spacing:.05em;margin-bottom:6px;">¿Algo que quieras compartir? <span style="font-weight:400;text-transform:none;color:#888;">(opcional)</span></label>
  <textarea name="additional_notes" id="additional_notes_es" placeholder="Ej. Necesito mantener a mi cardólogo en Baptist Health, o tomo 3 medicamentos..." style="width:100%;padding:12px 14px;border:2px solid #e5e5e5;border-radius:8px;font-size:15px;font-family:Arial,sans-serif;min-height:80px;resize:vertical;box-sizing:border-box;"></textarea>
  </div>
- <div style="display:flex;align-items:flex-start;gap:10px;margin:18px 0;">
- <input type="checkbox" id="esContactConsent" name="consent" id="consent_es" style="margin-top:4px;flex-shrink:0;" required>
- <label for="esContactConsent" style="font-size:13px;color:#555;line-height:1.5;">Al enviar este formulario, doy mi consentimiento para recibir llamadas, mensajes de texto y correos electrónicos de The Health Experts Insurance al número e email proporcionados, incluyendo marcación automatizada. El consentimiento no es necesario para adquirir servicios.</label>
+ <!-- Casillas de consentimiento SMS -->
+ <div style="display:flex;align-items:flex-start;gap:10px;margin:18px 0 10px;">
+ <input type="checkbox" id="esInfoConsent" name="sms_informational" style="margin-top:4px;flex-shrink:0;">
+ <label for="esInfoConsent" style="font-size:13px;color:#555;line-height:1.5;">Doy mi consentimiento para recibir notificaciones SMS, alertas y notificaciones de citas de The Health Experts Insurance. La frecuencia de los mensajes puede variar. Pueden aplicarse tarifas de mensajes y datos. Escriba HELP para obtener ayuda. Puede responder STOP en cualquier momento para cancelar su suscripción.</label>
+ </div>
+
+ <div style="display:flex;align-items:flex-start;gap:10px;margin:0 0 18px;">
+ <input type="checkbox" id="esMarketingConsent" name="sms_marketing" style="margin-top:4px;flex-shrink:0;">
+ <label for="esMarketingConsent" style="font-size:13px;color:#555;line-height:1.5;">Al marcar esta casilla, acepto recibir mensajes de marketing ocasionales de The Health Experts Insurance. Pueden aplicarse tarifas de mensajes y datos. Escriba HELP para obtener ayuda. Puede responder STOP en cualquier momento para cancelar su suscripción.</label>
  </div>
  <button type="submit" style="width:100%;background:#ff1090;color:white;border:none;padding:14px;border-radius:50px;font-size:16px;font-weight:700;cursor:pointer;font-family:Arial,sans-serif;margin-top:4px;">Enviar mi mensaje →</button>
  </form>
