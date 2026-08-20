@@ -413,6 +413,7 @@ input:focus, textarea:focus, select:focus { outline: 2px solid #ff1090; outline-
             <div>
               <div style="font-weight:700;color:#241a30;font-size:14px;margin-bottom:6px">Don&#8217;t have 40 work credits? QMB can still help.</div>
               <div style="font-size:13px;color:#6f6478;line-height:1.6">If you need to buy into Medicare Part A because you have fewer than 40 work credits, <strong style="color:#241a30">QMB is the only MSP program that covers your Part A premium</strong>. SLMB and QI only help with Part B.<br><br><strong style="color:#241a30">Must be done by phone &#8212; not online.</strong> Call SSA at <strong style="color:#241a30">1-800-772-1213</strong> and ask to schedule a phone appointment specifically to apply for <strong style="color:#241a30">&#8220;Conditional Part A and Part B.&#8221;</strong> During the appointment, use these exact words: <strong style="color:#241a30">&#8220;I am applying for Conditional Part A because I have fewer than 40 work credits and I am applying for the QMB program through Florida Medicaid.&#8221;</strong><br><br>If the agent seems unfamiliar with the process, ask them to look up <strong style="color:#241a30"><a href="https://secure.ssa.gov/poms.nsf/lnx/0600801140" target="_blank" style="color:#452068;text-decoration:underline">POMS Section HI 00801.140</a></strong> &#8212; the federal policy (updated Jan 2025) that instructs them to bill Florida Medicaid instead of you.</div>
+              <a href="#faq6-anchor" style="display:inline-block;margin-top:14px;font-size:13px;font-weight:700;color:#452068;border-bottom:2px solid #f0a500;padding-bottom:2px">See the full step-by-step process &#8595;</a>
             </div>
           </div>
 
@@ -630,7 +631,7 @@ input:focus, textarea:focus, select:focus { outline: 2px solid #ff1090; outline-
             <div id="faq5" class="msp-faq-answer" style="padding:0 20px 18px;font-size:13.5px;color:#6f6478;line-height:1.6">Check anyway &#8212; countable income excludes the first $20 of most income and first $65 of earned income, so your real countable income is often lower than your gross pay.</div>
           </div>
 
-          <div style="background:#fff;border:1px solid #ece5f0;border-radius:14px;overflow:hidden">
+          <div id="faq6-anchor" style="background:#fff;border:1px solid #ece5f0;border-radius:14px;overflow:hidden">
             <button class="msp-faq-btn" onclick="toggleFaq('faq6')">
               Can I qualify if I don&#8217;t have 40 work credits for Medicare?
               <span id="faq6Icon" style="font-size:20px;font-weight:400;flex-shrink:0;margin-left:12px">+</span>
@@ -810,6 +811,16 @@ function toggleFaq(id) {
   var icon = document.getElementById(id + 'Icon');
   var open = el.classList.toggle('open');
   icon.textContent = open ? '\u2212' : '+';
+}
+// Auto-open faq6 when arriving via #faq6-anchor link
+if (window.location.hash === '#faq6-anchor') {
+  window.addEventListener('DOMContentLoaded', function () {
+    var el = document.getElementById('faq6');
+    var icon = document.getElementById('faq6Icon');
+    if (el && icon) { el.classList.add('open'); icon.textContent = '\u2212'; }
+    var target = document.getElementById('faq6-anchor');
+    if (target) setTimeout(function(){ target.scrollIntoView({ behavior: 'smooth', block: 'start' }); }, 200);
+  });
 }
 
 // ---- Lead form submission ----
