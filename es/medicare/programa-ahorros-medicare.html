@@ -342,6 +342,15 @@ input:focus, textarea:focus, select:focus { outline: 2px solid #ff1090; outline-
             <div style="font-size:12.5px;font-weight:700;color:#c40074;background:#fff0f8;display:inline-block;padding:6px 12px;border-radius:999px">M&aacute;s completo &#8212; hasta $7,500+/a&ntilde;o</div>
           </div>
 
+          <!-- Menos de 40 créditos callout -->
+          <div style="background:#fff7ec;border:1.5px solid #f0a500;border-radius:14px;padding:20px 24px;display:flex;gap:14px;align-items:flex-start">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#f0a500" stroke-width="2.2" style="flex-shrink:0;margin-top:2px"><circle cx="12" cy="12" r="9"/><path d="M12 8v4M12 16v.01"/></svg>
+            <div>
+              <div style="font-weight:700;color:#241a30;font-size:14px;margin-bottom:6px">&iquest;No tienes 40 cr&eacute;ditos de trabajo? QMB puede ayudarte igual.</div>
+              <div style="font-size:13px;color:#6f6478;line-height:1.6">Si necesitas comprar la Parte A de Medicare porque tienes menos de 40 cr&eacute;ditos, <strong style="color:#241a30">QMB es el &uacute;nico programa MSP que cubre tu prima de la Parte A</strong>. SLMB y QI solo ayudan con la Parte B.<br><br><strong style="color:#241a30">Debe hacerse por tel&eacute;fono &#8212; no en l&iacute;nea.</strong> Llama al SSA al <strong style="color:#241a30">1-800-772-1213</strong> y pide programar una cita telef&oacute;nica para solicitar la <em>&#8220;Parte A Condicional y Parte B.&#8221;</em> Durante la cita, usa estas palabras exactas: <em>&#8220;Estoy solicitando la Parte A Condicional porque tengo menos de 40 cr&eacute;ditos de trabajo y estoy solicitando el programa QMB a trav&eacute;s de Florida Medicaid.&#8221;</em><br><br>Si el agente parece no conocer el proceso, p&iacute;dele que busque <strong style="color:#241a30"><a href="https://secure.ssa.gov/poms.nsf/lnx/0600801140" target="_blank" style="color:#452068;text-decoration:underline">POMS Secci&oacute;n HI 00801.140</a></strong> &#8212; la pol&iacute;tica federal (actualizada ene 2025) que le indica c&oacute;mo facturar a Florida Medicaid en lugar de a ti.</div>
+            </div>
+          </div>
+
           <!-- SLMB -->
           <div style="border:1px solid #ece5f0;border-radius:16px;padding:26px">
             <div style="font-family:Poppins,sans-serif;font-weight:700;font-size:18px;color:#241a30;margin-bottom:2px">SLMB</div>
@@ -466,7 +475,7 @@ input:focus, textarea:focus, select:focus { outline: 2px solid #ff1090; outline-
           <div>
             <div style="width:32px;height:32px;border-radius:50%;background:#ff1090;color:#fff;font-weight:700;font-size:14px;display:flex;align-items:center;justify-content:center;margin-bottom:10px">3</div>
             <div style="font-weight:700;font-size:13.5px;color:#241a30;margin-bottom:6px">Espera ~45 d&iacute;as</div>
-            <div style="font-size:12px;color:#6f6478;line-height:1.5">Los beneficios generalmente son retroactivos al mes en que solicitaste.</div>
+            <div style="font-size:12px;color:#6f6478;line-height:1.5">Los beneficios generalmente son retroactivos al mes en que solicitaste. <em>&iquest;Menos de 40 cr&eacute;ditos? Solicita la &#8220;Parte A Condicional&#8221; al SSA primero &#8212; llama al 1-800-772-1213.</em></div>
           </div>
           <div>
             <div style="width:32px;height:32px;border-radius:50%;background:#ff1090;color:#fff;font-weight:700;font-size:14px;display:flex;align-items:center;justify-content:center;margin-bottom:10px">4</div>
@@ -554,6 +563,14 @@ input:focus, textarea:focus, select:focus { outline: 2px solid #ff1090; outline-
               <span id="faq5Icon" style="font-size:20px;font-weight:400;flex-shrink:0;margin-left:12px">+</span>
             </button>
             <div id="faq5" class="msp-faq-answer" style="padding:0 20px 18px;font-size:13.5px;color:#6f6478;line-height:1.6">Solicita de todas formas &#8212; los ingresos contables excluyen los primeros $20 de la mayor&iacute;a de los ingresos y los primeros $65 de ingresos ganados, por lo que tus ingresos reales suelen ser m&aacute;s bajos que tu pago bruto.</div>
+          </div>
+
+          <div style="background:#fff;border:1px solid #ece5f0;border-radius:14px;overflow:hidden">
+            <button class="msp-faq-btn" onclick="toggleFaq('faq6')">
+              &iquest;Puedo calificar si no tengo 40 cr&eacute;ditos de trabajo para Medicare?
+              <span id="faq6Icon" style="font-size:20px;font-weight:400;flex-shrink:0;margin-left:12px">+</span>
+            </button>
+            <div id="faq6" class="msp-faq-answer" style="padding:0 20px 18px;font-size:13.5px;color:#6f6478;line-height:1.6">S&iacute; &#8212; puedes calificar para el MSP incluso sin 40 cr&eacute;ditos de trabajo. Sigue esta secuencia exacta:<br><br><strong style="color:#241a30">Paso 1 &#8212; Llama al SSA al 1-800-772-1213</strong> (no se puede hacer en l&iacute;nea). Pide programar una cita telef&oacute;nica para solicitar la <em>&#8220;Parte A Condicional y Parte B.&#8221;</em> Durante la cita, di: <em>&#8220;Estoy solicitando la Parte A Condicional porque tengo menos de 40 cr&eacute;ditos de trabajo y estoy solicitando el programa QMB a trav&eacute;s de Florida Medicaid.&#8221;</em> Esto evita que te facturen &#8212; el gobierno le factura a Florida mientras se procesa tu QMB.<br><br><strong style="color:#241a30">&#9888; Error com&uacute;n:</strong> Algunos agentes del SSA no procesan solicitudes Condicionales a diario y pueden decirte que no puedes inscribirte sin 40 cr&eacute;ditos. Si esto ocurre, p&iacute;deles amablemente que busquen <strong style="color:#241a30"><a href="https://secure.ssa.gov/poms.nsf/lnx/0600801140" target="_blank" style="color:#452068;text-decoration:underline">POMS Secci&oacute;n HI 00801.140</a></strong> &#8212; la pol&iacute;tica federal oficial (actualizada ene 2025) que les indica c&oacute;mo procesar este tipo de solicitud.<br><br><strong style="color:#241a30">Paso 2 &#8212; Solicita QMB a trav&eacute;s del DCF de Florida</strong> en access.florida.gov. Lleva comprobante de ingresos, estados de cuenta bancarios (menos de $9,950) y tu ID de Florida.<br><br><strong style="color:#241a30">Paso 3 &#8212; Espera ~30 d&iacute;as.</strong> Una vez aprobado, Florida notifica al gobierno federal y tus primas de la Parte A y Parte B quedan cubiertas. Los proveedores no pueden cobrarte deducibles ni copagos por servicios cubiertos por Medicare.<br><br>SLMB y QI solo cubren la prima de la Parte B &#8212; <strong style="color:#241a30">QMB es el &uacute;nico MSP que ayuda si est&aacute;s comprando la Parte A.</strong></div>
           </div>
 
         </div>
