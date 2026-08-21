@@ -25,6 +25,8 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy("favicon.ico");
   eleventyConfig.addPassthroughCopy("robots.txt");
   eleventyConfig.addPassthroughCopy("sitemap.xml");
+  // Needed when publish dir is _site (CLI deploy + Netlify git builds)
+  eleventyConfig.addPassthroughCopy("_redirects");
 
   // ── Collections (future-dated posts filtered at build time) ───────────────
   const now = new Date();
