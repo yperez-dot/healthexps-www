@@ -170,10 +170,13 @@ function assessSpam(data) {
     data.additional_notes || data.notes || data.message || ''
   ).trim();
 
-  // Name + phone are required for lead forms; email is optional on some pages (e.g. AvMed)
-  if (!first || !last || !phone) return 'missing_fields';
-  if (!isValidUsPhone(phone)) return 'bad_phone';
-  if (looksLikeBotName(first, last)) return 'bot_name';
+  // Need at least one contact method (calculator partials may be email-only)
+  if (!phone && !email) return 'missing_contact';
+
+  if (phone && !isValidUsPhone(phone)) return 'bad_phone';
+
+  // When both name parts exist, reject bot-like duplicates
+  if (first && last && looksLikeBotName(first, last)) return 'bot_name';
 
   if (email) {
     if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) return 'bad_email';
