@@ -520,9 +520,12 @@ img { max-width: 100%; height: auto; }
 
         <!-- Form body -->
         <div id="cFormBody">
+          <form id="enContactForm" novalidate>
+          <!-- Honeypot: hidden from humans, bots fill it in -->
+          <input type="text" name="_hp_name" id="_hp_name" autocomplete="off" tabindex="-1" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0;pointer-events:none;" value="">
           <div class="ff">
             <label for="cCoverage">What are you looking for? <em>*</em></label>
-            <select id="cCoverage" required>
+            <select id="cCoverage" name="coverage_type" required>
               <option value="">Select a topic...</option>
               <option value="Medicare — Advantage, Supplement or Part D">Medicare &mdash; Advantage, Supplement or Part D</option>
               <option value="ACA Marketplace Plan">ACA Marketplace Plan</option>
@@ -540,40 +543,40 @@ img { max-width: 100%; height: auto; }
           <div class="ff-row">
             <div class="ff">
               <label for="cFirst">First Name <em>*</em></label>
-              <input type="text" id="cFirst" placeholder="First name" required/>
+              <input type="text" id="cFirst" name="first_name" placeholder="First name" required/>
             </div>
             <div class="ff">
               <label for="cLast">Last Name <em>*</em></label>
-              <input type="text" id="cLast" placeholder="Last name" required/>
+              <input type="text" id="cLast" name="last_name" placeholder="Last name" required/>
             </div>
           </div>
 
           <div class="ff">
             <label for="cPhone">Phone Number <em>*</em></label>
-            <input type="tel" id="cPhone" placeholder="(305) 000-0000" required/>
+            <input type="tel" id="cPhone" name="phone" placeholder="(305) 000-0000" required/>
           </div>
 
           <div class="ff">
             <label for="cEmail">Email Address <em>*</em></label>
-            <input type="email" id="cEmail" placeholder="you@example.com" required/>
+            <input type="email" id="cEmail" name="email" placeholder="you@example.com" required/>
           </div>
 
           <!-- Additional Notes BEFORE consent checkbox -->
           <div class="ff">
             <label for="cNotes">Additional Notes (optional)</label>
-            <textarea id="cNotes" rows="3" placeholder="Anything you'd like to share about your situation?"></textarea>
+            <textarea id="cNotes" name="notes" rows="3" placeholder="Anything you'd like to share about your situation?"></textarea>
           </div>
 
           <!-- SMS Consent Checkboxes -->
           <div class="ff-consent">
-            <input type="checkbox" id="cInfoConsent"/>
+            <input type="checkbox" id="cInfoConsent" name="sms_informational"/>
             <label for="cInfoConsent">
               I Consent to Receive SMS Notifications, Alerts and appointment notifications from The Health Experts Insurance. Message frequency varies. Message &amp; data rates may apply. Text HELP for assistance. You can reply STOP to unsubscribe at any time.
             </label>
           </div>
 
           <div class="ff-consent">
-            <input type="checkbox" id="cMarketingConsent"/>
+            <input type="checkbox" id="cMarketingConsent" name="sms_marketing"/>
             <label for="cMarketingConsent">
               By checking this box, I agree to receive occasional marketing messages from The Health Experts Insurance. Message &amp; data rates may apply. Text HELP for assistance. You can reply STOP to unsubscribe at any time.
             </label>
@@ -581,7 +584,8 @@ img { max-width: 100%; height: auto; }
 
           <p id="cError" class="ff-error">Please fill in all required fields and accept the consent.</p>
 
-          <button id="contactBtn" type="button" onclick="submitContactForm()">Send My Message &rarr;</button>
+          <button id="contactBtn" type="submit">Send My Message &rarr;</button>
+          </form>
         </div>
 
         <!-- Success state -->
@@ -717,64 +721,87 @@ img { max-width: 100%; height: auto; }
 </script>
 
 <!-- Scroll to top -->
-<!-- Contact form submission -->
+<!-- Contact form submission (proxied + anti-bot) -->
+<script src="/js/form-spam-guard.js"></script>
 <script>
-var CONTACT_WEBHOOK = 'https://services.leadconnectorhq.com/hooks/RINM4TCnM4hN06UA1aK0/webhook-trigger/1238c14d-f70a-49d5-a409-32d8e055d735';
+(function(){
+  var form = document.getElementById('enContactForm');
+  if (!form || !window.FormSpamGuard) return;
+  var guard = FormSpamGuard.attach(form);
+  var btn = document.getElementById('contactBtn');
+  var errEl = document.getElementById('cError');
 
-function submitContactForm() {
-  var btn      = document.getElementById('contactBtn');
-  var errEl    = document.getElementById('cError');
-  var coverage = (document.getElementById('cCoverage') || {}).value || '';
-  var first    = ((document.getElementById('cFirst') || {}).value || '').trim();
-  var last     = ((document.getElementById('cLast') || {}).value || '').trim();
-  var phone    = ((document.getElementById('cPhone') || {}).value || '').trim();
-  var email    = ((document.getElementById('cEmail') || {}).value || '').trim();
-  var notes    = ((document.getElementById('cNotes') || {}).value || '').trim();
-  var infoConsent      = document.getElementById('cInfoConsent') && document.getElementById('cInfoConsent').checked;
-  var marketingConsent = document.getElementById('cMarketingConsent') && document.getElementById('cMarketingConsent').checked;
+  form.addEventListener('submit', function(e){
+    e.preventDefault();
+    var coverage = ((document.getElementById('cCoverage') || {}).value || '').trim();
+    var first    = ((document.getElementById('cFirst') || {}).value || '').trim();
+    var last     = ((document.getElementById('cLast') || {}).value || '').trim();
+    var phone    = ((document.getElementById('cPhone') || {}).value || '').trim();
+    var email    = ((document.getElementById('cEmail') || {}).value || '').trim();
+    var notes    = ((document.getElementById('cNotes') || {}).value || '').trim();
+    var infoConsent = document.getElementById('cInfoConsent') && document.getElementById('cInfoConsent').checked;
+    var marketingConsent = document.getElementById('cMarketingConsent') && document.getElementById('cMarketingConsent').checked;
 
-  if (!coverage || !first || !last || !phone || !email) {
-    errEl.style.display = 'block';
-    return;
-  }
-
-  errEl.style.display = 'none';
-  btn.disabled = true;
-  btn.textContent = 'Sending...';
-
-  fetch(CONTACT_WEBHOOK, {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({
+    var fields = {
+      first_name: first,
+      last_name: last,
+      phone: phone,
+      email: email,
+      notes: notes,
       coverage_type: coverage,
-      first_name:    first,
-      last_name:     last,
-      phone:         phone,
-      email:         email,
-      notes:         notes,
-      source:             'Contact Page Form',
-      page:               window.location.href,
-      submitted_at:       new Date().toISOString(),
-      sms_informational:  infoConsent,
-      sms_marketing:      marketingConsent
-    })
-  })
-  .then(function(res){
-    if (res.ok) {
+      additional_notes: notes
+    };
+
+    if (guard.isBot() || guard.clientSpam(fields)) {
       document.getElementById('cFormBody').style.display = 'none';
-      document.getElementById('cSuccess').style.display  = 'block';
-      gtag('event', 'contact_form_submit', { page: window.location.pathname });
-    } else {
-      throw new Error('Server error');
+      document.getElementById('cSuccess').style.display = 'block';
+      return;
     }
-  })
-  .catch(function(){
-    btn.disabled = false;
-    btn.textContent = 'Send My Message \u2192';
-    errEl.style.display = 'block';
-    errEl.textContent = 'Something went wrong. Please try again or call 1-800-380-6821.';
+
+    if (!coverage || !first || !last || !phone || !email) {
+      errEl.style.display = 'block';
+      errEl.textContent = 'Please fill in all required fields.';
+      return;
+    }
+    if (!FormSpamGuard.isValidUsPhone(phone)) {
+      errEl.style.display = 'block';
+      errEl.textContent = 'Please enter a valid 10-digit U.S. phone number.';
+      return;
+    }
+
+    errEl.style.display = 'none';
+    btn.disabled = true;
+    btn.textContent = 'Sending...';
+
+    var payload = Object.assign({}, fields, guard.meta(), {
+      source_key: 'en-contact',
+      source: 'Contact Page Form',
+      page: window.location.href,
+      submitted_at: new Date().toISOString(),
+      sms_informational: infoConsent,
+      sms_marketing: marketingConsent
+    });
+
+    FormSpamGuard.submit(payload)
+      .then(function(result){
+        if (result.body && result.body.ok) {
+          document.getElementById('cFormBody').style.display = 'none';
+          document.getElementById('cSuccess').style.display = 'block';
+          if (typeof gtag === 'function') {
+            gtag('event', 'contact_form_submit', { page: window.location.pathname });
+          }
+          return;
+        }
+        throw new Error('submit failed');
+      })
+      .catch(function(){
+        btn.disabled = false;
+        btn.textContent = 'Send My Message \u2192';
+        errEl.style.display = 'block';
+        errEl.textContent = 'Something went wrong. Please try again or call 1-800-380-6821.';
+      });
   });
-}
+})();
 </script>
 
 <script>

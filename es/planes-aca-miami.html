@@ -548,12 +548,14 @@ for(var k=0;k<_navLinks.length;k++){
     <div style="font-size:16px;font-weight:700;color:#166534;margin-bottom:4px;">¡Listo!</div>
     <div style="font-size:17px;color:#166534;">Nos pondremos en contacto dentro de 1 hora hábil. Para servicio más rápido, escríbenos por WhatsApp al (305) 464-6888.</div>
    </div>
-   <form action="https://services.leadconnectorhq.com/hooks/RINM4TCnM4hN06UA1aK0/webhook-trigger/cNWs0DqK73DvGCTLzGHI" method="POST" id="acaFormEs">
+   <form method="POST" id="acaFormEs" novalidate>
+    <!-- Honeypot: hidden from humans, bots fill it in -->
+    <input type="text" name="_hp_name" id="_hp_name" autocomplete="off" tabindex="-1" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0;pointer-events:none;" value="">
     <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:18px;">
      <div><label style="display:block;font-size:17px;font-weight:700;color:#333;margin-bottom:6px;">Nombre</label><input type="text" name="first_name" required style="width:100%;padding:12px 14px;border:2px solid #e5e5e5;border-radius:8px;font-size:18px;font-family:Arial,sans-serif;box-sizing:border-box;"></div>
      <div><label style="display:block;font-size:17px;font-weight:700;color:#333;margin-bottom:6px;">Apellido</label><input type="text" name="last_name" required style="width:100%;padding:12px 14px;border:2px solid #e5e5e5;border-radius:8px;font-size:18px;font-family:Arial,sans-serif;box-sizing:border-box;"></div>
     </div>
-    <div style="margin-bottom:18px;"><label style="display:block;font-size:17px;font-weight:700;color:#333;margin-bottom:6px;">Teléfono</label><input type="tel" name="phone" required style="width:100%;padding:12px 14px;border:2px solid #e5e5e5;border-radius:8px;font-size:18px;font-family:Arial,sans-serif;box-sizing:border-box;"></div>
+    <div style="margin-bottom:18px;"><label style="display:block;font-size:17px;font-weight:700;color:#333;margin-bottom:6px;">Teléfono</label><input type="tel" name="phone" placeholder="(305) 555-0100" required style="width:100%;padding:12px 14px;border:2px solid #e5e5e5;border-radius:8px;font-size:18px;font-family:Arial,sans-serif;box-sizing:border-box;"></div>
     <div style="margin-bottom:18px;"><label style="display:block;font-size:17px;font-weight:700;color:#333;margin-bottom:6px;">Correo electrónico</label><input type="email" name="email" required style="width:100%;padding:12px 14px;border:2px solid #e5e5e5;border-radius:8px;font-size:18px;font-family:Arial,sans-serif;box-sizing:border-box;"></div>
     <div style="margin-bottom:18px;"><label style="display:block;font-size:17px;font-weight:700;color:#333;margin-bottom:6px;">¿Qué te trajo aquí?</label>
      <select name="aca_reason" style="width:100%;padding:12px 14px;border:2px solid #e5e5e5;border-radius:8px;font-size:18px;font-family:Arial,sans-serif;background:white;box-sizing:border-box;">
@@ -568,19 +570,58 @@ for(var k=0;k<_navLinks.length;k++){
     </div>
     <div style="margin-bottom:18px;"><label style="display:block;font-size:17px;font-weight:700;color:#333;margin-bottom:6px;">¿Algo que quieras compartir? <span style="font-weight:400;color:#5a5068;">(opcional)</span></label><textarea name="additional_notes" placeholder="Ej. Tengo 3 hijos, o mis ingresos cambiaron este año..." style="width:100%;padding:12px 14px;border:2px solid #e5e5e5;border-radius:8px;font-size:18px;font-family:Arial,sans-serif;min-height:80px;resize:vertical;box-sizing:border-box;"></textarea></div>
     <div style="display:flex;align-items:flex-start;gap:10px;margin:18px 0;"><input type="checkbox" id="acaConsentEs" name="consent" required style="margin-top:4px;flex-shrink:0;"><label for="acaConsentEs" style="font-size:16px;color:#3a2f47;line-height:1.5;">Al enviar este formulario, doy mi consentimiento para recibir llamadas, mensajes de texto y correos de The Health Experts Insurance. El consentimiento no es necesario para adquirir servicios.</label></div>
+    <p id="acaFormEsError" style="display:none;color:#c40074;font-size:16px;margin:0 0 10px;"></p>
     <button type="submit" style="width:100%;background:#ff1090;color:white;border:none;padding:14px;border-radius:50px;font-size:16px;font-weight:700;cursor:pointer;font-family:Arial,sans-serif;">Ver mis opciones gratis →</button>
    </form>
   </div>
  </div>
 </section>
+<script src="/js/form-spam-guard.js"></script>
 <script>
-document.getElementById('acaFormEs').addEventListener('submit',function(e){
- e.preventDefault();
- var form=this;
- fetch(form.action,{method:'POST',body:new FormData(form)})
- .then(function(){document.getElementById('aca-es-success').style.display='block';form.style.display='none';})
- .catch(function(){form.submit();});
-});
+(function(){
+  var form = document.getElementById('acaFormEs');
+  if (!form || !window.FormSpamGuard) return;
+  var guard = FormSpamGuard.attach(form);
+  var successEl = document.getElementById('aca-es-success');
+  var errEl = document.getElementById('acaFormEsError');
+  form.addEventListener('submit', function(e){
+    e.preventDefault();
+    var btn = form.querySelector('button[type="submit"]');
+    var fields = FormSpamGuard.formToObject(form);
+    if (guard.isBot() || guard.clientSpam(fields)) {
+      FormSpamGuard.fakeSuccess(form, successEl);
+      return;
+    }
+    if (!fields.first_name || !fields.last_name || !fields.phone || !fields.email) {
+      if (errEl) { errEl.style.display = 'block'; errEl.textContent = 'Por favor complete todos los campos requeridos.'; }
+      return;
+    }
+    if (!FormSpamGuard.isValidUsPhone(fields.phone)) {
+      if (errEl) { errEl.style.display = 'block'; errEl.textContent = 'Ingrese un teléfono de EE.UU. válido de 10 dígitos.'; }
+      return;
+    }
+    if (errEl) errEl.style.display = 'none';
+    if (btn) { btn.disabled = true; btn.textContent = 'Enviando...'; }
+    var payload = Object.assign({}, fields, guard.meta(), {
+      source_key: 'es-aca',
+      source: 'Planes ACA ES',
+      page: window.location.href,
+      submitted_at: new Date().toISOString()
+    });
+    FormSpamGuard.submit(payload)
+      .then(function(result){
+        if (result.body && result.body.ok) {
+          FormSpamGuard.fakeSuccess(form, successEl);
+          return;
+        }
+        throw new Error('submit failed');
+      })
+      .catch(function(){
+        if (btn) { btn.disabled = false; btn.textContent = 'Ver mis opciones gratis →'; }
+        if (errEl) { errEl.style.display = 'block'; errEl.textContent = 'Algo salió mal. Llame al 1-800-380-6821.'; }
+      });
+  });
+})();
 </script>
 
 <!-- COMPARISON TABLE -->

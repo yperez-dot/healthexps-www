@@ -20,6 +20,7 @@ module.exports = function (eleventyConfig) {
 
   // ── Static asset passthrough ───────────────────────────────────────────────
   eleventyConfig.addPassthroughCopy("css");
+  eleventyConfig.addPassthroughCopy("js");
   eleventyConfig.addPassthroughCopy("images");
   eleventyConfig.addPassthroughCopy("favicon.ico");
   eleventyConfig.addPassthroughCopy("robots.txt");

@@ -497,7 +497,7 @@ for(var k=0;k<_navLinks.length;k++){
  <div style="font-size:16px;font-weight:700;color:#166534;margin-bottom:4px;">¡Mensaje recibido!</div>
  <div style="font-size:17px;color:#166534;">Nos comunicaremos con usted dentro de 1 hora hábil. Para servicio más rápido, escríbanos por WhatsApp al (305) 464-6888.</div>
  </div>
- <form action="https://services.leadconnectorhq.com/hooks/RINM4TCnM4hN06UA1aK0/webhook-trigger/VIGENUzik6Z1M83Y5cea" method="POST" id="esContactForm">
+ <form method="POST" id="esContactForm" novalidate>
   <!-- Honeypot: hidden from humans, bots fill it in -->
   <input type="text" name="_hp_name" id="_hp_name" autocomplete="off" tabindex="-1" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0;pointer-events:none;" value="">
  <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:16px;">
@@ -512,7 +512,7 @@ for(var k=0;k<_navLinks.length;k++){
  </div>
  <div style="margin-bottom:16px;">
  <label style="display:block;font-size:16px;font-weight:700;color:#452068;text-transform:uppercase;letter-spacing:.05em;margin-bottom:6px;">Teléfono</label>
- <input type="tel" name="phone" id="phone_es" style="width:100%;padding:12px 14px;border:2px solid #e5e5e5;border-radius:8px;font-size:18px;font-family:Arial,sans-serif;box-sizing:border-box;" required>
+ <input type="tel" name="phone" id="phone_es" placeholder="(305) 555-0100" style="width:100%;padding:12px 14px;border:2px solid #e5e5e5;border-radius:8px;font-size:18px;font-family:Arial,sans-serif;box-sizing:border-box;" required>
  </div>
  <div style="margin-bottom:16px;">
  <label style="display:block;font-size:16px;font-weight:700;color:#452068;text-transform:uppercase;letter-spacing:.05em;margin-bottom:6px;">Correo electrónico</label>
@@ -543,21 +543,71 @@ for(var k=0;k<_navLinks.length;k++){
  <input type="checkbox" id="esMarketingConsent" name="sms_marketing" style="margin-top:4px;flex-shrink:0;">
  <label for="esMarketingConsent" style="font-size:16px;color:#3a2f47;line-height:1.5;">Al marcar esta casilla, acepto recibir mensajes de marketing ocasionales de The Health Experts Insurance. Pueden aplicarse tarifas de mensajes y datos. Escriba HELP para obtener ayuda. Puede responder STOP en cualquier momento para cancelar su suscripción.</label>
  </div>
+ <p id="esContactError" style="display:none;color:#c40074;font-size:16px;margin:0 0 10px;">Por favor complete todos los campos con un teléfono de EE.UU. válido.</p>
  <button type="submit" style="width:100%;background:#ff1090;color:white;border:none;padding:14px;border-radius:50px;font-size:16px;font-weight:700;cursor:pointer;font-family:Arial,sans-serif;margin-top:4px;">Enviar mi mensaje →</button>
  </form>
  </div>
  </div>
  </div>
 </section>
+<script src="/js/form-spam-guard.js"></script>
 <script>
-var _formLoadTime_es = Date.now();
-document.getElementById('esContactForm').addEventListener('submit',function(e){
- e.preventDefault();
- var form=this;
- fetch(form.action,{method:'POST',body:new FormData(form)})
- .then(function(){document.getElementById('es-form-success').style.display='block';form.style.display='none';})
- .catch(function(){form.submit();});
-});
+(function(){
+  var form = document.getElementById('esContactForm');
+  if (!form || !window.FormSpamGuard) return;
+  var guard = FormSpamGuard.attach(form);
+  var errEl = document.getElementById('esContactError');
+  var successEl = document.getElementById('es-form-success');
+
+  form.addEventListener('submit', function(e){
+    e.preventDefault();
+    var btn = form.querySelector('button[type="submit"]');
+    var fields = FormSpamGuard.formToObject(form);
+    fields.sms_informational = !!(document.getElementById('esInfoConsent') && document.getElementById('esInfoConsent').checked);
+    fields.sms_marketing = !!(document.getElementById('esMarketingConsent') && document.getElementById('esMarketingConsent').checked);
+
+    // Silent drop for obvious bots (honeypot / too-fast / gibberish)
+    if (guard.isBot() || guard.clientSpam(fields)) {
+      FormSpamGuard.fakeSuccess(form, successEl);
+      return;
+    }
+
+    if (!fields.first_name || !fields.last_name || !fields.phone || !fields.email || !fields.contact_reason) {
+      if (errEl) { errEl.style.display = 'block'; errEl.textContent = 'Por favor complete todos los campos requeridos.'; }
+      return;
+    }
+    if (!FormSpamGuard.isValidUsPhone(fields.phone)) {
+      if (errEl) { errEl.style.display = 'block'; errEl.textContent = 'Ingrese un teléfono de EE.UU. válido de 10 dígitos.'; }
+      return;
+    }
+    if (errEl) errEl.style.display = 'none';
+    if (btn) { btn.disabled = true; btn.textContent = 'Enviando...'; }
+
+    var payload = Object.assign({}, fields, guard.meta(), {
+      source_key: 'es-contact',
+      source: 'NEW CONTACT PAGE SPANISH LEAD',
+      page: window.location.href,
+      submitted_at: new Date().toISOString()
+    });
+
+    FormSpamGuard.submit(payload)
+      .then(function(result){
+        // Filtered spam also returns ok — show success so bots learn nothing
+        if (result.body && result.body.ok) {
+          FormSpamGuard.fakeSuccess(form, successEl);
+          return;
+        }
+        throw new Error('submit failed');
+      })
+      .catch(function(){
+        if (btn) { btn.disabled = false; btn.textContent = 'Enviar mi mensaje →'; }
+        if (errEl) {
+          errEl.style.display = 'block';
+          errEl.textContent = 'Algo salió mal. Llame al 1-800-380-6821 o escríbanos por WhatsApp.';
+        }
+      });
+  });
+})();
 </script>
 
 <!-- FOOTER -->
