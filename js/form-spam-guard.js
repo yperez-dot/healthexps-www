@@ -1,14 +1,21 @@
 /**
- * Client-side helpers for lead forms that post through /.netlify/functions/submit-lead
- * Usage:
- *   var guard = FormSpamGuard.attach(formEl);
- *   // on submit:
- *   if (guard.isBot()) { show fake success; return; }
- *   var payload = Object.assign(FormSpamGuard.formToObject(formEl), guard.meta(), { source_key: 'es-contact' });
- *   FormSpamGuard.submit(payload).then(...)
+ * Sitewide lead-form spam guard.
+ *
+ * 1) Auto-intercepts fetch() calls to GoHighLevel webhook URLs and reroutes
+ *    them through /.netlify/functions/submit-lead (server-side spam filter).
+ * 2) Intercepts native <form action="...leadconnectorhq..."> submits the same way.
+ * 3) Exports FormSpamGuard for pages that post to the proxy explicitly.
  */
 (function (global) {
   'use strict';
+
+  if (global.__THEI_FORM_SPAM_GUARD__) return;
+  global.__THEI_FORM_SPAM_GUARD__ = true;
+
+  var PAGE_LOADED_AT = Date.now();
+  var GHL_RE =
+    /leadconnectorhq\.com\/hooks\/[^/]+\/webhook-trigger\/([^/?#]+)/i;
+  var PROXY = '/.netlify/functions/submit-lead';
 
   function digitsOnly(v) {
     return String(v || '').replace(/\D/g, '');
@@ -52,13 +59,17 @@
     return false;
   }
 
+  function getHpValue() {
+    var el = document.querySelector('input[name="_hp_name"]');
+    return el ? String(el.value || '') : '';
+  }
+
   function ensureHoneypot(form) {
     var existing = form.querySelector('[name="_hp_name"]');
     if (existing) return existing;
     var input = document.createElement('input');
     input.type = 'text';
     input.name = '_hp_name';
-    input.id = '_hp_name_' + Math.random().toString(36).slice(2, 8);
     input.setAttribute('autocomplete', 'off');
     input.setAttribute('tabindex', '-1');
     input.setAttribute('aria-hidden', 'true');
@@ -67,6 +78,72 @@
     input.value = '';
     form.insertBefore(input, form.firstChild);
     return input;
+  }
+
+  function formToObject(form) {
+    var fd = new FormData(form);
+    var obj = {};
+    fd.forEach(function (value, key) {
+      if (Object.prototype.hasOwnProperty.call(obj, key)) {
+        if (!Array.isArray(obj[key])) obj[key] = [obj[key]];
+        obj[key].push(value);
+      } else {
+        obj[key] = value;
+      }
+    });
+    return obj;
+  }
+
+  function bodyToObject(body) {
+    if (!body) return Promise.resolve({});
+    if (typeof body === 'string') {
+      try {
+        return Promise.resolve(JSON.parse(body));
+      } catch (e) {
+        return Promise.resolve({});
+      }
+    }
+    if (typeof FormData !== 'undefined' && body instanceof FormData) {
+      var obj = {};
+      body.forEach(function (value, key) {
+        obj[key] = value;
+      });
+      return Promise.resolve(obj);
+    }
+    if (typeof URLSearchParams !== 'undefined' && body instanceof URLSearchParams) {
+      var o = {};
+      body.forEach(function (value, key) {
+        o[key] = value;
+      });
+      return Promise.resolve(o);
+    }
+    if (typeof Blob !== 'undefined' && body instanceof Blob) {
+      return body.text().then(function (t) {
+        try {
+          return JSON.parse(t);
+        } catch (e) {
+          return {};
+        }
+      });
+    }
+    return Promise.resolve({});
+  }
+
+  function withMeta(data) {
+    var out = Object.assign({}, data);
+    if (!out._form_loaded_at) out._form_loaded_at = PAGE_LOADED_AT;
+    if (!out._hp_name) out._hp_name = getHpValue();
+    if (!out.page) out.page = window.location.href;
+    if (!out.submitted_at) out.submitted_at = new Date().toISOString();
+    return out;
+  }
+
+  function postToProxy(payload) {
+    return originalFetch(PROXY, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(payload),
+    });
   }
 
   function attach(form) {
@@ -99,26 +176,8 @@
     };
   }
 
-  function formToObject(form) {
-    var fd = new FormData(form);
-    var obj = {};
-    fd.forEach(function (value, key) {
-      if (Object.prototype.hasOwnProperty.call(obj, key)) {
-        if (!Array.isArray(obj[key])) obj[key] = [obj[key]];
-        obj[key].push(value);
-      } else {
-        obj[key] = value;
-      }
-    });
-    return obj;
-  }
-
   function submit(payload) {
-    return fetch('/.netlify/functions/submit-lead', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(payload),
-    }).then(function (res) {
+    return postToProxy(withMeta(payload)).then(function (res) {
       return res.json().then(function (body) {
         return { res: res, body: body };
       });
@@ -128,6 +187,116 @@
   function fakeSuccess(form, successEl) {
     if (form) form.style.display = 'none';
     if (successEl) successEl.style.display = 'block';
+  }
+
+  // ── fetch interceptor: reroute GHL webhook posts through the proxy ──
+  var originalFetch = global.fetch ? global.fetch.bind(global) : null;
+  if (originalFetch) {
+    global.fetch = function (input, init) {
+      init = init || {};
+      var url =
+        typeof input === 'string'
+          ? input
+          : input && typeof input.url === 'string'
+            ? input.url
+            : String(input || '');
+
+      // Already going to our proxy — leave alone
+      if (url.indexOf('/.netlify/functions/submit-lead') !== -1) {
+        return originalFetch(input, init);
+      }
+
+      var match = url.match(GHL_RE);
+      if (!match) return originalFetch(input, init);
+
+      var method = String(init.method || 'GET').toUpperCase();
+      if (method !== 'POST') return originalFetch(input, init);
+
+      var webhookId = match[1];
+      return bodyToObject(init.body).then(function (data) {
+        var payload = withMeta(data);
+        payload.webhook_id = webhookId;
+        return postToProxy(payload);
+      });
+    };
+  }
+
+  // ── native form posts to GHL action URLs ──
+  function interceptNativeGhlForms() {
+    document.addEventListener(
+      'submit',
+      function (e) {
+        var form = e.target;
+        if (!form || form.tagName !== 'FORM') return;
+        var action = form.getAttribute('action') || '';
+        var match = action.match(GHL_RE);
+        if (!match) return;
+
+        // Page already uses FormSpamGuard explicitly (action removed / proxy) — skip
+        if (form.getAttribute('data-spam-guard') === 'proxy') return;
+
+        e.preventDefault();
+        e.stopImmediatePropagation();
+
+        var webhookId = match[1];
+        var fields = formToObject(form);
+        var payload = withMeta(fields);
+        payload.webhook_id = webhookId;
+
+        var btn = form.querySelector('button[type="submit"],input[type="submit"]');
+        if (btn) {
+          btn.disabled = true;
+        }
+
+        postToProxy(payload)
+          .then(function (res) {
+            return res.json().catch(function () {
+              return { ok: res.ok };
+            });
+          })
+          .then(function (body) {
+            if (body && body.ok) {
+              form.style.display = 'none';
+              var success =
+                document.getElementById(form.id + '-success') ||
+                form.parentNode.querySelector('[id$="-success"],[id$="Success"],.ff-success');
+              if (success) success.style.display = 'block';
+              return;
+            }
+            throw new Error('submit failed');
+          })
+          .catch(function () {
+            if (btn) btn.disabled = false;
+            alert(
+              /\/es\//.test(window.location.pathname)
+                ? 'Algo salió mal. Llame al 1-800-380-6821.'
+                : 'Something went wrong. Please call 1-800-380-6821.'
+            );
+          });
+      },
+      true
+    );
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', interceptNativeGhlForms);
+  } else {
+    interceptNativeGhlForms();
+  }
+
+  // Mark explicit proxy forms so native interceptor does not double-handle
+  function markProxyForms() {
+    ['esContactForm', 'enContactForm', 'cobraForm', 'acaFormEs', 'esSeguroForm'].forEach(
+      function (id) {
+        var el = document.getElementById(id);
+        if (el) el.setAttribute('data-spam-guard', 'proxy');
+      }
+    );
+  }
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', markProxyForms);
+  } else {
+    markProxyForms();
   }
 
   global.FormSpamGuard = {

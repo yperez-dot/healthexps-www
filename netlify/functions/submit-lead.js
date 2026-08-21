@@ -3,6 +3,10 @@
  * Forms POST here instead of directly to GoHighLevel webhooks so spam can be
  * filtered server-side (honeypot, timing, phone, name, notes, disposable email).
  *
+ * Accepts either:
+ *   - source_key (mapped below), or
+ *   - webhook_id (must be in ALLOWED_WEBHOOK_IDS)
+ *
  * Spam is rejected with HTTP 200 + { ok: true, filtered: true } so bots do not
  * retry; legitimate failures still return 4xx/5xx.
  */
@@ -10,7 +14,7 @@
 const GHL_BASE =
   'https://services.leadconnectorhq.com/hooks/RINM4TCnM4hN06UA1aK0/webhook-trigger';
 
-/** Map stable form source keys → GHL webhook IDs (kept off public HTML actions). */
+/** Map stable form source keys → GHL webhook IDs. */
 const WEBHOOKS = {
   'es-contact': 'VIGENUzik6Z1M83Y5cea',
   'en-contact': '1238c14d-f70a-49d5-a409-32d8e055d735',
@@ -18,6 +22,23 @@ const WEBHOOKS = {
   'es-aca': 'cNWs0DqK73DvGCTLzGHI',
   'es-private': 'FklcK7rZSNfB9SlLueOm',
 };
+
+/**
+ * All known site webhook IDs (EN + ES lead forms, quizzes, calculators, blog CTAs).
+ * Sitewide fetch interceptor sends webhook_id from the original GHL URL.
+ */
+const ALLOWED_WEBHOOK_IDS = new Set([
+  ...Object.values(WEBHOOKS),
+  'dc6c8b35-9480-412e-b56d-4a4c8c7bd438', // primary EN lead form
+  'c3ed8125-4847-4ebb-aca6-a5aa7817b557', // quiz / find-my-plan EN
+  'd36da03c-e92a-424a-9767-babcc77e884f', // quiz / find-my-plan ES
+  'e656a512-d15b-409c-924d-bb3d4627ed9f', // buscador-de-planes
+  '9eebf549-c131-4d43-8432-0f6628211899', // private health EN
+  '961af3bd-5a04-415f-9c59-6ada70219a4f', // life insurance calculator
+  '28058d00-7965-45e2-ae3c-e37459f9464b',
+  'd70d8962-255a-4c3a-acee-b8d5c26b6d2e',
+  'avmed-transition',
+]);
 
 const ALLOWED_ORIGINS = [
   'https://healthexps.com',
@@ -72,7 +93,6 @@ function normalizePhone(phone) {
 
 function isValidUsPhone(phone) {
   const d = normalizePhone(phone);
-  // NANP: 10 digits, area code cannot start with 0 or 1
   return d.length === 10 && d[0] >= '2' && d[0] <= '9' && d[3] >= '2' && d[3] <= '9';
 }
 
@@ -91,7 +111,6 @@ function looksLikeGibberish(text) {
 
   const vowels = (letters.match(/[aeiouAEIOU]/g) || []).length;
   const vowelRatio = vowels / letters.length;
-  // Keyboard-smash notes usually have very few vowels
   if (vowelRatio < 0.18) return true;
 
   const words = s.split(/\s+/).filter(Boolean);
@@ -112,16 +131,11 @@ function looksLikeBotName(first, last) {
   const f = String(first || '').trim();
   const l = String(last || '').trim();
   if (!f || !l) return true;
-
-  // Identical first/last (common bot pattern: "TimothyborOl TimothyborOl")
   if (f.toLowerCase() === l.toLowerCase() && f.length >= 6) return true;
-
-  // No spaces and mixed case with digits, or long run of consonants
   const combined = f + l;
   if (/\d/.test(combined) && /[A-Za-z]/.test(combined) && combined.length >= 10) {
     return true;
   }
-
   return false;
 }
 
@@ -134,8 +148,6 @@ function isAllowedOrigin(event) {
   if (ALLOWED_ORIGINS.some((o) => referer.startsWith(o))) {
     return true;
   }
-  // Netlify preview / local without Origin still allowed if Referer missing in same-site fetch
-  // Deny empty both for non-browser scrapers hitting the function cold.
   return false;
 }
 
@@ -148,29 +160,32 @@ function assessSpam(data) {
   const now = Date.now();
   if (!loadedAt || loadedAt > now + 5000) return 'missing_or_future_timing';
   if (now - loadedAt < 3000) return 'too_fast';
-  // Forms open for days then submitted is fine; reject absurdly old timestamps (> 24h)
   if (now - loadedAt > 24 * 60 * 60 * 1000) return 'stale_timing';
 
-  const first = String(data.first_name || '').trim();
-  const last = String(data.last_name || '').trim();
-  const phone = String(data.phone || '').trim();
+  const first = String(data.first_name || data.firstName || '').trim();
+  const last = String(data.last_name || data.lastName || '').trim();
+  const phone = String(data.phone || data.phone_number || '').trim();
   const email = String(data.email || '').trim();
   const notes = String(
     data.additional_notes || data.notes || data.message || ''
   ).trim();
 
-  if (!first || !last || !phone || !email) return 'missing_fields';
-  if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) return 'bad_email';
-  if (DISPOSABLE_EMAIL_DOMAINS.has(emailDomain(email))) return 'disposable_email';
+  // Name + phone are required for lead forms; email is optional on some pages (e.g. AvMed)
+  if (!first || !last || !phone) return 'missing_fields';
   if (!isValidUsPhone(phone)) return 'bad_phone';
   if (looksLikeBotName(first, last)) return 'bot_name';
+
+  if (email) {
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) return 'bad_email';
+    if (DISPOSABLE_EMAIL_DOMAINS.has(emailDomain(email))) return 'disposable_email';
+  }
+
   if (looksLikeGibberish(notes)) return 'gibberish_notes';
 
   return null;
 }
 
 function buildForwardPayload(data) {
-  // Strip anti-bot meta fields before forwarding to GHL
   const skip = new Set([
     '_hp_name',
     'honeypot',
@@ -179,6 +194,7 @@ function buildForwardPayload(data) {
     '_form_loaded_at',
     'form_loaded_at',
     'source_key',
+    'webhook_id',
   ]);
   const out = {};
   for (const [k, v] of Object.entries(data)) {
@@ -186,10 +202,22 @@ function buildForwardPayload(data) {
     if (v === undefined || v === null) continue;
     out[k] = v;
   }
-  out.phone = normalizePhone(data.phone);
+  if (data.phone || data.phone_number) {
+    out.phone = normalizePhone(data.phone || data.phone_number);
+  }
   out.submitted_at = out.submitted_at || new Date().toISOString();
   out.page = out.page || '';
   return out;
+}
+
+function resolveWebhookId(data) {
+  const sourceKey = String(data.source_key || '').trim();
+  if (sourceKey && WEBHOOKS[sourceKey]) return WEBHOOKS[sourceKey];
+
+  const webhookId = String(data.webhook_id || '').trim();
+  if (webhookId && ALLOWED_WEBHOOK_IDS.has(webhookId)) return webhookId;
+
+  return null;
 }
 
 exports.handler = async (event) => {
@@ -212,8 +240,7 @@ exports.handler = async (event) => {
     return json(400, { ok: false, error: 'Invalid JSON' });
   }
 
-  const sourceKey = String(data.source_key || '').trim();
-  const webhookId = WEBHOOKS[sourceKey];
+  const webhookId = resolveWebhookId(data);
   if (!webhookId) {
     return json(400, { ok: false, error: 'Unknown form source' });
   }
