@@ -43,7 +43,7 @@ html, body { overflow-x: hidden; max-width: 100%; }
   --off-white:    #fdfaf7;
   --gray-light:   #f7f7f7;
   --gray-mid:     #ece5f0;
-  --gray-text:    #6f6478;
+  --gray-text:    #3a2f47;
   --black:        #241a30;
   --wa:           #25D366;
   --wa-hover:     #1da851;
@@ -57,8 +57,8 @@ html, body { overflow-x: hidden; max-width: 100%; }
 body {
   font-family: var(--font-body);
   color: var(--black);
-  line-height: 1.65;
-  font-size: 17px;
+  line-height:1.7;
+  font-size:18px;
   background: var(--white);
   -webkit-font-smoothing: antialiased;
 }
@@ -75,7 +75,7 @@ img { max-width: 100%; height: auto; }
   display: inline-flex; align-items: center; gap: 8px;
   background: var(--pink); color: white;
   padding: 15px 28px; border-radius: 12px;
-  font-family: var(--font-body); font-weight: 700; font-size: 15.5px;
+  font-family: var(--font-body); font-weight: 700; font-size:18px;
   box-shadow: 0 8px 22px rgba(255,16,144,0.25);
   transition: background .2s, transform .15s;
   text-decoration: none;
@@ -91,14 +91,14 @@ img { max-width: 100%; height: auto; }
    ============================================================ */
 .ff-input {
   padding: 13px 14px; border-radius: 10px;
-  border: 1px solid #ddd2e6; font-size: 14.5px;
+  border: 1px solid #ddd2e6; font-size:18px;
   font-family: var(--font-body); color: var(--black);
   background: white; width: 100%; box-sizing: border-box;
   outline: none; transition: border-color .2s;
   appearance: none; -webkit-appearance: none;
 }
 .ff-input:focus { border-color: var(--purple); }
-.ff-input::placeholder { color: #a79db2; }
+.ff-input::placeholder { color: #5a5068; }
 
 /* ============================================================
    FAQ ACCORDION
@@ -109,14 +109,14 @@ img { max-width: 100%; height: auto; }
 .faq-toggle {
   width: 100%; padding: 18px 20px;
   display: flex; justify-content: space-between; align-items: center;
-  cursor: pointer; font-weight: 700; font-size: 15px; color: var(--black);
+  cursor: pointer; font-weight: 700; font-size:18px; color: var(--black);
   background: none; border: none; font-family: var(--font-body);
   text-align: left; gap: 12px;
 }
 .faq-toggle:hover { color: var(--purple); }
 .faq-icon { font-size: 20px; font-weight: 400; flex-shrink: 0; color: var(--pink); transition: transform .2s; }
 .faq-item.open .faq-icon { transform: rotate(45deg); }
-.faq-body { display: none; padding: 0 20px 18px; font-size: 14px; color: var(--gray-text); line-height: 1.6; }
+.faq-body { display: none; padding: 0 20px 18px; font-size:18px; color: var(--gray-text); line-height:1.7; }
 .faq-item.open .faq-body { display: block; }
 
 /* ============================================================
@@ -144,7 +144,7 @@ img { max-width: 100%; height: auto; }
   .aca-enroll-grid { grid-template-columns: 1fr 1fr !important; }
   .aca-how-grid { grid-template-columns: 1fr !important; }
   .aca-carriers-flex { gap: 8px !important; }
-  .aca-compare-table { font-size: 13px !important; }
+  .aca-compare-table { font-size:16px !important; }
   .footer-grid { grid-template-columns: 1fr !important; gap: 24px !important; }
   .footer-wrap { padding: 40px 20px 88px !important; }
   .aca-subsidy-grid { grid-template-columns: 1fr !important; }
@@ -156,7 +156,7 @@ img { max-width: 100%; height: auto; }
   /* ACA comparison table: compact 3-col on mobile */
   .aca-compare-table {
     grid-template-columns: 0.85fr 1fr 1fr !important;
-    font-size: 11.5px !important;
+    font-size:14px !important;
     border-radius: 12px !important;
   }
   .aca-compare-table > div {
@@ -192,20 +192,20 @@ img { max-width: 100%; height: auto; }
 <div style="font-family:Inter,sans-serif;color:#241a30;background:#fff">
 
   <!-- ═══════ UTILITY BAR ═══════ -->
-  <div class="top-bar-inner" style="background:#2f1550;color:#fff;display:flex;align-items:center;justify-content:space-between;padding:9px 56px;font-size:13px">
+  <div class="top-bar-inner" style="background:#2f1550;color:#fff;display:flex;align-items:center;justify-content:space-between;padding:9px 56px;font-size:16px">
     <div style="display:flex;align-items:center;gap:12px">
           <a href="tel:18003806821" style="color:#fff;display:flex;align-items:center;" aria-label="Call 1-800-380-6821"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 1.27h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.91a16 16 0 0 0 6.29 6.29l.91-.91a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg></a>
-          <span style="display:inline-flex;align-items:center;border:1px solid rgba(255,255,255,0.35);border-radius:999px;padding:3px 10px;gap:3px;font-size:12px;"><span style="opacity:.65;font-weight:400">EN</span><span style="opacity:.35;margin:0 1px">|</span><a href="/es/planes-aca-miami" style="color:#fff;text-decoration:none;font-weight:700">ES</a></span>
+          <span style="display:inline-flex;align-items:center;border:1px solid rgba(255,255,255,0.35);border-radius:999px;padding:3px 10px;gap:3px;font-size:14.5px;"><span style="opacity:.65;font-weight:400">EN</span><span style="opacity:.35;margin:0 1px">|</span><a href="/es/planes-aca-miami" style="color:#fff;text-decoration:none;font-weight:700">ES</a></span>
         </div>
     <div style="display:flex;align-items:center;gap:16px">
-      <a href="https://wa.me/13054646888" onclick="gtag('event','whatsapp_click',{'page':window.location.pathname})" style="display:inline-flex;align-items:center;gap:6px;background:#25D366;color:#fff;padding:5px 12px;border-radius:999px;font-weight:700;font-size:12.5px;text-decoration:none;">WhatsApp</a>
+      <a href="https://wa.me/13054646888" onclick="gtag('event','whatsapp_click',{'page':window.location.pathname})" style="display:inline-flex;align-items:center;gap:6px;background:#25D366;color:#fff;padding:5px 12px;border-radius:999px;font-weight:700;font-size:15px;text-decoration:none;">WhatsApp</a>
     </div>
   </div>
 
   <!-- ═══════ NAV ═══════ -->
   <div class="v4-nav-outer" style="display:flex;align-items:center;justify-content:space-between;padding:14px 56px;border-bottom:1px solid #ece5f0;position:sticky;top:0;background:#fff;z-index:500">
     <a href="/"><img src="/images/logo.webp" alt="The Health Experts Insurance" style="height:80px;width:auto;cursor:pointer"/></a>
-    <div class="v4-nav-desktop" style="display:flex;align-items:center;gap:26px;font-size:14.5px;font-weight:600;color:#3a2f47">
+    <div class="v4-nav-desktop" style="display:flex;align-items:center;gap:26px;font-size:18px;font-weight:600;color:#3a2f47">
       <a href="/" style="cursor:pointer">Home</a>
 
       <div class="v4-nav-item" style="position:relative">
@@ -249,8 +249,8 @@ img { max-width: 100%; height: auto; }
       <a href="/contact" style="cursor:pointer">Contact</a>
     </div>
     <div style="display:flex;align-items:center;gap:12px">
-      <a href="tel:18003806821" class="v4-nav-desktop" style="color:#241a30;font-weight:700;font-size:14.5px">1-800-380-6821</a>
-      <a href="#aca-form" class="v4-nav-desktop" style="background:#452068;color:#fff;padding:11px 20px;border-radius:10px;font-weight:700;font-size:14px">Free Consultation</a>
+      <a href="tel:18003806821" class="v4-nav-desktop" style="color:#241a30;font-weight:700;font-size:18px">1-800-380-6821</a>
+      <a href="#aca-form" class="v4-nav-desktop" style="background:#452068;color:#fff;padding:11px 20px;border-radius:10px;font-weight:700;font-size:17px">Free Consultation</a>
       <!-- Hamburger — mobile only -->
       <button class="v4-nav-mobile-btn" id="v4HamburgerBtn" aria-label="Open menu" aria-expanded="false" aria-controls="v4-mobile-menu">
         <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#241a30" stroke-width="2.2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
@@ -268,20 +268,20 @@ img { max-width: 100%; height: auto; }
     </div>
     <nav style="display:flex;flex-direction:column;gap:4px;font-size:16px;font-weight:600;color:#241a30">
       <a href="/" style="padding:14px 4px;border-bottom:1px solid #ece5f0;color:#241a30">Home</a>
-      <div style="padding:14px 4px 4px;font-size:13px;font-weight:700;color:#8a6aaa;text-transform:uppercase;letter-spacing:.06em">Insurance</div>
-      <a href="/medicare-plans-miami" style="padding:11px 12px;border-radius:8px;color:#241a30;font-weight:600;font-size:15px">Medicare Plans</a>
-      <a href="/private-health-insurance-miami" style="padding:11px 12px;border-radius:8px;color:#241a30;font-weight:600;font-size:15px">Private Health Insurance</a>
-      <a href="/aca-plans-miami" style="padding:11px 12px;border-radius:8px;color:#241a30;font-weight:600;font-size:15px">ACA Marketplace Plans</a>
-      <a href="/cobra-alternatives-miami" style="padding:11px 12px;border-radius:8px;color:#241a30;font-weight:600;font-size:15px">COBRA Alternatives</a>
-      <a href="/dental-vision-miami" style="padding:11px 12px;border-radius:8px;color:#241a30;font-weight:600;font-size:15px">Dental &amp; Vision</a>
-      <div style="padding:14px 4px 4px;font-size:13px;font-weight:700;color:#8a6aaa;text-transform:uppercase;letter-spacing:.06em;margin-top:8px">Guides</div>
-      <a href="/medicare/what-is-medicare" style="padding:11px 12px;border-radius:8px;color:#241a30;font-weight:600;font-size:15px">What Is Medicare</a>
-      <a href="/medicare/new-to-medicare" style="padding:11px 12px;border-radius:8px;color:#241a30;font-weight:600;font-size:15px">New to Medicare</a>
-      <a href="/medicare-irmaa-penalties" style="padding:11px 12px;border-radius:8px;color:#241a30;font-weight:600;font-size:15px">Medicare Costs &amp; IRMAA</a>
-      <a href="/medicare-advantage-miami" style="padding:11px 12px;border-radius:8px;color:#241a30;font-weight:600;font-size:15px">Medicare Advantage Guide</a>
-      <a href="/medicare-supplement-miami" style="padding:11px 12px;border-radius:8px;color:#241a30;font-weight:600;font-size:15px">Medicare Supplement Guide</a>
-      <a href="/medicare-savings-program" style="padding:11px 12px;border-radius:8px;color:#241a30;font-weight:600;font-size:15px">Medicare Savings Program</a>
-      <a href="/health-insurance-quiz" style="padding:11px 12px;border-radius:8px;color:#241a30;font-weight:600;font-size:15px">Find My Plan Quiz</a>
+      <div style="padding:14px 4px 4px;font-size:16px;font-weight:700;color:#5c3d7a;text-transform:uppercase;letter-spacing:.06em">Insurance</div>
+      <a href="/medicare-plans-miami" style="padding:11px 12px;border-radius:8px;color:#241a30;font-weight:600;font-size:18px">Medicare Plans</a>
+      <a href="/private-health-insurance-miami" style="padding:11px 12px;border-radius:8px;color:#241a30;font-weight:600;font-size:18px">Private Health Insurance</a>
+      <a href="/aca-plans-miami" style="padding:11px 12px;border-radius:8px;color:#241a30;font-weight:600;font-size:18px">ACA Marketplace Plans</a>
+      <a href="/cobra-alternatives-miami" style="padding:11px 12px;border-radius:8px;color:#241a30;font-weight:600;font-size:18px">COBRA Alternatives</a>
+      <a href="/dental-vision-miami" style="padding:11px 12px;border-radius:8px;color:#241a30;font-weight:600;font-size:18px">Dental &amp; Vision</a>
+      <div style="padding:14px 4px 4px;font-size:16px;font-weight:700;color:#5c3d7a;text-transform:uppercase;letter-spacing:.06em;margin-top:8px">Guides</div>
+      <a href="/medicare/what-is-medicare" style="padding:11px 12px;border-radius:8px;color:#241a30;font-weight:600;font-size:18px">What Is Medicare</a>
+      <a href="/medicare/new-to-medicare" style="padding:11px 12px;border-radius:8px;color:#241a30;font-weight:600;font-size:18px">New to Medicare</a>
+      <a href="/medicare-irmaa-penalties" style="padding:11px 12px;border-radius:8px;color:#241a30;font-weight:600;font-size:18px">Medicare Costs &amp; IRMAA</a>
+      <a href="/medicare-advantage-miami" style="padding:11px 12px;border-radius:8px;color:#241a30;font-weight:600;font-size:18px">Medicare Advantage Guide</a>
+      <a href="/medicare-supplement-miami" style="padding:11px 12px;border-radius:8px;color:#241a30;font-weight:600;font-size:18px">Medicare Supplement Guide</a>
+      <a href="/medicare-savings-program" style="padding:11px 12px;border-radius:8px;color:#241a30;font-weight:600;font-size:18px">Medicare Savings Program</a>
+      <a href="/health-insurance-quiz" style="padding:11px 12px;border-radius:8px;color:#241a30;font-weight:600;font-size:18px">Find My Plan Quiz</a>
       <div style="margin-top:8px;border-top:1px solid #ece5f0;padding-top:12px;display:flex;flex-direction:column;gap:4px">
         <a href="/faq" style="padding:12px 4px;color:#241a30;border-bottom:1px solid #ece5f0">FAQ</a>
         <a href="/resources" style="padding:12px 4px;color:#241a30;border-bottom:1px solid #ece5f0">Resources</a>
@@ -301,7 +301,7 @@ img { max-width: 100%; height: auto; }
   ══════════════════════════════════════════════ -->
 
   <!-- BREADCRUMB -->
-  <div style="padding:14px 56px;background:#f7f2fb;font-size:13px;color:#6f6478">
+  <div style="padding:14px 56px;background:#f7f2fb;font-size:16px;color:#3a2f47">
     <a href="/" style="font-weight:600;color:#452068">Home</a>
     <span style="margin:0 6px;opacity:.5">/</span>
     Insurance
@@ -312,41 +312,41 @@ img { max-width: 100%; height: auto; }
   <!-- HERO -->
   <div style="background:linear-gradient(135deg,#fdfaf7 0%,#f7f2fb 100%);padding:64px 56px 56px">
     <div style="max-width:720px;margin:0 auto;text-align:center">
-      <div style="display:inline-flex;align-items:center;gap:8px;background:#fff0f8;color:#c40074;padding:8px 16px;border-radius:999px;font-size:13px;font-weight:700;margin-bottom:20px">ACA Marketplace Plans</div>
+      <div style="display:inline-flex;align-items:center;gap:8px;background:#fff0f8;color:#c40074;padding:8px 16px;border-radius:999px;font-size:16px;font-weight:700;margin-bottom:20px">ACA Marketplace Plans</div>
       <h1 style="font-family:Poppins,sans-serif;font-weight:700;font-size:40px;line-height:1.15;color:#241a30;margin:0 0 16px">Affordable Care Act coverage, matched to your life.</h1>
-      <p style="font-size:17px;line-height:1.6;color:#6f6478;margin:0 0 26px">Individual &amp; family plans, with subsidies and tax credits most people don't realize they qualify for. We check your eligibility and compare every carrier — always free.</p>
+      <p style="font-size:17px;line-height:1.6;color:#3a2f47;margin:0 0 26px">Individual &amp; family plans, with subsidies and tax credits most people don't realize they qualify for. We check your eligibility and compare every carrier — always free.</p>
       <div class="aca-hero-btns" style="display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin-bottom:22px">
-        <a href="#aca-form" style="background:#ff1090;color:#fff;padding:16px 28px;border-radius:12px;font-weight:700;font-size:15.5px">Book Free Consultation →</a>
-        <a href="tel:18003806821" style="border:2px solid #452068;color:#452068;padding:14px 26px;border-radius:12px;font-weight:700;font-size:15.5px">Call 1-800-380-6821</a>
-        <a href="/health-insurance-quiz" style="border:2px solid #ece5f0;color:#452068;background:#fff;padding:14px 26px;border-radius:12px;font-weight:700;font-size:15.5px">Find My Plan Type →</a>
+        <a href="#aca-form" style="background:#ff1090;color:#fff;padding:16px 28px;border-radius:12px;font-weight:700;font-size:18px">Book Free Consultation →</a>
+        <a href="tel:18003806821" style="border:2px solid #452068;color:#452068;padding:14px 26px;border-radius:12px;font-weight:700;font-size:18px">Call 1-800-380-6821</a>
+        <a href="/health-insurance-quiz" style="border:2px solid #ece5f0;color:#452068;background:#fff;padding:14px 26px;border-radius:12px;font-weight:700;font-size:18px">Find My Plan Type →</a>
       </div>
       <div style="display:flex;gap:10px;justify-content:center;flex-wrap:wrap">
-        <span style="background:#fff;border:2px solid #ece5f0;padding:7px 14px;border-radius:999px;font-size:12.5px;font-weight:600;color:#452068">14+ Carriers</span>
-        <span style="background:#fff;border:2px solid #ece5f0;padding:7px 14px;border-radius:999px;font-size:12.5px;font-weight:600;color:#452068">Bilingual Agents</span>
-        <span style="background:#fff;border:2px solid #ece5f0;padding:7px 14px;border-radius:999px;font-size:12.5px;font-weight:600;color:#452068">$0 Cost</span>
+        <span style="background:#fff;border:2px solid #ece5f0;padding:7px 14px;border-radius:999px;font-size:15px;font-weight:600;color:#452068">14+ Carriers</span>
+        <span style="background:#fff;border:2px solid #ece5f0;padding:7px 14px;border-radius:999px;font-size:15px;font-weight:600;color:#452068">Bilingual Agents</span>
+        <span style="background:#fff;border:2px solid #ece5f0;padding:7px 14px;border-radius:999px;font-size:15px;font-weight:600;color:#452068">$0 Cost</span>
       </div>
     </div>
   </div>
 
   <!-- STATS BAR -->
   <div class="aca-stats-bar" style="background:#452068;padding:30px 56px;display:flex;justify-content:space-around;flex-wrap:wrap;gap:24px;color:#fff">
-    <div style="text-align:center"><div style="font-family:Poppins,sans-serif;font-weight:700;font-size:28px">$0</div><div style="font-size:13px;opacity:.8;margin-top:4px">premium possible with subsidies</div></div>
+    <div style="text-align:center"><div style="font-family:Poppins,sans-serif;font-weight:700;font-size:28px">$0</div><div style="font-size:16px;opacity:.8;margin-top:4px">premium possible with subsidies</div></div>
     
-    <div style="text-align:center"><div style="font-family:Poppins,sans-serif;font-weight:700;font-size:28px">4</div><div style="font-size:13px;opacity:.8;margin-top:4px">metal tiers to choose from</div></div>
-    <div style="text-align:center"><div style="font-family:Poppins,sans-serif;font-weight:700;font-size:28px">14+</div><div style="font-size:13px;opacity:.8;margin-top:4px">carriers we compare</div></div>
-    <div style="text-align:center"><div style="font-family:Poppins,sans-serif;font-weight:700;font-size:28px">60</div><div style="font-size:13px;opacity:.8;margin-top:4px">days to enroll after a life event</div></div>
+    <div style="text-align:center"><div style="font-family:Poppins,sans-serif;font-weight:700;font-size:28px">4</div><div style="font-size:16px;opacity:.8;margin-top:4px">metal tiers to choose from</div></div>
+    <div style="text-align:center"><div style="font-family:Poppins,sans-serif;font-weight:700;font-size:28px">14+</div><div style="font-size:16px;opacity:.8;margin-top:4px">carriers we compare</div></div>
+    <div style="text-align:center"><div style="font-family:Poppins,sans-serif;font-weight:700;font-size:28px">60</div><div style="font-size:16px;opacity:.8;margin-top:4px">days to enroll after a life event</div></div>
   </div>
 
   <!-- ALERT BANNER -->
-  <div style="background:#fff7ec;border-bottom:1px solid #f3d9a8;padding:12px 56px;text-align:center;font-size:13.5px;color:#5a4a2f">
+  <div style="background:#fff7ec;border-bottom:1px solid #f3d9a8;padding:12px 56px;text-align:center;font-size:16px;color:#5a4a2f">
     <strong style="color:#241a30">Under 65 and without employer benefits?</strong> This page is for you. If you're 65 or older, see our <a href="/medicare-plans-miami" style="font-weight:700;color:#c40074">Medicare plan options →</a>
   </div>
 
   <!-- WHAT CHANGED IN 2026 -->
   <div style="background:#fff;padding:40px 56px">
     <div style="max-width:820px;margin:0 auto;background:#f7f2fb;border-radius:16px;padding:26px 30px">
-      <div style="font-weight:700;font-size:15.5px;color:#241a30;margin-bottom:8px">What changed in 2026</div>
-      <div style="font-size:14px;color:#4a4051;line-height:1.65">The enhanced subsidies in place from 2021–2025 expired on January 1, 2026. Premium tax credits still exist, but the rules reverted: help is available between 100–400% of the federal poverty level, and above that line there's no subsidy at all. If your plan got more expensive this year, this is why — it's worth re-comparing your options.</div>
+      <div style="font-weight:700;font-size:18px;color:#241a30;margin-bottom:8px">What changed in 2026</div>
+      <div style="font-size:17px;color:#4a4051;line-height:1.65">The enhanced subsidies in place from 2021–2025 expired on January 1, 2026. Premium tax credits still exist, but the rules reverted: help is available between 100–400% of the federal poverty level, and above that line there's no subsidy at all. If your plan got more expensive this year, this is why — it's worth re-comparing your options.</div>
     </div>
   </div>
 
@@ -354,7 +354,7 @@ img { max-width: 100%; height: auto; }
   <div style="background:#fff;padding:48px 56px 0">
     <div style="max-width:760px;margin:0 auto;text-align:center">
       <h2 style="font-family:Poppins,sans-serif;font-size:24px;font-weight:700;color:#241a30;margin:0 0 12px">What is the ACA Marketplace?</h2>
-      <p style="color:#6f6478;font-size:15px;line-height:1.65;margin:0">The ACA Marketplace (HealthCare.gov) is where individuals and families under 65 without employer coverage compare ACA-compliant plans across four metal tiers. Income-based subsidies can cut your premium significantly — sometimes to $0.</p>
+      <p style="color:#3a2f47;font-size:18px;line-height:1.65;margin:0">The ACA Marketplace (HealthCare.gov) is where individuals and families under 65 without employer coverage compare ACA-compliant plans across four metal tiers. Income-based subsidies can cut your premium significantly — sometimes to $0.</p>
     </div>
   </div>
 
@@ -369,8 +369,8 @@ img { max-width: 100%; height: auto; }
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#452068" stroke-width="1.8"><rect x="4" y="4" width="16" height="16" rx="3"/><path d="M9 12l2 2 4-4"/></svg>
           </div>
           <div>
-            <div style="font-weight:700;font-size:14.5px;color:#241a30;margin-bottom:4px">Self-employed &amp; freelancers</div>
-            <div style="font-size:13px;color:#6f6478;line-height:1.5">1099 income or contract work means no employer coverage — this is your path to individual coverage with possible subsidies.</div>
+            <div style="font-weight:700;font-size:18px;color:#241a30;margin-bottom:4px">Self-employed &amp; freelancers</div>
+            <div style="font-size:16px;color:#3a2f47;line-height:1.5">1099 income or contract work means no employer coverage — this is your path to individual coverage with possible subsidies.</div>
           </div>
         </div>
 
@@ -379,8 +379,8 @@ img { max-width: 100%; height: auto; }
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#452068" stroke-width="1.8"><circle cx="9" cy="12" r="6"/><circle cx="15" cy="12" r="6"/></svg>
           </div>
           <div>
-            <div style="font-weight:700;font-size:14.5px;color:#241a30;margin-bottom:4px">Families without employer coverage</div>
-            <div style="font-size:13px;color:#6f6478;line-height:1.5">If your employer's plan is too costly or unavailable, the Marketplace may be more affordable — especially with tax credits.</div>
+            <div style="font-weight:700;font-size:18px;color:#241a30;margin-bottom:4px">Families without employer coverage</div>
+            <div style="font-size:16px;color:#3a2f47;line-height:1.5">If your employer's plan is too costly or unavailable, the Marketplace may be more affordable — especially with tax credits.</div>
           </div>
         </div>
 
@@ -389,16 +389,16 @@ img { max-width: 100%; height: auto; }
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#452068" stroke-width="1.8"><path d="M12 8v5l3 2"/><circle cx="12" cy="12" r="9"/></svg>
           </div>
           <div>
-            <div style="font-weight:700;font-size:14.5px;color:#241a30;margin-bottom:4px">Between jobs or lost coverage</div>
-            <div style="font-size:13px;color:#6f6478;line-height:1.5">Losing employer coverage may qualify you for a 60-day Special Enrollment Period to enroll right now.</div>
+            <div style="font-weight:700;font-size:18px;color:#241a30;margin-bottom:4px">Between jobs or lost coverage</div>
+            <div style="font-size:16px;color:#3a2f47;line-height:1.5">Losing employer coverage may qualify you for a 60-day Special Enrollment Period to enroll right now.</div>
           </div>
         </div>
 
         <div style="display:flex;gap:12px">
           <div style="width:36px;height:36px;border-radius:50%;background:#f7f2fb;display:flex;align-items:center;justify-content:center;flex-shrink:0;color:#452068;font-weight:700">$</div>
           <div>
-            <div style="font-weight:700;font-size:14.5px;color:#241a30;margin-bottom:4px">People who qualify for subsidies</div>
-            <div style="font-size:13px;color:#6f6478;line-height:1.5">Depending on income and household size, you may qualify for help that reduces your premium — sometimes to $0.</div>
+            <div style="font-weight:700;font-size:18px;color:#241a30;margin-bottom:4px">People who qualify for subsidies</div>
+            <div style="font-size:16px;color:#3a2f47;line-height:1.5">Depending on income and household size, you may qualify for help that reduces your premium — sometimes to $0.</div>
           </div>
         </div>
 
@@ -407,8 +407,8 @@ img { max-width: 100%; height: auto; }
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#452068" stroke-width="1.8"><path d="M4 11l8-6 8 6"/><rect x="7" y="11" width="10" height="8"/></svg>
           </div>
           <div>
-            <div style="font-weight:700;font-size:14.5px;color:#241a30;margin-bottom:4px">Small business owners</div>
-            <div style="font-size:13px;color:#6f6478;line-height:1.5">Need personal coverage separate from your business, or want options outside group insurance.</div>
+            <div style="font-weight:700;font-size:18px;color:#241a30;margin-bottom:4px">Small business owners</div>
+            <div style="font-size:16px;color:#3a2f47;line-height:1.5">Need personal coverage separate from your business, or want options outside group insurance.</div>
           </div>
         </div>
 
@@ -417,8 +417,8 @@ img { max-width: 100%; height: auto; }
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#452068" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>
           </div>
           <div>
-            <div style="font-weight:700;font-size:14.5px;color:#241a30;margin-bottom:4px">Young adults up to 26</div>
-            <div style="font-size:13px;color:#6f6478;line-height:1.5">Aging off a parent's plan? The Marketplace offers affordable options with full benefits.</div>
+            <div style="font-weight:700;font-size:18px;color:#241a30;margin-bottom:4px">Young adults up to 26</div>
+            <div style="font-size:16px;color:#3a2f47;line-height:1.5">Aging off a parent's plan? The Marketplace offers affordable options with full benefits.</div>
           </div>
         </div>
 
@@ -430,37 +430,37 @@ img { max-width: 100%; height: auto; }
   <div style="background:#fdfaf7;padding:64px 56px">
     <div style="max-width:1000px;margin:0 auto">
       <h2 style="text-align:center;font-family:Poppins,sans-serif;font-size:26px;font-weight:700;color:#241a30;margin:0 0 10px">What do ACA plans include?</h2>
-      <p style="text-align:center;color:#6f6478;font-size:15px;margin:0 0 32px">Every ACA plan must include these 10 essential health benefits — they're not optional.</p>
+      <p style="text-align:center;color:#3a2f47;font-size:18px;margin:0 0 32px">Every ACA plan must include these 10 essential health benefits — they're not optional.</p>
       <div class="aca-benefits-grid" style="display:grid;grid-template-columns:repeat(3,1fr);gap:18px">
 
         <div style="background:#fff;border:2px solid #ece5f0;border-radius:14px;padding:20px;display:flex;gap:10px">
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#ff1090" stroke-width="2.2" style="flex-shrink:0;margin-top:2px"><path d="M5 12l4 4 10-10"/></svg>
-          <div><div style="font-weight:700;font-size:14px;color:#241a30;margin-bottom:4px">Preventive &amp; wellness care</div><div style="font-size:12.5px;color:#6f6478;line-height:1.5">Checkups, vaccines &amp; screenings at no extra cost.</div></div>
+          <div><div style="font-weight:700;font-size:17px;color:#241a30;margin-bottom:4px">Preventive &amp; wellness care</div><div style="font-size:15px;color:#3a2f47;line-height:1.5">Checkups, vaccines &amp; screenings at no extra cost.</div></div>
         </div>
 
         <div style="background:#fff;border:2px solid #ece5f0;border-radius:14px;padding:20px;display:flex;gap:10px">
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#ff1090" stroke-width="2.2" style="flex-shrink:0;margin-top:2px"><path d="M5 12l4 4 10-10"/></svg>
-          <div><div style="font-weight:700;font-size:14px;color:#241a30;margin-bottom:4px">Hospital &amp; emergency services</div><div style="font-size:12.5px;color:#6f6478;line-height:1.5">Hospitalizations, surgeries &amp; emergency visits.</div></div>
+          <div><div style="font-weight:700;font-size:17px;color:#241a30;margin-bottom:4px">Hospital &amp; emergency services</div><div style="font-size:15px;color:#3a2f47;line-height:1.5">Hospitalizations, surgeries &amp; emergency visits.</div></div>
         </div>
 
         <div style="background:#fff;border:2px solid #ece5f0;border-radius:14px;padding:20px;display:flex;gap:10px">
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#ff1090" stroke-width="2.2" style="flex-shrink:0;margin-top:2px"><path d="M5 12l4 4 10-10"/></svg>
-          <div><div style="font-weight:700;font-size:14px;color:#241a30;margin-bottom:4px">Prescription drugs</div><div style="font-size:12.5px;color:#6f6478;line-height:1.5">We check the formulary before you enroll.</div></div>
+          <div><div style="font-weight:700;font-size:17px;color:#241a30;margin-bottom:4px">Prescription drugs</div><div style="font-size:15px;color:#3a2f47;line-height:1.5">We check the formulary before you enroll.</div></div>
         </div>
 
         <div style="background:#fff;border:2px solid #ece5f0;border-radius:14px;padding:20px;display:flex;gap:10px">
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#ff1090" stroke-width="2.2" style="flex-shrink:0;margin-top:2px"><path d="M5 12l4 4 10-10"/></svg>
-          <div><div style="font-weight:700;font-size:14px;color:#241a30;margin-bottom:4px">Mental health &amp; addiction treatment</div><div style="font-size:12.5px;color:#6f6478;line-height:1.5">On par with other medical services.</div></div>
+          <div><div style="font-weight:700;font-size:17px;color:#241a30;margin-bottom:4px">Mental health &amp; addiction treatment</div><div style="font-size:15px;color:#3a2f47;line-height:1.5">On par with other medical services.</div></div>
         </div>
 
         <div style="background:#fff;border:2px solid #ece5f0;border-radius:14px;padding:20px;display:flex;gap:10px">
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#ff1090" stroke-width="2.2" style="flex-shrink:0;margin-top:2px"><path d="M5 12l4 4 10-10"/></svg>
-          <div><div style="font-weight:700;font-size:14px;color:#241a30;margin-bottom:4px">Maternity &amp; newborn care</div><div style="font-size:12.5px;color:#6f6478;line-height:1.5">Coverage from pregnancy through delivery.</div></div>
+          <div><div style="font-weight:700;font-size:17px;color:#241a30;margin-bottom:4px">Maternity &amp; newborn care</div><div style="font-size:15px;color:#3a2f47;line-height:1.5">Coverage from pregnancy through delivery.</div></div>
         </div>
 
         <div style="background:#fff;border:2px solid #ece5f0;border-radius:14px;padding:20px;display:flex;gap:10px">
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#ff1090" stroke-width="2.2" style="flex-shrink:0;margin-top:2px"><path d="M5 12l4 4 10-10"/></svg>
-          <div><div style="font-weight:700;font-size:14px;color:#241a30;margin-bottom:4px">Pre-existing condition protection</div><div style="font-size:12.5px;color:#6f6478;line-height:1.5">No insurer can deny or upcharge you for it.</div></div>
+          <div><div style="font-weight:700;font-size:17px;color:#241a30;margin-bottom:4px">Pre-existing condition protection</div><div style="font-size:15px;color:#3a2f47;line-height:1.5">No insurer can deny or upcharge you for it.</div></div>
         </div>
 
       </div>
@@ -471,43 +471,43 @@ img { max-width: 100%; height: auto; }
   <div style="background:#fdfaf7;padding:64px 56px">
     <div style="max-width:900px;margin:0 auto">
       <h2 style="text-align:center;font-family:Poppins,sans-serif;font-size:26px;font-weight:700;color:#241a30;margin:0 0 10px">The 4 metal tiers — how they work</h2>
-      <p style="text-align:center;color:#6f6478;font-size:15px;line-height:1.6;margin:0 0 32px">Every tier covers the same 10 essential benefits. Higher metal = insurance pays more when you use care.</p>
+      <p style="text-align:center;color:#3a2f47;font-size:18px;line-height:1.6;margin:0 0 32px">Every tier covers the same 10 essential benefits. Higher metal = insurance pays more when you use care.</p>
 
       <div class="aca-tiers-grid" style="display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-bottom:24px">
 
         <div style="background:#fff;border-radius:16px;padding:22px;box-shadow:0 4px 16px rgba(69,32,104,.08);text-align:center;border-top:5px solid #cd7f32">
           <div style="font-family:Poppins,sans-serif;font-weight:700;font-size:17px;color:#241a30;margin-bottom:6px">Bronze</div>
           <div style="font-size:28px;font-weight:700;color:#452068;margin-bottom:4px">60%</div>
-          <div style="font-size:13.5px;color:#6f6478;margin-bottom:10px">insurance pays</div>
-          <div style="font-size:13.5px;font-weight:700;padding:6px 10px;border-radius:999px;background:#f7f2fb;color:#c40074">Lowest premium, highest out-of-pocket</div>
+          <div style="font-size:16px;color:#3a2f47;margin-bottom:10px">insurance pays</div>
+          <div style="font-size:16px;font-weight:700;padding:6px 10px;border-radius:999px;background:#f7f2fb;color:#c40074">Lowest premium, highest out-of-pocket</div>
         </div>
 
         <div style="background:#fff;border-radius:16px;padding:22px;box-shadow:0 4px 16px rgba(69,32,104,.08);text-align:center;border-top:5px solid #a8a9ad">
           <div style="font-family:Poppins,sans-serif;font-weight:700;font-size:17px;color:#241a30;margin-bottom:6px">Silver</div>
           <div style="font-size:28px;font-weight:700;color:#452068;margin-bottom:4px">70%</div>
-          <div style="font-size:13.5px;color:#6f6478;margin-bottom:10px">insurance pays</div>
-          <div style="font-size:13.5px;font-weight:700;padding:6px 10px;border-radius:999px;background:#f7f2fb;color:#c40074">Best for CSR savings eligible</div>
+          <div style="font-size:16px;color:#3a2f47;margin-bottom:10px">insurance pays</div>
+          <div style="font-size:16px;font-weight:700;padding:6px 10px;border-radius:999px;background:#f7f2fb;color:#c40074">Best for CSR savings eligible</div>
         </div>
 
         <div style="background:#fff;border-radius:16px;padding:22px;box-shadow:0 4px 16px rgba(69,32,104,.08);text-align:center;border-top:5px solid #d4a017">
           <div style="font-family:Poppins,sans-serif;font-weight:700;font-size:17px;color:#241a30;margin-bottom:6px">Gold</div>
           <div style="font-size:28px;font-weight:700;color:#452068;margin-bottom:4px">80%</div>
-          <div style="font-size:13.5px;color:#6f6478;margin-bottom:10px">insurance pays</div>
-          <div style="font-size:13.5px;font-weight:700;padding:6px 10px;border-radius:999px;background:#f7f2fb;color:#c40074">Higher premium, lower costs when used</div>
+          <div style="font-size:16px;color:#3a2f47;margin-bottom:10px">insurance pays</div>
+          <div style="font-size:16px;font-weight:700;padding:6px 10px;border-radius:999px;background:#f7f2fb;color:#c40074">Higher premium, lower costs when used</div>
         </div>
 
         <div style="background:#fff;border-radius:16px;padding:22px;box-shadow:0 4px 16px rgba(69,32,104,.08);text-align:center;border-top:5px solid #4a90d9">
           <div style="font-family:Poppins,sans-serif;font-weight:700;font-size:17px;color:#241a30;margin-bottom:6px">Platinum</div>
           <div style="font-size:28px;font-weight:700;color:#452068;margin-bottom:4px">90%</div>
-          <div style="font-size:13.5px;color:#6f6478;margin-bottom:10px">insurance pays</div>
-          <div style="font-size:13.5px;font-weight:700;padding:6px 10px;border-radius:999px;background:#f7f2fb;color:#c40074">Highest premium, lowest cost per visit</div>
+          <div style="font-size:16px;color:#3a2f47;margin-bottom:10px">insurance pays</div>
+          <div style="font-size:16px;font-weight:700;padding:6px 10px;border-radius:999px;background:#f7f2fb;color:#c40074">Highest premium, lowest cost per visit</div>
         </div>
 
       </div>
 
       <div style="background:#f7f2fb;border-radius:16px;padding:22px 26px">
-        <div style="font-weight:700;font-size:14.5px;color:#241a30;margin-bottom:6px">Silver is often the smartest choice</div>
-        <div style="font-size:13.5px;color:#6f6478;line-height:1.6">If your income qualifies for Cost-Sharing Reductions (CSR), you must enroll in a Silver plan to get them — it can dramatically lower your deductible and copays. Our brokers show you the real numbers side by side.</div>
+        <div style="font-weight:700;font-size:18px;color:#241a30;margin-bottom:6px">Silver is often the smartest choice</div>
+        <div style="font-size:16px;color:#3a2f47;line-height:1.6">If your income qualifies for Cost-Sharing Reductions (CSR), you must enroll in a Silver plan to get them — it can dramatically lower your deductible and copays. Our brokers show you the real numbers side by side.</div>
       </div>
     </div>
   </div>
@@ -519,7 +519,7 @@ img { max-width: 100%; height: auto; }
       <div id="acaFormWrap">
         <div style="text-align:center;margin-bottom:22px">
           <div style="font-family:Poppins,sans-serif;font-weight:700;font-size:20px;color:#241a30;margin-bottom:6px">Prefer to talk to an agent?</div>
-          <div style="font-size:13.5px;color:#6f6478">A licensed bilingual broker will reach out within 1 business hour — no cost, no obligation.</div>
+          <div style="font-size:16px;color:#3a2f47">A licensed bilingual broker will reach out within 1 business hour — no cost, no obligation.</div>
         </div>
 
         <form id="acaLeadForm" novalidate>
@@ -540,12 +540,12 @@ img { max-width: 100%; height: auto; }
             <option value="notsure">Not sure — help me compare</option>
           </select>
           <textarea class="ff-input" id="acaNotes" name="notes" placeholder="Anything you'd like to share? (optional)" rows="2" style="margin-bottom:14px;resize:none"></textarea>
-          <label style="display:flex;gap:10px;align-items:flex-start;font-size:13px;line-height:1.5;margin-bottom:18px;cursor:pointer">
+          <label style="display:flex;gap:10px;align-items:flex-start;font-size:16px;line-height:1.5;margin-bottom:18px;cursor:pointer">
             <input type="checkbox" id="acaConsent" style="margin-top:3px;accent-color:#452068;min-width:14px"/>
-            <span style="color:#8a8093">By submitting this form, I consent to receive calls, texts, and emails from The Health Experts Insurance, including automated dialing. Consent is not required to purchase services.</span>
+            <span style="color:#5a5068">By submitting this form, I consent to receive calls, texts, and emails from The Health Experts Insurance, including automated dialing. Consent is not required to purchase services.</span>
           </label>
-          <p id="acaError" style="display:none;color:#c40074;font-size:13px;margin-bottom:10px;">Please fill in all required fields.</p>
-          <button id="acaSubmit" type="submit" style="background:#ff1090;color:#fff;width:100%;padding:15px;border-radius:12px;border:none;font-size:15.5px;font-weight:700;cursor:pointer;font-family:Poppins,sans-serif;box-shadow:0 8px 22px rgba(255,16,144,.25);">Check My Options Free →</button>
+          <p id="acaError" style="display:none;color:#c40074;font-size:16px;margin-bottom:10px;">Please fill in all required fields.</p>
+          <button id="acaSubmit" type="submit" style="background:#ff1090;color:#fff;width:100%;padding:15px;border-radius:12px;border:none;font-size:18px;font-weight:700;cursor:pointer;font-family:Poppins,sans-serif;box-shadow:0 8px 22px rgba(255,16,144,.25);">Check My Options Free →</button>
         </form>
       </div>
 
@@ -554,10 +554,10 @@ img { max-width: 100%; height: auto; }
           <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.4"><path d="M5 12l4 4 10-10"/></svg>
         </div>
         <h3 style="font-family:Poppins,sans-serif;font-size:20px;margin:0 0 8px;color:#241a30">Thank you — we've got your request!</h3>
-        <p style="color:#6f6478;font-size:14px;margin:0 0 18px">A licensed bilingual agent will reach out within 1 business hour.</p>
+        <p style="color:#3a2f47;font-size:17px;margin:0 0 18px">A licensed bilingual agent will reach out within 1 business hour.</p>
         <div style="display:flex;gap:10px;justify-content:center;flex-wrap:wrap">
-          <a href="tel:18003806821" style="background:#452068;color:#fff;padding:12px 20px;border-radius:10px;font-weight:700;font-size:14px">Call 1-800-380-6821</a>
-          <a href="https://wa.me/13054646888" onclick="gtag('event','whatsapp_click',{'page':window.location.pathname})" style="border:2px solid #452068;color:#452068;padding:10px 20px;border-radius:10px;font-weight:700;font-size:14px">WhatsApp Us</a>
+          <a href="tel:18003806821" style="background:#452068;color:#fff;padding:12px 20px;border-radius:10px;font-weight:700;font-size:17px">Call 1-800-380-6821</a>
+          <a href="https://wa.me/13054646888" onclick="gtag('event','whatsapp_click',{'page':window.location.pathname})" style="border:2px solid #452068;color:#452068;padding:10px 20px;border-radius:10px;font-weight:700;font-size:17px">WhatsApp Us</a>
         </div>
       </div>
 
@@ -568,24 +568,24 @@ img { max-width: 100%; height: auto; }
   <div style="background:#fff;padding:64px 56px">
     <div style="max-width:900px;margin:0 auto">
       <h2 style="font-family:Poppins,sans-serif;font-size:26px;font-weight:700;color:#241a30;margin:0 0 10px">Do you qualify for subsidies?</h2>
-      <p style="color:#6f6478;font-size:15px;line-height:1.6;margin:0 0 26px">Most people who apply are surprised by how much financial help is available. Two types of savings apply to ACA plans:</p>
+      <p style="color:#3a2f47;font-size:18px;line-height:1.6;margin:0 0 26px">Most people who apply are surprised by how much financial help is available. Two types of savings apply to ACA plans:</p>
 
       <div class="aca-subsidy-grid" style="background:#f7f2fb;border:2px solid #ece1f3;border-radius:18px;padding:30px;display:grid;grid-template-columns:1.4fr 1fr;gap:24px;align-items:center;margin-bottom:16px">
         <div>
           <div style="font-weight:700;font-size:16px;color:#241a30;margin-bottom:8px">Premium Tax Credits (APTC)</div>
-          <div style="font-size:14px;color:#4a4051;line-height:1.6">Reduces your monthly premium. Available to individuals earning between 100%–400% of the federal poverty level. In 2026, a single person earning up to ~$62,600 may qualify; a family of 4 up to ~$128,600. Many pay $0–$50/month.</div>
+          <div style="font-size:17px;color:#4a4051;line-height:1.6">Reduces your monthly premium. Available to individuals earning between 100%–400% of the federal poverty level. In 2026, a single person earning up to ~$62,600 may qualify; a family of 4 up to ~$128,600. Many pay $0–$50/month.</div>
         </div>
         <div style="text-align:center">
           <div style="font-family:Poppins,sans-serif;font-weight:700;font-size:36px;color:#452068">$0</div>
-          <div style="font-size:12.5px;font-weight:700;color:#6f6478;margin-bottom:16px">monthly premium possible</div>
-          <a href="https://www.healthsherpa.com/?_agent_id=sabri-perez" target="_blank" rel="noopener" style="display:block;background:#ff1090;color:#fff;padding:14px 18px;border-radius:999px;font-weight:700;font-size:13.5px;margin-bottom:8px">Quote &amp; Self-Enroll on HealthSherpa →</a>
-          <div style="font-size:13px;color:#8a8093">Quote, compare &amp; enroll online — or call us for personalized help</div>
+          <div style="font-size:15px;font-weight:700;color:#3a2f47;margin-bottom:16px">monthly premium possible</div>
+          <a href="https://www.healthsherpa.com/?_agent_id=sabri-perez" target="_blank" rel="noopener" style="display:block;background:#ff1090;color:#fff;padding:14px 18px;border-radius:999px;font-weight:700;font-size:16px;margin-bottom:8px">Quote &amp; Self-Enroll on HealthSherpa →</a>
+          <div style="font-size:16px;color:#5a5068">Quote, compare &amp; enroll online — or call us for personalized help</div>
         </div>
       </div>
 
       <div style="background:#fff;border:2px solid #ece5f0;border-radius:18px;padding:26px">
-        <div style="font-weight:700;font-size:15.5px;color:#241a30;margin-bottom:8px">Cost-Sharing Reductions (CSR)</div>
-        <div style="font-size:14px;color:#6f6478;line-height:1.6">If your income is between 100%–250% of the federal poverty level, you may also qualify for CSR — lowering your deductible, copays, and out-of-pocket maximum on Silver plans. You must enroll in a Silver plan to receive this. Our brokers check both subsidies and show you the net cost after all savings.</div>
+        <div style="font-weight:700;font-size:18px;color:#241a30;margin-bottom:8px">Cost-Sharing Reductions (CSR)</div>
+        <div style="font-size:17px;color:#3a2f47;line-height:1.6">If your income is between 100%–250% of the federal poverty level, you may also qualify for CSR — lowering your deductible, copays, and out-of-pocket maximum on Silver plans. You must enroll in a Silver plan to receive this. Our brokers check both subsidies and show you the net cost after all savings.</div>
       </div>
     </div>
   </div>
@@ -594,32 +594,32 @@ img { max-width: 100%; height: auto; }
   <div style="background:#fff;padding:64px 56px">
     <div style="max-width:820px;margin:0 auto">
       <h2 style="text-align:center;font-family:Poppins,sans-serif;font-size:26px;font-weight:700;color:#241a30;margin:0 0 10px">ACA Marketplace vs. private insurance</h2>
-      <p style="text-align:center;color:#6f6478;font-size:15px;line-height:1.6;margin:0 0 26px">The right answer depends mostly on one thing: do you qualify for subsidies?</p>
+      <p style="text-align:center;color:#3a2f47;font-size:18px;line-height:1.6;margin:0 0 26px">The right answer depends mostly on one thing: do you qualify for subsidies?</p>
 
-      <div class="aca-compare-table" style="display:grid;grid-template-columns:1.2fr 1fr 1fr;gap:0;border:2px solid #ece5f0;border-radius:16px;overflow:hidden;font-size:14px">
-        <div style="padding:16px;background:#fdfaf7;font-weight:700;font-size:13px;color:#241a30"></div>
-        <div style="padding:14px 16px;background:#452068;color:#fff;font-weight:700;font-size:14px;text-align:center">ACA Marketplace</div>
-        <div style="padding:14px 16px;background:#f7f2fb;color:#452068;font-weight:700;font-size:14px;text-align:center">Private Insurance</div>
+      <div class="aca-compare-table" style="display:grid;grid-template-columns:1.2fr 1fr 1fr;gap:0;border:2px solid #ece5f0;border-radius:16px;overflow:hidden;font-size:17px">
+        <div style="padding:16px;background:#fdfaf7;font-weight:700;font-size:16px;color:#241a30"></div>
+        <div style="padding:14px 16px;background:#452068;color:#fff;font-weight:700;font-size:17px;text-align:center">ACA Marketplace</div>
+        <div style="padding:14px 16px;background:#f7f2fb;color:#452068;font-weight:700;font-size:17px;text-align:center">Private Insurance</div>
 
-        <div style="padding:14px 16px;font-size:13px;font-weight:600;color:#4a4051;border-top:1px solid #ece5f0">Availability</div>
-        <div style="padding:14px 16px;border-top:1px solid #ece5f0;background:#fff;color:#4a4051;font-size:13px">Open Enrollment or qualifying SEP</div>
-        <div style="padding:14px 16px;border-top:1px solid #ece5f0;background:#fdfaf7;color:#4a4051;font-size:13px">Year-round</div>
+        <div style="padding:14px 16px;font-size:16px;font-weight:600;color:#4a4051;border-top:1px solid #ece5f0">Availability</div>
+        <div style="padding:14px 16px;border-top:1px solid #ece5f0;background:#fff;color:#4a4051;font-size:16px">Open Enrollment or qualifying SEP</div>
+        <div style="padding:14px 16px;border-top:1px solid #ece5f0;background:#fdfaf7;color:#4a4051;font-size:16px">Year-round</div>
 
-        <div style="padding:14px 16px;font-size:13px;font-weight:600;color:#4a4051;border-top:1px solid #ece5f0">Government subsidies</div>
-        <div style="padding:14px 16px;border-top:1px solid #ece5f0;background:#fff;font-weight:700;color:#16a34a;font-size:13px">Available based on income</div>
-        <div style="padding:14px 16px;border-top:1px solid #ece5f0;background:#fdfaf7;color:#4a4051;font-size:13px">Not available</div>
+        <div style="padding:14px 16px;font-size:16px;font-weight:600;color:#4a4051;border-top:1px solid #ece5f0">Government subsidies</div>
+        <div style="padding:14px 16px;border-top:1px solid #ece5f0;background:#fff;font-weight:700;color:#16a34a;font-size:16px">Available based on income</div>
+        <div style="padding:14px 16px;border-top:1px solid #ece5f0;background:#fdfaf7;color:#4a4051;font-size:16px">Not available</div>
 
-        <div style="padding:14px 16px;font-size:13px;font-weight:600;color:#4a4051;border-top:1px solid #ece5f0">Pre-existing conditions</div>
-        <div style="padding:14px 16px;border-top:1px solid #ece5f0;background:#fff;font-weight:700;color:#16a34a;font-size:13px">Guaranteed by law</div>
-        <div style="padding:14px 16px;border-top:1px solid #ece5f0;background:#fdfaf7;color:#4a4051;font-size:13px">Varies by plan</div>
+        <div style="padding:14px 16px;font-size:16px;font-weight:600;color:#4a4051;border-top:1px solid #ece5f0">Pre-existing conditions</div>
+        <div style="padding:14px 16px;border-top:1px solid #ece5f0;background:#fff;font-weight:700;color:#16a34a;font-size:16px">Guaranteed by law</div>
+        <div style="padding:14px 16px;border-top:1px solid #ece5f0;background:#fdfaf7;color:#4a4051;font-size:16px">Varies by plan</div>
 
-        <div style="padding:14px 16px;font-size:13px;font-weight:600;color:#4a4051;border-top:1px solid #ece5f0">Coverage flexibility</div>
-        <div style="padding:14px 16px;border-top:1px solid #ece5f0;background:#fff;color:#4a4051;font-size:13px">Standardized by tier</div>
-        <div style="padding:14px 16px;border-top:1px solid #ece5f0;background:#fdfaf7;color:#4a4051;font-size:13px">High — customizable</div>
+        <div style="padding:14px 16px;font-size:16px;font-weight:600;color:#4a4051;border-top:1px solid #ece5f0">Coverage flexibility</div>
+        <div style="padding:14px 16px;border-top:1px solid #ece5f0;background:#fff;color:#4a4051;font-size:16px">Standardized by tier</div>
+        <div style="padding:14px 16px;border-top:1px solid #ece5f0;background:#fdfaf7;color:#4a4051;font-size:16px">High — customizable</div>
 
-        <div style="padding:14px 16px;font-size:13px;font-weight:600;color:#4a4051;border-top:1px solid #ece5f0">Coverage start date</div>
-        <div style="padding:14px 16px;border-top:1px solid #ece5f0;background:#fff;color:#4a4051;font-size:13px">Plan-specific date</div>
-        <div style="padding:14px 16px;border-top:1px solid #ece5f0;background:#fdfaf7;color:#4a4051;font-size:13px">Can start immediately</div>
+        <div style="padding:14px 16px;font-size:16px;font-weight:600;color:#4a4051;border-top:1px solid #ece5f0">Coverage start date</div>
+        <div style="padding:14px 16px;border-top:1px solid #ece5f0;background:#fff;color:#4a4051;font-size:16px">Plan-specific date</div>
+        <div style="padding:14px 16px;border-top:1px solid #ece5f0;background:#fdfaf7;color:#4a4051;font-size:16px">Can start immediately</div>
       </div>
     </div>
   </div>
@@ -628,27 +628,27 @@ img { max-width: 100%; height: auto; }
   <div style="background:#fdfaf7;padding:64px 56px">
     <div style="max-width:1000px;margin:0 auto">
       <h2 style="text-align:center;font-family:Poppins,sans-serif;font-size:26px;font-weight:700;color:#241a30;margin:0 0 10px">When can you enroll?</h2>
-      <p style="text-align:center;color:#6f6478;font-size:15px;margin:0 0 32px">ACA enrollment isn't open year-round — but qualifying life events open a Special Enrollment Period anytime.</p>
+      <p style="text-align:center;color:#3a2f47;font-size:18px;margin:0 0 32px">ACA enrollment isn't open year-round — but qualifying life events open a Special Enrollment Period anytime.</p>
       <div class="aca-enroll-grid" style="display:grid;grid-template-columns:repeat(4,1fr);gap:18px">
 
         <div style="background:#fff;border:2px solid #ece5f0;border-radius:14px;padding:22px">
-          <div style="font-weight:700;font-size:14.5px;color:#241a30;margin-bottom:8px">Open Enrollment</div>
-          <div style="font-size:12.5px;color:#6f6478;line-height:1.5">Nov 1 – Jan 15. Coverage starts Jan 1 (enroll by Dec 15) or Feb 1 (enroll by Jan 15).</div>
+          <div style="font-weight:700;font-size:18px;color:#241a30;margin-bottom:8px">Open Enrollment</div>
+          <div style="font-size:15px;color:#3a2f47;line-height:1.5">Nov 1 – Jan 15. Coverage starts Jan 1 (enroll by Dec 15) or Feb 1 (enroll by Jan 15).</div>
         </div>
 
         <div style="background:#fff;border:2px solid #ece5f0;border-radius:14px;padding:22px">
-          <div style="font-weight:700;font-size:14.5px;color:#241a30;margin-bottom:8px">Lost job coverage</div>
-          <div style="font-size:12.5px;color:#6f6478;line-height:1.5">Losing employer insurance triggers a 60-day SEP — the most common qualifying event.</div>
+          <div style="font-weight:700;font-size:18px;color:#241a30;margin-bottom:8px">Lost job coverage</div>
+          <div style="font-size:15px;color:#3a2f47;line-height:1.5">Losing employer insurance triggers a 60-day SEP — the most common qualifying event.</div>
         </div>
 
         <div style="background:#fff;border:2px solid #ece5f0;border-radius:14px;padding:22px">
-          <div style="font-weight:700;font-size:14.5px;color:#241a30;margin-bottom:8px">Marriage or divorce</div>
-          <div style="font-size:12.5px;color:#6f6478;line-height:1.5">Getting married, divorced, or legally separated qualifies you for an SEP.</div>
+          <div style="font-weight:700;font-size:18px;color:#241a30;margin-bottom:8px">Marriage or divorce</div>
+          <div style="font-size:15px;color:#3a2f47;line-height:1.5">Getting married, divorced, or legally separated qualifies you for an SEP.</div>
         </div>
 
         <div style="background:#fff;border:2px solid #ece5f0;border-radius:14px;padding:22px">
-          <div style="font-weight:700;font-size:14.5px;color:#241a30;margin-bottom:8px">Birth or adoption</div>
-          <div style="font-size:12.5px;color:#6f6478;line-height:1.5">Having or adopting a child opens an SEP and lets you add them to your plan.</div>
+          <div style="font-weight:700;font-size:18px;color:#241a30;margin-bottom:8px">Birth or adoption</div>
+          <div style="font-size:15px;color:#3a2f47;line-height:1.5">Having or adopting a child opens an SEP and lets you add them to your plan.</div>
         </div>
 
       </div>
@@ -663,20 +663,20 @@ img { max-width: 100%; height: auto; }
 
         <div>
           <div style="width:40px;height:40px;border-radius:50%;background:#ff1090;color:#fff;font-weight:700;font-size:16px;display:flex;align-items:center;justify-content:center;margin-bottom:14px">1</div>
-          <div style="font-weight:700;font-size:15.5px;margin-bottom:6px">We review your situation</div>
-          <div style="font-size:13.5px;color:#6f6478;line-height:1.55">Income, household size, doctors, medications — we understand your situation to identify what fits.</div>
+          <div style="font-weight:700;font-size:18px;margin-bottom:6px">We review your situation</div>
+          <div style="font-size:16px;color:#3a2f47;line-height:1.55">Income, household size, doctors, medications — we understand your situation to identify what fits.</div>
         </div>
 
         <div>
           <div style="width:40px;height:40px;border-radius:50%;background:#ff1090;color:#fff;font-weight:700;font-size:16px;display:flex;align-items:center;justify-content:center;margin-bottom:14px">2</div>
-          <div style="font-weight:700;font-size:15.5px;margin-bottom:6px">We compare real plans</div>
-          <div style="font-size:13.5px;color:#6f6478;line-height:1.55">Real costs — premiums, deductibles, networks — including whether you qualify for subsidies.</div>
+          <div style="font-weight:700;font-size:18px;margin-bottom:6px">We compare real plans</div>
+          <div style="font-size:16px;color:#3a2f47;line-height:1.55">Real costs — premiums, deductibles, networks — including whether you qualify for subsidies.</div>
         </div>
 
         <div>
           <div style="width:40px;height:40px;border-radius:50%;background:#ff1090;color:#fff;font-weight:700;font-size:16px;display:flex;align-items:center;justify-content:center;margin-bottom:14px">3</div>
-          <div style="font-weight:700;font-size:15.5px;margin-bottom:6px">We enroll and follow up</div>
-          <div style="font-size:13.5px;color:#6f6478;line-height:1.55">We handle enrollment and keep supporting you all year long — at no cost to you.</div>
+          <div style="font-weight:700;font-size:18px;margin-bottom:6px">We enroll and follow up</div>
+          <div style="font-size:16px;color:#3a2f47;line-height:1.55">We handle enrollment and keep supporting you all year long — at no cost to you.</div>
         </div>
 
       </div>
@@ -687,16 +687,16 @@ img { max-width: 100%; height: auto; }
   <div style="background:#fdfaf7;padding:56px 56px">
     <div style="max-width:1160px;margin:0 auto">
       <h2 style="font-family:Poppins,sans-serif;font-size:24px;font-weight:700;color:#241a30;margin:0 0 10px">ACA carriers available in Florida</h2>
-      <p style="color:#6f6478;font-size:14.5px;margin:0 0 22px">We compare every plan in your ZIP code and show you your options after subsidies are applied.</p>
+      <p style="color:#3a2f47;font-size:18px;margin:0 0 22px">We compare every plan in your ZIP code and show you your options after subsidies are applied.</p>
       <div class="aca-carriers-flex" style="display:flex;flex-wrap:wrap;gap:12px">
-        <span style="background:#fff;border:2px solid #ece5f0;border-radius:10px;padding:13px 20px;font-weight:700;font-size:13.5px;color:#241a30">Florida Blue</span>
-        <span style="background:#fff;border:2px solid #ece5f0;border-radius:10px;padding:13px 20px;font-weight:700;font-size:13.5px;color:#241a30">Ambetter</span>
-        <span style="background:#fff;border:2px solid #ece5f0;border-radius:10px;padding:13px 20px;font-weight:700;font-size:13.5px;color:#241a30">Molina</span>
-        <span style="background:#fff;border:2px solid #ece5f0;border-radius:10px;padding:13px 20px;font-weight:700;font-size:13.5px;color:#241a30">Oscar Health</span>
-        <span style="background:#fff;border:2px solid #ece5f0;border-radius:10px;padding:13px 20px;font-weight:700;font-size:13.5px;color:#241a30">Bright Health</span>
-        <span style="background:#fff;border:2px solid #ece5f0;border-radius:10px;padding:13px 20px;font-weight:700;font-size:13.5px;color:#241a30">UnitedHealthcare</span>
-        <span style="background:#fff;border:2px solid #ece5f0;border-radius:10px;padding:13px 20px;font-weight:700;font-size:13.5px;color:#241a30">Aetna</span>
-        <span style="background:#f7f2fb;border:2px solid #ece5f0;border-radius:10px;padding:13px 20px;font-weight:700;font-size:13.5px;color:#452068">+ More</span>
+        <span style="background:#fff;border:2px solid #ece5f0;border-radius:10px;padding:13px 20px;font-weight:700;font-size:16px;color:#241a30">Florida Blue</span>
+        <span style="background:#fff;border:2px solid #ece5f0;border-radius:10px;padding:13px 20px;font-weight:700;font-size:16px;color:#241a30">Ambetter</span>
+        <span style="background:#fff;border:2px solid #ece5f0;border-radius:10px;padding:13px 20px;font-weight:700;font-size:16px;color:#241a30">Molina</span>
+        <span style="background:#fff;border:2px solid #ece5f0;border-radius:10px;padding:13px 20px;font-weight:700;font-size:16px;color:#241a30">Oscar Health</span>
+        <span style="background:#fff;border:2px solid #ece5f0;border-radius:10px;padding:13px 20px;font-weight:700;font-size:16px;color:#241a30">Bright Health</span>
+        <span style="background:#fff;border:2px solid #ece5f0;border-radius:10px;padding:13px 20px;font-weight:700;font-size:16px;color:#241a30">UnitedHealthcare</span>
+        <span style="background:#fff;border:2px solid #ece5f0;border-radius:10px;padding:13px 20px;font-weight:700;font-size:16px;color:#241a30">Aetna</span>
+        <span style="background:#f7f2fb;border:2px solid #ece5f0;border-radius:10px;padding:13px 20px;font-weight:700;font-size:16px;color:#452068">+ More</span>
       </div>
     </div>
   </div>
@@ -759,19 +759,19 @@ img { max-width: 100%; height: auto; }
       </div>
       <div style="flex:1;min-width:200px">
         <div style="font-weight:700;font-size:16px;color:#241a30;margin-bottom:4px">Lost job-based coverage? Under 65 and uninsured?</div>
-        <div style="font-size:14px;color:#6f6478;line-height:1.5">Let's see what tax credits and plans you qualify for — free, no obligation.</div>
+        <div style="font-size:17px;color:#3a2f47;line-height:1.5">Let's see what tax credits and plans you qualify for — free, no obligation.</div>
       </div>
-      <a href="#aca-form" style="background:#ff1090;color:#fff;padding:13px 22px;border-radius:10px;font-weight:700;font-size:14px;white-space:nowrap;flex-shrink:0">Check my options →</a>
+      <a href="#aca-form" style="background:#ff1090;color:#fff;padding:13px 22px;border-radius:10px;font-weight:700;font-size:17px;white-space:nowrap;flex-shrink:0">Check my options →</a>
     </div>
   </div>
 
   <!-- FINAL CTA BANNER -->
   <div style="background:linear-gradient(135deg,#452068 0%,#5a2a86 100%);padding:56px;text-align:center;color:#fff">
     <h2 style="font-family:Poppins,sans-serif;font-size:26px;font-weight:700;margin:0 0 10px">Ready to explore your ACA Marketplace options?</h2>
-    <p style="font-size:15px;opacity:.85;margin:0 0 24px">Free consultation with a licensed bilingual broker — we check your subsidies and show real numbers.</p>
+    <p style="font-size:18px;color:#f0eaf7;margin:0 0 24px">Free consultation with a licensed bilingual broker — we check your subsidies and show real numbers.</p>
     <div class="aca-final-btns" style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap">
-      <a href="#aca-form" style="background:#ff1090;color:#fff;padding:15px 26px;border-radius:999px;font-weight:700;font-size:14.5px">See If You Qualify →</a>
-      <a href="tel:18003806821" style="border:2px solid #fff;color:#fff;padding:13px 24px;border-radius:999px;font-weight:700;font-size:14.5px">1-800-380-6821</a>
+      <a href="#aca-form" style="background:#ff1090;color:#fff;padding:15px 26px;border-radius:999px;font-weight:700;font-size:18px">See If You Qualify →</a>
+      <a href="tel:18003806821" style="border:2px solid #fff;color:#fff;padding:13px 24px;border-radius:999px;font-weight:700;font-size:18px">1-800-380-6821</a>
     </div>
   </div>
 
@@ -782,17 +782,17 @@ img { max-width: 100%; height: auto; }
           <div id="footer-grid" style="display:grid;grid-template-columns:1.3fr 1fr 1fr 1fr;gap:32px;margin-bottom:36px"><style>@media(max-width:768px){#footer-grid{grid-template-columns:1fr!important;gap:28px!important;}#site-footer{padding:40px 20px 24px!important;}}@media(min-width:769px){#footer-grid{grid-template-columns:1.3fr 1fr 1fr 1fr!important;}}</style>
             <div>
               <img src="/images/logo.webp" alt="The Health Experts Insurance" style="height:70px;width:auto;margin-bottom:16px"/>
-              <p style="font-size:13.5px;color:#6f6478;line-height:1.6;max-width:260px">Independent bilingual health insurance brokers. Office in Doral, FL.</p>
-              <div style="display:flex;flex-direction:column;gap:4px;margin-top:14px;font-size:13.5px">
+              <p style="font-size:16px;color:#3a2f47;line-height:1.6;max-width:260px">Independent bilingual health insurance brokers. Office in Doral, FL.</p>
+              <div style="display:flex;flex-direction:column;gap:4px;margin-top:14px;font-size:16px">
                 <a href="tel:18003806821" style="color:#452068;font-weight:700">1-800-380-6821</a>
                 <a href="https://wa.me/13054646888" style="color:#452068;font-weight:700" onclick="gtag('event','whatsapp_click',{'page':window.location.pathname})">WhatsApp</a>
                 <a href="mailto:info@healthexps.com" style="color:#452068;font-weight:700">info@healthexps.com</a>
               </div>
-              <p style="font-size:13.5px;color:#4a4051;margin-top:14px">1695 NW 110 Ave, Ste 224<br/>Doral, FL 33172</p>
+              <p style="font-size:16px;color:#4a4051;margin-top:14px">1695 NW 110 Ave, Ste 224<br/>Doral, FL 33172</p>
             </div>
             <div>
-              <div style="font-weight:700;font-size:12.5px;letter-spacing:.06em;margin-bottom:14px;color:#452068">MEDICARE</div>
-              <div style="display:flex;flex-direction:column;gap:9px;font-size:13.5px">
+              <div style="font-weight:700;font-size:15px;letter-spacing:.06em;margin-bottom:14px;color:#452068">MEDICARE</div>
+              <div style="display:flex;flex-direction:column;gap:9px;font-size:16px">
                 <a href="/medicare-plans-miami" style="cursor:pointer;color:#241a30;font-weight:700">Medicare Plans</a>
                 <a href="/medicare-advantage-miami" style="color:#4a4051">Medicare Advantage</a>
                 <a href="/medicare-supplement-miami" style="color:#4a4051">Medicare Supplement</a>
@@ -802,8 +802,8 @@ img { max-width: 100%; height: auto; }
               </div>
             </div>
             <div>
-              <div style="font-weight:700;font-size:12.5px;letter-spacing:.06em;margin-bottom:14px;color:#452068">MEDICARE GUIDES</div>
-              <div style="display:flex;flex-direction:column;gap:9px;font-size:13.5px">
+              <div style="font-weight:700;font-size:15px;letter-spacing:.06em;margin-bottom:14px;color:#452068">MEDICARE GUIDES</div>
+              <div style="display:flex;flex-direction:column;gap:9px;font-size:16px">
                 <a href="/medicare/what-is-medicare" style="cursor:pointer;color:#4a4051">What Is Medicare</a>
                 <a href="/medicare/new-to-medicare" style="cursor:pointer;color:#4a4051">New to Medicare</a>
                 <a href="/medicare-irmaa-penalties" style="cursor:pointer;color:#4a4051">Medicare Costs &amp; IRMAA</a>
@@ -813,8 +813,8 @@ img { max-width: 100%; height: auto; }
               </div>
             </div>
             <div>
-              <div style="font-weight:700;font-size:12.5px;letter-spacing:.06em;margin-bottom:14px;color:#452068">MORE</div>
-              <div style="display:flex;flex-direction:column;gap:9px;font-size:13.5px">
+              <div style="font-weight:700;font-size:15px;letter-spacing:.06em;margin-bottom:14px;color:#452068">MORE</div>
+              <div style="display:flex;flex-direction:column;gap:9px;font-size:16px">
                 <a href="/private-health-insurance-miami" style="cursor:pointer;color:#4a4051">Private Health Insurance</a>
                 <a href="/aca-plans-miami" style="cursor:pointer;color:#4a4051">ACA Marketplace Plans</a>
                 <a href="/cobra-alternatives-miami" style="cursor:pointer;color:#4a4051">COBRA Alternatives</a>
@@ -825,10 +825,10 @@ img { max-width: 100%; height: auto; }
               </div>
             </div>
           </div>
-          <div style="border-top:1px solid #ece5f0;padding-top:20px;font-size:13px;color:#4a4051">
+          <div style="border-top:1px solid #ece5f0;padding-top:20px;font-size:16px;color:#4a4051">
             © 2026 The Health Experts Insurance. <a href="/privacy" style="color:#452068;font-weight:600">Privacy Policy &amp; Terms</a>
           </div>
-          <div style="padding-top:12px;font-size:13.5px;color:#a79db2;line-height:1.6">
+          <div style="padding-top:12px;font-size:16px;color:#5a5068;line-height:1.6">
             Medicare has not reviewed or endorsed this information. We do not offer every plan available in your area. We currently represent 14 organizations offering 82 products in your area. Please contact Medicare.gov, 1-800-MEDICARE, or your local SHIP program for information about all your options.
           </div>
         </div>
