@@ -21,17 +21,17 @@
 <style>
 html,body{overflow-x:hidden;max-width:100%;}
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
-:root{--purple:#452068;--purple-dark:#2f1550;--purple-light:#f7f2fb;--pink:#ff1090;--pink-hover:#c40074;--white:#ffffff;--off-white:#fdfaf7;--gray-light:#f7f7f7;--gray-mid:#ece5f0;--gray-text:#6f6478;--black:#241a30;--font-body:'Inter',Arial,Helvetica,sans-serif;--font-head:'Poppins',Arial,Helvetica,sans-serif;}
-body{font-family:var(--font-body);color:var(--black);line-height:1.65;font-size:17px;background:var(--white);-webkit-font-smoothing:antialiased;}
+:root{--purple:#452068;--purple-dark:#2f1550;--purple-light:#f7f2fb;--pink:#ff1090;--pink-hover:#c40074;--white:#ffffff;--off-white:#fdfaf7;--gray-light:#f7f7f7;--gray-mid:#ece5f0;--gray-text:#3a2f47;--black:#241a30;--font-body:'Inter',Arial,Helvetica,sans-serif;--font-head:'Poppins',Arial,Helvetica,sans-serif;}
+body{font-family:var(--font-body);color:var(--black);line-height:1.7;font-size:18px;background:var(--white);-webkit-font-smoothing:antialiased;}
 h1,h2,h3{font-family:var(--font-head);line-height:1.2;}
 a{color:var(--purple);text-decoration:none;}
 a:hover{color:var(--pink);}
 img{max-width:100%;height:auto;}
-.eyebrow{display:inline-block;color:var(--pink-hover);font-weight:700;font-size:12px;letter-spacing:.08em;text-transform:uppercase;margin-bottom:10px;}
-.btn-pink{display:inline-flex;align-items:center;gap:8px;background:var(--pink);color:white;padding:15px 28px;border-radius:12px;font-family:var(--font-body);font-weight:700;font-size:15.5px;box-shadow:0 8px 22px rgba(255,16,144,0.25);transition:background .2s,transform .15s;text-decoration:none;}
+.eyebrow{display:inline-block;color:var(--pink-hover);font-weight:700;font-size:14.5px;letter-spacing:.08em;text-transform:uppercase;margin-bottom:10px;}
+.btn-pink{display:inline-flex;align-items:center;gap:8px;background:var(--pink);color:white;padding:15px 28px;border-radius:12px;font-family:var(--font-body);font-weight:700;font-size:18px;box-shadow:0 8px 22px rgba(255,16,144,0.25);transition:background .2s,transform .15s;text-decoration:none;}
 .btn-pink:hover{background:var(--pink-hover);color:white;transform:translateY(-2px);}
-.btn-outline-purple{display:inline-flex;align-items:center;gap:8px;background:transparent;color:var(--purple);padding:13px 24px;border-radius:12px;border:2px solid var(--purple);font-family:var(--font-body);font-weight:700;font-size:15.5px;text-decoration:none;}
-.btn-outline-white{display:inline-flex;align-items:center;gap:8px;background:transparent;color:white;padding:13px 24px;border-radius:12px;border:2px solid rgba(255,255,255,.6);font-family:var(--font-body);font-weight:700;font-size:15.5px;text-decoration:none;}
+.btn-outline-purple{display:inline-flex;align-items:center;gap:8px;background:transparent;color:var(--purple);padding:13px 24px;border-radius:12px;border:2px solid var(--purple);font-family:var(--font-body);font-weight:700;font-size:18px;text-decoration:none;}
+.btn-outline-white{display:inline-flex;align-items:center;gap:8px;background:transparent;color:white;padding:13px 24px;border-radius:12px;border:2px solid rgba(255,255,255,.6);font-family:var(--font-body);font-weight:700;font-size:18px;text-decoration:none;}
 .v4-nav-dropdown{display:none;}
 .v4-nav-item:hover .v4-nav-dropdown{display:block;}
 .v4-nav-mobile-btn{display:none;background:none;border:none;cursor:pointer;padding:8px;}
@@ -41,17 +41,17 @@ img{max-width:100%;height:auto;}
 #scrollToTop:hover{background:#ff1090;transform:translateY(-2px);}
 #v4-mobile-menu a,.v4-nav-outer a,.v4-nav-desktop a{text-decoration:none!important;}
 .bcard{background:#fff;border:1px solid var(--gray-mid);border-radius:14px;padding:24px;}
-.bc-title{font-weight:700;font-size:15px;color:var(--black);margin-bottom:8px;}
-.bc-body{font-size:13.5px;color:var(--gray-text);line-height:1.6;}
+.bc-title{font-weight:700;font-size:18px;color:var(--black);margin-bottom:8px;}
+.bc-body{font-size:18px;color:var(--gray-text);line-height:1.7;}
 .grid-3col{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;}
 .grid-2col{display:grid;grid-template-columns:repeat(2,1fr);gap:20px;}
 .steps-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:32px;}
 .step-num{width:44px;height:44px;border-radius:50%;background:#ff1090;color:#fff;font-weight:700;font-size:17px;display:flex;align-items:center;justify-content:center;margin-bottom:16px;font-family:Poppins,sans-serif;}
-.cond-check{display:flex;align-items:center;gap:8px;font-size:13.5px;color:var(--black);padding:6px 0;}
+.cond-check{display:flex;align-items:center;gap:8px;font-size:16px;color:var(--black);padding:6px 0;}
 .elig-box{background:var(--purple-light);border:2px solid var(--gray-mid);border-radius:16px;padding:24px;}
 .ff-input{width:100%;box-sizing:border-box;padding:13px 14px;border-radius:10px;border:2px solid #ddd2e6;font-size:16px;font-family:Inter,sans-serif;color:var(--black);outline:none;}
 .ff-input:focus{border-color:var(--purple);}
-.income-table{width:100%;border-collapse:collapse;font-size:14px;}
+.income-table{width:100%;border-collapse:collapse;font-size:17px;}
 .income-table th{background:#452068;color:#fff;padding:10px 14px;text-align:left;font-weight:700;}
 .income-table td{padding:11px 14px;border-bottom:1px solid var(--gray-mid);}
 .income-table tr:nth-child(even) td{background:#fdfaf7;}
@@ -64,18 +64,18 @@ img{max-width:100%;height:auto;}
 <div style="font-family:Inter,sans-serif;color:#241a30;background:#fff">
 
 <!-- UTILITY BAR -->
-<div class="top-bar-inner" style="background:#2f1550;color:#fff;display:flex;align-items:center;justify-content:space-between;padding:9px 56px;font-size:13px">
+<div class="top-bar-inner" style="background:#2f1550;color:#fff;display:flex;align-items:center;justify-content:space-between;padding:9px 56px;font-size:16px">
   <div style="display:flex;align-items:center;gap:12px">
     <a href="tel:18003806821" style="color:#fff;font-weight:700">📞 1-800-380-6821</a>
-    <span style="display:inline-flex;align-items:center;border:1px solid rgba(255,255,255,0.35);border-radius:999px;padding:3px 10px;gap:3px;font-size:12px;"><a href="/medicare-dual-eligible-miami/" style="color:#fff;text-decoration:none;font-weight:700">EN</a><span style="opacity:.35;margin:0 1px">|</span><span style="opacity:.9;font-weight:700">ES</span></span>
+    <span style="display:inline-flex;align-items:center;border:1px solid rgba(255,255,255,0.35);border-radius:999px;padding:3px 10px;gap:3px;font-size:14.5px;"><a href="/medicare-dual-eligible-miami/" style="color:#fff;text-decoration:none;font-weight:700">EN</a><span style="opacity:.35;margin:0 1px">|</span><span style="opacity:.9;font-weight:700">ES</span></span>
   </div>
-  <div><a href="https://wa.me/13054646888" onclick="gtag('event','whatsapp_click',{'page':window.location.pathname})" style="display:inline-flex;align-items:center;gap:6px;background:#25D366;color:#fff;padding:5px 12px;border-radius:999px;font-weight:700;font-size:12.5px;text-decoration:none;">📱 WhatsApp</a></div>
+  <div><a href="https://wa.me/13054646888" onclick="gtag('event','whatsapp_click',{'page':window.location.pathname})" style="display:inline-flex;align-items:center;gap:6px;background:#25D366;color:#fff;padding:5px 12px;border-radius:999px;font-weight:700;font-size:15px;text-decoration:none;">📱 WhatsApp</a></div>
 </div>
 
 <!-- DESKTOP NAV -->
 <div class="v4-nav-outer" style="display:flex;align-items:center;justify-content:space-between;padding:14px 56px;border-bottom:1px solid #ece5f0;position:sticky;top:0;background:#fff;z-index:500">
   <a href="/es/"><img src="/images/logo.webp" alt="The Health Experts Insurance" style="height:80px;width:auto;"/></a>
-  <div class="v4-nav-desktop" style="display:flex;align-items:center;gap:22px;font-size:14.5px;font-weight:600;color:#3a2f47">
+  <div class="v4-nav-desktop" style="display:flex;align-items:center;gap:22px;font-size:18px;font-weight:600;color:#3a2f47">
     <a href="/es/" style="color:#241a30">Inicio</a>
     <div class="v4-nav-item" style="position:relative">
       <a href="/es/planes-de-medicare-miami" style="display:flex;align-items:center;gap:4px;color:#241a30">Seguros ▾</a>
@@ -115,8 +115,8 @@ img{max-width:100%;height:auto;}
     <a href="/es/contacto/" style="color:#241a30">Contacto</a>
   </div>
   <div style="display:flex;align-items:center;gap:12px">
-    <a href="tel:18003806821" class="v4-nav-desktop" style="color:#241a30;font-weight:700;font-size:14.5px">📞 1-800-380-6821</a>
-    <a href="#dsnp-form" class="v4-nav-desktop" style="background:#452068;color:#fff;padding:11px 20px;border-radius:10px;font-weight:700;font-size:14px">Verificar Elegibilidad</a>
+    <a href="tel:18003806821" class="v4-nav-desktop" style="color:#241a30;font-weight:700;font-size:18px">📞 1-800-380-6821</a>
+    <a href="#dsnp-form" class="v4-nav-desktop" style="background:#452068;color:#fff;padding:11px 20px;border-radius:10px;font-weight:700;font-size:17px">Verificar Elegibilidad</a>
     <button class="v4-nav-mobile-btn" id="v4HamburgerBtn" aria-label="Abrir menú" aria-expanded="false" aria-controls="v4-mobile-menu">
       <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#241a30" stroke-width="2.2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
     </button>
@@ -133,25 +133,25 @@ img{max-width:100%;height:auto;}
   </div>
   <nav style="display:flex;flex-direction:column;gap:4px;font-size:16px;font-weight:600;color:#241a30">
     <a href="/es/" style="padding:14px 4px;border-bottom:1px solid #ece5f0;color:#241a30">Inicio</a>
-    <div style="padding:14px 4px 4px;font-size:13px;font-weight:700;color:#8a6aaa;text-transform:uppercase;letter-spacing:.06em">Seguros</div>
-    <a href="/es/planes-de-medicare-miami" style="padding:11px 12px;border-radius:8px;color:#241a30;font-weight:600;font-size:15px">Planes Medicare</a>
-    <a href="/es/medicare-advantage-miami" style="padding:11px 12px;border-radius:8px;color:#241a30;font-weight:600;font-size:15px">Medicare Advantage</a>
-    <a href="/es/medicare-suplementario-miami" style="padding:11px 12px;border-radius:8px;color:#241a30;font-weight:600;font-size:15px">Medicare Suplementario</a>
-    <a href="/es/medicare-medicaid-miami" style="padding:11px 12px;border-radius:8px;color:#452068;font-weight:700;font-size:15px">D-SNP / Dual</a>
-    <a href="/es/planes-aca-miami" style="padding:11px 12px;border-radius:8px;color:#241a30;font-weight:600;font-size:15px">Planes ACA</a>
-    <a href="/es/seguro-medico-privado-miami" style="padding:11px 12px;border-radius:8px;color:#241a30;font-weight:600;font-size:15px">Seguro Médico Privado</a>
-    <a href="/es/alternativas-cobra-miami" style="padding:11px 12px;border-radius:8px;color:#241a30;font-weight:600;font-size:15px">Alternativas COBRA</a>
-    <a href="/es/dental-vision-miami" style="padding:11px 12px;border-radius:8px;color:#241a30;font-weight:600;font-size:15px">Dental y Visión</a>
-    <a href="/es/seguro-de-vida-miami/" style="padding:11px 12px;border-radius:8px;color:#241a30;font-weight:600;font-size:15px">Seguro de Vida</a>
-    <a href="/es/gastos-finales-miami/" style="padding:11px 12px;border-radius:8px;color:#241a30;font-weight:600;font-size:15px">Gastos Finales</a>
-    <div style="padding:14px 4px 4px;font-size:13px;font-weight:700;color:#8a6aaa;text-transform:uppercase;letter-spacing:.06em;margin-top:8px">Guías</div>
-    <a href="/es/medicare/que-es-medicare/" style="padding:11px 12px;border-radius:8px;color:#241a30;font-weight:600;font-size:15px">Qué es Medicare</a>
-    <a href="/es/nuevo-en-medicare/" style="padding:11px 12px;border-radius:8px;color:#241a30;font-weight:600;font-size:15px">Nuevo en Medicare</a>
-    <a href="/es/irmaa-penalidades-medicare/" style="padding:11px 12px;border-radius:8px;color:#241a30;font-weight:600;font-size:15px">Costos IRMAA</a>
-    <a href="/es/medicare/programa-ahorros-medicare/" style="padding:11px 12px;border-radius:8px;color:#241a30;font-weight:600;font-size:15px">Programa de Ahorros</a>
-    <a href="/es/mitos-medicare/" style="padding:11px 12px;border-radius:8px;color:#241a30;font-weight:600;font-size:15px">Mitos de Medicare</a>
-    <a href="/es/inscripcion-anual-medicare-2027/" style="padding:11px 12px;border-radius:8px;color:#241a30;font-weight:600;font-size:15px">Inscripción Anual (AEP)</a>
-    <a href="/es/buscador-de-planes/" style="padding:11px 12px;border-radius:8px;color:#241a30;font-weight:600;font-size:15px">Buscador de Planes</a>
+    <div style="padding:14px 4px 4px;font-size:16px;font-weight:700;color:#5c3d7a;text-transform:uppercase;letter-spacing:.06em">Seguros</div>
+    <a href="/es/planes-de-medicare-miami" style="padding:11px 12px;border-radius:8px;color:#241a30;font-weight:600;font-size:18px">Planes Medicare</a>
+    <a href="/es/medicare-advantage-miami" style="padding:11px 12px;border-radius:8px;color:#241a30;font-weight:600;font-size:18px">Medicare Advantage</a>
+    <a href="/es/medicare-suplementario-miami" style="padding:11px 12px;border-radius:8px;color:#241a30;font-weight:600;font-size:18px">Medicare Suplementario</a>
+    <a href="/es/medicare-medicaid-miami" style="padding:11px 12px;border-radius:8px;color:#452068;font-weight:700;font-size:18px">D-SNP / Dual</a>
+    <a href="/es/planes-aca-miami" style="padding:11px 12px;border-radius:8px;color:#241a30;font-weight:600;font-size:18px">Planes ACA</a>
+    <a href="/es/seguro-medico-privado-miami" style="padding:11px 12px;border-radius:8px;color:#241a30;font-weight:600;font-size:18px">Seguro Médico Privado</a>
+    <a href="/es/alternativas-cobra-miami" style="padding:11px 12px;border-radius:8px;color:#241a30;font-weight:600;font-size:18px">Alternativas COBRA</a>
+    <a href="/es/dental-vision-miami" style="padding:11px 12px;border-radius:8px;color:#241a30;font-weight:600;font-size:18px">Dental y Visión</a>
+    <a href="/es/seguro-de-vida-miami/" style="padding:11px 12px;border-radius:8px;color:#241a30;font-weight:600;font-size:18px">Seguro de Vida</a>
+    <a href="/es/gastos-finales-miami/" style="padding:11px 12px;border-radius:8px;color:#241a30;font-weight:600;font-size:18px">Gastos Finales</a>
+    <div style="padding:14px 4px 4px;font-size:16px;font-weight:700;color:#5c3d7a;text-transform:uppercase;letter-spacing:.06em;margin-top:8px">Guías</div>
+    <a href="/es/medicare/que-es-medicare/" style="padding:11px 12px;border-radius:8px;color:#241a30;font-weight:600;font-size:18px">Qué es Medicare</a>
+    <a href="/es/nuevo-en-medicare/" style="padding:11px 12px;border-radius:8px;color:#241a30;font-weight:600;font-size:18px">Nuevo en Medicare</a>
+    <a href="/es/irmaa-penalidades-medicare/" style="padding:11px 12px;border-radius:8px;color:#241a30;font-weight:600;font-size:18px">Costos IRMAA</a>
+    <a href="/es/medicare/programa-ahorros-medicare/" style="padding:11px 12px;border-radius:8px;color:#241a30;font-weight:600;font-size:18px">Programa de Ahorros</a>
+    <a href="/es/mitos-medicare/" style="padding:11px 12px;border-radius:8px;color:#241a30;font-weight:600;font-size:18px">Mitos de Medicare</a>
+    <a href="/es/inscripcion-anual-medicare-2027/" style="padding:11px 12px;border-radius:8px;color:#241a30;font-weight:600;font-size:18px">Inscripción Anual (AEP)</a>
+    <a href="/es/buscador-de-planes/" style="padding:11px 12px;border-radius:8px;color:#241a30;font-weight:600;font-size:18px">Buscador de Planes</a>
     <div style="margin-top:8px;border-top:1px solid #ece5f0;padding-top:12px;display:flex;flex-direction:column;gap:4px">
       <a href="/es/faq/" style="padding:12px 4px;color:#241a30;border-bottom:1px solid #ece5f0">FAQ</a>
       <a href="/es/recursos/" style="padding:12px 4px;color:#241a30;border-bottom:1px solid #ece5f0">Recursos</a>
@@ -170,12 +170,12 @@ img{max-width:100%;height:auto;}
 <div>
 
 <!-- BREADCRUMB -->
-<div style="background:#f7f2fb;padding:10px 56px;border-bottom:1px solid #ece5f0;font-size:13px;color:#6f6478">
+<div style="background:#f7f2fb;padding:10px 56px;border-bottom:1px solid #ece5f0;font-size:16px;color:#3a2f47">
   <div style="max-width:1160px;margin:0 auto">
     <a href="/es/" style="font-weight:600;color:#452068">Inicio</a>
-    <span style="margin:0 6px;color:#c4b8d0">/</span>
+    <span style="margin:0 6px;color:#5a5068">/</span>
     <a href="/es/planes-de-medicare-miami" style="color:#452068;font-weight:600">Planes Medicare</a>
-    <span style="margin:0 6px;color:#c4b8d0">/</span>
+    <span style="margin:0 6px;color:#5a5068">/</span>
     <span style="color:#241a30;font-weight:600">D-SNP / Doble Elegible</span>
   </div>
 </div>
@@ -183,31 +183,31 @@ img{max-width:100%;height:auto;}
 <!-- HERO -->
 <section style="background:linear-gradient(135deg,#fdfaf7 0%,#f7f2fb 100%);padding:72px 56px 60px">
   <div style="max-width:760px;margin:0 auto;text-align:center">
-    <div style="display:inline-flex;align-items:center;gap:8px;background:#fff0f8;color:#c40074;padding:8px 16px;border-radius:999px;font-size:13px;font-weight:700;margin-bottom:20px">
+    <div style="display:inline-flex;align-items:center;gap:8px;background:#fff0f8;color:#c40074;padding:8px 16px;border-radius:999px;font-size:16px;font-weight:700;margin-bottom:20px">
       <span style="width:7px;height:7px;border-radius:50%;background:#ff1090;display:inline-block"></span>
       D-SNP en Miami-Dade &mdash; Medicare + Medicaid
     </div>
     <h1 style="font-family:Poppins,sans-serif;font-weight:700;font-size:clamp(30px,4.5vw,46px);line-height:1.1;color:#241a30;margin:0 0 18px">¿Tiene Medicare y Medicaid?<br>Un plan D-SNP puede darle más &mdash; <span style="color:#ff1090">gratis.</span></h1>
-    <p style="font-size:17px;line-height:1.65;color:#6f6478;margin:0 0 28px;max-width:580px;margin-left:auto;margin-right:auto">Si califica para Medicare y Medicaid, un Plan de Necesidades Especiales para Doble Elegible (D-SNP) coordina ambos beneficios en una sola tarjeta &mdash; frecuentemente con $0 prima, tarjetas de comestibles, transporte gratuito, dental, visión y más.</p>
+    <p style="font-size:17px;line-height:1.65;color:#3a2f47;margin:0 0 28px;max-width:580px;margin-left:auto;margin-right:auto">Si califica para Medicare y Medicaid, un Plan de Necesidades Especiales para Doble Elegible (D-SNP) coordina ambos beneficios en una sola tarjeta &mdash; frecuentemente con $0 prima, tarjetas de comestibles, transporte gratuito, dental, visión y más.</p>
     <div class="hero-btns" style="display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin-bottom:24px">
       <a href="#dsnp-form" class="btn-pink">Verificar mi Elegibilidad &rarr;</a>
       <a href="tel:18003806821" class="btn-outline-purple">Llamar 1-800-380-6821</a>
     </div>
     <div style="display:flex;gap:10px;justify-content:center;flex-wrap:wrap">
-      <span style="background:#fff;border:2px solid #ece5f0;padding:7px 14px;border-radius:999px;font-size:13px;font-weight:600;color:#452068">Prima $0</span>
-      <span style="background:#fff;border:2px solid #ece5f0;padding:7px 14px;border-radius:999px;font-size:13px;font-weight:600;color:#452068">Tarjeta de Comestibles</span>
-      <span style="background:#fff;border:2px solid #ece5f0;padding:7px 14px;border-radius:999px;font-size:13px;font-weight:600;color:#452068">Transporte Gratis</span>
-      <span style="background:#fff;border:2px solid #ece5f0;padding:7px 14px;border-radius:999px;font-size:13px;font-weight:600;color:#452068">Bilingüe</span>
+      <span style="background:#fff;border:2px solid #ece5f0;padding:7px 14px;border-radius:999px;font-size:16px;font-weight:600;color:#452068">Prima $0</span>
+      <span style="background:#fff;border:2px solid #ece5f0;padding:7px 14px;border-radius:999px;font-size:16px;font-weight:600;color:#452068">Tarjeta de Comestibles</span>
+      <span style="background:#fff;border:2px solid #ece5f0;padding:7px 14px;border-radius:999px;font-size:16px;font-weight:600;color:#452068">Transporte Gratis</span>
+      <span style="background:#fff;border:2px solid #ece5f0;padding:7px 14px;border-radius:999px;font-size:16px;font-weight:600;color:#452068">Bilingüe</span>
     </div>
   </div>
 </section>
 
 <!-- STAT STRIP -->
 <div style="background:#452068;color:#fff;padding:30px 56px;display:flex;justify-content:space-around;flex-wrap:wrap;gap:20px">
-  <div style="text-align:center"><div style="font-family:Poppins,sans-serif;font-weight:700;font-size:28px">$0</div><div style="font-size:13px;opacity:.8;margin-top:4px">prima mensual para elegibles</div></div>
-  <div style="text-align:center"><div style="font-family:Poppins,sans-serif;font-weight:700;font-size:28px">$0–$12.65</div><div style="font-size:13px;opacity:.8;margin-top:4px">copago medicamentos (2026)</div></div>
-  <div style="text-align:center"><div style="font-family:Poppins,sans-serif;font-weight:700;font-size:28px">$0</div><div style="font-size:13px;opacity:.8;margin-top:4px">costo por nuestro servicio</div></div>
-  <div style="text-align:center"><div style="font-family:Poppins,sans-serif;font-weight:700;font-size:28px">2019</div><div style="font-size:13px;opacity:.8;margin-top:4px">fundada en Doral</div></div>
+  <div style="text-align:center"><div style="font-family:Poppins,sans-serif;font-weight:700;font-size:28px">$0</div><div style="font-size:16px;opacity:.8;margin-top:4px">prima mensual para elegibles</div></div>
+  <div style="text-align:center"><div style="font-family:Poppins,sans-serif;font-weight:700;font-size:28px">$0–$12.65</div><div style="font-size:16px;opacity:.8;margin-top:4px">copago medicamentos (2026)</div></div>
+  <div style="text-align:center"><div style="font-family:Poppins,sans-serif;font-weight:700;font-size:28px">$0</div><div style="font-size:16px;opacity:.8;margin-top:4px">costo por nuestro servicio</div></div>
+  <div style="text-align:center"><div style="font-family:Poppins,sans-serif;font-weight:700;font-size:28px">2019</div><div style="font-size:16px;opacity:.8;margin-top:4px">fundada en Doral</div></div>
 </div>
 
 <!-- QUÉ ES D-SNP -->
@@ -215,17 +215,17 @@ img{max-width:100%;height:auto;}
   <div style="max-width:1100px;margin:0 auto">
     <span class="eyebrow">Entendiendo los D-SNP</span>
     <h2 style="font-family:Poppins,sans-serif;font-size:clamp(22px,3vw,30px);font-weight:700;color:#241a30;margin:0 0 12px">¿Qué es un plan D-SNP?</h2>
-    <p style="color:#6f6478;font-size:16px;line-height:1.7;margin:0 0 28px;max-width:800px">Un Plan de Necesidades Especiales para Doble Elegible (D-SNP) es un tipo de Medicare Advantage diseñado específicamente para personas que tienen tanto Medicare como Medicaid. En lugar de gestionar dos programas diferentes, un D-SNP los coordina en un solo plan con una tarjeta, un equipo de atención y frecuentemente beneficios adicionales que ninguno de los dos programas ofrece por separado.</p>
+    <p style="color:#3a2f47;font-size:16px;line-height:1.7;margin:0 0 28px;max-width:800px">Un Plan de Necesidades Especiales para Doble Elegible (D-SNP) es un tipo de Medicare Advantage diseñado específicamente para personas que tienen tanto Medicare como Medicaid. En lugar de gestionar dos programas diferentes, un D-SNP los coordina en un solo plan con una tarjeta, un equipo de atención y frecuentemente beneficios adicionales que ninguno de los dos programas ofrece por separado.</p>
     <div style="background:#f7f2fb;border-left:4px solid #452068;border-radius:16px;padding:28px 32px;margin-bottom:32px">
       <div style="font-weight:700;font-size:17px;color:#241a30;margin-bottom:10px">Lo que lo hace diferente de un plan Advantage regular:</div>
       <div style="display:grid;grid-template-columns:1fr 1fr;gap:20px" class="dsnp-compare">
         <div>
-          <div style="font-weight:700;font-size:14px;color:#6f6478;margin-bottom:10px">Medicare Advantage regular</div>
-          <div style="font-size:14px;color:#6f6478;line-height:1.7">✓ Dental, visión, audición incluidos<br>✓ $0 prima disponible<br>✗ Sin tarjeta de comestibles<br>✗ Sin coordinación con Medicaid<br>✗ Puede tener copagos más altos</div>
+          <div style="font-weight:700;font-size:17px;color:#3a2f47;margin-bottom:10px">Medicare Advantage regular</div>
+          <div style="font-size:17px;color:#3a2f47;line-height:1.7">✓ Dental, visión, audición incluidos<br>✓ $0 prima disponible<br>✗ Sin tarjeta de comestibles<br>✗ Sin coordinación con Medicaid<br>✗ Puede tener copagos más altos</div>
         </div>
         <div style="background:#e9dff6;border-radius:12px;padding:18px">
-          <div style="font-weight:700;font-size:14px;color:#452068;margin-bottom:10px">D-SNP (Doble Elegible)</div>
-          <div style="font-size:14px;color:#241a30;line-height:1.7">✓ Todo lo de arriba, más:<br>✓ Tarjeta mensual de comestibles/OTC<br>✓ Transporte médico gratuito<br>✓ Medicamentos a $0–$12.65<br>✓ Coordinación Medicare + Medicaid<br>✓ Frecuentemente $0 de bolsillo total</div>
+          <div style="font-weight:700;font-size:17px;color:#452068;margin-bottom:10px">D-SNP (Doble Elegible)</div>
+          <div style="font-size:17px;color:#241a30;line-height:1.7">✓ Todo lo de arriba, más:<br>✓ Tarjeta mensual de comestibles/OTC<br>✓ Transporte médico gratuito<br>✓ Medicamentos a $0–$12.65<br>✓ Coordinación Medicare + Medicaid<br>✓ Frecuentemente $0 de bolsillo total</div>
         </div>
       </div>
     </div>
@@ -236,7 +236,7 @@ img{max-width:100%;height:auto;}
 <section style="background:#fff;padding:56px 56px 72px">
   <div style="max-width:1100px;margin:0 auto">
     <h2 style="text-align:center;font-family:Poppins,sans-serif;font-size:clamp(20px,3vw,28px);font-weight:700;color:#241a30;margin:0 0 8px">Lo que agrega un D-SNP por encima de Medicare y Medicaid</h2>
-    <p style="text-align:center;color:#6f6478;font-size:15px;margin:0 0 32px">Beneficios que Medicare Original y Medicaid solos no cubren &mdash; frecuentemente a $0 prima.</p>
+    <p style="text-align:center;color:#3a2f47;font-size:18px;margin:0 0 32px">Beneficios que Medicare Original y Medicaid solos no cubren &mdash; frecuentemente a $0 prima.</p>
     <div class="grid-3col">
       <div class="bcard">
         <div style="width:44px;height:44px;border-radius:12px;background:linear-gradient(135deg,#f3edfa,#e9dff6);display:flex;align-items:center;justify-content:center;margin-bottom:14px"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#452068" stroke-width="1.8"><rect x="3" y="8" width="18" height="8" rx="4"/><line x1="12" y1="8" x2="12" y2="16"/></svg></div>
@@ -276,7 +276,7 @@ img{max-width:100%;height:auto;}
 <section style="background:#fdfaf7;padding:64px 56px">
   <div style="max-width:900px;margin:0 auto">
     <h2 style="font-family:Poppins,sans-serif;font-size:clamp(20px,3vw,26px);font-weight:700;color:#241a30;margin:0 0 10px">¿Califica? Guía de ingresos de Florida 2026</h2>
-    <p style="color:#6f6478;font-size:14.5px;line-height:1.65;margin:0 0 20px">Si tiene Medicare e ingresos limitados, puede calificar para Medicaid completo o un Programa de Ahorros de Medicare (MSP) &mdash; cualquiera de los dos puede hacerle elegible para un D-SNP. Límite de activos: $9,950 soltero / $14,910 casado. Ciertos ingresos no cuentan &mdash; la única manera de saber con certeza es aplicar, y le ayudamos gratis.</p>
+    <p style="color:#3a2f47;font-size:18px;line-height:1.65;margin:0 0 20px">Si tiene Medicare e ingresos limitados, puede calificar para Medicaid completo o un Programa de Ahorros de Medicare (MSP) &mdash; cualquiera de los dos puede hacerle elegible para un D-SNP. Límite de activos: $9,950 soltero / $14,910 casado. Ciertos ingresos no cuentan &mdash; la única manera de saber con certeza es aplicar, y le ayudamos gratis.</p>
     <div style="overflow-x:auto;margin-bottom:14px">
       <table class="income-table">
         <thead>
@@ -294,8 +294,8 @@ img{max-width:100%;height:auto;}
         </tbody>
       </table>
     </div>
-    <p style="font-size:12px;color:#a79db2;line-height:1.6;margin:0 0 16px">Los límites incluyen el descuento estándar de $20 y se actualizan cada abril. Inscribirse en cualquier MSP también le da Ayuda Extra para medicamentos automáticamente. No se auto-descalifique &mdash; aplique y déjenos verificar.</p>
-    <a href="/es/medicare/programa-ahorros-medicare/" style="font-weight:700;color:#c40074;font-size:14px">Ver si el Programa de Ahorros de Medicare puede calificarle &rarr;</a>
+    <p style="font-size:14.5px;color:#5a5068;line-height:1.6;margin:0 0 16px">Los límites incluyen el descuento estándar de $20 y se actualizan cada abril. Inscribirse en cualquier MSP también le da Ayuda Extra para medicamentos automáticamente. No se auto-descalifique &mdash; aplique y déjenos verificar.</p>
+    <a href="/es/medicare/programa-ahorros-medicare/" style="font-weight:700;color:#c40074;font-size:17px">Ver si el Programa de Ahorros de Medicare puede calificarle &rarr;</a>
   </div>
 </section>
 
@@ -303,22 +303,22 @@ img{max-width:100%;height:auto;}
 <section style="background:#fff;padding:64px 56px">
   <div style="max-width:1000px;margin:0 auto;text-align:center">
     <h2 style="font-size:clamp(20px,3vw,26px);font-weight:700;color:#241a30;margin:0 0 8px">Cómo le ayudamos &mdash; gratis, en su idioma</h2>
-    <p style="color:#6f6478;font-size:15px;margin:0 0 32px">Desde la verificación de elegibilidad hasta la inscripción y más allá &mdash; estamos con usted en cada paso.</p>
+    <p style="color:#3a2f47;font-size:18px;margin:0 0 32px">Desde la verificación de elegibilidad hasta la inscripción y más allá &mdash; estamos con usted en cada paso.</p>
     <div class="steps-grid">
       <div style="text-align:left">
         <div class="step-num">1</div>
-        <div style="font-weight:700;font-size:14.5px;margin-bottom:6px">Verificamos su elegibilidad</div>
-        <div style="font-size:13px;color:#6f6478;line-height:1.55">Confirmamos su estado de Medicaid o MSP, y le ayudamos a aplicar si aún no está inscrito. Muchas personas califican y no lo saben.</div>
+        <div style="font-weight:700;font-size:18px;margin-bottom:6px">Verificamos su elegibilidad</div>
+        <div style="font-size:16px;color:#3a2f47;line-height:1.55">Confirmamos su estado de Medicaid o MSP, y le ayudamos a aplicar si aún no está inscrito. Muchas personas califican y no lo saben.</div>
       </div>
       <div style="text-align:left">
         <div class="step-num">2</div>
-        <div style="font-weight:700;font-size:14.5px;margin-bottom:6px">Comparamos cada D-SNP</div>
-        <div style="font-size:13px;color:#6f6478;line-height:1.55">Qué planes aceptan sus médicos, cuáles cubren sus medicamentos y cuáles incluyen beneficios de comestibles, OTC y transporte en su área.</div>
+        <div style="font-weight:700;font-size:18px;margin-bottom:6px">Comparamos cada D-SNP</div>
+        <div style="font-size:16px;color:#3a2f47;line-height:1.55">Qué planes aceptan sus médicos, cuáles cubren sus medicamentos y cuáles incluyen beneficios de comestibles, OTC y transporte en su área.</div>
       </div>
       <div style="text-align:left">
         <div class="step-num">3</div>
-        <div style="font-weight:700;font-size:14.5px;margin-bottom:6px">Le inscribimos y nos quedamos con usted</div>
-        <div style="font-size:13px;color:#6f6478;line-height:1.55">Incluyendo su renovación anual de Medicaid para que nunca pierda cobertura. El mismo agente durante todo el proceso, sin transferencias.</div>
+        <div style="font-weight:700;font-size:18px;margin-bottom:6px">Le inscribimos y nos quedamos con usted</div>
+        <div style="font-size:16px;color:#3a2f47;line-height:1.55">Incluyendo su renovación anual de Medicaid para que nunca pierda cobertura. El mismo agente durante todo el proceso, sin transferencias.</div>
       </div>
     </div>
   </div>
@@ -328,9 +328,9 @@ img{max-width:100%;height:auto;}
 <section style="background:#fdfaf7;padding:56px 56px">
   <div style="max-width:1000px;margin:0 auto">
     <h2 style="font-size:clamp(20px,3vw,26px);font-weight:700;color:#241a30;margin:0 0 12px">¿No tiene Medicaid? Aún puede calificar &mdash; Planes de Condición Crónica (C-SNP)</h2>
-    <p style="color:#6f6478;font-size:14.5px;line-height:1.65;margin:0 0 24px">Si tiene Medicare y una condición crónica grave, puede calificar para un <strong>Plan de Necesidades Especiales de Condición Crónica (C-SNP)</strong> &mdash; incluso sin Medicaid. Los C-SNP frecuentemente incluyen los mismos beneficios extra: tarjetas de comestibles, asignaciones OTC, transporte gratuito y equipos de atención específicos para su condición.</p>
+    <p style="color:#3a2f47;font-size:18px;line-height:1.65;margin:0 0 24px">Si tiene Medicare y una condición crónica grave, puede calificar para un <strong>Plan de Necesidades Especiales de Condición Crónica (C-SNP)</strong> &mdash; incluso sin Medicaid. Los C-SNP frecuentemente incluyen los mismos beneficios extra: tarjetas de comestibles, asignaciones OTC, transporte gratuito y equipos de atención específicos para su condición.</p>
     <div class="elig-box">
-      <h3 style="font-size:14.5px;color:#241a30;font-family:Poppins,sans-serif;margin-bottom:14px">Condiciones que pueden calificarle para un C-SNP en Florida 2026</h3>
+      <h3 style="font-size:18px;color:#241a30;font-family:Poppins,sans-serif;margin-bottom:14px">Condiciones que pueden calificarle para un C-SNP en Florida 2026</h3>
       <div class="grid-2col">
         <div class="cond-check"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#ff1090" stroke-width="2.4"><path d="M5 12l4 4 10-10"/></svg>Diabetes (Tipo 1 o 2)</div>
         <div class="cond-check"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#ff1090" stroke-width="2.4"><path d="M5 12l4 4 10-10"/></svg>EPOC / Enfermedad pulmonar crónica</div>
@@ -341,9 +341,9 @@ img{max-width:100%;height:auto;}
         <div class="cond-check"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#ff1090" stroke-width="2.4"><path d="M5 12l4 4 10-10"/></svg>Cáncer (ciertos diagnósticos)</div>
         <div class="cond-check"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#ff1090" stroke-width="2.4"><path d="M5 12l4 4 10-10"/></svg>Trastornos autoinmunes</div>
       </div>
-      <p style="font-size:12.5px;color:#6f6478;margin-top:16px;line-height:1.6">No necesita Medicaid para calificar para un C-SNP &mdash; solo un diagnóstico confirmado por su médico. Muchas personas con condiciones crónicas están dejando beneficios gratuitos de comestibles y OTC sobre la mesa sin saberlo. Comparamos cada C-SNP y D-SNP en su código postal sin costo.</p>
+      <p style="font-size:15px;color:#3a2f47;margin-top:16px;line-height:1.6">No necesita Medicaid para calificar para un C-SNP &mdash; solo un diagnóstico confirmado por su médico. Muchas personas con condiciones crónicas están dejando beneficios gratuitos de comestibles y OTC sobre la mesa sin saberlo. Comparamos cada C-SNP y D-SNP en su código postal sin costo.</p>
     </div>
-    <p style="margin-top:20px;text-align:center"><a href="#dsnp-form" style="font-weight:700;color:#c40074;font-size:14px">Verificar qué plan SNP encaja con mi condición &rarr;</a></p>
+    <p style="margin-top:20px;text-align:center"><a href="#dsnp-form" style="font-weight:700;color:#c40074;font-size:17px">Verificar qué plan SNP encaja con mi condición &rarr;</a></p>
   </div>
 </section>
 
@@ -357,42 +357,42 @@ img{max-width:100%;height:auto;}
           ¿Puedo inscribirme en un D-SNP en cualquier momento del año?
           <span style="font-size:20px;color:#ff1090;flex-shrink:0">+</span>
         </summary>
-        <div style="font-size:15px;color:#6f6478;line-height:1.7;padding:0 0 16px">Frecuentemente sí. Las personas con Medicare y Medicaid generalmente califican para un Período de Inscripción Especial y pueden cambiar o unirse a un D-SNP una vez por trimestre, además del Período de Inscripción Anual (15 de octubre al 7 de diciembre). Podemos verificar su ventana hoy.</div>
+        <div style="font-size:18px;color:#3a2f47;line-height:1.7;padding:0 0 16px">Frecuentemente sí. Las personas con Medicare y Medicaid generalmente califican para un Período de Inscripción Especial y pueden cambiar o unirse a un D-SNP una vez por trimestre, además del Período de Inscripción Anual (15 de octubre al 7 de diciembre). Podemos verificar su ventana hoy.</div>
       </details>
       <details style="border-bottom:1px solid #ece5f0">
         <summary style="padding:18px 0;font-size:16px;font-weight:700;color:#452068;cursor:pointer;list-style:none;display:flex;justify-content:space-between;align-items:center">
           ¿Perderé mi Medicaid si me uno a un D-SNP?
           <span style="font-size:20px;color:#ff1090;flex-shrink:0">+</span>
         </summary>
-        <div style="font-size:15px;color:#6f6478;line-height:1.7;padding:0 0 16px">No &mdash; un D-SNP trabaja junto con su Medicaid, no lo reemplaza. Mantiene ambos, y el plan los coordina por usted. Solo necesita renovar su Medicaid cada año para seguir siendo elegible &mdash; y le ayudamos a hacer eso.</div>
+        <div style="font-size:18px;color:#3a2f47;line-height:1.7;padding:0 0 16px">No &mdash; un D-SNP trabaja junto con su Medicaid, no lo reemplaza. Mantiene ambos, y el plan los coordina por usted. Solo necesita renovar su Medicaid cada año para seguir siendo elegible &mdash; y le ayudamos a hacer eso.</div>
       </details>
       <details style="border-bottom:1px solid #ece5f0">
         <summary style="padding:18px 0;font-size:16px;font-weight:700;color:#452068;cursor:pointer;list-style:none;display:flex;justify-content:space-between;align-items:center">
           ¿Cuánto cuesta un D-SNP?
           <span style="font-size:20px;color:#ff1090;flex-shrink:0">+</span>
         </summary>
-        <div style="font-size:15px;color:#6f6478;line-height:1.7;padding:0 0 16px">La mayoría de los D-SNP en Florida tienen una prima mensual de $0 para personas que califican para Medicare y Medicaid &mdash; su Medicaid cubre lo que Medicare no paga. Nuestro servicio siempre es gratuito &mdash; somos pagados por las aseguradoras, nunca por usted.</div>
+        <div style="font-size:18px;color:#3a2f47;line-height:1.7;padding:0 0 16px">La mayoría de los D-SNP en Florida tienen una prima mensual de $0 para personas que califican para Medicare y Medicaid &mdash; su Medicaid cubre lo que Medicare no paga. Nuestro servicio siempre es gratuito &mdash; somos pagados por las aseguradoras, nunca por usted.</div>
       </details>
       <details style="border-bottom:1px solid #ece5f0">
         <summary style="padding:18px 0;font-size:16px;font-weight:700;color:#452068;cursor:pointer;list-style:none;display:flex;justify-content:space-between;align-items:center">
           ¿Qué pasa si tengo Medicare pero no Medicaid?
           <span style="font-size:20px;color:#ff1090;flex-shrink:0">+</span>
         </summary>
-        <div style="font-size:15px;color:#6f6478;line-height:1.7;padding:0 0 16px">Puede calificar para un C-SNP con un diagnóstico confirmado, o para un Programa de Ahorros de Medicare que puede abrirle la puerta a un D-SNP &mdash; verificaremos ambos. Incluso si cree que sus ingresos son demasiado altos, ciertos ingresos no cuentan, así que vale la pena verificarlo.</div>
+        <div style="font-size:18px;color:#3a2f47;line-height:1.7;padding:0 0 16px">Puede calificar para un C-SNP con un diagnóstico confirmado, o para un Programa de Ahorros de Medicare que puede abrirle la puerta a un D-SNP &mdash; verificaremos ambos. Incluso si cree que sus ingresos son demasiado altos, ciertos ingresos no cuentan, así que vale la pena verificarlo.</div>
       </details>
       <details style="border-bottom:1px solid #ece5f0">
         <summary style="padding:18px 0;font-size:16px;font-weight:700;color:#452068;cursor:pointer;list-style:none;display:flex;justify-content:space-between;align-items:center">
           ¿Hablan español?
           <span style="font-size:20px;color:#ff1090;flex-shrink:0">+</span>
         </summary>
-        <div style="font-size:15px;color:#6f6478;line-height:1.7;padding:0 0 16px">Sí &mdash; todo nuestro equipo es bilingüe. Cada paso, cada documento y cada llamada telefónica puede ser en inglés o español, lo que sea más cómodo para usted. El mismo agente durante todo el proceso, sin transferencias.</div>
+        <div style="font-size:18px;color:#3a2f47;line-height:1.7;padding:0 0 16px">Sí &mdash; todo nuestro equipo es bilingüe. Cada paso, cada documento y cada llamada telefónica puede ser en inglés o español, lo que sea más cómodo para usted. El mismo agente durante todo el proceso, sin transferencias.</div>
       </details>
       <details style="border-bottom:1px solid #ece5f0">
         <summary style="padding:18px 0;font-size:16px;font-weight:700;color:#452068;cursor:pointer;list-style:none;display:flex;justify-content:space-between;align-items:center">
           ¿Hay algún costo por usar sus servicios?
           <span style="font-size:20px;color:#ff1090;flex-shrink:0">+</span>
         </summary>
-        <div style="font-size:15px;color:#6f6478;line-height:1.7;padding:0 0 16px">No. Nuestras consultas, comparaciones de planes y ayuda con la inscripción son completamente gratuitas. Somos pagados con una comisión por las aseguradoras &mdash; la misma cantidad sin importar qué plan elija &mdash; por lo que le mostramos todas sus opciones con la misma honestidad.</div>
+        <div style="font-size:18px;color:#3a2f47;line-height:1.7;padding:0 0 16px">No. Nuestras consultas, comparaciones de planes y ayuda con la inscripción son completamente gratuitas. Somos pagados con una comisión por las aseguradoras &mdash; la misma cantidad sin importar qué plan elija &mdash; por lo que le mostramos todas sus opciones con la misma honestidad.</div>
       </details>
     </div>
   </div>
@@ -402,9 +402,9 @@ img{max-width:100%;height:auto;}
 <div id="dsnp-form" style="background:#452068;padding:72px 56px">
   <div style="max-width:640px;margin:0 auto">
     <div style="text-align:center;margin-bottom:28px;color:#fff">
-      <div style="display:inline-flex;align-items:center;gap:8px;background:#fff0f8;color:#c40074;padding:8px 16px;border-radius:999px;font-size:13px;font-weight:700;margin-bottom:14px">Verificación de Elegibilidad Gratis &mdash; Sin Costo, Sin Obligación</div>
+      <div style="display:inline-flex;align-items:center;gap:8px;background:#fff0f8;color:#c40074;padding:8px 16px;border-radius:999px;font-size:16px;font-weight:700;margin-bottom:14px">Verificación de Elegibilidad Gratis &mdash; Sin Costo, Sin Obligación</div>
       <h2 style="font-size:clamp(22px,3vw,28px);font-weight:700;font-family:Poppins,sans-serif;color:#fff;margin-bottom:8px">Vea qué beneficios podrían incluir sus planes</h2>
-      <p style="font-size:14.5px;color:rgba(255,255,255,.8);max-width:480px;margin:0 auto">Nuestros corredores bilingües licenciados en Doral verifican su elegibilidad y comparan cada D-SNP disponible en su área.</p>
+      <p style="font-size:18px;color:rgba(255,255,255,.8);max-width:480px;margin:0 auto">Nuestros corredores bilingües licenciados en Doral verifican su elegibilidad y comparan cada D-SNP disponible en su área.</p>
     </div>
     <div style="background:#fff;border-radius:22px;padding:34px;box-shadow:0 30px 60px rgba(0,0,0,.25)">
       <div id="dsnpSuccess" style="display:none;text-align:center;padding:16px 8px">
@@ -412,22 +412,22 @@ img{max-width:100%;height:auto;}
           <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.4"><path d="M5 12l4 4 10-10"/></svg>
         </div>
         <h3 style="font-family:Poppins,sans-serif;font-size:20px;margin:0 0 8px;color:#241a30">¡Gracias, recibimos su solicitud!</h3>
-        <p style="color:#6f6478;font-size:14px;margin:0 0 18px">Un agente bilingüe licenciado le contactará pronto.</p>
+        <p style="color:#3a2f47;font-size:17px;margin:0 0 18px">Un agente bilingüe licenciado le contactará pronto.</p>
         <div style="display:flex;gap:10px;justify-content:center;flex-wrap:wrap">
-          <a href="tel:18003806821" style="background:#452068;color:#fff;padding:12px 20px;border-radius:10px;font-weight:700;font-size:14px">Llamar 1-800-380-6821</a>
-          <a href="https://wa.me/13054646888" onclick="gtag('event','whatsapp_click',{'page':window.location.pathname})" style="border:2px solid #452068;color:#452068;padding:10px 20px;border-radius:10px;font-weight:700;font-size:14px">WhatsApp</a>
+          <a href="tel:18003806821" style="background:#452068;color:#fff;padding:12px 20px;border-radius:10px;font-weight:700;font-size:17px">Llamar 1-800-380-6821</a>
+          <a href="https://wa.me/13054646888" onclick="gtag('event','whatsapp_click',{'page':window.location.pathname})" style="border:2px solid #452068;color:#452068;padding:10px 20px;border-radius:10px;font-weight:700;font-size:17px">WhatsApp</a>
         </div>
       </div>
       <div id="dsnpFormBody">
         <div style="text-align:center;margin-bottom:22px">
           <div style="font-family:Poppins,sans-serif;font-weight:700;font-size:20px;color:#241a30;margin-bottom:6px">Verificar mi Elegibilidad D-SNP / C-SNP</div>
-          <div style="font-size:13.5px;color:#6f6478">Un agente bilingüe licenciado le contactará en 1 hora hábil.</div>
+          <div style="font-size:16px;color:#3a2f47">Un agente bilingüe licenciado le contactará en 1 hora hábil.</div>
         </div>
         <form id="dsnpForm" novalidate>
                   <!-- Honeypot: hidden from humans, bots fill it in -->
                   <input type="text" name="_hp_name" id="_hp_name" autocomplete="off" tabindex="-1" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0;pointer-events:none;" value="">
           <div style="margin-bottom:12px">
-            <label style="display:block;font-size:12px;font-weight:700;color:#241a30;margin-bottom:5px;text-transform:uppercase;letter-spacing:.3px">¿En qué le podemos ayudar? <span style="color:#dc2626">*</span></label>
+            <label style="display:block;font-size:14.5px;font-weight:700;color:#241a30;margin-bottom:5px;text-transform:uppercase;letter-spacing:.3px">¿En qué le podemos ayudar? <span style="color:#dc2626">*</span></label>
             <select id="dsnpCoverage" name="coverage_type" class="ff-input" required style="appearance:none;-webkit-appearance:none">
               <option value="">Seleccione un tema&hellip;</option>
               <option value="Doble Elegible (D-SNP)">Doble Elegible (D-SNP)</option>
@@ -439,32 +439,32 @@ img{max-width:100%;height:auto;}
           </div>
           <div class="grid-2col" style="margin-bottom:12px">
             <div>
-              <label style="display:block;font-size:12px;font-weight:700;color:#241a30;margin-bottom:5px;text-transform:uppercase;letter-spacing:.3px">Nombre <span style="color:#dc2626">*</span></label>
+              <label style="display:block;font-size:14.5px;font-weight:700;color:#241a30;margin-bottom:5px;text-transform:uppercase;letter-spacing:.3px">Nombre <span style="color:#dc2626">*</span></label>
               <input id="dsnpFirst" name="first_name" placeholder="Su nombre" class="ff-input" required/>
             </div>
             <div>
-              <label style="display:block;font-size:12px;font-weight:700;color:#241a30;margin-bottom:5px;text-transform:uppercase;letter-spacing:.3px">Apellido <span style="color:#dc2626">*</span></label>
+              <label style="display:block;font-size:14.5px;font-weight:700;color:#241a30;margin-bottom:5px;text-transform:uppercase;letter-spacing:.3px">Apellido <span style="color:#dc2626">*</span></label>
               <input id="dsnpLast" name="last_name" placeholder="Su apellido" class="ff-input" required/>
             </div>
           </div>
           <div style="margin-bottom:12px">
-            <label style="display:block;font-size:12px;font-weight:700;color:#241a30;margin-bottom:5px;text-transform:uppercase;letter-spacing:.3px">Teléfono <span style="color:#dc2626">*</span></label>
+            <label style="display:block;font-size:14.5px;font-weight:700;color:#241a30;margin-bottom:5px;text-transform:uppercase;letter-spacing:.3px">Teléfono <span style="color:#dc2626">*</span></label>
             <input id="dsnpPhone" name="phone" placeholder="(305) 000-0000" class="ff-input" required/>
           </div>
           <div style="margin-bottom:12px">
-            <label style="display:block;font-size:12px;font-weight:700;color:#241a30;margin-bottom:5px;text-transform:uppercase;letter-spacing:.3px">Correo Electrónico <span style="color:#dc2626">*</span></label>
+            <label style="display:block;font-size:14.5px;font-weight:700;color:#241a30;margin-bottom:5px;text-transform:uppercase;letter-spacing:.3px">Correo Electrónico <span style="color:#dc2626">*</span></label>
             <input id="dsnpEmail" name="email" placeholder="su@correo.com" class="ff-input" required/>
           </div>
           <div style="margin-bottom:14px">
-            <label style="display:block;font-size:12px;font-weight:700;color:#241a30;margin-bottom:5px;text-transform:uppercase;letter-spacing:.3px">Notas <span style="color:#a79db2;font-weight:400;text-transform:none">(opcional)</span></label>
+            <label style="display:block;font-size:14.5px;font-weight:700;color:#241a30;margin-bottom:5px;text-transform:uppercase;letter-spacing:.3px">Notas <span style="color:#5a5068;font-weight:400;text-transform:none">(opcional)</span></label>
             <textarea id="dsnpNotes" name="notes" placeholder="Por ejemplo: su situación, condición médica, o preguntas..." style="resize:vertical;width:100%;padding:12px 14px;border:2px solid #ddd2e6;border-radius:10px;font-family:Inter,sans-serif;font-size:16px;color:#241a30;outline:none;box-sizing:border-box;min-height:80px"></textarea>
           </div>
-          <label style="display:flex;gap:10px;align-items:flex-start;font-size:13.5px;line-height:1.5;margin-bottom:18px;cursor:pointer">
+          <label style="display:flex;gap:10px;align-items:flex-start;font-size:16px;line-height:1.5;margin-bottom:18px;cursor:pointer">
             <input type="checkbox" id="dsnpConsent" required style="margin-top:3px;accent-color:#452068;min-width:14px"/>
-            <span style="color:#8a8093">Al enviar, doy mi consentimiento para recibir llamadas, textos y correos de The Health Experts Insurance, incluyendo marcación automática. No se requiere consentimiento para comprar servicios. Puede llamar al <a href="tel:18003806821" style="color:#452068">1-800-380-6821</a> TTY 711 sin consentir.</span>
+            <span style="color:#5a5068">Al enviar, doy mi consentimiento para recibir llamadas, textos y correos de The Health Experts Insurance, incluyendo marcación automática. No se requiere consentimiento para comprar servicios. Puede llamar al <a href="tel:18003806821" style="color:#452068">1-800-380-6821</a> TTY 711 sin consentir.</span>
           </label>
-          <p id="dsnpError" style="display:none;color:#c40074;font-size:13px;margin-bottom:10px">Por favor complete todos los campos requeridos.</p>
-          <button id="dsnpSubmitBtn" type="submit" style="width:100%;background:#ff1090;color:#fff;border:none;padding:16px;border-radius:12px;font-weight:700;font-size:15.5px;cursor:pointer;font-family:Poppins,sans-serif;box-shadow:0 8px 22px rgba(255,16,144,.25)">Verificar mi Elegibilidad Gratis &rarr;</button>
+          <p id="dsnpError" style="display:none;color:#c40074;font-size:16px;margin-bottom:10px">Por favor complete todos los campos requeridos.</p>
+          <button id="dsnpSubmitBtn" type="submit" style="width:100%;background:#ff1090;color:#fff;border:none;padding:16px;border-radius:12px;font-weight:700;font-size:18px;cursor:pointer;font-family:Poppins,sans-serif;box-shadow:0 8px 22px rgba(255,16,144,.25)">Verificar mi Elegibilidad Gratis &rarr;</button>
         </form>
       </div>
     </div>
@@ -474,10 +474,10 @@ img{max-width:100%;height:auto;}
 <!-- CTA FINAL -->
 <div style="background:linear-gradient(135deg,#452068 0%,#5a2a86 100%);padding:72px 56px;text-align:center;color:#fff">
   <h2 style="font-family:Poppins,sans-serif;font-size:clamp(22px,3vw,32px);font-weight:700;margin:0 0 12px">¿Listo para ver sus beneficios D-SNP?</h2>
-  <p style="font-size:17px;opacity:.85;margin:0 auto 28px;max-width:480px;line-height:1.65">Nuestros corredores bilingües licenciados en Doral verifican su elegibilidad y comparan cada plan disponible. Siempre gratis.</p>
+  <p style="font-size:17px;color:#f0eaf7;margin:0 auto 28px;max-width:480px;line-height:1.65">Nuestros corredores bilingües licenciados en Doral verifican su elegibilidad y comparan cada plan disponible. Siempre gratis.</p>
   <div class="final-cta-btns" style="display:flex;gap:14px;justify-content:center;flex-wrap:wrap">
     <a href="#dsnp-form" class="btn-pink">Verificar mi Elegibilidad</a>
-    <a href="https://wa.me/13054646888" style="display:inline-flex;align-items:center;gap:8px;background:#25D366;color:#fff;padding:15px 26px;border-radius:12px;font-weight:700;font-size:15.5px;text-decoration:none" onclick="gtag('event','whatsapp_click',{'page':window.location.pathname})">WhatsApp</a>
+    <a href="https://wa.me/13054646888" style="display:inline-flex;align-items:center;gap:8px;background:#25D366;color:#fff;padding:15px 26px;border-radius:12px;font-weight:700;font-size:18px;text-decoration:none" onclick="gtag('event','whatsapp_click',{'page':window.location.pathname})">WhatsApp</a>
     <a href="tel:18003806821" class="btn-outline-white">1-800-380-6821</a>
   </div>
 </div>
@@ -490,17 +490,17 @@ img{max-width:100%;height:auto;}
     <div id="footer-grid" style="display:grid;grid-template-columns:1.3fr 1fr 1fr 1fr;gap:32px;margin-bottom:36px">
       <div>
         <img src="/images/logo.webp" alt="The Health Experts Insurance" style="height:70px;width:auto;margin-bottom:16px"/>
-        <p style="font-size:13.5px;color:#6f6478;line-height:1.6;max-width:260px">Corredores independientes bilingües de seguros de salud. Oficina en Doral, FL.</p>
-        <div style="display:flex;flex-direction:column;gap:4px;margin-top:14px;font-size:13.5px">
+        <p style="font-size:16px;color:#3a2f47;line-height:1.6;max-width:260px">Corredores independientes bilingües de seguros de salud. Oficina en Doral, FL.</p>
+        <div style="display:flex;flex-direction:column;gap:4px;margin-top:14px;font-size:16px">
           <a href="tel:18003806821" style="color:#452068;font-weight:700">1-800-380-6821</a>
           <a href="https://wa.me/13054646888" style="color:#452068;font-weight:700" onclick="gtag('event','whatsapp_click',{'page':window.location.pathname})">WhatsApp</a>
           <a href="mailto:info@healthexps.com" style="color:#452068;font-weight:700">info@healthexps.com</a>
         </div>
-        <p style="font-size:13.5px;color:#4a4051;margin-top:14px">1695 NW 110 Ave, Ste 224<br/>Doral, FL 33172</p>
+        <p style="font-size:16px;color:#4a4051;margin-top:14px">1695 NW 110 Ave, Ste 224<br/>Doral, FL 33172</p>
       </div>
       <div>
-        <div style="font-weight:700;font-size:12.5px;letter-spacing:.06em;margin-bottom:14px;color:#452068">MEDICARE</div>
-        <div style="display:flex;flex-direction:column;gap:9px;font-size:13.5px">
+        <div style="font-weight:700;font-size:15px;letter-spacing:.06em;margin-bottom:14px;color:#452068">MEDICARE</div>
+        <div style="display:flex;flex-direction:column;gap:9px;font-size:16px">
           <a href="/es/planes-de-medicare-miami" style="color:#4a4051">Planes de Medicare</a>
           <a href="/es/medicare-advantage-miami" style="color:#4a4051">Medicare Advantage</a>
           <a href="/es/medicare-suplementario-miami" style="color:#4a4051">Medicare Suplementario</a>
@@ -509,8 +509,8 @@ img{max-width:100%;height:auto;}
         </div>
       </div>
       <div>
-        <div style="font-weight:700;font-size:12.5px;letter-spacing:.06em;margin-bottom:14px;color:#452068">GUÍAS</div>
-        <div style="display:flex;flex-direction:column;gap:9px;font-size:13.5px">
+        <div style="font-weight:700;font-size:15px;letter-spacing:.06em;margin-bottom:14px;color:#452068">GUÍAS</div>
+        <div style="display:flex;flex-direction:column;gap:9px;font-size:16px">
           <a href="/es/medicare/que-es-medicare/" style="color:#4a4051">Qué es Medicare</a>
           <a href="/es/nuevo-en-medicare/" style="color:#4a4051">Nuevo en Medicare</a>
           <a href="/es/medicare/programa-ahorros-medicare/" style="color:#4a4051">Programa de Ahorros</a>
@@ -519,8 +519,8 @@ img{max-width:100%;height:auto;}
         </div>
       </div>
       <div>
-        <div style="font-weight:700;font-size:12.5px;letter-spacing:.06em;margin-bottom:14px;color:#452068">MÁS</div>
-        <div style="display:flex;flex-direction:column;gap:9px;font-size:13.5px">
+        <div style="font-weight:700;font-size:15px;letter-spacing:.06em;margin-bottom:14px;color:#452068">MÁS</div>
+        <div style="display:flex;flex-direction:column;gap:9px;font-size:16px">
           <a href="/es/seguro-medico-privado-miami" style="color:#4a4051">Seguro Médico Privado</a>
           <a href="/es/planes-aca-miami" style="color:#4a4051">Planes ACA</a>
           <a href="/es/alternativas-cobra-miami" style="color:#4a4051">Alternativas COBRA</a>
@@ -530,10 +530,10 @@ img{max-width:100%;height:auto;}
         </div>
       </div>
     </div>
-    <div style="border-top:1px solid #ece5f0;padding-top:20px;font-size:13px;color:#4a4051">
+    <div style="border-top:1px solid #ece5f0;padding-top:20px;font-size:16px;color:#4a4051">
       &copy; 2026 The Health Experts Insurance. <a href="/privacy" style="color:#452068;font-weight:600">Política de Privacidad y Términos</a>
     </div>
-    <div style="padding-top:12px;font-size:13.5px;color:#a79db2;line-height:1.6">
+    <div style="padding-top:12px;font-size:16px;color:#5a5068;line-height:1.6">
       The Health Experts Insurance es una agencia de seguros independiente y licenciada en Doral, FL. No ofrecemos todos los planes disponibles en su área. Actualmente representamos 14 organizaciones que ofrecen 82 productos en su área. Comuníquese con Medicare.gov, 1-800-MEDICARE, o el programa SHIP local para obtener información sobre todas sus opciones. Medicare no ha revisado ni respaldado esta información.
     </div>
   </div>

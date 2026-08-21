@@ -14,26 +14,26 @@
 <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-SJSGF3E9MD');</script>
 <style>
 html,body{overflow-x:hidden;max-width:100%;min-height:100vh;}
-:root{--purple:#452068;--purple-dark:#311549;--purple-light:#f4eefa;--pink:#ff1090;--pink-hover:#d4006d;--white:#ffffff;--gray-light:#f7f7f7;--gray-mid:#e5e5e5;--gray-text:#555555;--black:#1a1a1a;--font:Arial,Helvetica,sans-serif;--radius:14px;--shadow:0 4px 24px rgba(69,32,104,0.12);--wa:#25D366;--wa-hover:#1da851;--green:#16a34a;}
+:root{--purple:#452068;--purple-dark:#311549;--purple-light:#f4eefa;--pink:#ff1090;--pink-hover:#d4006d;--white:#ffffff;--gray-light:#f7f7f7;--gray-mid:#e5e5e5;--gray-text:#3a2f47;--black:#1a1a1a;--font:Arial,Helvetica,sans-serif;--radius:14px;--shadow:0 4px 24px rgba(69,32,104,0.12);--wa:#25D366;--wa-hover:#1da851;--green:#16a34a;}
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
-body{font-family:var(--font);color:var(--black);line-height:1.6;background:linear-gradient(160deg,#f4eefa 0%,#fff0f8 100%);min-height:100vh;}
+body{font-family:var(--font);color:var(--black);line-height:1.7;background:linear-gradient(160deg,#f4eefa 0%,#fff0f8 100%);min-height:100vh;}
 a{color:var(--purple);text-decoration:none;}
 
 /* HEADER — minimal */
 .mini-header{background:white;border-bottom:2px solid #f4eefa;padding:14px 24px;display:flex;align-items:center;justify-content:space-between;gap:16px;}
-.mini-back{color:#452068;font-size:14px;font-weight:700;text-decoration:none;display:flex;align-items:center;gap:6px;transition:color 0.2s;}
+.mini-back{color:#452068;font-size:17px;font-weight:700;text-decoration:none;display:flex;align-items:center;gap:6px;transition:color 0.2s;}
 .mini-back:hover{color:#ff1090;}
 .mini-logo{flex:1;text-align:center;}
 .mini-logo img{height:52px;width:auto;display:block;margin:0 auto;}
-.mini-phone{color:#452068;font-size:14px;font-weight:700;text-decoration:none;display:flex;align-items:center;gap:6px;}
+.mini-phone{color:#452068;font-size:17px;font-weight:700;text-decoration:none;display:flex;align-items:center;gap:6px;}
 .mini-phone:hover{color:#ff1090;}
-@media(max-width:600px){.mini-header{padding:12px 16px;}.mini-logo img{height:42px;}.mini-back,.mini-phone{font-size:13px;}}
+@media(max-width:600px){.mini-header{padding:12px 16px;}.mini-logo img{height:42px;}.mini-back,.mini-phone{font-size:16px;}}
 @media(max-width:768px){.mini-header{display:none !important;}.quiz-header{display:none !important;}}
 
 /* QUIZ SHELL */
 .quiz-shell{max-width:600px;margin:0 auto;padding:32px 24px 80px;}
 .quiz-header{text-align:center;margin-bottom:32px;}
-.quiz-eyebrow{font-size:13px;font-weight:700;color:var(--purple);text-transform:uppercase;letter-spacing:0.08em;margin-bottom:8px;}
+.quiz-eyebrow{font-size:16px;font-weight:700;color:var(--purple);text-transform:uppercase;letter-spacing:0.08em;margin-bottom:8px;}
 .quiz-headline{font-size:clamp(22px,4vw,32px);font-weight:700;color:var(--black);line-height:1.2;margin-bottom:10px;}
 .quiz-subhead{font-size:16px;color:var(--gray-text);line-height:1.6;}
 
@@ -41,12 +41,12 @@ a{color:var(--purple);text-decoration:none;}
 .progress-wrap{margin-bottom:28px;}
 .progress-bar-bg{background:var(--gray-mid);border-radius:50px;height:6px;margin-bottom:8px;}
 .progress-bar-fill{background:linear-gradient(90deg,var(--purple),var(--pink));border-radius:50px;height:6px;transition:width 0.4s ease;}
-.progress-label{font-size:13px;color:var(--gray-text);text-align:right;}
+.progress-label{font-size:16px;color:var(--gray-text);text-align:right;}
 
 /* CARD */
 .quiz-card{background:white;border-radius:20px;padding:32px 28px;box-shadow:var(--shadow);}
 .step-q{font-size:20px;font-weight:700;color:var(--black);margin-bottom:6px;line-height:1.3;}
-.step-hint{font-size:14px;color:var(--gray-text);margin-bottom:22px;line-height:1.5;}
+.step-hint{font-size:17px;color:var(--gray-text);margin-bottom:22px;line-height:1.5;}
 
 /* OPTIONS */
 .options{display:flex;flex-direction:column;gap:10px;}
@@ -55,76 +55,76 @@ a{color:var(--purple);text-decoration:none;}
 .option.selected{border-color:var(--purple);background:var(--purple-light);}
 
 .option-text{display:flex;flex-direction:column;gap:2px;flex:1;}
-.option-main{font-size:15px;font-weight:700;color:var(--black);}
-.option-sub{font-size:13px;color:var(--gray-text);}
+.option-main{font-size:18px;font-weight:700;color:var(--black);}
+.option-sub{font-size:16px;color:var(--gray-text);}
 
 /* GRID OPTIONS (for income/household) */
 .options-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
 .option-grid-btn{padding:14px 12px;border:2px solid var(--gray-mid);border-radius:var(--radius);cursor:pointer;transition:all 0.18s;background:white;font-family:var(--font);text-align:center;}
 .option-grid-btn:hover,.option-grid-btn.selected{border-color:var(--purple);background:var(--purple-light);}
-.ogb-main{font-size:15px;font-weight:700;color:var(--black);}
-.ogb-sub{font-size:13.5px;color:var(--gray-text);margin-top:2px;}
+.ogb-main{font-size:18px;font-weight:700;color:var(--black);}
+.ogb-sub{font-size:16px;color:var(--gray-text);margin-top:2px;}
 
 /* NAV BUTTONS */
 .quiz-nav{display:flex;gap:10px;margin-top:22px;}
-.btn-back{background:none;border:2px solid var(--gray-mid);color:var(--gray-text);padding:12px 22px;border-radius:50px;font-size:15px;font-weight:700;cursor:pointer;font-family:var(--font);transition:all 0.2s;}
+.btn-back{background:none;border:2px solid var(--gray-mid);color:var(--gray-text);padding:12px 22px;border-radius:50px;font-size:18px;font-weight:700;cursor:pointer;font-family:var(--font);transition:all 0.2s;}
 .btn-back:hover{border-color:var(--purple);color:var(--purple);}
-.btn-next{background:var(--purple);color:white;border:none;padding:12px 28px;border-radius:50px;font-size:15px;font-weight:700;cursor:pointer;font-family:var(--font);transition:all 0.2s;flex:1;}
+.btn-next{background:var(--purple);color:white;border:none;padding:12px 28px;border-radius:50px;font-size:18px;font-weight:700;cursor:pointer;font-family:var(--font);transition:all 0.2s;flex:1;}
 .btn-next:hover{background:var(--purple-dark);}
 .btn-next:disabled{background:var(--gray-mid);cursor:not-allowed;}
-.btn-submit-contact{background:var(--pink);color:white;border:none;padding:12px 28px;border-radius:50px;font-size:15px;font-weight:700;cursor:pointer;font-family:var(--font);transition:all 0.2s;flex:1;display:none;}
+.btn-submit-contact{background:var(--pink);color:white;border:none;padding:12px 28px;border-radius:50px;font-size:18px;font-weight:700;cursor:pointer;font-family:var(--font);transition:all 0.2s;flex:1;display:none;}
 .btn-submit-contact:hover{background:var(--pink-hover);}
 .btn-submit-contact:disabled{background:var(--gray-mid);cursor:not-allowed;}
 
 /* CONTACT FORM */
 .contact-fields{display:flex;flex-direction:column;gap:12px;}
 .contact-field{display:flex;flex-direction:column;gap:4px;}
-.contact-label{font-size:14px;font-weight:700;color:var(--black);}
-.contact-input{padding:12px 14px;border:2px solid var(--gray-mid);border-radius:var(--radius);font-size:15px;font-family:var(--font);transition:border-color 0.2s;}
+.contact-label{font-size:17px;font-weight:700;color:var(--black);}
+.contact-input{padding:12px 14px;border:2px solid var(--gray-mid);border-radius:var(--radius);font-size:18px;font-family:var(--font);transition:border-color 0.2s;}
 .contact-input:focus{outline:none;border-color:var(--purple);}
-.contact-input::placeholder{color:#aaa;}
+.contact-input::placeholder{color:#5a5068;}
 .consent-wrap{margin-top:8px;}
 .consent-checkbox{display:flex;align-items:flex-start;gap:10px;cursor:pointer;}
 .consent-checkbox input{margin-top:4px;width:18px;height:18px;cursor:pointer;flex-shrink:0;}
-.consent-text{font-size:13.5px;color:var(--gray-text);line-height:1.6;}
+.consent-text{font-size:16px;color:var(--gray-text);line-height:1.6;}
 .consent-text strong{color:var(--purple);}
 .consent-text a{color:var(--purple);text-decoration:underline;}
 
 /* RESULT */
 .result-card{background:white;border-radius:20px;padding:32px 28px;box-shadow:var(--shadow);display:none;}
 .result-card.show{display:block;}
-.result-badge{display:inline-flex;align-items:center;gap:8px;padding:8px 18px;border-radius:50px;font-size:13px;font-weight:700;margin-bottom:18px;}
+.result-badge{display:inline-flex;align-items:center;gap:8px;padding:8px 18px;border-radius:50px;font-size:16px;font-weight:700;margin-bottom:18px;}
 .result-ico{font-size:48px;margin-bottom:12px;}
 .result-title{font-size:24px;font-weight:700;color:var(--black);margin-bottom:10px;line-height:1.2;}
-.result-desc{font-size:15px;color:var(--gray-text);line-height:1.8;margin-bottom:24px;}
+.result-desc{font-size:18px;color:var(--gray-text);line-height:1.8;margin-bottom:24px;}
 .result-highlights{display:flex;flex-direction:column;gap:8px;margin-bottom:24px;}
-.result-highlight{display:flex;align-items:flex-start;gap:10px;font-size:15px;color:var(--gray-text);}
+.result-highlight{display:flex;align-items:flex-start;gap:10px;font-size:18px;color:var(--gray-text);}
 .rh-dot{width:22px;height:22px;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px;}
 .rh-dot svg{width:12px;height:12px;}
 .result-ctas{display:flex;flex-direction:column;gap:10px;}
 .btn-result-primary{display:block;background:var(--pink);color:white;text-align:center;padding:15px;border-radius:50px;font-weight:700;font-size:16px;text-decoration:none;transition:all 0.2s;}
 .btn-result-primary:hover{background:var(--pink-hover);color:white;}
-.btn-result-wa{display:flex;align-items:center;justify-content:center;gap:8px;background:var(--wa);color:white;padding:14px;border-radius:50px;font-weight:700;font-size:15px;text-decoration:none;transition:all 0.2s;}
+.btn-result-wa{display:flex;align-items:center;justify-content:center;gap:8px;background:var(--wa);color:white;padding:14px;border-radius:50px;font-weight:700;font-size:18px;text-decoration:none;transition:all 0.2s;}
 .btn-result-wa:hover{background:var(--wa-hover);color:white;}
 .btn-result-wa svg{width:18px;height:18px;}
-.btn-result-call{display:block;background:var(--purple-light);color:var(--purple);text-align:center;padding:14px;border-radius:50px;font-weight:700;font-size:15px;text-decoration:none;transition:all 0.2s;}
+.btn-result-call{display:block;background:var(--purple-light);color:var(--purple);text-align:center;padding:14px;border-radius:50px;font-weight:700;font-size:18px;text-decoration:none;transition:all 0.2s;}
 .btn-result-call:hover{background:#e8d8f7;color:var(--purple);}
-.result-restart{display:block;text-align:center;font-size:13px;color:var(--gray-text);margin-top:14px;cursor:pointer;text-decoration:underline;background:none;border:none;font-family:var(--font);width:100%;}
+.result-restart{display:block;text-align:center;font-size:16px;color:var(--gray-text);margin-top:14px;cursor:pointer;text-decoration:underline;background:none;border:none;font-family:var(--font);width:100%;}
 .result-restart:hover{color:var(--purple);}
 
 /* SAVINGS CALLOUT */
 .savings-callout{background:linear-gradient(135deg,#f0fdf4,#dcfce7);border:2px solid var(--green);border-radius:var(--radius);padding:16px 18px;margin-bottom:20px;display:flex;align-items:center;gap:12px;}
 .sc-ico{font-size:28px;flex-shrink:0;}
-.sc-text{font-size:14px;color:#166534;line-height:1.5;}
+.sc-text{font-size:17px;color:#166534;line-height:1.5;}
 .sc-num{font-size:22px;font-weight:700;color:var(--green);display:block;}
 
 /* TRUST BAR */
 .trust-bar{display:flex;gap:20px;justify-content:center;flex-wrap:wrap;margin-top:20px;}
-.trust-item{display:flex;align-items:center;gap:6px;font-size:13px;color:var(--gray-text);}
+.trust-item{display:flex;align-items:center;gap:6px;font-size:16px;color:var(--gray-text);}
 .trust-item::before{content:"✓";color:var(--green);font-weight:700;}
 
 /* FOOTER */
-.quiz-footer{text-align:center;padding:24px;font-size:13.5px;color:var(--gray-text);line-height:1.6;}
+.quiz-footer{text-align:center;padding:24px;font-size:16px;color:var(--gray-text);line-height:1.6;}
 .quiz-footer a{color:var(--purple);}
 
 @media(max-width:480px){.options-grid{grid-template-columns:1fr;}.quiz-card{padding:24px 18px;}.quiz-nav{flex-direction:column;}.btn-back{order:2;}.btn-next{order:1;}}
@@ -227,20 +227,20 @@ a{color:var(--purple);text-decoration:none;}
     <div style="font-family:Inter,sans-serif;color:#241a30;background:#fff">
 
       <!-- utility bar -->
-      <div class="top-bar-inner" style="background:#2f1550;color:#fff;display:flex;align-items:center;justify-content:space-between;padding:9px 56px;font-size:13px">
+      <div class="top-bar-inner" style="background:#2f1550;color:#fff;display:flex;align-items:center;justify-content:space-between;padding:9px 56px;font-size:16px">
         <div style="display:flex;align-items:center;gap:12px">
           <a href="tel:18003806821" style="color:#fff;display:flex;align-items:center;" aria-label="Call 1-800-380-6821"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 1.27h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.91a16 16 0 0 0 6.29 6.29l.91-.91a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg></a>
-          <span style="display:inline-flex;align-items:center;border:1px solid rgba(255,255,255,0.35);border-radius:999px;padding:3px 10px;gap:3px;font-size:12px;"><span style="opacity:.65;font-weight:400">EN</span><span style="opacity:.35;margin:0 1px">|</span><a href="/es/encuentra-mi-plan" style="color:#fff;text-decoration:none;font-weight:700">ES</a></span>
+          <span style="display:inline-flex;align-items:center;border:1px solid rgba(255,255,255,0.35);border-radius:999px;padding:3px 10px;gap:3px;font-size:14.5px;"><span style="opacity:.65;font-weight:400">EN</span><span style="opacity:.35;margin:0 1px">|</span><a href="/es/encuentra-mi-plan" style="color:#fff;text-decoration:none;font-weight:700">ES</a></span>
         </div>
         <div style="display:flex;align-items:center;gap:16px">
-          <a href="https://wa.me/13054646888" onclick="gtag('event','whatsapp_click',{'page':window.location.pathname})" style="display:inline-flex;align-items:center;gap:6px;background:#25D366;color:#fff;padding:5px 12px;border-radius:999px;font-weight:700;font-size:12.5px;text-decoration:none;">WhatsApp</a>
+          <a href="https://wa.me/13054646888" onclick="gtag('event','whatsapp_click',{'page':window.location.pathname})" style="display:inline-flex;align-items:center;gap:6px;background:#25D366;color:#fff;padding:5px 12px;border-radius:999px;font-weight:700;font-size:15px;text-decoration:none;">WhatsApp</a>
         </div>
       </div>
 
       <!-- nav -->
       <div class="v4-nav-outer" style="display:flex;align-items:center;justify-content:space-between;padding:14px 56px;border-bottom:1px solid #ece5f0;position:sticky;top:0;background:#fff;z-index:500">
         <a href="/"><img src="/images/logo.webp" alt="The Health Experts Insurance" style="height:80px;width:auto;cursor:pointer"/></a>
-        <div class="v4-nav-desktop" style="display:flex;align-items:center;gap:26px;font-size:14.5px;font-weight:600;color:#3a2f47">
+        <div class="v4-nav-desktop" style="display:flex;align-items:center;gap:26px;font-size:18px;font-weight:600;color:#3a2f47">
           <a href="/" style="cursor:pointer">Home</a>
 
           <div class="v4-nav-item" style="position:relative">
@@ -282,8 +282,8 @@ a{color:var(--purple);text-decoration:none;}
           <a href="/contact" style="cursor:pointer">Contact</a>
         </div>
         <div style="display:flex;align-items:center;gap:12px">
-          <a href="tel:18003806821" class="v4-nav-desktop" style="color:#241a30;font-weight:700;font-size:14.5px">📞 1-800-380-6821</a>
-          <a href="#lead-form" class="v4-nav-desktop" style="background:#452068;color:#fff;padding:11px 20px;border-radius:10px;font-weight:700;font-size:14px">Free Consultation</a>
+          <a href="tel:18003806821" class="v4-nav-desktop" style="color:#241a30;font-weight:700;font-size:18px">📞 1-800-380-6821</a>
+          <a href="#lead-form" class="v4-nav-desktop" style="background:#452068;color:#fff;padding:11px 20px;border-radius:10px;font-weight:700;font-size:17px">Free Consultation</a>
           <!-- Hamburger — mobile only -->
           <button class="v4-nav-mobile-btn" id="v4HamburgerBtn" aria-label="Open menu" aria-expanded="false" aria-controls="v4-mobile-menu">
             <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#241a30" stroke-width="2.2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
@@ -302,27 +302,27 @@ a{color:var(--purple);text-decoration:none;}
         <nav style="display:flex;flex-direction:column;gap:4px;font-size:16px;font-weight:600;color:#241a30">
           <a href="/" style="padding:14px 4px;border-bottom:1px solid #ece5f0;color:#241a30">Home</a>
           <!-- Insurance sub-links -->
-          <div style="padding:14px 4px 4px;font-size:13px;font-weight:700;color:#8a6aaa;text-transform:uppercase;letter-spacing:.06em">Insurance</div>
-          <a href="/medicare-plans-miami" style="padding:11px 12px;border-radius:8px;color:#241a30;font-weight:600;font-size:15px">Medicare Plans</a>
-          <a href="/medicare-advantage-miami" style="padding:11px 12px;border-radius:8px;color:#241a30;font-weight:600;font-size:15px">Medicare Advantage</a>
-          <a href="/medicare-supplement-miami" style="padding:11px 12px;border-radius:8px;color:#241a30;font-weight:600;font-size:15px">Medicare Supplement</a>
-          <a href="/aca-plans-miami" style="padding:11px 12px;border-radius:8px;color:#241a30;font-weight:600;font-size:15px">ACA Marketplace Plans</a>
-          <a href="/private-health-insurance-miami" style="padding:11px 12px;border-radius:8px;color:#241a30;font-weight:600;font-size:15px">Private Health Insurance</a>
-          <a href="/cobra-alternatives-miami" style="padding:11px 12px;border-radius:8px;color:#241a30;font-weight:600;font-size:15px">COBRA Alternatives</a>
-          <a href="/dental-vision-miami" style="padding:11px 12px;border-radius:8px;color:#241a30;font-weight:600;font-size:15px">Dental &amp; Vision</a>
-          <a href="/life-insurance-miami" style="padding:11px 12px;border-radius:8px;color:#241a30;font-weight:600;font-size:15px">Life Insurance</a>
-          <a href="/final-expense-insurance" style="padding:11px 12px;border-radius:8px;color:#241a30;font-weight:600;font-size:15px">Final Expense</a>
+          <div style="padding:14px 4px 4px;font-size:16px;font-weight:700;color:#5c3d7a;text-transform:uppercase;letter-spacing:.06em">Insurance</div>
+          <a href="/medicare-plans-miami" style="padding:11px 12px;border-radius:8px;color:#241a30;font-weight:600;font-size:18px">Medicare Plans</a>
+          <a href="/medicare-advantage-miami" style="padding:11px 12px;border-radius:8px;color:#241a30;font-weight:600;font-size:18px">Medicare Advantage</a>
+          <a href="/medicare-supplement-miami" style="padding:11px 12px;border-radius:8px;color:#241a30;font-weight:600;font-size:18px">Medicare Supplement</a>
+          <a href="/aca-plans-miami" style="padding:11px 12px;border-radius:8px;color:#241a30;font-weight:600;font-size:18px">ACA Marketplace Plans</a>
+          <a href="/private-health-insurance-miami" style="padding:11px 12px;border-radius:8px;color:#241a30;font-weight:600;font-size:18px">Private Health Insurance</a>
+          <a href="/cobra-alternatives-miami" style="padding:11px 12px;border-radius:8px;color:#241a30;font-weight:600;font-size:18px">COBRA Alternatives</a>
+          <a href="/dental-vision-miami" style="padding:11px 12px;border-radius:8px;color:#241a30;font-weight:600;font-size:18px">Dental &amp; Vision</a>
+          <a href="/life-insurance-miami" style="padding:11px 12px;border-radius:8px;color:#241a30;font-weight:600;font-size:18px">Life Insurance</a>
+          <a href="/final-expense-insurance" style="padding:11px 12px;border-radius:8px;color:#241a30;font-weight:600;font-size:18px">Final Expense</a>
           <!-- Guides sub-links -->
-          <div style="padding:14px 4px 4px;font-size:13px;font-weight:700;color:#8a6aaa;text-transform:uppercase;letter-spacing:.06em;margin-top:8px">Guides</div>
-          <a href="/medicare/what-is-medicare" style="padding:11px 12px;border-radius:8px;color:#241a30;font-weight:600;font-size:15px">What Is Medicare</a>
-          <a href="/medicare/new-to-medicare" style="padding:11px 12px;border-radius:8px;color:#241a30;font-weight:600;font-size:15px">New to Medicare</a>
-          <a href="/medicare-irmaa-penalties" style="padding:11px 12px;border-radius:8px;color:#241a30;font-weight:600;font-size:15px">Medicare Costs &amp; IRMAA</a>
-          <a href="/medicare-savings-program" style="padding:11px 12px;border-radius:8px;color:#241a30;font-weight:600;font-size:15px">Medicare Savings Program</a>
-          <a href="/medicare-myths" style="padding:11px 12px;border-radius:8px;color:#241a30;font-weight:600;font-size:15px">Medicare Myths &amp; Facts</a>
-          <a href="/medicare-annual-enrollment-2027" style="padding:11px 12px;border-radius:8px;color:#241a30;font-weight:600;font-size:15px">Annual Enrollment (AEP)</a>
-          <a href="/medicare-plan-finder" style="padding:11px 12px;border-radius:8px;color:#241a30;font-weight:600;font-size:15px">Medicare Plan Finder</a>
-          <a href="/avmed-medicare-florida" style="padding:11px 12px;border-radius:8px;color:#241a30;font-weight:600;font-size:15px">AvMed Transition</a>
-          <a href="/independent-health-insurance-broker" style="padding:11px 12px;border-radius:8px;color:#241a30;font-weight:600;font-size:15px">Independent Broker</a>
+          <div style="padding:14px 4px 4px;font-size:16px;font-weight:700;color:#5c3d7a;text-transform:uppercase;letter-spacing:.06em;margin-top:8px">Guides</div>
+          <a href="/medicare/what-is-medicare" style="padding:11px 12px;border-radius:8px;color:#241a30;font-weight:600;font-size:18px">What Is Medicare</a>
+          <a href="/medicare/new-to-medicare" style="padding:11px 12px;border-radius:8px;color:#241a30;font-weight:600;font-size:18px">New to Medicare</a>
+          <a href="/medicare-irmaa-penalties" style="padding:11px 12px;border-radius:8px;color:#241a30;font-weight:600;font-size:18px">Medicare Costs &amp; IRMAA</a>
+          <a href="/medicare-savings-program" style="padding:11px 12px;border-radius:8px;color:#241a30;font-weight:600;font-size:18px">Medicare Savings Program</a>
+          <a href="/medicare-myths" style="padding:11px 12px;border-radius:8px;color:#241a30;font-weight:600;font-size:18px">Medicare Myths &amp; Facts</a>
+          <a href="/medicare-annual-enrollment-2027" style="padding:11px 12px;border-radius:8px;color:#241a30;font-weight:600;font-size:18px">Annual Enrollment (AEP)</a>
+          <a href="/medicare-plan-finder" style="padding:11px 12px;border-radius:8px;color:#241a30;font-weight:600;font-size:18px">Medicare Plan Finder</a>
+          <a href="/avmed-medicare-florida" style="padding:11px 12px;border-radius:8px;color:#241a30;font-weight:600;font-size:18px">AvMed Transition</a>
+          <a href="/independent-health-insurance-broker" style="padding:11px 12px;border-radius:8px;color:#241a30;font-weight:600;font-size:18px">Independent Broker</a>
           <!-- Other links -->
           <div style="margin-top:8px;border-top:1px solid #ece5f0;padding-top:12px;display:flex;flex-direction:column;gap:4px">
             <a href="/faq" style="padding:12px 4px;color:#241a30;border-bottom:1px solid #ece5f0">FAQ</a>
@@ -453,21 +453,21 @@ a{color:var(--purple);text-decoration:none;}
       <div style="text-align:center;margin-bottom:20px;">
         <div style="font-size:48px;margin-bottom:12px;">&#128269;</div>
         <h2 style="font-size:22px;font-weight:700;color:#1a1a1a;margin-bottom:14px;line-height:1.3;">Medicare works differently &mdash; and that&rsquo;s good news.</h2>
-        <p style="font-size:15px;color:#555;line-height:1.7;margin-bottom:20px;">At 65 you&rsquo;re eligible for Medicare, which has its own plans, its own enrollment windows, and its own financial help programs. This quiz is built for people under 65, so it won&rsquo;t give you a useful answer.</p>
-        <p style="font-size:15px;color:#1a1a1a;font-weight:700;margin-bottom:16px;">Here&rsquo;s where to go instead:</p>
+        <p style="font-size:18px;color:#3a2f47;line-height:1.7;margin-bottom:20px;">At 65 you&rsquo;re eligible for Medicare, which has its own plans, its own enrollment windows, and its own financial help programs. This quiz is built for people under 65, so it won&rsquo;t give you a useful answer.</p>
+        <p style="font-size:18px;color:#1a1a1a;font-weight:700;margin-bottom:16px;">Here&rsquo;s where to go instead:</p>
         <div style="display:flex;flex-direction:column;gap:10px;margin-bottom:20px;">
-          <a href="/medicare-plans-miami" style="display:block;background:#452068;color:white;padding:14px;border-radius:50px;font-weight:700;font-size:15px;text-decoration:none;text-align:center;">Compare Medicare plans</a>
-          <a href="/medicare-plan-finder" style="display:block;background:#f4eefa;color:#452068;padding:14px;border-radius:50px;font-weight:700;font-size:15px;text-decoration:none;text-align:center;">Self-shop plans in your ZIP</a>
-          <a href="https://calendly.com/healthexps-info/" target="_blank" rel="noopener" style="display:block;background:#ff1090;color:white;padding:14px;border-radius:50px;font-weight:700;font-size:15px;text-decoration:none;text-align:center;">Talk to a licensed broker &mdash; free</a>
+          <a href="/medicare-plans-miami" style="display:block;background:#452068;color:white;padding:14px;border-radius:50px;font-weight:700;font-size:18px;text-decoration:none;text-align:center;">Compare Medicare plans</a>
+          <a href="/medicare-plan-finder" style="display:block;background:#f4eefa;color:#452068;padding:14px;border-radius:50px;font-weight:700;font-size:18px;text-decoration:none;text-align:center;">Self-shop plans in your ZIP</a>
+          <a href="https://calendly.com/healthexps-info/" target="_blank" rel="noopener" style="display:block;background:#ff1090;color:white;padding:14px;border-radius:50px;font-weight:700;font-size:18px;text-decoration:none;text-align:center;">Talk to a licensed broker &mdash; free</a>
         </div>
-        <p style="font-size:13px;color:#555;line-height:1.6;border-top:1px solid #e5e5e5;padding-top:16px;">Still working with employer coverage, or helping a family member who&rsquo;s under 65? Call us at <a href="tel:18003806821" style="color:#452068;font-weight:600;">1-800-380-6821</a> &mdash; we&rsquo;ll point you the right way at no cost.</p>
+        <p style="font-size:16px;color:#3a2f47;line-height:1.6;border-top:1px solid #e5e5e5;padding-top:16px;">Still working with employer coverage, or helping a family member who&rsquo;s under 65? Call us at <a href="tel:18003806821" style="color:#452068;font-weight:600;">1-800-380-6821</a> &mdash; we&rsquo;ll point you the right way at no cost.</p>
       </div>
     </div>
     <!-- MEDICARE LEAD CAPTURE -->
     <div class="quiz-card" style="margin-top:20px;" id="mc-lead-card">
       <h3 style="font-size:18px;font-weight:700;color:#1a1a1a;margin-bottom:8px;">Want a licensed broker to call you about Medicare?</h3>
-      <p style="font-size:14px;color:#555;margin-bottom:20px;line-height:1.6;">Free, bilingual, no obligation. We&rsquo;ll walk through your options and answer whatever you&rsquo;re stuck on.</p>
-      <div id="mc-success" style="display:none;background:#f0fdf4;border:2px solid #16a34a;border-radius:14px;padding:16px;font-size:14px;color:#166534;line-height:1.6;margin-bottom:16px;">
+      <p style="font-size:17px;color:#3a2f47;margin-bottom:20px;line-height:1.6;">Free, bilingual, no obligation. We&rsquo;ll walk through your options and answer whatever you&rsquo;re stuck on.</p>
+      <div id="mc-success" style="display:none;background:#f0fdf4;border:2px solid #16a34a;border-radius:14px;padding:16px;font-size:17px;color:#166534;line-height:1.6;margin-bottom:16px;">
         Got it &mdash; a licensed bilingual agent will reach out. Need us sooner? Call <a href="tel:18003806821" style="color:#166534;font-weight:600;">1-800-380-6821</a> or WhatsApp <a href="https://wa.me/13054646888" onclick="gtag('event','whatsapp_click',{'page':window.location.pathname})" style="color:#166534;font-weight:600;">(305) 464-6888</a>.
       </div>
       <div class="contact-fields" id="mc-form-fields">
@@ -509,8 +509,8 @@ a{color:var(--purple);text-decoration:none;}
           </label>
         </div>
       </div>
-      <div id="mc-error" style="display:none;color:#dc2626;font-size:13px;margin-top:8px;"></div>
-      <button onclick="submitMedicareExit()" id="mc-submit-btn" style="margin-top:16px;background:#452068;color:white;border:none;padding:14px 28px;border-radius:50px;font-size:15px;font-weight:700;cursor:pointer;font-family:Arial,Helvetica,sans-serif;width:100%;transition:background 0.2s;">Have a broker call me</button>
+      <div id="mc-error" style="display:none;color:#dc2626;font-size:16px;margin-top:8px;"></div>
+      <button onclick="submitMedicareExit()" id="mc-submit-btn" style="margin-top:16px;background:#452068;color:white;border:none;padding:14px 28px;border-radius:50px;font-size:18px;font-weight:700;cursor:pointer;font-family:Arial,Helvetica,sans-serif;width:100%;transition:background 0.2s;">Have a broker call me</button>
       <div class="tpmo-disclaimer" style="margin-top:20px;">Medicare has not reviewed or endorsed this information. We do not offer every plan available in your area. We currently represent 14 organizations offering 82 products in your area. Please contact Medicare.gov, 1-800-MEDICARE, or your local SHIP program for information about all your options.</div>
     </div>
     <div class="trust-bar" style="margin-top:20px;">
@@ -550,7 +550,7 @@ a{color:var(--purple);text-decoration:none;}
         <button class="option" onclick="selectOption(this,'coverage','other')"><div class="option-text"><span class="option-main">Other</span><span class="option-sub">Please describe below</span></div></button>
       </div>
       <div id="other-input-wrap" style="display:none;margin-top:14px;">
-        <textarea id="other-input" placeholder="Tell us more about your situation..." style="width:100%;padding:12px;border:2px solid #e5e5e5;border-radius:14px;font-family:Arial,Helvetica,sans-serif;font-size:14px;min-height:80px;resize:vertical;"></textarea>
+        <textarea id="other-input" placeholder="Tell us more about your situation..." style="width:100%;padding:12px;border:2px solid #e5e5e5;border-radius:14px;font-family:Arial,Helvetica,sans-serif;font-size:17px;min-height:80px;resize:vertical;"></textarea>
       </div>
     </div>
 
@@ -594,9 +594,9 @@ a{color:var(--purple);text-decoration:none;}
     <div class="step" id="step-result" style="display:none;">
       <div id="result-headline" style="font-size:20px;font-weight:700;color:#1a1a1a;margin-bottom:20px;line-height:1.3;"></div>
       <div id="result-link-wrap" style="margin-bottom:20px;"></div>
-      <p style="font-size:14px;color:#555;line-height:1.6;margin-bottom:20px;">Fill in your info below and a licensed bilingual broker will run your personalized comparison &mdash; exact plans, real prices, and whether you qualify for help.</p>
+      <p style="font-size:17px;color:#3a2f47;line-height:1.6;margin-bottom:20px;">Fill in your info below and a licensed bilingual broker will run your personalized comparison &mdash; exact plans, real prices, and whether you qualify for help.</p>
       <button onclick="showContactStep()" style="background:#ff1090;color:white;border:none;padding:14px 28px;border-radius:50px;font-size:16px;font-weight:700;cursor:pointer;font-family:Arial,Helvetica,sans-serif;width:100%;margin-bottom:10px;transition:background 0.2s;">Get my personalized comparison &rarr;</button>
-      <button onclick="goBackFromResult()" style="background:none;border:2px solid #e5e5e5;color:#555;padding:11px 22px;border-radius:50px;font-size:14px;font-weight:700;cursor:pointer;font-family:Arial,Helvetica,sans-serif;width:100%;">&larr; Back</button>
+      <button onclick="goBackFromResult()" style="background:none;border:2px solid #e5e5e5;color:#3a2f47;padding:11px 22px;border-radius:50px;font-size:17px;font-weight:700;cursor:pointer;font-family:Arial,Helvetica,sans-serif;width:100%;">&larr; Back</button>
     </div>
 
     <!-- STEP 6: Contact form -->
@@ -629,7 +629,7 @@ a{color:var(--purple);text-decoration:none;}
           </label>
         </div>
       </div>
-      <div id="submit-error" style="display:none;color:#dc2626;font-size:13px;margin-top:8px;"></div>
+      <div id="submit-error" style="display:none;color:#dc2626;font-size:16px;margin-top:8px;"></div>
     </div>
 
     <!-- NAV -->
@@ -841,7 +841,7 @@ function showResultStep(restore) {
     document.getElementById('result-headline').textContent = r.headline;
     const linkText = r.link.replace(/\//g,'').replace(/-/g,' ').replace(/\b\w/g, c => c.toUpperCase());
     document.getElementById('result-link-wrap').innerHTML =
-      '<a href="' + r.link + '" style="display:block;text-align:center;padding:12px 18px;background:#f4eefa;border:2px solid #452068;border-radius:12px;color:#452068;font-size:14px;font-weight:600;text-decoration:none;">Learn more &rarr;</a>';
+      '<a href="' + r.link + '" style="display:block;text-align:center;padding:12px 18px;background:#f4eefa;border:2px solid #452068;border-radius:12px;color:#452068;font-size:17px;font-weight:600;text-decoration:none;">Learn more &rarr;</a>';
   }
   if (typeof currentStep === 'number') {
     document.getElementById('step-' + currentStep).style.display = 'none';
@@ -970,12 +970,12 @@ function showSuccessCard() {
     <div style="text-align:center;margin-bottom:20px;">
       <div style="font-size:48px;margin-bottom:12px;">&#10003;</div>
       <h2 style="font-size:22px;font-weight:700;color:#1a1a1a;margin-bottom:12px;">${r ? r.headline : 'We\u2019ll be in touch shortly.'}</h2>
-      <p style="font-size:15px;color:#555;line-height:1.7;margin-bottom:20px;">A licensed bilingual broker will reach out shortly. Need us sooner?</p>
+      <p style="font-size:18px;color:#3a2f47;line-height:1.7;margin-bottom:20px;">A licensed bilingual broker will reach out shortly. Need us sooner?</p>
     </div>
     <div style="display:flex;flex-direction:column;gap:10px;">
-      <a href="${link}" style="display:block;background:#452068;color:white;padding:14px;border-radius:50px;font-weight:700;font-size:15px;text-decoration:none;text-align:center;">Explore your options &rarr;</a>
-      <a href="https://wa.me/13054646888" style="display:flex;align-items:center;justify-content:center;gap:8px;background:#25D366;color:white;padding:14px;border-radius:50px;font-weight:700;font-size:15px;text-decoration:none;" onclick="gtag('event','whatsapp_click',{'page':window.location.pathname})">&#128172; WhatsApp Us</a>
-      <a href="tel:18003806821" style="display:block;background:#f4eefa;color:#452068;padding:14px;border-radius:50px;font-weight:700;font-size:15px;text-decoration:none;text-align:center;">Call 1-800-380-6821</a>
+      <a href="${link}" style="display:block;background:#452068;color:white;padding:14px;border-radius:50px;font-weight:700;font-size:18px;text-decoration:none;text-align:center;">Explore your options &rarr;</a>
+      <a href="https://wa.me/13054646888" style="display:flex;align-items:center;justify-content:center;gap:8px;background:#25D366;color:white;padding:14px;border-radius:50px;font-weight:700;font-size:18px;text-decoration:none;" onclick="gtag('event','whatsapp_click',{'page':window.location.pathname})">&#128172; WhatsApp Us</a>
+      <a href="tel:18003806821" style="display:block;background:#f4eefa;color:#452068;padding:14px;border-radius:50px;font-weight:700;font-size:18px;text-decoration:none;text-align:center;">Call 1-800-380-6821</a>
     </div>`;
   document.getElementById('result-card').classList.add('show');
   window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -1063,17 +1063,17 @@ function restartQuiz() {
           <div id="footer-grid" style="display:grid;grid-template-columns:1.3fr 1fr 1fr 1fr;gap:32px;margin-bottom:36px">
             <div>
               <img src="/images/logo.webp" alt="The Health Experts Insurance" style="height:70px;width:auto;margin-bottom:16px"/>
-              <p style="font-size:13.5px;color:#6f6478;line-height:1.6;max-width:260px">Independent bilingual health insurance brokers. Office in Doral, FL.</p>
-              <div style="display:flex;flex-direction:column;gap:4px;margin-top:14px;font-size:13.5px">
+              <p style="font-size:16px;color:#3a2f47;line-height:1.6;max-width:260px">Independent bilingual health insurance brokers. Office in Doral, FL.</p>
+              <div style="display:flex;flex-direction:column;gap:4px;margin-top:14px;font-size:16px">
                 <a href="tel:18003806821" style="color:#452068;font-weight:700">1-800-380-6821</a>
                 <a href="https://wa.me/13054646888" style="color:#452068;font-weight:700" onclick="gtag('event','whatsapp_click',{'page':window.location.pathname})">WhatsApp</a>
                 <a href="mailto:info@healthexps.com" style="color:#452068;font-weight:700">info@healthexps.com</a>
               </div>
-              <p style="font-size:13.5px;color:#4a4051;margin-top:14px">1695 NW 110 Ave, Ste 224<br/>Doral, FL 33172</p>
+              <p style="font-size:16px;color:#4a4051;margin-top:14px">1695 NW 110 Ave, Ste 224<br/>Doral, FL 33172</p>
             </div>
             <div>
-              <div style="font-weight:700;font-size:12.5px;letter-spacing:.06em;margin-bottom:14px;color:#452068">MEDICARE</div>
-              <div style="display:flex;flex-direction:column;gap:9px;font-size:13.5px">
+              <div style="font-weight:700;font-size:15px;letter-spacing:.06em;margin-bottom:14px;color:#452068">MEDICARE</div>
+              <div style="display:flex;flex-direction:column;gap:9px;font-size:16px">
                 <a href="/medicare-plans-miami" style="cursor:pointer;color:#241a30;font-weight:700">Medicare Plans</a>
                 <a href="/medicare-advantage-miami" style="color:#4a4051">Medicare Advantage</a>
                 <a href="/medicare-supplement-miami" style="color:#4a4051">Medicare Supplement</a>
@@ -1083,8 +1083,8 @@ function restartQuiz() {
               </div>
             </div>
             <div>
-              <div style="font-weight:700;font-size:12.5px;letter-spacing:.06em;margin-bottom:14px;color:#452068">MEDICARE GUIDES</div>
-              <div style="display:flex;flex-direction:column;gap:9px;font-size:13.5px">
+              <div style="font-weight:700;font-size:15px;letter-spacing:.06em;margin-bottom:14px;color:#452068">MEDICARE GUIDES</div>
+              <div style="display:flex;flex-direction:column;gap:9px;font-size:16px">
                 <a href="/medicare/what-is-medicare" style="cursor:pointer;color:#4a4051">What Is Medicare</a>
                 <a href="/medicare/new-to-medicare" style="cursor:pointer;color:#4a4051">New to Medicare</a>
                 <a href="/medicare-irmaa-penalties" style="cursor:pointer;color:#4a4051">Medicare Costs &amp; IRMAA</a>
@@ -1094,8 +1094,8 @@ function restartQuiz() {
               </div>
             </div>
             <div>
-              <div style="font-weight:700;font-size:12.5px;letter-spacing:.06em;margin-bottom:14px;color:#452068">MORE</div>
-              <div style="display:flex;flex-direction:column;gap:9px;font-size:13.5px">
+              <div style="font-weight:700;font-size:15px;letter-spacing:.06em;margin-bottom:14px;color:#452068">MORE</div>
+              <div style="display:flex;flex-direction:column;gap:9px;font-size:16px">
                 <a href="/private-health-insurance-miami" style="cursor:pointer;color:#4a4051">Private Health Insurance</a>
                 <a href="/aca-plans-miami" style="cursor:pointer;color:#4a4051">ACA Marketplace Plans</a>
                 <a href="/cobra-alternatives-miami" style="cursor:pointer;color:#4a4051">COBRA Alternatives</a>
@@ -1106,10 +1106,10 @@ function restartQuiz() {
               </div>
             </div>
           </div>
-          <div style="border-top:1px solid #ece5f0;padding-top:20px;font-size:13px;color:#4a4051">
+          <div style="border-top:1px solid #ece5f0;padding-top:20px;font-size:16px;color:#4a4051">
             © 2026 The Health Experts Insurance. <a href="/privacy" style="color:#452068;font-weight:600">Privacy Policy &amp; Terms</a>
           </div>
-          <div style="padding-top:12px;font-size:13.5px;color:#a79db2;line-height:1.6">
+          <div style="padding-top:12px;font-size:16px;color:#5a5068;line-height:1.6">
             Medicare has not reviewed or endorsed this information. We do not offer every plan available in your area. We currently represent 14 organizations offering 82 products in your area. Please contact Medicare.gov, 1-800-MEDICARE, or your local SHIP program for information about all your options.
           </div>
         </div>

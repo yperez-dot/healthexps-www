@@ -104,12 +104,12 @@ html,body{overflow-x:hidden;max-width:100%;}
 :root{
   --purple:#452068;--purple-dark:#2f1550;--purple-light:#f7f2fb;
   --pink:#ff1090;--pink-hover:#c40074;--white:#ffffff;
-  --gray-light:#f7f7f7;--gray-mid:#ece5f0;--gray-text:#6f6478;--black:#241a30;
+  --gray-light:#f7f7f7;--gray-mid:#ece5f0;--gray-text:#3a2f47;--black:#241a30;
   --font-body:'Inter',Arial,Helvetica,sans-serif;
   --font-head:'Poppins',Arial,Helvetica,sans-serif;
   --radius:12px;--shadow:0 2px 16px rgba(69,32,104,0.10);
 }
-body{font-family:var(--font-body);color:var(--black);line-height:1.65;font-size:17px;background:var(--white);}
+body{font-family:var(--font-body);color:var(--black);line-height:1.7;font-size:18px;background:var(--white);}
 h1,h2,h3{font-family:var(--font-head);line-height:1.2;}
 a{color:var(--purple);text-decoration:none;}a:hover{color:var(--pink);}
 .container{max-width:1060px;margin:0 auto;padding:0 24px;}
@@ -131,7 +131,7 @@ a{color:var(--purple);text-decoration:none;}a:hover{color:var(--pink);}
 .page-hero::before{content:'';position:absolute;inset:0;background-image:radial-gradient(rgba(255,255,255,.08) 1.5px,transparent 1.5px);background-size:24px 24px;pointer-events:none;}
 .page-hero::after{content:'';position:absolute;bottom:-1px;left:0;right:0;height:48px;background:#fff;clip-path:ellipse(55% 100% at 50% 100%);}
 .breadcrumb{background:var(--purple-light);padding:10px 0;border-bottom:1px solid #e8e0f4;}
-.breadcrumb nav{font-size:13px;color:var(--gray-text);}
+.breadcrumb nav{font-size:16px;color:var(--gray-text);}
 .breadcrumb a{color:var(--purple);font-weight:600;}
 
 /* ARTICLE LAYOUT */
@@ -151,19 +151,19 @@ a{color:var(--purple);text-decoration:none;}a:hover{color:var(--pink);}
 .part-card.pink{border-left-color:var(--pink);}
 .part-letter{font-size:28px;font-weight:700;color:var(--purple);margin-bottom:4px;line-height:1;}
 .part-card.pink .part-letter{color:var(--pink);}
-.part-name{font-size:14px;font-weight:700;color:var(--black);margin-bottom:8px;}
-.part-desc{font-size:14px;color:var(--gray-text);line-height:1.6;margin:0;}
-.part-cost{font-size:13px;color:var(--purple);font-weight:700;margin-top:8px;}
+.part-name{font-size:17px;font-weight:700;color:var(--black);margin-bottom:8px;}
+.part-desc{font-size:17px;color:var(--gray-text);line-height:1.6;margin:0;}
+.part-cost{font-size:16px;color:var(--purple);font-weight:700;margin-top:8px;}
 
 /* INFO BOX */
 .info-box{background:var(--purple-light);border-left:4px solid var(--purple);border-radius:var(--radius);padding:18px 20px;margin:24px 0;}
-.info-box-title{font-size:15px;font-weight:700;color:var(--purple);margin-bottom:6px;}
-.info-box p{font-size:15px;color:#444;line-height:1.7;margin:0;}
+.info-box-title{font-size:18px;font-weight:700;color:var(--purple);margin-bottom:6px;}
+.info-box p{font-size:18px;color:#3a2f47;line-height:1.7;margin:0;}
 
 /* TABLE */
 .table-wrap{overflow-x:auto;margin:20px 0;}
-table{width:100%;border-collapse:collapse;font-size:14px;}
-th{background:var(--purple);color:#fff;padding:11px 14px;text-align:left;font-weight:700;font-size:13px;}
+table{width:100%;border-collapse:collapse;font-size:17px;}
+th{background:var(--purple);color:#fff;padding:11px 14px;text-align:left;font-weight:700;font-size:16px;}
 td{padding:10px 14px;border-bottom:1px solid var(--gray-mid);color:var(--gray-text);vertical-align:middle;}
 tr:nth-child(even) td{background:var(--gray-light);}
 
@@ -171,14 +171,14 @@ tr:nth-child(even) td{background:var(--gray-light);}
 .elig-list{list-style:none;padding:0;margin:16px 0;}
 .elig-list li{display:flex;align-items:flex-start;gap:12px;padding:12px 0;border-bottom:1px solid var(--gray-mid);font-size:16px;color:var(--gray-text);line-height:1.6;}
 .elig-list li:last-child{border-bottom:none;}
-.elig-num{min-width:32px;height:32px;background:var(--pink);color:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:14px;flex-shrink:0;margin-top:2px;}
+.elig-num{min-width:32px;height:32px;background:var(--pink);color:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:17px;flex-shrink:0;margin-top:2px;}
 
 /* COMPARE CARDS */
 .compare-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:24px 0;}
 .compare-card{background:#fff;border:1px solid #e8e0f4;border-radius:var(--radius);padding:20px;box-shadow:var(--shadow);}
 .compare-card h3{font-size:16px;font-weight:700;color:var(--purple);margin-bottom:12px;padding-bottom:10px;border-bottom:2px solid var(--purple-light);}
 .compare-card ul{list-style:none;padding:0;margin:0;}
-.compare-card ul li{font-size:14px;color:var(--gray-text);padding:6px 0;border-bottom:1px solid #f4eefa;display:flex;gap:8px;}
+.compare-card ul li{font-size:17px;color:var(--gray-text);padding:6px 0;border-bottom:1px solid #f4eefa;display:flex;gap:8px;}
 .compare-card ul li:last-child{border-bottom:none;}
 .compare-card ul li::before{content:"✓";color:var(--pink);font-weight:700;flex-shrink:0;}
 
@@ -186,22 +186,22 @@ tr:nth-child(even) td{background:var(--gray-light);}
 .guide-card{display:block;background:#fff;border:1px solid #e8e0f4;border-radius:var(--radius);padding:16px;box-shadow:var(--shadow);text-decoration:none;transition:transform .2s,box-shadow .2s;}
 .guide-card:hover{transform:translateY(-3px);box-shadow:0 8px 24px rgba(69,32,104,.14);}
 .guide-ico{font-size:24px;margin-bottom:8px;}
-.guide-title{font-size:14px;font-weight:700;color:var(--purple);margin-bottom:4px;}
-.guide-desc{font-size:13px;color:var(--gray-text);line-height:1.5;}
+.guide-title{font-size:17px;font-weight:700;color:var(--purple);margin-bottom:4px;}
+.guide-desc{font-size:16px;color:var(--gray-text);line-height:1.5;}
 
 /* SIDEBAR */
 .sidebar{position:sticky;top:112px;display:flex;flex-direction:column;gap:20px;}
 .sidebar-card{background:#fff;border:1px solid #e8e0f4;border-radius:var(--radius);padding:22px;box-shadow:var(--shadow);}
-.sidebar-title{font-size:14px;font-weight:700;color:var(--purple);text-transform:uppercase;letter-spacing:.05em;margin-bottom:14px;padding-bottom:10px;border-bottom:2px solid var(--purple-light);}
-.sidebar-toc a{display:block;font-size:14px;color:var(--gray-text);padding:6px 0;border-bottom:1px solid #f4eefa;text-decoration:none;transition:color .2s;}
+.sidebar-title{font-size:17px;font-weight:700;color:var(--purple);text-transform:uppercase;letter-spacing:.05em;margin-bottom:14px;padding-bottom:10px;border-bottom:2px solid var(--purple-light);}
+.sidebar-toc a{display:block;font-size:17px;color:var(--gray-text);padding:6px 0;border-bottom:1px solid #f4eefa;text-decoration:none;transition:color .2s;}
 .sidebar-toc a:last-child{border-bottom:none;}
 .sidebar-toc a:hover{color:var(--purple);font-weight:600;}
 .sidebar-toc a::before{content:"→ ";color:var(--pink);font-weight:700;}
 .sidebar-cta{background:linear-gradient(135deg,var(--purple),#6b35a0);border-radius:var(--radius);padding:22px;text-align:center;}
-.sidebar-cta p{color:rgba(255,255,255,.9);font-size:14px;line-height:1.6;margin-bottom:14px;}
-.btn-cta-full{display:block;background:var(--pink);color:#fff;padding:12px 16px;border-radius:50px;font-weight:700;font-size:14px;text-align:center;text-decoration:none;margin-bottom:10px;transition:background .2s;}
+.sidebar-cta p{color:rgba(255,255,255,.9);font-size:17px;line-height:1.6;margin-bottom:14px;}
+.btn-cta-full{display:block;background:var(--pink);color:#fff;padding:12px 16px;border-radius:50px;font-weight:700;font-size:17px;text-align:center;text-decoration:none;margin-bottom:10px;transition:background .2s;}
 .btn-cta-full:hover{background:var(--pink-hover);color:#fff;}
-.btn-call-full{display:block;background:rgba(255,255,255,.15);color:#fff;padding:11px 16px;border-radius:50px;font-weight:700;font-size:14px;text-align:center;text-decoration:none;border:1px solid rgba(255,255,255,.3);}
+.btn-call-full{display:block;background:rgba(255,255,255,.15);color:#fff;padding:11px 16px;border-radius:50px;font-weight:700;font-size:17px;text-align:center;text-decoration:none;border:1px solid rgba(255,255,255,.3);}
 
 /* CTA STRIP */
 .cta-strip{background:linear-gradient(135deg,var(--purple) 0%,#6b3a9e 100%);padding:56px 0;text-align:center;color:#fff;}
@@ -210,13 +210,13 @@ tr:nth-child(even) td{background:var(--gray-light);}
 .cta-btns{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;}
 .btn-primary{background:var(--pink);color:#fff;display:inline-block;padding:14px 28px;border-radius:50px;font-weight:700;font-size:16px;text-decoration:none;transition:all .2s;}
 .btn-primary:hover{background:var(--pink-hover);color:#fff;transform:translateY(-1px);}
-.btn-outline-white{background:transparent;color:#fff;border:2px solid rgba(255,255,255,.6);padding:13px 26px;border-radius:50px;font-weight:700;font-size:15px;display:inline-block;text-decoration:none;}
+.btn-outline-white{background:transparent;color:#fff;border:2px solid rgba(255,255,255,.6);padding:13px 26px;border-radius:50px;font-weight:700;font-size:18px;display:inline-block;text-decoration:none;}
 .btn-outline-white:hover{background:rgba(255,255,255,.15);color:#fff;}
 
 /* FORM */
-.form-input,.form-select{width:100%;padding:12px 14px;border:2px solid #e5e5e5;border-radius:8px;font-size:15px;font-family:var(--font-body);box-sizing:border-box;}
+.form-input,.form-select{width:100%;padding:12px 14px;border:2px solid #e5e5e5;border-radius:8px;font-size:18px;font-family:var(--font-body);box-sizing:border-box;}
 .form-input:focus,.form-select:focus{outline:none;border-color:var(--purple);}
-.form-label{display:block;font-size:13px;font-weight:700;color:#452068;text-transform:uppercase;letter-spacing:.05em;margin-bottom:6px;}
+.form-label{display:block;font-size:16px;font-weight:700;color:#452068;text-transform:uppercase;letter-spacing:.05em;margin-bottom:6px;}
 
 /* RESPONSIVE */
 @media(max-width:900px){
@@ -231,20 +231,20 @@ tr:nth-child(even) td{background:var(--gray-light);}
 <div style="font-family:'Inter',sans-serif;color:#241a30;background:#fff">
 
   <!-- UTILITY BAR -->
-  <div class="top-bar-inner" style="background:#2f1550;color:#fff;display:flex;align-items:center;justify-content:space-between;padding:9px 56px;font-size:13px">
+  <div class="top-bar-inner" style="background:#2f1550;color:#fff;display:flex;align-items:center;justify-content:space-between;padding:9px 56px;font-size:16px">
     <div style="display:flex;align-items:center;gap:12px">
       <a href="tel:18003806821" style="color:#fff;display:flex;align-items:center;" aria-label="Llamar 1-800-380-6821"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 1.27h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.91a16 16 0 0 0 6.29 6.29l.91-.91a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg></a>
-      <span style="display:inline-flex;align-items:center;border:1px solid rgba(255,255,255,0.35);border-radius:999px;padding:3px 10px;gap:3px;font-size:12px;"><a href="/es/medicare/que-es-medicare/" style="color:#fff;font-weight:700">EN</a><span style="opacity:.35;margin:0 1px">|</span><span style="opacity:.65">ES</span></span>
+      <span style="display:inline-flex;align-items:center;border:1px solid rgba(255,255,255,0.35);border-radius:999px;padding:3px 10px;gap:3px;font-size:14.5px;"><a href="/es/medicare/que-es-medicare/" style="color:#fff;font-weight:700">EN</a><span style="opacity:.35;margin:0 1px">|</span><span style="opacity:.65">ES</span></span>
     </div>
     <div style="display:flex;align-items:center;gap:16px">
-      <a href="https://wa.me/13054646888" onclick="gtag('event','whatsapp_click',{'page':window.location.pathname})" style="display:inline-flex;align-items:center;gap:6px;background:#25D366;color:#fff;padding:5px 12px;border-radius:999px;font-weight:700;font-size:12.5px;">📱 WhatsApp</a>
+      <a href="https://wa.me/13054646888" onclick="gtag('event','whatsapp_click',{'page':window.location.pathname})" style="display:inline-flex;align-items:center;gap:6px;background:#25D366;color:#fff;padding:5px 12px;border-radius:999px;font-weight:700;font-size:15px;">📱 WhatsApp</a>
     </div>
   </div>
 
   <!-- DESKTOP NAV -->
   <div class="v4-nav-outer" style="display:flex;align-items:center;justify-content:space-between;padding:14px 56px;border-bottom:1px solid #ece5f0;position:sticky;top:0;background:#fff;z-index:500">
     <a href="/es/"><img src="/images/logo.webp" alt="The Health Experts Insurance" style="height:80px;width:auto"/></a>
-    <div class="v4-nav-desktop" style="display:flex;align-items:center;gap:22px;font-size:14px;font-weight:600;color:#3a2f47">
+    <div class="v4-nav-desktop" style="display:flex;align-items:center;gap:22px;font-size:17px;font-weight:600;color:#3a2f47">
       <a href="/es/">Inicio</a>
       <div class="v4-nav-item" style="position:relative">
         <a href="/es/planes-de-medicare-miami" style="display:flex;align-items:center;gap:4px">Seguros ▾</a>
@@ -284,8 +284,8 @@ tr:nth-child(even) td{background:var(--gray-light);}
       <a href="/es/contacto/">Contacto</a>
     </div>
     <div style="display:flex;align-items:center;gap:12px">
-      <a href="tel:18003806821" class="v4-nav-desktop" style="color:#241a30;font-weight:700;font-size:14px">📞 1-800-380-6821</a>
-      <a href="#medicare-form" class="v4-nav-desktop" style="background:#452068;color:#fff;padding:11px 20px;border-radius:10px;font-weight:700;font-size:14px">Consulta Gratis</a>
+      <a href="tel:18003806821" class="v4-nav-desktop" style="color:#241a30;font-weight:700;font-size:17px">📞 1-800-380-6821</a>
+      <a href="#medicare-form" class="v4-nav-desktop" style="background:#452068;color:#fff;padding:11px 20px;border-radius:10px;font-weight:700;font-size:17px">Consulta Gratis</a>
       <button class="v4-nav-mobile-btn" id="v4HamburgerBtn" aria-label="Abrir menú" aria-expanded="false" aria-controls="v4-mobile-menu">
         <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#241a30" stroke-width="2.2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
       </button>
@@ -302,25 +302,25 @@ tr:nth-child(even) td{background:var(--gray-light);}
     </div>
     <nav style="display:flex;flex-direction:column;gap:4px;font-size:16px;font-weight:600;color:#241a30">
       <a href="/es/" style="padding:14px 4px;border-bottom:1px solid #ece5f0;color:#241a30">Inicio</a>
-      <div style="padding:14px 4px 4px;font-size:13px;font-weight:700;color:#8a6aaa;text-transform:uppercase;letter-spacing:.06em">Seguros</div>
-      <a href="/es/planes-de-medicare-miami" style="padding:11px 12px;border-radius:8px;color:#241a30;font-size:15px">Planes de Medicare</a>
-      <a href="/es/medicare-advantage-miami" style="padding:11px 12px;border-radius:8px;color:#241a30;font-size:15px">Medicare Advantage</a>
-      <a href="/es/medicare-suplementario-miami" style="padding:11px 12px;border-radius:8px;color:#241a30;font-size:15px">Medicare Suplementario</a>
-      <a href="/es/medicare-medicaid-miami" style="padding:11px 12px;border-radius:8px;color:#241a30;font-size:15px">D-SNP / Dual</a>
-      <a href="/es/planes-aca-miami" style="padding:11px 12px;border-radius:8px;color:#241a30;font-size:15px">Planes ACA</a>
-      <a href="/es/seguro-medico-privado-miami" style="padding:11px 12px;border-radius:8px;color:#241a30;font-size:15px">Seguro Médico Privado</a>
-      <a href="/es/alternativas-cobra-miami" style="padding:11px 12px;border-radius:8px;color:#241a30;font-size:15px">Alternativas a COBRA</a>
-      <a href="/es/dental-vision-miami" style="padding:11px 12px;border-radius:8px;color:#241a30;font-size:15px">Dental y Visión</a>
-      <a href="/es/seguro-de-vida-miami/" style="padding:11px 12px;border-radius:8px;color:#241a30;font-size:15px">Seguro de Vida</a>
-      <a href="/es/gastos-finales-miami/" style="padding:11px 12px;border-radius:8px;color:#241a30;font-size:15px">Gastos Finales</a>
-      <div style="padding:14px 4px 4px;font-size:13px;font-weight:700;color:#8a6aaa;text-transform:uppercase;letter-spacing:.06em;margin-top:8px">Guías</div>
-      <a href="/es/medicare/que-es-medicare/" style="padding:11px 12px;border-radius:8px;color:#ff1090;font-size:15px;font-weight:700">Qué es Medicare</a>
-      <a href="/es/nuevo-en-medicare/" style="padding:11px 12px;border-radius:8px;color:#241a30;font-size:15px">Nuevo en Medicare</a>
-      <a href="/es/irmaa-penalidades-medicare/" style="padding:11px 12px;border-radius:8px;color:#241a30;font-size:15px">Costos y IRMAA</a>
-      <a href="/es/medicare/programa-ahorros-medicare/" style="padding:11px 12px;border-radius:8px;color:#241a30;font-size:15px">Programa de Ahorros</a>
-      <a href="/es/mitos-medicare/" style="padding:11px 12px;border-radius:8px;color:#241a30;font-size:15px">Mitos de Medicare</a>
-      <a href="/es/inscripcion-anual-medicare-2027/" style="padding:11px 12px;border-radius:8px;color:#241a30;font-size:15px">Inscripción Anual (AEP)</a>
-      <a href="/es/buscador-de-planes/" style="padding:11px 12px;border-radius:8px;color:#241a30;font-size:15px">Buscador de Planes</a>
+      <div style="padding:14px 4px 4px;font-size:16px;font-weight:700;color:#5c3d7a;text-transform:uppercase;letter-spacing:.06em">Seguros</div>
+      <a href="/es/planes-de-medicare-miami" style="padding:11px 12px;border-radius:8px;color:#241a30;font-size:18px">Planes de Medicare</a>
+      <a href="/es/medicare-advantage-miami" style="padding:11px 12px;border-radius:8px;color:#241a30;font-size:18px">Medicare Advantage</a>
+      <a href="/es/medicare-suplementario-miami" style="padding:11px 12px;border-radius:8px;color:#241a30;font-size:18px">Medicare Suplementario</a>
+      <a href="/es/medicare-medicaid-miami" style="padding:11px 12px;border-radius:8px;color:#241a30;font-size:18px">D-SNP / Dual</a>
+      <a href="/es/planes-aca-miami" style="padding:11px 12px;border-radius:8px;color:#241a30;font-size:18px">Planes ACA</a>
+      <a href="/es/seguro-medico-privado-miami" style="padding:11px 12px;border-radius:8px;color:#241a30;font-size:18px">Seguro Médico Privado</a>
+      <a href="/es/alternativas-cobra-miami" style="padding:11px 12px;border-radius:8px;color:#241a30;font-size:18px">Alternativas a COBRA</a>
+      <a href="/es/dental-vision-miami" style="padding:11px 12px;border-radius:8px;color:#241a30;font-size:18px">Dental y Visión</a>
+      <a href="/es/seguro-de-vida-miami/" style="padding:11px 12px;border-radius:8px;color:#241a30;font-size:18px">Seguro de Vida</a>
+      <a href="/es/gastos-finales-miami/" style="padding:11px 12px;border-radius:8px;color:#241a30;font-size:18px">Gastos Finales</a>
+      <div style="padding:14px 4px 4px;font-size:16px;font-weight:700;color:#5c3d7a;text-transform:uppercase;letter-spacing:.06em;margin-top:8px">Guías</div>
+      <a href="/es/medicare/que-es-medicare/" style="padding:11px 12px;border-radius:8px;color:#ff1090;font-size:18px;font-weight:700">Qué es Medicare</a>
+      <a href="/es/nuevo-en-medicare/" style="padding:11px 12px;border-radius:8px;color:#241a30;font-size:18px">Nuevo en Medicare</a>
+      <a href="/es/irmaa-penalidades-medicare/" style="padding:11px 12px;border-radius:8px;color:#241a30;font-size:18px">Costos y IRMAA</a>
+      <a href="/es/medicare/programa-ahorros-medicare/" style="padding:11px 12px;border-radius:8px;color:#241a30;font-size:18px">Programa de Ahorros</a>
+      <a href="/es/mitos-medicare/" style="padding:11px 12px;border-radius:8px;color:#241a30;font-size:18px">Mitos de Medicare</a>
+      <a href="/es/inscripcion-anual-medicare-2027/" style="padding:11px 12px;border-radius:8px;color:#241a30;font-size:18px">Inscripción Anual (AEP)</a>
+      <a href="/es/buscador-de-planes/" style="padding:11px 12px;border-radius:8px;color:#241a30;font-size:18px">Buscador de Planes</a>
       <div style="margin-top:8px;border-top:1px solid #ece5f0;padding-top:12px;display:flex;flex-direction:column;gap:4px">
         <a href="/es/faq/" style="padding:12px 4px;color:#241a30;border-bottom:1px solid #ece5f0">FAQ</a>
         <a href="/es/recursos/" style="padding:12px 4px;color:#241a30;border-bottom:1px solid #ece5f0">Recursos</a>
@@ -340,9 +340,9 @@ tr:nth-child(even) td{background:var(--gray-light);}
 
     <!-- BREADCRUMB -->
     <div class="breadcrumb">
-      <nav aria-label="Miga de pan" style="max-width:1060px;margin:0 auto;padding:0 24px;font-size:13px;color:#6f6478">
-        <a href="/es/">Inicio</a><span style="margin:0 6px;color:#bbb">›</span>
-        <a href="/es/planes-de-medicare-miami">Medicare</a><span style="margin:0 6px;color:#bbb">›</span>
+      <nav aria-label="Miga de pan" style="max-width:1060px;margin:0 auto;padding:0 24px;font-size:16px;color:#3a2f47">
+        <a href="/es/">Inicio</a><span style="margin:0 6px;color:#5a5068">›</span>
+        <a href="/es/planes-de-medicare-miami">Medicare</a><span style="margin:0 6px;color:#5a5068">›</span>
         ¿Qué es Medicare?
       </nav>
     </div>
@@ -350,7 +350,7 @@ tr:nth-child(even) td{background:var(--gray-light);}
     <!-- HERO -->
     <section class="page-hero">
       <div class="container" style="position:relative;z-index:2">
-        <div style="display:inline-flex;align-items:center;gap:7px;background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.22);color:rgba(255,255,255,.9);padding:5px 14px;border-radius:50px;font-size:13px;font-weight:600;margin-bottom:16px">📖 Guía completa · Lectura 8 min</div>
+        <div style="display:inline-flex;align-items:center;gap:7px;background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.22);color:rgba(255,255,255,.9);padding:5px 14px;border-radius:50px;font-size:16px;font-weight:600;margin-bottom:16px">📖 Guía completa · Lectura 8 min</div>
         <h1 style="font-size:clamp(26px,4vw,40px);font-weight:700;color:#fff;line-height:1.15;margin-bottom:14px">¿Qué es Medicare?<br><span style="color:#ff1090">Partes A, B, C y D explicadas.</span></h1>
         <p style="color:rgba(255,255,255,.88);font-size:17px;line-height:1.7;max-width:620px">Una guía en español sobre el programa federal de seguro médico — quién califica, qué cubre cada parte y cómo elegir el plan correcto en la Florida.</p>
       </div>
@@ -459,14 +459,14 @@ tr:nth-child(even) td{background:var(--gray-light);}
             </tbody>
           </table>
         </div>
-        <p style="font-size:13px;color:var(--gray-text);margin-top:8px">Nota: Las personas con ingresos más altos pueden pagar más por las Partes B y D (recargo IRMAA). <a href="/es/irmaa-penalidades-medicare/">Aprenda más sobre IRMAA →</a></p>
+        <p style="font-size:16px;color:var(--gray-text);margin-top:8px">Nota: Las personas con ingresos más altos pueden pagar más por las Partes B y D (recargo IRMAA). <a href="/es/irmaa-penalidades-medicare/">Aprenda más sobre IRMAA →</a></p>
 
         <h2 id="inscripcion">Períodos de Inscripción en Medicare</h2>
         <ul class="elig-list">
-          <li><div class="elig-num" style="font-size:11px;min-width:32px">IEP</div><div><strong>Período de Inscripción Inicial (IEP):</strong> 7 meses alrededor de su cumpleaños 65 (3 meses antes, el mes de, y 3 meses después). Inscripción más importante — evita penalidades.</div></li>
-          <li><div class="elig-num" style="font-size:11px;min-width:32px">OEP</div><div><strong>Período de Inscripción General (OEP):</strong> Enero 1 – Marzo 31. Para quienes no se inscribieron a tiempo. La cobertura comienza el 1 de julio.</div></li>
-          <li><div class="elig-num" style="font-size:11px;min-width:32px">AEP</div><div><strong>Período de Inscripción Anual (AEP):</strong> 15 de octubre – 7 de diciembre. Para cambiar entre planes Advantage o Parte D. Cambios vigentes el 1 de enero.</div></li>
-          <li><div class="elig-num" style="font-size:11px;min-width:32px">SEP</div><div><strong>Período Especial de Inscripción (SEP):</strong> Disponible por eventos de vida (pérdida de cobertura laboral, mudanza, etc.).</div></li>
+          <li><div class="elig-num" style="font-size:14px;min-width:32px">IEP</div><div><strong>Período de Inscripción Inicial (IEP):</strong> 7 meses alrededor de su cumpleaños 65 (3 meses antes, el mes de, y 3 meses después). Inscripción más importante — evita penalidades.</div></li>
+          <li><div class="elig-num" style="font-size:14px;min-width:32px">OEP</div><div><strong>Período de Inscripción General (OEP):</strong> Enero 1 – Marzo 31. Para quienes no se inscribieron a tiempo. La cobertura comienza el 1 de julio.</div></li>
+          <li><div class="elig-num" style="font-size:14px;min-width:32px">AEP</div><div><strong>Período de Inscripción Anual (AEP):</strong> 15 de octubre – 7 de diciembre. Para cambiar entre planes Advantage o Parte D. Cambios vigentes el 1 de enero.</div></li>
+          <li><div class="elig-num" style="font-size:14px;min-width:32px">SEP</div><div><strong>Período Especial de Inscripción (SEP):</strong> Disponible por eventos de vida (pérdida de cobertura laboral, mudanza, etc.).</div></li>
         </ul>
 
         <h2 id="penalidades">Penalidades por Inscripción Tardía</h2>
@@ -528,10 +528,10 @@ tr:nth-child(even) td{background:var(--gray-light);}
         <div class="sidebar-card">
           <div class="sidebar-title">Planes en Miami</div>
           <div style="display:flex;flex-direction:column;gap:8px">
-            <a href="/es/planes-de-medicare-miami" style="font-size:14px;color:#452068;font-weight:600;text-decoration:none">→ Planes de Medicare Miami</a>
-            <a href="/es/medicare-advantage-miami" style="font-size:14px;color:#452068;font-weight:600;text-decoration:none">→ Medicare Advantage Miami</a>
-            <a href="/es/medicare-suplementario-miami" style="font-size:14px;color:#452068;font-weight:600;text-decoration:none">→ Medicare Suplementario Miami</a>
-            <a href="/es/medicare-medicaid-miami" style="font-size:14px;color:#452068;font-weight:600;text-decoration:none">→ D-SNP / Dual Miami</a>
+            <a href="/es/planes-de-medicare-miami" style="font-size:17px;color:#452068;font-weight:600;text-decoration:none">→ Planes de Medicare Miami</a>
+            <a href="/es/medicare-advantage-miami" style="font-size:17px;color:#452068;font-weight:600;text-decoration:none">→ Medicare Advantage Miami</a>
+            <a href="/es/medicare-suplementario-miami" style="font-size:17px;color:#452068;font-weight:600;text-decoration:none">→ Medicare Suplementario Miami</a>
+            <a href="/es/medicare-medicaid-miami" style="font-size:17px;color:#452068;font-weight:600;text-decoration:none">→ D-SNP / Dual Miami</a>
           </div>
         </div>
       </aside>
@@ -546,7 +546,7 @@ tr:nth-child(even) td{background:var(--gray-light);}
         <div class="cta-btns">
           <a href="#medicare-form" class="btn-primary">Solicitar Consulta Gratis</a>
           <a href="tel:18003806821" class="btn-outline-white">1-800-380-6821</a>
-          <a href="https://wa.me/13054646888" onclick="gtag('event','whatsapp_click',{'page':window.location.pathname})" style="background:#25D366;color:#fff;padding:13px 22px;border-radius:50px;font-weight:700;font-size:15px;display:inline-flex;align-items:center;gap:8px;text-decoration:none">📱 WhatsApp</a>
+          <a href="https://wa.me/13054646888" onclick="gtag('event','whatsapp_click',{'page':window.location.pathname})" style="background:#25D366;color:#fff;padding:13px 22px;border-radius:50px;font-weight:700;font-size:18px;display:inline-flex;align-items:center;gap:8px;text-decoration:none">📱 WhatsApp</a>
         </div>
       </div>
     </div>
@@ -556,7 +556,7 @@ tr:nth-child(even) td{background:var(--gray-light);}
       <div class="container">
         <div style="background:#fff;border-radius:16px;padding:36px;max-width:620px;margin:0 auto;box-shadow:0 8px 32px rgba(69,32,104,.15)">
           <h2 style="font-family:'Poppins',sans-serif;font-size:24px;font-weight:700;color:#452068;margin-bottom:8px;text-align:center">Solicitar Consulta de Medicare Gratuita</h2>
-          <p style="font-size:15px;color:#6f6478;margin-bottom:28px;text-align:center">Una corredora bilingüe con licencia en Doral se comunicará personalmente.</p>
+          <p style="font-size:18px;color:#3a2f47;margin-bottom:28px;text-align:center">Una corredora bilingüe con licencia en Doral se comunicará personalmente.</p>
           <div id="medicareFormWrap">
             <form id="medicareLeadForm" novalidate>
                   <!-- Honeypot: hidden from humans, bots fill it in -->
@@ -592,24 +592,24 @@ tr:nth-child(even) td{background:var(--gray-light);}
                 </select>
               </div>
               <div style="margin-bottom:16px">
-                <label for="med_notes" class="form-label">¿Algo que quieras compartir? <span style="font-weight:400;text-transform:none;color:#888">(opcional)</span></label>
-                <textarea name="additional_notes" id="med_notes" placeholder="Ej. Quiero mantener mis médicos actuales, tomo varios medicamentos, o tengo preguntas sobre IRMAA..." style="width:100%;padding:12px 14px;border:2px solid #e5e5e5;border-radius:8px;font-size:15px;font-family:'Inter',sans-serif;min-height:80px;resize:vertical;box-sizing:border-box;"></textarea>
+                <label for="med_notes" class="form-label">¿Algo que quieras compartir? <span style="font-weight:400;text-transform:none;color:#5a5068">(opcional)</span></label>
+                <textarea name="additional_notes" id="med_notes" placeholder="Ej. Quiero mantener mis médicos actuales, tomo varios medicamentos, o tengo preguntas sobre IRMAA..." style="width:100%;padding:12px 14px;border:2px solid #e5e5e5;border-radius:8px;font-size:18px;font-family:'Inter',sans-serif;min-height:80px;resize:vertical;box-sizing:border-box;"></textarea>
               </div>
               <div style="display:flex;align-items:flex-start;gap:10px;margin:18px 0">
                 <input type="checkbox" id="med_consent" name="consent" required style="margin-top:4px;flex-shrink:0">
-                <label for="med_consent" style="font-size:13px;color:#555;line-height:1.5">Doy mi consentimiento para recibir correos electrónicos, llamadas telefónicas y mensajes de The Health Experts Insurance respecto a planes de Medicare y seguros relacionados. Entiendo que puedo revocar este consentimiento llamando al <a href="tel:18003806821" style="color:#452068">1-800-380-6821</a> TTY 711.</label>
+                <label for="med_consent" style="font-size:16px;color:#3a2f47;line-height:1.5">Doy mi consentimiento para recibir correos electrónicos, llamadas telefónicas y mensajes de The Health Experts Insurance respecto a planes de Medicare y seguros relacionados. Entiendo que puedo revocar este consentimiento llamando al <a href="tel:18003806821" style="color:#452068">1-800-380-6821</a> TTY 711.</label>
               </div>
-              <p id="medicareError" style="display:none;color:#c40074;font-size:13px;margin-bottom:8px">Por favor completa todos los campos requeridos.</p>
+              <p id="medicareError" style="display:none;color:#c40074;font-size:16px;margin-bottom:8px">Por favor completa todos los campos requeridos.</p>
               <button id="medicareSubmit" type="submit" style="background:#ff1090;color:#fff;width:100%;padding:15px;border-radius:50px;border:none;font-size:16px;font-weight:700;cursor:pointer;font-family:'Inter',sans-serif">Solicitar mi Consulta Gratuita →</button>
             </form>
           </div>
           <div id="medicareSuccess" style="display:none;text-align:center;padding:24px 8px">
             <div style="font-size:48px;margin-bottom:12px">✅</div>
             <h3 style="font-family:'Poppins',sans-serif;font-size:22px;color:#452068;margin:0 0 10px">¡Gracias — recibimos tu solicitud!</h3>
-            <p style="font-size:14.5px;color:#6f6478;margin:0 0 20px">Una corredora bilingüe se comunicará en breve.</p>
+            <p style="font-size:18px;color:#3a2f47;margin:0 0 20px">Una corredora bilingüe se comunicará en breve.</p>
             <div style="display:flex;gap:10px;justify-content:center;flex-wrap:wrap">
-              <a href="tel:18003806821" style="background:#452068;color:#fff;padding:12px 20px;border-radius:10px;font-weight:700;font-size:14px">Llamar 1-800-380-6821</a>
-              <a href="https://wa.me/13054646888" style="border:2px solid #452068;color:#452068;padding:10px 20px;border-radius:10px;font-weight:700;font-size:14px">WhatsApp</a>
+              <a href="tel:18003806821" style="background:#452068;color:#fff;padding:12px 20px;border-radius:10px;font-weight:700;font-size:17px">Llamar 1-800-380-6821</a>
+              <a href="https://wa.me/13054646888" style="border:2px solid #452068;color:#452068;padding:10px 20px;border-radius:10px;font-weight:700;font-size:17px">WhatsApp</a>
             </div>
           </div>
         </div>
@@ -625,17 +625,17 @@ tr:nth-child(even) td{background:var(--gray-light);}
       <div id="footer-grid" style="display:grid;grid-template-columns:1.3fr 1fr 1fr 1fr;gap:32px;margin-bottom:36px">
         <div>
           <img src="/images/logo.webp" alt="The Health Experts Insurance" style="height:70px;width:auto;margin-bottom:16px"/>
-          <p style="font-size:13.5px;color:#6f6478;line-height:1.6;max-width:260px">Corredoras bilingües independientes con licencia. Oficina en Doral, FL.</p>
-          <div style="display:flex;flex-direction:column;gap:4px;margin-top:14px;font-size:13.5px">
+          <p style="font-size:16px;color:#3a2f47;line-height:1.6;max-width:260px">Corredoras bilingües independientes con licencia. Oficina en Doral, FL.</p>
+          <div style="display:flex;flex-direction:column;gap:4px;margin-top:14px;font-size:16px">
             <a href="tel:18003806821" style="color:#452068;font-weight:700">1-800-380-6821</a>
             <a href="https://wa.me/13054646888" onclick="gtag('event','whatsapp_click',{'page':window.location.pathname})" style="color:#452068;font-weight:700">WhatsApp</a>
             <a href="mailto:info@healthexps.com" style="color:#452068;font-weight:700">info@healthexps.com</a>
           </div>
-          <p style="font-size:13.5px;color:#4a4051;margin-top:14px">1695 NW 110 Ave, Ste 224<br/>Doral, FL 33172</p>
+          <p style="font-size:16px;color:#4a4051;margin-top:14px">1695 NW 110 Ave, Ste 224<br/>Doral, FL 33172</p>
         </div>
         <div>
-          <div style="font-weight:700;font-size:12.5px;letter-spacing:.06em;margin-bottom:14px;color:#452068">MEDICARE</div>
-          <div style="display:flex;flex-direction:column;gap:9px;font-size:13.5px">
+          <div style="font-weight:700;font-size:15px;letter-spacing:.06em;margin-bottom:14px;color:#452068">MEDICARE</div>
+          <div style="display:flex;flex-direction:column;gap:9px;font-size:16px">
             <a href="/es/planes-de-medicare-miami" style="color:#241a30;font-weight:700">Planes de Medicare</a>
             <a href="/es/medicare-advantage-miami" style="color:#4a4051">Medicare Advantage</a>
             <a href="/es/medicare-suplementario-miami" style="color:#4a4051">Medicare Suplementario</a>
@@ -644,8 +644,8 @@ tr:nth-child(even) td{background:var(--gray-light);}
           </div>
         </div>
         <div>
-          <div style="font-weight:700;font-size:12.5px;letter-spacing:.06em;margin-bottom:14px;color:#452068">GUÍAS</div>
-          <div style="display:flex;flex-direction:column;gap:9px;font-size:13.5px">
+          <div style="font-weight:700;font-size:15px;letter-spacing:.06em;margin-bottom:14px;color:#452068">GUÍAS</div>
+          <div style="display:flex;flex-direction:column;gap:9px;font-size:16px">
             <a href="/es/medicare/que-es-medicare/" style="color:#452068;font-weight:700">Qué es Medicare</a>
             <a href="/es/nuevo-en-medicare/" style="color:#4a4051">Nuevo en Medicare</a>
             <a href="/es/irmaa-penalidades-medicare/" style="color:#4a4051">Costos e IRMAA</a>
@@ -655,8 +655,8 @@ tr:nth-child(even) td{background:var(--gray-light);}
           </div>
         </div>
         <div>
-          <div style="font-weight:700;font-size:12.5px;letter-spacing:.06em;margin-bottom:14px;color:#452068">MÁS</div>
-          <div style="display:flex;flex-direction:column;gap:9px;font-size:13.5px">
+          <div style="font-weight:700;font-size:15px;letter-spacing:.06em;margin-bottom:14px;color:#452068">MÁS</div>
+          <div style="display:flex;flex-direction:column;gap:9px;font-size:16px">
             <a href="/es/seguro-medico-privado-miami" style="color:#4a4051">Seguro Médico Privado</a>
             <a href="/es/planes-aca-miami" style="color:#4a4051">Planes ACA</a>
             <a href="/es/dental-vision-miami" style="color:#4a4051">Dental y Visión</a>
@@ -666,10 +666,10 @@ tr:nth-child(even) td{background:var(--gray-light);}
           </div>
         </div>
       </div>
-      <div style="border-top:1px solid #ece5f0;padding-top:20px;font-size:13px;color:#4a4051">
+      <div style="border-top:1px solid #ece5f0;padding-top:20px;font-size:16px;color:#4a4051">
         © 2026 The Health Experts Insurance. <a href="/es/privacidad" style="color:#452068;font-weight:600">Política de Privacidad y Términos</a>
       </div>
-      <div style="padding-top:12px;font-size:13px;color:#a79db2;line-height:1.6">
+      <div style="padding-top:12px;font-size:16px;color:#5a5068;line-height:1.6">
         The Health Experts Insurance es una agencia de seguros independiente y licenciada en Doral, FL. No ofrecemos todos los planes disponibles en su área. Actualmente representamos 14 organizaciones que ofrecen 82 productos en su área. Comuníquese con Medicare.gov, 1-800-MEDICARE, o el programa SHIP local para obtener información sobre todas sus opciones. Medicare no ha revisado ni respaldado esta información.
       </div>
     </div>

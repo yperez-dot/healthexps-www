@@ -111,7 +111,7 @@ html, body { overflow-x: hidden; max-width: 100%; }
   --off-white:    #fdfaf7;
   --gray-light:   #f7f7f7;
   --gray-mid:     #ece5f0;
-  --gray-text:    #6f6478;
+  --gray-text:    #3a2f47;
   --black:        #241a30;
   --wa:           #25D366;
   --wa-hover:     #1da851;
@@ -125,8 +125,8 @@ html, body { overflow-x: hidden; max-width: 100%; }
 body {
   font-family: var(--font-body);
   color: var(--black);
-  line-height: 1.65;
-  font-size: 17px;
+  line-height:1.7;
+  font-size:18px;
   background: var(--white);
   -webkit-font-smoothing: antialiased;
 }
@@ -165,7 +165,7 @@ img { max-width: 100%; height: auto; }
 .fe-breadcrumb {
   background: var(--purple-light);
   padding: 14px 56px;
-  font-size: 13px; color: var(--gray-text);
+  font-size:16px; color: var(--gray-text);
   border-bottom: 1px solid var(--gray-mid);
 }
 .fe-breadcrumb a { color: var(--purple); font-weight: 600; }
@@ -181,7 +181,7 @@ img { max-width: 100%; height: auto; }
   display: inline-flex; align-items: center; gap: 8px;
   background: #fff0f8; color: var(--pink-hover);
   padding: 8px 16px; border-radius: 999px;
-  font-size: 13px; font-weight: 700; margin-bottom: 22px;
+  font-size:16px; font-weight: 700; margin-bottom: 22px;
 }
 .fe-hero h1 {
   font-family: var(--font-head); font-weight: 700;
@@ -201,7 +201,7 @@ img { max-width: 100%; height: auto; }
   display: inline-flex; align-items: center; gap: 8px;
   background: var(--pink); color: white;
   padding: 16px 28px; border-radius: 12px;
-  font-family: var(--font-body); font-weight: 700; font-size: 15.5px;
+  font-family: var(--font-body); font-weight: 700; font-size:18px;
   box-shadow: 0 8px 22px rgba(255,16,144,0.28);
   transition: background .2s, transform .15s; text-decoration: none;
 }
@@ -211,7 +211,7 @@ img { max-width: 100%; height: auto; }
   background: transparent; color: var(--purple);
   padding: 14px 24px; border-radius: 12px;
   border: 2px solid var(--purple);
-  font-family: var(--font-body); font-weight: 700; font-size: 15.5px;
+  font-family: var(--font-body); font-weight: 700; font-size:18px;
   transition: background .2s, color .2s; text-decoration: none;
 }
 .fe-hero-btns .btn-outline-purple:hover { background: var(--purple); color: white; }
@@ -230,7 +230,7 @@ img { max-width: 100%; height: auto; }
   font-family: var(--font-head); font-weight: 700; font-size: 20px;
   line-height: 1.2; margin-bottom: 4px;
 }
-.fe-stat-label { font-size: 13px; opacity: .78; }
+.fe-stat-label { font-size:16px; opacity: .78; }
 
 /* WHAT IS section */
 .fe-what-section {
@@ -238,14 +238,14 @@ img { max-width: 100%; height: auto; }
 }
 .fe-what-inner { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: start; }
 .fe-what-checks { list-style: none; display: flex; flex-direction: column; gap: 12px; margin-top: 24px; }
-.fe-what-checks li { display: flex; align-items: flex-start; gap: 10px; font-size: 15.5px; color: var(--black); }
+.fe-what-checks li { display: flex; align-items: flex-start; gap: 10px; font-size:18px; color: var(--black); }
 .fe-check-icon { flex-shrink: 0; width: 22px; height: 22px; border-radius: 50%; background: var(--purple-light); display: flex; align-items: center; justify-content: center; margin-top: 2px; }
 
 /* Medicare Gap Alert */
 .fe-gap-alert {
   background: #fffbeb; border-left: 4px solid #f59e0b;
   border-radius: 12px; padding: 24px 28px; margin: 32px 0 0;
-  font-size: 15px; line-height: 1.65; color: #78350f;
+  font-size:18px; line-height: 1.65; color: #78350f;
 }
 .fe-gap-alert strong { color: #92400e; }
 
@@ -260,16 +260,16 @@ img { max-width: 100%; height: auto; }
 }
 .fe-plan-card-label {
   display: inline-block; padding: 6px 14px; border-radius: 999px;
-  font-size: 12px; font-weight: 700; letter-spacing: .06em;
+  font-size:14.5px; font-weight: 700; letter-spacing: .06em;
   text-transform: uppercase; margin-bottom: 14px;
 }
 .fe-plan-card-label.simplified { background: #ede9fe; color: #5b21b6; }
 .fe-plan-card-label.guaranteed { background: #fce7f3; color: var(--pink-hover); }
 .fe-plan-card h3 { font-family: var(--font-head); font-size: 20px; font-weight: 700; color: var(--black); margin-bottom: 12px; }
-.fe-plan-card p { font-size: 14.5px; color: var(--gray-text); line-height: 1.65; margin-bottom: 16px; }
+.fe-plan-card p { font-size:18px; color: var(--gray-text); line-height: 1.65; margin-bottom: 16px; }
 .fe-plan-bullets { list-style: none; display: flex; flex-direction: column; gap: 9px; }
-.fe-plan-bullets li { display: flex; align-items: flex-start; gap: 9px; font-size: 14px; color: var(--black); }
-.fe-plan-best { margin-top: 18px; font-size: 13px; font-weight: 700; color: var(--purple); }
+.fe-plan-bullets li { display: flex; align-items: flex-start; gap: 9px; font-size:17px; color: var(--black); }
+.fe-plan-best { margin-top: 18px; font-size:16px; font-weight: 700; color: var(--purple); }
 
 /* What it covers — 6-grid */
 .fe-covers-section { padding: 72px 56px; background: var(--white); }
@@ -285,7 +285,7 @@ img { max-width: 100%; height: auto; }
   display: flex; align-items: center; justify-content: center;
   box-shadow: 0 2px 8px rgba(69,32,104,.10);
 }
-.fe-cover-card h3 { font-family: var(--font-head); font-size: 15px; font-weight: 700; color: var(--black); }
+.fe-cover-card h3 { font-family: var(--font-head); font-size:18px; font-weight: 700; color: var(--black); }
 
 /* Who should consider (4 cards) */
 .fe-who-section { padding: 72px 56px; background: var(--off-white); }
@@ -299,10 +299,10 @@ img { max-width: 100%; height: auto; }
 .fe-who-num {
   flex-shrink: 0; width: 36px; height: 36px; border-radius: 50%;
   background: var(--purple); color: white;
-  font-family: var(--font-head); font-weight: 700; font-size: 15px;
+  font-family: var(--font-head); font-weight: 700; font-size:18px;
   display: flex; align-items: center; justify-content: center;
 }
-.fe-who-text { font-size: 15px; color: var(--black); line-height: 1.55; font-weight: 600; }
+.fe-who-text { font-size:18px; color: var(--black); line-height: 1.55; font-weight: 600; }
 
 /* FAQ */
 .fe-faq-section { padding: 72px 56px; background: var(--white); }
@@ -327,7 +327,7 @@ img { max-width: 100%; height: auto; }
 .fe-faq-q[aria-expanded="true"]::after { content: '\2212'; transform: rotate(0deg); }
 .fe-faq-a {
   display: none; padding: 0 0 20px;
-  font-size: 15px; color: var(--gray-text); line-height: 1.7;
+  font-size:18px; color: var(--gray-text); line-height: 1.7;
 }
 .fe-faq-a.open { display: block; }
 
@@ -350,8 +350,8 @@ img { max-width: 100%; height: auto; }
   padding: 40px; box-shadow: 0 30px 60px rgba(0,0,0,.25);
 }
 .fe-form-title { font-family: var(--font-head); font-size: 22px; font-weight: 700; color: var(--black); margin-bottom: 6px; }
-.fe-form-sub { font-size: 14px; color: var(--gray-text); margin-bottom: 22px; line-height: 1.55; }
-.fe-form-label { display: block; font-size: 14px; font-weight: 700; color: var(--purple); margin-bottom: 6px; }
+.fe-form-sub { font-size:17px; color: var(--gray-text); margin-bottom: 22px; line-height: 1.55; }
+.fe-form-label { display: block; font-size:17px; font-weight: 700; color: var(--purple); margin-bottom: 6px; }
 .fe-form-card select,
 .fe-form-card input[type="text"],
 .fe-form-card input[type="tel"],
@@ -372,15 +372,15 @@ img { max-width: 100%; height: auto; }
 .fe-form-name-row { margin-bottom: 14px; }
 .fe-form-consent {
   display: flex; gap: 10px; align-items: flex-start;
-  font-size: 13.5px; line-height: 1.5; margin-bottom: 20px; cursor: pointer;
-  color: #8a8093;
+  font-size:16px; line-height: 1.5; margin-bottom: 20px; cursor: pointer;
+  color: #5a5068;
 }
 .fe-form-consent input[type="checkbox"] { margin-top: 3px; flex-shrink: 0; }
-.fe-form-error { display: none; color: var(--pink-hover); font-size: 13px; margin-bottom: 10px; }
+.fe-form-error { display: none; color: var(--pink-hover); font-size:16px; margin-bottom: 10px; }
 .fe-form-card button[type="submit"] {
   background: var(--pink); color: white; width: 100%;
   padding: 16px; border-radius: 12px; border: none;
-  font-size: 15.5px; font-weight: 700; cursor: pointer;
+  font-size:18px; font-weight: 700; cursor: pointer;
   font-family: var(--font-head); transition: background .2s;
 }
 .fe-form-card button[type="submit"]:hover { background: var(--pink-hover); }
@@ -393,14 +393,14 @@ img { max-width: 100%; height: auto; }
 }
 
 
-.footer-disclaimer { padding-top: 12px; font-size: 13.5px; color: #a79db2; line-height: 1.6; }
+.footer-disclaimer { padding-top: 12px; font-size:16px; color: #5a5068; line-height: 1.6; }
 
 /* ============================================================
    SECTION HEADING UTIL
    ============================================================ */
 .section-eyebrow {
   display: inline-block; color: var(--pink-hover);
-  font-family: var(--font-body); font-weight: 700; font-size: 12px;
+  font-family: var(--font-body); font-weight: 700; font-size:14.5px;
   letter-spacing: .08em; text-transform: uppercase; margin-bottom: 10px;
 }
 .section-title { font-size: clamp(22px, 3vw, 32px); font-weight: 700; color: var(--black); margin-bottom: 12px; }
@@ -438,7 +438,7 @@ img { max-width: 100%; height: auto; }
 
   /* Font sizes */
   .fe-hero h1 { font-size: 28px; }
-  .fe-hero-sub { font-size: 15px; }
+  .fe-hero-sub { font-size:18px; }
 
   /* CTA buttons */
   .fe-cta-btns { flex-direction: column; align-items: center; }
@@ -453,8 +453,8 @@ img { max-width: 100%; height: auto; }
   .fe-form-card input,
   .fe-form-card select,
   .fe-form-card textarea { font-size: 16px; }
-  .fe-form-label { font-size: 14px; }
-  .fe-form-consent { font-size: 13.5px; }
+  .fe-form-label { font-size:17px; }
+  .fe-form-consent { font-size:16px; }
 }
 
 @media (max-width: 768px) {
@@ -499,21 +499,21 @@ img { max-width: 100%; height: auto; }
 <div style="font-family:Inter,sans-serif;color:#241a30;background:#fff">
 
   <!-- ── UTILITY BAR ── -->
-  <div class="top-bar-inner" style="background:#2f1550;color:#fff;display:flex;align-items:center;justify-content:space-between;padding:9px 56px;font-size:13px">
+  <div class="top-bar-inner" style="background:#2f1550;color:#fff;display:flex;align-items:center;justify-content:space-between;padding:9px 56px;font-size:16px">
     <div style="display:flex;align-items:center;gap:12px">
           <a href="tel:18003806821" style="color:#fff;display:flex;align-items:center;" aria-label="Call 1-800-380-6821"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 1.27h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.91a16 16 0 0 0 6.29 6.29l.91-.91a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg></a>
-          <span style="display:inline-flex;align-items:center;border:1px solid rgba(255,255,255,0.35);border-radius:999px;padding:3px 10px;gap:3px;font-size:12px;"><span style="opacity:.65;font-weight:400">EN</span><span style="opacity:.35;margin:0 1px">|</span><a href="/es/" style="color:#fff;text-decoration:none;font-weight:700">ES</a></span>
+          <span style="display:inline-flex;align-items:center;border:1px solid rgba(255,255,255,0.35);border-radius:999px;padding:3px 10px;gap:3px;font-size:14.5px;"><span style="opacity:.65;font-weight:400">EN</span><span style="opacity:.35;margin:0 1px">|</span><a href="/es/" style="color:#fff;text-decoration:none;font-weight:700">ES</a></span>
         </div>
     <div style="display:flex;align-items:center;gap:16px">
-      <a href="https://wa.me/13054646888" onclick="gtag('event','whatsapp_click',{'page':window.location.pathname})" style="display:inline-flex;align-items:center;gap:6px;background:#25D366;color:#fff;padding:5px 12px;border-radius:999px;font-weight:700;font-size:12.5px;text-decoration:none;">WhatsApp</a>
-      <a href="#fe-form" style="background:#ff1090;color:#fff;padding:7px 16px;border-radius:999px;font-weight:700;font-size:12.5px">Get Free Quotes &rarr;</a>
+      <a href="https://wa.me/13054646888" onclick="gtag('event','whatsapp_click',{'page':window.location.pathname})" style="display:inline-flex;align-items:center;gap:6px;background:#25D366;color:#fff;padding:5px 12px;border-radius:999px;font-weight:700;font-size:15px;text-decoration:none;">WhatsApp</a>
+      <a href="#fe-form" style="background:#ff1090;color:#fff;padding:7px 16px;border-radius:999px;font-weight:700;font-size:15px">Get Free Quotes &rarr;</a>
     </div>
   </div>
 
   <!-- ── NAV ── -->
   <div class="v4-nav-outer" style="display:flex;align-items:center;justify-content:space-between;padding:14px 56px;border-bottom:1px solid #ece5f0;position:sticky;top:0;background:#fff;z-index:500">
     <a href="/"><img src="/images/logo.webp" alt="The Health Experts Insurance" style="height:80px;width:auto;cursor:pointer"/></a>
-    <div class="v4-nav-desktop" style="display:flex;align-items:center;gap:26px;font-size:14.5px;font-weight:600;color:#3a2f47">
+    <div class="v4-nav-desktop" style="display:flex;align-items:center;gap:26px;font-size:18px;font-weight:600;color:#3a2f47">
       <a href="/" style="cursor:pointer">Home</a>
 
       <div class="v4-nav-item" style="position:relative">
@@ -555,8 +555,8 @@ img { max-width: 100%; height: auto; }
       <a href="/contact" style="cursor:pointer">Contact</a>
     </div>
     <div style="display:flex;align-items:center;gap:12px">
-      <a href="tel:18003806821" class="v4-nav-desktop" style="color:#241a30;font-weight:700;font-size:14.5px">1-800-380-6821</a>
-      <a href="#fe-form" class="v4-nav-desktop" style="background:#452068;color:#fff;padding:11px 20px;border-radius:10px;font-weight:700;font-size:14px">Free Quotes</a>
+      <a href="tel:18003806821" class="v4-nav-desktop" style="color:#241a30;font-weight:700;font-size:18px">1-800-380-6821</a>
+      <a href="#fe-form" class="v4-nav-desktop" style="background:#452068;color:#fff;padding:11px 20px;border-radius:10px;font-weight:700;font-size:17px">Free Quotes</a>
       <!-- Hamburger — mobile only -->
       <button class="v4-nav-mobile-btn" id="v4HamburgerBtn" aria-label="Open menu" aria-expanded="false" aria-controls="v4-mobile-menu">
         <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#241a30" stroke-width="2.2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
@@ -574,22 +574,22 @@ img { max-width: 100%; height: auto; }
     </div>
     <nav style="display:flex;flex-direction:column;gap:4px;font-size:16px;font-weight:600;color:#241a30">
       <a href="/" style="padding:14px 4px;border-bottom:1px solid #ece5f0;color:#241a30">Home</a>
-      <div style="padding:14px 4px 4px;font-size:13px;font-weight:700;color:#8a6aaa;text-transform:uppercase;letter-spacing:.06em">Insurance</div>
-      <a href="/medicare-plans-miami" style="padding:11px 12px;border-radius:8px;color:#241a30;font-weight:600;font-size:15px">Medicare Plans</a>
-      <a href="/private-health-insurance-miami" style="padding:11px 12px;border-radius:8px;color:#241a30;font-weight:600;font-size:15px">Private Health Insurance</a>
-      <a href="/aca-plans-miami" style="padding:11px 12px;border-radius:8px;color:#241a30;font-weight:600;font-size:15px">ACA Marketplace Plans</a>
-      <a href="/cobra-alternatives-miami" style="padding:11px 12px;border-radius:8px;color:#241a30;font-weight:600;font-size:15px">COBRA Alternatives</a>
-      <a href="/dental-vision-miami" style="padding:11px 12px;border-radius:8px;color:#241a30;font-weight:600;font-size:15px">Dental &amp; Vision</a>
-      <a href="/life-insurance-miami" style="padding:11px 12px;border-radius:8px;color:#241a30;font-weight:600;font-size:15px">Life Insurance</a>
-      <a href="/final-expense-insurance" style="padding:11px 12px;border-radius:8px;color:#452068;font-weight:700;font-size:15px">Final Expense Insurance</a>
-      <div style="padding:14px 4px 4px;font-size:13px;font-weight:700;color:#8a6aaa;text-transform:uppercase;letter-spacing:.06em;margin-top:8px">Guides</div>
-      <a href="/medicare/what-is-medicare" style="padding:11px 12px;border-radius:8px;color:#241a30;font-weight:600;font-size:15px">What Is Medicare</a>
-      <a href="/medicare/new-to-medicare" style="padding:11px 12px;border-radius:8px;color:#241a30;font-weight:600;font-size:15px">New to Medicare</a>
-      <a href="/medicare-irmaa-penalties" style="padding:11px 12px;border-radius:8px;color:#241a30;font-weight:600;font-size:15px">Medicare Costs &amp; IRMAA</a>
-      <a href="/medicare-advantage-miami" style="padding:11px 12px;border-radius:8px;color:#241a30;font-weight:600;font-size:15px">Medicare Advantage Guide</a>
-      <a href="/medicare-supplement-miami" style="padding:11px 12px;border-radius:8px;color:#241a30;font-weight:600;font-size:15px">Medicare Supplement Guide</a>
-      <a href="/medicare-savings-program" style="padding:11px 12px;border-radius:8px;color:#241a30;font-weight:600;font-size:15px">Medicare Savings Program</a>
-      <a href="/health-insurance-quiz" style="padding:11px 12px;border-radius:8px;color:#241a30;font-weight:600;font-size:15px">Find My Plan Quiz</a>
+      <div style="padding:14px 4px 4px;font-size:16px;font-weight:700;color:#5c3d7a;text-transform:uppercase;letter-spacing:.06em">Insurance</div>
+      <a href="/medicare-plans-miami" style="padding:11px 12px;border-radius:8px;color:#241a30;font-weight:600;font-size:18px">Medicare Plans</a>
+      <a href="/private-health-insurance-miami" style="padding:11px 12px;border-radius:8px;color:#241a30;font-weight:600;font-size:18px">Private Health Insurance</a>
+      <a href="/aca-plans-miami" style="padding:11px 12px;border-radius:8px;color:#241a30;font-weight:600;font-size:18px">ACA Marketplace Plans</a>
+      <a href="/cobra-alternatives-miami" style="padding:11px 12px;border-radius:8px;color:#241a30;font-weight:600;font-size:18px">COBRA Alternatives</a>
+      <a href="/dental-vision-miami" style="padding:11px 12px;border-radius:8px;color:#241a30;font-weight:600;font-size:18px">Dental &amp; Vision</a>
+      <a href="/life-insurance-miami" style="padding:11px 12px;border-radius:8px;color:#241a30;font-weight:600;font-size:18px">Life Insurance</a>
+      <a href="/final-expense-insurance" style="padding:11px 12px;border-radius:8px;color:#452068;font-weight:700;font-size:18px">Final Expense Insurance</a>
+      <div style="padding:14px 4px 4px;font-size:16px;font-weight:700;color:#5c3d7a;text-transform:uppercase;letter-spacing:.06em;margin-top:8px">Guides</div>
+      <a href="/medicare/what-is-medicare" style="padding:11px 12px;border-radius:8px;color:#241a30;font-weight:600;font-size:18px">What Is Medicare</a>
+      <a href="/medicare/new-to-medicare" style="padding:11px 12px;border-radius:8px;color:#241a30;font-weight:600;font-size:18px">New to Medicare</a>
+      <a href="/medicare-irmaa-penalties" style="padding:11px 12px;border-radius:8px;color:#241a30;font-weight:600;font-size:18px">Medicare Costs &amp; IRMAA</a>
+      <a href="/medicare-advantage-miami" style="padding:11px 12px;border-radius:8px;color:#241a30;font-weight:600;font-size:18px">Medicare Advantage Guide</a>
+      <a href="/medicare-supplement-miami" style="padding:11px 12px;border-radius:8px;color:#241a30;font-weight:600;font-size:18px">Medicare Supplement Guide</a>
+      <a href="/medicare-savings-program" style="padding:11px 12px;border-radius:8px;color:#241a30;font-weight:600;font-size:18px">Medicare Savings Program</a>
+      <a href="/health-insurance-quiz" style="padding:11px 12px;border-radius:8px;color:#241a30;font-weight:600;font-size:18px">Find My Plan Quiz</a>
       <div style="margin-top:8px;border-top:1px solid #ece5f0;padding-top:12px;display:flex;flex-direction:column;gap:4px">
         <a href="/faq" style="padding:12px 4px;color:#241a30;border-bottom:1px solid #ece5f0">FAQ</a>
         <a href="/resources" style="padding:12px 4px;color:#241a30;border-bottom:1px solid #ece5f0">Resources</a> <a href="/blog" style="padding:12px 4px;color:#241a30;border-bottom:1px solid #ece5f0">Blog</a> <a href="/medicare-agent-miami" style="padding:12px 4px;color:#241a30;border-bottom:1px solid #ece5f0">About Us</a>
@@ -609,9 +609,9 @@ img { max-width: 100%; height: auto; }
   <!-- BREADCRUMB -->
   <div class="fe-breadcrumb">
     <a href="/">Home</a>
-    <span style="margin:0 6px;color:#bbb">/</span>
+    <span style="margin:0 6px;color:#5a5068">/</span>
     <a href="/life-insurance-miami">Life Insurance</a>
-    <span style="margin:0 6px;color:#bbb">/</span>
+    <span style="margin:0 6px;color:#5a5068">/</span>
     Final Expense Insurance
   </div>
 
@@ -623,7 +623,7 @@ img { max-width: 100%; height: auto; }
     <div class="fe-hero-btns">
       <a href="#fe-form" class="btn-pink">Get Free Quotes &rarr;</a>
       <a href="tel:18003806821" class="btn-outline-purple">Call 1-800-380-6821</a>
-      <a href="/life-insurance-calculator" style="display:inline-flex;align-items:center;gap:6px;font-size:14px;font-weight:600;color:#452068;margin-top:8px;">🧮 Estimate my coverage with the Life Insurance Calculator &rarr;</a>
+      <a href="/life-insurance-calculator" style="display:inline-flex;align-items:center;gap:6px;font-size:17px;font-weight:600;color:#452068;margin-top:8px;">🧮 Estimate my coverage with the Life Insurance Calculator &rarr;</a>
     </div>
   </div>
 
@@ -913,9 +913,9 @@ img { max-width: 100%; height: auto; }
     <h2>Ready to protect your family?</h2>
     <p>Get free quotes from multiple carriers &mdash; bilingual brokers, no pressure.</p>
     <div class="fe-cta-btns">
-      <a href="#fe-form" style="background:#ff1090;color:#fff;padding:15px 26px;border-radius:999px;font-weight:700;font-size:14.5px;text-decoration:none;display:inline-flex;align-items:center;gap:6px">Get My Free Quotes &rarr;</a>
-      <a href="tel:18003806821" style="border:2px solid rgba(255,255,255,.7);color:#fff;padding:13px 24px;border-radius:999px;font-weight:700;font-size:14.5px;text-decoration:none;display:inline-flex;align-items:center;gap:6px">Call 1-800-380-6821</a>
-      <a href="https://wa.me/13054646888" onclick="gtag('event','whatsapp_click',{'page':window.location.pathname})" style="background:#25D366;color:#fff;padding:15px 26px;border-radius:999px;font-weight:700;font-size:14.5px;text-decoration:none;display:inline-flex;align-items:center;gap:6px">WhatsApp Us</a>
+      <a href="#fe-form" style="background:#ff1090;color:#fff;padding:15px 26px;border-radius:999px;font-weight:700;font-size:18px;text-decoration:none;display:inline-flex;align-items:center;gap:6px">Get My Free Quotes &rarr;</a>
+      <a href="tel:18003806821" style="border:2px solid rgba(255,255,255,.7);color:#fff;padding:13px 24px;border-radius:999px;font-weight:700;font-size:18px;text-decoration:none;display:inline-flex;align-items:center;gap:6px">Call 1-800-380-6821</a>
+      <a href="https://wa.me/13054646888" onclick="gtag('event','whatsapp_click',{'page':window.location.pathname})" style="background:#25D366;color:#fff;padding:15px 26px;border-radius:999px;font-weight:700;font-size:18px;text-decoration:none;display:inline-flex;align-items:center;gap:6px">WhatsApp Us</a>
     </div>
   </div>
 
@@ -928,23 +928,23 @@ img { max-width: 100%; height: auto; }
         <h2 style="font-family:Poppins,sans-serif;font-size:30px;font-weight:700;margin:0 0 16px">Get your free final expense quotes</h2>
         <p style="font-size:16px;line-height:1.65;opacity:.85;margin:0 0 28px;max-width:420px">Tell us a little about your situation. A licensed bilingual agent will follow up personally &mdash; no call centers, no pressure.</p>
         <div style="display:flex;flex-direction:column;gap:14px">
-          <div style="display:flex;align-items:center;gap:10px;font-size:15px">
+          <div style="display:flex;align-items:center;gap:10px;font-size:18px">
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#ff90c8" stroke-width="2.2"><path d="M5 12l4 4 10-10"/></svg>
             No medical exam required
           </div>
-          <div style="display:flex;align-items:center;gap:10px;font-size:15px">
+          <div style="display:flex;align-items:center;gap:10px;font-size:18px">
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#ff90c8" stroke-width="2.2"><path d="M5 12l4 4 10-10"/></svg>
             Compare multiple carriers at once
           </div>
-          <div style="display:flex;align-items:center;gap:10px;font-size:15px">
+          <div style="display:flex;align-items:center;gap:10px;font-size:18px">
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#ff90c8" stroke-width="2.2"><path d="M5 12l4 4 10-10"/></svg>
             Licensed Florida agents &mdash; bilingual
           </div>
-          <div style="display:flex;align-items:center;gap:10px;font-size:15px">
+          <div style="display:flex;align-items:center;gap:10px;font-size:18px">
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#ff90c8" stroke-width="2.2"><path d="M5 12l4 4 10-10"/></svg>
             $0 cost to you
           </div>
-          <div style="display:flex;align-items:center;gap:10px;font-size:15px">
+          <div style="display:flex;align-items:center;gap:10px;font-size:18px">
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#ff90c8" stroke-width="2.2"><path d="M5 12l4 4 10-10"/></svg>
             Ages 50&ndash;85, all health backgrounds welcome
           </div>
@@ -960,10 +960,10 @@ img { max-width: 100%; height: auto; }
             <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.4"><path d="M5 12l4 4 10-10"/></svg>
           </div>
           <h3 style="font-family:Poppins,sans-serif;font-size:22px;margin:0 0 10px;color:#241a30">We have your request!</h3>
-          <p style="color:#6f6478;font-size:14.5px;margin:0 0 22px">A licensed bilingual agent will reach out shortly. Need us sooner?</p>
+          <p style="color:#3a2f47;font-size:18px;margin:0 0 22px">A licensed bilingual agent will reach out shortly. Need us sooner?</p>
           <div style="display:flex;gap:10px;justify-content:center;flex-wrap:wrap">
-            <a href="tel:18003806821" style="background:#452068;color:#fff;padding:12px 20px;border-radius:10px;font-weight:700;font-size:14px">Call 1-800-380-6821</a>
-            <a href="https://wa.me/13054646888" onclick="gtag('event','whatsapp_click',{'page':window.location.pathname})" style="border:2px solid #452068;color:#452068;padding:10px 20px;border-radius:10px;font-weight:700;font-size:14px">WhatsApp Us</a>
+            <a href="tel:18003806821" style="background:#452068;color:#fff;padding:12px 20px;border-radius:10px;font-weight:700;font-size:17px">Call 1-800-380-6821</a>
+            <a href="https://wa.me/13054646888" onclick="gtag('event','whatsapp_click',{'page':window.location.pathname})" style="border:2px solid #452068;color:#452068;padding:10px 20px;border-radius:10px;font-weight:700;font-size:17px">WhatsApp Us</a>
           </div>
         </div>
 
@@ -1039,17 +1039,17 @@ img { max-width: 100%; height: auto; }
           <div id="footer-grid" style="display:grid;grid-template-columns:1.3fr 1fr 1fr 1fr;gap:32px;margin-bottom:36px">
             <div>
               <img src="/images/logo.webp" alt="The Health Experts Insurance" style="height:70px;width:auto;margin-bottom:16px"/>
-              <p style="font-size:13.5px;color:#6f6478;line-height:1.6;max-width:260px">Independent bilingual health insurance brokers. Office in Doral, FL.</p>
-              <div style="display:flex;flex-direction:column;gap:4px;margin-top:14px;font-size:13.5px">
+              <p style="font-size:16px;color:#3a2f47;line-height:1.6;max-width:260px">Independent bilingual health insurance brokers. Office in Doral, FL.</p>
+              <div style="display:flex;flex-direction:column;gap:4px;margin-top:14px;font-size:16px">
                 <a href="tel:18003806821" style="color:#452068;font-weight:700">1-800-380-6821</a>
                 <a href="https://wa.me/13054646888" style="color:#452068;font-weight:700" onclick="gtag('event','whatsapp_click',{'page':window.location.pathname})">WhatsApp</a>
                 <a href="mailto:info@healthexps.com" style="color:#452068;font-weight:700">info@healthexps.com</a>
               </div>
-              <p style="font-size:13.5px;color:#4a4051;margin-top:14px">1695 NW 110 Ave, Ste 224<br/>Doral, FL 33172</p>
+              <p style="font-size:16px;color:#4a4051;margin-top:14px">1695 NW 110 Ave, Ste 224<br/>Doral, FL 33172</p>
             </div>
             <div>
-              <div style="font-weight:700;font-size:12.5px;letter-spacing:.06em;margin-bottom:14px;color:#452068">MEDICARE</div>
-              <div style="display:flex;flex-direction:column;gap:9px;font-size:13.5px">
+              <div style="font-weight:700;font-size:15px;letter-spacing:.06em;margin-bottom:14px;color:#452068">MEDICARE</div>
+              <div style="display:flex;flex-direction:column;gap:9px;font-size:16px">
                 <a href="/medicare-plans-miami" style="cursor:pointer;color:#241a30;font-weight:700">Medicare Plans</a>
                 <a href="/medicare-advantage-miami" style="color:#4a4051">Medicare Advantage</a>
                 <a href="/medicare-supplement-miami" style="color:#4a4051">Medicare Supplement</a>
@@ -1059,8 +1059,8 @@ img { max-width: 100%; height: auto; }
               </div>
             </div>
             <div>
-              <div style="font-weight:700;font-size:12.5px;letter-spacing:.06em;margin-bottom:14px;color:#452068">MEDICARE GUIDES</div>
-              <div style="display:flex;flex-direction:column;gap:9px;font-size:13.5px">
+              <div style="font-weight:700;font-size:15px;letter-spacing:.06em;margin-bottom:14px;color:#452068">MEDICARE GUIDES</div>
+              <div style="display:flex;flex-direction:column;gap:9px;font-size:16px">
                 <a href="/medicare/what-is-medicare" style="cursor:pointer;color:#4a4051">What Is Medicare</a>
                 <a href="/medicare/new-to-medicare" style="cursor:pointer;color:#4a4051">New to Medicare</a>
                 <a href="/medicare-irmaa-penalties" style="cursor:pointer;color:#4a4051">Medicare Costs &amp; IRMAA</a>
@@ -1070,8 +1070,8 @@ img { max-width: 100%; height: auto; }
               </div>
             </div>
             <div>
-              <div style="font-weight:700;font-size:12.5px;letter-spacing:.06em;margin-bottom:14px;color:#452068">MORE</div>
-              <div style="display:flex;flex-direction:column;gap:9px;font-size:13.5px">
+              <div style="font-weight:700;font-size:15px;letter-spacing:.06em;margin-bottom:14px;color:#452068">MORE</div>
+              <div style="display:flex;flex-direction:column;gap:9px;font-size:16px">
                 <a href="/private-health-insurance-miami" style="cursor:pointer;color:#4a4051">Private Health Insurance</a>
                 <a href="/aca-plans-miami" style="cursor:pointer;color:#4a4051">ACA Marketplace Plans</a>
                 <a href="/cobra-alternatives-miami" style="cursor:pointer;color:#4a4051">COBRA Alternatives</a>
@@ -1082,10 +1082,10 @@ img { max-width: 100%; height: auto; }
               </div>
             </div>
           </div>
-          <div style="border-top:1px solid #ece5f0;padding-top:20px;font-size:13px;color:#4a4051">
+          <div style="border-top:1px solid #ece5f0;padding-top:20px;font-size:16px;color:#4a4051">
             © 2026 The Health Experts Insurance. <a href="/privacy" style="color:#452068;font-weight:600">Privacy Policy &amp; Terms</a>
           </div>
-          <div style="padding-top:12px;font-size:13.5px;color:#a79db2;line-height:1.6">
+          <div style="padding-top:12px;font-size:16px;color:#5a5068;line-height:1.6">
             Medicare has not reviewed or endorsed this information. We do not offer every plan available in your area. We currently represent 14 organizations offering 82 products in your area. Please contact Medicare.gov, 1-800-MEDICARE, or your local SHIP program for information about all your options.
           </div>
         </div>

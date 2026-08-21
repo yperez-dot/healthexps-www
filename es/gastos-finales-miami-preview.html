@@ -28,16 +28,16 @@
 <style>
 html,body{overflow-x:hidden;max-width:100%;}
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
-:root{--purple:#452068;--purple-dark:#2f1550;--purple-light:#f7f2fb;--pink:#ff1090;--pink-hover:#c40074;--white:#ffffff;--off-white:#fdfaf7;--gray-mid:#ece5f0;--gray-text:#6f6478;--black:#241a30;--wa:#25D366;--font-body:'Inter',Arial,Helvetica,sans-serif;--font-head:'Poppins',Arial,Helvetica,sans-serif;}
-body{font-family:var(--font-body);color:var(--black);line-height:1.65;font-size:17px;background:var(--white);-webkit-font-smoothing:antialiased;}
+:root{--purple:#452068;--purple-dark:#2f1550;--purple-light:#f7f2fb;--pink:#ff1090;--pink-hover:#c40074;--white:#ffffff;--off-white:#fdfaf7;--gray-mid:#ece5f0;--gray-text:#3a2f47;--black:#241a30;--wa:#25D366;--font-body:'Inter',Arial,Helvetica,sans-serif;--font-head:'Poppins',Arial,Helvetica,sans-serif;}
+body{font-family:var(--font-body);color:var(--black);line-height:1.7;font-size:18px;background:var(--white);-webkit-font-smoothing:antialiased;}
 h1,h2,h3{font-family:var(--font-head);line-height:1.2;}
 a{color:var(--purple);text-decoration:none;}
 a:hover{color:var(--pink);}
 img{max-width:100%;height:auto;}
-.eyebrow{display:inline-block;color:var(--pink-hover);font-weight:700;font-size:12px;letter-spacing:.08em;text-transform:uppercase;margin-bottom:10px;}
-.btn-pink{display:inline-flex;align-items:center;gap:8px;background:var(--pink);color:white;padding:15px 28px;border-radius:12px;font-family:var(--font-body);font-weight:700;font-size:15.5px;box-shadow:0 8px 22px rgba(255,16,144,0.25);transition:background .2s,transform .15s;text-decoration:none;}
+.eyebrow{display:inline-block;color:var(--pink-hover);font-weight:700;font-size:14.5px;letter-spacing:.08em;text-transform:uppercase;margin-bottom:10px;}
+.btn-pink{display:inline-flex;align-items:center;gap:8px;background:var(--pink);color:white;padding:15px 28px;border-radius:12px;font-family:var(--font-body);font-weight:700;font-size:18px;box-shadow:0 8px 22px rgba(255,16,144,0.25);transition:background .2s,transform .15s;text-decoration:none;}
 .btn-pink:hover{background:var(--pink-hover);color:white;transform:translateY(-2px);}
-.btn-outline-purple{display:inline-flex;align-items:center;gap:8px;background:transparent;color:var(--purple);padding:13px 24px;border-radius:12px;border:2px solid var(--purple);font-family:var(--font-body);font-weight:700;font-size:15.5px;transition:background .2s,color .2s;text-decoration:none;}
+.btn-outline-purple{display:inline-flex;align-items:center;gap:8px;background:transparent;color:var(--purple);padding:13px 24px;border-radius:12px;border:2px solid var(--purple);font-family:var(--font-body);font-weight:700;font-size:18px;transition:background .2s,color .2s;text-decoration:none;}
 .btn-outline-purple:hover{background:var(--purple);color:white;}
 .v4-nav-dropdown{display:none;}
 .v4-nav-item:hover .v4-nav-dropdown{display:block;}
@@ -50,7 +50,7 @@ img{max-width:100%;height:auto;}
 .plan-card{background:#fff;border:2px solid var(--gray-mid);border-radius:20px;padding:32px;box-shadow:0 4px 20px rgba(69,32,104,.1);}
 .covers-card{background:var(--purple-light);border-radius:16px;padding:24px;text-align:center;}
 .who-card{background:#fff;border:2px solid var(--gray-mid);border-radius:16px;padding:24px 28px;display:flex;gap:16px;align-items:flex-start;}
-.who-num{flex-shrink:0;width:36px;height:36px;border-radius:50%;background:var(--purple);color:white;font-family:var(--font-head);font-weight:700;font-size:15px;display:flex;align-items:center;justify-content:center;}
+.who-num{flex-shrink:0;width:36px;height:36px;border-radius:50%;background:var(--purple);color:white;font-family:var(--font-head);font-weight:700;font-size:18px;display:flex;align-items:center;justify-content:center;}
 .faq-item{border-bottom:1px solid var(--gray-mid);}
 .faq-item:first-child{border-top:1px solid var(--gray-mid);}
 @media(max-width:900px){.v4-nav-desktop{display:none!important;}.v4-nav-mobile-btn{display:flex!important;align-items:center;}.hero-btns-wrap{flex-direction:column!important;align-items:flex-start!important;}.plans-grid{grid-template-columns:1fr!important;}.covers-grid{grid-template-columns:1fr 1fr!important;}.who-grid{grid-template-columns:1fr!important;}.form-cols{grid-template-columns:1fr!important;gap:32px!important;}.footer-mobile{grid-template-columns:1fr 1fr!important;}}
@@ -63,20 +63,20 @@ img{max-width:100%;height:auto;}
 <div style="font-family:Inter,sans-serif;color:#241a30;background:#fff">
 
 <!-- UTILITY BAR -->
-<div class="top-bar-inner" style="background:#2f1550;color:#fff;display:flex;align-items:center;justify-content:space-between;padding:9px 56px;font-size:13px">
+<div class="top-bar-inner" style="background:#2f1550;color:#fff;display:flex;align-items:center;justify-content:space-between;padding:9px 56px;font-size:16px">
   <div style="display:flex;align-items:center;gap:12px">
     <a href="tel:18003806821" style="color:#fff;font-weight:700">📞 1-800-380-6821</a>
-    <span style="display:inline-flex;align-items:center;border:1px solid rgba(255,255,255,0.35);border-radius:999px;padding:3px 10px;gap:3px;font-size:12px;"><a href="/final-expense-insurance/" style="color:#fff;text-decoration:none;font-weight:700">EN</a><span style="opacity:.35;margin:0 1px">|</span><span style="opacity:.9;font-weight:700">ES</span></span>
+    <span style="display:inline-flex;align-items:center;border:1px solid rgba(255,255,255,0.35);border-radius:999px;padding:3px 10px;gap:3px;font-size:14.5px;"><a href="/final-expense-insurance/" style="color:#fff;text-decoration:none;font-weight:700">EN</a><span style="opacity:.35;margin:0 1px">|</span><span style="opacity:.9;font-weight:700">ES</span></span>
   </div>
   <div style="display:flex;align-items:center;gap:16px">
-    <a href="https://wa.me/13054646888" onclick="gtag('event','whatsapp_click',{'page':window.location.pathname})" style="display:inline-flex;align-items:center;gap:6px;background:#25D366;color:#fff;padding:5px 12px;border-radius:999px;font-weight:700;font-size:12.5px;text-decoration:none;">📱 WhatsApp</a>
+    <a href="https://wa.me/13054646888" onclick="gtag('event','whatsapp_click',{'page':window.location.pathname})" style="display:inline-flex;align-items:center;gap:6px;background:#25D366;color:#fff;padding:5px 12px;border-radius:999px;font-weight:700;font-size:15px;text-decoration:none;">📱 WhatsApp</a>
   </div>
 </div>
 
 <!-- DESKTOP NAV -->
 <div class="v4-nav-outer" style="display:flex;align-items:center;justify-content:space-between;padding:14px 56px;border-bottom:1px solid #ece5f0;position:sticky;top:0;background:#fff;z-index:500">
   <a href="/es/"><img src="/images/logo.webp" alt="The Health Experts Insurance" style="height:80px;width:auto;"/></a>
-  <div class="v4-nav-desktop" style="display:flex;align-items:center;gap:22px;font-size:14.5px;font-weight:600;color:#3a2f47">
+  <div class="v4-nav-desktop" style="display:flex;align-items:center;gap:22px;font-size:18px;font-weight:600;color:#3a2f47">
     <a href="/es/" style="color:#241a30">Inicio</a>
     <div class="v4-nav-item" style="position:relative">
       <a href="/es/planes-de-medicare-miami" style="display:flex;align-items:center;gap:4px;color:#241a30">Seguros ▾</a>
@@ -116,8 +116,8 @@ img{max-width:100%;height:auto;}
     <a href="/es/contacto/" style="color:#241a30">Contacto</a>
   </div>
   <div style="display:flex;align-items:center;gap:12px">
-    <a href="tel:18003806821" class="v4-nav-desktop" style="color:#241a30;font-weight:700;font-size:14.5px">📞 1-800-380-6821</a>
-    <a href="#gf-form" class="v4-nav-desktop" style="background:#452068;color:#fff;padding:11px 20px;border-radius:10px;font-weight:700;font-size:14px">Cotización Gratis</a>
+    <a href="tel:18003806821" class="v4-nav-desktop" style="color:#241a30;font-weight:700;font-size:18px">📞 1-800-380-6821</a>
+    <a href="#gf-form" class="v4-nav-desktop" style="background:#452068;color:#fff;padding:11px 20px;border-radius:10px;font-weight:700;font-size:17px">Cotización Gratis</a>
     <button class="v4-nav-mobile-btn" id="v4HamburgerBtn" aria-label="Abrir menú" aria-expanded="false" aria-controls="v4-mobile-menu">
       <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#241a30" stroke-width="2.2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
     </button>
@@ -134,25 +134,25 @@ img{max-width:100%;height:auto;}
   </div>
   <nav style="display:flex;flex-direction:column;gap:4px;font-size:16px;font-weight:600;color:#241a30">
     <a href="/es/" style="padding:14px 4px;border-bottom:1px solid #ece5f0;color:#241a30">Inicio</a>
-    <div style="padding:14px 4px 4px;font-size:13px;font-weight:700;color:#8a6aaa;text-transform:uppercase;letter-spacing:.06em">Seguros</div>
-    <a href="/es/planes-de-medicare-miami" style="padding:11px 12px;border-radius:8px;color:#241a30;font-weight:600;font-size:15px">Planes Medicare</a>
-    <a href="/es/medicare-advantage-miami" style="padding:11px 12px;border-radius:8px;color:#241a30;font-weight:600;font-size:15px">Medicare Advantage</a>
-    <a href="/es/medicare-suplementario-miami" style="padding:11px 12px;border-radius:8px;color:#241a30;font-weight:600;font-size:15px">Medicare Suplementario</a>
-    <a href="/es/medicare-medicaid-miami" style="padding:11px 12px;border-radius:8px;color:#241a30;font-weight:600;font-size:15px">D-SNP / Dual</a>
-    <a href="/es/planes-aca-miami" style="padding:11px 12px;border-radius:8px;color:#241a30;font-weight:600;font-size:15px">Planes ACA</a>
-    <a href="/es/seguro-medico-privado-miami" style="padding:11px 12px;border-radius:8px;color:#241a30;font-weight:600;font-size:15px">Seguro Médico Privado</a>
-    <a href="/es/alternativas-cobra-miami" style="padding:11px 12px;border-radius:8px;color:#241a30;font-weight:600;font-size:15px">Alternativas COBRA</a>
-    <a href="/es/dental-vision-miami" style="padding:11px 12px;border-radius:8px;color:#241a30;font-weight:600;font-size:15px">Dental y Visión</a>
-    <a href="/es/seguro-de-vida-miami/" style="padding:11px 12px;border-radius:8px;color:#241a30;font-weight:600;font-size:15px">Seguro de Vida</a>
-    <a href="/es/gastos-finales-miami/" style="padding:11px 12px;border-radius:8px;color:#452068;font-weight:700;font-size:15px">Gastos Finales</a>
-    <div style="padding:14px 4px 4px;font-size:13px;font-weight:700;color:#8a6aaa;text-transform:uppercase;letter-spacing:.06em;margin-top:8px">Guías</div>
-    <a href="/es/medicare/que-es-medicare/" style="padding:11px 12px;border-radius:8px;color:#241a30;font-weight:600;font-size:15px">Qué es Medicare</a>
-    <a href="/es/nuevo-en-medicare/" style="padding:11px 12px;border-radius:8px;color:#241a30;font-weight:600;font-size:15px">Nuevo en Medicare</a>
-    <a href="/es/irmaa-penalidades-medicare/" style="padding:11px 12px;border-radius:8px;color:#241a30;font-weight:600;font-size:15px">Costos IRMAA</a>
-    <a href="/es/medicare/programa-ahorros-medicare/" style="padding:11px 12px;border-radius:8px;color:#241a30;font-weight:600;font-size:15px">Programa de Ahorros</a>
-    <a href="/es/mitos-medicare/" style="padding:11px 12px;border-radius:8px;color:#241a30;font-weight:600;font-size:15px">Mitos de Medicare</a>
-    <a href="/es/inscripcion-anual-medicare-2027/" style="padding:11px 12px;border-radius:8px;color:#241a30;font-weight:600;font-size:15px">Inscripción Anual (AEP)</a>
-    <a href="/es/buscador-de-planes/" style="padding:11px 12px;border-radius:8px;color:#241a30;font-weight:600;font-size:15px">Buscador de Planes</a>
+    <div style="padding:14px 4px 4px;font-size:16px;font-weight:700;color:#5c3d7a;text-transform:uppercase;letter-spacing:.06em">Seguros</div>
+    <a href="/es/planes-de-medicare-miami" style="padding:11px 12px;border-radius:8px;color:#241a30;font-weight:600;font-size:18px">Planes Medicare</a>
+    <a href="/es/medicare-advantage-miami" style="padding:11px 12px;border-radius:8px;color:#241a30;font-weight:600;font-size:18px">Medicare Advantage</a>
+    <a href="/es/medicare-suplementario-miami" style="padding:11px 12px;border-radius:8px;color:#241a30;font-weight:600;font-size:18px">Medicare Suplementario</a>
+    <a href="/es/medicare-medicaid-miami" style="padding:11px 12px;border-radius:8px;color:#241a30;font-weight:600;font-size:18px">D-SNP / Dual</a>
+    <a href="/es/planes-aca-miami" style="padding:11px 12px;border-radius:8px;color:#241a30;font-weight:600;font-size:18px">Planes ACA</a>
+    <a href="/es/seguro-medico-privado-miami" style="padding:11px 12px;border-radius:8px;color:#241a30;font-weight:600;font-size:18px">Seguro Médico Privado</a>
+    <a href="/es/alternativas-cobra-miami" style="padding:11px 12px;border-radius:8px;color:#241a30;font-weight:600;font-size:18px">Alternativas COBRA</a>
+    <a href="/es/dental-vision-miami" style="padding:11px 12px;border-radius:8px;color:#241a30;font-weight:600;font-size:18px">Dental y Visión</a>
+    <a href="/es/seguro-de-vida-miami/" style="padding:11px 12px;border-radius:8px;color:#241a30;font-weight:600;font-size:18px">Seguro de Vida</a>
+    <a href="/es/gastos-finales-miami/" style="padding:11px 12px;border-radius:8px;color:#452068;font-weight:700;font-size:18px">Gastos Finales</a>
+    <div style="padding:14px 4px 4px;font-size:16px;font-weight:700;color:#5c3d7a;text-transform:uppercase;letter-spacing:.06em;margin-top:8px">Guías</div>
+    <a href="/es/medicare/que-es-medicare/" style="padding:11px 12px;border-radius:8px;color:#241a30;font-weight:600;font-size:18px">Qué es Medicare</a>
+    <a href="/es/nuevo-en-medicare/" style="padding:11px 12px;border-radius:8px;color:#241a30;font-weight:600;font-size:18px">Nuevo en Medicare</a>
+    <a href="/es/irmaa-penalidades-medicare/" style="padding:11px 12px;border-radius:8px;color:#241a30;font-weight:600;font-size:18px">Costos IRMAA</a>
+    <a href="/es/medicare/programa-ahorros-medicare/" style="padding:11px 12px;border-radius:8px;color:#241a30;font-weight:600;font-size:18px">Programa de Ahorros</a>
+    <a href="/es/mitos-medicare/" style="padding:11px 12px;border-radius:8px;color:#241a30;font-weight:600;font-size:18px">Mitos de Medicare</a>
+    <a href="/es/inscripcion-anual-medicare-2027/" style="padding:11px 12px;border-radius:8px;color:#241a30;font-weight:600;font-size:18px">Inscripción Anual (AEP)</a>
+    <a href="/es/buscador-de-planes/" style="padding:11px 12px;border-radius:8px;color:#241a30;font-weight:600;font-size:18px">Buscador de Planes</a>
     <div style="margin-top:8px;border-top:1px solid #ece5f0;padding-top:12px;display:flex;flex-direction:column;gap:4px">
       <a href="/es/faq/" style="padding:12px 4px;color:#241a30;border-bottom:1px solid #ece5f0">FAQ</a>
       <a href="/es/recursos/" style="padding:12px 4px;color:#241a30;border-bottom:1px solid #ece5f0">Recursos</a>
@@ -171,12 +171,12 @@ img{max-width:100%;height:auto;}
 <div>
 
 <!-- BREADCRUMB -->
-<div style="background:#f7f2fb;padding:10px 56px;border-bottom:1px solid #ece5f0;font-size:13px;color:#6f6478">
+<div style="background:#f7f2fb;padding:10px 56px;border-bottom:1px solid #ece5f0;font-size:16px;color:#3a2f47">
   <div style="max-width:1160px;margin:0 auto">
     <a href="/es/" style="font-weight:600;color:#452068">Inicio</a>
-    <span style="margin:0 6px;color:#c4b8d0">/</span>
+    <span style="margin:0 6px;color:#5a5068">/</span>
     <a href="/es/seguro-de-vida-miami/" style="font-weight:600;color:#452068">Seguro de Vida</a>
-    <span style="margin:0 6px;color:#c4b8d0">/</span>
+    <span style="margin:0 6px;color:#5a5068">/</span>
     <span style="color:#241a30;font-weight:600">Gastos Finales Miami</span>
   </div>
 </div>
@@ -184,30 +184,30 @@ img{max-width:100%;height:auto;}
 <!-- HERO -->
 <section style="background:linear-gradient(135deg,#fdfaf7 0%,#f7f2fb 100%);padding:72px 56px 60px;text-align:center">
   <div style="max-width:900px;margin:0 auto">
-    <div style="display:inline-flex;align-items:center;gap:8px;background:#fff0f8;color:#c40074;padding:8px 16px;border-radius:999px;font-size:13px;font-weight:700;margin-bottom:20px">
+    <div style="display:inline-flex;align-items:center;gap:8px;background:#fff0f8;color:#c40074;padding:8px 16px;border-radius:999px;font-size:16px;font-weight:700;margin-bottom:20px">
       SEGURO DE GASTOS FINALES
     </div>
     <h1 style="font-family:Poppins,sans-serif;font-weight:700;font-size:clamp(30px,4.5vw,48px);line-height:1.1;color:#241a30;margin:0 0 18px">Seguro de Gastos Finales<br>para tu familia en <span style="color:#ff1090">Miami</span></h1>
-    <p style="font-size:17px;line-height:1.65;color:#6f6478;margin:0 auto 28px;max-width:620px">Cobertura asequible para adultos mayores — sin examen médico, sin complicaciones. Corredores bilingües en Doral, FL. Medicare cubre tu salud pero no tu funeral. Nosotros te ayudamos a cerrar esa brecha.</p>
+    <p style="font-size:17px;line-height:1.65;color:#3a2f47;margin:0 auto 28px;max-width:620px">Cobertura asequible para adultos mayores — sin examen médico, sin complicaciones. Corredores bilingües en Doral, FL. Medicare cubre tu salud pero no tu funeral. Nosotros te ayudamos a cerrar esa brecha.</p>
     <div class="hero-btns-wrap" style="display:flex;gap:14px;flex-wrap:wrap;justify-content:center;margin-bottom:24px">
       <a href="#gf-form" class="btn-pink">Reserva tu Consulta Gratis &rarr;</a>
       <a href="tel:18003806821" class="btn-outline-purple">Llamar 1-800-380-6821</a>
     </div>
     <div style="display:flex;gap:10px;flex-wrap:wrap;justify-content:center">
-      <span style="background:#fff;border:2px solid #ece5f0;padding:7px 14px;border-radius:999px;font-size:13px;font-weight:600;color:#452068">Sin examen médico</span>
-      <span style="background:#fff;border:2px solid #ece5f0;padding:7px 14px;border-radius:999px;font-size:13px;font-weight:600;color:#452068">Desde $50/mes</span>
-      <span style="background:#fff;border:2px solid #ece5f0;padding:7px 14px;border-radius:999px;font-size:13px;font-weight:600;color:#452068">Cobertura inmediata</span>
-      <span style="background:#fff;border:2px solid #ece5f0;padding:7px 14px;border-radius:999px;font-size:13px;font-weight:600;color:#452068">Bilingüe</span>
+      <span style="background:#fff;border:2px solid #ece5f0;padding:7px 14px;border-radius:999px;font-size:16px;font-weight:600;color:#452068">Sin examen médico</span>
+      <span style="background:#fff;border:2px solid #ece5f0;padding:7px 14px;border-radius:999px;font-size:16px;font-weight:600;color:#452068">Desde $50/mes</span>
+      <span style="background:#fff;border:2px solid #ece5f0;padding:7px 14px;border-radius:999px;font-size:16px;font-weight:600;color:#452068">Cobertura inmediata</span>
+      <span style="background:#fff;border:2px solid #ece5f0;padding:7px 14px;border-radius:999px;font-size:16px;font-weight:600;color:#452068">Bilingüe</span>
     </div>
   </div>
 </section>
 
 <!-- STAT BAR -->
 <div class="stat-strip" style="background:#452068;color:#fff;padding:28px 56px;display:grid;grid-template-columns:repeat(4,1fr);gap:16px;text-align:center">
-  <div><div style="font-family:Poppins,sans-serif;font-weight:700;font-size:20px">$5K–$50K</div><div style="font-size:13px;opacity:.78;margin-top:4px">Cobertura disponible</div></div>
-  <div><div style="font-family:Poppins,sans-serif;font-weight:700;font-size:20px">50–85 años</div><div style="font-size:13px;opacity:.78;margin-top:4px">Quiénes califican</div></div>
-  <div><div style="font-family:Poppins,sans-serif;font-weight:700;font-size:20px">Sin examen</div><div style="font-size:13px;opacity:.78;margin-top:4px">Médico requerido</div></div>
-  <div><div style="font-family:Poppins,sans-serif;font-weight:700;font-size:20px">$0 costo</div><div style="font-size:13px;opacity:.78;margin-top:4px">Las aseguradoras nos pagan</div></div>
+  <div><div style="font-family:Poppins,sans-serif;font-weight:700;font-size:20px">$5K–$50K</div><div style="font-size:16px;opacity:.78;margin-top:4px">Cobertura disponible</div></div>
+  <div><div style="font-family:Poppins,sans-serif;font-weight:700;font-size:20px">50–85 años</div><div style="font-size:16px;opacity:.78;margin-top:4px">Quiénes califican</div></div>
+  <div><div style="font-family:Poppins,sans-serif;font-weight:700;font-size:20px">Sin examen</div><div style="font-size:16px;opacity:.78;margin-top:4px">Médico requerido</div></div>
+  <div><div style="font-family:Poppins,sans-serif;font-weight:700;font-size:20px">$0 costo</div><div style="font-size:16px;opacity:.78;margin-top:4px">Las aseguradoras nos pagan</div></div>
 </div>
 
 <!-- QUÉ ES -->
@@ -219,37 +219,37 @@ img{max-width:100%;height:auto;}
       <p style="font-size:16px;color:#4a4051;line-height:1.7;margin-bottom:20px">El seguro de gastos finales (también llamado seguro de entierro o funeral) es una pequeña póliza de vida entera diseñada para cubrir los costos al final de la vida. A diferencia del seguro a término, nunca vence y las primas nunca aumentan.</p>
 
       <!-- Alerta de brecha de Medicare -->
-      <div style="background:#fffbeb;border-left:4px solid #f59e0b;border-radius:12px;padding:24px 28px;font-size:15px;line-height:1.65;color:#78350f">
+      <div style="background:#fffbeb;border-left:4px solid #f59e0b;border-radius:12px;padding:24px 28px;font-size:18px;line-height:1.65;color:#78350f">
         <strong>Brecha de Medicare:</strong> Medicare no cubre los gastos funerarios — el Seguro Social paga solo $255 como beneficio de muerte único. El funeral promedio en Florida cuesta <strong>$8,000–$12,000+</strong>. Sin un plan, esa carga cae completamente sobre tu familia.
       </div>
     </div>
     <div>
       <ul style="list-style:none;display:flex;flex-direction:column;gap:14px;margin-top:8px">
-        <li style="display:flex;align-items:flex-start;gap:10px;font-size:15.5px;color:#241a30">
+        <li style="display:flex;align-items:flex-start;gap:10px;font-size:18px;color:#241a30">
           <span style="flex-shrink:0;width:22px;height:22px;border-radius:50%;background:#f7f2fb;display:flex;align-items:center;justify-content:center;margin-top:2px"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#452068" stroke-width="2.8"><path d="M5 12l4 4 10-10"/></svg></span>
           Cobertura $5,000–$50,000
         </li>
-        <li style="display:flex;align-items:flex-start;gap:10px;font-size:15.5px;color:#241a30">
+        <li style="display:flex;align-items:flex-start;gap:10px;font-size:18px;color:#241a30">
           <span style="flex-shrink:0;width:22px;height:22px;border-radius:50%;background:#f7f2fb;display:flex;align-items:center;justify-content:center;margin-top:2px"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#452068" stroke-width="2.8"><path d="M5 12l4 4 10-10"/></svg></span>
           Disponible de 50 a 85 años
         </li>
-        <li style="display:flex;align-items:flex-start;gap:10px;font-size:15.5px;color:#241a30">
+        <li style="display:flex;align-items:flex-start;gap:10px;font-size:18px;color:#241a30">
           <span style="flex-shrink:0;width:22px;height:22px;border-radius:50%;background:#f7f2fb;display:flex;align-items:center;justify-content:center;margin-top:2px"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#452068" stroke-width="2.8"><path d="M5 12l4 4 10-10"/></svg></span>
           Sin examen médico requerido
         </li>
-        <li style="display:flex;align-items:flex-start;gap:10px;font-size:15.5px;color:#241a30">
+        <li style="display:flex;align-items:flex-start;gap:10px;font-size:18px;color:#241a30">
           <span style="flex-shrink:0;width:22px;height:22px;border-radius:50%;background:#f7f2fb;display:flex;align-items:center;justify-content:center;margin-top:2px"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#452068" stroke-width="2.8"><path d="M5 12l4 4 10-10"/></svg></span>
           Primas fijas que nunca aumentan
         </li>
-        <li style="display:flex;align-items:flex-start;gap:10px;font-size:15.5px;color:#241a30">
+        <li style="display:flex;align-items:flex-start;gap:10px;font-size:18px;color:#241a30">
           <span style="flex-shrink:0;width:22px;height:22px;border-radius:50%;background:#f7f2fb;display:flex;align-items:center;justify-content:center;margin-top:2px"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#452068" stroke-width="2.8"><path d="M5 12l4 4 10-10"/></svg></span>
           Cobertura permanente — nunca vence
         </li>
-        <li style="display:flex;align-items:flex-start;gap:10px;font-size:15.5px;color:#241a30">
+        <li style="display:flex;align-items:flex-start;gap:10px;font-size:18px;color:#241a30">
           <span style="flex-shrink:0;width:22px;height:22px;border-radius:50%;background:#f7f2fb;display:flex;align-items:center;justify-content:center;margin-top:2px"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#452068" stroke-width="2.8"><path d="M5 12l4 4 10-10"/></svg></span>
           Acumula valor en efectivo con el tiempo
         </li>
-        <li style="display:flex;align-items:flex-start;gap:10px;font-size:15.5px;color:#241a30">
+        <li style="display:flex;align-items:flex-start;gap:10px;font-size:18px;color:#241a30">
           <span style="flex-shrink:0;width:22px;height:22px;border-radius:50%;background:#f7f2fb;display:flex;align-items:center;justify-content:center;margin-top:2px"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#452068" stroke-width="2.8"><path d="M5 12l4 4 10-10"/></svg></span>
           Beneficio de muerte libre de impuestos
         </li>
@@ -264,38 +264,38 @@ img{max-width:100%;height:auto;}
     <div style="text-align:center;margin-bottom:40px">
       <span class="eyebrow">Opciones de plan</span>
       <h2 style="font-family:Poppins,sans-serif;font-size:clamp(22px,3vw,30px);font-weight:700;color:#241a30;margin:0 0 10px">Dos tipos para encajar en tu situación</h2>
-      <p style="color:#6f6478;font-size:16px;max-width:540px;margin:0 auto">¿No sabe cuál le conviene? Nuestros agentes comparan ambos sin costo.</p>
+      <p style="color:#3a2f47;font-size:16px;max-width:540px;margin:0 auto">¿No sabe cuál le conviene? Nuestros agentes comparan ambos sin costo.</p>
     </div>
     <div class="plans-grid" style="display:grid;grid-template-columns:1fr 1fr;gap:28px">
 
       <!-- Emisión Simplificada -->
       <div class="plan-card">
-        <span style="display:inline-block;padding:6px 14px;border-radius:999px;font-size:12px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;margin-bottom:14px;background:#ede9fe;color:#5b21b6">Emisión Simplificada</span>
+        <span style="display:inline-block;padding:6px 14px;border-radius:999px;font-size:14.5px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;margin-bottom:14px;background:#ede9fe;color:#5b21b6">Emisión Simplificada</span>
         <h3 style="font-family:Poppins,sans-serif;font-size:20px;font-weight:700;color:#241a30;margin-bottom:12px">Seguro de Emisión Simplificada</h3>
-        <p style="font-size:14.5px;color:#6f6478;line-height:1.65;margin-bottom:16px">Pocas preguntas de salud, sin examen físico. La mayoría de los solicitantes califican y se benefician de primas más bajas con aprobación más rápida.</p>
+        <p style="font-size:18px;color:#3a2f47;line-height:1.65;margin-bottom:16px">Pocas preguntas de salud, sin examen físico. La mayoría de los solicitantes califican y se benefician de primas más bajas con aprobación más rápida.</p>
         <ul style="list-style:none;display:flex;flex-direction:column;gap:9px;margin-bottom:18px">
-          <li style="display:flex;align-items:flex-start;gap:9px;font-size:14px;color:#241a30"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#452068" stroke-width="2.4"><path d="M5 12l4 4 10-10"/></svg> Pocas preguntas de salud sencillas</li>
-          <li style="display:flex;align-items:flex-start;gap:9px;font-size:14px;color:#241a30"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#452068" stroke-width="2.4"><path d="M5 12l4 4 10-10"/></svg> Sin examen físico requerido</li>
-          <li style="display:flex;align-items:flex-start;gap:9px;font-size:14px;color:#241a30"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#452068" stroke-width="2.4"><path d="M5 12l4 4 10-10"/></svg> La mayoría de los solicitantes califican</li>
-          <li style="display:flex;align-items:flex-start;gap:9px;font-size:14px;color:#241a30"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#452068" stroke-width="2.4"><path d="M5 12l4 4 10-10"/></svg> Primas más bajas que la garantizada</li>
-          <li style="display:flex;align-items:flex-start;gap:9px;font-size:14px;color:#241a30"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#452068" stroke-width="2.4"><path d="M5 12l4 4 10-10"/></svg> Proceso de aprobación más rápido</li>
+          <li style="display:flex;align-items:flex-start;gap:9px;font-size:17px;color:#241a30"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#452068" stroke-width="2.4"><path d="M5 12l4 4 10-10"/></svg> Pocas preguntas de salud sencillas</li>
+          <li style="display:flex;align-items:flex-start;gap:9px;font-size:17px;color:#241a30"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#452068" stroke-width="2.4"><path d="M5 12l4 4 10-10"/></svg> Sin examen físico requerido</li>
+          <li style="display:flex;align-items:flex-start;gap:9px;font-size:17px;color:#241a30"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#452068" stroke-width="2.4"><path d="M5 12l4 4 10-10"/></svg> La mayoría de los solicitantes califican</li>
+          <li style="display:flex;align-items:flex-start;gap:9px;font-size:17px;color:#241a30"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#452068" stroke-width="2.4"><path d="M5 12l4 4 10-10"/></svg> Primas más bajas que la garantizada</li>
+          <li style="display:flex;align-items:flex-start;gap:9px;font-size:17px;color:#241a30"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#452068" stroke-width="2.4"><path d="M5 12l4 4 10-10"/></svg> Proceso de aprobación más rápido</li>
         </ul>
-        <div style="font-size:13px;font-weight:700;color:#452068">Ideal para personas en buena salud general</div>
+        <div style="font-size:16px;font-weight:700;color:#452068">Ideal para personas en buena salud general</div>
       </div>
 
       <!-- Emisión Garantizada -->
       <div class="plan-card" style="border-color:#ff1090">
-        <span style="display:inline-block;padding:6px 14px;border-radius:999px;font-size:12px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;margin-bottom:14px;background:#fce7f3;color:#c40074">Emisión Garantizada</span>
+        <span style="display:inline-block;padding:6px 14px;border-radius:999px;font-size:14.5px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;margin-bottom:14px;background:#fce7f3;color:#c40074">Emisión Garantizada</span>
         <h3 style="font-family:Poppins,sans-serif;font-size:20px;font-weight:700;color:#241a30;margin-bottom:12px">Seguro de Emisión Garantizada</h3>
-        <p style="font-size:14.5px;color:#6f6478;line-height:1.65;margin-bottom:16px">Sin preguntas de salud. Cualquier persona de 50 a 85 años califica — independientemente de su historial médico. Ideal para quienes tienen condiciones graves.</p>
+        <p style="font-size:18px;color:#3a2f47;line-height:1.65;margin-bottom:16px">Sin preguntas de salud. Cualquier persona de 50 a 85 años califica — independientemente de su historial médico. Ideal para quienes tienen condiciones graves.</p>
         <ul style="list-style:none;display:flex;flex-direction:column;gap:9px;margin-bottom:18px">
-          <li style="display:flex;align-items:flex-start;gap:9px;font-size:14px;color:#241a30"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#ff1090" stroke-width="2.4"><path d="M5 12l4 4 10-10"/></svg> Sin preguntas de salud en absoluto</li>
-          <li style="display:flex;align-items:flex-start;gap:9px;font-size:14px;color:#241a30"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#ff1090" stroke-width="2.4"><path d="M5 12l4 4 10-10"/></svg> Cualquier persona de 50–85 años califica</li>
-          <li style="display:flex;align-items:flex-start;gap:9px;font-size:14px;color:#241a30"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#ff1090" stroke-width="2.4"><path d="M5 12l4 4 10-10"/></svg> Acepta condiciones de salud graves</li>
-          <li style="display:flex;align-items:flex-start;gap:9px;font-size:14px;color:#241a30"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#ff1090" stroke-width="2.4"><path d="M5 12l4 4 10-10"/></svg> Primas ligeramente más altas</li>
-          <li style="display:flex;align-items:flex-start;gap:9px;font-size:14px;color:#241a30"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#ff1090" stroke-width="2.4"><path d="M5 12l4 4 10-10"/></svg> Período de espera de 2 años aplica</li>
+          <li style="display:flex;align-items:flex-start;gap:9px;font-size:17px;color:#241a30"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#ff1090" stroke-width="2.4"><path d="M5 12l4 4 10-10"/></svg> Sin preguntas de salud en absoluto</li>
+          <li style="display:flex;align-items:flex-start;gap:9px;font-size:17px;color:#241a30"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#ff1090" stroke-width="2.4"><path d="M5 12l4 4 10-10"/></svg> Cualquier persona de 50–85 años califica</li>
+          <li style="display:flex;align-items:flex-start;gap:9px;font-size:17px;color:#241a30"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#ff1090" stroke-width="2.4"><path d="M5 12l4 4 10-10"/></svg> Acepta condiciones de salud graves</li>
+          <li style="display:flex;align-items:flex-start;gap:9px;font-size:17px;color:#241a30"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#ff1090" stroke-width="2.4"><path d="M5 12l4 4 10-10"/></svg> Primas ligeramente más altas</li>
+          <li style="display:flex;align-items:flex-start;gap:9px;font-size:17px;color:#241a30"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#ff1090" stroke-width="2.4"><path d="M5 12l4 4 10-10"/></svg> Período de espera de 2 años aplica</li>
         </ul>
-        <div style="font-size:13px;font-weight:700;color:#c40074">Ideal para condiciones de salud graves</div>
+        <div style="font-size:16px;font-weight:700;color:#c40074">Ideal para condiciones de salud graves</div>
       </div>
 
     </div>
@@ -308,44 +308,44 @@ img{max-width:100%;height:auto;}
     <div style="text-align:center;margin-bottom:40px">
       <span class="eyebrow">Cobertura</span>
       <h2 style="font-family:Poppins,sans-serif;font-size:clamp(22px,3vw,30px);font-weight:700;color:#241a30;margin:0 0 10px">¿Qué cubre el seguro de gastos finales?</h2>
-      <p style="color:#6f6478;font-size:16px;max-width:560px;margin:0 auto">El beneficio de muerte se paga directamente a tu beneficiario para usarlo como necesite.</p>
+      <p style="color:#3a2f47;font-size:16px;max-width:560px;margin:0 auto">El beneficio de muerte se paga directamente a tu beneficiario para usarlo como necesite.</p>
     </div>
     <div class="covers-grid" style="display:grid;grid-template-columns:repeat(3,1fr);gap:20px">
       <div class="covers-card">
         <div style="width:48px;height:48px;border-radius:14px;background:white;margin:0 auto 14px;display:flex;align-items:center;justify-content:center;box-shadow:0 2px 8px rgba(69,32,104,.10)">
           <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#452068" stroke-width="1.8"><path d="M12 3l1.09 3.26L16 6l-2.27 1.73L14.18 11 12 9.27 9.82 11l.45-3.27L8 6l2.91-.74L12 3z"/><rect x="4" y="14" width="16" height="7" rx="2"/></svg>
         </div>
-        <h3 style="font-family:Poppins,sans-serif;font-size:15px;font-weight:700;color:#241a30">Funeral y entierro</h3>
+        <h3 style="font-family:Poppins,sans-serif;font-size:18px;font-weight:700;color:#241a30">Funeral y entierro</h3>
       </div>
       <div class="covers-card">
         <div style="width:48px;height:48px;border-radius:14px;background:white;margin:0 auto 14px;display:flex;align-items:center;justify-content:center;box-shadow:0 2px 8px rgba(69,32,104,.10)">
           <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#452068" stroke-width="1.8"><path d="M12 2a10 10 0 100 20A10 10 0 0012 2z"/><path d="M12 7v5l3 3"/></svg>
         </div>
-        <h3 style="font-family:Poppins,sans-serif;font-size:15px;font-weight:700;color:#241a30">Facturas médicas</h3>
+        <h3 style="font-family:Poppins,sans-serif;font-size:18px;font-weight:700;color:#241a30">Facturas médicas</h3>
       </div>
       <div class="covers-card">
         <div style="width:48px;height:48px;border-radius:14px;background:white;margin:0 auto 14px;display:flex;align-items:center;justify-content:center;box-shadow:0 2px 8px rgba(69,32,104,.10)">
           <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#452068" stroke-width="1.8"><rect x="2" y="5" width="20" height="14" rx="2"/><line x1="2" y1="10" x2="22" y2="10"/></svg>
         </div>
-        <h3 style="font-family:Poppins,sans-serif;font-size:15px;font-weight:700;color:#241a30">Deudas de tarjeta de crédito</h3>
+        <h3 style="font-family:Poppins,sans-serif;font-size:18px;font-weight:700;color:#241a30">Deudas de tarjeta de crédito</h3>
       </div>
       <div class="covers-card">
         <div style="width:48px;height:48px;border-radius:14px;background:white;margin:0 auto 14px;display:flex;align-items:center;justify-content:center;box-shadow:0 2px 8px rgba(69,32,104,.10)">
           <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#452068" stroke-width="1.8"><rect x="6" y="4" width="12" height="16" rx="2"/><line x1="9" y1="9" x2="15" y2="9"/><line x1="9" y1="13" x2="13" y2="13"/></svg>
         </div>
-        <h3 style="font-family:Poppins,sans-serif;font-size:15px;font-weight:700;color:#241a30">Honorarios legales y sucesorios</h3>
+        <h3 style="font-family:Poppins,sans-serif;font-size:18px;font-weight:700;color:#241a30">Honorarios legales y sucesorios</h3>
       </div>
       <div class="covers-card">
         <div style="width:48px;height:48px;border-radius:14px;background:white;margin:0 auto 14px;display:flex;align-items:center;justify-content:center;box-shadow:0 2px 8px rgba(69,32,104,.10)">
           <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#452068" stroke-width="1.8"><line x1="12" y1="2" x2="12" y2="22"/><path d="M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg>
         </div>
-        <h3 style="font-family:Poppins,sans-serif;font-size:15px;font-weight:700;color:#241a30">Deudas pendientes</h3>
+        <h3 style="font-family:Poppins,sans-serif;font-size:18px;font-weight:700;color:#241a30">Deudas pendientes</h3>
       </div>
       <div class="covers-card">
         <div style="width:48px;height:48px;border-radius:14px;background:white;margin:0 auto 14px;display:flex;align-items:center;justify-content:center;box-shadow:0 2px 8px rgba(69,32,104,.10)">
           <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#452068" stroke-width="1.8"><path d="M4 11l8-6 8 6"/><rect x="7" y="11" width="10" height="9"/><rect x="9" y="14" width="3" height="6"/></svg>
         </div>
-        <h3 style="font-family:Poppins,sans-serif;font-size:15px;font-weight:700;color:#241a30">Cualquier necesidad familiar</h3>
+        <h3 style="font-family:Poppins,sans-serif;font-size:18px;font-weight:700;color:#241a30">Cualquier necesidad familiar</h3>
       </div>
     </div>
   </div>
@@ -357,24 +357,24 @@ img{max-width:100%;height:auto;}
     <div style="text-align:center;margin-bottom:40px">
       <span class="eyebrow">¿Es adecuado para ti?</span>
       <h2 style="font-family:Poppins,sans-serif;font-size:clamp(22px,3vw,30px);font-weight:700;color:#241a30;margin:0 0 10px">¿Quién debe considerar el seguro de gastos finales?</h2>
-      <p style="color:#6f6478;font-size:16px;max-width:560px;margin:0 auto">Es una de las pólizas más accesibles disponibles — sin examen médico, sin suscripción compleja.</p>
+      <p style="color:#3a2f47;font-size:16px;max-width:560px;margin:0 auto">Es una de las pólizas más accesibles disponibles — sin examen médico, sin suscripción compleja.</p>
     </div>
     <div class="who-grid" style="display:grid;grid-template-columns:1fr 1fr;gap:20px">
       <div class="who-card">
         <div class="who-num">1</div>
-        <div style="font-size:15px;color:#241a30;line-height:1.55;font-weight:600">Adultos mayores en Medicare sin seguro de vida existente</div>
+        <div style="font-size:18px;color:#241a30;line-height:1.55;font-weight:600">Adultos mayores en Medicare sin seguro de vida existente</div>
       </div>
       <div class="who-card">
         <div class="who-num">2</div>
-        <div style="font-size:15px;color:#241a30;line-height:1.55;font-weight:600">Personas que han sido rechazadas para seguro de vida tradicional por condiciones de salud</div>
+        <div style="font-size:18px;color:#241a30;line-height:1.55;font-weight:600">Personas que han sido rechazadas para seguro de vida tradicional por condiciones de salud</div>
       </div>
       <div class="who-card">
         <div class="who-num">3</div>
-        <div style="font-size:15px;color:#241a30;line-height:1.55;font-weight:600">Personas que quieren proteger a su familia de deudas funerarias y costos al final de vida</div>
+        <div style="font-size:18px;color:#241a30;line-height:1.55;font-weight:600">Personas que quieren proteger a su familia de deudas funerarias y costos al final de vida</div>
       </div>
       <div class="who-card">
         <div class="who-num">4</div>
-        <div style="font-size:15px;color:#241a30;line-height:1.55;font-weight:600">Cualquier persona que quiera dejar un pequeño legado financiero libre de impuestos para sus seres queridos</div>
+        <div style="font-size:18px;color:#241a30;line-height:1.55;font-weight:600">Cualquier persona que quiera dejar un pequeño legado financiero libre de impuestos para sus seres queridos</div>
       </div>
     </div>
   </div>
@@ -387,31 +387,31 @@ img{max-width:100%;height:auto;}
       <div>
         <span class="eyebrow">Por qué un corredor</span>
         <h2 style="font-family:Poppins,sans-serif;font-size:clamp(22px,3vw,28px);font-weight:700;color:#241a30;margin:0 0 16px">Por qué comprar con un corredor en vez de directamente</h2>
-        <p style="font-size:16px;color:#6f6478;line-height:1.7;margin-bottom:24px">Cuando compra directamente de una aseguradora, solo ve sus opciones. Un corredor independiente como The Health Experts Insurance compara múltiples aseguradoras al mismo tiempo — así obtiene la mejor tasa sin el trabajo.</p>
+        <p style="font-size:16px;color:#3a2f47;line-height:1.7;margin-bottom:24px">Cuando compra directamente de una aseguradora, solo ve sus opciones. Un corredor independiente como The Health Experts Insurance compara múltiples aseguradoras al mismo tiempo — así obtiene la mejor tasa sin el trabajo.</p>
         <div style="display:flex;flex-direction:column;gap:12px">
-          <div style="display:flex;align-items:center;gap:12px;font-size:15px;color:#241a30"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#452068" stroke-width="2"><path d="M8 12l3 3 5-6"/><circle cx="12" cy="12" r="9"/></svg> Comparamos múltiples aseguradoras</div>
-          <div style="display:flex;align-items:center;gap:12px;font-size:15px;color:#241a30"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#452068" stroke-width="2"><path d="M8 12l3 3 5-6"/><circle cx="12" cy="12" r="9"/></svg> Sin costo adicional para ti</div>
-          <div style="display:flex;align-items:center;gap:12px;font-size:15px;color:#241a30"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#452068" stroke-width="2"><path d="M8 12l3 3 5-6"/><circle cx="12" cy="12" r="9"/></svg> Agentes bilingües licenciados en Florida</div>
-          <div style="display:flex;align-items:center;gap:12px;font-size:15px;color:#241a30"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#452068" stroke-width="2"><path d="M8 12l3 3 5-6"/><circle cx="12" cy="12" r="9"/></svg> Apoyo durante todo el año</div>
+          <div style="display:flex;align-items:center;gap:12px;font-size:18px;color:#241a30"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#452068" stroke-width="2"><path d="M8 12l3 3 5-6"/><circle cx="12" cy="12" r="9"/></svg> Comparamos múltiples aseguradoras</div>
+          <div style="display:flex;align-items:center;gap:12px;font-size:18px;color:#241a30"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#452068" stroke-width="2"><path d="M8 12l3 3 5-6"/><circle cx="12" cy="12" r="9"/></svg> Sin costo adicional para ti</div>
+          <div style="display:flex;align-items:center;gap:12px;font-size:18px;color:#241a30"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#452068" stroke-width="2"><path d="M8 12l3 3 5-6"/><circle cx="12" cy="12" r="9"/></svg> Agentes bilingües licenciados en Florida</div>
+          <div style="display:flex;align-items:center;gap:12px;font-size:18px;color:#241a30"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#452068" stroke-width="2"><path d="M8 12l3 3 5-6"/><circle cx="12" cy="12" r="9"/></svg> Apoyo durante todo el año</div>
         </div>
       </div>
       <div style="background:#f7f2fb;border-radius:20px;padding:32px">
         <div style="font-family:Poppins,sans-serif;font-weight:700;font-size:18px;color:#241a30;margin-bottom:20px;text-align:center">Rangos de costo típicos</div>
         <div style="display:flex;flex-direction:column;gap:16px">
           <div style="background:#fff;border-radius:12px;padding:18px;display:flex;justify-content:space-between;align-items:center">
-            <div><div style="font-weight:700;font-size:14px;color:#241a30">Cobertura $10,000</div><div style="font-size:13px;color:#6f6478">Ejemplo, mujer 65 años</div></div>
+            <div><div style="font-weight:700;font-size:17px;color:#241a30">Cobertura $10,000</div><div style="font-size:16px;color:#3a2f47">Ejemplo, mujer 65 años</div></div>
             <div style="font-family:Poppins,sans-serif;font-weight:700;font-size:18px;color:#452068">~$35/mes</div>
           </div>
           <div style="background:#fff;border-radius:12px;padding:18px;display:flex;justify-content:space-between;align-items:center">
-            <div><div style="font-weight:700;font-size:14px;color:#241a30">Cobertura $15,000</div><div style="font-size:13px;color:#6f6478">Ejemplo, hombre 70 años</div></div>
+            <div><div style="font-weight:700;font-size:17px;color:#241a30">Cobertura $15,000</div><div style="font-size:16px;color:#3a2f47">Ejemplo, hombre 70 años</div></div>
             <div style="font-family:Poppins,sans-serif;font-weight:700;font-size:18px;color:#452068">~$65/mes</div>
           </div>
           <div style="background:#fff;border-radius:12px;padding:18px;display:flex;justify-content:space-between;align-items:center">
-            <div><div style="font-weight:700;font-size:14px;color:#241a30">Cobertura $25,000</div><div style="font-size:13px;color:#6f6478">Ejemplo, mujer 75 años</div></div>
+            <div><div style="font-weight:700;font-size:17px;color:#241a30">Cobertura $25,000</div><div style="font-size:16px;color:#3a2f47">Ejemplo, mujer 75 años</div></div>
             <div style="font-family:Poppins,sans-serif;font-weight:700;font-size:18px;color:#452068">~$100/mes</div>
           </div>
         </div>
-        <div style="font-size:12.5px;color:#a79db2;margin-top:12px;text-align:center">*Las tarifas varían según aseguradora, salud y estado. Cotización exacta gratis.</div>
+        <div style="font-size:15px;color:#5a5068;margin-top:12px;text-align:center">*Las tarifas varían según aseguradora, salud y estado. Cotización exacta gratis.</div>
       </div>
     </div>
   </div>
@@ -429,7 +429,7 @@ img{max-width:100%;height:auto;}
           ¿El seguro de gastos finales es lo mismo que el seguro de vida entera?
           <span style="font-size:20px;color:#ff1090;flex-shrink:0">+</span>
         </summary>
-        <div style="font-size:15px;color:#6f6478;line-height:1.7;padding:0 0 16px">Sí — es una pequeña póliza de vida entera con suscripción simplificada, diseñada específicamente para costos al final de vida. Acumula valor en efectivo, nunca vence y las primas son fijas de por vida.</div>
+        <div style="font-size:18px;color:#3a2f47;line-height:1.7;padding:0 0 16px">Sí — es una pequeña póliza de vida entera con suscripción simplificada, diseñada específicamente para costos al final de vida. Acumula valor en efectivo, nunca vence y las primas son fijas de por vida.</div>
       </details>
 
       <details class="faq-item">
@@ -437,7 +437,7 @@ img{max-width:100%;height:auto;}
           ¿Puedo calificar si tengo condiciones de salud?
           <span style="font-size:20px;color:#ff1090;flex-shrink:0">+</span>
         </summary>
-        <div style="font-size:15px;color:#6f6478;line-height:1.7;padding:0 0 16px">Muchas personas califican incluso con condiciones graves. El seguro de emisión simplificada requiere algunas preguntas de salud. El de emisión garantizada acepta a todos de 50 a 85 años — sin preguntas de salud en absoluto. Un agente licenciado puede orientarte hacia el tipo de plan correcto según tu situación.</div>
+        <div style="font-size:18px;color:#3a2f47;line-height:1.7;padding:0 0 16px">Muchas personas califican incluso con condiciones graves. El seguro de emisión simplificada requiere algunas preguntas de salud. El de emisión garantizada acepta a todos de 50 a 85 años — sin preguntas de salud en absoluto. Un agente licenciado puede orientarte hacia el tipo de plan correcto según tu situación.</div>
       </details>
 
       <details class="faq-item">
@@ -445,7 +445,7 @@ img{max-width:100%;height:auto;}
           ¿Cuánto cuesta el seguro de gastos finales?
           <span style="font-size:20px;color:#ff1090;flex-shrink:0">+</span>
         </summary>
-        <div style="font-size:15px;color:#6f6478;line-height:1.7;padding:0 0 16px">Las primas dependen de la edad, el monto de cobertura y el tipo de plan. La mayoría de las personas paga $30–$100/mes por $10,000–$25,000 de cobertura. Comparamos tarifas de múltiples aseguradoras sin costo para usted — así obtiene la mejor tarifa sin el trabajo.</div>
+        <div style="font-size:18px;color:#3a2f47;line-height:1.7;padding:0 0 16px">Las primas dependen de la edad, el monto de cobertura y el tipo de plan. La mayoría de las personas paga $30–$100/mes por $10,000–$25,000 de cobertura. Comparamos tarifas de múltiples aseguradoras sin costo para usted — así obtiene la mejor tarifa sin el trabajo.</div>
       </details>
 
       <details class="faq-item">
@@ -453,7 +453,7 @@ img{max-width:100%;height:auto;}
           ¿Puede mi familia usar el beneficio para cualquier cosa?
           <span style="font-size:20px;color:#ff1090;flex-shrink:0">+</span>
         </summary>
-        <div style="font-size:15px;color:#6f6478;line-height:1.7;padding:0 0 16px">Sí. El beneficio de muerte se paga directamente a tu beneficiario designado como una suma libre de impuestos. Pueden usarlo para gastos funerarios, deudas pendientes u otras necesidades — sin restricciones y sin preguntas.</div>
+        <div style="font-size:18px;color:#3a2f47;line-height:1.7;padding:0 0 16px">Sí. El beneficio de muerte se paga directamente a tu beneficiario designado como una suma libre de impuestos. Pueden usarlo para gastos funerarios, deudas pendientes u otras necesidades — sin restricciones y sin preguntas.</div>
       </details>
 
       <details class="faq-item">
@@ -461,7 +461,7 @@ img{max-width:100%;height:auto;}
           ¿Qué diferencia hay entre gastos finales y Medicare?
           <span style="font-size:20px;color:#ff1090;flex-shrink:0">+</span>
         </summary>
-        <div style="font-size:15px;color:#6f6478;line-height:1.7;padding:0 0 16px">Medicare cubre tu atención médica mientras vives. El seguro de gastos finales proporciona dinero a tu familia después de tu fallecimiento para cubrir el costo del funeral y otras deudas. Son productos completamente separados que se complementan bien.</div>
+        <div style="font-size:18px;color:#3a2f47;line-height:1.7;padding:0 0 16px">Medicare cubre tu atención médica mientras vives. El seguro de gastos finales proporciona dinero a tu familia después de tu fallecimiento para cubrir el costo del funeral y otras deudas. Son productos completamente separados que se complementan bien.</div>
       </details>
 
     </div>
@@ -471,11 +471,11 @@ img{max-width:100%;height:auto;}
 <!-- CTA BANNER -->
 <div style="background:linear-gradient(135deg,#452068 0%,#5a2a86 100%);padding:64px 56px;text-align:center;color:white">
   <h2 style="font-family:Poppins,sans-serif;font-size:clamp(22px,3.5vw,30px);font-weight:700;margin:0 0 10px">¿Listo para proteger a tu familia?</h2>
-  <p style="font-size:16px;opacity:.85;margin:0 0 28px">Obtén cotizaciones gratuitas de múltiples aseguradoras — corredores bilingües, sin presión.</p>
+  <p style="font-size:16px;color:#f0eaf7;margin:0 0 28px">Obtén cotizaciones gratuitas de múltiples aseguradoras — corredores bilingües, sin presión.</p>
   <div class="cta-btns" style="display:flex;gap:14px;justify-content:center;flex-wrap:wrap">
-    <a href="#gf-form" style="background:#ff1090;color:#fff;padding:15px 26px;border-radius:999px;font-weight:700;font-size:14.5px;text-decoration:none;display:inline-flex;align-items:center;gap:6px">Obtener Cotización Gratis &rarr;</a>
-    <a href="tel:18003806821" style="border:2px solid rgba(255,255,255,.7);color:#fff;padding:13px 24px;border-radius:999px;font-weight:700;font-size:14.5px;text-decoration:none;display:inline-flex;align-items:center;gap:6px">Llamar 1-800-380-6821</a>
-    <a href="https://wa.me/13054646888" onclick="gtag('event','whatsapp_click',{'page':window.location.pathname})" style="background:#25D366;color:#fff;padding:15px 26px;border-radius:999px;font-weight:700;font-size:14.5px;text-decoration:none;display:inline-flex;align-items:center;gap:6px">WhatsApp</a>
+    <a href="#gf-form" style="background:#ff1090;color:#fff;padding:15px 26px;border-radius:999px;font-weight:700;font-size:18px;text-decoration:none;display:inline-flex;align-items:center;gap:6px">Obtener Cotización Gratis &rarr;</a>
+    <a href="tel:18003806821" style="border:2px solid rgba(255,255,255,.7);color:#fff;padding:13px 24px;border-radius:999px;font-weight:700;font-size:18px;text-decoration:none;display:inline-flex;align-items:center;gap:6px">Llamar 1-800-380-6821</a>
+    <a href="https://wa.me/13054646888" onclick="gtag('event','whatsapp_click',{'page':window.location.pathname})" style="background:#25D366;color:#fff;padding:15px 26px;border-radius:999px;font-weight:700;font-size:18px;text-decoration:none;display:inline-flex;align-items:center;gap:6px">WhatsApp</a>
   </div>
 </div>
 
@@ -486,21 +486,21 @@ img{max-width:100%;height:auto;}
       <h2 style="font-family:Poppins,sans-serif;font-size:clamp(22px,3vw,30px);font-weight:700;margin:0 0 16px">Obtenga sus cotizaciones gratis de gastos finales</h2>
       <p style="font-size:16px;line-height:1.65;opacity:.85;margin:0 0 28px;max-width:420px">Cuéntanos tu situación. Un agente bilingüe licenciado te contactará personalmente — sin centros de llamadas, sin presión.</p>
       <div style="display:flex;flex-direction:column;gap:14px">
-        <div style="display:flex;align-items:center;gap:10px;font-size:15px"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#ff90c8" stroke-width="2.2"><path d="M5 12l4 4 10-10"/></svg> Sin examen médico requerido</div>
-        <div style="display:flex;align-items:center;gap:10px;font-size:15px"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#ff90c8" stroke-width="2.2"><path d="M5 12l4 4 10-10"/></svg> Comparamos múltiples aseguradoras a la vez</div>
-        <div style="display:flex;align-items:center;gap:10px;font-size:15px"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#ff90c8" stroke-width="2.2"><path d="M5 12l4 4 10-10"/></svg> Agentes bilingües licenciados en Florida</div>
-        <div style="display:flex;align-items:center;gap:10px;font-size:15px"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#ff90c8" stroke-width="2.2"><path d="M5 12l4 4 10-10"/></svg> $0 costo para ti</div>
-        <div style="display:flex;align-items:center;gap:10px;font-size:15px"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#ff90c8" stroke-width="2.2"><path d="M5 12l4 4 10-10"/></svg> Edades 50–85, todos los antecedentes de salud bienvenidos</div>
+        <div style="display:flex;align-items:center;gap:10px;font-size:18px"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#ff90c8" stroke-width="2.2"><path d="M5 12l4 4 10-10"/></svg> Sin examen médico requerido</div>
+        <div style="display:flex;align-items:center;gap:10px;font-size:18px"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#ff90c8" stroke-width="2.2"><path d="M5 12l4 4 10-10"/></svg> Comparamos múltiples aseguradoras a la vez</div>
+        <div style="display:flex;align-items:center;gap:10px;font-size:18px"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#ff90c8" stroke-width="2.2"><path d="M5 12l4 4 10-10"/></svg> Agentes bilingües licenciados en Florida</div>
+        <div style="display:flex;align-items:center;gap:10px;font-size:18px"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#ff90c8" stroke-width="2.2"><path d="M5 12l4 4 10-10"/></svg> $0 costo para ti</div>
+        <div style="display:flex;align-items:center;gap:10px;font-size:18px"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#ff90c8" stroke-width="2.2"><path d="M5 12l4 4 10-10"/></svg> Edades 50–85, todos los antecedentes de salud bienvenidos</div>
       </div>
     </div>
     <div style="background:#fff;border-radius:22px;padding:40px;box-shadow:0 30px 60px rgba(0,0,0,.25)">
       <div id="gfFormBody">
         <div style="font-family:Poppins,sans-serif;font-weight:700;font-size:20px;color:#241a30;margin-bottom:6px">Solicite sus Cotizaciones Gratis</div>
-        <div style="font-size:14px;color:#6f6478;margin-bottom:22px;line-height:1.55">Un agente bilingüe licenciado te contactará — sin centros de llamadas, sin presión.</div>
+        <div style="font-size:17px;color:#3a2f47;margin-bottom:22px;line-height:1.55">Un agente bilingüe licenciado te contactará — sin centros de llamadas, sin presión.</div>
         <form id="gfLeadForm" novalidate>
                   <!-- Honeypot: hidden from humans, bots fill it in -->
                   <input type="text" name="_hp_name" id="_hp_name" autocomplete="off" tabindex="-1" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0;pointer-events:none;" value="">
-          <label style="display:block;font-size:14px;font-weight:700;color:#452068;margin-bottom:6px">¿Qué estás buscando?</label>
+          <label style="display:block;font-size:17px;font-weight:700;color:#452068;margin-bottom:6px">¿Qué estás buscando?</label>
           <select id="gfCoverage" name="coverage_type" required style="width:100%;box-sizing:border-box;padding:13px 14px;border-radius:10px;border:2px solid #ddd2e6;font-size:16px;margin-bottom:14px;font-family:Inter,sans-serif;color:#241a30;appearance:none;">
             <option value="">Selecciona una opción</option>
             <option value="Seguro de Gastos Finales / Entierro">Seguro de Gastos Finales / Entierro</option>
@@ -511,26 +511,26 @@ img{max-width:100%;height:auto;}
           </select>
           <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:14px">
             <div>
-              <label style="display:block;font-size:14px;font-weight:700;color:#452068;margin-bottom:6px">Nombre</label>
+              <label style="display:block;font-size:17px;font-weight:700;color:#452068;margin-bottom:6px">Nombre</label>
               <input type="text" id="gfFirst" name="first_name" placeholder="Nombre" required style="width:100%;box-sizing:border-box;padding:13px 14px;border-radius:10px;border:2px solid #ddd2e6;font-size:16px;font-family:Inter,sans-serif;"/>
             </div>
             <div>
-              <label style="display:block;font-size:14px;font-weight:700;color:#452068;margin-bottom:6px">Apellido</label>
+              <label style="display:block;font-size:17px;font-weight:700;color:#452068;margin-bottom:6px">Apellido</label>
               <input type="text" id="gfLast" name="last_name" placeholder="Apellido" required style="width:100%;box-sizing:border-box;padding:13px 14px;border-radius:10px;border:2px solid #ddd2e6;font-size:16px;font-family:Inter,sans-serif;"/>
             </div>
           </div>
-          <label style="display:block;font-size:14px;font-weight:700;color:#452068;margin-bottom:6px">Teléfono</label>
+          <label style="display:block;font-size:17px;font-weight:700;color:#452068;margin-bottom:6px">Teléfono</label>
           <input type="tel" id="gfPhone" name="phone" placeholder="ej. 305-555-0100" required style="width:100%;box-sizing:border-box;padding:13px 14px;border-radius:10px;border:2px solid #ddd2e6;font-size:16px;margin-bottom:14px;font-family:Inter,sans-serif;"/>
-          <label style="display:block;font-size:14px;font-weight:700;color:#452068;margin-bottom:6px">Correo electrónico</label>
+          <label style="display:block;font-size:17px;font-weight:700;color:#452068;margin-bottom:6px">Correo electrónico</label>
           <input type="email" id="gfEmail" name="email" placeholder="ej. nombre@email.com" required style="width:100%;box-sizing:border-box;padding:13px 14px;border-radius:10px;border:2px solid #ddd2e6;font-size:16px;margin-bottom:14px;font-family:Inter,sans-serif;"/>
-          <label style="display:block;font-size:14px;font-weight:700;color:#452068;margin-bottom:6px">Notas adicionales (opcional)</label>
+          <label style="display:block;font-size:17px;font-weight:700;color:#452068;margin-bottom:6px">Notas adicionales (opcional)</label>
           <textarea id="gfNotes" name="notes" rows="3" placeholder="Preguntas o detalles para nuestro agente..." style="resize:vertical;width:100%;padding:12px 14px;border:2px solid #ddd2e6;border-radius:10px;font-family:Inter,sans-serif;font-size:16px;color:#241a30;outline:none;box-sizing:border-box;margin-bottom:14px;"></textarea>
-          <div id="gfError" style="display:none;color:#c40074;font-size:13px;margin-bottom:10px;">Por favor complete todos los campos requeridos.</div>
-          <label style="display:flex;gap:10px;align-items:flex-start;font-size:13.5px;line-height:1.5;margin-bottom:20px;cursor:pointer;color:#8a8093">
+          <div id="gfError" style="display:none;color:#c40074;font-size:16px;margin-bottom:10px;">Por favor complete todos los campos requeridos.</div>
+          <label style="display:flex;gap:10px;align-items:flex-start;font-size:16px;line-height:1.5;margin-bottom:20px;cursor:pointer;color:#5a5068">
             <input type="checkbox" id="gfConsent" required style="margin-top:3px;flex-shrink:0;"/>
             <span>Al enviar este formulario, doy mi consentimiento para recibir llamadas, textos y correos de The Health Experts Insurance, incluyendo marcación automática, respecto a seguros de vida y productos relacionados. No se requiere consentimiento para comprar servicios. Puedes llamar al <a href="tel:18003806821" style="color:#452068">1-800-380-6821</a> TTY 711 sin consentir.</span>
           </label>
-          <button id="gfSubmit" type="submit" style="background:#ff1090;color:#fff;width:100%;padding:16px;border-radius:12px;border:none;font-size:15.5px;font-weight:700;cursor:pointer;font-family:Poppins,sans-serif;">Hablar con un agente &rarr;</button>
+          <button id="gfSubmit" type="submit" style="background:#ff1090;color:#fff;width:100%;padding:16px;border-radius:12px;border:none;font-size:18px;font-weight:700;cursor:pointer;font-family:Poppins,sans-serif;">Hablar con un agente &rarr;</button>
         </form>
       </div>
       <div id="gfSuccess" style="display:none;text-align:center;padding:24px 8px">
@@ -538,10 +538,10 @@ img{max-width:100%;height:auto;}
           <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.4"><path d="M5 12l4 4 10-10"/></svg>
         </div>
         <h3 style="font-family:Poppins,sans-serif;font-size:22px;margin:0 0 10px;color:#241a30">¡Tenemos tu solicitud!</h3>
-        <p style="color:#6f6478;font-size:14.5px;margin:0 0 22px">Un agente bilingüe licenciado le contactará en breve. ¿Nos necesita antes?</p>
+        <p style="color:#3a2f47;font-size:18px;margin:0 0 22px">Un agente bilingüe licenciado le contactará en breve. ¿Nos necesita antes?</p>
         <div style="display:flex;gap:10px;justify-content:center;flex-wrap:wrap">
-          <a href="tel:18003806821" style="background:#452068;color:#fff;padding:12px 20px;border-radius:10px;font-weight:700;font-size:14px">Llamar 1-800-380-6821</a>
-          <a href="https://wa.me/13054646888" onclick="gtag('event','whatsapp_click',{'page':window.location.pathname})" style="border:2px solid #452068;color:#452068;padding:10px 20px;border-radius:10px;font-weight:700;font-size:14px">WhatsApp</a>
+          <a href="tel:18003806821" style="background:#452068;color:#fff;padding:12px 20px;border-radius:10px;font-weight:700;font-size:17px">Llamar 1-800-380-6821</a>
+          <a href="https://wa.me/13054646888" onclick="gtag('event','whatsapp_click',{'page':window.location.pathname})" style="border:2px solid #452068;color:#452068;padding:10px 20px;border-radius:10px;font-weight:700;font-size:17px">WhatsApp</a>
         </div>
       </div>
     </div>
@@ -554,17 +554,17 @@ img{max-width:100%;height:auto;}
     <div id="footer-grid" class="footer-mobile" style="display:grid;grid-template-columns:1.3fr 1fr 1fr 1fr;gap:32px;margin-bottom:36px">
       <div>
         <img src="/images/logo.webp" alt="The Health Experts Insurance" style="height:70px;width:auto;margin-bottom:16px"/>
-        <p style="font-size:13.5px;color:#6f6478;line-height:1.6;max-width:260px">Corredores independientes bilingües de seguros de salud. Oficina en Doral, FL.</p>
-        <div style="display:flex;flex-direction:column;gap:4px;margin-top:14px;font-size:13.5px">
+        <p style="font-size:16px;color:#3a2f47;line-height:1.6;max-width:260px">Corredores independientes bilingües de seguros de salud. Oficina en Doral, FL.</p>
+        <div style="display:flex;flex-direction:column;gap:4px;margin-top:14px;font-size:16px">
           <a href="tel:18003806821" style="color:#452068;font-weight:700">1-800-380-6821</a>
           <a href="https://wa.me/13054646888" style="color:#452068;font-weight:700" onclick="gtag('event','whatsapp_click',{'page':window.location.pathname})">WhatsApp</a>
           <a href="mailto:info@healthexps.com" style="color:#452068;font-weight:700">info@healthexps.com</a>
         </div>
-        <p style="font-size:13.5px;color:#4a4051;margin-top:14px">1695 NW 110 Ave, Ste 224<br/>Doral, FL 33172</p>
+        <p style="font-size:16px;color:#4a4051;margin-top:14px">1695 NW 110 Ave, Ste 224<br/>Doral, FL 33172</p>
       </div>
       <div>
-        <div style="font-weight:700;font-size:12.5px;letter-spacing:.06em;margin-bottom:14px;color:#452068">MEDICARE</div>
-        <div style="display:flex;flex-direction:column;gap:9px;font-size:13.5px">
+        <div style="font-weight:700;font-size:15px;letter-spacing:.06em;margin-bottom:14px;color:#452068">MEDICARE</div>
+        <div style="display:flex;flex-direction:column;gap:9px;font-size:16px">
           <a href="/es/planes-de-medicare-miami" style="color:#4a4051">Planes de Medicare</a>
           <a href="/es/medicare-advantage-miami" style="color:#4a4051">Medicare Advantage</a>
           <a href="/es/medicare-suplementario-miami" style="color:#4a4051">Medicare Suplementario</a>
@@ -573,8 +573,8 @@ img{max-width:100%;height:auto;}
         </div>
       </div>
       <div>
-        <div style="font-weight:700;font-size:12.5px;letter-spacing:.06em;margin-bottom:14px;color:#452068">GUÍAS</div>
-        <div style="display:flex;flex-direction:column;gap:9px;font-size:13.5px">
+        <div style="font-weight:700;font-size:15px;letter-spacing:.06em;margin-bottom:14px;color:#452068">GUÍAS</div>
+        <div style="display:flex;flex-direction:column;gap:9px;font-size:16px">
           <a href="/es/medicare/que-es-medicare/" style="color:#4a4051">Qué es Medicare</a>
           <a href="/es/nuevo-en-medicare/" style="color:#4a4051">Nuevo en Medicare</a>
           <a href="/es/irmaa-penalidades-medicare/" style="color:#4a4051">Costos e IRMAA</a>
@@ -583,8 +583,8 @@ img{max-width:100%;height:auto;}
         </div>
       </div>
       <div>
-        <div style="font-weight:700;font-size:12.5px;letter-spacing:.06em;margin-bottom:14px;color:#452068">MÁS</div>
-        <div style="display:flex;flex-direction:column;gap:9px;font-size:13.5px">
+        <div style="font-weight:700;font-size:15px;letter-spacing:.06em;margin-bottom:14px;color:#452068">MÁS</div>
+        <div style="display:flex;flex-direction:column;gap:9px;font-size:16px">
           <a href="/es/seguro-medico-privado-miami" style="color:#4a4051">Seguro Médico Privado</a>
           <a href="/es/planes-aca-miami" style="color:#4a4051">Planes ACA</a>
           <a href="/es/alternativas-cobra-miami" style="color:#4a4051">Alternativas COBRA</a>
@@ -596,7 +596,7 @@ img{max-width:100%;height:auto;}
         </div>
       </div>
     </div>
-    <div style="border-top:1px solid #ece5f0;padding-top:20px;font-size:13px;color:#4a4051">
+    <div style="border-top:1px solid #ece5f0;padding-top:20px;font-size:16px;color:#4a4051">
       &copy; 2026 The Health Experts Insurance. <a href="/es/privacidad" style="color:#452068;font-weight:600">Política de Privacidad y Términos</a>
     </div>
 
