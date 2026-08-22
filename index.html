@@ -175,6 +175,31 @@
   /* Dual CTA: full-width btn */
   #dual-cta .dc-btn{display:block;width:100%;box-sizing:border-box;text-align:center}
 }
+/* ── Mobile polish v2 — Meta traffic / path / dual CTA (Aug 22, 2026) ── */
+@media (max-width: 900px) {
+  #path-strip .ps-btn-primary,
+  #path-strip .ps-btn-std {
+    display: block !important;
+    text-align: center;
+    width: 100%;
+    box-sizing: border-box;
+  }
+  #dual-cta .dc-btn {
+    display: block !important;
+    width: 100%;
+    max-width: 360px;
+    margin: 0 auto;
+    box-sizing: border-box;
+    text-align: center;
+  }
+}
+@media (max-width: 768px) {
+  .hero h1 {
+    font-size: clamp(28px, 7vw, 40px) !important;
+    line-height: 1.2 !important;
+    overflow-wrap: break-word;
+  }
+}
 
 </style>
 <style>
