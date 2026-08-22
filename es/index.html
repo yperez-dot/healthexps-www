@@ -382,6 +382,34 @@ img { max-width: 100%; height: auto; }
   #plans-grid [style*="grid-template-columns:repeat(4,1fr)"] { grid-template-columns: 1fr !important; }
   #plans-grid-cards { grid-template-columns: 1fr !important; }
 }
+/* ── Mobile polish — Meta traffic / path / dual CTA (Aug 22, 2026) ── */
+@media (max-width: 480px) {
+  #meta-banner { padding: 12px 44px 12px 16px !important; text-align: left !important; }
+  #meta-banner p { display: block !important; font-size: 13px !important; line-height: 1.45 !important; }
+  #meta-banner-link { white-space: normal !important; display: block !important; margin: 8px 40px 0 0 !important; }
+  #path-strip [style*="grid-template-columns:repeat(3"] { grid-template-columns: 1fr !important; }
+  #path-strip a[style*="display:inline-block"] {
+    display: block !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+    text-align: center !important;
+  }
+  #dual-cta a[style*="display:inline-block"] {
+    display: block !important;
+    width: 100% !important;
+    max-width: 360px !important;
+    margin: 0 auto !important;
+    box-sizing: border-box !important;
+    text-align: center !important;
+  }
+}
+@media (max-width: 768px) {
+  .hero h1 {
+    font-size: clamp(28px, 7vw, 40px) !important;
+    line-height: 1.2 !important;
+    overflow-wrap: break-word;
+  }
+}
 @media (max-width: 768px) {
   #plans-grid-cards { grid-template-columns: 1fr !important; }
 }
