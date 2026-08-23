@@ -277,30 +277,23 @@ img { max-width: 100%; height: auto; }
 .dfc-sub { font-size:16px; color: var(--gray-text); text-align: center; margin-bottom: 22px; }
 
 .ff-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 12px; }
-.ff { margin-bottom: 12px; }
-.ff label {
-  display: block; font-size:14.5px; font-weight: 700;
-  color: var(--black); margin-bottom: 5px;
-  text-transform: uppercase; letter-spacing: .3px;
-}
-.ff label em { color: #dc2626; font-style: normal; }
-.ff input, .ff select, .ff textarea {
+.ff-input {
   width: 100%; padding: 12px 14px;
   border: 1.5px solid var(--gray-mid); border-radius: 10px;
-  font-family: var(--font-body); font-size:18px;
-  color: var(--black); background: white;
+  font-family: var(--font-body); font-size: 18px;
+  color: var(--black); background: #fff;
   outline: none; transition: border-color .2s;
   appearance: none; -webkit-appearance: none;
   box-sizing: border-box;
 }
-.ff input:focus, .ff select:focus, .ff textarea:focus { border-color: var(--purple); }
-.ff input::placeholder, .ff textarea::placeholder { color: #5a5068; }
-.ff-notes textarea { resize: vertical; }
+.ff-input:focus { border-color: var(--purple); }
+.ff-input::placeholder { color: #5a5068; }
+.ff-notes textarea { resize: none; }
 
-.ff-consent { display: flex; gap: 9px; align-items: flex-start; margin-bottom: 18px; }
-.ff-consent input[type=checkbox] { width:16px; height:16px; min-width:16px; margin-top:2px; accent-color: var(--purple); cursor:pointer; }
-.ff-consent label { font-size:14px; color: var(--gray-text); line-height: 1.55; cursor: pointer; }
-.ff-consent label a { color: var(--purple); text-decoration: underline; }
+.ff-consent { display: flex; gap: 10px; align-items: flex-start; margin-bottom: 18px; cursor: pointer; }
+.ff-consent input[type=checkbox] { width: 16px; height: 16px; min-width: 16px; margin-top: 3px; accent-color: var(--purple); cursor: pointer; }
+.ff-consent span { font-size: 16px; color: #5a5068; line-height: 1.5; }
+.ff-consent a { color: var(--purple); text-decoration: underline; }
 
 #dentalError {
   display: none; background: #fef2f2; border: 1px solid #fecaca;
@@ -386,19 +379,6 @@ img { max-width: 100%; height: auto; }
   .top-bar-inner { padding-left: 20px !important; padding-right: 20px !important; }
   .v4-nav-outer { padding-left: 20px !important; padding-right: 20px !important; }
 }
-
-/* Scroll to top */
-  position: fixed; bottom: 28px; right: 28px;
-  width: 44px; height: 44px;
-  background: var(--purple); color: white; border: none; border-radius: 50%;
-  font-size: 18px; cursor: pointer; display: none;
-  align-items: center; justify-content: center;
-  box-shadow: 0 4px 14px rgba(69,32,104,.3);
-  transition: background .2s, transform .2s; z-index: 999;
-#scrollToTop:hover { background: var(--purple-dark); transform: translateY(-2px); }
-  var btn = document.getElementById('scrollToTop');
-  if (!btn) return;
-    btn.style.display = window.scrollY > 400 ? 'flex' : 'none';
 
 </style>
 <style>
@@ -678,57 +658,28 @@ img { max-width: 100%; height: auto; }
         <div class="dfc-sub">Our bilingual brokers compare every plan for your situation and budget — completely free.</div>
 
         <form id="dentalLeadForm" novalidate>
-                  <!-- Honeypot: hidden from humans, bots fill it in -->
-                  <input type="text" name="_hp_name" id="_hp_name" autocomplete="off" tabindex="-1" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0;pointer-events:none;" value="">
+          <!-- Honeypot: hidden from humans, bots fill it in -->
+          <input type="text" name="_hp_name" id="_hp_name" autocomplete="off" tabindex="-1" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0;pointer-events:none;" value="">
           <div class="ff-row">
-            <div>
-              <label for="dentalFirst">First Name <em>*</em></label>
-              <input type="text" id="dentalFirst" name="first_name" placeholder="First Name" autocomplete="given-name" required/>
-            </div>
-            <div>
-              <label for="dentalLast">Last Name <em>*</em></label>
-              <input type="text" id="dentalLast" name="last_name" placeholder="Last Name" autocomplete="family-name" required/>
-            </div>
+            <input class="ff-input" type="text" id="dentalFirst" name="first_name" placeholder="First Name" autocomplete="given-name" required/>
+            <input class="ff-input" type="text" id="dentalLast" name="last_name" placeholder="Last Name" autocomplete="family-name" required/>
           </div>
-
-          <div class="ff">
-            <label for="dentalPhone">Phone Number <em>*</em></label>
-            <input type="tel" id="dentalPhone" name="phone" placeholder="(305) 000-0000" autocomplete="tel" required/>
-          </div>
-
-          <div class="ff">
-            <label for="dentalEmail">Email Address <em>*</em></label>
-            <input type="email" id="dentalEmail" name="email" placeholder="you@email.com" autocomplete="email" required/>
-          </div>
-
-          <div class="ff">
-            <label for="dentalCoverage">What are you looking for? <em>*</em></label>
-            <select id="dentalCoverage" name="coverage_type" required>
-              <option value="">Select an option</option>
-              <option value="dental-only">Dental only</option>
-              <option value="vision-only">Vision only</option>
-              <option value="dental-vision">Both dental &amp; vision</option>
-              <option value="hearing">Hearing coverage</option>
-              <option value="notsure">Not sure — help me compare</option>
-            </select>
-          </div>
-
-          <!-- Additional Notes — BEFORE consent -->
-          <div class="ff ff-notes">
-            <label for="dentalNotes">Additional Notes (optional)</label>
-            <textarea id="dentalNotes" name="notes" rows="3" placeholder="Anything you'd like to share about your situation?"></textarea>
-          </div>
-
-          <!-- Consent checkbox -->
-          <div class="ff-consent">
+          <input class="ff-input" type="tel" id="dentalPhone" name="phone" placeholder="Phone" autocomplete="tel" required style="margin-bottom:12px"/>
+          <input class="ff-input" type="email" id="dentalEmail" name="email" placeholder="Email" autocomplete="email" required style="margin-bottom:12px"/>
+          <select class="ff-input" id="dentalCoverage" name="coverage_type" required style="margin-bottom:12px;color:#241a30">
+            <option value="">What are you looking for?</option>
+            <option value="dental-only">Dental only</option>
+            <option value="vision-only">Vision only</option>
+            <option value="dental-vision">Both dental &amp; vision</option>
+            <option value="hearing">Hearing coverage</option>
+            <option value="notsure">Not sure — help me compare</option>
+          </select>
+          <textarea class="ff-input ff-notes" id="dentalNotes" name="notes" rows="2" placeholder="Anything you'd like to share? (optional)" style="margin-bottom:14px"></textarea>
+          <label class="ff-consent">
             <input type="checkbox" id="dentalConsent" name="consent"/>
-            <label for="dentalConsent">
-              <strong>Permission to Contact:</strong> I consent to receive e-mails, telephone calls, text messages, and artificial or pre-recorded messages from licensed insurance agents with The Health Experts Insurance, regarding health insurance plans and related products and services, at the e-mail address and telephone number provided above, including my wireless number (if provided), and regardless of whether it is on any do not call list, using an automated telephone dialing system. I understand that my wireless carrier's standard message and data rates apply. I understand that I may revoke this consent at any time. I understand that I have the option to speak with a licensed insurance agent without granting this consent by calling <a href="tel:18003806821">1-800-380-6821</a> TTY 711.
-            </label>
-          </div>
-
+            <span>By submitting this form, I consent to receive calls, texts, and emails from The Health Experts Insurance, including automated dialing. You may call <a href="tel:18003806821">1-800-380-6821</a> TTY 711 without providing consent. Consent is not required to purchase services.</span>
+          </label>
           <div id="dentalError"></div>
-
           <button type="submit" id="dentalBtn">Get My Free Quote</button>
         </form>
       </div>
@@ -736,10 +687,10 @@ img { max-width: 100%; height: auto; }
       <!-- Success state -->
       <div id="dentalSuccess">
         <div class="dfc-success-icon">
-          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.4"><path d="M5 12l4 4 10-10"/></svg>
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.4"><path d="M5 12l4 4 10-10"/></svg>
         </div>
-        <h3 style="font-family:'Poppins',sans-serif;font-size:22px;margin:0 0 10px;color:#ffffff">Thank you — we've got your request!</h3>
-        <p style="color:rgba(255,255,255,0.85);font-size:18px;margin:0 0 22px;line-height:1.6">A licensed bilingual agent will reach out shortly. Need us sooner?</p>
+        <h3 style="font-family:'Poppins',sans-serif;font-size:20px;margin:0 0 8px;color:#241a30">Thank you — we've got your request!</h3>
+        <p style="color:#3a2f47;font-size:17px;margin:0 0 18px;line-height:1.6">A licensed bilingual agent will reach out shortly. Need us sooner?</p>
         <div style="display:flex;gap:10px;justify-content:center;flex-wrap:wrap">
           <a href="tel:18003806821" style="background:#452068;color:#fff;padding:12px 20px;border-radius:10px;font-weight:700;font-size:17px;text-decoration:none">Call 1-800-380-6821</a>
           <a href="https://wa.me/13054646888" onclick="gtag('event','whatsapp_click',{'page':window.location.pathname})" style="border:2px solid #452068;color:#452068;padding:10px 20px;border-radius:10px;font-weight:700;font-size:17px;text-decoration:none">WhatsApp Us</a>
