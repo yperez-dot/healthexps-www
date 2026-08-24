@@ -21,6 +21,7 @@ const WEBHOOKS = {
   'es-cobra': '520e997b-69a4-4330-b3d9-96b452af28bf',
   'es-aca': 'cNWs0DqK73DvGCTLzGHI',
   'es-private': 'FklcK7rZSNfB9SlLueOm',
+  'aep-2027': 'dc6c8b35-9480-412e-b56d-4a4c8c7bd438',
 };
 
 /**
