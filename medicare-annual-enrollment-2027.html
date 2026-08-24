@@ -44,11 +44,20 @@
 }
 #scrollToTop:hover { background: #ff1090; transform: translateY(-2px); }
 #scrollToTop:focus-visible { outline: 3px solid #ff1090; outline-offset: 3px; }
+#scrollToTop { bottom: 88px; }
+.aep-sticky{position:fixed;left:0;right:0;bottom:0;z-index:900;background:#452068;display:flex;gap:8px;justify-content:center;align-items:center;padding:10px 16px;flex-wrap:wrap;box-shadow:0 -8px 24px rgba(36,26,48,.2);}
+.aep-sticky a{color:#fff;font-weight:700;font-size:15px;text-decoration:none;padding:10px 16px;border-radius:999px;min-height:44px;display:inline-flex;align-items:center;}
+.aep-sticky .aep-call{background:#ff1090;}
+.aep-sticky .aep-wa{background:#25D366;}
+.aep-sticky .aep-form{border:2px solid #fff;}
+body{padding-bottom:72px;}
+@media(max-width:640px){.aep-sticky a{font-size:13px;padding:10px 12px;}}
 </style>
 
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"InsuranceAgency","name":"The Health Experts Insurance","url":"https://www.healthexps.com","telephone":"+18003806821","address":{"@type":"PostalAddress","streetAddress":"1695 NW 110 Ave, Suite 224","addressLocality":"Doral","addressRegion":"FL","postalCode":"33172","addressCountry":"US"},"areaServed":["Miami-Dade County","Broward County","Florida"],"priceRange":"Free","description":"Independent bilingual health insurance brokers in Doral, FL. We compare 14+ carriers for Medicare, ACA, and private health insurance at no cost."}</script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://www.healthexps.com"},{"@type":"ListItem","position":2,"name":"Medicare Annual Enrollment 2027 Miami | Free Plan Review","item":"https://www.healthexps.com/medicare-annual-enrollment-2027"}]}</script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"Service","name":"Medicare Annual Enrollment 2027 Miami | Free Plan Review","serviceType":"Medicare Annual Enrollment","url":"https://www.healthexps.com/medicare-annual-enrollment-2027","provider":{"@type":"Organization","name":"The Health Experts Insurance","url":"https://www.healthexps.com"}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Do I have to switch plans during AEP?","acceptedAnswer":{"@type":"Answer","text":"No. If you are happy with your current plan, you do not have to do anything. You should still review it because benefits, premiums, and networks change every year."}},{"@type":"Question","name":"When is Medicare Annual Enrollment 2027?","acceptedAnswer":{"@type":"Answer","text":"AEP runs October 15 through December 7. Changes take effect January 1."}},{"@type":"Question","name":"Is a Medicare plan review free?","acceptedAnswer":{"@type":"Answer","text":"Yes. Licensed bilingual brokers in Miami compare 2027 plan options at no cost to you."}}]}</script>
 <style>
 .v4-nav-dropdown { display: none; }
 .v4-nav-item:hover .v4-nav-dropdown { display: block; }
@@ -307,6 +316,13 @@ h1,h2,h3,h4{font-family:'Poppins',sans-serif;}
   .nav-close{display:none !important;}
 }
 
+.aep-sticky{position:fixed;left:0;right:0;bottom:0;z-index:900;background:#452068;display:flex;gap:8px;justify-content:center;align-items:center;padding:10px 16px;flex-wrap:wrap;box-shadow:0 -8px 24px rgba(36,26,48,.2);}
+.aep-sticky a{color:#fff;font-weight:700;font-size:15px;text-decoration:none;padding:10px 16px;border-radius:999px;min-height:44px;display:inline-flex;align-items:center;}
+.aep-sticky .aep-call{background:#ff1090;}
+.aep-sticky .aep-wa{background:#25D366;}
+.aep-sticky .aep-form{border:2px solid #fff;}
+body{padding-bottom:72px;}
+@media(max-width:640px){.aep-sticky a{font-size:13px;padding:10px 12px;}}
 </style>
 </head>
 <body>
@@ -635,7 +651,7 @@ h1,h2,h3,h4{font-family:'Poppins',sans-serif;}
         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l4 4 10-10"/></svg>
       </div>
       <h3>Thank you &mdash; we've got your request!</h3>
-      <p>A licensed bilingual broker will reach out within 1 business hour to schedule your review.</p>
+      <p>A licensed bilingual broker will call or text within 5 minutes during business hours (9am&ndash;6pm ET). After hours, Elena or our next-morning queue will reach you.</p>
     </div>
     <div class="form-success" id="formPartialSuccess">
       <div class="form-success-icon" style="background:#b45309;">
@@ -646,11 +662,15 @@ h1,h2,h3,h4{font-family:'Poppins',sans-serif;}
     </div>
     <div id="formBody">
       <div class="form-title">Book my free 2027 plan review</div>
-      <p class="form-sub">A licensed bilingual broker will reach out within 1 business hour to schedule your review.</p>
+      <p class="form-sub">Call, WhatsApp, or this form &mdash; a licensed bilingual broker responds within 5 minutes during business hours.</p>
       <form id="aepForm" novalidate>
                   <!-- Honeypot: hidden from humans, bots fill it in -->
                   <input type="text" name="_hp_name" id="_hp_name" autocomplete="off" tabindex="-1" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0;pointer-events:none;" value="">
         <input type="hidden" name="source" value="AEP 2027 Page">
+        <input type="hidden" name="source_key" value="aep-2027">
+        <input type="hidden" name="language" value="english">
+        <input type="hidden" name="channel" value="organic">
+        <input type="hidden" name="tags" value="aep-2027,organic,english">
         <input type="hidden" name="page_url" value="https://www.healthexps.com/medicare-annual-enrollment-2027/">
 
         <!-- Name row -->
@@ -790,6 +810,7 @@ h1,h2,h3,h4{font-family:'Poppins',sans-serif;}
               <div style="font-weight:700;font-size:15px;letter-spacing:.06em;margin-bottom:14px;color:#452068">MEDICARE</div>
               <div style="display:flex;flex-direction:column;gap:9px;font-size:16px">
                 <a href="/medicare-plans-miami" style="cursor:pointer;color:#241a30;font-weight:700">Medicare Plans</a>
+                <a href="/medicare-annual-enrollment-2027" style="color:#ff1090;font-weight:700">Annual Enrollment 2027</a>
                 <a href="/medicare-advantage-miami" style="color:#4a4051">Medicare Advantage</a>
                 <a href="/medicare-supplement-miami" style="color:#4a4051">Medicare Supplement</a>
                 <a href="/medicare-dual-eligible-miami" style="cursor:pointer;color:#4a4051">Dual Eligible (D-SNP)</a>
@@ -868,6 +889,9 @@ h1,h2,h3,h4{font-family:'Poppins',sans-serif;}
 
     var notes = document.getElementById('aep_notes').value.trim();
 
+    var q = new URLSearchParams(window.location.search);
+    var utmSource = (q.get('utm_source') || '').toLowerCase();
+    var channel = (utmSource === 'facebook' || utmSource === 'fb' || utmSource === 'meta' || utmSource === 'instagram') ? 'facebook' : (utmSource ? 'paid' : 'organic');
     var payload = {
       first_name: fname,
       last_name: lname,
@@ -876,6 +900,14 @@ h1,h2,h3,h4{font-family:'Poppins',sans-serif;}
       reason: reason,
       notes: notes,
       source: 'AEP 2027 Page',
+      source_key: 'aep-2027',
+      language: 'english',
+      channel: channel,
+      tags: 'aep-2027,' + channel + ',english',
+      utm_source: q.get('utm_source') || '',
+      utm_medium: q.get('utm_medium') || '',
+      utm_campaign: q.get('utm_campaign') || '',
+      utm_content: q.get('utm_content') || '',
       page_url: window.location.href
     };
 
@@ -991,5 +1023,11 @@ h1,h2,h3,h4{font-family:'Poppins',sans-serif;}
   document.addEventListener('keydown', function(e){ if(e.key==='Escape') closeMenu(); });
 })();
 </script>
+<div class="aep-sticky" role="navigation" aria-label="AEP contact">
+  <a class="aep-call" href="tel:18003806821">Call 1-800-380-6821</a>
+  <a class="aep-wa" href="https://wa.me/13054646888" target="_blank" rel="noopener">WhatsApp 305-464-6888</a>
+  <a class="aep-form" href="#aep-form">Free 2027 review</a>
+</div>
+<script src="/js/aep-season.js"></script>
 </body>
 </html>
