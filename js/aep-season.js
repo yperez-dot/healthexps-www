@@ -54,6 +54,7 @@
       el.value = value;
     }
     setHidden('source_key', 'aep-2027');
+    setHidden('source', channel === 'facebook' ? 'facebook' : 'organic');
     setHidden('language', lang);
     setHidden('channel', channel);
     setHidden('tags', 'aep-2027,' + channel + ',' + lang);
@@ -65,7 +66,7 @@
 
   function rewriteHero() {
     if (!inAepWindow()) return;
-    var wrap = document.getElementById('hero-btns');
+    var wrap = document.getElementById('hero-btns') || document.getElementById('hero-btns');
     if (!wrap) return;
     var primary = wrap.querySelector('a');
     if (!primary) return;
