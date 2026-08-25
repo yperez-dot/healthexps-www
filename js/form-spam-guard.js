@@ -16,9 +16,39 @@
   var GHL_RE =
     /leadconnectorhq\.com\/hooks\/[^/]+\/webhook-trigger\/([^/?#]+)/i;
   var PROXY = '/.netlify/functions/submit-lead';
+  var LOOKING_FOR_KEYS = [
+    'coverage_type',
+    'looking_for',
+    'contact_reason',
+    'interest',
+    'reason',
+    'private_reason',
+    'aca_reason',
+    'help_with',
+    'aep_plan_type',
+  ];
 
   function digitsOnly(v) {
     return String(v || '').replace(/\D/g, '');
+  }
+
+  function extractLookingFor(fields) {
+    for (var i = 0; i < LOOKING_FOR_KEYS.length; i++) {
+      var key = LOOKING_FOR_KEYS[i];
+      var value = String((fields && fields[key]) || '').trim();
+      if (value) return value;
+    }
+    return '';
+  }
+
+  function formHasLookingForField(fields) {
+    if (!fields) return false;
+    for (var i = 0; i < LOOKING_FOR_KEYS.length; i++) {
+      if (Object.prototype.hasOwnProperty.call(fields, LOOKING_FOR_KEYS[i])) {
+        return true;
+      }
+    }
+    return false;
   }
 
   function normalizePhone(phone) {
@@ -240,8 +270,41 @@
 
         var webhookId = match[1];
         var fields = formToObject(form);
+
+        // If the form has a “what are you looking for?” select, block empty submits
+        if (formHasLookingForField(fields) && !extractLookingFor(fields)) {
+          var lookingErr =
+            form.querySelector('.ff-error, [id$="Error"], [id$="-error"]') ||
+            null;
+          if (lookingErr) {
+            lookingErr.style.display = 'block';
+            lookingErr.textContent = /\/es\//.test(window.location.pathname)
+              ? 'Por favor seleccione en qué podemos ayudarle.'
+              : 'Please select what you need help with.';
+          } else {
+            alert(
+              /\/es\//.test(window.location.pathname)
+                ? 'Por favor seleccione en qué podemos ayudarle.'
+                : 'Please select what you need help with.'
+            );
+          }
+          var lookingSelect = form.querySelector(
+            'select[name="coverage_type"],select[name="looking_for"],select[name="contact_reason"],select[name="interest"],select[name="reason"],select[name="private_reason"],select[name="aca_reason"],select[name="help_with"],select[name="aep_plan_type"]'
+          );
+          if (lookingSelect) {
+            lookingSelect.style.border = '2px solid #c40074';
+            lookingSelect.focus();
+          }
+          return;
+        }
+
         var payload = withMeta(fields);
         payload.webhook_id = webhookId;
+        var looking = extractLookingFor(fields);
+        if (looking) {
+          payload.coverage_type = looking;
+          payload.looking_for = looking;
+        }
 
         var btn = form.querySelector('button[type="submit"],input[type="submit"]');
         if (btn) {
@@ -306,5 +369,6 @@
     fakeSuccess: fakeSuccess,
     isValidUsPhone: isValidUsPhone,
     normalizePhone: normalizePhone,
+    extractLookingFor: extractLookingFor,
   };
 })(typeof window !== 'undefined' ? window : this);

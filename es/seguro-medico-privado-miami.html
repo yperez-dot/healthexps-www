@@ -717,7 +717,7 @@ for(var k=0;k<_navLinks.length;k++){
  </div>
  <div style="margin-bottom:18px;"><label style="display:block;font-size:17px;font-weight:700;color:#333;margin-bottom:6px;">Teléfono</label><input type="tel" name="phone" id="phone_es" placeholder="(305) 555-0100" style="width:100%;padding:12px 14px;border:2px solid #e5e5e5;border-radius:8px;font-size:18px;font-family:Arial,sans-serif;box-sizing:border-box;" required></div>
  <div style="margin-bottom:18px;"><label style="display:block;font-size:17px;font-weight:700;color:#333;margin-bottom:6px;">Correo electrónico</label><input type="email" name="email" id="email_es" style="width:100%;padding:12px 14px;border:2px solid #e5e5e5;border-radius:8px;font-size:18px;font-family:Arial,sans-serif;box-sizing:border-box;" required></div>
- <div style="margin-bottom:18px;"><label style="display:block;font-size:17px;font-weight:700;color:#333;margin-bottom:6px;">¿Qué te trajo aquí?</label><select name="private_reason" id="private_reason_es" style="width:100%;padding:12px 14px;border:2px solid #e5e5e5;border-radius:8px;font-size:18px;font-family:Arial,sans-serif;background:white;box-sizing:border-box;"><option value="">Seleccionar...</option><option>Perdí mi trabajo</option><option>El COBRA es muy caro</option><option>Trabajo por cuenta propia</option><option>Mi familia necesita cobertura</option><option>Me mudé a Florida</option><option>Tengo un pequeño negocio</option><option>Solo explorando</option></select></div>
+ <div style="margin-bottom:18px;"><label style="display:block;font-size:17px;font-weight:700;color:#333;margin-bottom:6px;">¿Qué te trajo aquí?</label><select name="private_reason" id="private_reason_es" required style="width:100%;padding:12px 14px;border:2px solid #e5e5e5;border-radius:8px;font-size:18px;font-family:Arial,sans-serif;background:white;box-sizing:border-box;"><option value="">Seleccionar...</option><option value="Perdí mi trabajo">Perdí mi trabajo</option><option value="El COBRA es muy caro">El COBRA es muy caro</option><option value="Trabajo por cuenta propia">Trabajo por cuenta propia</option><option value="Mi familia necesita cobertura">Mi familia necesita cobertura</option><option value="Me mudé a Florida">Me mudé a Florida</option><option value="Tengo un pequeño negocio">Tengo un pequeño negocio</option><option value="Solo explorando">Solo explorando</option></select></div>
  <div style="margin-bottom:18px;"><label style="display:block;font-size:17px;font-weight:700;color:#333;margin-bottom:6px;">¿Algo que quieras compartir? <span style="font-weight:400;color:#5a5068;">(opcional)</span></label><textarea name="additional_notes" id="additional_notes_es" placeholder="Ej. Necesito mantener a mi cardólogo, o tomo 3 medicamentos..." style="width:100%;padding:12px 14px;border:2px solid #e5e5e5;border-radius:8px;font-size:18px;font-family:Arial,sans-serif;min-height:80px;resize:vertical;box-sizing:border-box;"></textarea></div>
  <div style="display:flex;align-items:flex-start;gap:10px;margin:18px 0;"><input type="checkbox" id="esSeguroConsent" name="consent" style="margin-top:4px;flex-shrink:0;" required><label for="esSeguroConsent" style="font-size:16px;color:#3a2f47;line-height:1.5;">Al enviar este formulario, doy mi consentimiento para recibir llamadas, mensajes de texto y correos de The Health Experts Insurance. El consentimiento no es necesario para adquirir servicios.</label></div>
  <p id="esSeguroError" style="display:none;color:#c40074;font-size:16px;margin:0 0 10px;"></p>
@@ -742,8 +742,13 @@ for(var k=0;k<_navLinks.length;k++){
       FormSpamGuard.fakeSuccess(form, successEl);
       return;
     }
-    if (!fields.first_name || !fields.last_name || !fields.phone || !fields.email) {
-      if (errEl) { errEl.style.display = 'block'; errEl.textContent = 'Por favor complete todos los campos requeridos.'; }
+    if (!fields.first_name || !fields.last_name || !fields.phone || !fields.email || !fields.private_reason) {
+      if (errEl) {
+        errEl.style.display = 'block';
+        errEl.textContent = !fields.private_reason
+          ? 'Por favor seleccione en qué podemos ayudarle.'
+          : 'Por favor complete todos los campos requeridos.';
+      }
       return;
     }
     if (!FormSpamGuard.isValidUsPhone(fields.phone)) {
@@ -755,6 +760,8 @@ for(var k=0;k<_navLinks.length;k++){
     var payload = Object.assign({}, fields, guard.meta(), {
       source_key: 'es-private',
       source: 'Seguro Médico Privado ES',
+      coverage_type: fields.private_reason,
+      looking_for: fields.private_reason,
       page: window.location.href,
       submitted_at: new Date().toISOString()
     });

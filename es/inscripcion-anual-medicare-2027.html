@@ -409,10 +409,10 @@ li:hover>.dropdown{display:block !important;}
           <label for="aep_plan_type_es" class="form-label">¿Qué tipo de plan tienes actualmente? <em style="color:#ff1090;">*</em></label>
           <select name="aep_plan_type" id="aep_plan_type_es" class="form-select" required>
             <option value="">Seleccionar...</option>
-            <option value="medicare_advantage">Medicare Advantage (Parte C)</option>
-            <option value="medicare_supplement">Medicare Suplementario (Medigap)</option>
-            <option value="original_medicare">Solo Medicare Original</option>
-            <option value="not_sure">No estoy seguro/a</option>
+            <option value="Medicare Advantage (Parte C)">Medicare Advantage (Parte C)</option>
+            <option value="Medicare Suplementario (Medigap)">Medicare Suplementario (Medigap)</option>
+            <option value="Solo Medicare Original">Solo Medicare Original</option>
+            <option value="No estoy seguro/a">No estoy seguro/a</option>
           </select>
         </div>
                 <div class="form-group" style="margin-bottom:18px;">
@@ -452,6 +452,16 @@ li:hover>.dropdown{display:block !important;}
     if (btn) { btn.disabled = true; btn.textContent = 'Enviando...'; }
 
     var data = new FormData(form);
+    var planType = String(data.get('aep_plan_type') || '').trim();
+    if (!planType) {
+      alert('Por favor seleccione en qué podemos ayudarle.');
+      var planEl = document.getElementById('aep_plan_type_es');
+      if (planEl) { planEl.style.border = '2px solid #c40074'; planEl.focus(); }
+      if (btn) { btn.disabled = false; btn.textContent = originalText; }
+      return;
+    }
+    data.set('coverage_type', planType);
+    data.set('looking_for', planType);
     var q = new URLSearchParams(window.location.search);
     var utmSource = (q.get('utm_source') || '').toLowerCase();
     var channel = (utmSource === 'facebook' || utmSource === 'fb' || utmSource === 'meta' || utmSource === 'instagram') ? 'facebook' : (utmSource ? 'paid' : 'organic');
