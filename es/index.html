@@ -1007,6 +1007,8 @@ img { max-width: 100%; height: auto; }
           looking_for: coverage,
           source: 'Homepage Form',
           page: window.location.href,
+          page_path: window.location.pathname,
+          form_page: window.location.pathname,
           submitted_at: new Date().toISOString()
         })
       });
