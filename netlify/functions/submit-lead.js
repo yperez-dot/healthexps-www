@@ -228,6 +228,28 @@ function assessSpam(data) {
   return null;
 }
 
+function pathFromPage(page) {
+  const raw = String(page || '').trim();
+  if (!raw) return '';
+  try {
+    if (/^https?:\/\//i.test(raw)) return new URL(raw).pathname || '/';
+  } catch (e) {
+    /* ignore */
+  }
+  if (raw.startsWith('/')) return raw.split('?')[0].split('#')[0] || '/';
+  return '';
+}
+
+function isHomepagePath(path) {
+  return (
+    path === '/' ||
+    path === '/index.html' ||
+    path === '/es' ||
+    path === '/es/' ||
+    path === '/es/index.html'
+  );
+}
+
 function buildForwardPayload(data) {
   const skip = new Set([
     '_hp_name',
@@ -254,8 +276,46 @@ function buildForwardPayload(data) {
     out.coverage_type = looking;
     out.looking_for = looking;
   }
+
+  // Always stamp which page the form was filled on
+  const page = String(data.page || data.page_url || out.page || out.page_url || '').trim();
+  const path =
+    String(data.page_path || data.form_page || out.page_path || out.form_page || '').trim() ||
+    pathFromPage(page);
+  if (page) {
+    out.page = page;
+    out.page_url = page;
+  }
+  if (path) {
+    out.page_path = path;
+    out.form_page = path;
+  }
+
+  // Fix misleading "Homepage Form" source when the real path is not home
+  const src = String(out.source || '').trim();
+  if (/^Homepage Form$/i.test(src) && path && !isHomepagePath(path)) {
+    out.source = 'Form: ' + path;
+  }
+
+  // Surface page in Additional Notes so existing GHL alerts show it
+  const pageLine = path || page;
+  if (pageLine) {
+    const existing = String(
+      out.additional_notes || out.notes || out.message || ''
+    ).trim();
+    if (!/Form page:/i.test(existing)) {
+      const stamped = existing
+        ? existing + '\n\nForm page: ' + pageLine
+        : 'Form page: ' + pageLine;
+      out.additional_notes = stamped;
+      if (Object.prototype.hasOwnProperty.call(data, 'notes') || out.notes) {
+        out.notes = stamped;
+      }
+    }
+  }
+
   out.submitted_at = out.submitted_at || new Date().toISOString();
-  out.page = out.page || '';
+  out.page = out.page || page || '';
   return out;
 }
 

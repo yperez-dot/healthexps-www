@@ -159,11 +159,37 @@
     return Promise.resolve({});
   }
 
+  function pageAttribution() {
+    var href = '';
+    var path = '/';
+    try {
+      href = String(window.location.href || '');
+      path = String(window.location.pathname || '/') || '/';
+    } catch (e) {
+      href = '';
+      path = '/';
+    }
+    return { page: href, page_url: href, page_path: path, form_page: path };
+  }
+
+  function isHomepagePath(path) {
+    return path === '/' || path === '/index.html' || path === '/es' || path === '/es/' || path === '/es/index.html';
+  }
+
   function withMeta(data) {
     var out = Object.assign({}, data);
+    var attr = pageAttribution();
     if (!out._form_loaded_at) out._form_loaded_at = PAGE_LOADED_AT;
     if (!out._hp_name) out._hp_name = getHpValue();
-    if (!out.page) out.page = window.location.href;
+    if (!out.page) out.page = attr.page;
+    if (!out.page_url) out.page_url = attr.page_url || out.page;
+    out.page_path = out.page_path || attr.page_path;
+    out.form_page = out.form_page || attr.form_page;
+    // Many copied scripts hardcode "Homepage Form" on non-home pages — fix the label
+    var src = String(out.source || '').trim();
+    if (/^Homepage Form$/i.test(src) && !isHomepagePath(out.page_path || attr.page_path)) {
+      out.source = 'Form: ' + (out.page_path || attr.page_path);
+    }
     if (!out.submitted_at) out.submitted_at = new Date().toISOString();
     return out;
   }
