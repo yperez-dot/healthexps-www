@@ -712,16 +712,16 @@ img { max-width: 100%; height: auto; }
                   </div>
                   <input placeholder="Número de Teléfono" id="v4Phone" name="phone" value="" style="width:100%;box-sizing:border-box;padding:13px 14px;border-radius:10px;border:2px solid #ddd2e6;font-size:16px;margin-bottom:12px"/>
                   <input placeholder="Correo Electrónico" id="v4Email" name="email" value="" style="width:100%;box-sizing:border-box;padding:13px 14px;border-radius:10px;border:2px solid #ddd2e6;font-size:16px;margin-bottom:12px"/>
-                  <select id="v4Coverage" name="coverage_type" style="width:100%;box-sizing:border-box;padding:13px 14px;border-radius:10px;border:2px solid #ddd2e6;font-size:16px;margin-bottom:16px;font-family:Inter,sans-serif;color:#241a30">
+                  <select id="v4Coverage" name="coverage_type" required style="width:100%;box-sizing:border-box;padding:13px 14px;border-radius:10px;border:2px solid #ddd2e6;font-size:16px;margin-bottom:16px;font-family:Inter,sans-serif;color:#241a30">
                     <option value="">¿Qué estás buscando?</option>
-                    <option value="medicare">Medicare — Advantage o Suplementario</option>
-                    <option value="aca">Plan del Mercado (ACA)</option>
-                    <option value="private">Seguro Médico Privado</option>
-                    <option value="life">Seguro de Vida</option>
-                    <option value="final-expense">Seguro de Gastos Finales</option>
-                    <option value="dental">Dental y Visión</option>
-                    <option value="notsure">No estoy seguro — ayúdenme a comparar</option>
-                    <option value="under65">Tengo menos de 65 — no sé qué necesito</option>
+                    <option value="Medicare — Advantage o Suplementario">Medicare — Advantage o Suplementario</option>
+                    <option value="Plan del Mercado (ACA)">Plan del Mercado (ACA)</option>
+                    <option value="Seguro Médico Privado">Seguro Médico Privado</option>
+                    <option value="Seguro de Vida">Seguro de Vida</option>
+                    <option value="Seguro de Gastos Finales">Seguro de Gastos Finales</option>
+                    <option value="Dental y Visión">Dental y Visión</option>
+                    <option value="No estoy seguro — ayúdenme a comparar">No estoy seguro — ayúdenme a comparar</option>
+                    <option value="Tengo menos de 65 — no sé qué necesito">Tengo menos de 65 — no sé qué necesito</option>
                   </select>
                   <label style="display:flex;gap:10px;align-items:flex-start;font-size:16px;line-height:1.5;margin-bottom:18px;cursor:pointer">
                     <input type="checkbox" id="v4Consent" style="margin-top:3px"/>
@@ -729,7 +729,7 @@ img { max-width: 100%; height: auto; }
                   </label>
                   <p id="v4Error" style="display:none;color:#c40074;font-size:16px;margin-bottom:8px;">Por favor completa todos los campos requeridos.</p>
                   <button id="v4Submit" type="submit" style="background:#ff1090;color:#fff;width:100%;padding:15px;border-radius:12px;border:none;font-size:18px;font-weight:700;cursor:pointer;font-family:Poppins,sans-serif;">Agendar Consulta Gratis →</button>
-                </div>
+                </form>
               </div>
               <div id="v4Success" style="display:none;text-align:center;padding:24px 8px"><div style="width:56px;height:56px;border-radius:50%;background:#452068;display:flex;align-items:center;justify-content:center;margin:0 auto 18px"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.4"><path d="M5 12l4 4 10-10"/></svg></div><h3 style="font-family:Poppins,sans-serif;font-size:22px;margin:0 0 10px;color:#241a30">¡Gracias — recibimos tu solicitud!</h3><p style="color:#3a2f47;font-size:18px;margin:0 0 22px">Una corredora bilingüe con licencia se comunicará en breve. ¿Necesitas hablarnos antes?</p><div style="display:flex;gap:10px;justify-content:center;flex-wrap:wrap"><a href="tel:18003806821" style="background:#452068;color:#fff;padding:12px 20px;border-radius:10px;font-weight:700;font-size:17px">Llamar 1-800-380-6821</a><a href="https://wa.me/13054646888" onclick="gtag('event','whatsapp_click',{'page':window.location.pathname})" style="border:2px solid #452068;color:#452068;padding:10px 20px;border-radius:10px;font-weight:700;font-size:17px">WhatsApp</a></div></div>
             </div>
@@ -980,8 +980,13 @@ img { max-width: 100%; height: auto; }
     var covEl = document.getElementById('v4Coverage');
     if (!first || !last || !phone || !email || !coverage || !consent) {
       err.style.display = 'block';
-      err.textContent = 'Por favor completa todos los campos requeridos.';
-      if (!coverage && covEl) covEl.style.border = '2px solid #c40074';
+      err.textContent = !coverage
+        ? 'Por favor seleccione en qué podemos ayudarle.'
+        : 'Por favor completa todos los campos requeridos.';
+      if (!coverage && covEl) {
+        covEl.style.border = '2px solid #c40074';
+        covEl.focus();
+      }
       return;
     }
     if (covEl) covEl.style.border = '2px solid #ddd2e6';
@@ -999,6 +1004,7 @@ img { max-width: 100%; height: auto; }
           phone: phone,
           email: email,
           coverage_type: coverage,
+          looking_for: coverage,
           source: 'Homepage Form',
           page: window.location.href,
           submitted_at: new Date().toISOString()

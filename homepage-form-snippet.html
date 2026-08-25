@@ -114,8 +114,10 @@ document.getElementById('homepage-lead-form').addEventListener('submit', async f
   // Validate
   if (!firstName || !lastName || !phone || !email || !coverageType) {
     alert(window.location.pathname.includes('/es/') 
-      ? 'Por favor completa todos los campos.' 
-      : 'Please fill in all fields.');
+      ? (!coverageType ? 'Por favor seleccione en qué podemos ayudarle.' : 'Por favor completa todos los campos.')
+      : (!coverageType ? 'Please select what you need help with.' : 'Please fill in all fields.'));
+    const cov = document.getElementById('form-coverage-type');
+    if (!coverageType && cov) { cov.style.borderColor = '#c40074'; cov.focus(); }
     return;
   }
   
@@ -130,6 +132,7 @@ document.getElementById('homepage-lead-form').addEventListener('submit', async f
     email: email,
     phone: phone,
     coverage_type: coverageType,
+    looking_for: coverageType,
     lang: window.location.pathname.includes('/es/') ? 'spanish' : 'english',
     source: 'Homepage Form',
     page: window.location.href,

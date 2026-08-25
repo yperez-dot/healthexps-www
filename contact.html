@@ -761,7 +761,14 @@ img { max-width: 100%; height: auto; }
 
     if (!coverage || !first || !last || !phone || !email) {
       errEl.style.display = 'block';
-      errEl.textContent = 'Please fill in all required fields.';
+      errEl.textContent = !coverage
+        ? 'Please select what you need help with.'
+        : 'Please fill in all required fields.';
+      var covEl = document.getElementById('cCoverage');
+      if (!coverage && covEl) {
+        covEl.style.border = '2px solid #c40074';
+        covEl.focus();
+      }
       return;
     }
     if (!FormSpamGuard.isValidUsPhone(phone)) {
@@ -777,6 +784,8 @@ img { max-width: 100%; height: auto; }
     var payload = Object.assign({}, fields, guard.meta(), {
       source_key: 'en-contact',
       source: 'Contact Page Form',
+      coverage_type: coverage,
+      looking_for: coverage,
       page: window.location.href,
       submitted_at: new Date().toISOString(),
       sms_informational: infoConsent,

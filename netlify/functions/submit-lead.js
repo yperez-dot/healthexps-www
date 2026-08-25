@@ -140,6 +140,45 @@ function looksLikeBotName(first, last) {
   return false;
 }
 
+/** Field names used across EN/ES contact & lead forms for “what do you need?” */
+const LOOKING_FOR_KEYS = [
+  'coverage_type',
+  'looking_for',
+  'contact_reason',
+  'interest',
+  'reason',
+  'private_reason',
+  'aca_reason',
+  'help_with',
+  'aep_plan_type',
+];
+
+/**
+ * Webhooks that are quizzes/calculators — may not include a looking-for select.
+ * All other full contact leads must include one.
+ */
+const EXEMPT_LOOKING_FOR_WEBHOOKS = new Set([
+  'c3ed8125-4847-4ebb-aca6-a5aa7817b557', // quiz / find-my-plan EN
+  'd36da03c-e92a-424a-9767-babcc77e884f', // quiz / find-my-plan ES
+  'e656a512-d15b-409c-924d-bb3d4627ed9f', // buscador-de-planes
+  '961af3bd-5a04-415f-9c59-6ada70219a4f', // life insurance calculator
+]);
+
+function extractLookingFor(data) {
+  for (const key of LOOKING_FOR_KEYS) {
+    const value = String(data[key] || '').trim();
+    if (value) return value;
+  }
+  return '';
+}
+
+function isFullContactLead(data) {
+  const first = String(data.first_name || data.firstName || '').trim();
+  const last = String(data.last_name || data.lastName || '').trim();
+  const phone = String(data.phone || data.phone_number || '').trim();
+  return Boolean(first && last && phone);
+}
+
 function isAllowedOrigin(event) {
   const origin = event.headers.origin || '';
   const referer = event.headers.referer || event.headers.referrer || '';
@@ -209,6 +248,12 @@ function buildForwardPayload(data) {
   if (data.phone || data.phone_number) {
     out.phone = normalizePhone(data.phone || data.phone_number);
   }
+  // Normalize so GHL “Looking for” always receives a value regardless of form field name
+  const looking = extractLookingFor(data);
+  if (looking) {
+    out.coverage_type = looking;
+    out.looking_for = looking;
+  }
   out.submitted_at = out.submitted_at || new Date().toISOString();
   out.page = out.page || '';
   return out;
@@ -252,6 +297,16 @@ exports.handler = async (event) => {
   const spamReason = assessSpam(data);
   if (spamReason) {
     return okFiltered(spamReason);
+  }
+
+  // Full name+phone leads must say what they need help with (blocks empty “Looking for”)
+  if (
+    !EXEMPT_LOOKING_FOR_WEBHOOKS.has(webhookId) &&
+    isFullContactLead(data) &&
+    !extractLookingFor(data)
+  ) {
+    console.log('[submit-lead] rejected: missing_looking_for');
+    return json(400, { ok: false, error: 'missing_looking_for' });
   }
 
   const payload = buildForwardPayload(data);

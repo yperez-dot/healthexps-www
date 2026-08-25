@@ -1190,14 +1190,14 @@ src="https://www.facebook.com/tr?id=3257807051192879&ev=PageView&noscript=1"/></
                   <input placeholder="Email Address" id="v4Email" name="email" value="" style="width:100%;box-sizing:border-box;padding:13px 14px;border-radius:10px;border:2px solid #ddd2e6;font-size:16px;margin-bottom:12px"/>
                   <select id="v4Coverage" name="coverage_type" required style="width:100%;box-sizing:border-box;padding:13px 14px;border-radius:10px;border:2px solid #ddd2e6;font-size:16px;margin-bottom:16px;font-family:Inter,sans-serif;color:#241a30">
                     <option value="">What are you looking for?</option>
-                    <option value="medicare">Medicare — Advantage or Supplement</option>
-                    <option value="aca">ACA Marketplace Plan</option>
-                    <option value="private">Private Health Insurance</option>
-                    <option value="life">Life Insurance</option>
-                    <option value="final-expense">Final Expense / Burial Insurance</option>
-                    <option value="dental">Dental &amp; Vision</option>
-                    <option value="notsure">Not sure — help me compare</option>
-                    <option value="under65">Under 65 — not sure what I need</option>
+                    <option value="Medicare — Advantage or Supplement">Medicare — Advantage or Supplement</option>
+                    <option value="ACA Marketplace Plan">ACA Marketplace Plan</option>
+                    <option value="Private Health Insurance">Private Health Insurance</option>
+                    <option value="Life Insurance">Life Insurance</option>
+                    <option value="Final Expense / Burial Insurance">Final Expense / Burial Insurance</option>
+                    <option value="Dental &amp; Vision">Dental &amp; Vision</option>
+                    <option value="Not sure — help me compare">Not sure — help me compare</option>
+                    <option value="Under 65 — not sure what I need">Under 65 — not sure what I need</option>
                   </select>
                   <label style="display:flex;gap:10px;align-items:flex-start;font-size:16px;line-height:1.5;margin-bottom:18px;cursor:pointer">
                     <input type="checkbox" id="v4Consent" style="margin-top:3px"/>
@@ -1205,7 +1205,7 @@ src="https://www.facebook.com/tr?id=3257807051192879&ev=PageView&noscript=1"/></
                   </label>
                   <p id="v4Error" style="display:none;color:#c40074;font-size:16px;margin-bottom:8px;">Please fill in all required fields.</p>
                   <button id="v4Submit" type="submit" style="background:#ff1090;color:#fff;width:100%;padding:15px;border-radius:12px;border:none;font-size:18px;font-weight:700;cursor:pointer;font-family:Poppins,sans-serif;">Book My Free Consultation →</button>
-                </div>
+                </form>
               </div>
               <div id="v4Success" style="display:none;text-align:center;padding:24px 8px"><div style="width:56px;height:56px;border-radius:50%;background:#452068;display:flex;align-items:center;justify-content:center;margin:0 auto 18px"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.4"><path d="M5 12l4 4 10-10"/></svg></div><h3 style="font-family:Poppins,sans-serif;font-size:22px;margin:0 0 10px;color:#241a30">Thank you — we've got your request!</h3><p style="color:#3a2f47;font-size:18px;margin:0 0 22px">A licensed bilingual agent will reach out shortly. Need us sooner?</p><div style="display:flex;gap:10px;justify-content:center;flex-wrap:wrap"><a href="tel:18003806821" style="background:#452068;color:#fff;padding:12px 20px;border-radius:10px;font-weight:700;font-size:17px">Call 1-800-380-6821</a><a href="https://wa.me/13054646888" onclick="gtag('event','whatsapp_click',{'page':window.location.pathname})" style="border:2px solid #452068;color:#452068;padding:10px 20px;border-radius:10px;font-weight:700;font-size:17px">WhatsApp Us</a></div></div>
             </div>
@@ -1461,8 +1461,13 @@ src="https://www.facebook.com/tr?id=3257807051192879&ev=PageView&noscript=1"/></
     var covEl = document.getElementById('v4Coverage');
     if (!first || !last || !phone || !email || !coverage || !consent) {
       err.style.display = 'block';
-      err.textContent = 'Please fill in all required fields.';
-      if (!coverage && covEl) covEl.style.border = '2px solid #c40074';
+      err.textContent = !coverage
+        ? 'Please select what you need help with.'
+        : 'Please fill in all required fields.';
+      if (!coverage && covEl) {
+        covEl.style.border = '2px solid #c40074';
+        covEl.focus();
+      }
       return;
     }
     if (covEl) covEl.style.border = '2px solid #ddd2e6';
@@ -1480,6 +1485,7 @@ src="https://www.facebook.com/tr?id=3257807051192879&ev=PageView&noscript=1"/></
           phone: phone,
           email: email,
           coverage_type: coverage,
+          looking_for: coverage,
           source: 'Homepage Form',
           page: window.location.href,
           submitted_at: new Date().toISOString()

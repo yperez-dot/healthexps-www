@@ -574,7 +574,17 @@ for(var k=0;k<_navLinks.length;k++){
     }
 
     if (!fields.first_name || !fields.last_name || !fields.phone || !fields.email || !fields.contact_reason) {
-      if (errEl) { errEl.style.display = 'block'; errEl.textContent = 'Por favor complete todos los campos requeridos.'; }
+      if (errEl) {
+        errEl.style.display = 'block';
+        errEl.textContent = !fields.contact_reason
+          ? 'Por favor seleccione en qué podemos ayudarle.'
+          : 'Por favor complete todos los campos requeridos.';
+      }
+      var reasonEl = document.getElementById('contact_reason_es');
+      if (!fields.contact_reason && reasonEl) {
+        reasonEl.style.border = '2px solid #c40074';
+        reasonEl.focus();
+      }
       return;
     }
     if (!FormSpamGuard.isValidUsPhone(fields.phone)) {
@@ -587,6 +597,8 @@ for(var k=0;k<_navLinks.length;k++){
     var payload = Object.assign({}, fields, guard.meta(), {
       source_key: 'es-contact',
       source: 'NEW CONTACT PAGE SPANISH LEAD',
+      coverage_type: fields.contact_reason,
+      looking_for: fields.contact_reason,
       page: window.location.href,
       submitted_at: new Date().toISOString()
     });
