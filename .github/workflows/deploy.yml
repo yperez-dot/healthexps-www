@@ -9,10 +9,63 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - name: Deploy to Netlify
-        uses: netlify/actions/cli@master
+
+      - uses: actions/setup-node@v4
         with:
-          args: deploy --dir=. --prod
+          node-version: "20"
+          cache: npm
+
+      - name: Install and build
+        run: |
+          npm ci
+          npx @11ty/eleventy
+
+      - name: Verify build output
+        run: |
+          set -euo pipefail
+          test -f _site/index.html
+          test -f _site/_redirects
+          test -f _site/js/form-spam-guard.js
+          test -f _site/blog/unlocking-the-secrets-finding-preventative-services-under-medicare/index.html
+          echo "Build OK: $(find _site -type f | wc -l) files"
+
+      - name: Deploy to Netlify
         env:
           NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
           NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
+          NETLIFY_BUILD_HOOK_URL: ${{ secrets.NETLIFY_BUILD_HOOK_URL }}
+        run: |
+          set -euo pipefail
+
+          deploy_cli() {
+            npx --yes netlify-cli deploy \
+              --dir=_site \
+              --functions=netlify/functions \
+              --prod \
+              --message "GitHub Actions ${GITHUB_SHA::7}"
+          }
+
+          if [ -n "${NETLIFY_AUTH_TOKEN:-}" ] && [ -n "${NETLIFY_SITE_ID:-}" ]; then
+            echo "Attempting CLI deploy of _site..."
+            if deploy_cli; then
+              echo "CLI deploy succeeded"
+              exit 0
+            fi
+            echo "::warning::CLI deploy failed (often an expired NETLIFY_AUTH_TOKEN). Falling back to build hook."
+          else
+            echo "::warning::NETLIFY_AUTH_TOKEN or NETLIFY_SITE_ID missing. Using build hook."
+          fi
+
+          if [ -z "${NETLIFY_BUILD_HOOK_URL:-}" ]; then
+            echo "::error::Deploy failed. Refresh NETLIFY_AUTH_TOKEN / NETLIFY_SITE_ID, or set NETLIFY_BUILD_HOOK_URL."
+            exit 1
+          fi
+
+          code=$(curl -sS -o /tmp/hook.out -w "%{http_code}" -X POST "$NETLIFY_BUILD_HOOK_URL")
+          echo "Build hook HTTP $code"
+          cat /tmp/hook.out || true
+          if [ "$code" != "200" ] && [ "$code" != "201" ]; then
+            echo "::error::Build hook failed with HTTP $code"
+            exit 1
+          fi
+          echo "Build hook triggered successfully"
