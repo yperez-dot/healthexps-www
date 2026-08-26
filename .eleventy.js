@@ -5,7 +5,7 @@ module.exports = function (eleventyConfig) {
   const internalDocs = [
     'HOMEPAGE-RULES.md', 'IGOR_README.md', 'NEW-PAGE-CHECKLIST.md',
     'PENDING_DEPLOY.md', 'README.md', 'competitor-gap-analysis-2026-07-05.md',
-    'seo-audit-2026-07-05.md'
+    'seo-audit-2026-07-05.md', 'seo-health-2026-08-26.md'
   ];
   internalDocs.forEach(f => eleventyConfig.ignores.add(f));
   // Safety net: ignore all caps .md files and any file with internal markers
