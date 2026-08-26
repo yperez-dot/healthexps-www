@@ -2,6 +2,7 @@ README.md
 IGOR_README.md
 node_modules/
 _site/
+scripts/
 *.py
 *.sh
 *.backup

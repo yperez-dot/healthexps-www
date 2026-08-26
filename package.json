@@ -4,7 +4,8 @@
   "description": "healthexps.com static site with Eleventy blog",
   "scripts": {
     "build": "npx @11ty/eleventy",
-    "dev": "npx @11ty/eleventy --serve"
+    "dev": "npx @11ty/eleventy --serve",
+    "test": "node scripts/test-blog-date-gate.js"
   },
   "devDependencies": {
     "@11ty/eleventy": "^2.0.1",
