@@ -69,4 +69,9 @@
 /post/smart-ways-to-save-money-during-medicare-enrollment-budgeting-tips  /medicare/medicare-costs  301
 /post/cost-comparisons-mapd-vs-original-medicare-making-the-right-choice-for-your-health-insurance  /medicare-advantage-miami  301
 
-# Broker page consolidation — keep /medical-insurance-broker, fold /independent in (2026-07-15)
+# Broker page consolidation — keep /medical-insurance-broker, fold /independent in (2026-08-26)
+/independent-health-insurance-broker  /medical-insurance-broker/  301
+/independent-health-insurance-broker/  /medical-insurance-broker/  301
+/post/the-vital-need-for-timely-medicare-enrollment-sidestepping-penalties  /medicare-enrollment-periods  301
+/turning-65-medicare-miami  /medicare/new-to-medicare/  301
+/turning-65-medicare-miami/  /medicare/new-to-medicare/  301

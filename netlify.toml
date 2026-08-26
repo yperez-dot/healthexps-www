@@ -635,8 +635,51 @@
   status = 301
   force = true
 
+# Duplicate broker URL — keep /medical-insurance-broker (ranks for "health insurance broker miami")
+[[redirects]]
+  from = "/independent-health-insurance-broker"
+  to = "/medical-insurance-broker/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/independent-health-insurance-broker/"
+  to = "/medical-insurance-broker/"
+  status = 301
+  force = true
+
+# Leftover Wix slug still in Google results (Aug 26 health check)
+[[redirects]]
+  from = "/post/the-vital-need-for-timely-medicare-enrollment-sidestepping-penalties"
+  to = "/medicare-enrollment-periods"
+  status = 301
+  force = true
+
+# Turning 65 alias → existing new-to-medicare URL (retargeted Aug 26)
+[[redirects]]
+  from = "/turning-65-medicare-miami"
+  to = "/medicare/new-to-medicare/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/turning-65-medicare-miami/"
+  to = "/medicare/new-to-medicare/"
+  status = 301
+  force = true
+
 # 404 handler — serve 404.html for any unmatched route (replaces the 200 catch-all that was silently serving homepage content)
 [[redirects]]
   from = "/*"
   to = "/404.html"
   status = 404
+
+[[headers]]
+  for = "/*-preview.html"
+  [headers.values]
+    X-Robots-Tag = "noindex, nofollow"
+
+[[headers]]
+  for = "/es/*-preview.html"
+  [headers.values]
+    X-Robots-Tag = "noindex, nofollow"
