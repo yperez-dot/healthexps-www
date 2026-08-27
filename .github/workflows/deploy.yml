@@ -18,6 +18,7 @@ jobs:
       - name: Install and build
         run: |
           npm ci
+          npm test
           npx @11ty/eleventy
 
       - name: Verify build output
@@ -27,6 +28,8 @@ jobs:
           test -f _site/_redirects
           test -f _site/js/form-spam-guard.js
           test -f _site/blog/unlocking-the-secrets-finding-preventative-services-under-medicare/index.html
+          test -f _site/blog/term-vs-whole-vs-final-expense-life-insurance/index.html
+          node scripts/assert-no-future-blog-cards.js
           echo "Build OK: $(find _site -type f | wc -l) files"
 
       - name: Deploy to Netlify

@@ -1,4 +1,9 @@
 const markdownIt = require("markdown-it");
+const {
+  isFuturePublishDate,
+  isBlogListingOutput,
+  stripFutureBlogCards,
+} = require("./scripts/blog-dates");
 
 module.exports = function (eleventyConfig) {
   // Internal docs — never publish these as public pages
@@ -28,21 +33,30 @@ module.exports = function (eleventyConfig) {
   // Needed when publish dir is _site (CLI deploy + Netlify git builds)
   eleventyConfig.addPassthroughCopy("_redirects");
 
-  // ── Collections (future-dated posts filtered at build time) ───────────────
+  // ── Collections (future-dated posts filtered at build time, ET calendar) ──
   const now = new Date();
 
   eleventyConfig.addCollection("blog", function (api) {
     return api
       .getFilteredByGlob("blog/*.md")
-      .filter((p) => p.date <= now)
+      .filter((p) => !isFuturePublishDate(p.date, now))
       .sort((a, b) => b.date - a.date);
   });
 
   eleventyConfig.addCollection("blogEs", function (api) {
     return api
       .getFilteredByGlob("es/blog/*.md")
-      .filter((p) => p.date <= now)
+      .filter((p) => !isFuturePublishDate(p.date, now))
       .sort((a, b) => b.date - a.date);
+  });
+
+  // /blog/ and /es/blog/ are static HTML with hardcoded cards (legacy posts
+  // are .html-only, so the listing cannot be generated from collections).
+  // Strip cards whose .card-date is still in the future so scheduled posts
+  // can live in the source listing without leaking onto the live site.
+  eleventyConfig.addTransform("hideFutureBlogCards", function (content, outputPath) {
+    if (!isBlogListingOutput(outputPath)) return content;
+    return stripFutureBlogCards(content, now);
   });
 
   // ── Date display filters ───────────────────────────────────────────────────
