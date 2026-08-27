@@ -57,9 +57,45 @@ img{max-width:100%;height:auto;}
 .period-item.purple-bg{background:#452068;color:#fff;border-color:#452068;border-radius:14px 14px 4px 4px;}
 .period-item.first-rounded-bottom{border-radius:4px;}
 .period-item.last-rounded-bottom{border-radius:4px 4px 14px 14px;}
-@media(max-width:900px){.v4-nav-desktop{display:none!important;}.v4-nav-mobile-btn{display:flex!important;align-items:center;}.plan-card-grid{grid-template-columns:1fr!important;}.who-grid{grid-template-columns:1fr!important;}.steps-grid{grid-template-columns:1fr!important;}.why-grid{grid-template-columns:repeat(2,1fr)!important;}.reviews-grid{grid-template-columns:repeat(2,1fr)!important;}}
-@media(max-width:768px){.top-bar-inner{padding-left:20px!important;padding-right:20px!important;}.v4-nav-outer{padding-left:20px!important;padding-right:20px!important;}.reviews-grid{grid-template-columns:1fr!important;}.why-grid{grid-template-columns:1fr!important;}.form-grid{grid-template-columns:1fr!important;}}
-@media(max-width:480px){.hero-btns{flex-direction:column!important;align-items:flex-start!important;}.final-cta-btns{flex-direction:column!important;align-items:center!important;}}
+.compare-grid-2col{display:grid;grid-template-columns:1fr 1fr;gap:20px;}
+.compare-grid-2col > div{min-width:0;}
+.enroll-grid{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:start;}
+.form-name-row{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:12px;}
+.compare-box{background:#f7f2fb;border-left:4px solid #452068;border-radius:16px;padding:28px 32px;margin-bottom:40px;}
+.stat-strip{background:#452068;color:#fff;padding:30px 56px;display:flex;justify-content:space-around;flex-wrap:wrap;gap:20px;}
+.page-crumb{background:#f7f2fb;padding:10px 56px;border-bottom:1px solid #ece5f0;font-size:16px;color:#3a2f47;}
+@media(max-width:900px){
+  .v4-nav-desktop{display:none!important;}
+  .v4-nav-mobile-btn{display:flex!important;align-items:center;}
+  .plan-card-grid{grid-template-columns:1fr!important;}
+  .who-grid{grid-template-columns:1fr!important;}
+  .steps-grid{grid-template-columns:1fr!important;}
+  .why-grid{grid-template-columns:repeat(2,1fr)!important;}
+  .reviews-grid{grid-template-columns:repeat(2,1fr)!important;}
+  .compare-grid-2col{grid-template-columns:1fr!important;}
+  .enroll-grid{grid-template-columns:1fr!important;gap:32px!important;}
+}
+@media(max-width:768px){
+  .top-bar-inner{padding-left:20px!important;padding-right:20px!important;}
+  .v4-nav-outer{padding-left:20px!important;padding-right:20px!important;}
+  .page-crumb{padding-left:20px!important;padding-right:20px!important;}
+  .ms-section{padding-left:20px!important;padding-right:20px!important;padding-top:40px!important;padding-bottom:40px!important;}
+  .stat-strip{padding:24px 20px!important;display:grid!important;grid-template-columns:1fr 1fr;gap:16px!important;}
+  .compare-box{padding:20px 16px!important;}
+  .reviews-grid{grid-template-columns:1fr!important;}
+  .why-grid{grid-template-columns:1fr!important;}
+  .form-name-row,.form-grid{grid-template-columns:1fr!important;}
+  #footer-grid{grid-template-columns:1fr 1fr!important;gap:24px!important;}
+  #site-footer{padding:40px 20px 24px!important;}
+  .ms-form-card{padding:24px 18px!important;}
+}
+@media(max-width:480px){
+  .hero-btns{flex-direction:column!important;align-items:center!important;}
+  .final-cta-btns{flex-direction:column!important;align-items:center!important;}
+  .stat-strip{grid-template-columns:1fr 1fr!important;}
+  #footer-grid{grid-template-columns:1fr!important;}
+  .btn-pink,.btn-outline-purple{width:100%;justify-content:center;}
+}
 </style>
 </head>
 <body>
@@ -172,7 +208,7 @@ img{max-width:100%;height:auto;}
 <div>
 
 <!-- BREADCRUMB -->
-<div style="background:#f7f2fb;padding:10px 56px;border-bottom:1px solid #ece5f0;font-size:16px;color:#3a2f47">
+<div class="page-crumb">
   <div style="max-width:1160px;margin:0 auto">
     <a href="/es/" style="font-weight:600;color:#452068">Inicio</a>
     <span style="margin:0 6px;color:#5a5068">/</span>
@@ -183,7 +219,7 @@ img{max-width:100%;height:auto;}
 </div>
 
 <!-- HERO -->
-<section style="background:linear-gradient(135deg,#fdfaf7 0%,#f7f2fb 100%);padding:72px 56px 60px">
+<section class="ms-section" style="background:linear-gradient(135deg,#fdfaf7 0%,#f7f2fb 100%);padding:72px 56px 60px">
   <div style="max-width:760px;margin:0 auto;text-align:center">
     <div style="display:inline-flex;align-items:center;gap:8px;background:#fff0f8;color:#c40074;padding:8px 16px;border-radius:999px;font-size:16px;font-weight:700;margin-bottom:20px">
       <span style="width:7px;height:7px;border-radius:50%;background:#ff1090;display:inline-block"></span>
@@ -205,7 +241,7 @@ img{max-width:100%;height:auto;}
 </section>
 
 <!-- STAT STRIP -->
-<div style="background:#452068;color:#fff;padding:30px 56px;display:flex;justify-content:space-around;flex-wrap:wrap;gap:20px">
+<div class="stat-strip">
   <div style="text-align:center"><div style="font-family:Poppins,sans-serif;font-weight:700;font-size:28px">$283</div><div style="font-size:16px;opacity:.8;margin-top:4px">Deducible Parte B (Plan G, 2026)</div></div>
   <div style="text-align:center"><div style="font-family:Poppins,sans-serif;font-weight:700;font-size:28px">10+</div><div style="font-size:16px;opacity:.8;margin-top:4px">aseguradoras comparadas</div></div>
   <div style="text-align:center"><div style="font-family:Poppins,sans-serif;font-weight:700;font-size:28px">$0</div><div style="font-size:16px;opacity:.8;margin-top:4px">costo para usted</div></div>
@@ -213,16 +249,16 @@ img{max-width:100%;height:auto;}
 </div>
 
 <!-- QUÉ ES MEDIGAP -->
-<section style="background:#fff;padding:72px 56px">
+<section class="ms-section" style="background:#fff;padding:72px 56px">
   <div style="max-width:1100px;margin:0 auto">
     <span class="eyebrow">En palabras sencillas</span>
     <h2 style="font-family:Poppins,sans-serif;font-size:clamp(22px,3vw,30px);font-weight:700;color:#241a30;margin:0 0 12px">¿Qué es Medicare Suplementario (Medigap)?</h2>
     <p style="color:#3a2f47;font-size:16px;line-height:1.7;margin:0 0 28px;max-width:750px">Medicare Suplementario, también conocido como Medigap, es una póliza privada que trabaja junto con Medicare Original (Partes A y B) para cubrir las "brechas" de costo que Medicare no paga: deducibles, coaseguros y copagos. A diferencia de Medicare Advantage, Medigap no reemplaza a Medicare &mdash; trabaja junto con él. Puede ver cualquier médico en todo el país que acepte Medicare, sin necesidad de derivaciones ni redes restringidas.</p>
 
-    <div style="background:#f7f2fb;border-left:4px solid #452068;border-radius:16px;padding:28px 32px;margin-bottom:40px">
+    <div class="compare-box">
       <h3 style="font-family:Poppins,sans-serif;font-weight:700;font-size:18px;color:#241a30;margin-bottom:14px">¿Por qué elegir Medigap en lugar de Medicare Advantage?</h3>
-      <div style="display:grid;grid-template-columns:1fr 1fr;gap:20px" class="compare-grid-2col">
-        <div>
+      <div class="compare-grid-2col">
+        <div style="background:#fff;border-radius:12px;padding:18px">
           <div style="font-weight:700;font-size:17px;color:#241a30;margin-bottom:10px;padding-bottom:6px;border-bottom:1px solid #ece5f0">Medicare Advantage</div>
           <div style="display:flex;flex-direction:column;gap:8px;font-size:17px;color:#3a2f47">
             <div>✓ Frecuentemente $0 prima</div>
@@ -295,7 +331,7 @@ img{max-width:100%;height:auto;}
 </section>
 
 <!-- ¿PARA QUIÉN ES MEDIGAP? -->
-<section style="background:#fdfaf7;padding:72px 56px">
+<section class="ms-section" style="background:#fdfaf7;padding:72px 56px">
   <div style="max-width:1000px;margin:0 auto">
     <h2 style="text-align:center;font-family:Poppins,sans-serif;font-size:clamp(22px,3vw,28px);font-weight:700;color:#241a30;margin:0 0 8px">¿Es Medigap la opción correcta para usted?</h2>
     <p style="text-align:center;color:#3a2f47;font-size:18px;margin:0 0 36px;line-height:1.6">Medicare Suplementario tiende a ser la mejor opción si alguna de estas situaciones aplica a su caso.</p>
@@ -321,8 +357,8 @@ img{max-width:100%;height:auto;}
 </section>
 
 <!-- INSCRIPCIÓN Y SUSCRIPCIÓN -->
-<section style="background:#fff;padding:72px 56px">
-  <div style="max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:start" class="enroll-grid">
+<section class="ms-section" style="background:#fff;padding:72px 56px">
+  <div class="enroll-grid" style="max-width:1100px;margin:0 auto">
     <div>
       <div style="color:#c40074;font-weight:700;font-size:16px;letter-spacing:.08em;margin-bottom:12px">SUSCRIPCIÓN</div>
       <h2 style="font-family:Poppins,sans-serif;font-weight:700;font-size:clamp(20px,2.5vw,26px);color:#241a30;margin:0 0 14px">¿Cuándo puede inscribirse sin preguntas de salud?</h2>
@@ -393,7 +429,7 @@ img{max-width:100%;height:auto;}
 </section>
 
 <!-- ASEGURADORAS -->
-<section style="background:#fdfaf7;padding:56px 56px">
+<section class="ms-section" style="background:#fdfaf7;padding:56px 56px">
   <div style="max-width:1100px;margin:0 auto">
     <h2 style="font-family:Poppins,sans-serif;font-size:clamp(18px,3vw,22px);font-weight:700;color:#241a30;margin:0 0 8px">Comparamos todas las aseguradoras en Florida</h2>
     <p style="color:#3a2f47;font-size:17px;margin:0 0 20px">Debido a que todas las letras de plan están estandarizadas, el único trabajo es encontrar el precio más bajo. Las compramos todas.</p>
@@ -412,7 +448,7 @@ img{max-width:100%;height:auto;}
 </section>
 
 <!-- PREGUNTAS FRECUENTES -->
-<section style="background:#fff;padding:72px 56px">
+<section class="ms-section" style="background:#fff;padding:72px 56px">
   <div style="max-width:780px;margin:0 auto">
     <span class="eyebrow">Preguntas frecuentes</span>
     <h2 style="font-family:Poppins,sans-serif;font-size:clamp(22px,3vw,28px);font-weight:700;color:#241a30;margin:0 0 32px;text-align:center">Lo que más nos preguntan sobre Medicare Suplementario</h2>
@@ -463,8 +499,8 @@ img{max-width:100%;height:auto;}
 </section>
 
 <!-- FORMULARIO -->
-<div id="ms-form" style="background:#f7f2fb;padding:72px 56px">
-  <div style="max-width:560px;margin:0 auto;background:#fff;border-radius:22px;padding:34px;box-shadow:0 20px 50px rgba(69,32,104,.12)">
+<div id="ms-form" class="ms-section" style="background:#f7f2fb;padding:72px 56px">
+  <div class="ms-form-card" style="max-width:560px;margin:0 auto;background:#fff;border-radius:22px;padding:34px;box-shadow:0 20px 50px rgba(69,32,104,.12)">
     <div id="msFormBody">
       <div style="text-align:center;margin-bottom:22px">
         <div style="font-family:Poppins,sans-serif;font-weight:700;font-size:20px;color:#241a30;margin-bottom:6px">Compare Planes Medicare Suplementario</div>
@@ -483,7 +519,7 @@ img{max-width:100%;height:auto;}
             <option value="Not sure">No sé &mdash; ayúdeme a comparar</option>
           </select>
         </div>
-        <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:12px">
+        <div class="form-name-row">
           <div>
             <label style="display:block;font-size:17px;font-weight:700;color:#241a30;margin-bottom:6px">Nombre <span style="color:#c40074">*</span></label>
             <input type="text" id="msFirst" name="first_name" placeholder="Su nombre" required style="width:100%;box-sizing:border-box;padding:13px 14px;border-radius:10px;border:2px solid #ddd2e6;font-size:16px;font-family:Inter,sans-serif"/>
@@ -528,7 +564,7 @@ img{max-width:100%;height:auto;}
 </div>
 
 <!-- CTA FINAL -->
-<div style="background:linear-gradient(135deg,#452068 0%,#5a2a86 100%);padding:72px 56px;text-align:center;color:#fff">
+<div class="ms-section" style="background:linear-gradient(135deg,#452068 0%,#5a2a86 100%);padding:72px 56px;text-align:center;color:#fff">
   <h2 style="font-family:Poppins,sans-serif;font-size:clamp(22px,3vw,32px);font-weight:700;margin:0 0 12px">¿Listo para encontrar su plan Medigap?</h2>
   <p style="font-size:17px;color:#f0eaf7;margin:0 auto 28px;max-width:480px;line-height:1.65">Nuestros corredores bilingües en Miami comparan cada aseguradora para el precio más bajo en cobertura idéntica &mdash; gratis.</p>
   <div class="final-cta-btns" style="display:flex;gap:14px;justify-content:center;flex-wrap:wrap">
