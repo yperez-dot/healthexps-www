@@ -10,7 +10,7 @@ module.exports = function (eleventyConfig) {
   const internalDocs = [
     'HOMEPAGE-RULES.md', 'IGOR_README.md', 'NEW-PAGE-CHECKLIST.md',
     'PENDING_DEPLOY.md', 'README.md', 'competitor-gap-analysis-2026-07-05.md',
-    'seo-audit-2026-07-05.md'
+    'seo-audit-2026-07-05.md', 'seo-health-2026-08-26.md'
   ];
   internalDocs.forEach(f => eleventyConfig.ignores.add(f));
   // Safety net: ignore all caps .md files and any file with internal markers
@@ -77,6 +77,20 @@ module.exports = function (eleventyConfig) {
       timeZone: "America/New_York",
     })
   );
+
+  // ISO 8601 date for schema.org datePublished / dateModified.
+  // Use UTC calendar date so YAML `2026-07-22` does not shift to the previous day in US timezones.
+  eleventyConfig.addFilter("isoDate", (d) => {
+    if (!d) return "";
+    if (typeof d === "string" && /^\d{4}-\d{2}-\d{2}/.test(d)) {
+      return d.slice(0, 10);
+    }
+    const date = d instanceof Date ? d : new Date(d);
+    const y = date.getUTCFullYear();
+    const m = String(date.getUTCMonth() + 1).padStart(2, "0");
+    const day = String(date.getUTCDate()).padStart(2, "0");
+    return `${y}-${m}-${day}`;
+  });
 
   // ── Eleventy config ────────────────────────────────────────────────────────
   return {
