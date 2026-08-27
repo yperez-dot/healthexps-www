@@ -57,9 +57,52 @@ img{max-width:100%;height:auto;}
 .period-item.purple-bg{background:#452068;color:#fff;border-color:#452068;border-radius:14px 14px 4px 4px;}
 .period-item.first-rounded-bottom{border-radius:4px;}
 .period-item.last-rounded-bottom{border-radius:4px 4px 14px 14px;}
-@media(max-width:900px){.v4-nav-desktop{display:none!important;}.v4-nav-mobile-btn{display:flex!important;align-items:center;}.plan-card-grid{grid-template-columns:1fr!important;}.who-grid{grid-template-columns:1fr!important;}.steps-grid{grid-template-columns:1fr!important;}.why-grid{grid-template-columns:repeat(2,1fr)!important;}.reviews-grid{grid-template-columns:repeat(2,1fr)!important;}}
-@media(max-width:768px){.top-bar-inner{padding-left:20px!important;padding-right:20px!important;}.v4-nav-outer{padding-left:20px!important;padding-right:20px!important;}.reviews-grid{grid-template-columns:1fr!important;}.why-grid{grid-template-columns:1fr!important;}.form-grid{grid-template-columns:1fr!important;}}
-@media(max-width:480px){.hero-btns{flex-direction:column!important;align-items:flex-start!important;}.final-cta-btns{flex-direction:column!important;align-items:center!important;}}
+.compare-grid-2col{display:grid;grid-template-columns:1fr 1fr;gap:20px;}
+.compare-grid-2col > div{min-width:0;}
+.enroll-grid{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:start;}
+.form-name-row{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:12px;}
+.compare-box{background:#f7f2fb;border-left:4px solid #452068;border-radius:16px;padding:28px 32px;margin-bottom:40px;}
+.stat-strip{background:#452068;color:#fff;padding:16px 56px 28px;display:flex;justify-content:space-around;flex-wrap:wrap;gap:20px;}
+.page-crumb{background:#f7f2fb;padding:10px 56px;border-bottom:1px solid #ece5f0;font-size:16px;color:#3a2f47;}
+.estimator-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:16px;}
+.learn-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;}
+.table-scroll{overflow-x:auto;-webkit-overflow-scrolling:touch;border-radius:16px;border:1px solid #ece5f0;max-width:100%;}
+.table-scroll table{width:100%;border-collapse:collapse;min-width:700px;font-size:16px;}
+@media(max-width:900px){
+  .v4-nav-desktop{display:none!important;}
+  .v4-nav-mobile-btn{display:flex!important;align-items:center;}
+  .plan-card-grid{grid-template-columns:1fr!important;}
+  .who-grid{grid-template-columns:1fr!important;}
+  .steps-grid{grid-template-columns:1fr!important;}
+  .why-grid{grid-template-columns:repeat(2,1fr)!important;}
+  .reviews-grid{grid-template-columns:repeat(2,1fr)!important;}
+  .compare-grid-2col{grid-template-columns:1fr!important;}
+  .enroll-grid{grid-template-columns:1fr!important;gap:32px!important;}
+  .estimator-grid,.learn-grid{grid-template-columns:1fr!important;}
+}
+@media(max-width:768px){
+  .top-bar-inner{padding-left:20px!important;padding-right:20px!important;}
+  .v4-nav-outer{padding-left:20px!important;padding-right:20px!important;}
+  .page-crumb{padding-left:20px!important;padding-right:20px!important;}
+  .stat-strip-label{padding-left:20px!important;padding-right:20px!important;}
+  .ms-section{padding-left:20px!important;padding-right:20px!important;padding-top:40px!important;padding-bottom:40px!important;}
+  .stat-strip{padding:24px 20px!important;display:grid!important;grid-template-columns:1fr 1fr;gap:16px!important;}
+  .compare-box{padding:20px 16px!important;}
+  .reviews-grid{grid-template-columns:1fr!important;}
+  .why-grid{grid-template-columns:1fr!important;}
+  .form-name-row,.form-grid{grid-template-columns:1fr!important;}
+  #footer-grid{grid-template-columns:1fr 1fr!important;gap:24px!important;}
+  #site-footer{padding:40px 20px 24px!important;}
+  .ms-form-card{padding:24px 18px!important;}
+  .table-scroll{font-size:14px;}
+}
+@media(max-width:480px){
+  .hero-btns{flex-direction:column!important;align-items:center!important;}
+  .final-cta-btns{flex-direction:column!important;align-items:center!important;}
+  .stat-strip{grid-template-columns:1fr 1fr!important;}
+  #footer-grid{grid-template-columns:1fr!important;}
+  .btn-pink,.btn-outline-purple{width:100%;justify-content:center;}
+}
 </style>
 </head>
 <body>
@@ -172,7 +215,7 @@ img{max-width:100%;height:auto;}
 <div>
 
 <!-- BREADCRUMB -->
-<div style="background:#f7f2fb;padding:10px 56px;border-bottom:1px solid #ece5f0;font-size:16px;color:#3a2f47">
+<div class="page-crumb">
   <div style="max-width:1160px;margin:0 auto">
     <a href="/es/" style="font-weight:600;color:#452068">Inicio</a>
     <span style="margin:0 6px;color:#5a5068">/</span>
@@ -183,7 +226,7 @@ img{max-width:100%;height:auto;}
 </div>
 
 <!-- HERO -->
-<section style="background:linear-gradient(135deg,#fdfaf7 0%,#f7f2fb 100%);padding:72px 56px 60px">
+<section class="ms-section" style="background:linear-gradient(135deg,#fdfaf7 0%,#f7f2fb 100%);padding:72px 56px 60px">
   <div style="max-width:760px;margin:0 auto;text-align:center">
     <div style="display:inline-flex;align-items:center;gap:8px;background:#fff0f8;color:#c40074;padding:8px 16px;border-radius:999px;font-size:16px;font-weight:700;margin-bottom:20px">
       <span style="width:7px;height:7px;border-radius:50%;background:#ff1090;display:inline-block"></span>
@@ -204,25 +247,28 @@ img{max-width:100%;height:auto;}
   </div>
 </section>
 
-<!-- STAT STRIP -->
-<div style="background:#452068;color:#fff;padding:30px 56px;display:flex;justify-content:space-around;flex-wrap:wrap;gap:20px">
-  <div style="text-align:center"><div style="font-family:Poppins,sans-serif;font-weight:700;font-size:28px">$283</div><div style="font-size:16px;opacity:.8;margin-top:4px">Deducible Parte B (Plan G, 2026)</div></div>
-  <div style="text-align:center"><div style="font-family:Poppins,sans-serif;font-weight:700;font-size:28px">10+</div><div style="font-size:16px;opacity:.8;margin-top:4px">aseguradoras comparadas</div></div>
-  <div style="text-align:center"><div style="font-family:Poppins,sans-serif;font-weight:700;font-size:28px">$0</div><div style="font-size:16px;opacity:.8;margin-top:4px">costo para usted</div></div>
-  <div style="text-align:center"><div style="font-family:Poppins,sans-serif;font-weight:700;font-size:28px">4.9 ★</div><div style="font-size:16px;opacity:.8;margin-top:4px">calificación en Google</div></div>
+<!-- STAT STRIP — same 2026 glance figures as English -->
+<div style="background:#452068;padding:10px 56px 0;text-align:center;" class="stat-strip-label">
+  <div style="color:#ff90c8;font-weight:700;font-size:14px;letter-spacing:.08em;padding-top:18px;">MEDICARE SUPLEMENTARIO DE UN VISTAZO</div>
+</div>
+<div class="stat-strip">
+  <div style="text-align:center"><div style="font-family:Poppins,sans-serif;font-weight:700;font-size:24px">Cualquier</div><div style="font-size:14.5px;opacity:.8;margin-top:4px">Médico que acepte Medicare &mdash; en todo el país</div></div>
+  <div style="text-align:center"><div style="font-family:Poppins,sans-serif;font-weight:700;font-size:24px">$0</div><div style="font-size:14.5px;opacity:.8;margin-top:4px">Facturas sorpresa con Plan G</div></div>
+  <div style="text-align:center"><div style="font-family:Poppins,sans-serif;font-weight:700;font-size:24px">$80+</div><div style="font-size:14.5px;opacity:.8;margin-top:4px">Prima Plan G Florida desde / mes</div></div>
+  <div style="text-align:center"><div style="font-family:Poppins,sans-serif;font-weight:700;font-size:24px">$0</div><div style="font-size:14.5px;opacity:.8;margin-top:4px">Tarifa de corredor &mdash; comparamos compañías</div></div>
 </div>
 
 <!-- QUÉ ES MEDIGAP -->
-<section style="background:#fff;padding:72px 56px">
+<section class="ms-section" style="background:#fff;padding:72px 56px">
   <div style="max-width:1100px;margin:0 auto">
     <span class="eyebrow">En palabras sencillas</span>
     <h2 style="font-family:Poppins,sans-serif;font-size:clamp(22px,3vw,30px);font-weight:700;color:#241a30;margin:0 0 12px">¿Qué es Medicare Suplementario (Medigap)?</h2>
     <p style="color:#3a2f47;font-size:16px;line-height:1.7;margin:0 0 28px;max-width:750px">Medicare Suplementario, también conocido como Medigap, es una póliza privada que trabaja junto con Medicare Original (Partes A y B) para cubrir las "brechas" de costo que Medicare no paga: deducibles, coaseguros y copagos. A diferencia de Medicare Advantage, Medigap no reemplaza a Medicare &mdash; trabaja junto con él. Puede ver cualquier médico en todo el país que acepte Medicare, sin necesidad de derivaciones ni redes restringidas.</p>
 
-    <div style="background:#f7f2fb;border-left:4px solid #452068;border-radius:16px;padding:28px 32px;margin-bottom:40px">
+    <div class="compare-box">
       <h3 style="font-family:Poppins,sans-serif;font-weight:700;font-size:18px;color:#241a30;margin-bottom:14px">¿Por qué elegir Medigap en lugar de Medicare Advantage?</h3>
-      <div style="display:grid;grid-template-columns:1fr 1fr;gap:20px" class="compare-grid-2col">
-        <div>
+      <div class="compare-grid-2col">
+        <div style="background:#fff;border-radius:12px;padding:18px">
           <div style="font-weight:700;font-size:17px;color:#241a30;margin-bottom:10px;padding-bottom:6px;border-bottom:1px solid #ece5f0">Medicare Advantage</div>
           <div style="display:flex;flex-direction:column;gap:8px;font-size:17px;color:#3a2f47">
             <div>✓ Frecuentemente $0 prima</div>
@@ -245,57 +291,262 @@ img{max-width:100%;height:auto;}
       </div>
     </div>
 
-    <!-- TRES PLANES PRINCIPALES -->
-    <h2 style="font-family:Poppins,sans-serif;font-size:clamp(20px,3vw,26px);font-weight:700;color:#241a30;margin:0 0 8px">Los planes Medigap más populares en Florida</h2>
-    <p style="color:#3a2f47;font-size:16px;margin:0 0 28px">Todos los planes de la misma letra ofrecen exactamente la misma cobertura &mdash; la única diferencia es el precio. Compramos en todas las aseguradoras para encontrarle el precio más bajo.</p>
+    <!-- TRES PLANES PRINCIPALES — primas Florida 2026 iguales a la página en inglés -->
+    <h2 style="font-family:Poppins,sans-serif;font-size:clamp(20px,3vw,26px);font-weight:700;color:#241a30;margin:0 0 8px">¿Cuál plan Medigap le conviene?</h2>
+    <p style="color:#3a2f47;font-size:16px;margin:0 0 40px;line-height:1.6">Todos los planes Medigap están estandarizados &mdash; la misma letra cubre lo mismo, sin importar qué compañía lo venda. La única diferencia es el precio. Estas son las tres opciones más populares en Florida.</p>
     <div class="plan-card-grid">
-      <div class="plan-card featured">
-        <div style="display:inline-block;font-size:14.5px;font-weight:700;color:#c40074;background:#fff0f8;padding:5px 10px;border-radius:999px;margin-bottom:12px">MÁS POPULAR EN FLORIDA</div>
-        <div style="font-family:Poppins,sans-serif;font-weight:700;font-size:22px;color:#452068;margin-bottom:8px">Plan G</div>
-        <div style="font-size:18px;color:#3a2f47;line-height:1.65;margin-bottom:16px">La cobertura Medigap más completa disponible para nuevos elegibles. Una vez que pague el deducible de la Parte B ($283 en 2026), Medicare y el Plan G cubren prácticamente todo el resto &mdash; sin sorpresas.</div>
-        <div style="display:flex;flex-direction:column;gap:8px;margin-bottom:16px">
-          <div style="font-size:16px;color:#241a30;padding-left:16px;position:relative">✓ Deducible Parte A cubierto</div>
-          <div style="font-size:16px;color:#241a30;padding-left:16px;position:relative">✓ Coaseguro hospitalario cubierto</div>
-          <div style="font-size:16px;color:#241a30;padding-left:16px;position:relative">✓ Coaseguro Parte B cubierto</div>
-          <div style="font-size:16px;color:#241a30;padding-left:16px;position:relative">✓ Exceso de Parte B cubierto</div>
-          <div style="font-size:16px;color:#241a30;padding-left:16px;position:relative">✓ Emergencias en el extranjero (80%)</div>
-          <div style="font-size:16px;color:#3a2f47;padding-left:16px;position:relative">✗ Deducible Parte B: usted lo paga ($283)</div>
+      <div class="plan-card" style="border:2px solid #ff1090;background:#fff;position:relative">
+        <div style="position:absolute;top:-12px;left:24px;background:#ff1090;color:#fff;font-size:14px;font-weight:700;padding:4px 12px;border-radius:999px">MÁS POPULAR</div>
+        <div style="font-family:Poppins,sans-serif;font-weight:700;font-size:22px;color:#241a30;margin-top:6px">Plan G</div>
+        <div style="font-size:16px;color:#3a2f47;margin-bottom:4px">Máxima cobertura, mínimas sorpresas</div>
+        <div style="font-weight:700;font-size:18px;color:#452068;margin-bottom:16px">~$300&ndash;$375/mes en Florida</div>
+        <div style="display:flex;flex-direction:column;gap:9px;font-size:16px;color:#4a4051;margin-bottom:20px">
+          <div>✓ Coaseguro Parte B (20%) &mdash; cubierto al 100%</div>
+          <div>✓ Deducible Parte A ($1,736) &mdash; cubierto al 100%</div>
+          <div>✓ Exceso de cargos Parte B &mdash; cubierto</div>
+          <div>✓ Coaseguro de enfermería especializada &mdash; cubierto</div>
+          <div>✓ Emergencia en el extranjero &mdash; 80%</div>
+          <div style="color:#5a5068">✗ Deducible Parte B ($283) &mdash; usted lo paga una vez al año</div>
         </div>
-        <a href="#ms-form" style="display:block;text-align:center;background:#452068;color:#fff;padding:13px;border-radius:10px;font-weight:700;font-size:18px">Cotizar Plan G &rarr;</a>
+        <a href="#ms-form" style="display:block;text-align:center;background:#ff1090;color:#fff;padding:12px;border-radius:10px;font-weight:700;font-size:16px">Cotizar Plan G</a>
       </div>
-      <div class="plan-card">
-        <div style="display:inline-block;font-size:14.5px;font-weight:700;color:#452068;background:#f7f2fb;padding:5px 10px;border-radius:999px;margin-bottom:12px">BUENA RELACIÓN CALIDAD-PRECIO</div>
-        <div style="font-family:Poppins,sans-serif;font-weight:700;font-size:22px;color:#241a30;margin-bottom:8px">Plan N</div>
-        <div style="font-size:18px;color:#3a2f47;line-height:1.65;margin-bottom:16px">Ofrece cobertura sólida con primas más bajas que el Plan G. Tiene copagos de hasta $20 en visitas al médico y $50 en urgencias (si no ingresa al hospital). Si visita al médico con menos frecuencia, puede ahorrar dinero.</div>
-        <div style="display:flex;flex-direction:column;gap:8px;margin-bottom:16px">
-          <div style="font-size:16px;color:#241a30;padding-left:16px">✓ Deducible Parte A cubierto</div>
-          <div style="font-size:16px;color:#241a30;padding-left:16px">✓ Coaseguro hospitalario cubierto</div>
-          <div style="font-size:16px;color:#241a30;padding-left:16px">✓ Emergencias en el extranjero (80%)</div>
-          <div style="font-size:16px;color:#3a2f47;padding-left:16px">✗ Copago hasta $20 por visita médica</div>
-          <div style="font-size:16px;color:#3a2f47;padding-left:16px">✗ Copago hasta $50 en urgencias</div>
-          <div style="font-size:16px;color:#3a2f47;padding-left:16px">✗ No cubre exceso de Parte B</div>
+      <div class="plan-card" style="position:relative">
+        <div style="position:absolute;top:-12px;left:24px;background:#452068;color:#fff;font-size:14px;font-weight:700;padding:4px 12px;border-radius:999px">PRIMA MENOR</div>
+        <div style="font-family:Poppins,sans-serif;font-weight:700;font-size:22px;color:#241a30;margin-top:6px">Plan N</div>
+        <div style="font-size:16px;color:#3a2f47;margin-bottom:4px">Buena cobertura con copagos pequeños</div>
+        <div style="font-weight:700;font-size:18px;color:#452068;margin-bottom:16px">~$200&ndash;$320/mes en Florida</div>
+        <div style="display:flex;flex-direction:column;gap:9px;font-size:16px;color:#4a4051;margin-bottom:20px">
+          <div>✓ Coaseguro Parte B &mdash; cubierto (con copagos)</div>
+          <div>✓ Deducible Parte A &mdash; cubierto al 100%</div>
+          <div style="color:#5a5068">✗ Exceso de cargos Parte B &mdash; no cubierto</div>
+          <div>✓ Coaseguro de enfermería especializada &mdash; cubierto</div>
+          <div>✓ Emergencia en el extranjero &mdash; 80%</div>
+          <div style="color:#5a5068">✗ Copago de hasta $20 por visita al médico</div>
+          <div style="color:#5a5068">✗ Copago de hasta $50 en urgencias (si no ingresa)</div>
         </div>
-        <a href="#ms-form" style="display:block;text-align:center;background:#f7f2fb;color:#452068;border:2px solid #452068;padding:13px;border-radius:10px;font-weight:700;font-size:18px">Cotizar Plan N &rarr;</a>
+        <a href="#ms-form" style="display:block;text-align:center;background:#fff;border:2px solid #452068;color:#452068;padding:11px;border-radius:10px;font-weight:700;font-size:16px">Cotizar Plan N</a>
       </div>
-      <div class="plan-card">
-        <div style="display:inline-block;font-size:14.5px;font-weight:700;color:#452068;background:#f7f2fb;padding:5px 10px;border-radius:999px;margin-bottom:12px">PRIMA BAJA / DEDUCIBLE ALTO</div>
-        <div style="font-family:Poppins,sans-serif;font-weight:700;font-size:22px;color:#241a30;margin-bottom:8px">Plan G HD</div>
-        <div style="font-size:18px;color:#3a2f47;line-height:1.65;margin-bottom:16px">La versión de deducible alto del Plan G. Prima mensual significativamente más baja &mdash; usted paga los gastos de bolsillo hasta un deducible alto ($2,950 en 2026), luego el plan cubre el 100%. Ideal para personas sanas que quieren protección contra gastos catastróficos.</div>
-        <div style="display:flex;flex-direction:column;gap:8px;margin-bottom:16px">
-          <div style="font-size:16px;color:#241a30;padding-left:16px">✓ Misma cobertura que Plan G</div>
-          <div style="font-size:16px;color:#241a30;padding-left:16px">✓ Prima mensual mucho más baja</div>
-          <div style="font-size:16px;color:#241a30;padding-left:16px">✓ Protección contra gastos catastróficos</div>
-          <div style="font-size:16px;color:#3a2f47;padding-left:16px">✗ Deducible alto: $2,950 (2026)</div>
-          <div style="font-size:16px;color:#3a2f47;padding-left:16px">✗ Paga más si usa mucha atención</div>
+      <div class="plan-card" style="position:relative">
+        <div style="position:absolute;top:-12px;left:24px;background:#6f6478;color:#fff;font-size:14px;font-weight:700;padding:4px 12px;border-radius:999px">PRIMA MÁS BAJA</div>
+        <div style="font-family:Poppins,sans-serif;font-weight:700;font-size:22px;color:#241a30;margin-top:6px">Plan G-HD</div>
+        <div style="font-size:16px;color:#3a2f47;margin-bottom:4px">Beneficios del Plan G, deducible alto</div>
+        <div style="font-weight:700;font-size:18px;color:#452068;margin-bottom:16px">~$60&ndash;$100/mes en Florida</div>
+        <div style="display:flex;flex-direction:column;gap:9px;font-size:16px;color:#4a4051;margin-bottom:20px">
+          <div>✓ Los mismos beneficios que el Plan G después del deducible</div>
+          <div style="color:#5a5068">✗ Deducible de $2,950 antes de que inicie la cobertura</div>
+          <div>✓ Ideal para personas sanas que usan poca atención</div>
+          <div>✓ El costo mensual más bajo posible</div>
         </div>
-        <a href="#ms-form" style="display:block;text-align:center;background:#f7f2fb;color:#452068;border:2px solid #452068;padding:13px;border-radius:10px;font-weight:700;font-size:18px">Cotizar Plan G HD &rarr;</a>
+        <a href="#ms-form" style="display:block;text-align:center;background:#fff;border:2px solid #452068;color:#452068;padding:11px;border-radius:10px;font-weight:700;font-size:16px">Cotizar Plan G-HD</a>
       </div>
+    </div>
+    <div style="background:#f7f2fb;border-radius:14px;padding:20px 24px;margin-top:28px">
+      <div style="font-weight:700;font-size:17px;color:#241a30;margin-bottom:6px">Misma cobertura, precios muy distintos</div>
+      <div style="font-size:16px;color:#4a4051;line-height:1.6">Un Plan G de una compañía cubre exactamente lo mismo que un Plan G de cualquier otra &mdash; la única variable es la prima mensual. Las primas por cobertura idéntica pueden variar $50&ndash;$100 al mes en el mismo código postal. Nuestros corredores comparan cada aseguradora licenciada en Florida, sin costo para usted.</div>
+    </div>
+  </div>
+</section>
+
+<!-- TABLA COMPARATIVA DE 10 LETRAS — mismos beneficios y límites 2026 que la página en inglés -->
+<section class="ms-section" style="background:#fff;padding:64px 56px">
+  <div style="max-width:1160px;margin:0 auto">
+    <div style="text-align:center;margin-bottom:36px">
+      <div style="color:#c40074;font-weight:700;font-size:16px;letter-spacing:.08em;margin-bottom:12px">LAS 10 LETRAS DE PLAN</div>
+      <h2 style="font-family:Poppins,sans-serif;font-weight:700;font-size:clamp(20px,3vw,28px);color:#241a30;margin:0 0 10px">Cuadro comparativo de beneficios Medigap</h2>
+      <p style="font-size:18px;color:#3a2f47;margin:0">Cada plan Medigap estandarizado cubre los mismos beneficios, sin importar qué aseguradora lo venda.</p>
+    </div>
+    <div class="table-scroll">
+      <table>
+        <thead>
+          <tr>
+            <th style="text-align:left;padding:14px 16px;background:#fdfaf7;color:#4a4051;font-weight:700;font-size:14.5px;letter-spacing:.05em;text-transform:uppercase;border-bottom:2px solid #ece5f0;min-width:200px">Beneficio Medigap</th>
+            <th style="padding:14px 10px;background:#fdfaf7;color:#4a4051;font-weight:700;font-size:16px;border-bottom:2px solid #ece5f0;text-align:center">A</th>
+            <th style="padding:14px 10px;background:#fdfaf7;color:#4a4051;font-weight:700;font-size:16px;border-bottom:2px solid #ece5f0;text-align:center">B</th>
+            <th style="padding:14px 10px;background:#fdfaf7;color:#4a4051;font-weight:700;font-size:16px;border-bottom:2px solid #ece5f0;text-align:center">C</th>
+            <th style="padding:14px 10px;background:#fdfaf7;color:#4a4051;font-weight:700;font-size:16px;border-bottom:2px solid #ece5f0;text-align:center">D</th>
+            <th style="padding:14px 10px;background:#fdfaf7;color:#4a4051;font-weight:700;font-size:16px;border-bottom:2px solid #ece5f0;text-align:center">F*</th>
+            <th style="padding:14px 10px;background:#452068;color:#fff;font-weight:700;font-size:16px;border-bottom:2px solid #3a1855;text-align:center">G*</th>
+            <th style="padding:14px 10px;background:#fdfaf7;color:#4a4051;font-weight:700;font-size:16px;border-bottom:2px solid #ece5f0;text-align:center">K</th>
+            <th style="padding:14px 10px;background:#fdfaf7;color:#4a4051;font-weight:700;font-size:16px;border-bottom:2px solid #ece5f0;text-align:center">L</th>
+            <th style="padding:14px 10px;background:#fdfaf7;color:#4a4051;font-weight:700;font-size:16px;border-bottom:2px solid #ece5f0;text-align:center">M</th>
+            <th style="padding:14px 10px;background:#fdfaf7;color:#4a4051;font-weight:700;font-size:16px;border-bottom:2px solid #ece5f0;text-align:center">N</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr style="border-bottom:1px solid #ece5f0">
+            <td style="padding:13px 16px;font-weight:600;color:#241a30">Coaseguro hospitalario Parte A</td>
+            <td style="padding:13px 10px;text-align:center;color:#16a34a;font-weight:700">&#10003;</td>
+            <td style="padding:13px 10px;text-align:center;color:#16a34a;font-weight:700">&#10003;</td>
+            <td style="padding:13px 10px;text-align:center;color:#16a34a;font-weight:700">&#10003;</td>
+            <td style="padding:13px 10px;text-align:center;color:#16a34a;font-weight:700">&#10003;</td>
+            <td style="padding:13px 10px;text-align:center;color:#16a34a;font-weight:700">&#10003;</td>
+            <td style="padding:13px 10px;text-align:center;background:#f7f2fb;color:#16a34a;font-weight:700">&#10003;</td>
+            <td style="padding:13px 10px;text-align:center;color:#3a2f47">50%</td>
+            <td style="padding:13px 10px;text-align:center;color:#3a2f47">75%</td>
+            <td style="padding:13px 10px;text-align:center;color:#16a34a;font-weight:700">&#10003;</td>
+            <td style="padding:13px 10px;text-align:center;color:#16a34a;font-weight:700">&#10003;</td>
+          </tr>
+          <tr style="border-bottom:1px solid #ece5f0;background:#fdfaf7">
+            <td style="padding:13px 16px;font-weight:600;color:#241a30">Coaseguro o copago Parte B</td>
+            <td style="padding:13px 10px;text-align:center;color:#16a34a;font-weight:700">&#10003;</td>
+            <td style="padding:13px 10px;text-align:center;color:#16a34a;font-weight:700">&#10003;</td>
+            <td style="padding:13px 10px;text-align:center;color:#16a34a;font-weight:700">&#10003;</td>
+            <td style="padding:13px 10px;text-align:center;color:#16a34a;font-weight:700">&#10003;</td>
+            <td style="padding:13px 10px;text-align:center;color:#16a34a;font-weight:700">&#10003;</td>
+            <td style="padding:13px 10px;text-align:center;background:#f7f2fb;color:#16a34a;font-weight:700">&#10003;</td>
+            <td style="padding:13px 10px;text-align:center;color:#3a2f47">50%</td>
+            <td style="padding:13px 10px;text-align:center;color:#3a2f47">75%</td>
+            <td style="padding:13px 10px;text-align:center;color:#16a34a;font-weight:700">&#10003;</td>
+            <td style="padding:13px 10px;text-align:center;color:#3a2f47;font-size:14.5px">&#10003;&dagger;</td>
+          </tr>
+          <tr style="border-bottom:1px solid #ece5f0">
+            <td style="padding:13px 16px;font-weight:600;color:#241a30">Sangre (primeras 3 pintas)</td>
+            <td style="padding:13px 10px;text-align:center;color:#16a34a;font-weight:700">&#10003;</td>
+            <td style="padding:13px 10px;text-align:center;color:#16a34a;font-weight:700">&#10003;</td>
+            <td style="padding:13px 10px;text-align:center;color:#16a34a;font-weight:700">&#10003;</td>
+            <td style="padding:13px 10px;text-align:center;color:#16a34a;font-weight:700">&#10003;</td>
+            <td style="padding:13px 10px;text-align:center;color:#16a34a;font-weight:700">&#10003;</td>
+            <td style="padding:13px 10px;text-align:center;background:#f7f2fb;color:#16a34a;font-weight:700">&#10003;</td>
+            <td style="padding:13px 10px;text-align:center;color:#3a2f47">50%</td>
+            <td style="padding:13px 10px;text-align:center;color:#3a2f47">75%</td>
+            <td style="padding:13px 10px;text-align:center;color:#16a34a;font-weight:700">&#10003;</td>
+            <td style="padding:13px 10px;text-align:center;color:#16a34a;font-weight:700">&#10003;</td>
+          </tr>
+          <tr style="border-bottom:1px solid #ece5f0;background:#fdfaf7">
+            <td style="padding:13px 16px;font-weight:600;color:#241a30">Coaseguro/copago de hospicio Parte A</td>
+            <td style="padding:13px 10px;text-align:center;color:#16a34a;font-weight:700">&#10003;</td>
+            <td style="padding:13px 10px;text-align:center;color:#16a34a;font-weight:700">&#10003;</td>
+            <td style="padding:13px 10px;text-align:center;color:#16a34a;font-weight:700">&#10003;</td>
+            <td style="padding:13px 10px;text-align:center;color:#16a34a;font-weight:700">&#10003;</td>
+            <td style="padding:13px 10px;text-align:center;color:#16a34a;font-weight:700">&#10003;</td>
+            <td style="padding:13px 10px;text-align:center;background:#f7f2fb;color:#16a34a;font-weight:700">&#10003;</td>
+            <td style="padding:13px 10px;text-align:center;color:#3a2f47">50%</td>
+            <td style="padding:13px 10px;text-align:center;color:#3a2f47">75%</td>
+            <td style="padding:13px 10px;text-align:center;color:#16a34a;font-weight:700">&#10003;</td>
+            <td style="padding:13px 10px;text-align:center;color:#16a34a;font-weight:700">&#10003;</td>
+          </tr>
+          <tr style="border-bottom:1px solid #ece5f0">
+            <td style="padding:13px 16px;font-weight:600;color:#241a30">Coaseguro de enfermería especializada</td>
+            <td style="padding:13px 10px;text-align:center;color:#dc2626">&#10007;</td>
+            <td style="padding:13px 10px;text-align:center;color:#dc2626">&#10007;</td>
+            <td style="padding:13px 10px;text-align:center;color:#16a34a;font-weight:700">&#10003;</td>
+            <td style="padding:13px 10px;text-align:center;color:#16a34a;font-weight:700">&#10003;</td>
+            <td style="padding:13px 10px;text-align:center;color:#16a34a;font-weight:700">&#10003;</td>
+            <td style="padding:13px 10px;text-align:center;background:#f7f2fb;color:#16a34a;font-weight:700">&#10003;</td>
+            <td style="padding:13px 10px;text-align:center;color:#3a2f47">50%</td>
+            <td style="padding:13px 10px;text-align:center;color:#3a2f47">75%</td>
+            <td style="padding:13px 10px;text-align:center;color:#16a34a;font-weight:700">&#10003;</td>
+            <td style="padding:13px 10px;text-align:center;color:#16a34a;font-weight:700">&#10003;</td>
+          </tr>
+          <tr style="border-bottom:1px solid #ece5f0;background:#fdfaf7">
+            <td style="padding:13px 16px;font-weight:600;color:#241a30">Deducible Parte A</td>
+            <td style="padding:13px 10px;text-align:center;color:#dc2626">&#10007;</td>
+            <td style="padding:13px 10px;text-align:center;color:#16a34a;font-weight:700">&#10003;</td>
+            <td style="padding:13px 10px;text-align:center;color:#16a34a;font-weight:700">&#10003;</td>
+            <td style="padding:13px 10px;text-align:center;color:#16a34a;font-weight:700">&#10003;</td>
+            <td style="padding:13px 10px;text-align:center;color:#16a34a;font-weight:700">&#10003;</td>
+            <td style="padding:13px 10px;text-align:center;background:#f7f2fb;color:#16a34a;font-weight:700">&#10003;</td>
+            <td style="padding:13px 10px;text-align:center;color:#3a2f47">50%</td>
+            <td style="padding:13px 10px;text-align:center;color:#3a2f47">75%</td>
+            <td style="padding:13px 10px;text-align:center;color:#3a2f47">50%</td>
+            <td style="padding:13px 10px;text-align:center;color:#16a34a;font-weight:700">&#10003;</td>
+          </tr>
+          <tr style="border-bottom:1px solid #ece5f0">
+            <td style="padding:13px 16px;font-weight:600;color:#241a30">Deducible Parte B</td>
+            <td style="padding:13px 10px;text-align:center;color:#dc2626">&#10007;</td>
+            <td style="padding:13px 10px;text-align:center;color:#dc2626">&#10007;</td>
+            <td style="padding:13px 10px;text-align:center;color:#16a34a;font-weight:700">&#10003;</td>
+            <td style="padding:13px 10px;text-align:center;color:#dc2626">&#10007;</td>
+            <td style="padding:13px 10px;text-align:center;color:#16a34a;font-weight:700">&#10003;</td>
+            <td style="padding:13px 10px;text-align:center;background:#f7f2fb;color:#dc2626">&#10007;</td>
+            <td style="padding:13px 10px;text-align:center;color:#dc2626">&#10007;</td>
+            <td style="padding:13px 10px;text-align:center;color:#dc2626">&#10007;</td>
+            <td style="padding:13px 10px;text-align:center;color:#dc2626">&#10007;</td>
+            <td style="padding:13px 10px;text-align:center;color:#dc2626">&#10007;</td>
+          </tr>
+          <tr style="border-bottom:1px solid #ece5f0;background:#fdfaf7">
+            <td style="padding:13px 16px;font-weight:600;color:#241a30">Exceso de cargos Parte B</td>
+            <td style="padding:13px 10px;text-align:center;color:#dc2626">&#10007;</td>
+            <td style="padding:13px 10px;text-align:center;color:#dc2626">&#10007;</td>
+            <td style="padding:13px 10px;text-align:center;color:#dc2626">&#10007;</td>
+            <td style="padding:13px 10px;text-align:center;color:#dc2626">&#10007;</td>
+            <td style="padding:13px 10px;text-align:center;color:#16a34a;font-weight:700">&#10003;</td>
+            <td style="padding:13px 10px;text-align:center;background:#f7f2fb;color:#16a34a;font-weight:700">&#10003;</td>
+            <td style="padding:13px 10px;text-align:center;color:#dc2626">&#10007;</td>
+            <td style="padding:13px 10px;text-align:center;color:#dc2626">&#10007;</td>
+            <td style="padding:13px 10px;text-align:center;color:#dc2626">&#10007;</td>
+            <td style="padding:13px 10px;text-align:center;color:#dc2626">&#10007;</td>
+          </tr>
+          <tr style="border-bottom:1px solid #ece5f0">
+            <td style="padding:13px 16px;font-weight:600;color:#241a30">Emergencia en el extranjero (80%)</td>
+            <td style="padding:13px 10px;text-align:center;color:#dc2626">&#10007;</td>
+            <td style="padding:13px 10px;text-align:center;color:#dc2626">&#10007;</td>
+            <td style="padding:13px 10px;text-align:center;color:#3a2f47">80%</td>
+            <td style="padding:13px 10px;text-align:center;color:#3a2f47">80%</td>
+            <td style="padding:13px 10px;text-align:center;color:#3a2f47">80%</td>
+            <td style="padding:13px 10px;text-align:center;background:#f7f2fb;color:#3a2f47">80%</td>
+            <td style="padding:13px 10px;text-align:center;color:#dc2626">&#10007;</td>
+            <td style="padding:13px 10px;text-align:center;color:#dc2626">&#10007;</td>
+            <td style="padding:13px 10px;text-align:center;color:#3a2f47">80%</td>
+            <td style="padding:13px 10px;text-align:center;color:#3a2f47">80%</td>
+          </tr>
+          <tr>
+            <td style="padding:13px 16px;font-weight:600;color:#241a30;background:#fdfaf7">Límite de gastos de bolsillo (2026)</td>
+            <td style="padding:13px 10px;text-align:center;color:#3a2f47;font-size:14.5px;background:#fdfaf7">N/A</td>
+            <td style="padding:13px 10px;text-align:center;color:#3a2f47;font-size:14.5px;background:#fdfaf7">N/A</td>
+            <td style="padding:13px 10px;text-align:center;color:#3a2f47;font-size:14.5px;background:#fdfaf7">N/A</td>
+            <td style="padding:13px 10px;text-align:center;color:#3a2f47;font-size:14.5px;background:#fdfaf7">N/A</td>
+            <td style="padding:13px 10px;text-align:center;color:#3a2f47;font-size:14.5px;background:#fdfaf7">N/A</td>
+            <td style="padding:13px 10px;text-align:center;background:#f0eaf5;color:#3a2f47;font-size:14.5px">N/A</td>
+            <td style="padding:13px 10px;text-align:center;color:#452068;font-weight:700;font-size:14.5px;background:#fdfaf7">$7,220</td>
+            <td style="padding:13px 10px;text-align:center;color:#452068;font-weight:700;font-size:14.5px;background:#fdfaf7">$3,610</td>
+            <td style="padding:13px 10px;text-align:center;color:#3a2f47;font-size:14.5px;background:#fdfaf7">N/A</td>
+            <td style="padding:13px 10px;text-align:center;color:#3a2f47;font-size:14.5px;background:#fdfaf7">N/A</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div style="margin-top:16px;font-size:14.5px;color:#5a5068;line-height:1.6">
+      * Los planes F y G también ofrecen una versión de deducible alto. Los planes C y F no están disponibles para personas que se volvieron elegibles para Medicare el 1 de enero de 2020 o después.<br>
+      &dagger; El Plan N paga el 100% del coaseguro de la Parte B, excepto un copago de hasta $20 en algunas visitas al médico y hasta $50 en visitas a urgencias que no resulten en admisión hospitalaria.
+    </div>
+    <div style="text-align:center;margin-top:28px">
+      <a href="#ms-form" class="btn-pink">Encontrar mi mejor plan &rarr;</a>
+    </div>
+  </div>
+</section>
+
+<!-- ESTIMADOR PLAN G VS PLAN N — misma lógica que la página en inglés -->
+<section class="ms-section" style="background:linear-gradient(135deg,#f7e9f5 0%,#f3ecf9 100%);padding:56px 56px">
+  <div style="max-width:720px;margin:0 auto;text-align:center">
+    <div style="color:#c40074;font-weight:700;font-size:16px;letter-spacing:.08em;margin-bottom:14px">PRUÉBELO &mdash; PLAN G VS. PLAN N</div>
+    <h2 style="font-family:Poppins,sans-serif;font-weight:700;font-size:clamp(20px,3vw,26px);color:#241a30;margin:0 0 12px">¿Cuánto le costarían los copagos del Plan N?</h2>
+    <p style="font-size:18px;color:#3a2f47;line-height:1.6;margin:0 0 28px">Mueva el control según sus visitas típicas al médico por año. Esto compara el deducible de la Parte B (Plan G) con los copagos de visita (Plan N) &mdash; no las primas.</p>
+    <div style="background:#fff;border-radius:18px;padding:30px;text-align:left">
+      <div style="display:flex;justify-content:space-between;font-size:16px;font-weight:700;color:#241a30;margin-bottom:10px">
+        <span>Visitas al médico/especialista por año</span>
+        <span id="estimatorVisitLabel" style="color:#c40074">6</span>
+      </div>
+      <input type="range" id="estimatorSlider" min="0" max="12" step="1" value="6" style="width:100%;margin-bottom:24px;accent-color:#452068" oninput="updateEstimator(this.value)">
+      <div class="estimator-grid">
+        <div style="background:#f7f2fb;border-radius:14px;padding:18px;text-align:center">
+          <div style="font-size:14.5px;font-weight:700;color:#452068;margin-bottom:6px">PLAN G</div>
+          <div id="estimatorGCost" style="font-family:Poppins,sans-serif;font-weight:700;font-size:26px;color:#241a30">$283</div>
+          <div style="font-size:14px;color:#3a2f47;margin-top:4px">Deducible Parte B, una vez al año</div>
+        </div>
+        <div style="background:#fff0f8;border-radius:14px;padding:18px;text-align:center">
+          <div style="font-size:14.5px;font-weight:700;color:#c40074;margin-bottom:6px">PLAN N</div>
+          <div id="estimatorNCost" style="font-family:Poppins,sans-serif;font-weight:700;font-size:26px;color:#241a30">$120</div>
+          <div style="font-size:14px;color:#3a2f47;margin-top:4px">Copagos de visita, hasta $20 cada uno</div>
+        </div>
+      </div>
+      <div id="estimatorVerdict" style="text-align:center;font-size:16px;font-weight:700;color:#452068;margin-top:8px">Con 6 visitas al año, el Plan N cuesta menos en copagos que el deducible del Plan G</div>
     </div>
   </div>
 </section>
 
 <!-- ¿PARA QUIÉN ES MEDIGAP? -->
-<section style="background:#fdfaf7;padding:72px 56px">
+<section class="ms-section" style="background:#fdfaf7;padding:72px 56px">
   <div style="max-width:1000px;margin:0 auto">
     <h2 style="text-align:center;font-family:Poppins,sans-serif;font-size:clamp(22px,3vw,28px);font-weight:700;color:#241a30;margin:0 0 8px">¿Es Medigap la opción correcta para usted?</h2>
     <p style="text-align:center;color:#3a2f47;font-size:18px;margin:0 0 36px;line-height:1.6">Medicare Suplementario tiende a ser la mejor opción si alguna de estas situaciones aplica a su caso.</p>
@@ -321,8 +572,8 @@ img{max-width:100%;height:auto;}
 </section>
 
 <!-- INSCRIPCIÓN Y SUSCRIPCIÓN -->
-<section style="background:#fff;padding:72px 56px">
-  <div style="max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:start" class="enroll-grid">
+<section class="ms-section" style="background:#fff;padding:72px 56px">
+  <div class="enroll-grid" style="max-width:1100px;margin:0 auto">
     <div>
       <div style="color:#c40074;font-weight:700;font-size:16px;letter-spacing:.08em;margin-bottom:12px">SUSCRIPCIÓN</div>
       <h2 style="font-family:Poppins,sans-serif;font-weight:700;font-size:clamp(20px,2.5vw,26px);color:#241a30;margin:0 0 14px">¿Cuándo puede inscribirse sin preguntas de salud?</h2>
@@ -393,7 +644,7 @@ img{max-width:100%;height:auto;}
 </section>
 
 <!-- ASEGURADORAS -->
-<section style="background:#fdfaf7;padding:56px 56px">
+<section class="ms-section" style="background:#fdfaf7;padding:56px 56px">
   <div style="max-width:1100px;margin:0 auto">
     <h2 style="font-family:Poppins,sans-serif;font-size:clamp(18px,3vw,22px);font-weight:700;color:#241a30;margin:0 0 8px">Comparamos todas las aseguradoras en Florida</h2>
     <p style="color:#3a2f47;font-size:17px;margin:0 0 20px">Debido a que todas las letras de plan están estandarizadas, el único trabajo es encontrar el precio más bajo. Las compramos todas.</p>
@@ -406,13 +657,35 @@ img{max-width:100%;height:auto;}
       <span style="background:#fff;border:1px solid #ece5f0;border-radius:10px;padding:11px 18px;font-weight:700;font-size:16px;color:#241a30">Cigna Supplement</span>
       <span style="background:#fff;border:1px solid #ece5f0;border-radius:10px;padding:11px 18px;font-weight:700;font-size:16px;color:#241a30">Anthem</span>
       <span style="background:#fff;border:1px solid #ece5f0;border-radius:10px;padding:11px 18px;font-weight:700;font-size:16px;color:#241a30">Manhattan Life</span>
+      <span style="background:#fff;border:1px solid #ece5f0;border-radius:10px;padding:11px 18px;font-weight:700;font-size:16px;color:#241a30">GPM Life</span>
       <span style="background:#f7f2fb;border:1px solid #ece5f0;border-radius:10px;padding:11px 18px;font-weight:700;font-size:16px;color:#452068">+ Más</span>
     </div>
   </div>
 </section>
 
+<!-- MÁS INFORMACIÓN -->
+<section class="ms-section" style="background:#fff;padding:48px 56px">
+  <div style="max-width:1000px;margin:0 auto">
+    <h2 style="font-family:Poppins,sans-serif;font-size:clamp(18px,3vw,22px);font-weight:700;color:#241a30;margin:0 0 20px">Más información</h2>
+    <div class="learn-grid">
+      <a href="/es/medicare-advantage-miami" style="display:block;border:1px solid #ece5f0;border-radius:14px;padding:20px;text-decoration:none">
+        <div style="font-weight:700;font-size:18px;color:#241a30;margin-bottom:6px">Medicare Advantage</div>
+        <div style="font-size:15px;color:#3a2f47;line-height:1.5">La alternativa &mdash; agrupa cobertura con beneficios extra.</div>
+      </a>
+      <a href="/es/irmaa-penalidades-medicare/" style="display:block;border:1px solid #ece5f0;border-radius:14px;padding:20px;text-decoration:none">
+        <div style="font-weight:700;font-size:18px;color:#241a30;margin-bottom:6px">Costos de Medicare e IRMAA</div>
+        <div style="font-size:15px;color:#3a2f47;line-height:1.5">Primas, deducibles y recargos 2026 explicados.</div>
+      </a>
+      <a href="/es/planes-de-medicare-miami" style="display:block;border:1px solid #ece5f0;border-radius:14px;padding:20px;text-decoration:none">
+        <div style="font-weight:700;font-size:18px;color:#241a30;margin-bottom:6px">Planes de Medicare</div>
+        <div style="font-size:15px;color:#3a2f47;line-height:1.5">Compare Advantage, Medigap y D-SNP en un solo lugar.</div>
+      </a>
+    </div>
+  </div>
+</section>
+
 <!-- PREGUNTAS FRECUENTES -->
-<section style="background:#fff;padding:72px 56px">
+<section class="ms-section" style="background:#fff;padding:72px 56px">
   <div style="max-width:780px;margin:0 auto">
     <span class="eyebrow">Preguntas frecuentes</span>
     <h2 style="font-family:Poppins,sans-serif;font-size:clamp(22px,3vw,28px);font-weight:700;color:#241a30;margin:0 0 32px;text-align:center">Lo que más nos preguntan sobre Medicare Suplementario</h2>
@@ -439,7 +712,7 @@ img{max-width:100%;height:auto;}
           ¿Por qué varía el precio si todos los planes G son iguales?
           <span style="font-size:20px;color:#ff1090;flex-shrink:0">+</span>
         </summary>
-        <div style="font-size:18px;color:#3a2f47;line-height:1.7;padding:0 0 16px">Los beneficios de Medigap están estandarizados por ley federal &mdash; un Plan G de Aetna ofrece exactamente la misma cobertura que un Plan G de Mutual of Omaha. Sin embargo, el precio varía significativamente entre aseguradoras. Nuestro trabajo es encontrar la tarifa más baja para la misma cobertura, gratis. Algunos precios pueden diferir en cientos de dólares al año por el mismo plan exacto.</div>
+        <div style="font-size:18px;color:#3a2f47;line-height:1.7;padding:0 0 16px">Los beneficios de Medigap están estandarizados por ley federal &mdash; un Plan G de Aetna ofrece exactamente la misma cobertura que un Plan G de Mutual of Omaha. Sin embargo, el precio varía significativamente entre aseguradoras. Nuestro trabajo es encontrar la tarifa más baja para la misma cobertura, gratis. Las primas por cobertura idéntica pueden variar $50&ndash;$100 al mes en el mismo código postal.</div>
       </details>
 
       <details style="border-bottom:1px solid #ece5f0">
@@ -463,8 +736,8 @@ img{max-width:100%;height:auto;}
 </section>
 
 <!-- FORMULARIO -->
-<div id="ms-form" style="background:#f7f2fb;padding:72px 56px">
-  <div style="max-width:560px;margin:0 auto;background:#fff;border-radius:22px;padding:34px;box-shadow:0 20px 50px rgba(69,32,104,.12)">
+<div id="ms-form" class="ms-section" style="background:#f7f2fb;padding:72px 56px">
+  <div class="ms-form-card" style="max-width:560px;margin:0 auto;background:#fff;border-radius:22px;padding:34px;box-shadow:0 20px 50px rgba(69,32,104,.12)">
     <div id="msFormBody">
       <div style="text-align:center;margin-bottom:22px">
         <div style="font-family:Poppins,sans-serif;font-weight:700;font-size:20px;color:#241a30;margin-bottom:6px">Compare Planes Medicare Suplementario</div>
@@ -473,6 +746,7 @@ img{max-width:100%;height:auto;}
       <form id="msLeadForm" novalidate>
                   <!-- Honeypot: hidden from humans, bots fill it in -->
                   <input type="text" name="_hp_name" id="_hp_name" autocomplete="off" tabindex="-1" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0;pointer-events:none;" value="">
+        <input type="hidden" name="looking_for" value="Medicare Suplementario">
         <div style="margin-bottom:12px">
           <label style="display:block;font-size:17px;font-weight:700;color:#241a30;margin-bottom:6px">¿Qué está buscando? <span style="color:#c40074">*</span></label>
           <select id="msInterest" name="interest" required style="width:100%;padding:13px 14px;border-radius:10px;border:2px solid #ddd2e6;font-size:16px;font-family:Inter,sans-serif;color:#241a30;appearance:none;box-sizing:border-box">
@@ -483,7 +757,7 @@ img{max-width:100%;height:auto;}
             <option value="Not sure">No sé &mdash; ayúdeme a comparar</option>
           </select>
         </div>
-        <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:12px">
+        <div class="form-name-row">
           <div>
             <label style="display:block;font-size:17px;font-weight:700;color:#241a30;margin-bottom:6px">Nombre <span style="color:#c40074">*</span></label>
             <input type="text" id="msFirst" name="first_name" placeholder="Su nombre" required style="width:100%;box-sizing:border-box;padding:13px 14px;border-radius:10px;border:2px solid #ddd2e6;font-size:16px;font-family:Inter,sans-serif"/>
@@ -528,7 +802,7 @@ img{max-width:100%;height:auto;}
 </div>
 
 <!-- CTA FINAL -->
-<div style="background:linear-gradient(135deg,#452068 0%,#5a2a86 100%);padding:72px 56px;text-align:center;color:#fff">
+<div class="ms-section" style="background:linear-gradient(135deg,#452068 0%,#5a2a86 100%);padding:72px 56px;text-align:center;color:#fff">
   <h2 style="font-family:Poppins,sans-serif;font-size:clamp(22px,3vw,32px);font-weight:700;margin:0 0 12px">¿Listo para encontrar su plan Medigap?</h2>
   <p style="font-size:17px;color:#f0eaf7;margin:0 auto 28px;max-width:480px;line-height:1.65">Nuestros corredores bilingües en Miami comparan cada aseguradora para el precio más bajo en cobertura idéntica &mdash; gratis.</p>
   <div class="final-cta-btns" style="display:flex;gap:14px;justify-content:center;flex-wrap:wrap">
@@ -599,6 +873,32 @@ img{max-width:100%;height:auto;}
 
 <button id="scrollToTop" aria-label="Volver arriba">↑</button>
 
+<script>
+function updateEstimator(visits){
+  var v = parseInt(visits, 10);
+  var label = document.getElementById('estimatorVisitLabel');
+  if (label) label.textContent = v;
+  var gCost = 283;
+  var nCost = Math.min(v * 20, 283);
+  var gEl = document.getElementById('estimatorGCost');
+  var nEl = document.getElementById('estimatorNCost');
+  if (gEl) gEl.textContent = '$' + gCost;
+  if (nEl) nEl.textContent = '$' + nCost;
+  var verdict;
+  if (v === 0) {
+    verdict = 'Con 0 visitas al año, el Plan N no tiene copagos. El Plan G sigue teniendo el deducible de $283.';
+  } else if (nCost < gCost) {
+    verdict = 'Con ' + v + (v === 1 ? ' visita' : ' visitas') + ' al año, los copagos del Plan N ($' + nCost + ') cuestan menos que el deducible del Plan G.';
+  } else if (nCost === gCost) {
+    verdict = 'Con ' + v + ' visitas al año, el Plan N y el Plan G cuestan aproximadamente lo mismo de bolsillo.';
+  } else {
+    verdict = 'Con ' + v + ' visitas al año, el deducible fijo del Plan G ($' + gCost + ') rinde más que los copagos del Plan N.';
+  }
+  var vEl = document.getElementById('estimatorVerdict');
+  if (vEl) vEl.textContent = verdict;
+}
+updateEstimator(6);
+</script>
 <script defer>
 (function(){
   var WEBHOOK='https://services.leadconnectorhq.com/hooks/RINM4TCnM4hN06UA1aK0/webhook-trigger/dc6c8b35-9480-412e-b56d-4a4c8c7bd438';
@@ -622,7 +922,7 @@ img{max-width:100%;height:auto;}
     if(!interest||!first||!last||!phone||!email||!consent){err.style.display='block';err.textContent='Por favor complete todos los campos requeridos.';return;}
     btn.disabled=true;btn.textContent='Enviando...';err.style.display='none';
     try{
-      var res=await fetch(WEBHOOK,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({first_name:first.trim(),last_name:last.trim(),phone:phone.trim(),email:email.trim(),coverage_type:interest,notes:(document.getElementById('msNotes')||{}).value||'',source:'Medicare Suplementario ES Page',page:window.location.href,submitted_at:new Date().toISOString()})});
+      var res=await fetch(WEBHOOK,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({first_name:first.trim(),last_name:last.trim(),phone:phone.trim(),email:email.trim(),coverage_type:interest,looking_for:interest||'Medicare Suplementario',notes:(document.getElementById('msNotes')||{}).value||'',source:'Medicare Suplementario ES Page',page:window.location.href,submitted_at:new Date().toISOString()})});
       if(res.ok){document.getElementById('msFormBody').style.display='none';document.getElementById('msFormSuccess').style.display='block';if(typeof gtag!=='undefined')gtag('event','form_submit',{page:'medicare-suplementario-miami',coverage_type:interest});}
       else throw new Error('err');
     }catch(ex){btn.disabled=false;btn.textContent='Obtener mis Cotizaciones Gratis \u2192';err.style.display='block';err.textContent='Algo salió mal. Por favor intente de nuevo o llame al 1-800-380-6821.';}
