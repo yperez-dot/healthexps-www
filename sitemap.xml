@@ -68,7 +68,7 @@
 
 <url>
   <loc>https://www.healthexps.com/es/medicare-suplementario-miami</loc>
-  <lastmod>2026-06-22</lastmod>
+  <lastmod>2026-08-27</lastmod>
   <changefreq>monthly</changefreq>
   <priority>0.9</priority>
   <xhtml:link rel="alternate" hreflang="en" href="https://www.healthexps.com/medicare-supplement-miami"/>
@@ -150,7 +150,7 @@
 
 <url>
   <loc>https://www.healthexps.com/medicare/medicare-advantage-plans</loc>
-  <lastmod>2026-06-22</lastmod>
+  <lastmod>2026-08-27</lastmod>
   <changefreq>monthly</changefreq>
   <priority>0.8</priority>
   <xhtml:link rel="alternate" hreflang="en" href="https://www.healthexps.com/medicare/medicare-advantage-plans"/>
@@ -159,37 +159,11 @@
 
 <url>
   <loc>https://www.healthexps.com/es/medicare/planes-medicare-advantage</loc>
-  <lastmod>2026-06-22</lastmod>
+  <lastmod>2026-08-27</lastmod>
   <changefreq>monthly</changefreq>
   <priority>0.8</priority>
   <xhtml:link rel="alternate" hreflang="en" href="https://www.healthexps.com/medicare/medicare-advantage-plans"/>
   <xhtml:link rel="alternate" hreflang="es" href="https://www.healthexps.com/es/medicare/planes-medicare-advantage"/>
-</url>
-
-<url>
-  <loc>https://www.healthexps.com/medicare/medicare-supplement-plans</loc>
-  <lastmod>2026-06-22</lastmod>
-  <changefreq>monthly</changefreq>
-  <priority>0.8</priority>
-  <xhtml:link rel="alternate" hreflang="en" href="https://www.healthexps.com/medicare/medicare-supplement-plans"/>
-  <xhtml:link rel="alternate" hreflang="es" href="https://www.healthexps.com/es/medicare/medicare-suplementario"/>
-</url>
-
-<url>
-  <loc>https://www.healthexps.com/es/medicare/medicare-suplementario</loc>
-  <lastmod>2026-06-22</lastmod>
-  <changefreq>monthly</changefreq>
-  <priority>0.8</priority>
-  <xhtml:link rel="alternate" hreflang="en" href="https://www.healthexps.com/medicare/medicare-supplement-plans"/>
-  <xhtml:link rel="alternate" hreflang="es" href="https://www.healthexps.com/es/medicare/medicare-suplementario"/>
-</url>
-
-<url>
-  <loc>https://www.healthexps.com/es/medicare/costos-de-medicare</loc>
-  <lastmod>2026-06-22</lastmod>
-  <changefreq>yearly</changefreq>
-  <priority>0.8</priority>
-  <xhtml:link rel="alternate" hreflang="es" href="https://www.healthexps.com/es/medicare/costos-de-medicare"/>
 </url>
 
 <!-- Medicare Savings Program -->
@@ -241,7 +215,7 @@
 
 <url>
   <loc>https://www.healthexps.com/es/irmaa-penalidades-medicare</loc>
-  <lastmod>2026-06-15</lastmod>
+  <lastmod>2026-08-27</lastmod>
   <changefreq>yearly</changefreq>
   <priority>0.7</priority>
   <xhtml:link rel="alternate" hreflang="en" href="https://www.healthexps.com/medicare-irmaa-penalties"/>

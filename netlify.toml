@@ -359,6 +359,44 @@
   status = 301
   force = true
 
+# ES: consolidate education stubs into money/authority pages
+[[redirects]]
+  from = "/es/medicare/costos-de-medicare"
+  to = "/es/irmaa-penalidades-medicare"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/es/medicare/costos-de-medicare/"
+  to = "/es/irmaa-penalidades-medicare"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/es/medicare/medicare-suplementario"
+  to = "/es/medicare-suplementario-miami"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/es/medicare/medicare-suplementario/"
+  to = "/es/medicare-suplementario-miami"
+  status = 301
+  force = true
+
+# EN: consolidate supplement education stub into money/authority page
+[[redirects]]
+  from = "/medicare/medicare-supplement-plans"
+  to = "/medicare-supplement-miami"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/medicare/medicare-supplement-plans/"
+  to = "/medicare-supplement-miami"
+  status = 301
+  force = true
+
 
 # GROUP: Missing Wix /post/ → /blog/ redirects (fixed 2026-07-15)
 [[redirects]]
