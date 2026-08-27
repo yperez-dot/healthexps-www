@@ -191,3 +191,20 @@ Connect Gmail (and ideally a GSC/GA4 export) if you want the next pass to includ
 - `HOMEPAGE-RULES.md` still says the H1 must be “Health Insurance Experts…” — the live H1 is “Medicare in Miami, explained clearly…”, which is the better SEO choice. The rules file is stale.
 
 If you connect Gmail (Monday SEO emails) or paste a GSC screenshot, the next pass can attach real 28-day clicks, CTR, and query tables to this scorecard.
+
+---
+
+## Update — Aug 27: GSC “Incorrect value type” (fixed in this PR)
+
+Search Console email `[WNC-10030322]` flagged **Unparsable structured data → Incorrect value type** on:
+
+`https://www.healthexps.com/blog/lost-medicaid-coverage-florida/` (last GSC update 8/25/26). Validation could not continue because the page was still broken.
+
+**Cause:** Two stacked bugs in the Eleventy blog JSON-LD:
+
+1. Nunjucks auto-escaped `{{ title | dump }}` into `&quot;` / `&#39;` inside `<script type="application/ld+json">`, so Google could not parse the JSON (Unparsable structured data).
+2. `datePublished` was a human date (`July 22, 2026`). Schema.org Date must be ISO 8601 (`2026-07-22`) — that is the **Incorrect value type** GSC named on `/blog/lost-medicaid-coverage-florida/`.
+
+Same template is used for every markdown blog post (EN + ES). Two static Spanish HTML posts had the escaped-quote problem baked in.
+
+**Fix:** `| dump | safe` so JSON quotes stay real quotes; `isoDate` filter emits `YYYY-MM-DD`; static ES posts rewritten with valid JSON-LD. After this deploys, re-run validation in Search Console.

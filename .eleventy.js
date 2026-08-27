@@ -62,6 +62,20 @@ module.exports = function (eleventyConfig) {
     })
   );
 
+  // ISO 8601 date for schema.org datePublished / dateModified.
+  // Use UTC calendar date so YAML `2026-07-22` does not shift to the previous day in US timezones.
+  eleventyConfig.addFilter("isoDate", (d) => {
+    if (!d) return "";
+    if (typeof d === "string" && /^\d{4}-\d{2}-\d{2}/.test(d)) {
+      return d.slice(0, 10);
+    }
+    const date = d instanceof Date ? d : new Date(d);
+    const y = date.getUTCFullYear();
+    const m = String(date.getUTCMonth() + 1).padStart(2, "0");
+    const day = String(date.getUTCDate()).padStart(2, "0");
+    return `${y}-${m}-${day}`;
+  });
+
   // ── Eleventy config ────────────────────────────────────────────────────────
   return {
     templateFormats: ["md", "njk", "html"],
