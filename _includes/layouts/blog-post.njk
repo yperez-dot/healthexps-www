@@ -6,6 +6,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>{{ title }} | The Health Experts</title>
 <meta name="description" content="{{ description }}">
+{% if noindex %}<meta name="robots" content="noindex, nofollow">{% endif %}
 <link rel="canonical" href="https://www.healthexps.com{{ page.url | replace('/index.html','') | replace('index.html','') }}">
 {% if hreflang_es %}<link rel="alternate" hreflang="en" href="https://www.healthexps.com{{ page.url | replace('/index.html','') }}">
 <link rel="alternate" hreflang="es" href="https://www.healthexps.com{{ hreflang_es }}">{% endif %}

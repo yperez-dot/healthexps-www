@@ -2,9 +2,10 @@
  * Blog publish-date helpers.
  *
  * Scheduled posts live in the repo (markdown + listing cards) before they
- * should appear on the live site. Compare against the America/New_York
- * calendar date so a build on publish day (Wed 9 AM ET) includes that post,
- * and a build the day before does not.
+ * should appear on the /blog/ listing. Compare against the America/New_York
+ * calendar date so a build on publish day (Wed 9 AM ET) includes that card,
+ * and a build the day before does not. The article URLs themselves still
+ * build (HTTP 200, noindex) so uptime checks do not treat them as outages.
  */
 
 function todayYmdET(now = new Date()) {
