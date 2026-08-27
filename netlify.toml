@@ -672,6 +672,19 @@
   status = 301
   force = true
 
+# Old Spanish FAQ URL — live FAQ is now /es/faq/
+[[redirects]]
+  from = "/es/preguntas-frecuentes"
+  to = "/es/faq/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/es/preguntas-frecuentes/"
+  to = "/es/faq/"
+  status = 301
+  force = true
+
 # 404 handler — serve 404.html for any unmatched route (replaces the 200 catch-all that was silently serving homepage content)
 [[redirects]]
   from = "/*"
