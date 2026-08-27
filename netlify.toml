@@ -668,6 +668,56 @@
   status = 301
   force = true
 
+# Spanish education-cluster short URLs from the v4 preview pass
+[[redirects]]
+  from = "/es/nuevo-en-medicare"
+  to = "/es/medicare/nuevo-en-medicare/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/es/nuevo-en-medicare/"
+  to = "/es/medicare/nuevo-en-medicare/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/es/que-es-medicare"
+  to = "/es/medicare/que-es-medicare/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/es/que-es-medicare/"
+  to = "/es/medicare/que-es-medicare/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/es/programa-ahorros-medicare"
+  to = "/es/medicare/programa-ahorros-medicare/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/es/programa-ahorros-medicare/"
+  to = "/es/medicare/programa-ahorros-medicare/"
+  status = 301
+  force = true
+
+# Old Spanish FAQ URL — live FAQ is now /es/faq/
+[[redirects]]
+  from = "/es/preguntas-frecuentes"
+  to = "/es/faq/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/es/preguntas-frecuentes/"
+  to = "/es/faq/"
+  status = 301
+  force = true
+
 # 404 handler — serve 404.html for any unmatched route (replaces the 200 catch-all that was silently serving homepage content)
 [[redirects]]
   from = "/*"

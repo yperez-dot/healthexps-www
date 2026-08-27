@@ -490,15 +490,6 @@
 </url>
 
 <url>
-  <loc>https://www.healthexps.com/es/preguntas-frecuentes</loc>
-  <lastmod>2026-06-24</lastmod>
-  <changefreq>monthly</changefreq>
-  <priority>0.6</priority>
-  <xhtml:link rel="alternate" hreflang="en" href="https://www.healthexps.com/faq"/>
-  <xhtml:link rel="alternate" hreflang="es" href="https://www.healthexps.com/es/preguntas-frecuentes"/>
-</url>
-
-<url>
   <loc>https://www.healthexps.com/faq/medicarefaq</loc>
   <lastmod>2026-06-22</lastmod>
   <changefreq>monthly</changefreq>
