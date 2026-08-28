@@ -6,7 +6,8 @@
 "use strict";
 
 const SCRIPT_MARK = "js/ghl-chat-widget.js";
-const SCRIPT_TAG = '<script src="/js/ghl-chat-widget.js" defer></script>\n';
+// Query string busts the 4-hour CDN/browser cache after widget ID swaps.
+const SCRIPT_TAG = '<script src="/js/ghl-chat-widget.js?v=live2" defer></script>\n';
 
 function injectGhlChatWidget(content, outputPath) {
   if (!outputPath || !/\.html$/i.test(String(outputPath))) return content;
