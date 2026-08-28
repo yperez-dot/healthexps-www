@@ -45,6 +45,14 @@
 
 /* v4 nav mobile breakpoint — added 2026-08-04 */
 
+/* Desktop nav dropdowns: hidden until hover/focus. Keep this in global.css
+   so a broken per-page stylesheet cannot leave both menus stuck open. */
+.v4-nav-item { position: relative; }
+.v4-nav-outer { overflow: visible; }
+.v4-nav-dropdown { display: none; }
+.v4-nav-item:hover > .v4-nav-dropdown,
+.v4-nav-item:focus-within > .v4-nav-dropdown { display: block; }
+
 /* footer default columns */
 #footer-grid{grid-template-columns:1.3fr 1fr 1fr 1fr;}
 
