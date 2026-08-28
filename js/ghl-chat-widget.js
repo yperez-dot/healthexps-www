@@ -6,7 +6,7 @@
  * production does not show a broken bubble.
  *
  * EN pages load WIDGET_IDS.en; /es/ pages load WIDGET_IDS.es.
- * See the Notion playbook: GHL Conversation AI (website chat).
+ * An empty ID means no bubble on that language.
  */
 (function (global) {
   "use strict";
@@ -16,7 +16,7 @@
 
   // Paste IDs from GHL → Sites → Chat Widgets → Get Code → data-widget-id
   var WIDGET_IDS = {
-    en: "",
+    en: "6a90f3c823454f63fe7755a4",
     es: "",
   };
 
@@ -32,9 +32,7 @@
   }
 
   function widgetIdFor(lang) {
-    var id = String(WIDGET_IDS[lang] || "").trim();
-    if (id) return id;
-    return String(WIDGET_IDS.en || "").trim();
+    return String(WIDGET_IDS[lang] || "").trim();
   }
 
   function bumpScrollTopButton() {
