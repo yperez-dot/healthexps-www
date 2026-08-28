@@ -14,9 +14,10 @@
   global.__THEI_GHL_CHAT__ = true;
 
   // Paste IDs from GHL → Sites → Chat Widgets → Get Code → data-widget-id
+  // EN + ES live chat (not SMS).
   var WIDGET_IDS = {
     en: "6a90f87f23454f63fe77f574",
-    es: "6a90f64d23454f63fe77ac3a",
+    es: "6a90f98e3cbef685c55fc386",
   };
 
   var LOADER_SRC = "https://widgets.leadconnectorhq.com/loader.js";
