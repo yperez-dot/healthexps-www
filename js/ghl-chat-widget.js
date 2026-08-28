@@ -2,8 +2,7 @@
  * GoHighLevel / LeadConnector chat widget loader.
  *
  * Create the widgets in GHL (Sites → Chat Widgets), then paste the
- * widget IDs below. Until both IDs are set, this file is a no-op so
- * production does not show a broken bubble.
+ * widget IDs below. An empty ID means that language has no bubble.
  *
  * EN pages load WIDGET_IDS.en; /es/ pages load WIDGET_IDS.es.
  * An empty ID means no bubble on that language.
@@ -17,7 +16,7 @@
   // Paste IDs from GHL → Sites → Chat Widgets → Get Code → data-widget-id
   var WIDGET_IDS = {
     en: "6a90f3c823454f63fe7755a4",
-    es: "",
+    es: "6a90f64d23454f63fe77ac3a",
   };
 
   var LOADER_SRC = "https://widgets.leadconnectorhq.com/loader.js";
