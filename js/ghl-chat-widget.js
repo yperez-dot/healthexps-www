@@ -14,7 +14,9 @@
   global.__THEI_GHL_CHAT__ = true;
 
   // Paste IDs from GHL → Sites → Chat Widgets → Get Code → data-widget-id
-  // EN + ES live chat (not SMS).
+  // EN + ES live chat (not SMS / email chat).
+  // If the bubble still opens a name/phone/SMS consent form, that is a GHL
+  // widget setting (Chat Window → Enable Contact Form), not this file.
   var WIDGET_IDS = {
     en: "6a90f87f23454f63fe77f574",
     es: "6a90f98e3cbef685c55fc386",
