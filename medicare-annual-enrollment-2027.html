@@ -2,7 +2,9 @@
 <html lang="en">
 <head>
 <script src="/js/form-spam-guard.js"></script>
+<link rel="icon" href="/favicon.ico" type="image/x-icon">
 <meta charset="UTF-8">
+<link rel="stylesheet" href="/css/global.css">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Medicare Annual Enrollment 2027 | Free Plan Review</title>
 <meta name="description" content="AEP in Miami is Oct 15–Dec 7. Free bilingual 2027 plan review before the rush — switch or keep Advantage or Part D. Call 1-800-380-6821.">
@@ -60,8 +62,10 @@ body{padding-bottom:72px;}
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"Service","name":"Medicare Annual Enrollment 2027 Miami | Free Plan Review","serviceType":"Medicare Annual Enrollment","url":"https://www.healthexps.com/medicare-annual-enrollment-2027","provider":{"@type":"Organization","name":"The Health Experts Insurance","url":"https://www.healthexps.com"}}</script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"When is Medicare Annual Enrollment 2027?","acceptedAnswer":{"@type":"Answer","text":"Medicare Annual Enrollment 2027 (also called Medicare open enrollment or AEP) runs October 15 through December 7. Changes take effect January 1, 2027."}},{"@type":"Question","name":"When is Medicare open enrollment in Miami?","acceptedAnswer":{"@type":"Answer","text":"AEP Miami follows the national window: October 15 through December 7. You can join, switch, or drop a Medicare Advantage or Part D plan during that period. Coverage starts January 1."}},{"@type":"Question","name":"Who can change a Medicare plan during AEP?","acceptedAnswer":{"@type":"Answer","text":"If you have Medicare Part A and Part B, AEP is the yearly window to join, switch, or drop a Medicare Advantage or Part D plan. You do not have to switch. Original Medicare with Medigap follows different rules."}},{"@type":"Question","name":"Do I have to switch plans during AEP?","acceptedAnswer":{"@type":"Answer","text":"No. If you are happy with your current plan, you do not have to do anything. You should still review it because benefits, premiums, and networks change every year."}},{"@type":"Question","name":"How long does a plan review take?","acceptedAnswer":{"@type":"Answer","text":"Most reviews take 20–30 minutes over the phone or in person at our Doral office. We check your doctors, medications, and budget against available plans in your area."}},{"@type":"Question","name":"Is this really free?","acceptedAnswer":{"@type":"Answer","text":"Yes. Licensed bilingual brokers in Miami compare 2027 plan options at no cost to you. You pay the same premium whether you use a broker or enroll directly."}},{"@type":"Question","name":"Can I get help in Spanish?","acceptedAnswer":{"@type":"Answer","text":"Yes. Our entire team is bilingual. We serve Florida’s Spanish-speaking community in English and Spanish — same agent, same expertise, no handoffs."}},{"@type":"Question","name":"What should I bring to a Medicare plan review?","acceptedAnswer":{"@type":"Answer","text":"Bring your Medicare card, a list of medications with dosages, the names of doctors you want to keep, your preferred hospital, and a monthly budget for premiums and out-of-pocket costs."}}]}</script>
 <style>
+.v4-nav-item { position: relative; }
 .v4-nav-dropdown { display: none; }
-.v4-nav-item:hover .v4-nav-dropdown { display: block; }
+.v4-nav-item:hover > .v4-nav-dropdown,
+.v4-nav-item:focus-within > .v4-nav-dropdown { display: block; }
 .v4-nav-mobile-btn { display: none; background:none; border:none; cursor:pointer; padding:8px; }
 #v4-mobile-menu { display:none; position:fixed; top:0; left:0; right:0; bottom:0; background:#fff; z-index:999; overflow-y:auto; padding:24px; }
 #v4-mobile-menu.open { display:block; }
@@ -126,10 +130,17 @@ h1,h2,h3,h4{font-family:'Poppins',sans-serif;}
 .urgency-bar{background:#452068;color:#fff;padding:12px 56px;text-align:center;font-size:16px;font-weight:700;}
 
 /* ---- HERO ---- */
-.aep-hero{background:linear-gradient(135deg,#fdfaf7 0%,#f7f2fb 100%);padding:64px 56px 48px;text-align:center;}
-.aep-pill{display:inline-flex;align-items:center;gap:8px;background:#fff0f8;color:#c40074;padding:8px 16px;border-radius:999px;font-size:16px;font-weight:700;margin-bottom:20px;}
-.aep-hero h1{font-family:'Poppins',sans-serif;font-weight:700;font-size:36px;line-height:1.2;margin:0 auto 16px;max-width:720px;}
-.aep-hero p{font-size:18px;line-height:1.6;margin:0 auto 28px;max-width:620px;}
+.aep-urgency-bar{background:#fff7ec;border-bottom:1px solid #f3d9a8;padding:10px 56px;text-align:center;font-size:16px;color:#94660a;}
+.aep-breadcrumb{padding:14px 56px;background:#f7f2fb;font-size:16px;color:#3a2f47;}
+.aep-breadcrumb a{font-weight:600;color:#452068;}
+.aep-breadcrumb span{margin:0 6px;color:#5a5068;}
+.aep-hero{background:linear-gradient(135deg,#fdfaf7 0%,#f7f2fb 100%);padding:56px 56px 48px;text-align:center;}
+.aep-pill{display:inline-flex;align-items:center;gap:8px;background:#fff0f8;color:#c40074;padding:8px 16px;border-radius:999px;font-size:16px;font-weight:700;margin-bottom:18px;}
+.aep-hero h1,.aep-h1{font-family:'Poppins',sans-serif;font-weight:700;font-size:clamp(28px,4vw,38px);line-height:1.2;color:#241a30;margin:0 auto 14px;max-width:720px;}
+.aep-hero-sub,.aep-sub{font-size:16px;line-height:1.6;color:#3a2f47;margin:0 auto 24px;max-width:620px;}
+.aep-countdown-card{display:inline-flex;align-items:center;gap:12px;background:#fff;border:1px solid #ece5f0;border-radius:16px;padding:16px 24px;margin:0 auto 24px;box-shadow:0 8px 24px rgba(69,32,104,.08);}
+#aep-days{font-family:'Poppins',sans-serif;font-size:36px;font-weight:800;color:#c40074;min-width:3ch;text-align:center;line-height:1;}
+.aep-countdown-label{font-size:16px;font-weight:600;color:#3a2f47;text-align:left;}
 .btn-hero{display:inline-block;background:#ff1090;color:#fff;padding:17px 30px;border-radius:12px;font-weight:700;font-size:16px;box-shadow:0 10px 24px rgba(255,16,144,.28);margin-bottom:20px;text-decoration:none;}
 .btn-hero:hover{background:#d4006d;color:#fff;}
 .hero-trust{display:flex;gap:16px;justify-content:center;flex-wrap:wrap;font-size:16px;color:#452068;font-weight:600;}
@@ -173,8 +184,8 @@ h1,h2,h3,h4{font-family:'Poppins',sans-serif;}
 .check-icon{flex-shrink:0;margin-top:2px;}
 
 /* ---- FORM SECTION ---- */
-.form-section{background:#452068;padding:64px 56px;}
-.form-card{max-width:560px;margin:0 auto;background:#fff;border-radius:22px;padding:34px;box-shadow:0 30px 60px rgba(0,0,0,.25);}
+.form-section{background:#f7f2fb;padding:64px 56px;}
+.form-card{max-width:560px;margin:0 auto;background:#fff;border-radius:22px;padding:34px;box-shadow:0 20px 50px rgba(69,32,104,.12);}
 .form-title{font-family:'Poppins',sans-serif;font-weight:700;font-size:20px;color:#241a30;margin-bottom:6px;text-align:center;}
 .form-sub{font-size:16px;color:#3a2f47;margin-bottom:20px;text-align:center;}
 .form-row-2{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:12px;}
@@ -260,12 +271,15 @@ h1,h2,h3,h4{font-family:'Poppins',sans-serif;}
   .nav-close{display:block !important;position:fixed;top:12px;right:16px;z-index:1000;background:none;border:none;font-size:28px;color:#452068;cursor:pointer;}
 
   /* Urgency bar */
-  .urgency-bar{padding:12px 20px;font-size:16px;}
+  .urgency-bar,.aep-urgency-bar{padding:12px 20px;font-size:16px;}
+  .aep-breadcrumb{padding:12px 20px;}
 
   /* Hero */
   .aep-hero{padding:40px 20px 32px;}
-  .aep-hero h1{font-size:26px;}
-  .aep-hero p{font-size:18px;}
+  .aep-hero h1,.aep-h1{font-size:26px;}
+  .aep-hero p,.aep-hero-sub,.aep-sub{font-size:17px;}
+  .aep-countdown-card{padding:14px 18px;}
+  #aep-days{font-size:30px;}
   .btn-hero{padding:14px 24px;font-size:18px;}
   .hero-trust{gap:10px;font-size:14.5px;}
 
@@ -303,7 +317,7 @@ h1,h2,h3,h4{font-family:'Poppins',sans-serif;}
 @media(min-width:641px) and (max-width:900px){
   .checklist-grid{grid-template-columns:1fr;}
   .section-white,.section-purple-light{padding:48px 32px;}
-  .urgency-bar,.util-bar,.tpmo-bar{padding-left:32px;padding-right:32px;}
+  .urgency-bar,.util-bar,.tpmo-bar,.aep-urgency-bar,.aep-breadcrumb{padding-left:32px;padding-right:32px;}
   .nav-inner{padding:0 32px;}
   .form-section{padding:48px 32px;}
   .aep-hero{padding:56px 32px 40px;}
@@ -341,14 +355,14 @@ body{padding-bottom:72px;}
       </div>
 
       <!-- nav -->
-      <div class="v4-nav-outer" style="display:flex;align-items:center;justify-content:space-between;padding:14px 56px;border-bottom:1px solid #ece5f0;position:sticky;top:0;background:#fff;z-index:500">
+      <div class="v4-nav-outer" style="display:flex;align-items:center;justify-content:space-between;padding:14px 56px;border-bottom:1px solid #ece5f0;position:sticky;top:0;background:#fff;z-index:500;overflow:visible">
         <a href="/"><img src="/images/logo.webp" alt="The Health Experts Insurance" style="height:80px;width:auto;cursor:pointer"/></a>
         <div class="v4-nav-desktop" style="display:flex;align-items:center;gap:26px;font-size:18px;font-weight:600;color:#3a2f47">
           <a href="/" style="cursor:pointer">Home</a>
 
           <div class="v4-nav-item" style="position:relative">
             <a href="/medicare-plans-miami" style="cursor:pointer;display:flex;align-items:center;gap:4px">Insurance ▾</a>
-              <div class="v4-nav-dropdown" style="position:absolute;top:100%;left:-14px;padding-top:12px;z-index:20">
+              <div class="v4-nav-dropdown" style="position:absolute;top:100%;left:-14px;padding-top:12px;z-index:600">
                 <div style="background:#fff;border:2px solid #ece5f0;border-radius:12px;box-shadow:0 16px 36px rgba(69,32,104,.16);padding:8px;min-width:320px;display:flex;flex-direction:column">
                   <a href="/medicare-plans-miami" style="padding:10px 14px;border-radius:8px;cursor:pointer;font-weight:600;white-space:nowrap">Medicare Plans</a>
                   <a href="/medicare-advantage-miami" style="padding:10px 14px;border-radius:8px;cursor:pointer;font-weight:600;white-space:nowrap">Medicare Advantage</a>
@@ -365,7 +379,7 @@ body{padding-bottom:72px;}
 
           <div class="v4-nav-item" style="position:relative">
             <span style="cursor:pointer;display:flex;align-items:center;gap:4px">Guides ▾</span>
-              <div class="v4-nav-dropdown" style="position:absolute;top:100%;left:-14px;padding-top:12px;z-index:20">
+              <div class="v4-nav-dropdown" style="position:absolute;top:100%;left:-14px;padding-top:12px;z-index:600">
                 <div style="background:#fff;border:2px solid #ece5f0;border-radius:12px;box-shadow:0 16px 36px rgba(69,32,104,.16);padding:8px;min-width:240px;display:flex;flex-direction:column">
                   <a href="/medicare/what-is-medicare" style="padding:10px 14px;border-radius:8px;cursor:pointer;font-weight:600;white-space:nowrap">What Is Medicare</a>
                   <a href="/medicare/new-to-medicare" style="padding:10px 14px;border-radius:8px;cursor:pointer;font-weight:600;white-space:nowrap">New to Medicare</a>
@@ -386,7 +400,7 @@ body{padding-bottom:72px;}
         </div>
         <div style="display:flex;align-items:center;gap:12px">
           <a href="tel:18003806821" class="v4-nav-desktop" style="color:#241a30;font-weight:700;font-size:18px">📞 1-800-380-6821</a>
-          <a href="#lead-form" class="v4-nav-desktop" style="background:#452068;color:#fff;padding:11px 20px;border-radius:10px;font-weight:700;font-size:17px">Free Consultation</a>
+          <a href="#aep-form" class="v4-nav-desktop" style="background:#452068;color:#fff;padding:11px 20px;border-radius:10px;font-weight:700;font-size:17px">Free Consultation</a>
           <!-- Hamburger — mobile only -->
           <button class="v4-nav-mobile-btn" id="v4HamburgerBtn" aria-label="Open menu" aria-expanded="false" aria-controls="v4-mobile-menu">
             <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#241a30" stroke-width="2.2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
@@ -435,68 +449,54 @@ body{padding-bottom:72px;}
           <!-- Mobile CTA -->
           <div style="margin-top:20px;display:flex;flex-direction:column;gap:12px">
             <a href="tel:18003806821" style="background:#241a30;color:#fff;padding:16px;border-radius:12px;font-weight:700;font-size:16px;text-align:center">📞 1-800-380-6821</a>
-            <a href="#lead-form" onclick="document.getElementById('v4-mobile-menu').classList.remove('open');document.getElementById('v4HamburgerBtn').setAttribute('aria-expanded','false');" style="background:#ff1090;color:#fff;padding:16px;border-radius:12px;font-weight:700;font-size:16px;text-align:center">Book Free Consultation →</a>
+            <a href="#aep-form" onclick="document.getElementById('v4-mobile-menu').classList.remove('open');document.getElementById('v4HamburgerBtn').setAttribute('aria-expanded','false');" style="background:#ff1090;color:#fff;padding:16px;border-radius:12px;font-weight:700;font-size:16px;text-align:center">Book Free Consultation →</a>
           </div>
         </nav>
       </div>
 
-<!-- HERO — Task 1.9 -->
-<style>
-.aep-hero{background:linear-gradient(135deg,#2f1550 0%,#452068 100%);padding:64px 56px 56px;color:#fff;}
-.aep-eyebrow{display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,.1);color:#ff90c8;padding:7px 16px;border-radius:999px;font-size:16px;font-weight:700;letter-spacing:.04em;margin-bottom:20px;}
-.aep-h1{font-family:'Poppins',sans-serif;font-size:clamp(30px,5vw,48px);font-weight:800;line-height:1.1;margin:0 0 18px;}
-.aep-countdown{display:inline-flex;align-items:center;gap:10px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.2);border-radius:14px;padding:14px 22px;margin:0 0 22px;font-size:17px;font-weight:700;}
-#aep-days{font-family:'Poppins',sans-serif;font-size:36px;font-weight:800;color:#ff90c8;min-width:3ch;text-align:center;}
-.aep-sub{font-size:17px;line-height:1.65;opacity:.88;max-width:560px;margin:0 0 32px;}
-.aep-btns{display:flex;gap:14px;flex-wrap:wrap;}
-.aep-btn-pink{background:#ff1090;color:#fff;padding:16px 28px;border-radius:12px;font-weight:700;font-size:18px;text-decoration:none;display:inline-flex;align-items:center;gap:8px;}
-.aep-btn-outline{border:2px solid rgba(255,255,255,.6);color:#fff;padding:14px 26px;border-radius:12px;font-weight:700;font-size:18px;text-decoration:none;}
-@media(max-width:768px){
-  .aep-hero{padding:40px 20px 40px;}
-  .aep-btns{flex-direction:column;align-items:flex-start;}
-  .aep-btn-pink,.aep-btn-outline{text-align:center;justify-content:center;}
-}
-</style>
+  <!-- URGENCY BAR -->
+  <div class="aep-urgency-bar">
+    Annual Enrollment 2027 is October 15 &ndash; December 7 &mdash; review your plan before the rush
+  </div>
 
-<div class="aep-hero">
-  <div style="max-width:760px;margin:0 auto;">
-    <div class="aep-eyebrow">Medicare Open Enrollment 2027 &middot; October 15 &ndash; December 7</div>
+  <!-- BREADCRUMB -->
+  <div class="aep-breadcrumb">
+    <a href="/">Home</a><span>›</span>Guides<span>›</span>Annual Enrollment 2027
+  </div>
+
+  <!-- HERO -->
+  <div class="aep-hero">
+    <div class="aep-pill">Medicare Open Enrollment 2027 &middot; October 15 &ndash; December 7</div>
     <h1 class="aep-h1">Medicare Annual Enrollment 2027 in Miami</h1>
-    <div class="aep-countdown" aria-live="polite">
+    <p class="aep-hero-sub">Oct 15&ndash;Dec 7 is your window to join, switch, or drop Advantage or Part D for 2027. Get a free bilingual plan review now &mdash; before the phone lines jam. We do not offer every plan in your area.</p>
+    <div class="aep-countdown-card" aria-live="polite">
       <span id="aep-days">—</span>
-      <span style="opacity:.85;font-size:18px;font-weight:600;">days until Annual Enrollment opens</span>
+      <span class="aep-countdown-label">days until Annual Enrollment opens</span>
     </div>
-    <p class="aep-sub">Oct 15–Dec 7 is your window to join, switch, or drop Advantage or Part D for 2027. Get a free bilingual plan review now — before the phone lines jam. We do not offer every plan in your area.</p>
-    <div class="aep-btns">
-      <a href="#lead-form" class="aep-btn-pink">Compare Plans Free</a>
-      <a href="#lead-form" class="aep-btn-outline">&#128197; Schedule Free Consultation</a>
+    <a href="#aep-form" class="btn-hero">Compare Plans Free &rarr;</a>
+    <div class="hero-trust" style="margin-top:22px">
+      <span>&#10003; Licensed FL brokers</span>
+      <span>&#10003; Bilingual EN/ES</span>
+      <span>&#10003; No cost to you</span>
+      <span class="hero-trust-star">&#9733;&#9733;&#9733;&#9733;&#9733; 4.9 Google rating</span>
     </div>
   </div>
-</div>
-<script>
-(function(){
-  var el = document.getElementById('aep-days');
-  if(!el) return;
-  // Target: October 15, 2026 00:00:00 ET
-  var target = new Date('2026-10-15T04:00:00Z'); // 00:00 ET = 04:00 UTC
-  function update(){
-    var now = new Date();
-    var diff = target - now;
-    if(diff <= 0){ el.textContent = '0'; return; }
-    el.textContent = Math.floor(diff / 86400000);
-  }
-  update();
-  setInterval(update, 60000);
-})();
-</script>
-
-<div class="hero-trust">
-    <span>&#10003; Licensed FL brokers</span>
-    <span>&#10003; Bilingual EN/ES</span>
-    <span>&#10003; No cost to you</span>
-    <span class="hero-trust-star">&#9733;&#9733;&#9733;&#9733;&#9733; 4.9 Google rating</span>
-  </div>
-</div>
+  <script>
+  (function(){
+    var el = document.getElementById('aep-days');
+    if(!el) return;
+    // Target: October 15, 2026 00:00:00 ET
+    var target = new Date('2026-10-15T04:00:00Z'); // 00:00 ET = 04:00 UTC
+    function update(){
+      var now = new Date();
+      var diff = target - now;
+      if(diff <= 0){ el.textContent = '0'; return; }
+      el.textContent = Math.floor(diff / 86400000);
+    }
+    update();
+    setInterval(update, 60000);
+  })();
+  </script>
 
 <!-- KEY DATES -->
 <div class="section-white" style="padding-top:48px">
