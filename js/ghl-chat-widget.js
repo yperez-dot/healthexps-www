@@ -15,7 +15,7 @@
 
   // Paste IDs from GHL → Sites → Chat Widgets → Get Code → data-widget-id
   var WIDGET_IDS = {
-    en: "6a90f3c823454f63fe7755a4",
+    en: "6a90f87f23454f63fe77f574",
     es: "6a90f64d23454f63fe77ac3a",
   };
 
