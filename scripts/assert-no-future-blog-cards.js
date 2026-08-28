@@ -54,11 +54,18 @@ for (const dir of ["blog", "es/blog"]) {
     if (!isFuturePublishDate(dateMatch[1])) continue;
     const permalink = permalinkMatch[1].replace(/^\/+|\/+$/g, "");
     const out = path.join(site, permalink, "index.html");
-    if (fs.existsSync(out)) {
-      console.error(`Future post was published: ${out} (${dateMatch[1]})`);
+    if (!fs.existsSync(out)) {
+      console.error(`Scheduled post missing (site-health 404): ${out}`);
+      failed = true;
+      continue;
+    }
+    const page = fs.readFileSync(out, "utf8");
+    if (!/name=["']robots["'][^>]*content=["']noindex/i.test(page) &&
+        !/content=["']noindex[^"']*["'][^>]*name=["']robots["']/i.test(page)) {
+      console.error(`Scheduled post is missing noindex: ${out}`);
       failed = true;
     } else {
-      console.log(`suppressed until ${dateMatch[1]}: /${permalink}/`);
+      console.log(`reachable + noindex until ${dateMatch[1]}: /${permalink}/`);
     }
   }
 }

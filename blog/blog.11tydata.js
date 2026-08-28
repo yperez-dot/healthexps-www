@@ -1,17 +1,12 @@
 const { isFuturePublishDate } = require("../scripts/blog-dates");
 
-// Prevent future-dated posts from being output as pages.
-// Only applies to .md files; existing .html files are unaffected.
+// Future-dated .md posts still build as pages (site-health expects HTTP 200)
+// but stay off /blog/ until publish day and are noindexed so they don't rank.
 module.exports = {
   eleventyComputed: {
-    permalink: (data) => {
-      if (!data.page || !data.page.inputPath.endsWith(".md")) {
-        return data.permalink;
-      }
-      if (isFuturePublishDate(data.date)) {
-        return false; // suppress until publish date (America/New_York)
-      }
-      return data.permalink;
+    noindex: (data) => {
+      if (!data.page || !data.page.inputPath.endsWith(".md")) return false;
+      return isFuturePublishDate(data.date);
     },
   },
 };
