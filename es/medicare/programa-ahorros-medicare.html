@@ -30,126 +30,115 @@
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 
 <script type="application/ld+json">
-{
+[
+ {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+   {"@type":"ListItem","position":1,"name":"Inicio","item":"https://www.healthexps.com/es/"},
+   {"@type":"ListItem","position":2,"name":"Planes Medicare","item":"https://www.healthexps.com/es/planes-de-medicare-miami"},
+   {"@type":"ListItem","position":3,"name":"Programa de Ahorros Medicare","item":"https://www.healthexps.com/es/medicare/programa-ahorros-medicare/"}
+  ]
+ },
+ {
   "@context": "https://schema.org",
   "@type": "FAQPage",
+  "inLanguage": "es",
   "mainEntity": [
-    {"@type":"Question","name":"¿Qué es el Programa de Ahorros de Medicare?","acceptedAnswer":{"@type":"Answer","text":"El Programa de Ahorros Medicare (MSP) es un programa estatal que ayuda a personas con Medicare y bajos ingresos a pagar los costos de Medicare, como primas, deducibles y copagos."}},
-    {"@type":"Question","name":"¿Quién califica para el Programa de Ahorros Medicare en Florida?","acceptedAnswer":{"@type":"Answer","text":"Para calificar, debe tener Medicare Parte A y cumplir con ciertos límites de ingresos y activos. Los límites de ingresos varían según el nivel del programa (QMB, SLMB o QI)."}},
-    {"@type":"Question","name":"¿Qué es QMB?","acceptedAnswer":{"@type":"Answer","text":"QMB (Qualified Medicare Beneficiary) es el nivel más completo del Programa de Ahorros. Cubre la prima de la Parte A, la prima de la Parte B, el deducible de la Parte A y B, y los costos de coaseguro y copagos."}},
-    {"@type":"Question","name":"¿El Programa de Ahorros Medicare también cubre medicamentos?","acceptedAnswer":{"@type":"Answer","text":"El programa en sí no cubre medicamentos, pero si califica para QMB, también califica automáticamente para Extra Help (Ayuda Extra), que reduce significativamente los costos de la Parte D."}}
+    {"@type":"Question","name":"¿Qué es el Programa de Ahorros de Medicare?","acceptedAnswer":{"@type":"Answer","text":"El Programa de Ahorros Medicare (MSP) es un programa estatal que ayuda a personas con Medicare y bajos ingresos a pagar los costos de Medicare, como primas, deducibles y copagos. En Florida lo administra el Departamento de Niños y Familias (DCF)."}},
+    {"@type":"Question","name":"¿Quién califica para el Programa de Ahorros Medicare en Florida?","acceptedAnswer":{"@type":"Answer","text":"En 2026, los límites aproximados de QMB son $1,330/mes individual y $1,803/mes pareja. SLMB: $1,596 / $2,164. QI: $1,796 / $2,435. También aplican límites de activos. Debe tener Medicare Parte A."}},
+    {"@type":"Question","name":"¿Qué es QMB?","acceptedAnswer":{"@type":"Answer","text":"QMB (Beneficiario Medicare Calificado) es el nivel más completo. Cubre primas de Parte A y B, deducibles, copagos y coseguros. También califica automáticamente para Extra Help (Ayuda Extra) de la Parte D. QMB es el único MSP que cubre la prima de Parte A si tiene menos de 40 créditos de trabajo."}},
+    {"@type":"Question","name":"¿El Programa de Ahorros Medicare también cubre medicamentos?","acceptedAnswer":{"@type":"Answer","text":"El programa en sí no cubre medicamentos, pero si califica para QMB, SLMB o QI, califica automáticamente para Extra Help (Ayuda Extra), que puede ahorrar hasta $5,300 al año en la Parte D."}},
+    {"@type":"Question","name":"¿Cómo aplico al Programa de Ahorros Medicare en Florida?","acceptedAnswer":{"@type":"Answer","text":"Puede aplicar por el portal MyACCESS de DCF en access.florida.gov, llamando al 1-866-762-2237 o visitando una oficina local de DCF. Nuestro equipo puede orientarle sin costo."}}
   ]
-}
+ }
+]
 </script>
 
 <style>
-#scrollToTop{display:none;position:fixed;bottom:28px;right:28px;width:48px;height:48px;min-width:48px;min-height:48px;background:#452068;color:#fff;border:none;border-radius:50%;font-size:22px;font-weight:700;cursor:pointer;align-items:center;justify-content:center;box-shadow:0 4px 16px rgba(69,32,104,.35);z-index:998;transition:background .2s,transform .15s;}
-#scrollToTop:hover{background:#ff1090;transform:translateY(-2px);}
-#v4-mobile-menu a,.v4-nav-outer a,.v4-nav-desktop a{text-decoration:none !important;}
-#v4-mobile-menu nav a:hover{color:#ff1090 !important;}
-:root{--purple:#452068;--purple-dark:#2f1550;--purple-light:#f7f2fb;--pink:#ff1090;--white:#ffffff;--gray-text:#3a2f47;--black:#241a30;--font-body:'Inter',Arial,Helvetica,sans-serif;--font-head:'Poppins',Arial,Helvetica,sans-serif;}
-html,body{overflow-x:hidden;max-width:100%;font-family:var(--font-body);color:var(--black);line-height:1.65;font-size:17px;background:#fff;}
+html,body{overflow-x:hidden;max-width:100%;}
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
-h1,h2,h3{font-family:var(--font-head);line-height:1.2;}
-a{color:var(--purple);text-decoration:none;}a:hover{color:var(--pink);}
-.container{max-width:1060px;margin:0 auto;padding:0 28px;}
+body{font-family:'Inter',Arial,Helvetica,sans-serif;color:#241a30;background:#fff;font-size:18px;line-height:1.7;-webkit-font-smoothing:antialiased;}
+a{color:#452068;text-decoration:none;}
+a:hover{color:#ff1090;}
+img{max-width:100%;height:auto;}
+::placeholder{color:#5a5068;}
+input:focus,textarea:focus,select:focus{outline:2px solid #ff1090;outline-offset:1px;}
 .v4-nav-dropdown{display:none;}
 .v4-nav-item:hover .v4-nav-dropdown{display:block;}
 .v4-nav-mobile-btn{display:none;background:none;border:none;cursor:pointer;padding:8px;}
 #v4-mobile-menu{display:none;position:fixed;top:0;left:0;right:0;bottom:0;background:#fff;z-index:999;overflow-y:auto;padding:24px;}
 #v4-mobile-menu.open{display:block;}
-@media(max-width:900px){.v4-nav-desktop{display:none !important;}.v4-nav-mobile-btn{display:flex !important;align-items:center;}}
-@media(max-width:768px){.top-bar-inner{padding-left:20px !important;padding-right:20px !important;}.v4-nav-outer{padding-left:20px !important;padding-right:20px !important;}.programs-grid{grid-template-columns:1fr !important;}.form-row{grid-template-columns:1fr !important;}.checklist-grid{grid-template-columns:1fr !important;}}
-
-.page-hero{background:linear-gradient(135deg,#311549 0%,#452068 60%,#6b2fa0 100%);padding:64px 0 80px;position:relative;overflow:hidden;color:#fff;}
-.page-hero::after{content:'';position:absolute;bottom:-1px;left:0;right:0;height:60px;background:#fff;clip-path:ellipse(55% 100% at 50% 100%);}
-.hero-inner{position:relative;z-index:2;}
-.tag-pill{display:inline-flex;align-items:center;gap:6px;background:rgba(255,255,255,0.14);border:1px solid rgba(255,255,255,0.28);color:white;padding:6px 16px;border-radius:50px;font-size:16px;font-weight:700;margin-bottom:20px;}
-.page-hero h1{font-family:'Poppins',sans-serif;font-size:clamp(28px,4vw,46px);font-weight:700;color:white;line-height:1.15;margin-bottom:16px;}
-.page-hero-sub{color:rgba(255,255,255,0.88);font-size:17px;line-height:1.7;margin-bottom:28px;max-width:680px;}
-.trust-bar{display:flex;flex-wrap:wrap;gap:20px;margin-top:22px;font-size:16px;color:rgba(255,255,255,0.75);}
-.trust-bar span{display:flex;align-items:center;gap:5px;}
-.section{padding:64px 0;}
-.section-alt{background:#f7f2fb;}
-.section-off{background:#fdfaf7;}
-.section-tag{font-size:14.5px;font-weight:700;color:#c40074;text-transform:uppercase;letter-spacing:1px;margin-bottom:10px;}
-.section-title{font-family:'Poppins',sans-serif;font-size:clamp(22px,3vw,32px);font-weight:700;color:#241a30;margin-bottom:12px;}
-.section-sub{color:#3a2f47;font-size:16px;margin-bottom:32px;line-height:1.7;max-width:720px;}
-.programs-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:28px;}
-.program-card{background:white;border-radius:20px;padding:32px 28px;box-shadow:0 4px 20px rgba(69,32,104,.10);border:2px solid #ece5f0;position:relative;}
-.program-card.featured{border-color:#452068;box-shadow:0 8px 32px rgba(69,32,104,.18);}
-.program-badge{display:inline-block;background:#ff1090;color:white;font-size:14.5px;font-weight:700;padding:4px 12px;border-radius:50px;margin-bottom:14px;}
-.program-name{font-family:'Poppins',sans-serif;font-size:22px;font-weight:700;color:#452068;margin-bottom:6px;}
-.program-full{font-size:16px;color:#3a2f47;margin-bottom:16px;}
-.program-covers{list-style:none;padding:0;margin:0;}
-.program-covers li{display:flex;align-items:flex-start;gap:10px;font-size:17px;color:#374151;line-height:1.55;margin-bottom:10px;}
-.program-covers li::before{content:'✓';color:#16a34a;font-weight:700;flex-shrink:0;margin-top:1px;}
-.income-table{width:100%;border-collapse:collapse;margin-top:24px;font-size:17px;}
-.income-table th{background:#452068;color:white;padding:12px 16px;text-align:left;font-weight:700;font-size:16px;}
-.income-table td{padding:12px 16px;border-bottom:1px solid #f0ecf8;vertical-align:middle;}
-.income-table tr:nth-child(even){background:#f9f7fc;}
-.income-table tr:hover{background:#f4eefa;}
-.how-to-card{background:white;border-radius:16px;padding:28px;border:2px solid #ece5f0;margin-bottom:16px;display:flex;gap:20px;align-items:flex-start;}
-.how-num{width:40px;height:40px;border-radius:50%;background:#452068;color:white;font-weight:700;font-size:17px;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
-.how-title{font-weight:700;font-size:16px;margin-bottom:6px;color:#241a30;}
-.how-text{font-size:17px;color:#3a2f47;line-height:1.6;}
-.checklist-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:24px;}
-.check-item{background:#f4eefa;border-radius:12px;padding:16px 18px;display:flex;align-items:flex-start;gap:12px;}
-.check-icon{width:28px;height:28px;border-radius:50%;background:#452068;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
-.tip-box{background:#f4eefa;border-left:4px solid #452068;border-radius:0 12px 12px 0;padding:18px 20px;margin:24px 0;font-size:18px;color:#452068;line-height:1.6;}
-.faq-item{background:white;border-radius:12px;padding:24px;margin-bottom:14px;box-shadow:0 2px 12px rgba(69,32,104,.07);border:1px solid #f0ecf8;}
-.faq-q{font-size:17px;font-weight:700;color:#452068;margin-bottom:10px;}
-.faq-a{font-size:18px;color:#374151;line-height:1.75;}
-.form-section{background:#452068;padding:72px 0;}
-.form-box{background:#fff;border-radius:22px;padding:36px;max-width:640px;margin:0 auto;box-shadow:0 30px 60px rgba(0,0,0,.2);}
-.form-row{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
-.form-group{margin-bottom:16px;}
-.form-label{display:block;font-size:17px;font-weight:700;color:#333;margin-bottom:6px;}
-.form-input,.form-select{width:100%;padding:12px 14px;border:2px solid #e5e5e5;border-radius:10px;font-size:18px;font-family:'Inter',sans-serif;transition:border 0.2s;color:#1a1a1a;box-sizing:border-box;}
-.form-input:focus,.form-select:focus{outline:none;border-color:#452068;}
-.btn-pink{display:inline-block;background:#ff1090;color:white;padding:14px 28px;border-radius:12px;font-weight:700;font-size:18px;text-decoration:none;transition:all .2s;}
-.btn-pink:hover{background:#c40074;color:white;}
-.btn-pink-full{background:#ff1090;color:white;display:block;width:100%;text-align:center;padding:14px;border-radius:12px;font-weight:700;font-size:16px;text-decoration:none;border:none;cursor:pointer;font-family:'Poppins',sans-serif;transition:all .2s;}
-.btn-pink-full:hover{background:#c40074;color:white;}
-.tpmo-bar{background:#f9f7fc;border-top:1px solid #e8e0f4;padding:20px 0;}
-.tpmo-text{font-size:14px;color:#5a5068;line-height:1.7;text-align:center;max-width:860px;margin:0 auto;padding:0 20px;}
+@media(max-width:900px){
+  .v4-nav-desktop{display:none!important;}
+  .v4-nav-mobile-btn{display:flex!important;align-items:center;}
+}
+@media(max-width:768px){
+  .top-bar-inner{padding-left:20px!important;padding-right:20px!important;}
+  .v4-nav-outer{padding-left:20px!important;padding-right:20px!important;}
+  #footer-grid{grid-template-columns:1fr 1fr!important;gap:24px!important;}
+  #site-footer{padding:40px 20px 24px!important;}
+}
+@media(max-width:640px){
+  .section-pad{padding-left:20px!important;padding-right:20px!important;}
+  .msp-programs-grid{grid-template-columns:1fr!important;}
+  .msp-steps-grid{grid-template-columns:1fr!important;}
+  .msp-guides-grid{grid-template-columns:1fr!important;}
+  .ff-row{grid-template-columns:1fr!important;}
+  .msp-hero-stats{flex-direction:column;gap:12px!important;align-items:center;}
+  .msp-cta-btns{flex-direction:column;align-items:center;gap:10px!important;}
+}
+@media(max-width:480px){
+  #footer-grid{grid-template-columns:1fr!important;}
+}
+#scrollToTop{display:none;position:fixed;bottom:28px;right:28px;width:48px;height:48px;min-width:48px;min-height:48px;background:#452068;color:#fff;border:none;border-radius:50%;font-size:22px;font-weight:700;cursor:pointer;align-items:center;justify-content:center;box-shadow:0 4px 16px rgba(69,32,104,.35);z-index:998;transition:background .2s,transform .15s;}
+#scrollToTop:hover{background:#ff1090;transform:translateY(-2px);}
+#v4-mobile-menu a,.v4-nav-outer a,.v4-nav-desktop a{text-decoration:none!important;}
+#v4-mobile-menu nav a:hover{color:#ff1090!important;}
+.msp-hs-btn{width:100%;padding:12px 14px;border-radius:10px;border:2px solid #ddd2e6;cursor:pointer;text-align:left;font-size:17px;font-weight:600;font-family:'Inter',sans-serif;background:#fff;color:#241a30;transition:border-color .2s,background .2s;}
+.msp-hs-btn.active{border-color:#452068;background:#f7f2fb;color:#452068;}
+.msp-form-input,.msp-form-select{width:100%;box-sizing:border-box;padding:13px 14px;border-radius:10px;border:1px solid #ddd2e6;font-size:18px;font-family:'Inter',sans-serif;color:#241a30;background:#fff;display:block;}
+.ff-row{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:12px;}
+.msp-submit-btn{width:100%;border:none;padding:15px 20px;border-radius:10px;font-weight:700;font-size:18px;font-family:'Inter',sans-serif;cursor:pointer;background:#ff1090;color:#fff;box-sizing:border-box;transition:background .2s;}
+.msp-submit-btn:hover{background:#c40074;}
+.msp-submit-btn:disabled{background:#b0a8bc;cursor:not-allowed;}
+.msp-faq-answer{display:none;}
+.msp-faq-answer.open{display:block;}
+.msp-faq-btn{width:100%;padding:18px 20px;display:flex;justify-content:space-between;align-items:center;cursor:pointer;font-weight:700;font-size:18px;color:#241a30;background:none;border:none;text-align:left;font-family:'Inter',sans-serif;line-height:1.4;}
+.msp-faq-btn:hover{color:#452068;}
 </style>
 </head>
-
 <body>
+<div style="font-family:'Inter',sans-serif;color:#241a30;background:#fff">
 
 <!-- UTILITY BAR -->
 <div class="top-bar-inner" style="background:#2f1550;color:#fff;display:flex;align-items:center;justify-content:space-between;padding:9px 56px;font-size:16px">
   <div style="display:flex;align-items:center;gap:12px">
-    <a href="tel:18003806821" style="color:#fff;display:flex;align-items:center;gap:6px;" aria-label="Llamar 1-800-380-6821">
-      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 1.27h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.91a16 16 0 0 0 6.29 6.29l.91-.91a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-    </a>
-    <span style="display:inline-flex;align-items:center;border:1px solid rgba(255,255,255,0.35);border-radius:999px;padding:3px 10px;gap:3px;font-size:14.5px;"><a href="/medicare-savings-program/" style="color:#fff;text-decoration:none;font-weight:700">EN</a><span style="opacity:.35;margin:0 1px">|</span><span style="opacity:.65;font-weight:400">ES</span></span>
+    <a href="tel:18003806821" style="color:#fff;font-weight:700">📞 1-800-380-6821</a>
+    <span style="display:inline-flex;align-items:center;border:1px solid rgba(255,255,255,0.35);border-radius:999px;padding:3px 10px;gap:3px;font-size:14.5px;"><a href="/medicare-savings-program/" style="color:#fff;text-decoration:none;font-weight:700">EN</a><span style="opacity:.35;margin:0 1px">|</span><span style="opacity:.9;font-weight:700">ES</span></span>
   </div>
-  <div style="display:flex;align-items:center;gap:16px">
-    <a href="https://wa.me/13054646888" onclick="gtag('event','whatsapp_click',{'page':window.location.pathname})" style="display:inline-flex;align-items:center;gap:6px;background:#25D366;color:#fff;padding:5px 12px;border-radius:999px;font-weight:700;font-size:15px;text-decoration:none;">📱 WhatsApp</a>
-  </div>
+  <div><a href="https://wa.me/13054646888" onclick="gtag('event','whatsapp_click',{'page':window.location.pathname})" style="display:inline-flex;align-items:center;gap:6px;background:#25D366;color:#fff;padding:5px 12px;border-radius:999px;font-weight:700;font-size:15px;text-decoration:none;">📱 WhatsApp</a></div>
 </div>
 
-<!-- STICKY NAV -->
+<!-- DESKTOP NAV -->
 <div class="v4-nav-outer" style="display:flex;align-items:center;justify-content:space-between;padding:14px 56px;border-bottom:1px solid #ece5f0;position:sticky;top:0;background:#fff;z-index:500">
-  <a href="/es/"><img src="/images/logo.webp" alt="The Health Experts Insurance" style="height:80px;width:auto;cursor:pointer"/></a>
-  <div class="v4-nav-desktop" style="display:flex;align-items:center;gap:22px;font-size:17px;font-weight:600;color:#3a2f47">
-    <a href="/es/">Inicio</a>
+  <a href="/es/"><img src="/images/logo.webp" alt="The Health Experts Insurance" style="height:80px;width:auto;"/></a>
+  <div class="v4-nav-desktop" style="display:flex;align-items:center;gap:22px;font-size:18px;font-weight:600;color:#3a2f47">
+    <a href="/es/" style="color:#241a30">Inicio</a>
     <div class="v4-nav-item" style="position:relative">
-      <a href="/es/planes-de-medicare-miami" style="cursor:pointer;display:flex;align-items:center;gap:4px">Seguros ▾</a>
+      <a href="/es/planes-de-medicare-miami" style="display:flex;align-items:center;gap:4px;color:#241a30">Seguros ▾</a>
       <div class="v4-nav-dropdown" style="position:absolute;top:100%;left:-14px;padding-top:12px;z-index:20">
         <div style="background:#fff;border:2px solid #ece5f0;border-radius:12px;box-shadow:0 16px 36px rgba(69,32,104,.16);padding:8px;min-width:320px;display:flex;flex-direction:column">
-          <a href="/es/planes-de-medicare-miami" style="padding:10px 14px;border-radius:8px;font-weight:600">Planes Medicare</a>
-          <a href="/es/medicare-advantage-miami" style="padding:10px 14px;border-radius:8px;font-weight:600">Medicare Advantage</a>
-          <a href="/es/medicare-suplementario-miami" style="padding:10px 14px;border-radius:8px;font-weight:600">Medicare Suplementario</a>
-          <a href="/es/medicare-medicaid-miami" style="padding:10px 14px;border-radius:8px;font-weight:600">D-SNP / Dual</a>
-          <a href="/es/planes-aca-miami" style="padding:10px 14px;border-radius:8px;font-weight:600">Planes ACA</a>
-          <a href="/es/seguro-medico-privado-miami" style="padding:10px 14px;border-radius:8px;font-weight:600">Seguro Médico Privado</a>
-          <a href="/es/alternativas-cobra-miami" style="padding:10px 14px;border-radius:8px;font-weight:600">Alternativas COBRA</a>
-          <a href="/es/dental-vision-miami" style="padding:10px 14px;border-radius:8px;font-weight:600">Dental y Visión</a>
-          <a href="/es/seguro-de-vida-miami/" style="padding:10px 14px;border-radius:8px;font-weight:600">Seguro de Vida</a>
-          <a href="/es/gastos-finales-miami/" style="padding:10px 14px;border-radius:8px;font-weight:600">Gastos Finales</a>
+          <a href="/es/planes-de-medicare-miami" style="padding:10px 14px;border-radius:8px;font-weight:600;color:#241a30">Planes Medicare</a>
+          <a href="/es/medicare-advantage-miami" style="padding:10px 14px;border-radius:8px;font-weight:600;color:#241a30">Medicare Advantage</a>
+          <a href="/es/medicare-suplementario-miami" style="padding:10px 14px;border-radius:8px;font-weight:600;color:#241a30">Medicare Suplementario</a>
+          <a href="/es/medicare-medicaid-miami" style="padding:10px 14px;border-radius:8px;font-weight:600;color:#241a30">D-SNP / Dual</a>
+          <a href="/es/planes-aca-miami" style="padding:10px 14px;border-radius:8px;font-weight:600;color:#241a30">Planes ACA</a>
+          <a href="/es/seguro-medico-privado-miami" style="padding:10px 14px;border-radius:8px;font-weight:600;color:#241a30">Seguro Médico Privado</a>
+          <a href="/es/alternativas-cobra-miami" style="padding:10px 14px;border-radius:8px;font-weight:600;color:#241a30">Alternativas COBRA</a>
+          <a href="/es/dental-vision-miami" style="padding:10px 14px;border-radius:8px;font-weight:600;color:#241a30">Dental y Visión</a>
+          <a href="/es/seguro-de-vida-miami/" style="padding:10px 14px;border-radius:8px;font-weight:600;color:#241a30">Seguro de Vida</a>
+          <a href="/es/gastos-finales-miami/" style="padding:10px 14px;border-radius:8px;font-weight:600;color:#241a30">Gastos Finales</a>
         </div>
       </div>
     </div>
@@ -157,24 +146,24 @@ a{color:var(--purple);text-decoration:none;}a:hover{color:var(--pink);}
       <span style="cursor:pointer;display:flex;align-items:center;gap:4px">Guías ▾</span>
       <div class="v4-nav-dropdown" style="position:absolute;top:100%;left:-14px;padding-top:12px;z-index:20">
         <div style="background:#fff;border:2px solid #ece5f0;border-radius:12px;box-shadow:0 16px 36px rgba(69,32,104,.16);padding:8px;min-width:240px;display:flex;flex-direction:column">
-          <a href="/es/medicare/que-es-medicare/" style="padding:10px 14px;border-radius:8px;font-weight:600">Qué es Medicare</a>
-          <a href="/es/medicare/nuevo-en-medicare/" style="padding:10px 14px;border-radius:8px;font-weight:600">Nuevo en Medicare</a>
-          <a href="/es/irmaa-penalidades-medicare/" style="padding:10px 14px;border-radius:8px;font-weight:600">Costos e IRMAA</a>
-          <a href="/es/medicare/programa-ahorros-medicare/" style="padding:10px 14px;border-radius:8px;font-weight:600;background:#f7f2fb;color:#452068">Programa de Ahorros</a>
-          <a href="/es/mitos-medicare/" style="padding:10px 14px;border-radius:8px;font-weight:600">Mitos de Medicare</a>
-          <a href="/es/inscripcion-anual-medicare-2027/" style="padding:10px 14px;border-radius:8px;font-weight:600">AEP 2027</a>
-          <a href="/es/buscador-de-planes/" style="padding:10px 14px;border-radius:8px;font-weight:600">Buscador de Planes</a>
+          <a href="/es/medicare/que-es-medicare/" style="padding:10px 14px;border-radius:8px;font-weight:600;color:#241a30">Qué es Medicare</a>
+          <a href="/es/medicare/nuevo-en-medicare/" style="padding:10px 14px;border-radius:8px;font-weight:600;color:#241a30">Nuevo en Medicare</a>
+          <a href="/es/irmaa-penalidades-medicare/" style="padding:10px 14px;border-radius:8px;font-weight:600;color:#241a30">Costos IRMAA</a>
+          <a href="/es/medicare/programa-ahorros-medicare/" style="padding:10px 14px;border-radius:8px;font-weight:700;color:#452068;background:#f7f2fb">Programa de Ahorros</a>
+          <a href="/es/mitos-medicare/" style="padding:10px 14px;border-radius:8px;font-weight:600;color:#241a30">Mitos de Medicare</a>
+          <a href="/es/inscripcion-anual-medicare-2027/" style="padding:10px 14px;border-radius:8px;font-weight:600;color:#241a30">Inscripción Anual (AEP)</a>
+          <a href="/es/buscador-de-planes/" style="padding:10px 14px;border-radius:8px;font-weight:600;color:#241a30">Buscador de Planes</a>
         </div>
       </div>
     </div>
-    <a href="/es/faq/">FAQ</a>
-    <a href="/es/recursos/">Recursos</a>
-    <a href="/es/blog/">Blog</a>
-    <a href="/es/agente-de-medicare-miami/">Conócenos</a>
-    <a href="/es/contacto/">Contacto</a>
+    <a href="/es/faq/" style="color:#241a30">FAQ</a>
+    <a href="/es/recursos/" style="color:#241a30">Recursos</a>
+    <a href="/es/blog/" style="color:#241a30">Blog</a>
+    <a href="/es/agente-de-medicare-miami/" style="color:#241a30">Conócenos</a>
+    <a href="/es/contacto/" style="color:#241a30">Contacto</a>
   </div>
   <div style="display:flex;align-items:center;gap:12px">
-    <a href="tel:18003806821" class="v4-nav-desktop" style="color:#241a30;font-weight:700;font-size:17px">📞 1-800-380-6821</a>
+    <a href="tel:18003806821" class="v4-nav-desktop" style="color:#241a30;font-weight:700;font-size:18px">📞 1-800-380-6821</a>
     <a href="#ahorros-form" class="v4-nav-desktop" style="background:#452068;color:#fff;padding:11px 20px;border-radius:10px;font-weight:700;font-size:17px">Consulta Gratis</a>
     <button class="v4-nav-mobile-btn" id="v4HamburgerBtn" aria-label="Abrir menú" aria-expanded="false" aria-controls="v4-mobile-menu">
       <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#241a30" stroke-width="2.2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
@@ -182,7 +171,7 @@ a{color:var(--purple);text-decoration:none;}a:hover{color:var(--pink);}
   </div>
 </div>
 
-<!-- MOBILE MENU -->
+<!-- MOBILE NAV PANEL -->
 <div id="v4-mobile-menu" role="dialog" aria-label="Menú de navegación">
   <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:28px">
     <a href="/es/"><img src="/images/logo.webp" alt="The Health Experts Insurance" style="height:56px;width:auto"/></a>
@@ -206,10 +195,10 @@ a{color:var(--purple);text-decoration:none;}a:hover{color:var(--pink);}
     <div style="padding:14px 4px 4px;font-size:16px;font-weight:700;color:#5c3d7a;text-transform:uppercase;letter-spacing:.06em;margin-top:8px">Guías</div>
     <a href="/es/medicare/que-es-medicare/" style="padding:11px 12px;border-radius:8px;color:#241a30;font-weight:600;font-size:18px">Qué es Medicare</a>
     <a href="/es/medicare/nuevo-en-medicare/" style="padding:11px 12px;border-radius:8px;color:#241a30;font-weight:600;font-size:18px">Nuevo en Medicare</a>
-    <a href="/es/irmaa-penalidades-medicare/" style="padding:11px 12px;border-radius:8px;color:#241a30;font-weight:600;font-size:18px">Costos e IRMAA</a>
-    <a href="/es/medicare/programa-ahorros-medicare/" style="padding:11px 12px;border-radius:8px;color:#241a30;font-weight:600;font-size:18px">Programa de Ahorros</a>
+    <a href="/es/irmaa-penalidades-medicare/" style="padding:11px 12px;border-radius:8px;color:#241a30;font-weight:600;font-size:18px">Costos IRMAA</a>
+    <a href="/es/medicare/programa-ahorros-medicare/" style="padding:11px 12px;border-radius:8px;color:#452068;font-weight:700;font-size:18px;background:#f7f2fb">Programa de Ahorros</a>
     <a href="/es/mitos-medicare/" style="padding:11px 12px;border-radius:8px;color:#241a30;font-weight:600;font-size:18px">Mitos de Medicare</a>
-    <a href="/es/inscripcion-anual-medicare-2027/" style="padding:11px 12px;border-radius:8px;color:#241a30;font-weight:600;font-size:18px">AEP 2027</a>
+    <a href="/es/inscripcion-anual-medicare-2027/" style="padding:11px 12px;border-radius:8px;color:#241a30;font-weight:600;font-size:18px">Inscripción Anual (AEP)</a>
     <a href="/es/buscador-de-planes/" style="padding:11px 12px;border-radius:8px;color:#241a30;font-weight:600;font-size:18px">Buscador de Planes</a>
     <div style="margin-top:8px;border-top:1px solid #ece5f0;padding-top:12px;display:flex;flex-direction:column;gap:4px">
       <a href="/es/faq/" style="padding:12px 4px;color:#241a30;border-bottom:1px solid #ece5f0">FAQ</a>
@@ -219,7 +208,7 @@ a{color:var(--purple);text-decoration:none;}a:hover{color:var(--pink);}
       <a href="/es/contacto/" style="padding:12px 4px;color:#241a30">Contacto</a>
     </div>
     <div style="margin-top:20px;display:flex;flex-direction:column;gap:12px">
-      <a href="tel:18003806821" style="background:#241a30;color:#fff;padding:16px;border-radius:12px;font-weight:700;font-size:16px;text-align:center">📞 1-800-380-6821</a>
+      <a href="tel:18003806821" style="background:#241a30;color:#fff;padding:16px;border-radius:12px;font-weight:700;font-size:16px;text-align:center">1-800-380-6821</a>
       <a href="#ahorros-form" onclick="document.getElementById('v4-mobile-menu').classList.remove('open');document.getElementById('v4HamburgerBtn').setAttribute('aria-expanded','false');" style="background:#ff1090;color:#fff;padding:16px;border-radius:12px;font-weight:700;font-size:16px;text-align:center">Consulta Gratis →</a>
     </div>
   </nav>
@@ -228,426 +217,618 @@ a{color:var(--purple);text-decoration:none;}a:hover{color:var(--pink);}
 <!-- PAGE CONTENT -->
 <div>
 
-  <!-- HERO -->
-  <section class="page-hero">
-    <div class="container hero-inner">
-      <div class="tag-pill">Beneficios de Bajo Ingreso · 2026</div>
-      <h1>Programa de Ahorros de Medicare:<br>¿Está Recibiendo Todo a lo Que Tiene Derecho?</h1>
-      <p class="page-hero-sub">Muchas personas en Florida pagan primas de Medicare que el estado cubriría por ellas — sin saberlo. El Programa de Ahorros Medicare puede pagarle hasta $202.90/mes en primas. La evaluación es completamente gratuita.</p>
-      <div style="display:flex;gap:14px;flex-wrap:wrap;margin-bottom:24px">
-        <a href="#ahorros-form" style="display:inline-block;background:#ff1090;color:white;padding:14px 28px;border-radius:12px;font-weight:700;font-size:18px;text-decoration:none;box-shadow:0 8px 24px rgba(255,16,144,.3)">Ver Si Califico →</a>
-        <a href="tel:18003806821" style="display:inline-block;border:2px solid rgba(255,255,255,.6);color:white;padding:12px 24px;border-radius:12px;font-weight:700;font-size:18px;text-decoration:none;">📞 1-800-380-6821</a>
-      </div>
-      <div class="trust-bar">
-        <span>✓ Evaluación 100% gratuita</span>
-        <span>✓ Corredores con licencia en FL</span>
-        <span>✓ Atención bilingüe EN/ES</span>
-        <span>✓ $0 costo para ti</span>
-      </div>
-    </div>
-  </section>
+<!-- BREADCRUMB -->
+<div class="section-pad" style="padding:14px 56px;background:#f7f2fb;font-size:16px;color:#3a2f47">
+  <a href="/es/" style="font-weight:600;color:#452068">Inicio</a> / <a href="/es/planes-de-medicare-miami" style="font-weight:600;color:#452068">Planes Medicare</a> / Programa de Ahorros
+</div>
 
-  <!-- WHAT IS MSP -->
-  <section class="section section-off">
-    <div class="container">
-      <div class="section-tag">¿Qué es?</div>
-      <h2 class="section-title">El Beneficio de Medicare Más Subutilizado en Florida</h2>
-      <p class="section-sub">El Programa de Ahorros Medicare (MSP) es un programa conjunto federal y estatal que ayuda a personas con Medicare y ingresos limitados a pagar los costos de Medicare. Hay tres niveles, y cada uno cubre diferentes gastos.</p>
-      <div style="background:#f4eefa;border-radius:20px;padding:28px;margin-top:8px;display:flex;gap:20px;align-items:flex-start;flex-wrap:wrap">
-        <div style="font-family:'Poppins',sans-serif;font-size:48px;font-weight:700;color:#452068;line-height:1;flex-shrink:0">$2,435</div>
+<!-- HERO -->
+<div class="section-pad" style="background:linear-gradient(135deg,#fdfaf7 0%,#f7f2fb 100%);padding:56px 56px 40px;text-align:center">
+  <h1 style="font-family:Poppins,sans-serif;font-weight:700;font-size:38px;line-height:1.25;color:#241a30;margin:0 auto 14px;max-width:720px">Programa de Ahorros de Medicare: ¿Está Recibiendo Todo a lo Que Tiene Derecho?</h1>
+  <p style="font-size:19px;line-height:1.7;color:#3a2f47;font-weight:500;margin:0 auto 24px;max-width:640px">Florida puede pagar su prima de Parte B ($202.90/mes) si califica — más deducibles y copagos para muchas personas. Evaluación bilingüe en Miami, sin costo.</p>
+  <div class="msp-hero-stats" style="display:flex;justify-content:center;flex-wrap:wrap;gap:14px">
+    <div style="text-align:center"><div style="font-family:Poppins,sans-serif;font-weight:700;font-size:26px;color:#452068">$2,220/año</div><div style="font-size:16px;color:#3a2f47">Ahorro Parte B (QMB)</div></div>
+    <div style="text-align:center"><div style="font-family:Poppins,sans-serif;font-weight:700;font-size:26px;color:#452068">$5,300/año</div><div style="font-size:16px;color:#3a2f47">Extra Help (Parte D)</div></div>
+    <div style="text-align:center"><div style="font-family:Poppins,sans-serif;font-weight:700;font-size:26px;color:#ff1090">$7,500+/año</div><div style="font-size:16px;color:#3a2f47">Ahorro total posible</div></div>
+    <div style="text-align:center"><div style="font-family:Poppins,sans-serif;font-weight:700;font-size:26px;color:#452068">$0</div><div style="font-size:16px;color:#3a2f47">Costo de aplicar</div></div>
+  </div>
+</div>
+
+<!-- WHAT IS MSP -->
+<div class="section-pad" style="background:#fdfaf7;padding:48px 56px">
+  <div style="max-width:800px;margin:0 auto">
+    <h2 style="font-family:Poppins,sans-serif;font-size:26px;font-weight:700;color:#241a30;margin:0 0 12px">¿Qué es el Programa de Ahorros de Medicare?</h2>
+    <p style="color:#3a2f47;font-weight:500;font-size:18px;line-height:1.7;margin:0 0 14px">El Programa de Ahorros Medicare (MSP) es un conjunto de programas de Florida (administrados por el Departamento de Niños y Familias) que ayudan a personas con ingresos limitados a pagar Medicare: primas, deducibles y a veces copagos. Hay cuatro programas: QMB, SLMB, QI y QDWI.</p>
+    <p style="color:#3a2f47;font-weight:500;font-size:18px;line-height:1.7;margin:0 0 14px">Si califica para QMB, SLMB o QI, califica automáticamente para <strong style="color:#241a30">Extra Help (Ayuda Extra)</strong> — asistencia federal que puede ahorrar hasta $5,300/año en medicamentos de la Parte D, sin una solicitud aparte. ¿Califica para MSP? También puede ser elegible para un <a href="/es/medicare-medicaid-miami/" style="color:#c40074;font-weight:700;text-decoration:underline">plan Dual Elegible (D-SNP) con prima $0 →</a></p>
+    <p style="color:#3a2f47;font-weight:500;font-size:18px;line-height:1.7;margin:0">Si también tiene un plan Medicare Advantage o Parte D, revíselo durante la <a href="/es/inscripcion-anual-medicare-2027/" style="color:#c40074;font-weight:700;text-decoration:underline">Inscripción Anual 2027 (15 oct – 7 dic)</a> para que Extra Help siga alineado con sus medicamentos y médicos de 2027.</p>
+  </div>
+</div>
+
+<!-- THE 4 PROGRAMS -->
+<div class="section-pad" style="background:#fff;padding:48px 56px">
+  <div style="max-width:1160px;margin:0 auto">
+    <h2 style="text-align:center;font-family:Poppins,sans-serif;font-size:28px;font-weight:700;color:#241a30;margin:0 0 8px">Los 4 Programas de Ahorros de Medicare</h2>
+    <p style="text-align:center;color:#3a2f47;font-weight:500;font-size:17px;margin:0 0 32px">Cada nivel tiene límites de ingreso distintos y cubre costos diferentes. QMB es el más completo.</p>
+    <div class="msp-programs-grid" style="display:grid;grid-template-columns:repeat(2,1fr);gap:20px">
+
+      <div style="border:2px solid #452068;border-radius:16px;padding:26px">
+        <div style="font-family:Poppins,sans-serif;font-weight:700;font-size:21px;color:#452068;margin-bottom:2px">QMB</div>
+        <div style="font-size:16px;color:#3a2f47;margin-bottom:8px">Beneficiario Medicare Calificado</div>
+        <div style="font-size:16px;font-weight:700;color:#241a30;margin-bottom:14px">Individual: ≤$1,330/mes · Pareja: ≤$1,803/mes</div>
+        <div style="display:flex;flex-direction:column;gap:8px;margin-bottom:14px">
+          <div style="display:flex;gap:8px;font-size:16px;color:#3a2f47;font-weight:500"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#ff1090" stroke-width="2.4" style="flex-shrink:0;margin-top:2px"><path d="M5 12l4 4 10-10"/></svg>Prima de Parte A — la paga el estado</div>
+          <div style="display:flex;gap:8px;font-size:16px;color:#3a2f47;font-weight:500"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#ff1090" stroke-width="2.4" style="flex-shrink:0;margin-top:2px"><path d="M5 12l4 4 10-10"/></svg>Prima de Parte B ($202.90/mes) — la paga el estado</div>
+          <div style="display:flex;gap:8px;font-size:16px;color:#3a2f47;font-weight:500"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#ff1090" stroke-width="2.4" style="flex-shrink:0;margin-top:2px"><path d="M5 12l4 4 10-10"/></svg>Deducibles de Parte A y B — los paga el estado</div>
+          <div style="display:flex;gap:8px;font-size:16px;color:#3a2f47;font-weight:500"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#ff1090" stroke-width="2.4" style="flex-shrink:0;margin-top:2px"><path d="M5 12l4 4 10-10"/></svg>Copagos y coseguros de Parte A y B — cubiertos</div>
+          <div style="display:flex;gap:8px;font-size:16px;color:#3a2f47;font-weight:500"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#ff1090" stroke-width="2.4" style="flex-shrink:0;margin-top:2px"><path d="M5 12l4 4 10-10"/></svg>Califica automáticamente para Extra Help (Parte D)</div>
+        </div>
+        <div style="font-size:18px;font-weight:700;color:#c40074;background:#fff0f8;display:inline-block;padding:6px 12px;border-radius:999px">El más completo — hasta $7,500+/año</div>
+      </div>
+
+      <div style="background:#fff7ec;border:1.5px solid #f0a500;border-radius:14px;padding:20px 24px;display:flex;gap:14px;align-items:flex-start">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#f0a500" stroke-width="2.2" style="flex-shrink:0;margin-top:2px"><circle cx="12" cy="12" r="9"/><path d="M12 8v4M12 16v.01"/></svg>
         <div>
-          <div style="font-weight:700;font-size:18px;color:#241a30;margin-bottom:6px">Valor anual promedio del beneficio QMB en Florida</div>
-          <div style="font-size:18px;color:#3a2f47;line-height:1.6">Solo en primas de la Parte B ($202.90/mes × 12 meses). Si también califica para Extra Help en medicamentos, el ahorro total puede superar los $5,000 anuales.</div>
+          <div style="font-weight:700;color:#241a30;font-size:17px;margin-bottom:6px">¿No tiene 40 créditos de trabajo? QMB igual puede ayudar.</div>
+          <div style="font-size:16px;color:#3a2f47;font-weight:500;line-height:1.7">Si necesita comprar Medicare Parte A porque tiene menos de 40 créditos de trabajo, <strong style="color:#241a30">QMB es el único MSP que cubre su prima de Parte A</strong>. SLMB y QI solo ayudan con la Parte B.<br><br><strong style="color:#241a30">Debe hacerse por teléfono — no en línea.</strong> Llame al SSA al <strong style="color:#241a30">1-800-772-1213</strong> y pida una cita telefónica para aplicar a <strong style="color:#241a30">“Conditional Part A and Part B” (Parte A y B condicional).</strong> En la cita, use estas palabras: <strong style="color:#241a30">“Estoy aplicando a Conditional Part A porque tengo menos de 40 créditos de trabajo y estoy aplicando al programa QMB a través de Medicaid de Florida.”</strong><br><br>Si el agente no conoce el proceso, pídale que busque <strong style="color:#241a30"><a href="https://secure.ssa.gov/poms.nsf/lnx/0600801140" target="_blank" rel="noopener" style="color:#452068;text-decoration:underline">POMS Sección HI 00801.140</a></strong> — la política federal (actualizada ene 2025) que indica facturar a Medicaid de Florida en lugar de a usted.</div>
+          <a href="#faq6-anchor" style="display:inline-block;margin-top:14px;font-size:16px;font-weight:700;color:#452068;border-bottom:2px solid #f0a500;padding-bottom:2px">Ver el proceso paso a paso ↓</a>
         </div>
       </div>
-    </div>
-  </section>
 
-  <!-- THREE PROGRAMS -->
-  <section class="section">
-    <div class="container">
-      <div class="section-tag">Tres niveles</div>
-      <h2 class="section-title">Los 3 Niveles del Programa de Ahorros Medicare</h2>
-      <p class="section-sub">Cada nivel ofrece diferentes beneficios. El nivel que le corresponda depende de sus ingresos y activos.</p>
-      <div class="programs-grid">
-
-        <div class="program-card featured">
-          <div class="program-badge">Más Completo</div>
-          <div class="program-name">QMB</div>
-          <div class="program-full">Beneficiario Medicare Calificado</div>
-          <ul class="program-covers">
-            <li>Prima mensual de la Parte A (hasta $565/mes)</li>
-            <li>Prima mensual de la Parte B ($202.90/mes)</li>
-            <li>Deducible anual de la Parte A ($1,736)</li>
-            <li>Deducible anual de la Parte B ($283)</li>
-            <li>Copagos y coseguros de Medicare</li>
-            <li>Automáticamente elegible para Extra Help (Parte D)</li>
-          </ul>
-          <div style="margin-top:16px;padding:12px 14px;background:#f4eefa;border-radius:10px;font-size:16px;color:#452068;font-weight:600">⭐ Mejor nivel — cubre casi todos los costos de Medicare</div>
+      <div style="border:1px solid #ece5f0;border-radius:16px;padding:26px">
+        <div style="font-family:Poppins,sans-serif;font-weight:700;font-size:21px;color:#241a30;margin-bottom:2px">SLMB</div>
+        <div style="font-size:16px;color:#3a2f47;margin-bottom:8px">Beneficiario Medicare de Ingresos Bajos Especificados</div>
+        <div style="font-size:16px;font-weight:700;color:#241a30;margin-bottom:14px">Individual: ≤$1,596/mes · Pareja: ≤$2,164/mes</div>
+        <div style="display:flex;flex-direction:column;gap:8px;margin-bottom:14px">
+          <div style="display:flex;gap:8px;font-size:16px;color:#3a2f47;font-weight:500"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#ff1090" stroke-width="2.4" style="flex-shrink:0;margin-top:2px"><path d="M5 12l4 4 10-10"/></svg>Prima de Parte B ($202.90/mes) — la paga el estado</div>
+          <div style="display:flex;gap:8px;font-size:16px;color:#5a5068"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#8a8093" stroke-width="2.4" style="flex-shrink:0;margin-top:2px"><line x1="6" y1="12" x2="18" y2="12"/></svg>Deducibles — no cubiertos</div>
+          <div style="display:flex;gap:8px;font-size:16px;color:#5a5068"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#8a8093" stroke-width="2.4" style="flex-shrink:0;margin-top:2px"><line x1="6" y1="12" x2="18" y2="12"/></svg>Copagos y coseguros — no cubiertos</div>
+          <div style="display:flex;gap:8px;font-size:16px;color:#3a2f47;font-weight:500"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#ff1090" stroke-width="2.4" style="flex-shrink:0;margin-top:2px"><path d="M5 12l4 4 10-10"/></svg>Califica automáticamente para Extra Help (Parte D)</div>
         </div>
-
-        <div class="program-card">
-          <div class="program-name">SLMB</div>
-          <div class="program-full">Beneficiario Medicare de Ingresos Bajos Especificados</div>
-          <ul class="program-covers">
-            <li>Prima mensual de la Parte B ($202.90/mes)</li>
-            <li>Automáticamente elegible para Extra Help (Parte D)</li>
-          </ul>
-          <div style="margin-top:16px;font-size:16px;color:#3a2f47;line-height:1.55;padding:12px 14px;background:#f9f7fc;border-radius:10px">Límite de ingresos ligeramente más alto que QMB. Ahorra hasta $2,435/año en primas de la Parte B.</div>
-        </div>
-
-        <div class="program-card">
-          <div class="program-name">QI</div>
-          <div class="program-full">Individuo Calificado</div>
-          <ul class="program-covers">
-            <li>Prima mensual de la Parte B ($202.90/mes)</li>
-            <li>Elegible para Extra Help (Parte D)</li>
-          </ul>
-          <div style="margin-top:16px;font-size:16px;color:#3a2f47;line-height:1.55;padding:12px 14px;background:#f9f7fc;border-radius:10px">El nivel con límites de ingresos más altos. Financiamiento limitado — solicite cada año, el proceso de aprobación es por orden de llegada.</div>
-        </div>
-
+        <div style="font-size:18px;font-weight:700;color:#452068;background:#f7f2fb;display:inline-block;padding:6px 12px;border-radius:999px">Ahorra $2,220/año solo en Parte B</div>
       </div>
+
+      <div style="border:1px solid #ece5f0;border-radius:16px;padding:26px">
+        <div style="font-family:Poppins,sans-serif;font-weight:700;font-size:21px;color:#241a30;margin-bottom:2px">QI</div>
+        <div style="font-size:16px;color:#3a2f47;margin-bottom:8px">Individuo Calificado</div>
+        <div style="font-size:16px;font-weight:700;color:#241a30;margin-bottom:14px">Individual: ≤$1,796/mes · Pareja: ≤$2,435/mes</div>
+        <div style="display:flex;flex-direction:column;gap:8px;margin-bottom:14px">
+          <div style="display:flex;gap:8px;font-size:16px;color:#3a2f47;font-weight:500"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#ff1090" stroke-width="2.4" style="flex-shrink:0;margin-top:2px"><path d="M5 12l4 4 10-10"/></svg>Prima de Parte B ($202.90/mes) — la paga el estado</div>
+          <div style="display:flex;gap:8px;font-size:16px;color:#5a5068"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#8a8093" stroke-width="2.4" style="flex-shrink:0;margin-top:2px"><line x1="6" y1="12" x2="18" y2="12"/></svg>Deducibles — no cubiertos</div>
+          <div style="display:flex;gap:8px;font-size:16px;color:#5a5068"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#8a8093" stroke-width="2.4" style="flex-shrink:0;margin-top:2px"><line x1="6" y1="12" x2="18" y2="12"/></svg>Copagos y coseguros — no cubiertos</div>
+          <div style="display:flex;gap:8px;font-size:16px;color:#3a2f47;font-weight:500"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#ff1090" stroke-width="2.4" style="flex-shrink:0;margin-top:2px"><path d="M5 12l4 4 10-10"/></svg>Califica automáticamente para Extra Help (Parte D)</div>
+          <div style="display:flex;gap:8px;font-size:16px;color:#3a2f47;font-weight:500"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#f0a500" stroke-width="2.4" style="flex-shrink:0;margin-top:2px"><path d="M12 9v4M12 17v.01"/><circle cx="12" cy="12" r="9"/></svg>Debe reaplicar cada año (cupos limitados)</div>
+        </div>
+        <div style="font-size:18px;font-weight:700;color:#452068;background:#f7f2fb;display:inline-block;padding:6px 12px;border-radius:999px">Ahorra $2,220/año — reaplicar anualmente</div>
+      </div>
+
+      <div style="border:1px solid #ece5f0;border-radius:16px;padding:26px">
+        <div style="font-family:Poppins,sans-serif;font-weight:700;font-size:21px;color:#241a30;margin-bottom:2px">QDWI</div>
+        <div style="font-size:16px;color:#3a2f47;margin-bottom:8px">Individuo Discapacitado y Trabajando Calificado</div>
+        <div style="font-size:16px;font-weight:700;color:#241a30;margin-bottom:14px">Individual: ≤$2,660/mes · Pareja: ≤$3,607/mes</div>
+        <div style="display:flex;flex-direction:column;gap:8px;margin-bottom:14px">
+          <div style="display:flex;gap:8px;font-size:16px;color:#3a2f47;font-weight:500"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#ff1090" stroke-width="2.4" style="flex-shrink:0;margin-top:2px"><path d="M5 12l4 4 10-10"/></svg>Solo prima de Parte A — la paga el estado</div>
+          <div style="display:flex;gap:8px;font-size:16px;color:#5a5068"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#8a8093" stroke-width="2.4" style="flex-shrink:0;margin-top:2px"><line x1="6" y1="12" x2="18" y2="12"/></svg>Prima de Parte B — no cubierta</div>
+          <div style="display:flex;gap:8px;font-size:16px;color:#5a5068"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#8a8093" stroke-width="2.4" style="flex-shrink:0;margin-top:2px"><line x1="6" y1="12" x2="18" y2="12"/></svg>Deducibles o copagos — no cubiertos</div>
+          <div style="display:flex;gap:8px;font-size:16px;color:#5a5068"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#8a8093" stroke-width="2.4" style="flex-shrink:0;margin-top:2px"><line x1="6" y1="12" x2="18" y2="12"/></svg>NO califica automáticamente para Extra Help</div>
+        </div>
+        <div style="font-size:18px;font-weight:700;color:#94660a;background:#fff7ec;display:inline-block;padding:6px 12px;border-radius:999px">Para personas con discapacidad que volvieron a trabajar</div>
+      </div>
+
     </div>
-  </section>
+  </div>
+</div>
 
-  <!-- INCOME LIMITS -->
-  <section class="section section-alt">
-    <div class="container">
-      <div class="section-tag">Límites 2026</div>
-      <h2 class="section-title">Límites de Ingresos Aproximados para Florida — 2026</h2>
-      <p class="section-sub">Estos son límites aproximados. Los límites exactos se actualizan anualmente y pueden variar. No asuma que no califica sin verificar — muchas personas son elegibles y no lo saben.</p>
-
-      <table class="income-table">
+<!-- 2026 INCOME LIMITS TABLE -->
+<div class="section-pad" style="background:#fdfaf7;padding:48px 56px">
+  <div style="max-width:1000px;margin:0 auto">
+    <h2 style="text-align:center;font-family:Poppins,sans-serif;font-size:26px;font-weight:700;color:#241a30;margin:0 0 8px">Límites de ingresos 2026</h2>
+    <p style="text-align:center;color:#3a2f47;font-weight:500;font-size:16.5px;margin:0 0 24px">Muchos activos no cuentan — incluyendo su casa y un automóvil.</p>
+    <div style="overflow-x:auto">
+      <table style="width:100%;border-collapse:collapse;font-size:16px">
         <thead>
-          <tr>
-            <th>Programa</th>
-            <th>Ingreso Mensual Individual</th>
-            <th>Ingreso Mensual Pareja</th>
-            <th>¿Qué cubre?</th>
+          <tr style="background:#fff">
+            <th style="text-align:left;padding:12px 14px;font-weight:700;color:#241a30">Programa</th>
+            <th style="text-align:left;padding:12px 14px;font-weight:700;color:#241a30">Individual</th>
+            <th style="text-align:left;padding:12px 14px;font-weight:700;color:#241a30">Pareja</th>
+            <th style="text-align:left;padding:12px 14px;font-weight:700;color:#241a30">Límite de activos</th>
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <td><strong>QMB</strong></td>
-            <td>~$1,275/mes</td>
-            <td>~$1,724/mes</td>
-            <td>Partes A + B + copagos</td>
-          </tr>
-          <tr>
-            <td><strong>SLMB</strong></td>
-            <td>~$1,526/mes</td>
-            <td>~$2,063/mes</td>
-            <td>Prima Parte B solamente</td>
-          </tr>
-          <tr>
-            <td><strong>QI</strong></td>
-            <td>~$1,714/mes</td>
-            <td>~$2,319/mes</td>
-            <td>Prima Parte B solamente</td>
-          </tr>
+          <tr style="border-top:1px solid #ece5f0"><td style="padding:12px 14px;font-weight:700;color:#452068">QMB</td><td style="padding:12px 14px;color:#4a4051">≤$1,330/mes</td><td style="padding:12px 14px;color:#4a4051">≤$1,803/mes</td><td style="padding:12px 14px;color:#4a4051">$9,950</td></tr>
+          <tr style="border-top:1px solid #ece5f0"><td style="padding:12px 14px;font-weight:700;color:#452068">SLMB</td><td style="padding:12px 14px;color:#4a4051">≤$1,596/mes</td><td style="padding:12px 14px;color:#4a4051">≤$2,164/mes</td><td style="padding:12px 14px;color:#4a4051">$9,950</td></tr>
+          <tr style="border-top:1px solid #ece5f0"><td style="padding:12px 14px;font-weight:700;color:#452068">QI</td><td style="padding:12px 14px;color:#4a4051">≤$1,796/mes</td><td style="padding:12px 14px;color:#4a4051">≤$2,435/mes</td><td style="padding:12px 14px;color:#4a4051">$9,950</td></tr>
+          <tr style="border-top:1px solid #ece5f0"><td style="padding:12px 14px;font-weight:700;color:#452068">QDWI</td><td style="padding:12px 14px;color:#4a4051">≤$2,660/mes</td><td style="padding:12px 14px;color:#4a4051">≤$3,607/mes</td><td style="padding:12px 14px;color:#4a4051">$4,000</td></tr>
+          <tr style="border-top:1px solid #ece5f0;border-bottom:1px solid #ece5f0"><td style="padding:12px 14px;font-weight:700;color:#452068">Extra Help</td><td style="padding:12px 14px;color:#4a4051">≤$1,903/mes</td><td style="padding:12px 14px;color:#4a4051">≤$2,575/mes</td><td style="padding:12px 14px;color:#4a4051">$17,220</td></tr>
         </tbody>
       </table>
-
-      <div class="tip-box">
-        <strong>Sobre los activos:</strong> Florida excluye ciertos activos del cálculo, incluyendo su casa principal, un automóvil, muebles y artículos personales. Los límites de activos son más generosos de lo que mucha gente cree. No asuma que sus ahorros le descalifican sin hablar con alguien que conozca las reglas de Florida.
-      </div>
-
-      <div style="background:white;border-radius:16px;padding:28px;border:2px solid #ece5f0;margin-top:24px">
-        <h3 style="font-family:'Poppins',sans-serif;font-size:20px;font-weight:700;color:#241a30;margin-bottom:12px">Extra Help (Ayuda Extra) — Para Medicamentos</h3>
-        <p style="font-size:18px;color:#3a2f47;line-height:1.7;margin-bottom:12px">Las personas que califican para QMB o SLMB también califican automáticamente para <strong>Extra Help</strong>, el programa de ayuda con medicamentos de la Parte D. Extra Help puede reducir sus costos de medicamentos en miles de dólares al año, eliminando el "donut hole" y reduciendo copagos a cantidades mínimas.</p>
-        <p style="font-size:18px;color:#3a2f47;line-height:1.7">En 2026, con Extra Help: prima de la Parte D $0 o mínima, copago de genéricos $1.60–$5.10, copago de marca $4.90–$12.65 — sin importar el formulario de su plan.</p>
-      </div>
     </div>
-  </section>
+    <p style="font-size:18px;color:#5a5068;margin:16px 0 0;line-height:1.7">Su ingreso contable suele ser menor que el bruto: los primeros $20 de la mayoría de los ingresos y los primeros $65 de ingreso laboral no cuentan, entre otras exclusiones. Florida también excluye su casa principal, un automóvil, muebles y fondos de entierro.</p>
+  </div>
+</div>
 
-  <!-- HOW TO APPLY -->
-  <section class="section section-off">
-    <div class="container">
-      <div class="section-tag">Cómo aplicar</div>
-      <h2 class="section-title">Cómo Aplicar al Programa de Ahorros Medicare en Florida</h2>
-      <p class="section-sub">El proceso es más sencillo de lo que parece. Aquí le explicamos paso a paso.</p>
-
-      <div style="max-width:720px">
-        <div class="how-to-card">
-          <div class="how-num">1</div>
-          <div>
-            <div class="how-title">Reúna sus documentos</div>
-            <div class="how-text">Necesitará: tarjeta de Medicare, comprobante de ingresos (estado de cuenta del Seguro Social o talones de pago), información sobre sus cuentas bancarias y activos, y su tarjeta de seguro médico actual. No necesita documentos perfectos para empezar la solicitud.</div>
-          </div>
-        </div>
-
-        <div class="how-to-card">
-          <div class="how-num">2</div>
-          <div>
-            <div class="how-title">Solicite en línea, por teléfono o en persona</div>
-            <div class="how-text">Puede aplicar en línea en <strong>dcf.state.fl.us</strong>, llamar al <strong>1-866-762-2237</strong> (Florida Medicaid), o visitar su oficina local del DCF. También puede aplicar a través de la Administración del Seguro Social (SSA) para algunos programas. Nuestros corredores pueden orientarle sobre cuál es la mejor vía para su situación.</div>
-          </div>
-        </div>
-
-        <div class="how-to-card">
-          <div class="how-num">3</div>
-          <div>
-            <div class="how-title">Complete la solicitud del estado de Florida</div>
-            <div class="how-text">Florida administra el MSP a través del Departamento de Niños y Familias (DCF). La solicitud pregunta sobre ingresos, activos, composición del hogar y su cobertura de Medicare actual. Puede tomar 20-30 minutos completarla.</div>
-          </div>
-        </div>
-
-        <div class="how-to-card">
-          <div class="how-num">4</div>
-          <div>
-            <div class="how-title">Espere la aprobación y renovación anual</div>
-            <div class="how-text">Una vez aprobado, recibirá una tarjeta de beneficiario y sus primas serán cubiertas automáticamente. <strong>Importante:</strong> Debe renovar su elegibilidad cada año. Florida le enviará un aviso. Si no renueva a tiempo, perderá los beneficios. El programa QI en particular requiere solicitud nueva cada año.</div>
-          </div>
-        </div>
+<!-- ELIGIBILITY CHECKER -->
+<div class="section-pad" style="background:#fff;padding:48px 56px">
+  <div style="max-width:560px;margin:0 auto">
+    <h2 style="text-align:center;font-family:Poppins,sans-serif;font-size:28px;font-weight:700;color:#241a30;margin:0 0 8px">Verifique su elegibilidad</h2>
+    <p style="text-align:center;color:#3a2f47;font-weight:500;font-size:17px;margin:0 0 24px">Ingrese su ingreso y tamaño de hogar — es una estimación; los activos también importan.</p>
+    <div style="background:#fff;border:1px solid #ece5f0;border-radius:22px;padding:32px;box-shadow:0 16px 40px rgba(69,32,104,.08)">
+      <label for="mspIncome" style="display:block;font-size:16px;font-weight:600;color:#4a4051;margin-bottom:6px">Ingreso mensual (antes de impuestos)</label>
+      <input type="number" id="mspIncome" placeholder="ej. 1400" class="msp-form-input" style="margin-bottom:18px"/>
+      <label style="display:block;font-size:16px;font-weight:600;color:#4a4051;margin-bottom:8px">Tamaño del hogar</label>
+      <div style="display:flex;flex-direction:column;gap:10px;margin-bottom:20px">
+        <button type="button" id="mspIndBtn" class="msp-hs-btn active" onclick="setMspSize('individual')">Solo yo (individual)</button>
+        <button type="button" id="mspCplBtn" class="msp-hs-btn" onclick="setMspSize('couple')">Yo + cónyuge (pareja)</button>
       </div>
+      <button type="button" onclick="calcMsp()" style="width:100%;border:none;padding:15px 20px;border-radius:10px;font-weight:700;font-size:18px;font-family:'Inter',sans-serif;cursor:pointer;background:#ff1090;color:#fff;box-sizing:border-box;transition:background .2s" onmouseover="this.style.background='#c40074'" onmouseout="this.style.background='#ff1090'">Verificar mi elegibilidad →</button>
     </div>
-  </section>
-
-  <!-- WHO SHOULD APPLY -->
-  <section class="section">
-    <div class="container">
-      <div class="section-tag">¿Debería aplicar?</div>
-      <h2 class="section-title">Señales de que Podría Calificar</h2>
-      <p class="section-sub">Muchas personas califican sin saberlo. Si alguna de estas situaciones le describe, vale la pena verificar.</p>
-      <div class="checklist-grid">
-        <div class="check-item">
-          <div class="check-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5"><path d="M5 12l4 4 10-10"/></svg></div>
-          <div style="font-size:17px;color:#333;line-height:1.5">Su ingreso mensual es menor a ~$1,714 (individual) o $2,319 (pareja)</div>
-        </div>
-        <div class="check-item">
-          <div class="check-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5"><path d="M5 12l4 4 10-10"/></svg></div>
-          <div style="font-size:17px;color:#333;line-height:1.5">Tiene Medicare y también tiene Medicaid (puede ser Dual Elegible)</div>
-        </div>
-        <div class="check-item">
-          <div class="check-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5"><path d="M5 12l4 4 10-10"/></svg></div>
-          <div style="font-size:17px;color:#333;line-height:1.5">Paga la prima de la Parte B directamente (no descontada del Seguro Social)</div>
-        </div>
-        <div class="check-item">
-          <div class="check-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5"><path d="M5 12l4 4 10-10"/></svg></div>
-          <div style="font-size:17px;color:#333;line-height:1.5">No tiene 40 trimestres de trabajo y está pagando prima de la Parte A</div>
-        </div>
-        <div class="check-item">
-          <div class="check-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5"><path d="M5 12l4 4 10-10"/></svg></div>
-          <div style="font-size:17px;color:#333;line-height:1.5">Sus ingresos provienen principalmente del Seguro Social o pensión</div>
-        </div>
-        <div class="check-item">
-          <div class="check-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5"><path d="M5 12l4 4 10-10"/></svg></div>
-          <div style="font-size:17px;color:#333;line-height:1.5">Le preocupa el costo de sus medicamentos recetados y desea reducirlo</div>
-        </div>
+    <div id="mspResult" style="display:none;margin-top:22px">
+      <div style="background:#452068;border-radius:18px;padding:26px;color:#fff;text-align:center;margin-bottom:16px">
+        <div style="font-size:16px;font-weight:700;letter-spacing:.06em;margin-bottom:8px">SEGÚN SU INGRESO</div>
+        <div id="mspResultTier" style="font-family:Poppins,sans-serif;font-weight:700;font-size:24px"></div>
       </div>
-      <div class="tip-box" style="margin-top:28px"><strong>Dato importante:</strong> Aplicar al MSP no afecta ningún otro beneficio que usted reciba. No crea deudas con el gobierno. No afecta a sus familiares. Es un beneficio al que tiene derecho — sin contraprestación.</div>
-    </div>
-  </section>
-
-  <!-- FAQ -->
-  <section class="section section-off">
-    <div class="container" style="max-width:820px">
-      <div class="section-tag">Preguntas frecuentes</div>
-      <h2 class="section-title">Preguntas sobre el Programa de Ahorros Medicare</h2>
-      <div style="margin-top:28px">
-        <div class="faq-item">
-          <div class="faq-q">¿Debo tener Medicaid para calificar al Programa de Ahorros Medicare?</div>
-          <div class="faq-a">No. El MSP y Medicaid son programas separados. Puede calificar al MSP aunque no tenga Medicaid. Sin embargo, si tiene ambos Medicare y Medicaid, definitivamente debería verificar si califica al nivel QMB del MSP también.</div>
-        </div>
-        <div class="faq-item">
-          <div class="faq-q">¿El MSP cubre los medicamentos recetados?</div>
-          <div class="faq-a">El MSP en sí no cubre medicamentos, pero si califica para QMB o SLMB, califica automáticamente para Extra Help (también llamado Low Income Subsidy o LIS), que reduce significativamente sus costos de la Parte D de medicamentos. Con Extra Help completo, los copagos de medicamentos genéricos bajan a $1.60–$5.10 y de marca a $4.90–$12.65 en 2026.</div>
-        </div>
-        <div class="faq-item">
-          <div class="faq-q">¿Mis activos me descalifican automáticamente?</div>
-          <div class="faq-a">No necesariamente. Florida excluye del cálculo de activos su residencia principal, un automóvil, muebles, ropa, artículos del hogar, seguro de vida con valor en efectivo bajo ciertos límites, y dinero destinado a gastos de entierro. Los límites de activos son más generosos de lo que la mayoría supone. Verifique antes de asumir que no califica.</div>
-        </div>
-        <div class="faq-item">
-          <div class="faq-q">¿Puedo perder los beneficios si mis ingresos cambian?</div>
-          <div class="faq-a">Los beneficios del MSP se revisan anualmente. Si sus ingresos aumentan significativamente, es posible que no califique en la renovación. Sin embargo, un cambio menor en los ingresos no necesariamente le descalifica. La clave es renovar la solicitud cada año y reportar cambios importantes de ingresos.</div>
-        </div>
-        <div class="faq-item">
-          <div class="faq-q">¿Pueden mis hijos o familia ayudarme a aplicar?</div>
-          <div class="faq-a">Sí. Un familiar, cuidador o representante autorizado puede completar la solicitud en su nombre. También nuestros corredores con licencia pueden orientarle durante todo el proceso sin costo alguno.</div>
-        </div>
+      <div style="background:#f7f2fb;border-radius:14px;padding:20px 22px;margin-bottom:18px">
+        <div id="mspResultBody" style="font-size:16.5px;color:#4a4051;line-height:1.7"></div>
       </div>
-    </div>
-  </section>
-
-  <!-- LEAD FORM -->
-  <section class="form-section" id="ahorros-form">
-    <div class="container">
-      <div style="text-align:center;color:#fff;margin-bottom:36px">
-        <h2 style="font-family:'Poppins',sans-serif;font-size:34px;font-weight:700;margin:0 0 12px">¿Podría estar pagando de más?</h2>
-        <p style="font-size:17px;color:#f0eaf7;max-width:540px;margin:0 auto">Hablemos — la evaluación es completamente gratuita. Si califica, podemos ayudarle a iniciar el proceso de solicitud hoy mismo.</p>
+      <div style="text-align:center">
+        <a href="#ahorros-form" style="display:inline-block;background:#ff1090;color:#fff;padding:14px 24px;border-radius:999px;font-weight:700;font-size:17px">Ayuda para aplicar →</a>
+        <div style="font-size:18px;color:#5a5068;margin-top:14px">Solo una estimación — la elegibilidad real también depende de los activos.</div>
       </div>
-      <div class="form-box">
-        <div style="font-family:'Poppins',sans-serif;font-size:22px;font-weight:700;color:#241a30;margin-bottom:6px">Evaluación Gratuita del Programa de Ahorros</div>
-        <p style="font-size:18px;color:#3a2f47;margin-bottom:22px">Un corredor bilingüe con licencia se comunicará en menos de 1 hora hábil.</p>
-        <form id="ahorrosForm" action="https://services.leadconnectorhq.com/hooks/RINM4TCnM4hN06UA1aK0/webhook-trigger/dc6c8b35-9480-412e-b56d-4a4c8c7bd438" method="POST" novalidate>
-<input type="hidden" name="looking_for" value="Programa de Ahorros Medicare">
-                  <!-- Honeypot: hidden from humans, bots fill it in -->
-                  <input type="text" name="_hp_name" id="_hp_name" autocomplete="off" tabindex="-1" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0;pointer-events:none;" value="">
-          <div class="form-row">
-            <div class="form-group">
-              <label class="form-label" for="ah_first">Nombre <em style="color:#ff1090">*</em></label>
-              <input type="text" id="ah_first" name="first_name" class="form-input" placeholder="Su nombre" required>
-            </div>
-            <div class="form-group">
-              <label class="form-label" for="ah_last">Apellido <em style="color:#ff1090">*</em></label>
-              <input type="text" id="ah_last" name="last_name" class="form-input" placeholder="Su apellido" required>
-            </div>
-          </div>
-          <div class="form-group">
-            <label class="form-label" for="ah_phone">Teléfono <em style="color:#ff1090">*</em></label>
-            <input type="tel" id="ah_phone" name="phone" class="form-input" placeholder="(305) 000-0000" required>
-          </div>
-          <div class="form-group">
-            <label class="form-label" for="ah_email">Correo electrónico <em style="color:#ff1090">*</em></label>
-            <input type="email" id="ah_email" name="email" class="form-input" placeholder="su@email.com" required>
-          </div>
-          <div class="form-group">
-            <label class="form-label" for="ah_income">Ingreso mensual aproximado <em style="color:#ff1090">*</em></label>
-            <select id="ah_income" name="monthly_income" class="form-select" required>
-              <option value="">Seleccionar rango...</option>
-              <option value="under_1000">Menos de $1,000/mes</option>
-              <option value="1000_1500">$1,000 – $1,500/mes</option>
-              <option value="1500_2000">$1,500 – $2,000/mes</option>
-              <option value="2000_2500">$2,000 – $2,500/mes</option>
-              <option value="over_2500">Más de $2,500/mes</option>
-            </select>
-          </div>
-          <div class="form-group">
-            <label class="form-label" for="ah_situation">¿Cuál es su situación actual? <em style="color:#ff1090">*</em></label>
-            <select id="ah_situation" name="current_situation" class="form-select" required>
-              <option value="">Seleccionar...</option>
-              <option value="medicare_only">Tengo Medicare Original solamente</option>
-              <option value="medicare_advantage">Tengo Medicare Advantage</option>
-              <option value="medicare_medicaid">Tengo Medicare y Medicaid</option>
-              <option value="not_enrolled">Aún no tengo Medicare</option>
-              <option value="other">Otra situación</option>
-            </select>
-          </div>
-          <div class="form-group">
-            <label class="form-label" for="ah_notes">¿Algo más que quiera compartir? <span style="font-weight:400;color:#5a5068">(opcional)</span></label>
-            <textarea id="ah_notes" name="additional_notes" class="form-input" placeholder="Ej. Estoy pagando $202.90 al mes por la Parte B y quisiera saber si califico para ayuda..." style="min-height:80px;resize:vertical;font-family:'Inter',sans-serif;"></textarea>
-          </div>
-          <div style="display:flex;align-items:flex-start;gap:10px;margin-bottom:16px">
-            <input type="checkbox" id="ah_consent" name="consent" required style="margin-top:4px;flex-shrink:0;width:16px;height:16px;cursor:pointer;">
-            <label for="ah_consent" style="font-size:14.5px;color:#3a2f47;line-height:1.6;cursor:pointer;">Al marcar esta casilla, consiento recibir llamadas y mensajes de The Health Experts Insurance sobre el Programa de Ahorros Medicare y otras opciones. El consentimiento no es requisito para adquirir servicios. Puede llamar a <a href="tel:18003806821" style="color:#452068">1-800-380-6821</a> TTY 711 sin dar este consentimiento.</label>
-          </div>
-          <p id="ah_error" style="display:none;color:#c40074;font-size:16px;margin-bottom:8px">Por favor complete todos los campos requeridos.</p>
-          <button type="submit" class="btn-pink-full">Ver si Califico al Programa de Ahorros →</button>
-        </form>
-        <div id="ah_success" style="display:none;text-align:center;padding:28px 8px">
-          <div style="width:56px;height:56px;border-radius:50%;background:#452068;display:flex;align-items:center;justify-content:center;margin:0 auto 16px"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.4"><path d="M5 12l4 4 10-10"/></svg></div>
-          <h3 style="font-family:'Poppins',sans-serif;font-size:22px;color:#241a30;margin:0 0 10px">¡Recibimos su solicitud!</h3>
-          <p style="color:#3a2f47;font-size:18px;margin:0 0 20px">Un corredor bilingüe se comunicará pronto para su evaluación gratuita.</p>
-          <div style="display:flex;gap:10px;justify-content:center;flex-wrap:wrap">
-            <a href="tel:18003806821" style="background:#452068;color:#fff;padding:12px 20px;border-radius:10px;font-weight:700;font-size:17px;text-decoration:none">📞 1-800-380-6821</a>
-            <a href="https://wa.me/13054646888" style="background:#25D366;color:#fff;padding:12px 20px;border-radius:10px;font-weight:700;font-size:17px;text-decoration:none">WhatsApp</a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- TPMO -->
-  <div class="tpmo-bar">
-    <div class="container">
-      <p class="tpmo-text">The Health Experts Insurance es una agencia de seguros independiente y licenciada en Doral, FL. No ofrecemos todos los planes disponibles en su área. Actualmente representamos 14 organizaciones que ofrecen 82 productos en su área. Comuníquese con Medicare.gov, 1-800-MEDICARE, o el programa SHIP local para obtener información sobre todas sus opciones. Medicare no ha revisado ni respaldado esta información.</p>
     </div>
   </div>
+</div>
 
-  <!-- FOOTER -->
-  <footer style="background:#fafafa;border-top:3px solid #f4eefa;padding:52px 0 24px;">
-    <div class="container">
-      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:36px;margin-bottom:44px;">
-        <div>
-          <img src="/images/logo.webp" alt="The Health Experts Insurance" style="height:64px;width:auto;margin-bottom:14px;">
-          <p style="font-size:17px;color:#3a2f47;line-height:1.6;margin:0 0 14px;">Corredores bilingüen independientes de seguros de salud. Oficina en Doral, FL.</p>
-          <p style="font-size:18px;margin-bottom:6px;"><a href="tel:18003806821" style="color:#452068;font-weight:600;">1-800-380-6821</a></p>
-          <p style="font-size:18px;margin-bottom:6px;"><a href="https://wa.me/13054646888" style="color:#452068;font-weight:600;">WhatsApp</a></p>
-          <p style="font-size:17px;color:#3a2f47;margin-top:8px;">1695 NW 110 Ave, Ste 224<br>Doral, FL 33172</p>
-        </div>
-        <div>
-          <h3 style="color:#452068;font-size:16px;text-transform:uppercase;letter-spacing:1px;margin:0 0 14px;">Guías Medicare</h3>
-          <ul style="list-style:none;padding:0;margin:0;">
-            <li style="margin-bottom:8px;"><a href="/es/medicare/que-es-medicare/" style="color:#3a2f47;font-size:18px;">Qué es Medicare</a></li>
-            <li style="margin-bottom:8px;"><a href="/es/medicare/nuevo-en-medicare/" style="color:#3a2f47;font-size:18px;">Nuevo en Medicare</a></li>
-            <li style="margin-bottom:8px;"><a href="/es/irmaa-penalidades-medicare/" style="color:#3a2f47;font-size:18px;">Costos e IRMAA</a></li>
-            <li style="margin-bottom:8px;"><a href="/es/medicare/programa-ahorros-medicare/" style="color:#ff1090;font-size:18px;font-weight:700;">Programa de Ahorros</a></li>
-            <li style="margin-bottom:8px;"><a href="/es/mitos-medicare/" style="color:#3a2f47;font-size:18px;">Mitos de Medicare</a></li>
-            <li style="margin-bottom:8px;"><a href="/es/inscripcion-anual-medicare-2027/" style="color:#3a2f47;font-size:18px;">AEP 2027</a></li>
-          </ul>
-        </div>
-        <div>
-          <h3 style="color:#452068;font-size:16px;text-transform:uppercase;letter-spacing:1px;margin:0 0 14px;">Seguros</h3>
-          <ul style="list-style:none;padding:0;margin:0;">
-            <li style="margin-bottom:8px;"><a href="/es/planes-de-medicare-miami" style="color:#3a2f47;font-size:18px;">Planes de Medicare</a></li>
-            <li style="margin-bottom:8px;"><a href="/es/medicare-advantage-miami" style="color:#3a2f47;font-size:18px;">Medicare Advantage</a></li>
-            <li style="margin-bottom:8px;"><a href="/es/medicare-suplementario-miami" style="color:#3a2f47;font-size:18px;">Medicare Suplementario</a></li>
-            <li style="margin-bottom:8px;"><a href="/es/medicare-medicaid-miami" style="color:#3a2f47;font-size:18px;">D-SNP / Dual</a></li>
-            <li style="margin-bottom:8px;"><a href="/es/planes-aca-miami" style="color:#3a2f47;font-size:18px;">Planes ACA</a></li>
-          </ul>
-        </div>
-        <div>
-          <h3 style="color:#452068;font-size:16px;text-transform:uppercase;letter-spacing:1px;margin:0 0 14px;">Empresa</h3>
-          <ul style="list-style:none;padding:0;margin:0;">
-            <li style="margin-bottom:8px;"><a href="/es/agente-de-medicare-miami/" style="color:#3a2f47;font-size:18px;">Conócenos</a></li>
-            <li style="margin-bottom:8px;"><a href="/es/contacto/" style="color:#3a2f47;font-size:18px;">Contacto</a></li>
-            <li style="margin-bottom:8px;"><a href="/es/recursos/" style="color:#3a2f47;font-size:18px;">Recursos</a></li>
-            <li style="margin-bottom:8px;"><a href="/es/blog/" style="color:#3a2f47;font-size:18px;">Blog</a></li>
-            <li style="margin-bottom:8px;"><a href="/es/faq/" style="color:#3a2f47;font-size:18px;">FAQ</a></li>
-            <li style="margin-bottom:8px;"><a href="/medicare-savings-program/" style="color:#3a2f47;font-size:18px;">View in English</a></li>
-          </ul>
-        </div>
+<!-- HOW TO APPLY -->
+<div class="section-pad" style="background:#fdfaf7;padding:48px 56px">
+  <div style="max-width:900px;margin:0 auto">
+    <h2 style="text-align:center;font-family:Poppins,sans-serif;font-size:26px;font-weight:700;color:#241a30;margin:0 0 32px">Cómo aplicar en Florida</h2>
+    <div class="msp-steps-grid" style="display:grid;grid-template-columns:repeat(4,1fr);gap:18px">
+      <div>
+        <div style="width:32px;height:32px;border-radius:50%;background:#ff1090;color:#fff;font-weight:700;font-size:17px;display:flex;align-items:center;justify-content:center;margin-bottom:10px">1</div>
+        <div style="font-weight:700;font-size:16.5px;color:#241a30;margin-bottom:6px">Reúna documentos</div>
+        <div style="font-size:16px;color:#3a2f47;font-weight:500;line-height:1.65">Tarjeta de Medicare, comprobante de ingresos, estados de cuenta, prueba de residencia. <em>¿Menos de 40 créditos? Pida primero “Conditional Part A” al SSA.</em></div>
       </div>
-      <div style="border-top:1px solid #e5e5e5;padding-top:20px;">
-        <p style="font-size:14.5px;color:#3a2f47;margin:0;">© 2026 The Health Experts Insurance. <a href="/es/privacidad" style="color:#452068;">Política de Privacidad</a></p>
+      <div>
+        <div style="width:32px;height:32px;border-radius:50%;background:#ff1090;color:#fff;font-weight:700;font-size:17px;display:flex;align-items:center;justify-content:center;margin-bottom:10px">2</div>
+        <div style="font-weight:700;font-size:16.5px;color:#241a30;margin-bottom:6px">Aplique por DCF</div>
+        <div style="font-size:16px;color:#3a2f47;font-weight:500;line-height:1.65">En línea en access.florida.gov, por teléfono al 1-866-762-2237, o en un centro local de DCF.</div>
+      </div>
+      <div>
+        <div style="width:32px;height:32px;border-radius:50%;background:#ff1090;color:#fff;font-weight:700;font-size:17px;display:flex;align-items:center;justify-content:center;margin-bottom:10px">3</div>
+        <div style="font-weight:700;font-size:16.5px;color:#241a30;margin-bottom:6px">Espere ~45 días</div>
+        <div style="font-size:16px;color:#3a2f47;font-weight:500;line-height:1.65">Los beneficios suelen ser retroactivos al mes de la solicitud. QI debe renovarse cada año.</div>
+      </div>
+      <div>
+        <div style="width:32px;height:32px;border-radius:50%;background:#ff1090;color:#fff;font-weight:700;font-size:17px;display:flex;align-items:center;justify-content:center;margin-bottom:10px">4</div>
+        <div style="font-weight:700;font-size:16.5px;color:#241a30;margin-bottom:6px">Le ayudamos gratis</div>
+        <div style="font-size:16px;color:#3a2f47;font-weight:500;line-height:1.65">Revisamos su solicitud y la alineamos con el plan Medicare correcto. Si necesita más apoyo, podemos referirle a <strong style="color:#241a30"><a href="https://goldenyearsfl.org" style="color:#c40074;text-decoration:underline" target="_blank" rel="noopener">Golden Years Florida</a></strong>, una organización sin fines de lucro.</div>
       </div>
     </div>
-  </footer>
+  </div>
+</div>
 
-</div><!-- end page content -->
+<!-- MORE GUIDES -->
+<div class="section-pad" style="background:#fff;padding:48px 56px">
+  <div style="max-width:1160px;margin:0 auto">
+    <h2 style="font-family:Poppins,sans-serif;font-size:26px;font-weight:700;color:#241a30;margin:0 0 24px">Más guías de Medicare</h2>
+    <div class="msp-guides-grid" style="display:grid;grid-template-columns:repeat(3,1fr);gap:16px">
+      <a href="/es/medicare/que-es-medicare/" style="display:block;border:1px solid #ece5f0;border-radius:14px;padding:20px;color:#241a30">
+        <div style="font-weight:700;font-size:18px;margin-bottom:6px">¿Qué es Medicare?</div>
+        <div style="font-size:18px;color:#3a2f47;font-weight:500;line-height:1.65">Partes A, B, C y D explicadas desde el principio.</div>
+      </a>
+      <a href="/es/irmaa-penalidades-medicare/" style="display:block;border:1px solid #ece5f0;border-radius:14px;padding:20px;color:#241a30">
+        <div style="font-weight:700;font-size:18px;margin-bottom:6px">Costos de Medicare e IRMAA</div>
+        <div style="font-size:18px;color:#3a2f47;font-weight:500;line-height:1.65">Primas, deducibles y recargos 2026.</div>
+      </a>
+      <a href="/es/medicare-advantage-miami" style="display:block;border:1px solid #ece5f0;border-radius:14px;padding:20px;color:#241a30">
+        <div style="font-weight:700;font-size:18px;margin-bottom:6px">Planes Medicare Advantage</div>
+        <div style="font-size:18px;color:#3a2f47;font-weight:500;line-height:1.65">Cómo la Parte C limita costos y añade beneficios.</div>
+      </a>
+      <a href="/es/medicare-suplementario-miami" style="display:block;border:1px solid #ece5f0;border-radius:14px;padding:20px;color:#241a30">
+        <div style="font-weight:700;font-size:18px;margin-bottom:6px">Medicare Suplementario (Medigap)</div>
+        <div style="font-size:18px;color:#3a2f47;font-weight:500;line-height:1.65">Cómo cubrir los huecos de Medicare Original.</div>
+      </a>
+      <a href="/es/medicare/nuevo-en-medicare/" style="display:block;border:1px solid #ece5f0;border-radius:14px;padding:20px;color:#241a30">
+        <div style="font-weight:700;font-size:18px;margin-bottom:6px">Nuevo en Medicare</div>
+        <div style="font-size:18px;color:#3a2f47;font-weight:500;line-height:1.65">Períodos de inscripción y cómo evitar penalidades.</div>
+      </a>
+      <a href="/es/buscador-de-planes/" style="display:block;border:1px solid #ece5f0;border-radius:14px;padding:20px;color:#241a30">
+        <div style="font-weight:700;font-size:18px;margin-bottom:6px">Buscador de Planes</div>
+        <div style="font-size:18px;color:#3a2f47;font-weight:500;line-height:1.65">Vea planes en su código postal — gratis, sin compromiso.</div>
+      </a>
+    </div>
+  </div>
+</div>
 
-<button id="scrollToTop" aria-label="Volver arriba" style="display:none;position:fixed;bottom:28px;right:28px;width:48px;height:48px;border-radius:50%;background:#452068;color:white;border:none;font-size:18px;cursor:pointer;box-shadow:0 4px 16px rgba(0,0,0,.2);z-index:999;">↑</button>
+<!-- FAQ -->
+<div class="section-pad" style="background:#fdfaf7;padding:48px 56px">
+  <div style="max-width:780px;margin:0 auto">
+    <h2 style="font-family:Poppins,sans-serif;font-size:26px;font-weight:700;color:#241a30;margin:0 0 20px;text-align:center">Preguntas frecuentes</h2>
+    <div style="display:flex;flex-direction:column;gap:10px">
+
+      <div style="background:#fff;border:1px solid #ece5f0;border-radius:14px;overflow:hidden">
+        <button type="button" class="msp-faq-btn" onclick="toggleFaq('faq1')">
+          ¿Pierdo mi Medicare si califico para MSP?
+          <span id="faq1Icon" style="font-size:24px;font-weight:400;flex-shrink:0;margin-left:12px">+</span>
+        </button>
+        <div id="faq1" class="msp-faq-answer" style="padding:0 20px 18px;font-size:16.5px;color:#3a2f47;font-weight:500;line-height:1.7">No — el MSP funciona junto a su Medicare actual, ya sea Original o Advantage. Solo ayuda a pagar los costos.</div>
+      </div>
+
+      <div style="background:#fff;border:1px solid #ece5f0;border-radius:14px;overflow:hidden">
+        <button type="button" class="msp-faq-btn" onclick="toggleFaq('faq2')">
+          ¿Necesito tener Medicaid para calificar al MSP?
+          <span id="faq2Icon" style="font-size:24px;font-weight:400;flex-shrink:0;margin-left:12px">+</span>
+        </button>
+        <div id="faq2" class="msp-faq-answer" style="padding:0 20px 18px;font-size:16.5px;color:#3a2f47;font-weight:500;line-height:1.7">No. El MSP y Medicaid son programas separados, con sus propios límites de ingresos y activos. Puede calificar al MSP aunque no tenga Medicaid. Si tiene ambos, también debería verificar el nivel QMB.</div>
+      </div>
+
+      <div style="background:#fff;border:1px solid #ece5f0;border-radius:14px;overflow:hidden">
+        <button type="button" class="msp-faq-btn" onclick="toggleFaq('faq3')">
+          ¿Tener casa o carro me descalifica?
+          <span id="faq3Icon" style="font-size:24px;font-weight:400;flex-shrink:0;margin-left:12px">+</span>
+        </button>
+        <div id="faq3" class="msp-faq-answer" style="padding:0 20px 18px;font-size:16.5px;color:#3a2f47;font-weight:500;line-height:1.7">Por lo general no. Su casa y un automóvil se excluyen de la prueba de activos, junto con fondos de entierro y ciertos otros bienes. Florida también excluye muebles, ropa y artículos del hogar.</div>
+      </div>
+
+      <div style="background:#fff;border:1px solid #ece5f0;border-radius:14px;overflow:hidden">
+        <button type="button" class="msp-faq-btn" onclick="toggleFaq('faq4')">
+          ¿Cuánto tarda la aprobación?
+          <span id="faq4Icon" style="font-size:24px;font-weight:400;flex-shrink:0;margin-left:12px">+</span>
+        </button>
+        <div id="faq4" class="msp-faq-answer" style="padding:0 20px 18px;font-size:16.5px;color:#3a2f47;font-weight:500;line-height:1.7">DCF de Florida suele procesar solicitudes en unos 45 días. Si lo aprueban, los beneficios generalmente son retroactivos al mes en que aplicó.</div>
+      </div>
+
+      <div style="background:#fff;border:1px solid #ece5f0;border-radius:14px;overflow:hidden">
+        <button type="button" class="msp-faq-btn" onclick="toggleFaq('faq5')">
+          ¿Qué pasa si mi ingreso está justo por encima del límite?
+          <span id="faq5Icon" style="font-size:24px;font-weight:400;flex-shrink:0;margin-left:12px">+</span>
+        </button>
+        <div id="faq5" class="msp-faq-answer" style="padding:0 20px 18px;font-size:16.5px;color:#3a2f47;font-weight:500;line-height:1.7">Aplique de todos modos: el ingreso contable excluye los primeros $20 de la mayoría de los ingresos y los primeros $65 de ingreso laboral, así que su ingreso real contable suele ser menor que el bruto.</div>
+      </div>
+
+      <div style="background:#fff;border:1px solid #ece5f0;border-radius:14px;overflow:hidden">
+        <button type="button" class="msp-faq-btn" onclick="toggleFaq('faqMeds')">
+          ¿El MSP cubre los medicamentos recetados?
+          <span id="faqMedsIcon" style="font-size:24px;font-weight:400;flex-shrink:0;margin-left:12px">+</span>
+        </button>
+        <div id="faqMeds" class="msp-faq-answer" style="padding:0 20px 18px;font-size:16.5px;color:#3a2f47;font-weight:500;line-height:1.7">El MSP en sí no cubre medicamentos, pero si califica para QMB, SLMB o QI, califica automáticamente para Extra Help (también llamado Low Income Subsidy o LIS). En 2026, Extra Help puede ahorrar hasta $5,300 al año; copagos de genéricos $1.60–$5.10 y de marca $4.90–$12.65.</div>
+      </div>
+
+      <div style="background:#fff;border:1px solid #ece5f0;border-radius:14px;overflow:hidden">
+        <button type="button" class="msp-faq-btn" onclick="toggleFaq('faqIncomeChange')">
+          ¿Puedo perder los beneficios si mis ingresos cambian?
+          <span id="faqIncomeChangeIcon" style="font-size:24px;font-weight:400;flex-shrink:0;margin-left:12px">+</span>
+        </button>
+        <div id="faqIncomeChange" class="msp-faq-answer" style="padding:0 20px 18px;font-size:16.5px;color:#3a2f47;font-weight:500;line-height:1.7">Los beneficios se revisan cada año. Un aumento grande de ingresos puede hacer que no califique en la renovación; un cambio menor no necesariamente lo descalifica. La clave es renovar a tiempo y reportar cambios importantes.</div>
+      </div>
+
+      <div style="background:#fff;border:1px solid #ece5f0;border-radius:14px;overflow:hidden">
+        <button type="button" class="msp-faq-btn" onclick="toggleFaq('faqFamily')">
+          ¿Pueden mis hijos o familia ayudarme a aplicar?
+          <span id="faqFamilyIcon" style="font-size:24px;font-weight:400;flex-shrink:0;margin-left:12px">+</span>
+        </button>
+        <div id="faqFamily" class="msp-faq-answer" style="padding:0 20px 18px;font-size:16.5px;color:#3a2f47;font-weight:500;line-height:1.7">Sí. Un familiar, cuidador o representante autorizado puede completar la solicitud en su nombre. Nuestros corredores con licencia también pueden orientarle durante todo el proceso sin costo.</div>
+      </div>
+
+      <div id="faq6-anchor" style="background:#fff;border:1px solid #ece5f0;border-radius:14px;overflow:hidden">
+        <button type="button" class="msp-faq-btn" onclick="toggleFaq('faq6')">
+          ¿Puedo calificar si no tengo 40 créditos de trabajo para Medicare?
+          <span id="faq6Icon" style="font-size:24px;font-weight:400;flex-shrink:0;margin-left:12px">+</span>
+        </button>
+        <div id="faq6" class="msp-faq-answer" style="padding:0 20px 18px;font-size:16.5px;color:#3a2f47;font-weight:500;line-height:1.7">Sí — puede calificar al MSP aunque no tenga 40 créditos. Siga esta secuencia:<br><br><strong style="color:#241a30">Paso 1 — Llame al SSA al 1-800-772-1213</strong> (no se puede hacer en línea). Pida una cita telefónica para aplicar a <strong style="color:#241a30">“Conditional Part A and Part B.”</strong> En la cita, diga: <strong style="color:#241a30">“Estoy aplicando a Conditional Part A porque tengo menos de 40 créditos de trabajo y estoy aplicando al programa QMB a través de Medicaid de Florida.”</strong> Así el gobierno factura a Florida mientras se procesa su QMB.<br><br><strong style="color:#241a30">⚠ Error común:</strong> algunos agentes del SSA no procesan solicitudes condicionales a diario y pueden decirle que no puede inscribirse sin 40 créditos. Si ocurre, pídales amablemente que busquen <strong style="color:#241a30"><a href="https://secure.ssa.gov/poms.nsf/lnx/0600801140" target="_blank" rel="noopener" style="color:#452068;text-decoration:underline">POMS Sección HI 00801.140</a></strong> — la política federal (actualizada ene 2025). Florida es un estado de “Part A Buy-in”: el estado debe cubrir esa prima para QMB aprobados.<br><br><strong style="color:#241a30">Paso 2 — Aplique a QMB por DCF de Florida</strong> en access.florida.gov. Lleve prueba de ingresos, estados de cuenta recientes (menos de $9,950) y su identificación de Florida.<br><br><strong style="color:#241a30">Paso 3 — Espere ~30 días.</strong> Una vez aprobado, Florida notifica al gobierno federal y sus primas de Parte A y B quedan cubiertas. Los proveedores no pueden cobrarle deducibles ni copagos por servicios cubiertos por Medicare.<br><br>SLMB y QI solo cubren la prima de Parte B — <strong style="color:#241a30">QMB es el único MSP que ayuda si está comprando la Parte A.</strong></div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- FINAL CTA -->
+<div class="section-pad" style="background:linear-gradient(135deg,#452068 0%,#5a2a86 100%);padding:56px;text-align:center;color:#fff">
+  <h2 style="font-family:Poppins,sans-serif;font-size:30px;font-weight:700;margin:0 0 10px">¿Cree que podría calificar para MSP o Extra Help?</h2>
+  <p style="font-size:18px;color:#f0eaf7;margin:0 0 24px">Nuestros corredores bilingües con licencia verifican su elegibilidad y le ayudan a aplicar — gratis.</p>
+  <div class="msp-cta-btns" style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap">
+    <a href="tel:18003806821" style="background:#ff1090;color:#fff;padding:15px 26px;border-radius:999px;font-weight:700;font-size:18px">Llamar 1-800-380-6821</a>
+    <a href="https://wa.me/13054646888" onclick="gtag('event','whatsapp_click',{'page':window.location.pathname})" style="background:#25D366;color:#fff;padding:15px 26px;border-radius:999px;font-weight:700;font-size:18px">WhatsApp</a>
+  </div>
+</div>
+
+<!-- LEAD FORM -->
+<div id="ahorros-form" class="section-pad" style="background:#f7f2fb;padding:56px 56px">
+  <div style="max-width:560px;margin:0 auto;background:#fff;border-radius:22px;padding:34px;box-shadow:0 20px 50px rgba(69,32,104,.12)">
+
+    <div id="ah_success" style="display:none;text-align:center;padding:16px 8px">
+      <div style="width:52px;height:52px;border-radius:50%;background:#452068;display:flex;align-items:center;justify-content:center;margin:0 auto 16px">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.4"><path d="M5 12l4 4 10-10"/></svg>
+      </div>
+      <h3 style="font-family:Poppins,sans-serif;font-size:24px;margin:0 0 8px;color:#241a30">¡Recibimos su solicitud!</h3>
+      <p style="color:#3a2f47;font-weight:500;margin:0 0 20px">Un corredor bilingüe se comunicará pronto para su evaluación gratuita.</p>
+      <div style="display:flex;gap:10px;justify-content:center;flex-wrap:wrap">
+        <a href="tel:18003806821" style="background:#452068;color:#fff;padding:12px 20px;border-radius:10px;font-weight:700;font-size:17px;text-decoration:none">📞 1-800-380-6821</a>
+        <a href="https://wa.me/13054646888" style="background:#25D366;color:#fff;padding:12px 20px;border-radius:10px;font-weight:700;font-size:17px;text-decoration:none">WhatsApp</a>
+      </div>
+    </div>
+
+    <div id="mspFormBody">
+      <div style="text-align:center;margin-bottom:22px">
+        <div style="font-family:Poppins,sans-serif;font-weight:700;font-size:24px;color:#241a30;margin-bottom:6px">Evaluación Gratuita del Programa de Ahorros</div>
+        <div style="font-size:16.5px;color:#3a2f47">Un corredor bilingüe con licencia se comunicará en menos de 1 hora hábil.</div>
+      </div>
+      <p id="ah_error" style="display:none;background:#fef2f2;border:1px solid #fecaca;border-radius:9px;padding:10px 14px;font-size:16px;color:#dc2626;margin-bottom:14px">Por favor complete todos los campos requeridos.</p>
+      <form id="ahorrosForm" action="https://services.leadconnectorhq.com/hooks/RINM4TCnM4hN06UA1aK0/webhook-trigger/dc6c8b35-9480-412e-b56d-4a4c8c7bd438" method="POST" novalidate>
+        <input type="hidden" name="looking_for" value="Programa de Ahorros Medicare">
+        <input type="hidden" name="coverage_type" value="Programa de Ahorros Medicare">
+        <input type="text" name="_hp_name" id="_hp_name" autocomplete="off" tabindex="-1" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0;pointer-events:none;" value="">
+        <div class="ff-row">
+          <div>
+            <label for="ah_first" style="display:block;font-size:16px;font-weight:600;color:#4a4051;margin-bottom:6px">Nombre <em style="color:#ff1090">*</em></label>
+            <input type="text" id="ah_first" name="first_name" class="msp-form-input" placeholder="Su nombre" required>
+          </div>
+          <div>
+            <label for="ah_last" style="display:block;font-size:16px;font-weight:600;color:#4a4051;margin-bottom:6px">Apellido <em style="color:#ff1090">*</em></label>
+            <input type="text" id="ah_last" name="last_name" class="msp-form-input" placeholder="Su apellido" required>
+          </div>
+        </div>
+        <div style="margin-bottom:12px">
+          <label for="ah_phone" style="display:block;font-size:16px;font-weight:600;color:#4a4051;margin-bottom:6px">Teléfono <em style="color:#ff1090">*</em></label>
+          <input type="tel" id="ah_phone" name="phone" class="msp-form-input" placeholder="(305) 000-0000" required>
+        </div>
+        <div style="margin-bottom:12px">
+          <label for="ah_email" style="display:block;font-size:16px;font-weight:600;color:#4a4051;margin-bottom:6px">Correo electrónico <em style="color:#ff1090">*</em></label>
+          <input type="email" id="ah_email" name="email" class="msp-form-input" placeholder="su@email.com" required>
+        </div>
+        <div style="margin-bottom:12px">
+          <label for="ah_income" style="display:block;font-size:16px;font-weight:600;color:#4a4051;margin-bottom:6px">Ingreso mensual aproximado <em style="color:#ff1090">*</em></label>
+          <select id="ah_income" name="monthly_income" class="msp-form-select" required>
+            <option value="">Seleccionar rango...</option>
+            <option value="under_1000">Menos de $1,000/mes</option>
+            <option value="1000_1500">$1,000 – $1,500/mes</option>
+            <option value="1500_2000">$1,500 – $2,000/mes</option>
+            <option value="2000_2500">$2,000 – $2,500/mes</option>
+            <option value="over_2500">Más de $2,500/mes</option>
+          </select>
+        </div>
+        <div style="margin-bottom:12px">
+          <label for="ah_situation" style="display:block;font-size:16px;font-weight:600;color:#4a4051;margin-bottom:6px">¿Cuál es su situación actual? <em style="color:#ff1090">*</em></label>
+          <select id="ah_situation" name="current_situation" class="msp-form-select" required>
+            <option value="">Seleccionar...</option>
+            <option value="medicare_only">Tengo Medicare Original solamente</option>
+            <option value="medicare_advantage">Tengo Medicare Advantage</option>
+            <option value="medicare_medicaid">Tengo Medicare y Medicaid</option>
+            <option value="not_enrolled">Aún no tengo Medicare</option>
+            <option value="other">Otra situación</option>
+          </select>
+        </div>
+        <div style="margin-bottom:12px">
+          <label for="ah_notes" style="display:block;font-size:16px;font-weight:600;color:#4a4051;margin-bottom:6px">¿Algo más que quiera compartir? <span style="font-weight:400;color:#5a5068">(opcional)</span></label>
+          <textarea id="ah_notes" name="additional_notes" rows="3" class="msp-form-input" placeholder="Ej. Estoy pagando $202.90 al mes por la Parte B y quisiera saber si califico para ayuda..." style="resize:vertical;min-height:80px"></textarea>
+        </div>
+        <label style="display:flex;gap:10px;align-items:flex-start;font-size:16px;line-height:1.6;margin-bottom:18px;cursor:pointer">
+          <input type="checkbox" id="ah_consent" name="consent" required style="margin-top:3px;width:16px;height:16px;min-width:16px;accent-color:#452068;cursor:pointer"/>
+          <span style="color:#5a5068;font-size:14.5px">Al marcar esta casilla, consiento recibir llamadas y mensajes de The Health Experts Insurance sobre el Programa de Ahorros Medicare y otras opciones. El consentimiento no es requisito para adquirir servicios. Puede llamar a <a href="tel:18003806821" style="color:#452068">1-800-380-6821</a> TTY 711 sin dar este consentimiento.</span>
+        </label>
+        <button type="submit" id="mspSubmitBtn" class="msp-submit-btn">Ver si Califico al Programa de Ahorros →</button>
+      </form>
+    </div>
+
+  </div>
+</div>
+
+</div><!-- /page content -->
+
+<!-- DISCLAIMER -->
+<div style="padding:28px 56px;background:#fff;max-width:1160px;margin:0 auto" class="section-pad">
+  <p style="font-size:14px;color:#5a5068;line-height:1.7">The Health Experts Insurance es una agencia de seguros independiente y licenciada en Doral, FL. El Programa de Ahorros de Medicare (MSP) lo administra el Departamento de Niños y Familias de Florida; los límites de ingresos mostrados son las pautas federales 2026 para Florida y pueden cambiar. No ofrecemos todos los planes disponibles en su área; actualmente representamos 14 organizaciones que ofrecen 82 productos. Esta no es una descripción completa de los beneficios. Comuníquese con Medicare.gov, 1-800-MEDICARE o el programa SHIP local para todas sus opciones. No estamos conectados ni respaldados por el gobierno de EE.UU. ni por el programa federal de Medicare.</p>
+</div>
+
+<!-- FOOTER -->
+<div id="site-footer" style="background:#fff;color:#241a30;padding:56px 56px 24px;border-top:1px solid #ece5f0">
+  <div style="max-width:1160px;margin:0 auto">
+    <div id="footer-grid" style="display:grid;grid-template-columns:1.3fr 1fr 1fr 1fr;gap:32px;margin-bottom:36px">
+      <div>
+        <img src="/images/logo.webp" alt="The Health Experts Insurance" style="height:70px;width:auto;margin-bottom:16px"/>
+        <p style="font-size:16px;color:#3a2f47;line-height:1.6;max-width:260px">Corredores independientes bilingües de seguros de salud. Oficina en Doral, FL.</p>
+        <div style="display:flex;flex-direction:column;gap:4px;margin-top:14px;font-size:16px">
+          <a href="tel:18003806821" style="color:#452068;font-weight:700">1-800-380-6821</a>
+          <a href="https://wa.me/13054646888" style="color:#452068;font-weight:700" onclick="gtag('event','whatsapp_click',{'page':window.location.pathname})">WhatsApp</a>
+          <a href="mailto:info@healthexps.com" style="color:#452068;font-weight:700">info@healthexps.com</a>
+        </div>
+        <p style="font-size:16px;color:#4a4051;margin-top:14px">1695 NW 110 Ave, Ste 224<br/>Doral, FL 33172</p>
+      </div>
+      <div>
+        <div style="font-weight:700;font-size:15px;letter-spacing:.06em;margin-bottom:14px;color:#452068">MEDICARE</div>
+        <div style="display:flex;flex-direction:column;gap:9px;font-size:16px">
+          <a href="/es/planes-de-medicare-miami" style="color:#4a4051">Planes de Medicare</a>
+          <a href="/es/medicare-advantage-miami" style="color:#4a4051">Medicare Advantage</a>
+          <a href="/es/medicare-suplementario-miami" style="color:#4a4051">Medicare Suplementario</a>
+          <a href="/es/medicare-medicaid-miami" style="color:#4a4051">D-SNP / Dual Eligible</a>
+          <a href="/es/buscador-de-planes/" style="color:#4a4051">Buscador de Planes</a>
+          <a href="/es/avmed-medicare-florida" style="color:#4a4051">Transición AvMed</a>
+        </div>
+      </div>
+      <div>
+        <div style="font-weight:700;font-size:15px;letter-spacing:.06em;margin-bottom:14px;color:#452068">GUÍAS DE MEDICARE</div>
+        <div style="display:flex;flex-direction:column;gap:9px;font-size:16px">
+          <a href="/es/medicare/que-es-medicare/" style="color:#4a4051">Qué es Medicare</a>
+          <a href="/es/medicare/nuevo-en-medicare/" style="color:#4a4051">Nuevo en Medicare</a>
+          <a href="/es/irmaa-penalidades-medicare/" style="color:#4a4051">Costos de Medicare e IRMAA</a>
+          <a href="/es/medicare-advantage-miami" style="color:#4a4051">Guía Medicare Advantage</a>
+          <a href="/es/medicare-suplementario-miami" style="color:#4a4051">Guía Medicare Suplementario</a>
+          <a href="/es/medicare/programa-ahorros-medicare/" style="color:#452068;font-weight:700">Programa de Ahorros</a>
+        </div>
+      </div>
+      <div>
+        <div style="font-weight:700;font-size:15px;letter-spacing:.06em;margin-bottom:14px;color:#452068">MÁS</div>
+        <div style="display:flex;flex-direction:column;gap:9px;font-size:16px">
+          <a href="/es/seguro-medico-privado-miami" style="color:#4a4051">Seguro Médico Privado</a>
+          <a href="/es/planes-aca-miami" style="color:#4a4051">Planes del Mercado ACA</a>
+          <a href="/es/alternativas-cobra-miami" style="color:#4a4051">Alternativas a COBRA</a>
+          <a href="/es/dental-vision-miami" style="color:#4a4051">Dental y Visión</a>
+          <a href="/es/agente-de-medicare-miami/" style="color:#4a4051">Conócenos</a>
+          <a href="/es/contacto/" style="color:#4a4051">Contacto</a>
+          <a href="/medicare-savings-program" style="color:#4a4051">Sitio en Inglés</a>
+        </div>
+      </div>
+    </div>
+    <div style="border-top:1px solid #ece5f0;padding-top:20px;font-size:16px;color:#4a4051">
+      &copy; 2026 The Health Experts Insurance. <a href="/es/privacidad" style="color:#452068;font-weight:600">Política de Privacidad y Términos</a>
+    </div>
+    <div style="padding-top:12px;font-size:16px;color:#5a5068;line-height:1.6">
+      Medicare no ha revisado ni respaldado esta información. No ofrecemos todos los planes disponibles en su área. Actualmente representamos 14 organizaciones que ofrecen 82 productos en su área. Comuníquese con Medicare.gov, 1-800-MEDICARE o el programa SHIP local para obtener información sobre todas sus opciones.
+    </div>
+  </div>
+</div>
+
+</div><!-- /wrapper -->
+
+<button id="scrollToTop" title="Volver arriba" aria-label="Volver arriba">↑</button>
 
 <script>
+var mspHousehold = 'individual';
+
+function setMspSize(size) {
+  mspHousehold = size;
+  document.getElementById('mspIndBtn').classList.toggle('active', size === 'individual');
+  document.getElementById('mspCplBtn').classList.toggle('active', size === 'couple');
+}
+
+function calcMsp() {
+  var income = parseFloat(document.getElementById('mspIncome').value);
+  if (!income || isNaN(income) || income < 0) {
+    alert('Por favor ingrese su ingreso mensual.');
+    return;
+  }
+  var isCouple = (mspHousehold === 'couple');
+  var tier, body;
+
+  if ((!isCouple && income <= 1330) || (isCouple && income <= 1803)) {
+    tier = 'Puede calificar para QMB — el programa más completo';
+    body = 'QMB cubre su prima de Parte B ($202.90/mes), deducibles de Parte A y B, y copagos — los paga el estado. También califica automáticamente para Extra Help en medicamentos de Parte D. <strong>Ahorro potencial total: $7,500+/año.</strong>';
+  } else if ((!isCouple && income <= 1596) || (isCouple && income <= 2164)) {
+    tier = 'Puede calificar para SLMB';
+    body = 'SLMB cubre su prima de Parte B ($202.90/mes) — eso es $2,220/año de vuelta. También califica automáticamente para Extra Help en recetas de Parte D.';
+  } else if ((!isCouple && income <= 1796) || (isCouple && income <= 2435)) {
+    tier = 'Puede calificar para QI';
+    body = 'QI cubre su prima de Parte B ($202.90/mes) y le califica para Extra Help en Parte D. Nota: QI requiere reinscripción anual y tiene cupos limitados — aplique temprano.';
+  } else if ((!isCouple && income <= 1903) || (isCouple && income <= 2575)) {
+    tier = 'Puede calificar para Extra Help (Parte D)';
+    body = 'Extra Help puede reducir sus costos de medicamentos de Parte D hasta $5,300/año. Es un programa federal aparte — aplique en ssa.gov/extrahelp. Nuestro equipo puede ayudarle.';
+  } else {
+    tier = 'El ingreso parece estar por encima de los límites MSP — aplique de todos modos';
+    body = 'El ingreso contable suele ser menor que el bruto. Los primeros $20 de la mayoría de los ingresos y los primeros $65 de ingreso laboral no cuentan, junto con otras exclusiones. Recomendamos aplicar y dejar que nuestro equipo revise su ingreso contable real.';
+  }
+
+  document.getElementById('mspResultTier').textContent = tier;
+  document.getElementById('mspResultBody').innerHTML = body;
+  document.getElementById('mspResult').style.display = 'block';
+  document.getElementById('mspResult').scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+}
+
+function toggleFaq(id) {
+  var el   = document.getElementById(id);
+  var icon = document.getElementById(id + 'Icon');
+  var open = el.classList.toggle('open');
+  icon.textContent = open ? '\u2212' : '+';
+}
+if (window.location.hash === '#faq6-anchor') {
+  window.addEventListener('DOMContentLoaded', function () {
+    var el = document.getElementById('faq6');
+    var icon = document.getElementById('faq6Icon');
+    if (el && icon) { el.classList.add('open'); icon.textContent = '\u2212'; }
+    var target = document.getElementById('faq6-anchor');
+    if (target) setTimeout(function(){ target.scrollIntoView({ behavior: 'smooth', block: 'start' }); }, 200);
+  });
+}
+
 (function(){
-  var btn=document.getElementById('v4HamburgerBtn');
-  var menu=document.getElementById('v4-mobile-menu');
-  var closeBtn=document.getElementById('v4MobileClose');
-  function openMenu(){menu.classList.add('open');btn.setAttribute('aria-expanded','true');}
-  function closeMenu(){menu.classList.remove('open');btn.setAttribute('aria-expanded','false');}
-  if(btn)btn.addEventListener('click',openMenu);
-  if(closeBtn)closeBtn.addEventListener('click',closeMenu);
-
-  var stBtn=document.getElementById('scrollToTop');
-  if(stBtn){
-    window.addEventListener('scroll',function(){stBtn.style.display=window.pageYOffset>300?'flex':'none';});
-    stBtn.addEventListener('click',function(){window.scrollTo({top:0,behavior:'smooth'});});
-  }
-
-  var form=document.getElementById('ahorrosForm');
-  var _formLoadTime = Date.now(); // bot timing check
-  if(form){
-    form.addEventListener('submit',function(e){
-      e.preventDefault();
-    // Bot checks: honeypot field filled or form submitted too fast (<3s)
+  var form = document.getElementById('ahorrosForm');
+  var _formLoadTime = Date.now();
+  if (!form) return;
+  form.addEventListener('submit', function(e){
+    e.preventDefault();
     var _hp = (document.getElementById('_hp_name') || {}).value || '';
-    if (_hp) return; // honeypot triggered — silent drop
-    if (Date.now() - _formLoadTime < 3000) return; // submitted in under 3 seconds — bot
-      var consent=document.getElementById('ah_consent');
-      if(!consent||!consent.checked){document.getElementById('ah_error').style.display='block';return;}
-      var required=form.querySelectorAll('[required]');
-      var valid=true;
-      required.forEach(function(f){if(!f.value||f.value.trim()==='')valid=false;});
-      if(!valid){document.getElementById('ah_error').style.display='block';return;}
-      document.getElementById('ah_error').style.display='none';
-      var submitBtn=form.querySelector('button[type="submit"]');
-      if(submitBtn){submitBtn.disabled=true;submitBtn.textContent='Enviando...';}
-      var data=new FormData(form);
-      fetch(form.action,{method:'POST',body:data})
-        .then(function(){form.style.display='none';document.getElementById('ah_success').style.display='block';})
-        .catch(function(){if(submitBtn){submitBtn.disabled=false;submitBtn.textContent='Ver si Califico al Programa de Ahorros →';}form.submit();});
-    });
+    if (_hp) return;
+    if (Date.now() - _formLoadTime < 3000) return;
+    var consent = document.getElementById('ah_consent');
+    var errEl = document.getElementById('ah_error');
+    var btn = document.getElementById('mspSubmitBtn');
+    if (!consent || !consent.checked) { errEl.style.display = 'block'; errEl.textContent = 'Por favor complete todos los campos requeridos.'; return; }
+    var required = form.querySelectorAll('[required]');
+    var valid = true;
+    required.forEach(function(f){ if (!f.value || f.value.trim() === '') valid = false; });
+    if (!valid) { errEl.style.display = 'block'; return; }
+    errEl.style.display = 'none';
+    if (btn) { btn.disabled = true; btn.textContent = 'Enviando...'; }
+    var data = new FormData(form);
+    fetch(form.action, { method: 'POST', body: data })
+      .then(function(res){
+        if (!res.ok) throw new Error('err');
+        document.getElementById('mspFormBody').style.display = 'none';
+        document.getElementById('ah_success').style.display = 'block';
+        if (typeof gtag !== 'undefined') gtag('event', 'form_submit', { 'page': 'programa-ahorros-medicare' });
+      })
+      .catch(function(){
+        if (btn) { btn.disabled = false; btn.textContent = 'Ver si Califico al Programa de Ahorros \u2192'; }
+        errEl.style.display = 'block';
+        errEl.textContent = 'Algo salió mal. Por favor intente de nuevo o llame al 1-800-380-6821.';
+      });
+  });
+})();
+
+(function(){
+  var btn = document.getElementById('v4HamburgerBtn');
+  var closeBtn = document.getElementById('v4MobileClose');
+  var menu = document.getElementById('v4-mobile-menu');
+  if (!btn || !menu) return;
+  function openMenu() {
+    menu.classList.add('open');
+    btn.setAttribute('aria-expanded', 'true');
+    document.body.style.overflow = 'hidden';
   }
+  function closeMenu() {
+    menu.classList.remove('open');
+    btn.setAttribute('aria-expanded', 'false');
+    document.body.style.overflow = '';
+  }
+  btn.addEventListener('click', openMenu);
+  if (closeBtn) closeBtn.addEventListener('click', closeMenu);
+  document.addEventListener('keydown', function(e){ if (e.key === 'Escape') closeMenu(); });
+})();
+
+(function(){
+  var navItems = document.querySelectorAll('.v4-nav-item');
+  function isMobile() { return window.innerWidth <= 900; }
+  navItems.forEach(function(item){
+    var drop = item.querySelector('.v4-nav-dropdown');
+    if (!drop) return;
+    item.addEventListener('click', function(){
+      if (!isMobile()) return;
+      var open = drop.style.display === 'block';
+      navItems.forEach(function(ni){
+        var d = ni.querySelector('.v4-nav-dropdown');
+        if (d) d.style.display = '';
+      });
+      drop.style.display = open ? '' : 'block';
+    });
+  });
+  document.addEventListener('click', function(e){
+    if (!isMobile()) return;
+    navItems.forEach(function(item){
+      if (!item.contains(e.target)){
+        var drop = item.querySelector('.v4-nav-dropdown');
+        if (drop) drop.style.display = '';
+      }
+    });
+  });
+})();
+
+(function(){
+  var btn = document.getElementById('scrollToTop');
+  if (!btn) return;
+  window.addEventListener('scroll', function(){
+    btn.style.display = window.scrollY > 400 ? 'flex' : 'none';
+  });
+  btn.addEventListener('click', function(){
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
 })();
 </script>
 </body>
