@@ -628,7 +628,7 @@ img { max-width: 100%; height: auto; }
           <div class="calc-step-sub">Florida shoppers. Premiums vary by ZIP, gender, and tobacco use.</div>
           <div class="calc-field" style="margin-top:18px;">
             <label for="i-age">Your current age</label>
-            <input type="number" id="i-age" value="65" min="60" max="95" placeholder="65" inputmode="numeric" onfocus="this.select()">
+            <input type="text" id="i-age" value="65" inputmode="numeric" pattern="[0-9]*" maxlength="2" placeholder="65" autocomplete="off">
           </div>
           <div class="calc-field">
             <label for="i-pb">Monthly Part B premium ($)</label>
@@ -904,9 +904,10 @@ img { max-width: 100%; height: auto; }
   }
 
   function validateBasics() {
-    var age = parseInt(g('i-age').value, 10);
+    var raw = String(g('i-age').value || '').trim();
+    var age = parseInt(raw, 10);
     var pb = parseFloat(g('i-pb').value);
-    if (!age || age < 60 || age > 95) {
+    if (!/^\d{2}$/.test(raw) || age < 60 || age > 95) {
       g('i-age').focus();
       return showError('Enter an age between 60 and 95.');
     }
@@ -1074,6 +1075,14 @@ img { max-width: 100%; height: auto; }
     var card = g('calc-card');
     if (card) card.scrollIntoView({ behavior: 'smooth', block: 'start' });
   };
+
+  // Select-on-focus so typing replaces the current number (mouseup needed in Chrome)
+  ['i-age','i-pb','i-map','i-mao','i-mgp','i-pdp'].forEach(function(id){
+    var el = g(id);
+    if (!el) return;
+    el.addEventListener('focus', function(){ this.select(); });
+    el.addEventListener('mouseup', function(e){ e.preventDefault(); this.select(); });
+  });
 
 })();
 </script>

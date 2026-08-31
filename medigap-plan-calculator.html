@@ -284,7 +284,7 @@
     <div class="help">Most people buy Medigap at 65, during a 6-month open enrollment with no health questions. After that, Florida&rsquo;s birthday rule can still let you switch to an equal or lesser Medigap plan without underwriting. <span id="ageNote"></span></div>
     <div class="age-box">
       <button type="button" onclick="changeAge(-1)" aria-label="Decrease age">−</button>
-      <input class="num" id="ageNum" type="number" value="65" min="65" max="85" inputmode="numeric" onchange="setAge(this.value)" onfocus="this.select()" aria-label="Your age">
+      <input class="num" id="ageNum" type="text" inputmode="numeric" pattern="[0-9]*" maxlength="2" value="65" autocomplete="off" onblur="setAge(this.value,true)" aria-label="Your age">
       <button type="button" onclick="changeAge(1)" aria-label="Increase age">+</button>
     </div>
     <div class="nav-btns">
@@ -414,16 +414,17 @@ var HD_G_TOTAL_DEDUCTIBLE = 2950;
 
 var state = { age:65, usage:null, useAdvanced:false };
 
-function setAge(v){
-  var age = parseInt(v, 10);
+function setAge(v, commit){
+  var raw = String(v == null ? '' : v).trim();
+  var age = parseInt(raw, 10);
   if (isNaN(age)) age = 65;
   state.age = Math.max(65, Math.min(85, age));
   var el = document.getElementById('ageNum');
-  if (el) el.value = state.age;
+  if (el && commit !== false) el.value = state.age;
   document.getElementById('ageNote').textContent = [65,70,75].indexOf(state.age)>-1 ? '' : 'Premiums between 65, 70, and 75 are interpolated from Florida midpoints.';
 }
 function changeAge(d){
-  setAge(state.age + d);
+  setAge(state.age + d, true);
 }
 function goStep(n){
   document.getElementById('step1').style.display = n===1?'block':'none';
@@ -626,6 +627,12 @@ function startOver(){
   if (err) err.style.display='none';
   document.querySelectorAll('.choice').forEach(function(c){c.classList.remove('selected')});
 }
+(function(){
+  var ageEl = document.getElementById('ageNum');
+  if (!ageEl) return;
+  ageEl.addEventListener('focus', function(){ this.select(); });
+  ageEl.addEventListener('mouseup', function(e){ e.preventDefault(); this.select(); });
+})();
 </script>
 <!-- FOOTER -->
       <div id="site-footer" style="background:#fff;color:#241a30;padding:56px 56px 24px;border-top:1px solid #ece5f0">
