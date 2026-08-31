@@ -523,5 +523,6 @@ a{color:var(--purple);text-decoration:none;}a:hover{color:var(--pink);}
 function toggleFaq(btn){const item=btn.parentElement;const isOpen=item.classList.contains('open');document.querySelectorAll('.faq-item').forEach(i=>i.classList.remove('open'));if(!isOpen)item.classList.add('open');}
 (function(){const btn=document.getElementById('scrollToTop');if(!btn)return;window.addEventListener('scroll',function(){btn.style.display=window.pageYOffset>300?'block':'none';});btn.addEventListener('click',function(){window.scrollTo({top:0,behavior:'smooth'});});btn.addEventListener('mouseenter',function(){btn.style.background='#ff1090';btn.style.transform='translateY(-3px)';});btn.addEventListener('mouseleave',function(){btn.style.background='#452068';btn.style.transform='translateY(0)';});})();
 </script>
+<script src="/js/mobile-nav-accordion.js?v=1" defer></script>
 </body>
 </html>
