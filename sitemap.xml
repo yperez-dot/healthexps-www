@@ -304,15 +304,35 @@
 
 <url>
   <loc>https://www.healthexps.com/medicare-advantage-vs-supplement-calculator</loc>
-  <lastmod>2026-08-26</lastmod>
+  <lastmod>2026-08-31</lastmod>
   <changefreq>monthly</changefreq>
   <priority>0.6</priority>
+  <xhtml:link rel="alternate" hreflang="en" href="https://www.healthexps.com/medicare-advantage-vs-supplement-calculator/"/>
+  <xhtml:link rel="alternate" hreflang="es" href="https://www.healthexps.com/es/calculadora-advantage-vs-suplemento/"/>
+</url>
+<url>
+  <loc>https://www.healthexps.com/es/calculadora-advantage-vs-suplemento/</loc>
+  <lastmod>2026-08-31</lastmod>
+  <changefreq>monthly</changefreq>
+  <priority>0.6</priority>
+  <xhtml:link rel="alternate" hreflang="en" href="https://www.healthexps.com/medicare-advantage-vs-supplement-calculator/"/>
+  <xhtml:link rel="alternate" hreflang="es" href="https://www.healthexps.com/es/calculadora-advantage-vs-suplemento/"/>
 </url>
 <url>
   <loc>https://www.healthexps.com/medigap-plan-calculator/</loc>
-  <lastmod>2026-08-26</lastmod>
+  <lastmod>2026-08-31</lastmod>
   <changefreq>monthly</changefreq>
   <priority>0.7</priority>
+  <xhtml:link rel="alternate" hreflang="en" href="https://www.healthexps.com/medigap-plan-calculator/"/>
+  <xhtml:link rel="alternate" hreflang="es" href="https://www.healthexps.com/es/calculadora-medigap/"/>
+</url>
+<url>
+  <loc>https://www.healthexps.com/es/calculadora-medigap/</loc>
+  <lastmod>2026-08-31</lastmod>
+  <changefreq>monthly</changefreq>
+  <priority>0.7</priority>
+  <xhtml:link rel="alternate" hreflang="en" href="https://www.healthexps.com/medigap-plan-calculator/"/>
+  <xhtml:link rel="alternate" hreflang="es" href="https://www.healthexps.com/es/calculadora-medigap/"/>
 </url>
 
 <!-- Other Insurance Products -->

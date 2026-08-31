@@ -11,7 +11,7 @@
 <title>Medicare Enrollment Date Calculator FL</title>
 <meta name="description" content="Calculate when your Medicare enrollment window opens. IEP, SEP, AEP explained. Free help from bilingual Miami brokers.">
 <link rel="canonical" href="https://www.healthexps.com/medicare-enrollment-calculator/">
-<link rel="alternate" hreflang="en" href="https://www.healthexps.com/enrollment-calculator"/>
+<link rel="alternate" hreflang="en" href="https://www.healthexps.com/medicare-enrollment-calculator/"/>
 <link rel="alternate" hreflang="es" href="https://www.healthexps.com/es/calculadora-de-inscripcion"/>
 
 <!-- Google tag (gtag.js) -->
@@ -56,7 +56,7 @@
   "itemListElement": [
     {"@type":"ListItem","position":1,"name":"Home","item":"https://www.healthexps.com"},
     {"@type":"ListItem","position":2,"name":"Resources","item":"https://www.healthexps.com/resources"},
-    {"@type":"ListItem","position":3,"name":"Medicare Enrollment Calculator","item":"https://www.healthexps.com/enrollment-calculator"}
+    {"@type":"ListItem","position":3,"name":"Medicare Enrollment Calculator","item":"https://www.healthexps.com/medicare-enrollment-calculator/"}
   ]
 }
 </script>
@@ -66,7 +66,7 @@
   "@context": "https://schema.org",
   "@type": "WebPage",
   "name": "Medicare Enrollment Window Calculator",
-  "url": "https://www.healthexps.com/enrollment-calculator",
+  "url": "https://www.healthexps.com/medicare-enrollment-calculator/",
   "inLanguage": "en",
   "isPartOf": {
     "@type": "WebSite",
@@ -552,6 +552,46 @@ img { max-width: 100%; height: auto; }
   line-height: 1.5;
 }
 
+.calc-error {
+  display: none;
+  color: #b32d2d;
+  font-weight: 700;
+  font-size: 16px;
+  margin: 10px 0 0;
+}
+.windows-note {
+  background: #f7f2fb;
+  border: 1px solid #e4dcec;
+  border-radius: 14px;
+  padding: 16px 18px;
+  margin: 0 0 24px;
+  font-size: 16px;
+  color: #3a2f47;
+  line-height: 1.6;
+}
+.windows-note strong { color: #241a30; }
+.result-hero { border-radius: 16px; padding: 24px 28px; margin-bottom: 16px; text-align: center; }
+.result-label { font-size: 16px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 8px; }
+.result-main { font-family: var(--font-head); font-size: 24px; font-weight: 700; margin-bottom: 6px; }
+.result-sub { font-size: 17px; line-height: 1.6; }
+.timeline { background: #fff; border: 1px solid var(--gray-mid); border-radius: 16px; padding: 24px 28px; margin-bottom: 16px; }
+.timeline-title { font-size: 14.5px; font-weight: 700; color: var(--purple); text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 20px; }
+.warning-box { background: #fff8e7; border: 2px solid #d97706; border-left: 6px solid #d97706; border-radius: 14px; padding: 18px 20px; margin-bottom: 16px; font-size: 17px; color: #78350f; line-height: 1.7; }
+.cta-box { background: linear-gradient(135deg, #2f1550, var(--purple)); border-radius: 16px; padding: 24px; text-align: center; margin: 16px 0; }
+.cta-box-title { font-size: 18px; font-weight: 700; color: #fff; margin-bottom: 8px; }
+.cta-box-desc { font-size: 17px; color: rgba(255,255,255,.85); margin-bottom: 20px; line-height: 1.6; }
+.cta-btns { display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; }
+.cta-btn-pink { display: inline-block; background: var(--pink); color: #fff; padding: 13px 24px; border-radius: 50px; font-weight: 700; font-size: 17px; }
+.cta-btn-wa { display: inline-flex; align-items: center; gap: 6px; background: #25D366; color: #fff; padding: 13px 24px; border-radius: 50px; font-weight: 700; font-size: 17px; }
+.enroll-more { margin: 8px 0 16px; text-align: center; }
+.enroll-more-title { font-size: 15px; font-weight: 700; color: var(--purple); text-transform: uppercase; letter-spacing: .06em; margin-bottom: 10px; }
+.enroll-more a { display: block; font-weight: 700; margin: 6px 0; }
+.enroll-share { border-top: 2px dashed #e8e0f4; margin: 8px 0 20px; padding-top: 20px; text-align: center; }
+.enroll-share-label { font-size: 14px; font-weight: 700; color: #5a5068; text-transform: uppercase; letter-spacing: .08em; margin-bottom: 8px; }
+.enroll-share-title { font-size: 16px; font-weight: 700; color: #452068; margin-bottom: 16px; }
+.enroll-share-btns { display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; }
+.enroll-copy-btn { display: inline-flex; align-items: center; background: #fff; color: #452068; padding: 13px 24px; border-radius: 50px; font-weight: 700; font-size: 17px; border: 2px solid #e8e0f4; cursor: pointer; font-family: inherit; }
+
 /* CTA box inside results (full card) */
 .cta-full-box {
   background: linear-gradient(135deg, #2f1550, var(--purple));
@@ -844,6 +884,11 @@ img { max-width: 100%; height: auto; }
       </div>
     </div>
 
+    <div class="windows-note" id="aep-box">
+      <div id="aep-title" style="font-weight:700;margin-bottom:6px;color:#241a30">Already on Medicare? Other windows</div>
+      <div id="aep-body">AEP is October 15 – December 7. OEP is January 1 – March 31 if you are already in Medicare Advantage.</div>
+    </div>
+
     <!-- ============================================================
          IEP TOOL — Initial Enrollment Period
          ============================================================ -->
@@ -876,7 +921,8 @@ img { max-width: 100%; height: auto; }
             </select>
           </div>
         </div>
-        <div class="calc-field-note" id="iep-note">Your IEP is a 7-month window &mdash; 3 months before your 65th birthday month, your birthday month, and 3 months after.</div>
+        <div class="calc-field-note" id="iep-note">Your IEP is a 7-month window &mdash; 3 months before your 65th birthday month, that month, and 3 months after. If your birthday is on the 1st, the window and coverage can start a month earlier.</div>
+        <div class="calc-error" id="iep-error" hidden></div>
         <button class="calc-btn" onclick="calcIEP()" id="iep-btn">Calculate My Enrollment Window &rarr;</button>
       </div>
       <div class="calc-result-wrap" id="iep-result"></div>
@@ -905,6 +951,7 @@ img { max-width: 100%; height: auto; }
         </div>
 
         <label class="calc-field-label" id="lbl-sepdate" style="margin-bottom:8px;">When does/did your coverage end?</label>
+        <div id="sep-date-wrap">
         <div class="calc-field-row">
           <div>
             <select class="calc-select" id="sep-month">
@@ -929,7 +976,9 @@ img { max-width: 100%; height: auto; }
             </select>
           </div>
         </div>
+        </div>
         <div class="calc-field-note" id="sep-note">We'll calculate your Special Enrollment Period based on this date.</div>
+        <div class="calc-error" id="sep-error" hidden></div>
         <button class="calc-btn" onclick="calcSEP()" id="sep-btn">Calculate My SEP Window &rarr;</button>
       </div>
       <div class="calc-result-wrap" id="sep-result"></div>
@@ -1001,6 +1050,7 @@ img { max-width: 100%; height: auto; }
 
     </div>
 
+<script src="/js/medicare-enrollment-calc.js"></script>
 <script>
 (function(){
   var WEBHOOK = 'https://services.leadconnectorhq.com/hooks/RINM4TCnM4hN06UA1aK0/webhook-trigger/dc6c8b35-9480-412e-b56d-4a4c8c7bd438';
