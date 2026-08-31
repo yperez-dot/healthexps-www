@@ -560,8 +560,8 @@ img { max-width: 100%; height: auto; }
   <div class="irmaa-hero">
     <div class="irmaa-hero-pill" id="hero-tag">Free Tool &middot; 2026</div>
     <h1 id="hero-title">2026 IRMAA Calculator</h1>
-    <p class="irmaa-hero-sub" id="hero-sub">Find out exactly what you&rsquo;ll pay for Medicare based on your income.</p>
-    <a href="/faq#what-is-irmaa" class="irmaa-hero-link">New to IRMAA? See what it means &rarr;</a>
+    <p class="irmaa-hero-sub" id="hero-sub">Estimate your 2026 Part B and Part D surcharge from your 2024 tax return. Social Security bills the official amount &mdash; this is not a quote.</p>
+    <a href="/medicare-irmaa-penalties#what-is-irmaa" class="irmaa-hero-link" id="hero-link">New to IRMAA? See what it means &rarr;</a>
   </div>
 
   <!-- ===== CALCULATOR SECTION ===== -->
@@ -572,7 +572,7 @@ img { max-width: 100%; height: auto; }
       <div class="irmaa-warning">
         <div class="irmaa-warning-icon">!</div>
         <div class="irmaa-warning-text" id="income-note">
-          Medicare uses your tax return from <strong style="color:#241a30">2 years ago</strong>. For 2026, that means your <strong style="color:#241a30">2024</strong> income.
+          Medicare uses your tax return from <strong style="color:#241a30">2 years ago</strong>. For 2026, that means your <strong style="color:#241a30">2024 MAGI</strong> (modified adjusted gross income).
         </div>
       </div>
 
@@ -585,17 +585,22 @@ img { max-width: 100%; height: auto; }
         <label class="calc-label" id="lbl-filing" style="margin-bottom:8px">Tax filing status</label>
         <div class="filing-chips">
           <div id="btn-single" class="filing-chip active" onclick="setFiling('single')">
-            <span id="lbl-single">Single / Married filing separately</span>
+            <span id="lbl-single">Single</span>
           </div>
           <div id="btn-joint" class="filing-chip" onclick="setFiling('joint')">
             <span id="lbl-joint">Married, filing jointly</span>
           </div>
+          <div id="btn-mfs" class="filing-chip" onclick="setFiling('mfs')">
+            <span id="lbl-mfs">Married, filing separately</span>
+          </div>
         </div>
+        <p id="mfs-note" style="display:none;font-size:15px;color:#5a4a2f;background:#fff7ec;border:1px solid #f3d9a8;border-radius:10px;padding:12px 14px;margin:-8px 0 18px;line-height:1.55">If you lived with your spouse during the year, income above $109,000 jumps to the $649.20 Part B tier. There is no gradual bracket.</p>
 
         <label class="calc-label" id="lbl-partd">Your Part D plan monthly premium (optional)</label>
         <input type="number" id="input-partd" class="calc-input" style="margin-bottom:22px" placeholder="e.g. 35" onkeydown="if(event.key==='Enter')calculate()">
 
-        <button id="btn-calc" class="calc-btn-primary" onclick="calculate()">Calculate my IRMAA &rarr;</button>
+        <button id="btn-calc" class="calc-btn-primary" onclick="calculate()">Estimate my IRMAA &rarr;</button>
+        <p id="calc-source" style="font-size:14.5px;color:#5a5068;margin-top:14px;line-height:1.55">Source: CMS 2026 Medicare costs (publication 11579). Thresholds use 2024 MAGI.</p>
 
       </div>
 
@@ -729,55 +734,110 @@ img { max-width: 100%; height: auto; }
 var currentFiling = 'single';
 var currentLang = 'en';
 
-// 2026 IRMAA brackets (based on 2024 MAGI)
-// Source: CMS 2026 Medicare Part B/D Premium and IRMAA Final Rule
+// 2026 IRMAA (based on 2024 MAGI). Source: CMS “2026 Medicare costs” (pub. 11579).
+// Part B amounts are the IRMAA surcharge only; add STANDARD_PART_B for the total billed.
+// Tier 5 is “less than $500,000 / $750,000”; $500,000 / $750,000 jumps to the top tier.
 var BRACKETS = {
   single: [
-    { max: 106000,  partB: 0,      partD: 0 },
-    { max: 133000,  partB: 70.00,  partD: 12.90 },
-    { max: 167000,  partB: 176.60, partD: 33.30 },
-    { max: 200000,  partB: 283.20, partD: 53.80 },
-    { max: 500000,  partB: 389.80, partD: 74.20 },
-    { max: Infinity,partB: 419.30, partD: 81.00 }
+    { max: 109000,     partB: 0,      partD: 0 },
+    { max: 137000,     partB: 81.20,  partD: 14.50 },
+    { max: 171000,     partB: 202.90, partD: 37.50 },
+    { max: 205000,     partB: 324.60, partD: 60.40 },
+    { max: 499999.99,  partB: 446.30, partD: 83.30 },
+    { max: Infinity,   partB: 487.00, partD: 91.00 }
   ],
   joint: [
-    { max: 212000,  partB: 0,      partD: 0 },
-    { max: 266000,  partB: 70.00,  partD: 12.90 },
-    { max: 334000,  partB: 176.60, partD: 33.30 },
-    { max: 400000,  partB: 283.20, partD: 53.80 },
-    { max: 750000,  partB: 389.80, partD: 74.20 },
-    { max: Infinity,partB: 419.30, partD: 81.00 }
+    { max: 218000,     partB: 0,      partD: 0 },
+    { max: 274000,     partB: 81.20,  partD: 14.50 },
+    { max: 342000,     partB: 202.90, partD: 37.50 },
+    { max: 410000,     partB: 324.60, partD: 60.40 },
+    { max: 749999.99,  partB: 446.30, partD: 83.30 },
+    { max: Infinity,   partB: 487.00, partD: 91.00 }
+  ],
+  mfs: [
+    { max: 109000,     partB: 0,      partD: 0 },
+    { max: 390999.99,  partB: 446.30, partD: 83.30 },
+    { max: Infinity,   partB: 487.00, partD: 91.00 }
   ]
 };
 
 var STANDARD_PART_B = 202.90;
 
-var COPY = {
+var UI = {
   en: {
-    noIRMAA: 'Good news — at your income level, you do not pay an IRMAA surcharge.',
-    hasIRMAA: 'Your estimated monthly Medicare costs:',
-    partBLabel: 'Part B premium (incl. IRMAA)',
-    partDLabel: 'Part D IRMAA surcharge',
-    totalLabel: 'Total monthly Medicare cost',
-    noteLabel: 'Note: Part D IRMAA is added on top of whatever your plan\'s own premium is. Enter your Part D premium above for a more accurate total.',
-    discLabel: 'Estimates based on 2026 CMS figures. Actual costs depend on your specific Part D plan. Contact Medicare.gov or 1-800-MEDICARE for official information.',
-    ctaLabel: 'Want help reducing your Medicare costs? Our licensed bilingual brokers compare options for free.',
-    callLabel: 'Call 1-800-380-6821',
-    waLabel: 'WhatsApp us',
-    errLabel: 'Please enter your annual income.'
+    heroTitle: '2026 IRMAA Calculator',
+    heroSub: 'Estimate your 2026 Part B and Part D surcharge from your 2024 tax return. Social Security bills the official amount — this is not a quote.',
+    heroLink: 'New to IRMAA? See what it means →',
+    incomeNote: 'Medicare uses your tax return from <strong style="color:#241a30">2 years ago</strong>. For 2026, that means your <strong style="color:#241a30">2024 MAGI</strong> (modified adjusted gross income).',
+    lblIncome: '2024 Modified Adjusted Gross Income (MAGI)',
+    lblFiling: 'Tax filing status',
+    lblSingle: 'Single',
+    lblJoint: 'Married, filing jointly',
+    lblMfs: 'Married, filing separately',
+    mfsNote: 'If you lived with your spouse during the year, income above $109,000 jumps to the $649.20 Part B tier. There is no gradual bracket.',
+    lblPartd: 'Your Part D plan monthly premium (optional)',
+    btnCalc: 'Estimate my IRMAA →',
+    heroHref: '/medicare-irmaa-penalties#what-is-irmaa',
+    source: 'Source: CMS 2026 Medicare costs (publication 11579). Thresholds use 2024 MAGI.'
   },
   es: {
-    noIRMAA: 'Buenas noticias — con su nivel de ingresos, no paga el recargo IRMAA.',
+    heroTitle: 'Calculadora IRMAA 2026',
+    heroSub: 'Estime el recargo de Parte B y D de 2026 con su declaración de 2024. Social Security cobra el monto oficial — esto no es una cotización.',
+    heroLink: '¿Qué es IRMAA? Vea la guía →',
+    incomeNote: 'Medicare usa su declaración de impuestos de <strong style="color:#241a30">hace 2 años</strong>. Para 2026, eso es su <strong style="color:#241a30">MAGI de 2024</strong> (ingreso bruto ajustado modificado).',
+    lblIncome: 'Ingreso bruto ajustado modificado (MAGI) de 2024',
+    lblFiling: 'Estado civil en la declaración',
+    lblSingle: 'Soltero/a',
+    lblJoint: 'Casado/a, declaración conjunta',
+    lblMfs: 'Casado/a, declaración por separado',
+    mfsNote: 'Si vivió con su cónyuge durante el año, un ingreso mayor a $109,000 salta al tramo de Parte B de $649.20. No hay tramo gradual.',
+    lblPartd: 'Prima mensual de su plan Parte D (opcional)',
+    btnCalc: 'Estimar mi IRMAA →',
+    heroHref: '/es/irmaa-penalidades-medicare/',
+    source: 'Fuente: Costos de Medicare 2026 de CMS (publicación 11579). Los umbrales usan el MAGI de 2024.'
+  }
+};
+
+var COPY = {
+  en: {
+    noIRMAA: 'Good news — at this income, you do not pay an IRMAA surcharge.',
+    hasIRMAA: 'Your estimated monthly Medicare costs:',
+    stdPartB: 'Standard Part B premium',
+    partBIrmaa: 'Part B IRMAA surcharge',
+    partBTotal: 'Part B total',
+    partDLabel: 'Part D IRMAA surcharge',
+    partDPlan: 'Part D plan premium',
+    totalLabel: 'Estimated monthly total',
+    noteLabel: 'Part D IRMAA is added on top of your drug plan’s own premium. Enter that premium above for a fuller total. Part A is separate and usually premium-free.',
+    appealLabel: 'If your income dropped (retirement, divorce, death of a spouse), you can ask Social Security to use current income — Form SSA-44.',
+    discLabel: 'Estimates from CMS 2026 figures (publication 11579). Social Security determines the official amount. Contact Medicare.gov or 1-800-MEDICARE for official information.',
+    ctaLabel: 'Want help with IRMAA or a plan that fits your doctors? Licensed bilingual brokers compare options for free.',
+    callLabel: 'Call 1-800-380-6821',
+    waLabel: 'WhatsApp us',
+    errLabel: 'Please enter your 2024 annual MAGI.',
+    perMonth: '/month',
+    appealHref: '/medicare-irmaa-penalties#how-to-appeal',
+    appealLink: 'How to appeal IRMAA →'
+  },
+  es: {
+    noIRMAA: 'Buenas noticias — con este ingreso, no paga el recargo IRMAA.',
     hasIRMAA: 'Sus costos mensuales estimados de Medicare:',
-    partBLabel: 'Prima de la Parte B (incl. IRMAA)',
-    partDLabel: 'Recargo IRMAA de la Parte D',
-    totalLabel: 'Costo mensual total de Medicare',
-    noteLabel: 'Nota: El IRMAA de la Parte D se agrega encima de la prima de su plan. Ingrese su prima de la Parte D arriba para un total más preciso.',
-    discLabel: 'Estimaciones basadas en cifras de CMS 2026. Los costos reales dependen de su plan específico de la Parte D.',
-    ctaLabel: '¿Quiere ayuda para reducir sus costos de Medicare? Nuestros corredores bilingües comparan opciones gratis.',
+    stdPartB: 'Prima estándar de Parte B',
+    partBIrmaa: 'Recargo IRMAA de Parte B',
+    partBTotal: 'Total Parte B',
+    partDLabel: 'Recargo IRMAA de Parte D',
+    partDPlan: 'Prima del plan Parte D',
+    totalLabel: 'Total mensual estimado',
+    noteLabel: 'El IRMAA de Parte D se suma a la prima de su plan de medicamentos. Ingrese esa prima arriba para un total más completo. La Parte A es aparte y normalmente no tiene prima.',
+    appealLabel: 'Si su ingreso bajó (jubilación, divorcio, fallecimiento del cónyuge), puede pedir a Social Security que use el ingreso actual — Formulario SSA-44.',
+    discLabel: 'Estimaciones según cifras CMS 2026 (publicación 11579). Social Security determina el monto oficial. Consulte Medicare.gov o 1-800-MEDICARE.',
+    ctaLabel: '¿Quiere ayuda con IRMAA o un plan que cubra a sus médicos? Corredores bilingües comparan opciones gratis.',
     callLabel: 'Llame al 1-800-380-6821',
     waLabel: 'Escríbanos por WhatsApp',
-    errLabel: 'Por favor ingrese su ingreso anual.'
+    errLabel: 'Por favor ingrese su MAGI anual de 2024.',
+    perMonth: '/mes',
+    appealHref: '/es/irmaa-penalidades-medicare/',
+    appealLink: 'Cómo apelar IRMAA →'
   }
 };
 
@@ -785,18 +845,48 @@ function setFiling(type) {
   currentFiling = type;
   document.getElementById('btn-single').classList.toggle('active', type === 'single');
   document.getElementById('btn-joint').classList.toggle('active', type === 'joint');
+  document.getElementById('btn-mfs').classList.toggle('active', type === 'mfs');
+  document.getElementById('mfs-note').style.display = type === 'mfs' ? 'block' : 'none';
+}
+
+function applyLang(lang) {
+  var u = UI[lang];
+  document.documentElement.lang = lang;
+  document.getElementById('hero-title').textContent = u.heroTitle;
+  document.getElementById('hero-sub').textContent = u.heroSub;
+  var link = document.getElementById('hero-link');
+  link.textContent = u.heroLink;
+  link.setAttribute('href', u.heroHref);
+  document.getElementById('income-note').innerHTML = u.incomeNote;
+  document.getElementById('lbl-income').textContent = u.lblIncome;
+  document.getElementById('lbl-filing').textContent = u.lblFiling;
+  document.getElementById('lbl-single').textContent = u.lblSingle;
+  document.getElementById('lbl-joint').textContent = u.lblJoint;
+  document.getElementById('lbl-mfs').textContent = u.lblMfs;
+  document.getElementById('mfs-note').textContent = u.mfsNote;
+  document.getElementById('lbl-partd').textContent = u.lblPartd;
+  document.getElementById('btn-calc').textContent = u.btnCalc;
+  var src = document.getElementById('calc-source');
+  if (src) src.textContent = u.source;
 }
 
 function setLang(lang) {
   currentLang = lang;
   document.getElementById('btn-en').classList.toggle('active', lang === 'en');
   document.getElementById('btn-es').classList.toggle('active', lang === 'es');
-  // Hide results when language changes
+  applyLang(lang);
   document.getElementById('result-wrap').style.display = 'none';
 }
 
 function fmt(n) {
   return '$' + n.toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+}
+
+function row(label, value, opts) {
+  opts = opts || {};
+  var weight = opts.bold ? 'font-weight:700;color:#311549' : 'color:#241a30';
+  var border = opts.last ? '' : 'border-bottom:1px solid #e4dcec;';
+  return '<div style="display:flex;justify-content:space-between;gap:12px;padding:10px 0;' + border + 'font-size:18px;' + weight + '"><span>' + label + '</span><span style="font-weight:700;white-space:nowrap">' + value + '</span></div>';
 }
 
 function calculate() {
@@ -805,8 +895,9 @@ function calculate() {
   var resultEl = document.getElementById('result-wrap');
   var c = COPY[currentLang];
 
-  var income = parseFloat(incomeEl.value);
-  if (!income || isNaN(income) || income < 0) {
+  var raw = (incomeEl.value || '').trim().replace(/,/g, '');
+  var income = parseFloat(raw);
+  if (raw === '' || isNaN(income) || income < 0) {
     incomeEl.style.borderColor = '#e5148c';
     resultEl.innerHTML = '<p style="color:#e5148c;font-weight:600;margin-bottom:8px">' + c.errLabel + '</p>';
     resultEl.style.display = 'block';
@@ -815,6 +906,7 @@ function calculate() {
   incomeEl.style.borderColor = '';
 
   var partDPremium = parseFloat(partDEl.value) || 0;
+  if (partDPremium < 0) partDPremium = 0;
   var brackets = BRACKETS[currentFiling];
   var bracket = brackets[brackets.length - 1];
   for (var i = 0; i < brackets.length; i++) {
@@ -830,23 +922,25 @@ function calculate() {
     html += '<div style="background:#e7f6ef;border:1.5px solid #0f8a5f;border-radius:12px;padding:18px;margin-bottom:16px;text-align:center">';
     html += '<div style="font-size:22px;margin-bottom:6px">✅</div>';
     html += '<div style="font-weight:700;color:#0f8a5f;font-size:16px">' + c.noIRMAA + '</div>';
-    html += '<div style="color:#3a2f47;font-size:17px;margin-top:8px">Standard Part B: ' + fmt(STANDARD_PART_B) + '/month</div>';
+    html += '<div style="color:#3a2f47;font-size:17px;margin-top:8px">' + c.stdPartB + ': ' + fmt(STANDARD_PART_B) + c.perMonth + '</div>';
+    if (partDPremium > 0) {
+      html += '<div style="color:#3a2f47;font-size:17px;margin-top:4px">' + c.partDPlan + ': ' + fmt(partDPremium) + c.perMonth + '</div>';
+    }
     html += '</div>';
   } else {
     html += '<div style="background:#f4eefa;border:1.5px solid #452068;border-radius:12px;padding:18px;margin-bottom:16px">';
-    html += '<div style="font-weight:700;color:#452068;margin-bottom:14px;font-size:16px">' + c.hasIRMAA + '</div>';
-    html += '<div style="display:flex;justify-content:space-between;padding:10px 0;border-bottom:1px solid #e4dcec;font-size:18px"><span>' + c.partBLabel + '</span><span style="font-weight:700;color:#452068">' + fmt(totalPartB) + '</span></div>';
-    if (partDPremium > 0 || bracket.partD > 0) {
-      html += '<div style="display:flex;justify-content:space-between;padding:10px 0;border-bottom:1px solid #e4dcec;font-size:18px"><span>' + c.partDLabel + '</span><span style="font-weight:700;color:#452068">+' + fmt(bracket.partD) + '</span></div>';
-      if (partDPremium > 0) {
-        html += '<div style="display:flex;justify-content:space-between;padding:10px 0;border-bottom:1px solid #e4dcec;font-size:18px"><span>Part D plan premium</span><span style="font-weight:700;color:#452068">' + fmt(partDPremium) + '</span></div>';
-      }
+    html += '<div style="font-weight:700;color:#452068;margin-bottom:8px;font-size:16px">' + c.hasIRMAA + '</div>';
+    html += row(c.stdPartB, fmt(STANDARD_PART_B));
+    html += row(c.partBIrmaa, '+' + fmt(bracket.partB));
+    html += row(c.partBTotal, fmt(totalPartB));
+    html += row(c.partDLabel, '+' + fmt(bracket.partD));
+    if (partDPremium > 0) {
+      html += row(c.partDPlan, fmt(partDPremium));
     }
-    html += '<div style="display:flex;justify-content:space-between;padding:12px 0 4px;font-size:18px;font-weight:700;color:#311549"><span>' + c.totalLabel + '</span><span>' + fmt(total) + '/mo</span></div>';
+    html += row(c.totalLabel, fmt(total) + '/mo', { bold: true, last: true });
     html += '</div>';
-    if (bracket.partD > 0) {
-      html += '<p style="font-size:16px;color:#3a2f47;margin-bottom:14px;line-height:1.6">' + c.noteLabel + '</p>';
-    }
+    html += '<p style="font-size:16px;color:#3a2f47;margin-bottom:12px;line-height:1.6">' + c.noteLabel + '</p>';
+    html += '<p style="font-size:16px;color:#3a2f47;margin-bottom:14px;line-height:1.6">' + c.appealLabel + ' <a href="' + c.appealHref + '" style="color:#452068;font-weight:700">' + c.appealLink + '</a></p>';
   }
 
   html += '<div style="background:#fff;border:1.5px solid #e4dcec;border-radius:12px;padding:18px;text-align:center">';
