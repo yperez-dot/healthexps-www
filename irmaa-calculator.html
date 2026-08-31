@@ -793,7 +793,7 @@ var UI = {
     mfsNote: 'Si vivió con su cónyuge durante el año, un ingreso mayor a $109,000 salta al tramo de Parte B de $649.20. No hay tramo gradual.',
     lblPartd: 'Prima mensual de su plan Parte D (opcional)',
     btnCalc: 'Estimar mi IRMAA →',
-    heroHref: '/es/irmaa-penalidades-medicare/',
+    heroHref: '/es/irmaa-penalidades-medicare/#what-is-irmaa',
     source: 'Fuente: Costos de Medicare 2026 de CMS (publicación 11579). Los umbrales usan el MAGI de 2024.'
   }
 };
@@ -836,7 +836,7 @@ var COPY = {
     waLabel: 'Escríbanos por WhatsApp',
     errLabel: 'Por favor ingrese su MAGI anual de 2024.',
     perMonth: '/mes',
-    appealHref: '/es/irmaa-penalidades-medicare/',
+    appealHref: '/es/irmaa-penalidades-medicare/#how-to-appeal',
     appealLink: 'Cómo apelar IRMAA →'
   }
 };
@@ -937,7 +937,7 @@ function calculate() {
     if (partDPremium > 0) {
       html += row(c.partDPlan, fmt(partDPremium));
     }
-    html += row(c.totalLabel, fmt(total) + '/mo', { bold: true, last: true });
+    html += row(c.totalLabel, fmt(total) + c.perMonth, { bold: true, last: true });
     html += '</div>';
     html += '<p style="font-size:16px;color:#3a2f47;margin-bottom:12px;line-height:1.6">' + c.noteLabel + '</p>';
     html += '<p style="font-size:16px;color:#3a2f47;margin-bottom:14px;line-height:1.6">' + c.appealLabel + ' <a href="' + c.appealHref + '" style="color:#452068;font-weight:700">' + c.appealLink + '</a></p>';
