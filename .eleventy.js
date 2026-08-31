@@ -5,6 +5,7 @@ const {
   stripFutureBlogCards,
 } = require("./scripts/blog-dates");
 const { injectGhlChatWidget } = require("./scripts/ghl-chat-widget-inject");
+const { injectMobileNavAccordion } = require("./scripts/mobile-nav-accordion-inject");
 
 module.exports = function (eleventyConfig) {
   // Internal docs — never publish these as public pages
@@ -63,6 +64,11 @@ module.exports = function (eleventyConfig) {
   // Sitewide GHL chat bubble. IDs live in js/ghl-chat-widget.js (no-op until set).
   eleventyConfig.addTransform("injectGhlChatWidget", function (content, outputPath) {
     return injectGhlChatWidget(content, outputPath);
+  });
+
+  // Collapsible Insurance / Guides / More sections in the mobile nav.
+  eleventyConfig.addTransform("injectMobileNavAccordion", function (content, outputPath) {
+    return injectMobileNavAccordion(content, outputPath);
   });
 
   // ── Date display filters ───────────────────────────────────────────────────

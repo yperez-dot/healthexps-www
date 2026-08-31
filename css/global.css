@@ -58,6 +58,44 @@
 
 @media(max-width:900px){.v4-nav-desktop{display:none!important;}.v4-nav-mobile-btn{display:flex!important;align-items:center;}}
 
+/* Mobile nav accordion — Insurance / Guides / More collapse by default */
+.v4-acc-btn {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  background: none;
+  border: 0;
+  border-bottom: 1px solid #ece5f0;
+  padding: 16px 4px;
+  margin: 0;
+  font: inherit;
+  font-size: 16px;
+  font-weight: 700;
+  color: #5c3d7a;
+  text-transform: uppercase;
+  letter-spacing: .06em;
+  cursor: pointer;
+  text-align: left;
+  min-height: 48px;
+}
+.v4-acc-btn:hover { color: #ff1090; }
+.v4-acc-btn:focus-visible { outline: 3px solid #ff1090; outline-offset: 3px; border-radius: 6px; }
+.v4-acc-chevron {
+  width: 10px;
+  height: 10px;
+  border-right: 2px solid currentColor;
+  border-bottom: 2px solid currentColor;
+  transform: rotate(45deg);
+  transition: transform .2s ease;
+  margin-right: 8px;
+  flex-shrink: 0;
+}
+.v4-acc-btn.is-open .v4-acc-chevron { transform: rotate(-135deg); margin-top: 6px; }
+.v4-acc-panel { display: flex; flex-direction: column; gap: 4px; padding: 4px 0 10px; }
+.v4-acc-panel[hidden] { display: none !important; }
+@media (prefers-reduced-motion: reduce) { .v4-acc-chevron { transition: none; } }
+
 /* footer mobile fix — added 2026-08-04 */
 @media(max-width:900px){#site-footer{padding:40px 20px 24px;}#footer-grid{grid-template-columns:1fr 1fr;gap:20px;}}
 @media(max-width:480px){#footer-grid{grid-template-columns:1fr;}}
