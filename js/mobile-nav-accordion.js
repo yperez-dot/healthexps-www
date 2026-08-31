@@ -44,18 +44,25 @@
       .toLowerCase();
   }
 
+  function stripIndexAndHtml(path) {
+    path = String(path || "").replace(/\/+$/, "");
+    path = path.replace(/\/index\.html$/i, "");
+    path = path.replace(/\/index$/i, "");
+    path = path.replace(/\.html$/i, "");
+    return path || "/";
+  }
+
   function normalizePath(href) {
     if (!href || href.charAt(0) === "#") return "";
     try {
-      var path = new URL(href, location.origin).pathname.replace(/\/+$/, "");
-      return path || "/";
+      return stripIndexAndHtml(new URL(href, location.origin).pathname);
     } catch (err) {
-      return String(href).replace(/\/+$/, "") || "/";
+      return stripIndexAndHtml(href);
     }
   }
 
   function currentPath() {
-    return location.pathname.replace(/\/+$/, "") || "/";
+    return stripIndexAndHtml(location.pathname);
   }
 
   function isSpanish() {
