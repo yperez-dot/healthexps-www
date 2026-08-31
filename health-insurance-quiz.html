@@ -8,7 +8,7 @@
 <link rel="stylesheet" href="/css/global.css">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Health Insurance Quiz Miami | Find Your Plan</title>
-<meta name="description" content="2-minute quiz matches you to Medicare, ACA, or private plans. Licensed bilingual brokers in Miami compare options at no cost.">
+<meta name="description" content="5-question quiz: Marketplace, private, or Medicare — and whether a 2026 tax credit is likely. Licensed bilingual Miami brokers compare real plans free.">
 <link rel="canonical" href="https://www.healthexps.com/health-insurance-quiz/">
 <link rel="alternate" hreflang="en" href="https://www.healthexps.com/health-insurance-quiz"/>
 <link rel="alternate" hreflang="es" href="https://www.healthexps.com/es/encuentra-mi-plan"/>
@@ -30,7 +30,11 @@ a{color:var(--purple);text-decoration:none;}
 .mini-phone{color:#452068;font-size:17px;font-weight:700;text-decoration:none;display:flex;align-items:center;gap:6px;}
 .mini-phone:hover{color:#ff1090;}
 @media(max-width:600px){.mini-header{padding:12px 16px;}.mini-logo img{height:42px;}.mini-back,.mini-phone{font-size:16px;}}
-@media(max-width:768px){.mini-header{display:none !important;}.quiz-header{display:none !important;}}
+@media(max-width:768px){.mini-header{display:none !important;}}
+.result-body{font-size:17px;color:var(--gray-text);line-height:1.65;margin:0 0 16px;}
+.result-bullets{margin:0 0 18px;padding-left:20px;}
+.result-bullets li{font-size:17px;color:var(--gray-text);line-height:1.55;margin-bottom:8px;}
+.result-priority{background:var(--purple-light);border-radius:12px;padding:12px 14px;font-size:16px;color:var(--black);line-height:1.55;margin-bottom:18px;}
 
 /* QUIZ SHELL */
 .quiz-shell{max-width:600px;margin:0 auto;padding:32px 24px 80px;}
@@ -417,7 +421,7 @@ a{color:var(--purple);text-decoration:none;}
   #nav-toggle { display: none !important; }
   #nav-links { display: flex !important; }
  }
-@media(max-width:768px){.quiz-header{display:none !important;}}
+@media(max-width:768px){.quiz-header{margin-bottom:20px;}}
 </style>
 
 <!-- MINIMAL HEADER -->
@@ -439,8 +443,8 @@ a{color:var(--purple);text-decoration:none;}
   <!-- HEADER -->
   <div class="quiz-header">
     <div class="quiz-eyebrow">Free &middot; 2 minutes &middot; No obligation</div>
-    <h1 class="quiz-headline">Find Your Health Plan in 2 Minutes</h1>
-    <p class="quiz-subhead">Answer 5 quick questions and we'll show you whether an ACA Marketplace plan or a private plan fits your situation &mdash; and what financial help you may qualify for. For ages 64 and under.</p>
+    <h1 class="quiz-headline">Which type of coverage fits you?</h1>
+    <p class="quiz-subhead">Five questions. We&rsquo;ll tell you if Marketplace, private, or Medicare is the right next step &mdash; and whether a tax credit is likely. A licensed broker compares real Miami-area plans after that. 2027 Marketplace open enrollment starts November 1.</p>
   </div>
 
   <!-- PROGRESS -->
@@ -458,8 +462,9 @@ a{color:var(--purple);text-decoration:none;}
         <p style="font-size:18px;color:#3a2f47;line-height:1.7;margin-bottom:20px;">At 65 you&rsquo;re eligible for Medicare, which has its own plans, its own enrollment windows, and its own financial help programs. This quiz is built for people under 65, so it won&rsquo;t give you a useful answer.</p>
         <p style="font-size:18px;color:#1a1a1a;font-weight:700;margin-bottom:16px;">Here&rsquo;s where to go instead:</p>
         <div style="display:flex;flex-direction:column;gap:10px;margin-bottom:20px;">
-          <a href="/medicare-plans-miami" style="display:block;background:#452068;color:white;padding:14px;border-radius:50px;font-weight:700;font-size:18px;text-decoration:none;text-align:center;">Compare Medicare plans</a>
-          <a href="/medicare-plan-finder" style="display:block;background:#f4eefa;color:#452068;padding:14px;border-radius:50px;font-weight:700;font-size:18px;text-decoration:none;text-align:center;">Self-shop plans in your ZIP</a>
+          <a href="/medicare-advantage-vs-supplement-calculator/" style="display:block;background:#452068;color:white;padding:14px;border-radius:50px;font-weight:700;font-size:18px;text-decoration:none;text-align:center;">Advantage vs Supplement calculator</a>
+          <a href="/medigap-plan-calculator/" style="display:block;background:#f4eefa;color:#452068;padding:14px;border-radius:50px;font-weight:700;font-size:18px;text-decoration:none;text-align:center;">Compare Plan G vs N vs HD G</a>
+          <a href="/medicare-plans-miami" style="display:block;background:#f4eefa;color:#452068;padding:14px;border-radius:50px;font-weight:700;font-size:18px;text-decoration:none;text-align:center;">Medicare plans in Miami</a>
           <a href="https://calendly.com/healthexps-info/" target="_blank" rel="noopener" style="display:block;background:#ff1090;color:white;padding:14px;border-radius:50px;font-weight:700;font-size:18px;text-decoration:none;text-align:center;">Talk to a licensed broker &mdash; free</a>
         </div>
         <p style="font-size:16px;color:#3a2f47;line-height:1.6;border-top:1px solid #e5e5e5;padding-top:16px;">Still working with employer coverage, or helping a family member who&rsquo;s under 65? Call us at <a href="tel:18003806821" style="color:#452068;font-weight:600;">1-800-380-6821</a> &mdash; we&rsquo;ll point you the right way at no cost.</p>
@@ -559,12 +564,12 @@ a{color:var(--purple);text-decoration:none;}
     <!-- STEP 3: Household -->
     <div class="step" id="step-3" style="display:none;">
       <div class="step-q">How many people need coverage?</div>
-      <div class="step-hint">Include yourself, your spouse, and any dependents.</div>
+      <div class="step-hint">Count everyone who will be on the application. A parent plus a child is two people &mdash; same as a couple.</div>
       <div class="options-grid">
-        <button class="option-grid-btn" onclick="selectGrid(this,'household','1')"><div class="ogb-main">Just me</div><div class="ogb-sub">Individual plan</div></button>
-        <button class="option-grid-btn" onclick="selectGrid(this,'household','2')"><div class="ogb-main">Me + spouse</div><div class="ogb-sub">2 adults</div></button>
-        <button class="option-grid-btn" onclick="selectGrid(this,'household','3')"><div class="ogb-main">Family of 3</div><div class="ogb-sub">2 adults + 1 child</div></button>
-        <button class="option-grid-btn" onclick="selectGrid(this,'household','4plus')"><div class="ogb-main">Family of 4+</div><div class="ogb-sub">Larger family</div></button>
+        <button class="option-grid-btn" onclick="selectGrid(this,'household','1')"><div class="ogb-main">Just me</div><div class="ogb-sub">1 person</div></button>
+        <button class="option-grid-btn" onclick="selectGrid(this,'household','2')"><div class="ogb-main">2 people</div><div class="ogb-sub">You + a spouse or child</div></button>
+        <button class="option-grid-btn" onclick="selectGrid(this,'household','3')"><div class="ogb-main">3 people</div><div class="ogb-sub">You + 2 others</div></button>
+        <button class="option-grid-btn" onclick="selectGrid(this,'household','4plus')"><div class="ogb-main">4 or more</div><div class="ogb-sub">Larger household</div></button>
       </div>
     </div>
 
@@ -573,9 +578,9 @@ a{color:var(--purple);text-decoration:none;}
       <div class="step-q">What is your estimated household income for 2026?</div>
       <div class="step-hint">Subsidies are based on this year&rsquo;s estimated income &mdash; not last year&rsquo;s. If your income dropped, that works in your favor.</div>
       <div class="options-grid">
-        <button class="option-grid-btn" id="q4-btn-under" onclick="selectGrid(this,'income','under_100fpl')"><div class="ogb-main" id="q4-under-label">Under $15,650</div><div class="ogb-sub">We&rsquo;ll check what&rsquo;s available to you in Florida</div></button>
-        <button class="option-grid-btn" id="q4-btn-range" onclick="selectGrid(this,'income','100_400fpl')"><div class="ogb-main" id="q4-range-label">$15,650 &ndash; $62,600</div><div class="ogb-sub">This is the range where premium tax credits apply</div></button>
-        <button class="option-grid-btn" id="q4-btn-over" onclick="selectGrid(this,'income','over_400fpl')"><div class="ogb-main" id="q4-over-label">Over $62,600</div><div class="ogb-sub">Above the subsidy cutoff &mdash; private plans usually compare better</div></button>
+        <button class="option-grid-btn" id="q4-btn-under" onclick="selectGrid(this,'income','under_100fpl')"><div class="ogb-main" id="q4-under-label">Under $15,650</div><div class="ogb-sub">Florida did not expand Medicaid. Kids, pregnancy, and some disabilities may still qualify</div></button>
+        <button class="option-grid-btn" id="q4-btn-range" onclick="selectGrid(this,'income','100_400fpl')"><div class="ogb-main" id="q4-range-label">$15,650 &ndash; $62,600</div><div class="ogb-sub">This is the range where premium tax credits apply in 2026</div></button>
+        <button class="option-grid-btn" id="q4-btn-over" onclick="selectGrid(this,'income','over_400fpl')"><div class="ogb-main" id="q4-over-label">Over $62,600</div><div class="ogb-sub">Above the 2026 subsidy cliff &mdash; Marketplace often has no tax credit</div></button>
         <button class="option-grid-btn" onclick="selectGrid(this,'income','unsure')"><div class="ogb-main">I&rsquo;m not sure</div><div class="ogb-sub">We&rsquo;ll help you estimate it</div></button>
       </div>
     </div>
@@ -583,7 +588,7 @@ a{color:var(--purple);text-decoration:none;}
     <!-- STEP 5: Priority -->
     <div class="step" id="step-5" style="display:none;">
       <div class="step-q">What matters most to you in a health plan?</div>
-      <div class="step-hint">This helps us narrow down which plans to compare for you.</div>
+      <div class="step-hint">This changes what we compare first. It does not lock you into one plan type.</div>
       <div class="options">
         <button class="option" onclick="selectOption(this,'priority','low-premium')"><div class="option-text"><span class="option-main">Lowest monthly premium</span><span class="option-sub">I&rsquo;d rather pay less monthly, even if I pay more when I use care</span></div></button>
         <button class="option" onclick="selectOption(this,'priority','best-coverage')"><div class="option-text"><span class="option-main">Most comprehensive coverage</span><span class="option-sub">I want to be covered for everything with low copays</span></div></button>
@@ -594,17 +599,20 @@ a{color:var(--purple);text-decoration:none;}
 
     <!-- STEP RESULT: shown after Q5, before contact form -->
     <div class="step" id="step-result" style="display:none;">
-      <div id="result-headline" style="font-size:20px;font-weight:700;color:#1a1a1a;margin-bottom:20px;line-height:1.3;"></div>
-      <div id="result-link-wrap" style="margin-bottom:20px;"></div>
-      <p style="font-size:17px;color:#3a2f47;line-height:1.6;margin-bottom:20px;">Fill in your info below and a licensed bilingual broker will run your personalized comparison &mdash; exact plans, real prices, and whether you qualify for help.</p>
-      <button onclick="showContactStep()" style="background:#ff1090;color:white;border:none;padding:14px 28px;border-radius:50px;font-size:16px;font-weight:700;cursor:pointer;font-family:Arial,Helvetica,sans-serif;width:100%;margin-bottom:10px;transition:background 0.2s;">Get my personalized comparison &rarr;</button>
+      <div id="result-headline" style="font-size:20px;font-weight:700;color:#1a1a1a;margin-bottom:12px;line-height:1.3;"></div>
+      <div id="result-body" class="result-body"></div>
+      <ul id="result-bullets" class="result-bullets"></ul>
+      <div id="result-priority" class="result-priority" style="display:none;"></div>
+      <div id="result-link-wrap" style="margin-bottom:16px;"></div>
+      <p style="font-size:17px;color:#3a2f47;line-height:1.6;margin-bottom:16px;">This quiz does not list carrier names or prices. A licensed bilingual broker can compare real Miami-area plans, networks, and any tax credit &mdash; free, no obligation.</p>
+      <button onclick="showContactStep()" style="background:#ff1090;color:white;border:none;padding:14px 28px;border-radius:50px;font-size:16px;font-weight:700;cursor:pointer;font-family:Arial,Helvetica,sans-serif;width:100%;margin-bottom:10px;transition:background 0.2s;">Have a broker compare real plans &rarr;</button>
       <button onclick="goBackFromResult()" style="background:none;border:2px solid #e5e5e5;color:#3a2f47;padding:11px 22px;border-radius:50px;font-size:17px;font-weight:700;cursor:pointer;font-family:Arial,Helvetica,sans-serif;width:100%;">&larr; Back</button>
     </div>
 
     <!-- STEP 6: Contact form -->
     <div class="step" id="step-6" style="display:none;">
-      <div class="step-q">Almost there! How can we reach you with your personalized results?</div>
-      <div class="step-hint">Your information is private and never shared. We&rsquo;ll use this to send your customized plan comparison.</div>
+      <div class="step-q">How should a broker reach you?</div>
+      <div class="step-hint">We use this to pull plans in your ZIP. You can also skip the form and call <a href="tel:18003806821">1-800-380-6821</a>.</div>
       <div class="contact-fields">
         <div class="contact-field">
           <label class="contact-label" for="contact-first-name">First Name</label>
@@ -622,6 +630,10 @@ a{color:var(--purple);text-decoration:none;}
           <label class="contact-label" for="contact-email">Email</label>
           <input type="email" id="contact-email" class="contact-input" placeholder="your@email.com" required>
         </div>
+        <div class="contact-field">
+          <label class="contact-label" for="contact-zip">ZIP code</label>
+          <input type="text" id="contact-zip" class="contact-input" inputmode="numeric" maxlength="5" pattern="[0-9]{5}" placeholder="33101" autocomplete="postal-code">
+        </div>
         <div class="consent-wrap">
           <label class="consent-checkbox">
             <input type="checkbox" id="contact-consent" required>
@@ -638,7 +650,7 @@ a{color:var(--purple);text-decoration:none;}
     <div class="quiz-nav" id="quiz-nav">
       <button class="btn-back" id="btn-back" onclick="prevStep()" style="display:none;">&larr; Back</button>
       <button class="btn-next" id="btn-next" onclick="nextStep()" disabled>Continue &rarr;</button>
-      <button class="btn-submit-contact" id="btn-submit-contact" onclick="submitContact()">View My Results &rarr;</button>
+      <button class="btn-submit-contact" id="btn-submit-contact" onclick="submitContact()">Send to a broker &rarr;</button>
     </div>
 
   </div><!-- /quiz-card -->
@@ -678,17 +690,143 @@ const FPL_2025 = {
 
 // ── Result definitions ────────────────────────────────────────────────────────
 const RESULTS = {
-  bridge_64:       { headline: "You need coverage now and Medicare soon \u2014 we\u2019ll handle both",                                                                         link: "/private-health-insurance-miami" },
-  cobra:           { headline: "COBRA isn\u2019t your only option \u2014 let\u2019s compare all three",                                                                        link: "/cobra-alternatives-miami"       },
-  renewing:        { headline: "Renewing without re-shopping is where people overpay \u2014 let\u2019s check your plan against this year\u2019s options",                      link: "/aca-plans-miami"               },
-  turning_26:      { headline: "You have 60 days \u2014 let\u2019s use them",                                                                                                  link: "/aca-plans-miami"               },
-  over_400_50to63: { headline: "At your age the unsubsidized premium is what hurts \u2014 and this is where we save people the most",                                          link: "/private-health-insurance-miami" },
-  under30_subsidy: { headline: "At your age you may have an extra option worth comparing \u2014 a catastrophic plan alongside a subsidized Silver",                            link: "/aca-plans-miami"               },
-  under_100fpl:    { headline: "Florida didn\u2019t expand Medicaid \u2014 let\u2019s find what you can actually get",                                                         link: "/aca-plans-miami"               },
-  "100_400fpl":    { headline: "You\u2019re in the range where premium tax credits apply",                                                                                     link: "/aca-plans-miami"               },
-  over_400fpl:     { headline: "Above the subsidy cutoff, private plans usually compare better",                                                                               link: "/private-health-insurance-miami" },
-  unsure:          { headline: "We\u2019ll run your subsidy check \u2014 it takes one conversation",                                                                            link: "/aca-plans-miami"               }
+  bridge_64: {
+    headline: "You need coverage now and Medicare soon \u2014 we\u2019ll handle both",
+    link: "/private-health-insurance-miami",
+    linkLabel: "Private coverage before Medicare",
+    body: "A short bridge plan can cover you until Part A and B start. Do not wait until the month you turn 65 to look at Medicare.",
+    bullets: [
+      "Marketplace or private coverage for the months before Medicare",
+      "A Medigap or Advantage comparison once you are in your enrollment window",
+      "Watch the 6-month Medigap open-enrollment clock that starts with Part B"
+    ]
+  },
+  cobra: {
+    headline: "COBRA isn\u2019t your only option \u2014 here are the three we compare",
+    link: "/cobra-alternatives-miami",
+    linkLabel: "COBRA alternatives in Miami",
+    body: "Job loss or the end of employer coverage usually opens a 60-day Special Enrollment Period. The three options:",
+    bullets: [
+      "An ACA Marketplace plan \u2014 often cheaper if you qualify for a tax credit",
+      "A private plan, if timing or doctors do not fit Marketplace",
+      "Staying on COBRA for a short stretch if you only need a few more months"
+    ]
+  },
+  renewing: {
+    headline: "Renewing without re-shopping is where people overpay",
+    link: "/aca-plans-miami",
+    linkLabel: "ACA Marketplace plans in Miami",
+    body: "Carriers change premiums, networks, and formularies every year. Your current plan is not guaranteed to stay the best fit.",
+    bullets: [
+      "Compare this year\u2019s Silver and Gold options before you auto-renew",
+      "Recheck the subsidy using this year\u2019s estimated income",
+      "2027 open enrollment starts November 1"
+    ]
+  },
+  turning_26: {
+    headline: "You have 60 days \u2014 let\u2019s use them",
+    link: "/aca-plans-miami",
+    linkLabel: "ACA plans after you turn 26",
+    body: "Aging off a parent\u2019s plan is a qualifying event. The Special Enrollment Period is typically 60 days.",
+    bullets: [
+      "Marketplace plans, including catastrophic if you are under 30",
+      "A parent\u2019s plan only covers you through the month you turn 26",
+      "Do not wait until the month after your birthday"
+    ]
+  },
+  over_400_50to63: {
+    headline: "At your age the unsubsidized premium is what hurts",
+    link: "/private-health-insurance-miami",
+    linkLabel: "Private plans in Miami",
+    body: "Above 400% of the federal poverty level, the 2026 Marketplace usually has no tax credit. We compare full-price Marketplace against private options.",
+    bullets: [
+      "Unsubsidized Marketplace vs. private plans, side by side",
+      "Networks and deductibles matter more than the monthly premium alone",
+      "If your 2026 income dropped, you may still qualify for a credit \u2014 tell us"
+    ]
+  },
+  under30_subsidy: {
+    headline: "At your age you may have an extra option: a catastrophic plan",
+    link: "/aca-plans-miami",
+    linkLabel: "ACA Marketplace plans in Miami",
+    body: "If you qualify for a premium tax credit, compare a subsidized Silver against a catastrophic plan (available under 30).",
+    bullets: [
+      "Silver often has the best cost-sharing reductions if income is on the lower end",
+      "Catastrophic has a low premium and a high deductible \u2014 a bet you stay healthy",
+      "We still check doctors and prescriptions before you enroll"
+    ]
+  },
+  under_100fpl: {
+    headline: "Florida didn\u2019t expand Medicaid \u2014 let\u2019s find what you can actually get",
+    link: "/aca-plans-miami",
+    linkLabel: "What\u2019s available in Florida",
+    body: "Most adults under 65 in Florida do not qualify for Medicaid on income alone. Kids, pregnancy, and some disabilities still might.",
+    bullets: [
+      "Marketplace coverage if you are at or above the minimum for a tax credit",
+      "Medicaid or CHIP for children, pregnancy, or qualifying disability",
+      "We will not send you to an application that Florida will just deny"
+    ]
+  },
+  "100_400fpl": {
+    headline: "You\u2019re in the range where premium tax credits apply",
+    link: "/aca-plans-miami",
+    linkLabel: "ACA Marketplace plans in Miami",
+    body: "For 2026, households between 100% and 400% of the federal poverty level can get a premium tax credit. Exact dollars depend on income, household size, and your ZIP.",
+    bullets: [
+      "Silver is usually the plan we compare first when a credit applies",
+      "Your credit is based on this year\u2019s estimated income, not last year\u2019s",
+      "A broker can run the real number \u2014 this quiz cannot"
+    ]
+  },
+  over_400fpl: {
+    headline: "Above the 2026 subsidy cliff, Marketplace often has no tax credit",
+    link: "/private-health-insurance-miami",
+    linkLabel: "Private plans in Miami",
+    body: "Enhanced subsidies expired after 2025. Earning even $1 over 400% FPL usually means the full premium. We still compare Marketplace vs. private \u2014 the cheaper lane is not always obvious.",
+    bullets: [
+      "Full-price Marketplace vs. private plans",
+      "If your income will drop this year, say so \u2014 the cliff is all-or-nothing",
+      "Doctors and deductible often matter more than the monthly price"
+    ]
+  },
+  unsure: {
+    headline: "We\u2019ll run your subsidy check \u2014 it takes one conversation",
+    link: "/aca-plans-miami",
+    linkLabel: "How Marketplace subsidies work",
+    body: "You do not need a perfect income number to start. We estimate from pay stubs or last year\u2019s return, then compare plans.",
+    bullets: [
+      "Household size + a rough income range is enough to start",
+      "Credits use this year\u2019s estimate, so a raise or a job loss changes the number",
+      "You can also call 1-800-380-6821 and skip the form"
+    ]
+  }
 };
+
+function priorityNote() {
+  switch (answers.priority) {
+    case 'low-premium':
+      return 'You said lowest premium matters most. We start with Bronze and any subsidized Silver \u2014 knowing the deductible will be higher.';
+    case 'best-coverage':
+      return 'You said comprehensive coverage matters. We start with Gold or a low-deductible Silver, then check the premium after any credit.';
+    case 'my-doctors':
+      return 'You want to keep your doctors. The next step is checking Miami-area networks \u2014 that is why we ask for your ZIP. Bring doctor names to the call.';
+    case 'fast-coverage':
+      return 'You need coverage quickly. Job loss, COBRA ending, or turning 26 usually gives you 60 days. Coverage often starts the first of the next month.';
+    default:
+      return '';
+  }
+}
+
+function sepNote() {
+  const c = answers.coverage;
+  if (c === 'losing' || c === 'cobra' || c === 'turning_26') {
+    return 'Special Enrollment Period: you typically have 60 days from the qualifying event. Do not wait.';
+  }
+  if (c === 'none') {
+    return 'If you have no qualifying event, you may need to wait for open enrollment (November 1\u2013January 15) unless you qualify another way.';
+  }
+  return '';
+}
 
 // ── State ─────────────────────────────────────────────────────────────────────
 const answers = {};
@@ -835,15 +973,42 @@ function showExitScreen() {
   window.scrollTo({ top: 0, behavior: 'smooth' });
 }
 
+function renderResultCopy(key) {
+  const r = RESULTS[key] || RESULTS.unsure;
+  document.getElementById('result-headline').textContent = r.headline;
+  const body = document.getElementById('result-body');
+  if (body) body.textContent = r.body || '';
+  const ul = document.getElementById('result-bullets');
+  if (ul) {
+    ul.innerHTML = '';
+    (r.bullets || []).forEach(function (t) {
+      const li = document.createElement('li');
+      li.textContent = t;
+      ul.appendChild(li);
+    });
+    const sep = sepNote();
+    if (sep) {
+      const li = document.createElement('li');
+      li.textContent = sep;
+      ul.appendChild(li);
+    }
+  }
+  const pri = document.getElementById('result-priority');
+  const note = priorityNote();
+  if (pri) {
+    if (note) { pri.style.display = 'block'; pri.textContent = note; }
+    else { pri.style.display = 'none'; pri.textContent = ''; }
+  }
+  document.getElementById('result-link-wrap').innerHTML =
+    '<a href="' + r.link + '" style="display:block;text-align:center;padding:12px 18px;background:#f4eefa;border:2px solid #452068;border-radius:12px;color:#452068;font-size:17px;font-weight:600;text-decoration:none;">' +
+    (r.linkLabel || 'Learn more') + ' \u2192</a>';
+}
+
 function showResultStep(restore) {
   if (!restore) {
     const key = computeResult();
     answers.result_shown = key;
-    const r = RESULTS[key];
-    document.getElementById('result-headline').textContent = r.headline;
-    const linkText = r.link.replace(/\//g,'').replace(/-/g,' ').replace(/\b\w/g, c => c.toUpperCase());
-    document.getElementById('result-link-wrap').innerHTML =
-      '<a href="' + r.link + '" style="display:block;text-align:center;padding:12px 18px;background:#f4eefa;border:2px solid #452068;border-radius:12px;color:#452068;font-size:17px;font-weight:600;text-decoration:none;">Learn more &rarr;</a>';
+    renderResultCopy(key);
   }
   if (typeof currentStep === 'number') {
     document.getElementById('step-' + currentStep).style.display = 'none';
@@ -893,6 +1058,10 @@ async function submitContact() {
   if (!consent) {
     errEl.textContent = 'Please agree to the consent terms.'; errEl.style.display = 'block'; return;
   }
+  const zip = (document.getElementById('contact-zip') || {}).value.trim();
+  if (zip && !/^\d{5}$/.test(zip)) {
+    errEl.textContent = 'Enter a 5-digit ZIP code, or leave it blank.'; errEl.style.display = 'block'; return;
+  }
   errEl.style.display = 'none';
 
   const btn = document.getElementById('btn-submit-contact');
@@ -920,12 +1089,13 @@ async function submitContact() {
       if (c === 'other')      return otherText || 'Other';
       return c || '';
     })(),
+    zip:                 (document.getElementById('contact-zip') || {}).value || '',
     household_size:      (() => {
       const h = answers.household;
       if (h === '1')     return 'Just me';
-      if (h === '2')     return 'Me + spouse';
-      if (h === '3')     return 'Family of 3';
-      return 'Family of 4+';
+      if (h === '2')     return '2 people';
+      if (h === '3')     return '3 people';
+      return '4 or more';
     })(),
     income_band:         answers.income || 'unsure',
     income_band_display: (() => {
@@ -956,7 +1126,7 @@ async function submitContact() {
     showSuccessCard();
   } catch(e) {
     console.error(e);
-    btn.disabled = false; btn.textContent = 'View My Results \u2192';
+    btn.disabled = false; btn.textContent = 'Send to a broker \u2192';
     alert('Something went wrong. Please call us at 1-800-380-6821.');
   }
 }
@@ -1041,7 +1211,7 @@ function restartQuiz() {
   }
   const sr = document.getElementById('step-result');
   if (sr) sr.style.display = 'none';
-  ['contact-first-name','contact-last-name','contact-phone','contact-email'].forEach(id => { const el = document.getElementById(id); if(el) el.value=''; });
+  ['contact-first-name','contact-last-name','contact-phone','contact-email','contact-zip'].forEach(id => { const el = document.getElementById(id); if(el) el.value=''; });
   const cc = document.getElementById('contact-consent'); if(cc) cc.checked = false;
   document.getElementById('btn-next').style.display          = 'block';
   document.getElementById('btn-next').disabled               = true;
