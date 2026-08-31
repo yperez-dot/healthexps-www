@@ -1,16 +1,16 @@
 ---
 layout: layouts/blog-post-es.njk
 category: "Medicare"
-title: "Medicare y Medicaid en Miami: Costo y Beneficios D-SNP"
-description: "Costo y beneficios de planes D-SNP en Miami 2026. ¿Tiene Medicare y Medicaid? Ahorre en primas, medicamentos y copagos. Corredores bilingües, gratis."
+title: "Información Seguro D-SNP 2026 | Miami"
+description: "Información actualizada 2026 sobre seguro D-SNP en Miami: costo, beneficios, prima $0. ¿Medicare y Medicaid? Corredores bilingües, gratis. Llame al 1-800-380-6821."
 date: 2026-07-15
 lang: es
 hreflang_en: dual-eligible-medicare-medicaid-miami
 permalink: /es/blog/doble-elegibilidad-medicare-medicaid-miami/
 ---
 
-<!-- META TITLE (60): Doble Elegibilidad en Miami: Medicare + Medicaid, Explicado -->
-<!-- META DESCRIPTION (158): ¿Tiene Medicare y Medicaid? En Miami puede calificar para planes D-SNP, beneficios extra y ayuda con medicamentos. Corredores bilingües le explican gratis. -->
+<!-- META TITLE (38): Información Seguro D-SNP 2026 | Miami -->
+<!-- META DESCRIPTION (155): Información actualizada 2026 sobre seguro D-SNP en Miami: costo, beneficios, prima $0. ¿Medicare y Medicaid? Corredores bilingües, gratis. -->
 
 # Doble elegibilidad: qué significa tener Medicare y Medicaid a la vez en Miami
 
