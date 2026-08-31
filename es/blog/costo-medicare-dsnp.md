@@ -1,15 +1,15 @@
 ---
 layout: layouts/blog-post-es.njk
 category: "Medicare"
-title: "¿Cuánto Cuesta un Plan D-SNP de Medicare en Miami?"
-description: "Costo de planes D-SNP en Miami 2026 — muchos con prima $0. Vea qué determina el costo real y por qué su nivel de Medicaid es la clave. Ayuda bilingüe gratis."
+title: "Costo D-SNP Miami 2026 | Prima $0"
+description: "Costo de un plan D-SNP en Miami 2026: muchos con prima $0. Qué cubre Medicaid, qué paga usted y cómo elegir. Ayuda bilingüe gratis. Llame al 1-800-380-6821."
 date: 2026-08-18
 lang: es
 permalink: /es/blog/costo-medicare-dsnp/
 ---
 
-<!-- META TITLE (58): ¿Cuánto Cuesta un Plan D-SNP de Medicare en Miami? -->
-<!-- META DESCRIPTION (157): Muchos D-SNP en Miami-Dade cuestan $0 al mes. Vea qué determina el costo real y por qué su nivel de Medicaid es la clave. Ayuda bilingüe gratis. -->
+<!-- META TITLE (34): Costo D-SNP Miami 2026 | Prima $0 -->
+<!-- META DESCRIPTION (152): Costo de un plan D-SNP en Miami 2026: muchos con prima $0. Qué cubre Medicaid, qué paga usted y cómo elegir. Ayuda bilingüe gratis. -->
 <!-- ⚠️ NOTA EDITOR: fecha de publicación (2026-08-19) es tentativa — confirmar contra el calendario AEP antes de publicar. No existe todavía contraparte en inglés (hreflang_en omitido intencionalmente); crear la versión EN o confirmar que este post será solo en español. -->
 
 # ¿Cuánto cuesta un plan D-SNP de Medicare en Miami?
