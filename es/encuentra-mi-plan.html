@@ -5,17 +5,13 @@
 <script src="/js/mobile-nav-accordion.js?v=1" defer></script>
 <link rel="icon" href="/favicon.ico" type="image/x-icon">
 <meta charset="UTF-8">
-<link rel="stylesheet" href="../css/global.css">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-
+<link rel="stylesheet" href="/css/global.css">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Encuentra Mi Plan Miami | Quiz Gratuito</title>
-<meta name="description" content="Quiz de 2 minutos para encontrar Medicare, ACA o seguro privado. Ayuda bilingüe sin costo en Miami, FL. Oficina en Doral.">
-<link rel="canonical" href="https://www.healthexps.com/es/encuentra-mi-plan/">
+<meta name="description" content="Quiz de 5 preguntas: Mercado, privado o Medicare — y si es probable un crédito 2026. Corredores bilingües en Miami comparan planes reales gratis.">
 <link rel="alternate" hreflang="en" href="https://www.healthexps.com/health-insurance-quiz/"/>
-<link rel="alternate" hreflang="es" href="https://www.healthexps.com/es/encuentra-mi-plan"/>
+<link rel="alternate" hreflang="es" href="https://www.healthexps.com/es/encuentra-mi-plan/"/>
+<link rel="canonical" href="https://www.healthexps.com/es/encuentra-mi-plan/">
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-SJSGF3E9MD"></script>
 <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-SJSGF3E9MD');</script>
 <style>
@@ -24,6 +20,8 @@ html,body{overflow-x:hidden;max-width:100%;min-height:100vh;}
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
 body{font-family:var(--font);color:var(--black);line-height:1.7;background:linear-gradient(160deg,#f4eefa 0%,#fff0f8 100%);min-height:100vh;}
 a{color:var(--purple);text-decoration:none;}
+
+/* HEADER — minimal */
 .mini-header{background:white;border-bottom:2px solid #f4eefa;padding:14px 24px;display:flex;align-items:center;justify-content:space-between;gap:16px;}
 .mini-back{color:#452068;font-size:17px;font-weight:700;text-decoration:none;display:flex;align-items:center;gap:6px;transition:color 0.2s;}
 .mini-back:hover{color:#ff1090;}
@@ -32,18 +30,31 @@ a{color:var(--purple);text-decoration:none;}
 .mini-phone{color:#452068;font-size:17px;font-weight:700;text-decoration:none;display:flex;align-items:center;gap:6px;}
 .mini-phone:hover{color:#ff1090;}
 @media(max-width:600px){.mini-header{padding:12px 16px;}.mini-logo img{height:42px;}.mini-back,.mini-phone{font-size:16px;}}
+@media(max-width:768px){.mini-header{display:none !important;}}
+.result-body{font-size:17px;color:var(--gray-text);line-height:1.65;margin:0 0 16px;}
+.result-bullets{margin:0 0 18px;padding-left:20px;}
+.result-bullets li{font-size:17px;color:var(--gray-text);line-height:1.55;margin-bottom:8px;}
+.result-priority{background:var(--purple-light);border-radius:12px;padding:12px 14px;font-size:16px;color:var(--black);line-height:1.55;margin-bottom:18px;}
+
+/* QUIZ SHELL */
 .quiz-shell{max-width:600px;margin:0 auto;padding:32px 24px 80px;}
 .quiz-header{text-align:center;margin-bottom:32px;}
 .quiz-eyebrow{font-size:16px;font-weight:700;color:var(--purple);text-transform:uppercase;letter-spacing:0.08em;margin-bottom:8px;}
 .quiz-headline{font-size:clamp(22px,4vw,32px);font-weight:700;color:var(--black);line-height:1.2;margin-bottom:10px;}
 .quiz-subhead{font-size:16px;color:var(--gray-text);line-height:1.6;}
+
+/* PROGRESS */
 .progress-wrap{margin-bottom:28px;}
 .progress-bar-bg{background:var(--gray-mid);border-radius:50px;height:6px;margin-bottom:8px;}
 .progress-bar-fill{background:linear-gradient(90deg,var(--purple),var(--pink));border-radius:50px;height:6px;transition:width 0.4s ease;}
 .progress-label{font-size:16px;color:var(--gray-text);text-align:right;}
+
+/* CARD */
 .quiz-card{background:white;border-radius:20px;padding:32px 28px;box-shadow:var(--shadow);}
 .step-q{font-size:20px;font-weight:700;color:var(--black);margin-bottom:6px;line-height:1.3;}
 .step-hint{font-size:17px;color:var(--gray-text);margin-bottom:22px;line-height:1.5;}
+
+/* OPTIONS */
 .options{display:flex;flex-direction:column;gap:10px;}
 .option{display:flex;align-items:center;gap:14px;padding:15px 18px;border:2px solid var(--gray-mid);border-radius:var(--radius);cursor:pointer;transition:all 0.18s;background:white;text-align:left;width:100%;font-family:var(--font);}
 .option:hover{border-color:var(--purple);background:var(--purple-light);}
@@ -52,14 +63,26 @@ a{color:var(--purple);text-decoration:none;}
 .option-text{display:flex;flex-direction:column;gap:2px;flex:1;}
 .option-main{font-size:18px;font-weight:700;color:var(--black);}
 .option-sub{font-size:16px;color:var(--gray-text);}
+
+/* GRID OPTIONS (for income/household) */
 .options-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
 .option-grid-btn{padding:14px 12px;border:2px solid var(--gray-mid);border-radius:var(--radius);cursor:pointer;transition:all 0.18s;background:white;font-family:var(--font);text-align:center;}
 .option-grid-btn:hover,.option-grid-btn.selected{border-color:var(--purple);background:var(--purple-light);}
 .ogb-main{font-size:18px;font-weight:700;color:var(--black);}
-.ogb-sub{font-size:14.5px;color:var(--gray-text);margin-top:2px;}
+.ogb-sub{font-size:16px;color:var(--gray-text);margin-top:2px;}
+
+/* NAV BUTTONS */
+.quiz-nav{display:flex;gap:10px;margin-top:22px;}
+.btn-back{background:none;border:2px solid var(--gray-mid);color:var(--gray-text);padding:12px 22px;border-radius:50px;font-size:18px;font-weight:700;cursor:pointer;font-family:var(--font);transition:all 0.2s;}
+.btn-back:hover{border-color:var(--purple);color:var(--purple);}
+.btn-next{background:var(--purple);color:white;border:none;padding:12px 28px;border-radius:50px;font-size:18px;font-weight:700;cursor:pointer;font-family:var(--font);transition:all 0.2s;flex:1;}
+.btn-next:hover{background:var(--purple-dark);}
+.btn-next:disabled{background:var(--gray-mid);cursor:not-allowed;}
 .btn-submit-contact{background:var(--pink);color:white;border:none;padding:12px 28px;border-radius:50px;font-size:18px;font-weight:700;cursor:pointer;font-family:var(--font);transition:all 0.2s;flex:1;display:none;}
 .btn-submit-contact:hover{background:var(--pink-hover);}
 .btn-submit-contact:disabled{background:var(--gray-mid);cursor:not-allowed;}
+
+/* CONTACT FORM */
 .contact-fields{display:flex;flex-direction:column;gap:12px;}
 .contact-field{display:flex;flex-direction:column;gap:4px;}
 .contact-label{font-size:17px;font-weight:700;color:var(--black);}
@@ -69,14 +92,16 @@ a{color:var(--purple);text-decoration:none;}
 .consent-wrap{margin-top:8px;}
 .consent-checkbox{display:flex;align-items:flex-start;gap:10px;cursor:pointer;}
 .consent-checkbox input{margin-top:4px;width:18px;height:18px;cursor:pointer;flex-shrink:0;}
-.consent-text{font-size:14.5px;color:var(--gray-text);line-height:1.6;}
+.consent-text{font-size:16px;color:var(--gray-text);line-height:1.6;}
 .consent-text strong{color:var(--purple);}
 .consent-text a{color:var(--purple);text-decoration:underline;}
+
+/* RESULT */
 .result-card{background:white;border-radius:20px;padding:32px 28px;box-shadow:var(--shadow);display:none;}
 .result-card.show{display:block;}
 .result-badge{display:inline-flex;align-items:center;gap:8px;padding:8px 18px;border-radius:50px;font-size:16px;font-weight:700;margin-bottom:18px;}
 .result-ico{font-size:48px;margin-bottom:12px;}
-.result-title{font-size:22px;font-weight:700;color:var(--black);margin-bottom:10px;line-height:1.2;}
+.result-title{font-size:24px;font-weight:700;color:var(--black);margin-bottom:10px;line-height:1.2;}
 .result-desc{font-size:18px;color:var(--gray-text);line-height:1.8;margin-bottom:24px;}
 .result-highlights{display:flex;flex-direction:column;gap:8px;margin-bottom:24px;}
 .result-highlight{display:flex;align-items:flex-start;gap:10px;font-size:18px;color:var(--gray-text);}
@@ -85,694 +110,1245 @@ a{color:var(--purple);text-decoration:none;}
 .result-ctas{display:flex;flex-direction:column;gap:10px;}
 .btn-result-primary{display:block;background:var(--pink);color:white;text-align:center;padding:15px;border-radius:50px;font-weight:700;font-size:16px;text-decoration:none;transition:all 0.2s;}
 .btn-result-primary:hover{background:var(--pink-hover);color:white;}
-.btn-result-wa{display:flex;align-items:center;justify-content:center;gap:8px;background:var(--wa);color:white;padding:14px;border-radius:50px;font-weight:700;font-size:18px;text-decoration:none;}
+.btn-result-wa{display:flex;align-items:center;justify-content:center;gap:8px;background:var(--wa);color:white;padding:14px;border-radius:50px;font-weight:700;font-size:18px;text-decoration:none;transition:all 0.2s;}
 .btn-result-wa:hover{background:var(--wa-hover);color:white;}
 .btn-result-wa svg{width:18px;height:18px;}
-.btn-result-call{display:block;background:var(--purple-light);color:var(--purple);text-align:center;padding:14px;border-radius:50px;font-weight:700;font-size:18px;text-decoration:none;}
-.btn-result-call:hover{background:#e8d8f7;}
+.btn-result-call{display:block;background:var(--purple-light);color:var(--purple);text-align:center;padding:14px;border-radius:50px;font-weight:700;font-size:18px;text-decoration:none;transition:all 0.2s;}
+.btn-result-call:hover{background:#e8d8f7;color:var(--purple);}
 .result-restart{display:block;text-align:center;font-size:16px;color:var(--gray-text);margin-top:14px;cursor:pointer;text-decoration:underline;background:none;border:none;font-family:var(--font);width:100%;}
+.result-restart:hover{color:var(--purple);}
+
+/* SAVINGS CALLOUT */
 .savings-callout{background:linear-gradient(135deg,#f0fdf4,#dcfce7);border:2px solid var(--green);border-radius:var(--radius);padding:16px 18px;margin-bottom:20px;display:flex;align-items:center;gap:12px;}
 .sc-ico{font-size:28px;flex-shrink:0;}
 .sc-text{font-size:17px;color:#166534;line-height:1.5;}
 .sc-num{font-size:22px;font-weight:700;color:var(--green);display:block;}
+
+/* TRUST BAR */
 .trust-bar{display:flex;gap:20px;justify-content:center;flex-wrap:wrap;margin-top:20px;}
 .trust-item{display:flex;align-items:center;gap:6px;font-size:16px;color:var(--gray-text);}
 .trust-item::before{content:"✓";color:var(--green);font-weight:700;}
-.quiz-footer{text-align:center;padding:24px;font-size:14.5px;color:var(--gray-text);line-height:1.6;}
+
+/* FOOTER */
+.quiz-footer{text-align:center;padding:24px;font-size:16px;color:var(--gray-text);line-height:1.6;}
 .quiz-footer a{color:var(--purple);}
-@media(max-width:480px){.options-grid{grid-template-columns:1fr;}.quiz-card{padding:24px 18px;}}
+
+@media(max-width:480px){.options-grid{grid-template-columns:1fr;}.quiz-card{padding:24px 18px;}.quiz-nav{flex-direction:column;}.btn-back{order:2;}.btn-next{order:1;}}
 </style>
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "InsuranceAgency", "name": "The Health Experts Insurance", "url": "https://www.healthexps.com", "telephone": "+18003806821", "address": {"@type": "PostalAddress", "streetAddress": "1695 NW 110 Ave, Suite 224", "addressLocality": "Doral", "addressRegion": "FL", "postalCode": "33172", "addressCountry": "US"}, "areaServed": ["Miami-Dade County", "Broward County", "Florida"], "priceRange": "Free", "description": "Independent bilingual health insurance brokers in Doral, FL. We compare 14+ carriers for Medicare, ACA, and private health insurance at no cost."}</script>
-<!-- Meta Pixel (Ticket 002) — Added 2026-08-12 -->
-<script>
-!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
-n.push=n;n.loaded=!0;n.version="2.0";n.queue=[];t=b.createElement(e);t.async=!0;
-t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
-document,"script","https://connect.facebook.net/en_US/fbevents.js");
-fbq("init","3257807051192879");fbq("track","PageView");
-</script>
-<noscript><img height="1" width="1" style="display:none"
-src="https://www.facebook.com/tr?id=3257807051192879&ev=PageView&noscript=1"/></noscript>
-<style>
-
-/* ES v4 chrome */
-.v4-nav-dropdown{display:none;}
-.v4-nav-item:hover .v4-nav-dropdown{display:block;}
-.v4-nav-mobile-btn{display:none;background:none;border:none;cursor:pointer;padding:8px;}
-#v4-mobile-menu{display:none;position:fixed;top:0;left:0;right:0;bottom:0;background:#fff;z-index:999;overflow-y:auto;padding:24px;}
-#v4-mobile-menu.open{display:block;}
-#v4-mobile-menu a,.v4-nav-outer a,.v4-nav-desktop a{text-decoration:none!important;}
-@media(max-width:900px){
-  .v4-nav-desktop{display:none !important;}
-  .v4-nav-mobile-btn{display:flex !important;align-items:center;}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://www.healthexps.com"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Find Your Health Insurance Plan | Free Quote",
+      "item": "https://www.healthexps.com/es/encuentra-mi-plan"
+    }
+  ]
 }
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": "Find Your Health Insurance Plan | Free Quote",
+  "url": "https://www.healthexps.com/es/encuentra-mi-plan",
+  "inLanguage": "en",
+  "isPartOf": {
+    "@type": "WebSite",
+    "url": "https://www.healthexps.com"
+  }
+}
+</script>
+<style>
+.v4-nav-dropdown { display: none; }
+.v4-nav-item:hover .v4-nav-dropdown { display: block; }
+.v4-nav-mobile-btn { display: none; background:none; border:none; cursor:pointer; padding:8px; }
+#v4-mobile-menu { display:none; position:fixed; top:0; left:0; right:0; bottom:0; background:#fff; z-index:999; overflow-y:auto; padding:24px; }
+#v4-mobile-menu.open { display:block; }
+@media(max-width:768px) {
+  .v4-nav-desktop { display: none !important; }
+  .v4-nav-mobile-btn { display: flex !important; align-items:center; }
+  .v4-nav-outer { padding-left:20px !important; padding-right:20px !important; }
+  .top-bar-inner { padding-left:20px !important; padding-right:20px !important; }
+  [style*="padding:80px 56px"],[style*="padding:76px 56px"],[style*="padding:64px 56px"],
+  [style*="padding:72px 56px"],[style*="padding:88px 56px"],[style*="padding:56px 56px"],
+  [style*="padding:48px 56px"],[style*="padding:40px 56px"] { padding-left:20px !important; padding-right:20px !important; }
+  [style*="grid-template-columns:1.3fr 1fr 1fr 1fr"] { grid-template-columns:1fr 1fr !important; gap:24px !important; }
+  [style*="grid-template-columns:repeat(3"] { grid-template-columns:1fr !important; }
+  [style*="grid-template-columns:repeat(4"] { grid-template-columns:repeat(2,1fr) !important; }
+  [style*="grid-template-columns:0.9fr 1.1fr"],[style*="grid-template-columns:1.05fr 0.95fr"] { grid-template-columns:1fr !important; }
+}
+</style>
+<style>
+#v4-mobile-menu a, .v4-nav-outer a, .v4-nav-desktop a { text-decoration: none !important; }
+#v4-mobile-menu nav a:hover { color: #ff1090 !important; }
+</style>
+
+<style>
+/* Task 1.7 — scroll-to-top: WCAG 48×48 target, brand purple, visible shadow */
+#scrollToTop {
+  display: none;
+  position: fixed;
+  bottom: 28px;
+  right: 28px;
+  width: 48px;
+  height: 48px;
+  min-width: 48px;
+  min-height: 48px;
+  background: #452068;
+  color: #fff;
+  border: none;
+  border-radius: 50%;
+  font-size: 22px;
+  font-weight: 700;
+  cursor: pointer;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 16px rgba(69,32,104,.35);
+  z-index: 998;
+  transition: background .2s, transform .15s;
+}
+#scrollToTop:hover { background: #ff1090; transform: translateY(-2px); }
+#scrollToTop:focus-visible { outline: 3px solid #ff1090; outline-offset: 3px; }
+</style>
+
+<style>
 @media(max-width:768px){
-  .v4-nav-outer,.top-bar-inner{padding-left:20px!important;padding-right:20px!important;}
   #footer-grid{grid-template-columns:1fr!important;gap:28px!important;}
   #site-footer{padding:40px 20px 24px!important;}
 }
-#scrollToTop{display:none;position:fixed;bottom:28px;right:28px;width:48px;height:48px;background:#452068;color:#fff;border:none;border-radius:50%;font-size:22px;font-weight:700;cursor:pointer;align-items:center;justify-content:center;box-shadow:0 4px 16px rgba(69,32,104,.35);z-index:998;transition:background .2s,transform .15s;}
-#scrollToTop:hover{background:#ff1090;transform:translateY(-2px);}
-
 </style>
 </head>
 <body>
-<!-- ES v4 chrome -->
-  <div class="top-bar-inner" style="background:#2f1550;color:#fff;display:flex;align-items:center;justify-content:space-between;padding:9px 56px;font-size:16px">
-    <div style="display:flex;align-items:center;gap:12px">
-      <a href="tel:18003806821" style="color:#fff;display:flex;align-items:center;" aria-label="Llamar 1-800-380-6821"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 1.27h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.91a16 16 0 0 0 6.29 6.29l.91-.91a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg></a>
-      <span style="display:inline-flex;align-items:center;border:1px solid rgba(255,255,255,0.35);border-radius:999px;padding:3px 10px;gap:3px;font-size:14.5px;"><a href="/health-insurance-quiz/" style="color:#fff;font-weight:700">EN</a><span style="opacity:.35;margin:0 1px">|</span><span style="opacity:.65">ES</span></span>
-    </div>
-    <div style="display:flex;align-items:center;gap:16px">
-      <a href="https://wa.me/13054646888" onclick="gtag('event','whatsapp_click',{'page':window.location.pathname})" style="display:inline-flex;align-items:center;gap:6px;background:#25D366;color:#fff;padding:5px 12px;border-radius:999px;font-weight:700;font-size:15px;">WhatsApp</a>
-    </div>
-  </div>
+    <div style="font-family:Inter,sans-serif;color:#241a30;background:#fff">
 
-  <!-- DESKTOP NAV -->
-  <div class="v4-nav-outer" style="display:flex;align-items:center;justify-content:space-between;padding:14px 56px;border-bottom:1px solid #ece5f0;position:sticky;top:0;background:#fff;z-index:500">
-    <a href="/es/"><img src="/images/logo.webp" alt="The Health Experts Insurance" style="height:80px;width:auto"/></a>
-    <div class="v4-nav-desktop" style="display:flex;align-items:center;gap:22px;font-size:17px;font-weight:600;color:#3a2f47">
-      <a href="/es/">Inicio</a>
-      <div class="v4-nav-item" style="position:relative">
-        <a href="/es/planes-de-medicare-miami" style="display:flex;align-items:center;gap:4px">Seguros ▾</a>
-        <div class="v4-nav-dropdown" style="position:absolute;top:100%;left:-14px;padding-top:12px;z-index:20">
-          <div style="background:#fff;border:2px solid #ece5f0;border-radius:12px;box-shadow:0 16px 36px rgba(69,32,104,.16);padding:8px;min-width:320px;display:flex;flex-direction:column">
-            <a href="/es/planes-de-medicare-miami" style="padding:10px 14px;border-radius:8px;font-weight:600">Planes de Medicare</a>
-            <a href="/es/medicare-advantage-miami" style="padding:10px 14px;border-radius:8px;font-weight:600">Medicare Advantage</a>
-            <a href="/es/medicare-suplementario-miami" style="padding:10px 14px;border-radius:8px;font-weight:600">Medicare Suplementario</a>
-            <a href="/es/medicare-medicaid-miami" style="padding:10px 14px;border-radius:8px;font-weight:600">D-SNP / Dual</a>
-            <a href="/es/planes-aca-miami" style="padding:10px 14px;border-radius:8px;font-weight:600">Planes ACA</a>
-            <a href="/es/seguro-medico-privado-miami" style="padding:10px 14px;border-radius:8px;font-weight:600">Seguro Médico Privado</a>
-            <a href="/es/alternativas-cobra-miami" style="padding:10px 14px;border-radius:8px;font-weight:600">Alternativas a COBRA</a>
-            <a href="/es/dental-vision-miami" style="padding:10px 14px;border-radius:8px;font-weight:600">Dental y Visión</a>
-            <a href="/es/seguro-de-vida-miami/" style="padding:10px 14px;border-radius:8px;font-weight:600">Seguro de Vida</a>
-            <a href="/es/gastos-finales-miami/" style="padding:10px 14px;border-radius:8px;font-weight:600">Gastos Finales</a>
-          </div>
+      <!-- utility bar -->
+      <div class="top-bar-inner" style="background:#2f1550;color:#fff;display:flex;align-items:center;justify-content:space-between;padding:9px 56px;font-size:16px">
+        <div style="display:flex;align-items:center;gap:12px">
+          <a href="tel:18003806821" style="color:#fff;display:flex;align-items:center;" aria-label="Call 1-800-380-6821"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 1.27h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.91a16 16 0 0 0 6.29 6.29l.91-.91a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg></a>
+          <span style="display:inline-flex;align-items:center;border:1px solid rgba(255,255,255,0.35);border-radius:999px;padding:3px 10px;gap:3px;font-size:14.5px;"><a href="/health-insurance-quiz/" style="color:#fff;text-decoration:none;font-weight:700">EN</a><span style="opacity:.35;margin:0 1px">|</span><span style="opacity:.65;font-weight:400">ES</span></span>
+        </div>
+        <div style="display:flex;align-items:center;gap:16px">
+          <a href="https://wa.me/13054646888" onclick="gtag('event','whatsapp_click',{'page':window.location.pathname})" style="display:inline-flex;align-items:center;gap:6px;background:#25D366;color:#fff;padding:5px 12px;border-radius:999px;font-weight:700;font-size:15px;text-decoration:none;">WhatsApp</a>
         </div>
       </div>
-      <div class="v4-nav-item" style="position:relative">
-        <span style="cursor:pointer;display:flex;align-items:center;gap:4px">Guías ▾</span>
-        <div class="v4-nav-dropdown" style="position:absolute;top:100%;left:-14px;padding-top:12px;z-index:20">
-          <div style="background:#fff;border:2px solid #ece5f0;border-radius:12px;box-shadow:0 16px 36px rgba(69,32,104,.16);padding:8px;min-width:240px;display:flex;flex-direction:column">
-            <a href="/es/medicare/que-es-medicare/" style="padding:10px 14px;border-radius:8px;font-weight:600">Qué es Medicare</a>
-            <a href="/es/medicare/nuevo-en-medicare/" style="padding:10px 14px;border-radius:8px;font-weight:600">Nuevo en Medicare</a>
-            <a href="/es/irmaa-penalidades-medicare/" style="padding:10px 14px;border-radius:8px;font-weight:600">Costos y IRMAA</a>
-            <a href="/es/medicare/programa-ahorros-medicare/" style="padding:10px 14px;border-radius:8px;font-weight:600">Programa de Ahorros</a>
-            <a href="/es/mitos-medicare/" style="padding:10px 14px;border-radius:8px;font-weight:600">Mitos de Medicare</a>
-            <a href="/es/inscripcion-anual-medicare-2027/" style="padding:10px 14px;border-radius:8px;font-weight:600">Inscripción Anual (AEP)</a>
-            <a href="/es/buscador-de-planes/" style="padding:10px 14px;border-radius:8px;font-weight:600">Buscador de Planes</a>
+
+      <!-- nav -->
+      <div class="v4-nav-outer" style="display:flex;align-items:center;justify-content:space-between;padding:14px 56px;border-bottom:1px solid #ece5f0;position:sticky;top:0;background:#fff;z-index:500">
+        <a href="/es/"><img src="/images/logo.webp" alt="The Health Experts Insurance" style="height:80px;width:auto;cursor:pointer"/></a>
+        <div class="v4-nav-desktop" style="display:flex;align-items:center;gap:26px;font-size:18px;font-weight:600;color:#3a2f47">
+          <a href="/es/" style="cursor:pointer">Inicio</a>
+
+          <div class="v4-nav-item" style="position:relative">
+            <a href="/es/planes-de-medicare-miami" style="cursor:pointer;display:flex;align-items:center;gap:4px">Seguros ▾</a>
+              <div class="v4-nav-dropdown" style="position:absolute;top:100%;left:-14px;padding-top:12px;z-index:20">
+                <div style="background:#fff;border:2px solid #ece5f0;border-radius:12px;box-shadow:0 16px 36px rgba(69,32,104,.16);padding:8px;min-width:320px;display:flex;flex-direction:column">
+                  <a href="/es/planes-de-medicare-miami" style="padding:10px 14px;border-radius:8px;cursor:pointer;font-weight:600;white-space:nowrap">Planes de Medicare</a>
+                  <a href="/es/medicare-advantage-miami" style="padding:10px 14px;border-radius:8px;cursor:pointer;font-weight:600;white-space:nowrap">Medicare Advantage</a>
+                  <a href="/es/medicare-suplementario-miami" style="padding:10px 14px;border-radius:8px;cursor:pointer;font-weight:600;white-space:nowrap">Medicare Suplementario</a>
+                  <a href="/es/planes-aca-miami" style="padding:10px 14px;border-radius:8px;cursor:pointer;font-weight:600;white-space:nowrap">Planes del Mercado ACA</a>
+                  <a href="/es/seguro-medico-privado-miami" style="padding:10px 14px;border-radius:8px;cursor:pointer;font-weight:600;white-space:nowrap">Seguro médico privado</a>
+                  <a href="/es/alternativas-cobra-miami" style="padding:10px 14px;border-radius:8px;cursor:pointer;font-weight:600;white-space:nowrap">Alternativas a COBRA</a>
+                  <a href="/es/dental-vision-miami" style="padding:10px 14px;border-radius:8px;cursor:pointer;font-weight:600;white-space:nowrap">Dental y visión</a>
+                  <a href="/es/seguro-de-vida-miami" style="padding:10px 14px;border-radius:8px;cursor:pointer;font-weight:600;white-space:nowrap">Seguro de vida</a>
+                  <a href="/es/gastos-finales-miami" style="padding:10px 14px;border-radius:8px;cursor:pointer;font-weight:600;white-space:nowrap">Gastos finales</a>
+                </div>
+              </div>
           </div>
+
+          <div class="v4-nav-item" style="position:relative">
+            <span style="cursor:pointer;display:flex;align-items:center;gap:4px">Guías ▾</span>
+              <div class="v4-nav-dropdown" style="position:absolute;top:100%;left:-14px;padding-top:12px;z-index:20">
+                <div style="background:#fff;border:2px solid #ece5f0;border-radius:12px;box-shadow:0 16px 36px rgba(69,32,104,.16);padding:8px;min-width:240px;display:flex;flex-direction:column">
+                  <a href="/es/preguntas-medicare" style="padding:10px 14px;border-radius:8px;cursor:pointer;font-weight:600;white-space:nowrap">Qué es Medicare</a>
+                  <a href="/es/nuevo-en-medicare-preview" style="padding:10px 14px;border-radius:8px;cursor:pointer;font-weight:600;white-space:nowrap">Nuevo en Medicare</a>
+                  <a href="/es/irmaa-penalidades-medicare" style="padding:10px 14px;border-radius:8px;cursor:pointer;font-weight:600;white-space:nowrap">Costos de Medicare e IRMAA</a>
+                  <a href="/es/programa-ahorros-medicare-preview" style="padding:10px 14px;border-radius:8px;cursor:pointer;font-weight:600;white-space:nowrap">Programa de Ahorros Medicare</a>
+                  <a href="/es/mitos-medicare" style="padding:10px 14px;border-radius:8px;cursor:pointer;font-weight:600;white-space:nowrap">Mitos y hechos de Medicare</a>
+                  <a href="/es/inscripcion-anual-medicare-2027" style="padding:10px 14px;border-radius:8px;cursor:pointer;font-weight:600;white-space:nowrap">Inscripción Anual (AEP)</a>
+                  <a href="/es/buscador-de-planes" style="padding:10px 14px;border-radius:8px;cursor:pointer;font-weight:600;white-space:nowrap">Buscador de planes</a>
+                  <a href="/es/avmed-medicare-florida" style="padding:10px 14px;border-radius:8px;cursor:pointer;font-weight:600;white-space:nowrap">Transición AvMed</a>
+                  <a href="/es/corredor-de-seguros-de-salud-miami" style="padding:10px 14px;border-radius:8px;cursor:pointer;font-weight:600;white-space:nowrap">Corredor independiente</a>
+                </div>
+              </div>
+          </div>
+
+          <a href="/es/faq" style="cursor:pointer">FAQ</a>
+          <a href="/es/recursos" style="cursor:pointer">Recursos</a> <a href="/es/blog" style="cursor:pointer">Blog</a> <a href="/es/agente-de-medicare-miami" style="padding:10px 14px;border-radius:8px;cursor:pointer;font-weight:600;white-space:nowrap">Nosotros</a>
+          <a href="/es/contacto" style="cursor:pointer">Contacto</a>
+        </div>
+        <div style="display:flex;align-items:center;gap:12px">
+          <a href="tel:18003806821" class="v4-nav-desktop" style="color:#241a30;font-weight:700;font-size:18px">📞 1-800-380-6821</a>
+          <a href="#lead-form" class="v4-nav-desktop" style="background:#452068;color:#fff;padding:11px 20px;border-radius:10px;font-weight:700;font-size:17px">Consulta gratis</a>
+          <!-- Hamburger — mobile only -->
+          <button class="v4-nav-mobile-btn" id="v4HamburgerBtn" aria-label="Abrir menú" aria-expanded="false" aria-controls="v4-mobile-menu">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#241a30" stroke-width="2.2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+          </button>
         </div>
       </div>
-      <a href="/es/faq/">FAQ</a>
-      <a href="/es/recursos/" style="color:#452068;background:#f7f2fb;padding:8px 14px;border-radius:8px">Recursos</a>
-      <a href="/es/blog/">Blog</a>
-      <a href="/es/agente-de-medicare-miami/">Conócenos</a>
-      <a href="/es/contacto/">Contacto</a>
-    </div>
-    <div style="display:flex;align-items:center;gap:12px">
-      <a href="tel:18003806821" class="v4-nav-desktop" style="color:#241a30;font-weight:700;font-size:17px">📞 1-800-380-6821</a>
-      <a href="/es/contacto/" class="v4-nav-desktop" style="background:#452068;color:#fff;padding:11px 20px;border-radius:10px;font-weight:700;font-size:17px">Consulta Gratis</a>
-      <button class="v4-nav-mobile-btn" id="v4HamburgerBtn" aria-label="Abrir menú" aria-expanded="false" aria-controls="v4-mobile-menu">
-        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#241a30" stroke-width="2.2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
-      </button>
-    </div>
-  </div>
 
-  <!-- MOBILE NAV -->
-  <div id="v4-mobile-menu" role="dialog" aria-label="Menú de navegación">
-    <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:28px">
-      <a href="/es/"><img src="/images/logo.webp" alt="The Health Experts Insurance" style="height:56px;width:auto"/></a>
-      <button id="v4MobileClose" aria-label="Cerrar menú" style="background:none;border:none;cursor:pointer;padding:8px">
-        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#241a30" stroke-width="2.2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
-      </button>
-    </div>
-    <nav style="display:flex;flex-direction:column;gap:4px;font-size:16px;font-weight:600;color:#241a30">
-      <a href="/es/" style="padding:14px 4px;border-bottom:1px solid #ece5f0;color:#241a30">Inicio</a>
-      <div style="padding:14px 4px 4px;font-size:16px;font-weight:700;color:#5c3d7a;text-transform:uppercase;letter-spacing:.06em">Seguros</div>
-      <a href="/es/planes-de-medicare-miami" style="padding:11px 12px;border-radius:8px;color:#241a30;font-size:18px">Planes de Medicare</a>
-      <a href="/es/medicare-advantage-miami" style="padding:11px 12px;border-radius:8px;color:#241a30;font-size:18px">Medicare Advantage</a>
-      <a href="/es/medicare-suplementario-miami" style="padding:11px 12px;border-radius:8px;color:#241a30;font-size:18px">Medicare Suplementario</a>
-      <a href="/es/medicare-medicaid-miami" style="padding:11px 12px;border-radius:8px;color:#241a30;font-size:18px">D-SNP / Dual</a>
-      <a href="/es/planes-aca-miami" style="padding:11px 12px;border-radius:8px;color:#241a30;font-size:18px">Planes ACA</a>
-      <a href="/es/seguro-medico-privado-miami" style="padding:11px 12px;border-radius:8px;color:#241a30;font-size:18px">Seguro Médico Privado</a>
-      <a href="/es/alternativas-cobra-miami" style="padding:11px 12px;border-radius:8px;color:#241a30;font-size:18px">Alternativas a COBRA</a>
-      <a href="/es/dental-vision-miami" style="padding:11px 12px;border-radius:8px;color:#241a30;font-size:18px">Dental y Visión</a>
-      <a href="/es/seguro-de-vida-miami/" style="padding:11px 12px;border-radius:8px;color:#241a30;font-size:18px">Seguro de Vida</a>
-      <a href="/es/gastos-finales-miami/" style="padding:11px 12px;border-radius:8px;color:#241a30;font-size:18px">Gastos Finales</a>
-      <div style="padding:14px 4px 4px;font-size:16px;font-weight:700;color:#5c3d7a;text-transform:uppercase;letter-spacing:.06em;margin-top:8px">Guías</div>
-      <a href="/es/medicare/que-es-medicare/" style="padding:11px 12px;border-radius:8px;color:#241a30;font-size:18px">Qué es Medicare</a>
-      <a href="/es/medicare/nuevo-en-medicare/" style="padding:11px 12px;border-radius:8px;color:#241a30;font-size:18px">Nuevo en Medicare</a>
-      <a href="/es/irmaa-penalidades-medicare/" style="padding:11px 12px;border-radius:8px;color:#241a30;font-size:18px">Costos y IRMAA</a>
-      <a href="/es/medicare/programa-ahorros-medicare/" style="padding:11px 12px;border-radius:8px;color:#241a30;font-size:18px">Programa de Ahorros</a>
-      <a href="/es/mitos-medicare/" style="padding:11px 12px;border-radius:8px;color:#241a30;font-size:18px">Mitos de Medicare</a>
-      <a href="/es/inscripcion-anual-medicare-2027/" style="padding:11px 12px;border-radius:8px;color:#241a30;font-size:18px">Inscripción Anual (AEP)</a>
-      <a href="/es/buscador-de-planes/" style="padding:11px 12px;border-radius:8px;color:#241a30;font-size:18px">Buscador de Planes</a>
-      <div style="margin-top:8px;border-top:1px solid #ece5f0;padding-top:12px;display:flex;flex-direction:column;gap:4px">
-        <a href="/es/faq/" style="padding:12px 4px;color:#241a30;border-bottom:1px solid #ece5f0">FAQ</a>
-        <a href="/es/recursos/" style="padding:12px 4px;color:#452068;font-weight:700;border-bottom:1px solid #ece5f0">Recursos</a>
-        <a href="/es/blog/" style="padding:12px 4px;color:#241a30;border-bottom:1px solid #ece5f0">Blog</a>
-        <a href="/es/agente-de-medicare-miami/" style="padding:12px 4px;color:#241a30;border-bottom:1px solid #ece5f0">Conócenos</a>
-        <a href="/es/contacto/" style="padding:12px 4px;color:#241a30">Contacto</a>
+      <!-- Mobile nav panel -->
+      <div id="v4-mobile-menu" role="dialog" aria-label="Menú de navegación">
+        <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:28px">
+          <a href="/es/"><img src="/images/logo.webp" alt="The Health Experts Insurance" style="height:56px;width:auto"/></a>
+          <button id="v4MobileClose" aria-label="Cerrar menú" style="background:none;border:none;cursor:pointer;padding:8px">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#241a30" stroke-width="2.2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+          </button>
+        </div>
+        <nav style="display:flex;flex-direction:column;gap:4px;font-size:16px;font-weight:600;color:#241a30">
+          <a href="/es/" style="padding:14px 4px;border-bottom:1px solid #ece5f0;color:#241a30">Inicio</a>
+          <!-- Insurance sub-links -->
+          <div style="padding:14px 4px 4px;font-size:16px;font-weight:700;color:#5c3d7a;text-transform:uppercase;letter-spacing:.06em">Seguros</div>
+          <a href="/es/planes-de-medicare-miami" style="padding:11px 12px;border-radius:8px;color:#241a30;font-weight:600;font-size:18px">Planes de Medicare</a>
+          <a href="/es/medicare-advantage-miami" style="padding:11px 12px;border-radius:8px;color:#241a30;font-weight:600;font-size:18px">Medicare Advantage</a>
+          <a href="/es/medicare-suplementario-miami" style="padding:11px 12px;border-radius:8px;color:#241a30;font-weight:600;font-size:18px">Medicare Suplementario</a>
+          <a href="/es/planes-aca-miami" style="padding:11px 12px;border-radius:8px;color:#241a30;font-weight:600;font-size:18px">Planes del Mercado ACA</a>
+          <a href="/es/seguro-medico-privado-miami" style="padding:11px 12px;border-radius:8px;color:#241a30;font-weight:600;font-size:18px">Seguro médico privado</a>
+          <a href="/es/alternativas-cobra-miami" style="padding:11px 12px;border-radius:8px;color:#241a30;font-weight:600;font-size:18px">Alternativas a COBRA</a>
+          <a href="/es/dental-vision-miami" style="padding:11px 12px;border-radius:8px;color:#241a30;font-weight:600;font-size:18px">Dental y visión</a>
+          <a href="/es/seguro-de-vida-miami" style="padding:11px 12px;border-radius:8px;color:#241a30;font-weight:600;font-size:18px">Seguro de vida</a>
+          <a href="/es/gastos-finales-miami" style="padding:11px 12px;border-radius:8px;color:#241a30;font-weight:600;font-size:18px">Gastos finales</a>
+          <!-- Guides sub-links -->
+          <div style="padding:14px 4px 4px;font-size:16px;font-weight:700;color:#5c3d7a;text-transform:uppercase;letter-spacing:.06em;margin-top:8px">Guías</div>
+          <a href="/es/preguntas-medicare" style="padding:11px 12px;border-radius:8px;color:#241a30;font-weight:600;font-size:18px">Qué es Medicare</a>
+          <a href="/es/nuevo-en-medicare-preview" style="padding:11px 12px;border-radius:8px;color:#241a30;font-weight:600;font-size:18px">Nuevo en Medicare</a>
+          <a href="/es/irmaa-penalidades-medicare" style="padding:11px 12px;border-radius:8px;color:#241a30;font-weight:600;font-size:18px">Costos de Medicare e IRMAA</a>
+          <a href="/es/programa-ahorros-medicare-preview" style="padding:11px 12px;border-radius:8px;color:#241a30;font-weight:600;font-size:18px">Programa de Ahorros Medicare</a>
+          <a href="/es/mitos-medicare" style="padding:11px 12px;border-radius:8px;color:#241a30;font-weight:600;font-size:18px">Mitos y hechos de Medicare</a>
+          <a href="/es/inscripcion-anual-medicare-2027" style="padding:11px 12px;border-radius:8px;color:#241a30;font-weight:600;font-size:18px">Inscripción Anual (AEP)</a>
+          <a href="/es/buscador-de-planes" style="padding:11px 12px;border-radius:8px;color:#241a30;font-weight:600;font-size:18px">Buscador de planes</a>
+          <a href="/es/avmed-medicare-florida" style="padding:11px 12px;border-radius:8px;color:#241a30;font-weight:600;font-size:18px">Transición AvMed</a>
+          <a href="/es/corredor-de-seguros-de-salud-miami" style="padding:11px 12px;border-radius:8px;color:#241a30;font-weight:600;font-size:18px">Corredor independiente</a>
+          <!-- Other links -->
+          <div style="margin-top:8px;border-top:1px solid #ece5f0;padding-top:12px;display:flex;flex-direction:column;gap:4px">
+            <a href="/es/faq" style="padding:12px 4px;color:#241a30;border-bottom:1px solid #ece5f0">FAQ</a>
+            <a href="/es/recursos" style="padding:12px 4px;color:#241a30;border-bottom:1px solid #ece5f0">Recursos</a> <a href="/es/blog" style="padding:12px 4px;color:#241a30;border-bottom:1px solid #ece5f0">Blog</a> <a href="/es/agente-de-medicare-miami" style="padding:12px 4px;color:#241a30;border-bottom:1px solid #ece5f0">Nosotros</a>
+            <a href="/es/contacto" style="padding:12px 4px;color:#241a30">Contacto</a>
+          </div>
+          <!-- Mobile CTA -->
+          <div style="margin-top:20px;display:flex;flex-direction:column;gap:12px">
+            <a href="tel:18003806821" style="background:#241a30;color:#fff;padding:16px;border-radius:12px;font-weight:700;font-size:16px;text-align:center">📞 1-800-380-6821</a>
+            <a href="#lead-form" onclick="document.getElementById('v4-mobile-menu').classList.remove('open');document.getElementById('v4HamburgerBtn').setAttribute('aria-expanded','false');" style="background:#ff1090;color:#fff;padding:16px;border-radius:12px;font-weight:700;font-size:16px;text-align:center">Consulta gratis →</a>
+          </div>
+        </nav>
       </div>
-      <div style="margin-top:20px;display:flex;flex-direction:column;gap:12px">
-        <a href="tel:18003806821" style="background:#241a30;color:#fff;padding:16px;border-radius:12px;font-weight:700;font-size:16px;text-align:center">📞 1-800-380-6821</a>
-        <a href="/es/contacto/" onclick="document.getElementById('v4-mobile-menu').classList.remove('open');document.getElementById('v4HamburgerBtn').setAttribute('aria-expanded','false');" style="background:#ff1090;color:#fff;padding:16px;border-radius:12px;font-weight:700;font-size:16px;text-align:center">Consulta Gratis →</a>
-      </div>
-    </nav>
-  </div>
-<div class="quiz-shell">
- <div class="quiz-header">
- <div class="quiz-eyebrow">Gratis · 2 minutos · Sin obligación</div>
- <h1 class="quiz-headline">Encuentra Tu Mejor Plan de Salud</h1>
- <p class="quiz-subhead">Responde 5 preguntas rápidas y te mostramos qué plan se ajusta a tu situación — y si calificas para subsidios que podrían reducir tu costo a $0.</p>
- </div>
 
- <div class="progress-wrap" id="progress-wrap">
- <div class="progress-bar-bg"><div class="progress-bar-fill" id="progress-fill" style="width:20%;"></div></div>
- <div class="progress-label" id="progress-label">Pregunta 1 de 5</div>
- </div>
+<style>
+ .dropdown a:hover{background:#f4eefa !important;color:#452068 !important;}
+ li:hover > .dropdown{display:block !important;}
+ @media (max-width: 768px) {
+  #nav-toggle { display: block !important; }
+  #nav-links { display: none !important; }
+  #nav-links.open {
+    display: flex !important;
+    flex-direction: column;
+    position: fixed !important;
+    top: 0 !important;
+    right: 0 !important;
+    bottom: auto;
+    left: 15% !important;
+    width: 85% !important;
+    max-width: none !important;
+    height: auto;
+    min-height: auto;
+    max-height: 100vh;
+    background: white;
+    padding: 56px 24px 24px;
+    box-shadow: -4px 0 24px rgba(0,0,0,0.15);
+    gap: 12px;
+    z-index: 999;
+    text-align: left;
+    align-items: flex-start;
+    overflow-y: auto;
+  }
+  #nav-links.open > li { width: 100%; }
+  #nav-links.open > li > a {
+    display: block;
+    text-align: left;
+    font-size: 18px;
+    font-weight: 700;
+    color: #452068;
+    padding: 8px 0;
+    width: 100%;
+    white-space: nowrap;
+    overflow: visible;
+  }
+  #nav-links.open #nav-close-btn {
+    display: block !important;
+    position: fixed;
+    top: 12px;
+    right: 16px;
+    z-index: 1000;
+    font-size: 28px;
+    font-weight: 300;
+    color: #452068;
+    background: none;
+    border: none;
+    cursor: pointer;
+  }
+  #nav-links .dropdown {
+    display: none !important;
+    position: static !important;
+    box-shadow: none !important;
+    border: none !important;
+    padding: 4px 0 4px 16px !important;
+    background: #f9f7fc;
+    border-radius: 8px;
+    margin-top: 4px;
+  }
+  #nav-links .dropdown a {
+    font-size: 16px !important;
+    font-weight: 500 !important;
+    padding: 6px 12px !important;
+    white-space: nowrap !important;
+    overflow: visible !important;
+    display: block !important;
+    color: #452068 !important;
+  }
+  #nav-links li.open .dropdown { display: block !important; }
+ }
+ @media (min-width: 769px) {
+  #nav-toggle { display: none !important; }
+  #nav-links { display: flex !important; }
+ }
+@media(max-width:768px){.quiz-header{margin-bottom:20px;}}
+</style>
 
- <div class="quiz-card" id="quiz-card">
-
- <!-- PASO 1: Edad -->
- <div class="step" id="step-1">
- <div class="step-q">¿Cuántos años tienes?</div>
- <div class="step-hint">Esto determina qué tipos de planes están disponibles para ti.</div>
- <div class="options">
- <button class="option" onclick="selectOption(this,'edad','menor-55')"><div class="option-text"><span class="option-main">Menos de 55 años</span><span class="option-sub">Planes ACA y privados disponibles</span></div></button>
- <button class="option" onclick="selectOption(this,'edad','55-63')"><div class="option-text"><span class="option-main">55–63 años</span><span class="option-sub">Planes ACA disponibles — cerca de Medicare</span></div></button>
- <button class="option" onclick="selectOption(this,'edad','64')"><div class="option-text"><span class="option-main">64 años — pronto cumplo 65</span><span class="option-sub">Puede necesitar un plan puente antes de Medicare</span></div></button>
- <button class="option" onclick="selectOption(this,'edad','65-mas')"><div class="option-text"><span class="option-main">65 años o más</span><span class="option-sub">Elegible para Medicare — opciones diferentes</span></div></button>
- </div>
- </div>
-
- <!-- PASO 2: Cobertura actual -->
- <div class="step" id="step-2" style="display:none;">
- <div class="step-q">¿Cuál es tu situación de seguro actual?</div>
- <div class="step-hint">Esto nos ayuda a entender tu fecha límite y urgencia.</div>
- <div class="options">
- <button class="option" onclick="selectOption(this,'cobertura','ninguna')"><div class="option-text"><span class="option-main">No tengo seguro ahora</span><span class="option-sub">Necesito cobertura lo antes posible</span></div></button>
- <button class="option" onclick="selectOption(this,'cobertura','perdiendo')"><div class="option-text"><span class="option-main">Voy a perder mi cobertura pronto</span><span class="option-sub">Pérdida de empleo, COBRA terminando, o plan cancelado</span></div></button>
- <button class="option" onclick="selectOption(this,'cobertura','cobra')"><div class="option-text"><span class="option-main">Estoy en COBRA — es muy caro</span><span class="option-sub">Buscando una opción más económica</span></div></button>
- <button class="option" onclick="selectOption(this,'cobertura','otro')"><div class="option-text"><span class="option-main">Otro</span><span class="option-sub">Por favor describe abajo</span></div></button>
- </div>
- <div id="other-input-wrap" style="display:none;margin-top:14px;">
- <textarea id="other-input" placeholder="Cuéntanos más sobre tu situación..." style="width:100%;padding:12px;border:2px solid var(--gray-mid);border-radius:var(--radius);font-family:var(--font);font-size:17px;min-height:80px;resize:vertical;"></textarea>
- </div>
- </div>
-
- <!-- PASO 3: Tamaño del hogar -->
- <div class="step" id="step-3" style="display:none;">
- <div class="step-q">¿Cuántas personas necesitan cobertura?</div>
- <div class="step-hint">Inclúyete a ti, tu cónyuge y cualquier dependiente.</div>
- <div class="options-grid">
- <button class="option-grid-btn" onclick="selectGrid(this,'hogar','1')"><div class="ogb-main">Solo yo</div><div class="ogb-sub">Plan individual</div></button>
- <button class="option-grid-btn" onclick="selectGrid(this,'hogar','2')"><div class="ogb-main">Yo + cónyuge</div><div class="ogb-sub">2 adultos</div></button>
- <button class="option-grid-btn" onclick="selectGrid(this,'hogar','3')"><div class="ogb-main">Familia de 3</div><div class="ogb-sub">2 adultos + 1 hijo</div></button>
- <button class="option-grid-btn" onclick="selectGrid(this,'hogar','4mas')"><div class="ogb-main">Familia de 4+</div><div class="ogb-sub">Familia más grande</div></button>
- </div>
- </div>
-
- <!-- PASO 4: Ingresos -->
- <div class="step" id="step-4" style="display:none;">
- <div class="step-q">¿Cuál es tu ingreso familiar anual aproximado?</div>
- <div class="step-hint">Esto determina si calificas para subsidios del ACA. Tu respuesta es privada.</div>
- <div class="options-grid">
- <button class="option-grid-btn" onclick="selectGrid(this,'ingreso','menos-30k')"><div class="ogb-main">Menos de $30,000</div><div class="ogb-sub">Puede calificar para Medicaid</div></button>
- <button class="option-grid-btn" onclick="selectGrid(this,'ingreso','30k-60k')"><div class="ogb-main">$30,000–$60,000</div><div class="ogb-sub">Probablemente califica para subsidios</div></button>
- <button class="option-grid-btn" onclick="selectGrid(this,'ingreso','60k-100k')"><div class="ogb-main">$60,000–$100,000</div><div class="ogb-sub">Puede calificar para algún subsidio</div></button>
- <button class="option-grid-btn" onclick="selectGrid(this,'ingreso','100k-150k')"><div class="ogb-main">$100,000–$150,000</div><div class="ogb-sub">Subsidio pequeño posible</div></button>
- <button class="option-grid-btn" onclick="selectGrid(this,'ingreso','mas-150k')"><div class="ogb-main">Más de $150,000</div><div class="ogb-sub">Prima completa, mejor cobertura</div></button>
- <button class="option-grid-btn" onclick="selectGrid(this,'ingreso','no-se')"><div class="ogb-main">No estoy seguro</div><div class="ogb-sub">Te ayudamos a calcularlo</div></button>
- </div>
- </div>
-
- <!-- PASO 5: Prioridad -->
- <div class="step" id="step-5" style="display:none;">
- <div class="step-q">¿Qué es lo más importante para ti en un plan de salud?</div>
- <div class="step-hint">Ayúdanos a encontrarte la mejor opción.</div>
- <div class="options">
- <button class="option" onclick="selectOption(this,'prioridad','prima-baja')"><div class="option-text"><span class="option-main">Prima mensual más baja</span><span class="option-sub">Prefiero pagar menos al mes aunque pague más cuando use el seguro</span></div></button>
- <button class="option" onclick="selectOption(this,'prioridad','mejor-cobertura')"><div class="option-text"><span class="option-main">Cobertura más completa</span><span class="option-sub">Quiero estar cubierto para todo con copagos bajos</span></div></button>
- <button class="option" onclick="selectOption(this,'prioridad','mis-medicos')"><div class="option-text"><span class="option-main">Mantener mis médicos actuales</span><span class="option-sub">Mis médicos y especialistas son lo más importante</span></div></button>
- <button class="option" onclick="selectOption(this,'prioridad','rapido')"><div class="option-text"><span class="option-main">Conseguir cobertura lo más rápido posible</span><span class="option-sub">Necesito que la cobertura comience rápido</span></div></button>
- </div>
- </div>
-
- <!-- PASO 6: Información de Contacto -->
- <div class="step" id="step-6" style="display:none;">
- <div class="step-q">¡Casi terminamos! ¿Cómo podemos enviarte tus resultados personalizados?</div>
- <div class="step-hint">Tu información es privada y nunca se comparte. La usaremos para enviarte tu comparación personalizada de planes.</div>
- <div class="contact-fields">
- <div class="contact-field">
- <label class="contact-label" for="contact-first-name">Nombre</label>
- <input type="text" id="contact-first-name" class="contact-input" placeholder="Juan" required>
- </div>
- <div class="contact-field">
- <label class="contact-label" for="contact-last-name">Apellido</label>
- <input type="text" id="contact-last-name" class="contact-input" placeholder="Pérez" required>
- </div>
- <div class="contact-field">
- <label class="contact-label" for="contact-phone">Teléfono</label>
- <input type="tel" id="contact-phone" class="contact-input" placeholder="(305) 555-0100" required>
- </div>
- <div class="contact-field">
- <label class="contact-label" for="contact-email">Correo Electrónico</label>
- <input type="email" id="contact-email" class="contact-input" placeholder="juan@ejemplo.com" required>
- </div>
- <div class="consent-wrap">
- <label class="consent-checkbox">
- <input type="checkbox" id="contact-consent" required>
- <div class="consent-text">
- <strong>Permiso para Contactar:</strong> Doy mi consentimiento para recibir correos electrónicos, llamadas telefónicas, mensajes de texto y mensajes artificiales o pregrabados de agentes de seguros con licencia de The Health Experts Insurance, sobre planes de seguro médico y productos y servicios relacionados, al correo electrónico y número de teléfono proporcionados, incluyendo mi número inalámbrico (si se proporcionó), independientemente de si está en cualquier lista de no llamar, utilizando un sistema de marcado telefónico automatizado. Entiendo que se aplican las tarifas estándar de mensajes y datos de mi proveedor inalámbrico. Entiendo que puedo revocar este consentimiento en cualquier momento. Entiendo que tengo la opción de hablar con un agente de seguros con licencia sin otorgar este consentimiento llamando al <a href="tel:18003806821">1-800-380-6821</a> TTY 711.
- </div>
- </label>
- </div>
- </div>
- </div>
-
- <!-- BOTONES DE NAVEGACIÓN -->
- <div style="display:flex;gap:10px;margin-top:22px;">
- <button style="background:none;border:2px solid var(--gray-mid);color:var(--gray-text);padding:12px 22px;border-radius:50px;font-size:18px;font-weight:700;cursor:pointer;font-family:var(--font);transition:all 0.2s;display:none;" id="btn-volver" onclick="pasoAnterior()">← Volver</button>
- <button style="background:var(--purple);color:white;border:none;padding:12px 28px;border-radius:50px;font-size:18px;font-weight:700;cursor:pointer;font-family:var(--font);transition:all 0.2s;flex:1;display:none;" id="btn-continuar">Continuar →</button>
- <button class="btn-submit-contact" id="btn-submit-contact" onclick="enviarContacto()">Ver Mis Resultados →</button>
- </div>
-
- </div>
-
- <!-- RESULTADO -->
- <div class="result-card" id="result-card">
- <div id="result-inner"></div>
- <button class="result-restart" onclick="restartQuiz()">← Empezar de nuevo</button>
- </div>
-
- <div class="trust-bar" id="trust-bar">
- <div class="trust-item">Corredores con licencia</div>
- <div class="trust-item">Español &amp; English</div>
- <div class="trust-item">Sin spam</div>
- <div class="trust-item">100% gratis</div>
- </div>
+<!-- MINIMAL HEADER -->
+<div class="mini-header">
+ <a href="/es/recursos" class="mini-back">
+ <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#452068" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+ Recursos
+ </a>
+ <a href="/es/" class="mini-logo"><img src="/images/logo.webp" alt="The Health Experts Insurance"></a>
+ <a href="tel:18003806821" class="mini-phone">
+ <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#452068" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 1.27h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.91a16 16 0 0 0 6.29 6.29l.91-.91a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+ 1-800-380-6821
+ </a>
 </div>
+
+<!-- QUIZ SHELL -->
+<div class="quiz-shell">
+
+  <!-- HEADER -->
+  <div class="quiz-header">
+    <div class="quiz-eyebrow">Gratis &middot; 2 minutos &middot; Sin obligación</div>
+    <h1 class="quiz-headline">¿Qué tipo de cobertura le encaja?</h1>
+    <p class="quiz-subhead">Cinco preguntas. Le diremos si el Mercado, un plan privado o Medicare es el siguiente paso &mdash; y si es probable un crédito fiscal. Un corredor con licencia compara planes reales del área de Miami después. La inscripción abierta del Mercado 2027 empieza el 1 de noviembre.</p>
+  </div>
+
+  <!-- PROGRESS -->
+  <div class="progress-wrap" id="progress-wrap">
+    <div class="progress-bar-bg"><div class="progress-bar-fill" id="progress-fill" style="width:20%;"></div></div>
+    <div class="progress-label" id="progress-label">Pregunta 1 de 5</div>
+  </div>
+
+  <!-- 65+ EXIT SCREEN -->
+  <div id="exit-screen" style="display:none;">
+    <div class="quiz-card">
+      <div style="text-align:center;margin-bottom:20px;">
+        <div style="font-size:48px;margin-bottom:12px;">&#128269;</div>
+        <h2 style="font-size:22px;font-weight:700;color:#1a1a1a;margin-bottom:14px;line-height:1.3;">Medicare funciona distinto &mdash; y eso es una buena noticia.</h2>
+        <p style="font-size:18px;color:#3a2f47;line-height:1.7;margin-bottom:20px;">A los 65 es elegible para Medicare, con sus propios planes, ventanas de inscripción y programas de ayuda. Este quiz es para menores de 65, así que no le dará una respuesta útil.</p>
+        <p style="font-size:18px;color:#1a1a1a;font-weight:700;margin-bottom:16px;">Vaya aquí en su lugar:</p>
+        <div style="display:flex;flex-direction:column;gap:10px;margin-bottom:20px;">
+          <a href="/es/calculadora-advantage-vs-suplemento/" style="display:block;background:#452068;color:white;padding:14px;border-radius:50px;font-weight:700;font-size:18px;text-decoration:none;text-align:center;">Calculadora Advantage vs Suplementario</a>
+          <a href="/es/calculadora-medigap/" style="display:block;background:#f4eefa;color:#452068;padding:14px;border-radius:50px;font-weight:700;font-size:18px;text-decoration:none;text-align:center;">Comparar Plan G vs N vs HD G</a>
+          <a href="/es/planes-de-medicare-miami" style="display:block;background:#f4eefa;color:#452068;padding:14px;border-radius:50px;font-weight:700;font-size:18px;text-decoration:none;text-align:center;">Planes de Medicare en Miami</a>
+          <a href="https://calendly.com/healthexps-info/" target="_blank" rel="noopener" style="display:block;background:#ff1090;color:white;padding:14px;border-radius:50px;font-weight:700;font-size:18px;text-decoration:none;text-align:center;">Hablar con un corredor con licencia &mdash; gratis</a>
+        </div>
+        <p style="font-size:16px;color:#3a2f47;line-height:1.6;border-top:1px solid #e5e5e5;padding-top:16px;">¿Sigue con cobertura del empleador, o ayuda a un familiar menor de 65? Llámenos al <a href="tel:18003806821" style="color:#452068;font-weight:600;">1-800-380-6821</a> &mdash; le orientamos sin costo.</p>
+      </div>
+    </div>
+    <!-- MEDICARE LEAD CAPTURE -->
+    <div class="quiz-card" style="margin-top:20px;" id="mc-lead-card">
+      <h3 style="font-size:18px;font-weight:700;color:#1a1a1a;margin-bottom:8px;">¿Quiere que un corredor con licencia le llame sobre Medicare?</h3>
+      <p style="font-size:17px;color:#3a2f47;margin-bottom:20px;line-height:1.6;">Gratis, bilingüe, sin obligación. Revisamos sus opciones y lo que le trabe.</p>
+      <div id="mc-success" style="display:none;background:#f0fdf4;border:2px solid #16a34a;border-radius:14px;padding:16px;font-size:17px;color:#166534;line-height:1.6;margin-bottom:16px;">
+        Listo &mdash; un agente bilingüe con licencia le contactará. ¿Lo necesita antes? Llame al <a href="tel:18003806821" style="color:#166534;font-weight:600;">1-800-380-6821</a> or WhatsApp <a href="https://wa.me/13054646888" onclick="gtag('event','whatsapp_click',{'page':window.location.pathname})" style="color:#166534;font-weight:600;">(305) 464-6888</a>.
+      </div>
+      <div class="contact-fields" id="mc-form-fields">
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;">
+          <div class="contact-field">
+            <label class="contact-label" for="mc-first">Nombre</label>
+            <input type="text" id="mc-first" class="contact-input" placeholder="Nombre">
+          </div>
+          <div class="contact-field">
+            <label class="contact-label" for="mc-last">Apellido</label>
+            <input type="text" id="mc-last" class="contact-input" placeholder="Apellido">
+          </div>
+        </div>
+        <div class="contact-field">
+          <label class="contact-label" for="mc-phone">Teléfono</label>
+          <input type="tel" id="mc-phone" class="contact-input" placeholder="(305) 555-0100">
+        </div>
+        <div class="contact-field">
+          <label class="contact-label" for="mc-email">Correo</label>
+          <input type="email" id="mc-email" class="contact-input" placeholder="your@email.com">
+        </div>
+        <div class="contact-field">
+          <label class="contact-label" for="mc-situation">¿Qué está pasando?</label>
+          <select id="mc-situation" class="contact-input" style="background:white;cursor:pointer;">
+            <option value="">Seleccione...</option>
+            <option value="new_to_medicare">Soy nuevo en Medicare / cumplo 65</option>
+            <option value="review_plan">Quiero revisar mi plan actual</option>
+            <option value="dual_eligible">Tengo Medicare y Medicaid</option>
+            <option value="plan_changing">Mi plan cambia o se va de mi área</option>
+            <option value="questions">Solo tengo preguntas</option>
+          </select>
+        </div>
+        <div class="consent-wrap">
+          <label class="consent-checkbox">
+            <input type="checkbox" id="mc-consent">
+            <div class="consent-text">
+              <strong>Permiso para contactarle:</strong> I consent to receive e-mails, telephone calls, text messages, and artificial or pre-recorded messages from licensed insurance agents with The Health Experts Insurance, regarding health insurance plans and related products and services, at the e-mail address and telephone number provided above, including my wireless number (if provided), and regardless of whether it is on any do not call list, using an automated telephone dialing system. I understand that my wireless carrier&rsquo;s standard message and data rates apply. I understand that I may revoke this consent at any time. I understand that I have the option to speak with a licensed insurance agent without granting this consent by calling <a href="tel:18003806821">1-800-380-6821</a> TTY 711.
+            </div>
+          </label>
+        </div>
+      </div>
+      <div id="mc-error" style="display:none;color:#dc2626;font-size:16px;margin-top:8px;"></div>
+      <button onclick="submitMedicareExit()" id="mc-submit-btn" style="margin-top:16px;background:#452068;color:white;border:none;padding:14px 28px;border-radius:50px;font-size:18px;font-weight:700;cursor:pointer;font-family:Arial,Helvetica,sans-serif;width:100%;transition:background 0.2s;">Que un corredor me llame</button>
+      <div class="tpmo-disclaimer" style="margin-top:20px;">Medicare has not reviewed or endorsed this information. We do not offer every plan available in your area. We currently represent 14 organizations offering 82 products in your area. Please contact Medicare.gov, 1-800-MEDICARE, or your local SHIP program for information about all your options.</div>
+    </div>
+    <div class="trust-bar" style="margin-top:20px;">
+      <div class="trust-item">Corredores con licencia</div>
+      <div class="trust-item">Inglés y español</div>
+      <div class="trust-item">Sin spam &mdash; nunca</div>
+      <div class="trust-item">100% gratis</div>
+    </div>
+  </div><!-- /exit-screen -->
+
+  <!-- QUIZ CARD -->
+  <div class="quiz-card" id="quiz-card">
+
+    <!-- STEP 1: Age -->
+    <div class="step" id="step-1">
+      <div class="step-q">¿Qué edad tiene?</div>
+      <div class="step-hint">Esto afecta qué planes puede comprar y cuánto cuestan.</div>
+      <div class="options">
+        <button class="option" onclick="selectOption(this,'age','18-30')"><div class="option-text"><span class="option-main">18 &ndash; 30</span><span class="option-sub">Las primas más bajas de la curva ACA &mdash; y menores de 30 también pueden usar planes catastróficos</span></div></button>
+        <button class="option" onclick="selectOption(this,'age','31-49')"><div class="option-text"><span class="option-main">31 &ndash; 49</span><span class="option-sub">Mercado ACA y planes privados disponibles</span></div></button>
+        <button class="option" onclick="selectOption(this,'age','50-63')"><div class="option-text"><span class="option-main">50 &ndash; 63</span><span class="option-sub">Las primas suben en este rango &mdash; aquí más importa el subsidio</span></div></button>
+        <button class="option" onclick="selectOption(this,'age','64')"><div class="option-text"><span class="option-main">64 &mdash; cumplo 65 este año</span><span class="option-sub">Puede necesitar un plan puente antes de Medicare</span></div></button>
+        <button class="option" onclick="selectOption(this,'age','65-plus')"><div class="option-text"><span class="option-main">65 o más</span><span class="option-sub">Es elegible para Medicare &mdash; aplican otras reglas</span></div></button>
+      </div>
+    </div>
+
+    <!-- STEP 2: Coverage -->
+    <div class="step" id="step-2" style="display:none;">
+      <div class="step-q">¿Cuál es su situación de seguro médico ahora?</div>
+      <div class="step-hint">Esto nos ayuda a entender su plazo y urgencia.</div>
+      <div class="options">
+        <button class="option" onclick="selectOption(this,'coverage','none')"><div class="option-text"><span class="option-main">No tengo cobertura ahora</span><span class="option-sub">Necesito cobertura lo antes posible</span></div></button>
+        <button class="option" onclick="selectOption(this,'coverage','losing')"><div class="option-text"><span class="option-main">Voy a perder la cobertura pronto</span><span class="option-sub">Pérdida de empleo, COBRA que termina, o plan cancelado</span></div></button>
+        <button class="option" onclick="selectOption(this,'coverage','cobra')"><div class="option-text"><span class="option-main">Estoy en COBRA &mdash; es muy caro</span><span class="option-sub">Busco una opción más económica</span></div></button>
+        <button class="option" onclick="selectOption(this,'coverage','renewing')"><div class="option-text"><span class="option-main">Voy a renovar cobertura del Mercado</span><span class="option-sub">Quiero comparar antes de renovar</span></div></button>
+        <button class="option" onclick="selectOption(this,'coverage','turning_26')"><div class="option-text"><span class="option-main">Cumplo 26 y salgo del plan de mis padres</span><span class="option-sub">Esto abre un Período de Inscripción Especial de 60 días</span></div></button>
+        <button class="option" onclick="selectOption(this,'coverage','other')"><div class="option-text"><span class="option-main">Otro</span><span class="option-sub">Descríbalo abajo</span></div></button>
+      </div>
+      <div id="other-input-wrap" style="display:none;margin-top:14px;">
+        <textarea id="other-input" placeholder="Cuéntenos más sobre su situación..." style="width:100%;padding:12px;border:2px solid #e5e5e5;border-radius:14px;font-family:Arial,Helvetica,sans-serif;font-size:17px;min-height:80px;resize:vertical;"></textarea>
+      </div>
+    </div>
+
+    <!-- STEP 3: Household -->
+    <div class="step" id="step-3" style="display:none;">
+      <div class="step-q">¿Cuántas personas necesitan cobertura?</div>
+      <div class="step-hint">Cuente a todos en la solicitud. Un padre más un hijo son dos personas &mdash; igual que una pareja.</div>
+      <div class="options-grid">
+        <button class="option-grid-btn" onclick="selectGrid(this,'household','1')"><div class="ogb-main">Solo yo</div><div class="ogb-sub">1 persona</div></button>
+        <button class="option-grid-btn" onclick="selectGrid(this,'household','2')"><div class="ogb-main">2 personas</div><div class="ogb-sub">Usted + cónyuge o hijo</div></button>
+        <button class="option-grid-btn" onclick="selectGrid(this,'household','3')"><div class="ogb-main">3 personas</div><div class="ogb-sub">Usted + 2 más</div></button>
+        <button class="option-grid-btn" onclick="selectGrid(this,'household','4plus')"><div class="ogb-main">4 o más</div><div class="ogb-sub">Hogar más grande</div></button>
+      </div>
+    </div>
+
+    <!-- STEP 4: Income (FPL-based, recalculates from Q3) -->
+    <div class="step" id="step-4" style="display:none;">
+      <div class="step-q">¿Cuál es el ingreso estimado del hogar para 2026?</div>
+      <div class="step-hint">Los subsidios se basan en el ingreso estimado de este año &mdash; no el del año pasado. Si bajó, eso le favorece.</div>
+      <div class="options-grid">
+        <button class="option-grid-btn" id="q4-btn-under" onclick="selectGrid(this,'income','under_100fpl')"><div class="ogb-main" id="q4-under-label">Under $15,650</div><div class="ogb-sub">Florida no expandió Medicaid. Niños, embarazo y algunas discapacidades sí pueden calificar</div></button>
+        <button class="option-grid-btn" id="q4-btn-range" onclick="selectGrid(this,'income','100_400fpl')"><div class="ogb-main" id="q4-range-label">$15,650 &ndash; $62,600</div><div class="ogb-sub">Este es el rango donde aplican créditos fiscales a la prima en 2026</div></button>
+        <button class="option-grid-btn" id="q4-btn-over" onclick="selectGrid(this,'income','over_400fpl')"><div class="ogb-main" id="q4-over-label">Over $62,600</div><div class="ogb-sub">Sobre el tope de subsidio 2026 &mdash; el Mercado suele no tener crédito</div></button>
+        <button class="option-grid-btn" onclick="selectGrid(this,'income','unsure')"><div class="ogb-main">No estoy seguro</div><div class="ogb-sub">Le ayudamos a estimarlo</div></button>
+      </div>
+    </div>
+
+    <!-- STEP 5: Priority -->
+    <div class="step" id="step-5" style="display:none;">
+      <div class="step-q">¿Qué le importa más en un plan de salud?</div>
+      <div class="step-hint">Esto cambia qué comparamos primero. No lo ata a un solo tipo de plan.</div>
+      <div class="options">
+        <button class="option" onclick="selectOption(this,'priority','low-premium')"><div class="option-text"><span class="option-main">Prima mensual más baja</span><span class="option-sub">Prefiero pagar menos al mes, aunque pague más cuando uso atención</span></div></button>
+        <button class="option" onclick="selectOption(this,'priority','best-coverage')"><div class="option-text"><span class="option-main">La cobertura más completa</span><span class="option-sub">Quiero estar cubierto para todo con copagos bajos</span></div></button>
+        <button class="option" onclick="selectOption(this,'priority','my-doctors')"><div class="option-text"><span class="option-main">Conservar mis médicos actuales</span><span class="option-sub">Mis médicos y especialistas importan más</span></div></button>
+        <button class="option" onclick="selectOption(this,'priority','fast-coverage')"><div class="option-text"><span class="option-main">Cubrirme lo más rápido posible</span><span class="option-sub">Necesito que la cobertura empiece pronto &mdash; poco papeleo</span></div></button>
+      </div>
+    </div>
+
+    <!-- STEP RESULT: shown after Q5, before contact form -->
+    <div class="step" id="step-result" style="display:none;">
+      <div id="result-headline" style="font-size:20px;font-weight:700;color:#1a1a1a;margin-bottom:12px;line-height:1.3;"></div>
+      <div id="result-body" class="result-body"></div>
+      <ul id="result-bullets" class="result-bullets"></ul>
+      <div id="result-priority" class="result-priority" style="display:none;"></div>
+      <div id="result-link-wrap" style="margin-bottom:16px;"></div>
+      <p style="font-size:17px;color:#3a2f47;line-height:1.6;margin-bottom:16px;">Este quiz no lista aseguradoras ni precios. Un corredor bilingüe con licencia puede comparar planes reales del área de Miami, redes y cualquier crédito &mdash; gratis, sin obligación.</p>
+      <button onclick="showContactStep()" style="background:#ff1090;color:white;border:none;padding:14px 28px;border-radius:50px;font-size:16px;font-weight:700;cursor:pointer;font-family:Arial,Helvetica,sans-serif;width:100%;margin-bottom:10px;transition:background 0.2s;">Que un corredor compare planes reales &rarr;</button>
+      <button onclick="goBackFromResult()" style="background:none;border:2px solid #e5e5e5;color:#3a2f47;padding:11px 22px;border-radius:50px;font-size:17px;font-weight:700;cursor:pointer;font-family:Arial,Helvetica,sans-serif;width:100%;">&larr; Atrás</button>
+    </div>
+
+    <!-- STEP 6: Contact form -->
+    <div class="step" id="step-6" style="display:none;">
+      <div class="step-q">¿Cómo debe contactarle un corredor?</div>
+      <div class="step-hint">Lo usamos para buscar planes en su ZIP. También puede saltarse el formulario y llamar al <a href="tel:18003806821">1-800-380-6821</a>.</div>
+      <div class="contact-fields">
+        <div class="contact-field">
+          <label class="contact-label" for="contact-first-name">Nombre</label>
+          <input type="text" id="contact-first-name" class="contact-input" placeholder="Nombre" required>
+        </div>
+        <div class="contact-field">
+          <label class="contact-label" for="contact-last-name">Apellido</label>
+          <input type="text" id="contact-last-name" class="contact-input" placeholder="Apellido" required>
+        </div>
+        <div class="contact-field">
+          <label class="contact-label" for="contact-phone">Teléfono</label>
+          <input type="tel" id="contact-phone" class="contact-input" placeholder="(305) 555-0100" required>
+        </div>
+        <div class="contact-field">
+          <label class="contact-label" for="contact-email">Correo</label>
+          <input type="email" id="contact-email" class="contact-input" placeholder="your@email.com" required>
+        </div>
+        <div class="contact-field">
+          <label class="contact-label" for="contact-zip">Código postal</label>
+          <input type="text" id="contact-zip" class="contact-input" inputmode="numeric" maxlength="5" pattern="[0-9]{5}" placeholder="33101" autocomplete="postal-code">
+        </div>
+        <div class="consent-wrap">
+          <label class="consent-checkbox">
+            <input type="checkbox" id="contact-consent" required>
+            <div class="consent-text">
+              <strong>Permiso para contactarle:</strong> I consent to receive e-mails, telephone calls, text messages, and artificial or pre-recorded messages from licensed insurance agents with The Health Experts Insurance, regarding health insurance plans and related products and services, at the e-mail address and telephone number provided above, including my wireless number (if provided), and regardless of whether it is on any do not call list, using an automated telephone dialing system. I understand that my wireless carrier&rsquo;s standard message and data rates apply. I understand that I may revoke this consent at any time. I understand that I have the option to speak with a licensed insurance agent without granting this consent by calling <a href="tel:18003806821">1-800-380-6821</a> TTY 711.
+            </div>
+          </label>
+        </div>
+      </div>
+      <div id="submit-error" style="display:none;color:#dc2626;font-size:16px;margin-top:8px;"></div>
+    </div>
+
+    <!-- NAV -->
+    <div class="quiz-nav" id="quiz-nav">
+      <button class="btn-back" id="btn-back" onclick="prevStep()" style="display:none;">&larr; Atrás</button>
+      <button class="btn-next" id="btn-next" onclick="nextStep()" disabled>Continue &rarr;</button>
+      <button class="btn-submit-contact" id="btn-submit-contact" onclick="submitContact()">Enviar a un corredor &rarr;</button>
+    </div>
+
+  </div><!-- /quiz-card -->
+
+  <!-- SUCCESS CARD (shown after submit) -->
+  <div class="result-card" id="result-card">
+    <div id="result-inner"></div>
+    <button class="result-restart" onclick="restartQuiz()">&larr; Start over</button>
+  </div>
+
+  <!-- TRUST BAR -->
+  <div class="trust-bar" id="trust-bar">
+    <div class="trust-item">Corredores con licencia</div>
+    <div class="trust-item">Inglés y español</div>
+    <div class="trust-item">Sin spam &mdash; nunca</div>
+    <div class="trust-item">100% gratis</div>
+  </div>
+
+</div><!-- /quiz-shell -->
 
 <div class="quiz-footer">
- © 2026 The Health Experts Insurance · 1695 NW 110 Ave Ste 224, Doral FL 33172<br>
- <a href="/es/privacidad">Política de Privacidad</a> · <a href="/es/contacto">Contacto</a> · <a href="/es/">Inicio</a><br><br>
- Somos agentes de seguros independientes con licencia. No ofrecemos todos los planes disponibles. Los estimados de subsidios ACA son aproximados — la elegibilidad real se determina al inscribirse.
+  &copy; 2026 The Health Experts Insurance &middot; 1695 NW 110 Ave Ste 224, Doral FL 33172<br>
+  <a href="/es/privacidad">Privacy Policy</a> &middot; <a href="/es/contacto">Contacto</a> &middot; <a href="/es/">Inicio</a><br><br>
+  We are licensed independent insurance agents. We do not offer every plan available. ACA subsidy estimates are approximate &mdash; actual eligibility determined at enrollment.
 </div>
 
 <script>
-const respuestas = {};
-const infoContacto = {};
-let pasoActual = 1;
-const totalPasos = 6;
+// ── FPL 2025 (used for 2026 Marketplace coverage) ────────────────────────────
+// Source: HHS ASPE & Federal Register Vol.90 No.11, Jan 17 2025
+// REFRESH: November 2026 for 2027 coverage year
+const FPL_2025 = {
+  1: { fpl100: 15650,  fpl400: 62600  },
+  2: { fpl100: 21150,  fpl400: 84600  },
+  3: { fpl100: 26650,  fpl400: 106600 },
+  4: { fpl100: 32150,  fpl400: 128600 }
+};
 
-function selectOption(btn, clave, valor) {
- btn.closest('.step').querySelectorAll('.option').forEach(b => b.classList.remove('selected'));
- btn.classList.add('selected');
- respuestas[clave] = valor;
- // Show "Other" text input if selected
- if(clave === 'cobertura' && valor === 'otro') {
- document.getElementById('other-input-wrap').style.display = 'block';
- document.getElementById('other-input').focus();
- } else if(clave === 'cobertura') {
- document.getElementById('other-input-wrap').style.display = 'none';
- }
- // Auto-advance (but not for "otro" or last quiz step)
- if(!(clave === 'cobertura' && valor === 'otro') && pasoActual < 5) {
- setTimeout(() => { siguientePaso(); }, 300);
- }
+// ── Result definitions ────────────────────────────────────────────────────────
+const RESULTS = {
+  bridge_64: {
+    headline: "You need coverage now and Medicare soon \u2014 we\u2019ll handle both",
+    link: "/es/seguro-medico-privado-miami",
+    linkLabel: "Cobertura privada antes de Medicare",
+    body: "Un plan puente corto puede cubrirle hasta que empiecen Parte A y B. No espere al mes en que cumple 65 para mirar Medicare.",
+    bullets: [
+      "Mercado o plan privado para los meses antes de Medicare",
+      "Una comparación Medigap o Advantage cuando esté en su ventana de inscripción",
+      "Cuide el reloj de 6 meses de Medigap que empieza con Parte B"
+    ]
+  },
+  cobra: {
+    headline: "COBRA isn\u2019t your only option \u2014 here are the three we compare",
+    link: "/es/alternativas-cobra-miami",
+    linkLabel: "Alternativas a COBRA en Miami",
+    body: "Perder el empleo o la cobertura del empleador suele abrir un Período de Inscripción Especial de 60 días. Las tres opciones:",
+    bullets: [
+      "An ACA Marketplace plan \u2014 often cheaper if you qualify for a tax credit",
+      "Un plan privado, si el plazo o los médicos no encajan en el Mercado",
+      "Quedarse en COBRA un tramo corto si solo necesita unos meses más"
+    ]
+  },
+  renewing: {
+    headline: "Renovar sin comparar es donde la gente paga de más",
+    link: "/es/planes-aca-miami",
+    linkLabel: "Planes del Mercado ACA en Miami",
+    body: "Las aseguradoras cambian primas, redes y formularios cada año. Su plan actual no está garantizado como el mejor.",
+    bullets: [
+      "Compare this year\u2019s Silver and Gold options before you auto-renew",
+      "Recheck the subsidy using this year\u2019s estimated income",
+      "La inscripción abierta 2027 empieza el 1 de noviembre"
+    ]
+  },
+  turning_26: {
+    headline: "You have 60 days \u2014 let\u2019s use them",
+    link: "/es/planes-aca-miami",
+    linkLabel: "Planes ACA al cumplir 26",
+    body: "Aging off a parent\u2019s plan is a qualifying event. The Special Enrollment Period is typically 60 days.",
+    bullets: [
+      "Planes del Mercado, incluso catastrófico si tiene menos de 30",
+      "A parent\u2019s plan only covers you through the month you turn 26",
+      "No espere al mes siguiente de su cumpleaños"
+    ]
+  },
+  over_400_50to63: {
+    headline: "A su edad, la prima sin subsidio es lo que duele",
+    link: "/es/seguro-medico-privado-miami",
+    linkLabel: "Planes privados en Miami",
+    body: "Sobre el 400% del nivel federal de pobreza, el Mercado 2026 suele no tener crédito fiscal. Comparamos el Mercado a precio completo contra opciones privadas.",
+    bullets: [
+      "Mercado sin subsidio vs. planes privados, lado a lado",
+      "Redes y deducibles importan más que la prima mensual sola",
+      "If your 2026 income dropped, you may still qualify for a credit \u2014 tell us"
+    ]
+  },
+  under30_subsidy: {
+    headline: "A su edad puede tener una opción extra: un plan catastrófico",
+    link: "/es/planes-aca-miami",
+    linkLabel: "Planes del Mercado ACA en Miami",
+    body: "Si califica para un crédito a la prima, compare un Silver subsidiado contra un plan catastrófico (disponible menores de 30).",
+    bullets: [
+      "Silver suele tener las mejores reducciones de costo compartido si el ingreso es más bajo",
+      "Catastrophic has a low premium and a high deductible \u2014 a bet you stay healthy",
+      "Igual revisamos médicos y recetas antes de inscribirse"
+    ]
+  },
+  under_100fpl: {
+    headline: "Florida didn\u2019t expand Medicaid \u2014 let\u2019s find what you can actually get",
+    link: "/es/planes-aca-miami",
+    linkLabel: "What\u2019s available in Florida",
+    body: "La mayoría de los adultos menores de 65 en Florida no califican a Medicaid solo por ingreso. Niños, embarazo y algunas discapacidades sí podrían.",
+    bullets: [
+      "Cobertura del Mercado si está en o sobre el mínimo para un crédito",
+      "Medicaid o CHIP para niños, embarazo o discapacidad que califique",
+      "No lo enviaremos a una solicitud que Florida solo va a negar"
+    ]
+  },
+  "100_400fpl": {
+    headline: "You\u2019re in the range where premium tax credits apply",
+    link: "/es/planes-aca-miami",
+    linkLabel: "Planes del Mercado ACA en Miami",
+    body: "En 2026, hogares entre 100% y 400% del nivel federal de pobreza pueden obtener un crédito a la prima. El monto exacto depende del ingreso, el tamaño del hogar y su ZIP.",
+    bullets: [
+      "Silver suele ser el plan que comparamos primero cuando hay crédito",
+      "Your credit is based on this year\u2019s estimated income, not last year\u2019s",
+      "A broker can run the real number \u2014 this quiz cannot"
+    ]
+  },
+  over_400fpl: {
+    headline: "Sobre el tope de subsidio 2026, el Mercado suele no tener crédito fiscal",
+    link: "/es/seguro-medico-privado-miami",
+    linkLabel: "Planes privados en Miami",
+    body: "Enhanced subsidies expired after 2025. Earning even $1 over 400% FPL usually means the full premium. We still compare Marketplace vs. private \u2014 the cheaper lane is not always obvious.",
+    bullets: [
+      "Mercado a precio completo vs. planes privados",
+      "If your income will drop this year, say so \u2014 the cliff is all-or-nothing",
+      "Médicos y deducible suelen importar más que el precio mensual"
+    ]
+  },
+  unsure: {
+    headline: "We\u2019ll run your subsidy check \u2014 it takes one conversation",
+    link: "/es/planes-aca-miami",
+    linkLabel: "Cómo funcionan los subsidios del Mercado",
+    body: "You do not need a perfect income number to start. We estimate from pay stubs or last year\u2019s return, then compare plans.",
+    bullets: [
+      "Tamaño del hogar + un rango aproximado de ingreso basta para empezar",
+      "Credits use this year\u2019s estimate, so a raise or a job loss changes the number",
+      "También puede llamar al 1-800-380-6821 y saltarse el formulario"
+    ]
+  }
+};
+
+function priorityNote() {
+  switch (answers.priority) {
+    case 'low-premium':
+      return 'You said lowest premium matters most. We start with Bronze and any subsidized Silver \u2014 knowing the deductible will be higher.';
+    case 'best-coverage':
+      return 'Dijo que importa la cobertura completa. Empezamos con Gold o un Silver de deducible bajo, luego vemos la prima después del crédito.';
+    case 'my-doctors':
+      return 'You want to keep your doctors. The next step is checking Miami-area networks \u2014 that is why we ask for your ZIP. Bring doctor names to the call.';
+    case 'fast-coverage':
+      return 'Necesita cobertura pronto. Perder el empleo, que termine COBRA o cumplir 26 suele dar 60 días. La cobertura a menudo empieza el 1 del mes siguiente.';
+    default:
+      return '';
+  }
 }
 
-function selectGrid(btn, clave, valor) {
- btn.closest('.step').querySelectorAll('.option-grid-btn').forEach(b => b.classList.remove('selected'));
- btn.classList.add('selected');
- respuestas[clave] = valor;
- // Auto-advance (but not on last quiz step)
- if(pasoActual < 5) {
- setTimeout(() => { siguientePaso(); }, 300);
- }
+function sepNote() {
+  const c = answers.coverage;
+  if (c === 'losing' || c === 'cobra' || c === 'turning_26') {
+    return 'Período de Inscripción Especial: suele tener 60 días desde el evento calificador. No espere.';
+  }
+  if (c === 'none') {
+    return 'If you have no qualifying event, you may need to wait for open enrollment (November 1\u2013January 15) unless you qualify another way.';
+  }
+  return '';
 }
 
-function siguientePaso() {
- if(pasoActual >= totalPasos){ return; }
- document.getElementById('step-'+pasoActual).style.display = 'none';
- pasoActual++;
- document.getElementById('step-'+pasoActual).style.display = 'block';
- actualizarProgreso();
- if(pasoActual === 6) {
-   document.getElementById('btn-continuar').style.display = 'none';
-   document.getElementById('btn-submit-contact').style.display = 'block';
- }
- document.getElementById('btn-volver').style.display = pasoActual > 1 ? 'block' : 'none';
+// ── State ─────────────────────────────────────────────────────────────────────
+const answers = {};
+let currentStep = 1;
+const TOTAL_Q   = 5;
+
+// ── Helpers ───────────────────────────────────────────────────────────────────
+function getHHSize() {
+  const h = answers.household;
+  if (h === '1') return 1;
+  if (h === '2') return 2;
+  if (h === '3') return 3;
+  return 4;
 }
 
-function pasoAnterior() {
- if(pasoActual <= 1) return;
- document.getElementById('step-'+pasoActual).style.display = 'none';
- pasoActual--;
- document.getElementById('step-'+pasoActual).style.display = 'block';
- actualizarProgreso();
- if(pasoActual < 6) {
-   document.getElementById('btn-continuar').style.display = 'block';
-   document.getElementById('btn-submit-contact').style.display = 'none';
- }
- document.getElementById('btn-volver').style.display = pasoActual > 1 ? 'block' : 'none';
+function fmtUSD(n) {
+  return '$' + n.toLocaleString('en-US');
 }
 
-function actualizarProgreso() {
- const pct = (pasoActual / totalPasos) * 100;
- document.getElementById('progress-fill').style.width = pct + '%';
- if(pasoActual <= 5) {
-   document.getElementById('progress-label').textContent = 'Pregunta ' + pasoActual + ' de 5';
- } else {
-   document.getElementById('progress-label').textContent = 'Casi terminamos...';
- }
+function renderQ4Labels() {
+  const sz  = Math.min(getHHSize(), 4);
+  const fpl = FPL_2025[sz];
+  const lo  = fmtUSD(fpl.fpl100);
+  const hi  = fmtUSD(fpl.fpl400);
+  document.getElementById('q4-under-label').textContent = 'Menos de ' + lo;
+  document.getElementById('q4-range-label').textContent = lo + ' \u2013 ' + hi;
+  document.getElementById('q4-over-label').textContent  = 'Más de ' + hi;
+  // Reset income selection when household changes
+  if (answers.income) {
+    delete answers.income;
+    document.getElementById('step-4').querySelectorAll('.option-grid-btn').forEach(b => b.classList.remove('selected'));
+    document.getElementById('btn-next').disabled = true;
+  }
 }
 
-async function enviarContacto() {
- // Validar campos de contacto
- const nombre = document.getElementById('contact-first-name').value.trim();
- const apellido = document.getElementById('contact-last-name').value.trim();
- const telefono = document.getElementById('contact-phone').value.trim();
- const correo = document.getElementById('contact-email').value.trim();
- const consentimiento = document.getElementById('contact-consent').checked;
-
- if(!nombre || !apellido || !telefono || !correo) {
-   alert('Por favor completa todos los campos de contacto.');
-   return;
- }
-
- if(!consentimiento) {
-   alert('Por favor acepta los términos de consentimiento para continuar.');
-   return;
- }
-
- // Deshabilitar botón y mostrar estado de carga
- const submitBtn = document.getElementById('btn-submit-contact');
- const textoOriginal = submitBtn.textContent;
- submitBtn.disabled = true;
- submitBtn.textContent = 'Enviando...';
-
- // Construir payload
- const payload = {
-   first_name: nombre,
-   last_name: apellido,
-   email: correo,
-   phone: telefono,
-   lang: 'spanish',
-   age_band: respuestas.edad === '65-mas' ? '65+' : respuestas.edad === '64' ? '64' : respuestas.edad === '55-63' ? '55-63' : respuestas.edad === 'menor-55' ? 'Under 55' : 'Under 55',
-   coverage_situation: respuestas.cobertura === 'ninguna' ? 'No tengo cobertura en este momento' : respuestas.cobertura === 'perdiendo' ? 'Voy a perder mi cobertura pronto' : respuestas.cobertura === 'cobra' ? 'Estoy en COBRA - es muy caro' : respuestas.cobertura === 'otro' && respuestas.otro_texto ? respuestas.otro_texto : 'Otro',
-   household_size: respuestas.hogar === '1' ? 'Solo yo' : respuestas.hogar === '2' ? 'Yo + pareja/cónyuge' : respuestas.hogar === '3' ? 'Familia de 3' : 'Familia de 4+',
-   income_band: respuestas.ingreso === 'menos-30k' ? 'Menos de $30,000' : respuestas.ingreso === '30k-60k' ? '$30,000-$60,000' : respuestas.ingreso === '60k-100k' ? '$60,000-$100,000' : respuestas.ingreso === '100k-150k' ? '$100,000-$150,000' : respuestas.ingreso === 'mas-150k' ? 'Más de $150,000' : 'No estoy seguro',
-   top_priority: respuestas.prioridad === 'prima-baja' ? 'Prima mensual más baja' : respuestas.prioridad === 'mejor-cobertura' ? 'Cobertura más completa' : respuestas.prioridad === 'mis-medicos' ? 'Mantener mis médicos actuales' : 'Conseguir cobertura lo más rápido posible',
-   source: 'ACA Quiz ES',
-   page: window.location.href,
-   submitted_at: new Date().toISOString()
- };
-
- try {
-   // POST al webhook de GHL
-   const response = await fetch('https://services.leadconnectorhq.com/hooks/RINM4TCnM4hN06UA1aK0/webhook-trigger/d36da03c-e92a-424a-9767-babcc77e884f', {
-     method: 'POST',
-     headers: { 'Content-Type': 'application/json' },
-     body: JSON.stringify(payload)
-   });
-
-   if(!response.ok) {
-     throw new Error('Webhook falló');
-   }
-
-   // Éxito - mostrar pantalla de resultados
-   mostrarResultado();
- } catch(error) {
-   console.error('Error del webhook:', error);
-   alert('Hubo un error. Llama al 1-800-380-6821.');
-   submitBtn.disabled = false;
-   submitBtn.textContent = textoOriginal;
- }
+function computeResult() {
+  const { age, coverage, income } = answers;
+  if (age === '64')           return 'bridge_64';
+  if (coverage === 'cobra')   return 'cobra';
+  if (coverage === 'renewing') return 'renewing';
+  if (coverage === 'turning_26') return 'turning_26';
+  if (age === '50-63' && income === 'over_400fpl') return 'over_400_50to63';
+  if (age === '18-30' && income === '100_400fpl')  return 'under30_subsidy';
+  if (income === 'under_100fpl') return 'under_100fpl';
+  if (income === '100_400fpl')   return '100_400fpl';
+  if (income === 'over_400fpl')  return 'over_400fpl';
+  return 'unsure';
 }
 
-function mostrarResultado() {
- document.getElementById('quiz-card').style.display = 'none';
- document.getElementById('progress-wrap').style.display = 'none';
- document.getElementById('trust-bar').style.display = 'none';
- document.querySelector('.quiz-header').style.display = 'none';
-
- const {edad, cobertura, hogar, ingreso, prioridad} = respuestas;
- let resultado;
-
- // Capture "Other" text if filled
- const otroInput = document.getElementById('other-input');
- if(cobertura === 'otro' && otroInput && otroInput.value.trim()) {
- respuestas.otro_texto = otroInput.value.trim();
- }
-
- if(edad === '65-mas') resultado = 'medicare';
- else if(edad === '64') resultado = 'puente';
- else if(ingreso === 'menos-30k') resultado = 'medicaid';
- else if(ingreso === '60k-100k' || ingreso === '100k-150k' || ingreso === 'mas-150k') resultado = 'seguro-privado';
- else if(cobertura === 'cobra') resultado = 'cobra-cambio';
- else if(ingreso === '30k-60k' || ingreso === 'no-se') resultado = 'aca-subsidio';
- else resultado = 'aca-comparar';
-
- const resultados = {
- 'aca-subsidio': {
- badge: 'Puedes calificar para ayuda económica',
- badgeColor: '#f0fdf4', badgeBorder: '#16a34a', badgeText: '#166534',
- ico: '',
- title: 'Planes ACA con subsidios pueden ser para ti',
- desc: 'Según tus respuestas, puedes calificar para un Crédito Fiscal de Prima que podría reducir significativamente tu prima mensual. Revisemos tus opciones juntos y veamos exactamente para qué calificas — muchas personas en tu situación pagan $0–$100/mes.',
- ahorro: true, ahorroTexto: 'Subsidio mensual posible',
- ahorroNum: ingreso === '30k-60k' ? '$200–$600+' : '$50–$300+',
- highlights: [
- { text: 'Verificaremos tu monto exacto de subsidio y te mostraremos todos los planes disponibles', color: '#16a34a' },
- { text: 'Comparar opciones del mercado ACA y seguro privado lado a lado', color: '#16a34a' },
- { text: 'Consulta gratis con corredores con licencia — sin obligación, sin presión', color: '#16a34a' }
- ],
- cta1: { text: 'Revisar Tus Opciones', href: 'https://www.healthsherpa.com/?_agent_id=sabri-perez' },
- },
- 'aca-sin-subsidio': {
- badge: 'Plan del Mercado ACA recomendado',
- badgeColor: '#f4eefa', badgeBorder: '#452068', badgeText: '#452068',
- ico: '',
- title: 'Un plan ACA probablemente es tu mejor opción',
- desc: 'Según tus ingresos, puede que no califiques para subsidios — pero los planes del Mercado ACA ofrecen cobertura completa sin exclusiones por condiciones preexistentes, y generalmente mejores beneficios que planes privados comparables.',
- ahorro: false,
- highlights: [
- { text: 'Los planes Gold y Platinum ofrecen copagos más bajos para quienes usan más el seguro', color: '#452068' },
- { text: 'Sin evaluación médica — cobertura independientemente de condiciones preexistentes', color: '#452068' },
- { text: 'Nuestros corredores comparan todas las aseguradoras sin costo para encontrar tu mejor opción', color: '#452068' }
- ],
- cta1: { text: 'Comparar Planes ACA Gratis', href: 'https://www.healthsherpa.com/?_agent_id=sabri-perez' },
- },
- 'cobra-cambio': {
- badge: 'Alternativa a COBRA encontrada',
- badgeColor: '#fff4ef', badgeBorder: '#ff6b35', badgeText: '#7c3d1a',
- ico: '',
- title: 'Casi siempre puedes conseguir algo mejor que COBRA',
- desc: 'COBRA es casi siempre la opción más cara — estás pagando la prima completa que tu empleador subsidiaba, más un cargo administrativo. En la mayoría de los casos, un plan ACA con subsidios puede darte cobertura comparable o mejor por mucho menos.',
- ahorro: true, ahorroTexto: 'Ahorro mensual típico vs. COBRA',
- ahorroNum: '$200–$800',
- highlights: [
- { text: 'Tienes 60 días desde perder la cobertura del empleador para inscribirte en un plan ACA', color: '#d97706' },
- { text: 'Si tus ingresos califican, un plan ACA con subsidios puede costar una fracción de lo que cobra COBRA', color: '#d97706' },
- { text: 'Los planes ACA cubren los mismos beneficios esenciales que la mayoría de los planes de empleador', color: '#d97706' }
- ],
- cta1: { text: 'Comparar Planes ACA — Supera a COBRA', href: 'https://www.healthsherpa.com/?_agent_id=sabri-perez' },
- },
- 'medicare': {
- badge: 'Elegible para Medicare',
- badgeColor: '#f4eefa', badgeBorder: '#452068', badgeText: '#452068',
- ico: '',
- title: 'Eres elegible para Medicare — encontremos tu mejor plan',
- desc: 'A los 65 años o más, Medicare es tu camino principal de cobertura — no un plan ACA privado. Los planes Medicare Advantage y Medicare Suplementario en el Sur de Florida ofrecen excelente cobertura, frecuentemente con primas de $0 y amplios beneficios adicionales.',
- ahorro: false,
- highlights: [
- { text: 'Muchos planes Medicare Advantage en Miami-Dade tienen $0 de prima mensual', color: '#452068' },
- { text: 'Los planes incluyen dental, visión, audición, artículos sin receta y cobertura de medicamentos', color: '#452068' },
- { text: 'Nuestros corredores bilingües comparan 14+ aseguradoras para ti sin costo', color: '#452068' }
- ],
- cta1: { text: 'Comparar Planes Medicare Gratis', href: '/es/contacto' },
- },
- 'puente': {
- badge: 'Próximo a cumplir 65',
- badgeColor: '#fff4ef', badgeBorder: '#d97706', badgeText: '#92400e',
- ico: '',
- title: 'Puede que necesites un plan puente antes de que comience Medicare',
- desc: 'A los 64 años, probablemente estés a menos de un año de ser elegible para Medicare. Dependiendo de tu situación, un plan ACA a corto plazo puede cubrirte hasta que comience tu cobertura de Medicare.',
- ahorro: false,
- highlights: [
- { text: 'Medicare comienza el primero del mes en que cumples 65 — planifica tu inscripción ahora', color: '#d97706' },
- { text: 'Un plan ACA a corto plazo puede cubrir el tiempo hasta que comience Medicare', color: '#d97706' },
- { text: 'Nuestros corredores manejan ambos — te configuramos ahora y te hacemos la transición a Medicare', color: '#d97706' }
- ],
- cta1: { text: 'Hablar con un Corredor — Planifica tu Transición', href: 'https://calendly.com/healthexps-info/' },
- },
- 'medicaid': {
- badge: 'Medicaid puede estar disponible',
- badgeColor: '#f0fdf4', badgeBorder: '#16a34a', badgeText: '#166534',
- ico: '',
- title: 'Puede que califiques para Medicaid o un plan ACA de $0',
- desc: 'Con tu nivel de ingresos, puede que califiques para Medicaid de Florida o un plan ACA con prima muy baja o sin prima. Nuestro equipo trabaja con ambos — verificamos tu elegibilidad y te ayudamos a obtener cobertura rápidamente.',
- ahorro: true, ahorroTexto: 'Prima mensual potencial',
- ahorroNum: '$0 – muy baja',
- highlights: [
- { text: 'Medicaid de Florida proporciona cobertura integral para personas de bajos ingresos que califican', color: '#16a34a' },
- { text: 'Los planes ACA Silver con Reducciones de Costo Compartido pueden tener deducibles y copagos muy bajos', color: '#16a34a' },
- { text: 'Nuestro equipo puede verificar la elegibilidad para Medicaid y ACA en una sola conversación', color: '#16a34a' }
- ],
- cta1: { text: 'Verificar Mi Elegibilidad Gratis', href: '/es/contacto' },
- },
- 'aca-comparar': {
- badge: 'Comparemos tus opciones',
- badgeColor: '#f4eefa', badgeBorder: '#452068', badgeText: '#452068',
- ico: '',
- title: 'Encontremos el plan correcto para tu situación',
- desc: 'Según tus respuestas, hay varias opciones sólidas que vale la pena comparar. Nuestros corredores revisarán planes ACA, opciones privadas y elegibilidad para subsidios — y te mostrarán la mejor opción para tus médicos, medicamentos y presupuesto.',
- ahorro: false,
- highlights: [
- { text: 'Comparamos todos los planes disponibles en tu código postal — no solo unos pocos', color: '#452068' },
- { text: 'Verificamos que tus médicos específicos están en la red antes de recomendar algo', color: '#452068' },
- { text: 'Sin costo, sin presión — orientación honesta en inglés o español', color: '#452068' }
- ],
- cta1: { text: 'Comparar Planes Gratis', href: '/es/contacto' },
- },
- 'seguro-privado': {
- badge: ' Seguro privado puede ser para ti',
- badgeColor: '#f4eefa', badgeBorder: '#452068', badgeText: '#452068',
- ico: '',
- title: 'Seguro privado puede ser para ti',
- desc: 'Según tus respuestas, los planes de seguro privado podrían ser una excelente opción — ofrecen redes más amplias, más flexibilidad y servicio premium. Los planes del mercado ACA también son una opción. Hablemos sobre tu situación específica para encontrar la mejor cobertura para tus necesidades y presupuesto.',
- ahorro: false,
- highlights: [
- { text: 'Compararemos opciones de seguro privado y ACA lado a lado', color: '#452068' },
- { text: 'Recomendaciones personalizadas basadas en tus médicos, medicamentos y presupuesto', color: '#452068' },
- { text: 'Sin presión, sin obligación — orientación honesta en español e inglés', color: '#452068' },
- { text: 'Consulta gratis con corredores con licencia que trabajan para ti, no para las aseguradoras', color: '#452068' }
- ],
- cta1: { text: 'Agenda Consulta Gratis', href: 'https://calendly.com/healthexps-info/' },
- }
- };
-
- const r = resultados[resultado];
- let html = `
- <div style="text-align:center;margin-bottom:20px;">
- <span class="result-badge" style="background:${r.badgeColor};border:1.5px solid ${r.badgeBorder};color:${r.badgeText};">${r.badge}</span>
- <div class="result-ico">${r.ico}</div>
- <h2 class="result-title">${r.title}</h2>
- </div>`;
-
- if(r.ahorro){
- html += `<div class="savings-callout"><div class="sc-ico"></div><div class="sc-text">${r.ahorroTexto}<span class="sc-num">${r.ahorroNum}</span>Basado en tus respuestas — un corredor confirmará el monto exacto</div></div>`;
- }
-
- html += `<p class="result-desc">${r.desc}</p><div class="result-highlights">`;
- r.highlights.forEach(h => {
- html += `<div class="result-highlight"><div class="rh-dot" style="background:${h.color};"><svg viewBox="0 0 12 12" fill="none"><polyline points="2,6 5,9 10,3" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div><div>${h.text}</div></div>`;
- });
- html += `</div><div class="result-ctas">
- <a href="${r.cta1.href}" class="btn-result-primary" target="_blank" rel="noopener">${r.cta1.text}</a>
- <a href="https://wa.me/13054646888" class="btn-result-wa" target="_blank" rel="noopener" onclick="gtag('event','whatsapp_click',{'page':window.location.pathname})">
- <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.123.556 4.116 1.526 5.845L0 24l6.335-1.508A11.945 11.945 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.818 9.818 0 01-5.006-1.368l-.359-.214-3.728.887.916-3.636-.234-.374A9.818 9.818 0 1112 21.818z"/></svg>
- WhatsApp — Respuesta más rápida
- </a>
- <a href="tel:18003806821" class="btn-result-call">Llama: 1-800-380-6821</a>
- </div>`;
-
- document.getElementById('result-inner').innerHTML = html;
- document.getElementById('result-card').classList.add('show');
- window.scrollTo({top:0,behavior:'smooth'});
+function getKeyForStep(s) {
+  return ['','age','coverage','household','income','priority','contact'][s] || '';
 }
 
+// ── Selection ─────────────────────────────────────────────────────────────────
+function selectOption(btn, key, val) {
+  btn.closest('.step').querySelectorAll('.option').forEach(b => b.classList.remove('selected'));
+  btn.classList.add('selected');
+  answers[key] = val;
+
+  if (key === 'coverage' && val === 'other') {
+    document.getElementById('other-input-wrap').style.display = 'block';
+    document.getElementById('other-input').focus();
+  } else if (key === 'coverage') {
+    document.getElementById('other-input-wrap').style.display = 'none';
+  }
+
+  document.getElementById('btn-next').disabled = false;
+
+  // 65+ exits quiz
+  if (key === 'age' && val === '65-plus') { showExitScreen(); return; }
+
+  // Auto-advance Q1-Q4 (not Q5, not "other")
+  if (!(key === 'coverage' && val === 'other') && currentStep < 5) {
+    setTimeout(() => { nextStep(); }, 300);
+  }
+}
+
+function selectGrid(btn, key, val) {
+  btn.closest('.step').querySelectorAll('.option-grid-btn').forEach(b => b.classList.remove('selected'));
+  btn.classList.add('selected');
+  answers[key] = val;
+  document.getElementById('btn-next').disabled = false;
+  if (currentStep < 5) {
+    setTimeout(() => { nextStep(); }, 300);
+  }
+}
+
+// ── Navigation ────────────────────────────────────────────────────────────────
+function nextStep() {
+  if (currentStep === 5)        { showResultStep(); return; }
+  if (currentStep === 'result') { showContactStep(); return; }
+  if (typeof currentStep !== 'number' || currentStep >= 6) return;
+
+  document.getElementById('step-' + currentStep).style.display = 'none';
+  currentStep++;
+  document.getElementById('step-' + currentStep).style.display = 'block';
+
+  if (currentStep === 4) renderQ4Labels();
+
+  updateProgress();
+  document.getElementById('btn-back').style.display = 'block';
+  document.getElementById('btn-next').disabled = !answers[getKeyForStep(currentStep)];
+
+  if (currentStep === 6) {
+    document.getElementById('btn-next').style.display = 'none';
+    document.getElementById('btn-submit-contact').style.display = 'block';
+  }
+}
+
+function prevStep() {
+  if (currentStep === 6) {
+    document.getElementById('step-6').style.display = 'none';
+    document.getElementById('btn-next').style.display = 'block';
+    document.getElementById('btn-submit-contact').style.display = 'none';
+    showResultStep(true); // restore result without recomputing
+    return;
+  }
+  if (typeof currentStep !== 'number' || currentStep <= 1) return;
+  document.getElementById('step-' + currentStep).style.display = 'none';
+  currentStep--;
+  document.getElementById('step-' + currentStep).style.display = 'block';
+  updateProgress();
+  document.getElementById('btn-next').disabled = false;
+  document.getElementById('btn-back').style.display = currentStep > 1 ? 'block' : 'none';
+}
+
+function goBackFromResult() {
+  document.getElementById('step-result').style.display = 'none';
+  document.getElementById('quiz-nav').style.display = 'flex';
+  currentStep = 5;
+  document.getElementById('step-5').style.display = 'block';
+  document.getElementById('btn-next').disabled = false;
+  document.getElementById('btn-back').style.display = 'block';
+  updateProgress();
+}
+
+// ── Special screens ───────────────────────────────────────────────────────────
+function showExitScreen() {
+  document.getElementById('quiz-card').style.display    = 'none';
+  document.getElementById('progress-wrap').style.display = 'none';
+  document.getElementById('trust-bar').style.display    = 'none';
+  document.querySelector('.quiz-header').style.display  = 'none';
+  document.getElementById('exit-screen').style.display  = 'block';
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+function renderResultCopy(key) {
+  const r = RESULTS[key] || RESULTS.unsure;
+  document.getElementById('result-headline').textContent = r.headline;
+  const body = document.getElementById('result-body');
+  if (body) body.textContent = r.body || '';
+  const ul = document.getElementById('result-bullets');
+  if (ul) {
+    ul.innerHTML = '';
+    (r.bullets || []).forEach(function (t) {
+      const li = document.createElement('li');
+      li.textContent = t;
+      ul.appendChild(li);
+    });
+    const sep = sepNote();
+    if (sep) {
+      const li = document.createElement('li');
+      li.textContent = sep;
+      ul.appendChild(li);
+    }
+  }
+  const pri = document.getElementById('result-priority');
+  const note = priorityNote();
+  if (pri) {
+    if (note) { pri.style.display = 'block'; pri.textContent = note; }
+    else { pri.style.display = 'none'; pri.textContent = ''; }
+  }
+  document.getElementById('result-link-wrap').innerHTML =
+    '<a href="' + r.link + '" style="display:block;text-align:center;padding:12px 18px;background:#f4eefa;border:2px solid #452068;border-radius:12px;color:#452068;font-size:17px;font-weight:600;text-decoration:none;">' +
+    (r.linkLabel || 'Saber más') + ' \u2192</a>';
+}
+
+function showResultStep(restore) {
+  if (!restore) {
+    const key = computeResult();
+    answers.result_shown = key;
+    renderResultCopy(key);
+  }
+  if (typeof currentStep === 'number') {
+    document.getElementById('step-' + currentStep).style.display = 'none';
+  }
+  document.getElementById('step-result').style.display = 'block';
+  document.getElementById('quiz-nav').style.display    = 'none';
+  currentStep = 'result';
+  document.getElementById('progress-fill').style.width   = '100%';
+  document.getElementById('progress-label').textContent  = 'Su coincidencia';
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+function showContactStep() {
+  document.getElementById('step-result').style.display      = 'none';
+  document.getElementById('step-6').style.display           = 'block';
+  document.getElementById('quiz-nav').style.display         = 'flex';
+  document.getElementById('btn-next').style.display         = 'none';
+  document.getElementById('btn-submit-contact').style.display = 'block';
+  document.getElementById('btn-back').style.display         = 'block';
+  currentStep = 6;
+  document.getElementById('progress-fill').style.width   = '100%';
+  document.getElementById('progress-label').textContent  = 'Casi listo\u2026';
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+// ── Progress ──────────────────────────────────────────────────────────────────
+function updateProgress() {
+  if (typeof currentStep !== 'number') return;
+  const pct = (currentStep / TOTAL_Q) * 100;
+  document.getElementById('progress-fill').style.width  = Math.min(pct, 100) + '%';
+  document.getElementById('progress-label').textContent =
+    currentStep <= 5 ? 'Question ' + currentStep + ' of 5' : 'Casi listo\u2026';
+}
+
+// ── GHL Submit (main quiz) ────────────────────────────────────────────────────
+async function submitContact() {
+  const firstName = document.getElementById('contact-first-name').value.trim();
+  const lastName  = document.getElementById('contact-last-name').value.trim();
+  const phone     = document.getElementById('contact-phone').value.trim();
+  const email     = document.getElementById('contact-email').value.trim();
+  const consent   = document.getElementById('contact-consent').checked;
+  const errEl     = document.getElementById('submit-error');
+
+  if (!firstName || !lastName || !phone || !email) {
+    errEl.textContent = 'Complete todos los campos.'; errEl.style.display = 'block'; return;
+  }
+  if (!consent) {
+    errEl.textContent = 'Acepte los términos de consentimiento.'; errEl.style.display = 'block'; return;
+  }
+  const zip = (document.getElementById('contact-zip') || {}).value.trim();
+  if (zip && !/^\d{5}$/.test(zip)) {
+    errEl.textContent = 'Ingrese un ZIP de 5 dígitos, o déjelo en blanco.'; errEl.style.display = 'block'; return;
+  }
+  errEl.style.display = 'none';
+
+  const btn = document.getElementById('btn-submit-contact');
+  btn.disabled = true; btn.textContent = 'Enviando\u2026';
+
+  const sz  = Math.min(getHHSize(), 4);
+  const fpl = FPL_2025[sz];
+
+  const otherText = (document.getElementById('other-input') || {}).value || '';
+
+  const payload = {
+    first_name:          firstName,
+    last_name:           lastName,
+    email:               email,
+    phone:               phone,
+    lang:                'spanish',
+    age_band:            answers.age || '',
+    coverage_situation:  (() => {
+      const c = answers.coverage;
+      if (c === 'none')       return 'Sin cobertura ahora';
+      if (c === 'losing')     return 'Va a perder cobertura pronto';
+      if (c === 'cobra')      return 'En COBRA';
+      if (c === 'renewing')   return 'Renueva cobertura del Mercado';
+      if (c === 'turning_26') return 'Turning 26, off parent\'s plan';
+      if (c === 'other')      return otherText || 'Other';
+      return c || '';
+    })(),
+    zip:                 (document.getElementById('contact-zip') || {}).value || '',
+    household_size:      (() => {
+      const h = answers.household;
+      if (h === '1')     return 'Solo yo';
+      if (h === '2')     return '2 personas';
+      if (h === '3')     return '3 personas';
+      return '4 o más';
+    })(),
+    income_band:         answers.income || 'unsure',
+    income_band_display: (() => {
+      const i = answers.income;
+      if (i === 'under_100fpl') return 'Under ' + fmtUSD(fpl.fpl100);
+      if (i === '100_400fpl')   return fmtUSD(fpl.fpl100) + ' \u2013 ' + fmtUSD(fpl.fpl400);
+      if (i === 'over_400fpl')  return 'Over ' + fmtUSD(fpl.fpl400);
+      return 'No estoy seguro';
+    })(),
+    top_priority:        (() => {
+      const p = answers.priority;
+      if (p === 'low-premium')   return 'Prima mensual más baja';
+      if (p === 'best-coverage') return 'La cobertura más completa';
+      if (p === 'my-doctors')    return 'Conservar mis médicos actuales';
+      return 'Cubrirme lo más rápido posible';
+    })(),
+    result_shown:        answers.result_shown || '',
+    source:              'ACA Quiz ES',
+    page:                window.location.href,
+    submitted_at:        new Date().toISOString()
+  };
+
+  try {
+    const res = await fetch('https://services.leadconnectorhq.com/hooks/RINM4TCnM4hN06UA1aK0/webhook-trigger/c3ed8125-4847-4ebb-aca6-a5aa7817b557', {
+      method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(payload)
+    });
+    if (!res.ok) throw new Error('Webhook failed');
+    showSuccessCard();
+  } catch(e) {
+    console.error(e);
+    btn.disabled = false; btn.textContent = 'Enviar a un corredor \u2192';
+    alert('Something went wrong. Please call us at 1-800-380-6821.');
+  }
+}
+
+function showSuccessCard() {
+  document.getElementById('quiz-card').style.display    = 'none';
+  document.getElementById('progress-wrap').style.display = 'none';
+  document.getElementById('trust-bar').style.display    = 'none';
+  document.querySelector('.quiz-header').style.display  = 'none';
+  const r  = RESULTS[answers.result_shown || 'unsure'];
+  const link = r ? r.link : '/es/planes-aca-miami';
+  document.getElementById('result-inner').innerHTML = `
+    <div style="text-align:center;margin-bottom:20px;">
+      <div style="font-size:48px;margin-bottom:12px;">&#10003;</div>
+      <h2 style="font-size:22px;font-weight:700;color:#1a1a1a;margin-bottom:12px;">${r ? r.headline : 'We\u2019ll be in touch shortly.'}</h2>
+      <p style="font-size:18px;color:#3a2f47;line-height:1.7;margin-bottom:20px;">A licensed bilingual broker will reach out shortly. Need us sooner?</p>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:10px;">
+      <a href="${link}" style="display:block;background:#452068;color:white;padding:14px;border-radius:50px;font-weight:700;font-size:18px;text-decoration:none;text-align:center;">Explore your options &rarr;</a>
+      <a href="https://wa.me/13054646888" style="display:flex;align-items:center;justify-content:center;gap:8px;background:#25D366;color:white;padding:14px;border-radius:50px;font-weight:700;font-size:18px;text-decoration:none;" onclick="gtag('event','whatsapp_click',{'page':window.location.pathname})">&#128172; WhatsApp Us</a>
+      <a href="tel:18003806821" style="display:block;background:#f4eefa;color:#452068;padding:14px;border-radius:50px;font-weight:700;font-size:18px;text-decoration:none;text-align:center;">Call 1-800-380-6821</a>
+    </div>`;
+  document.getElementById('result-card').classList.add('show');
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+// ── Medicare Exit Screen Submit ───────────────────────────────────────────────
+async function submitMedicareExit() {
+  const firstName = document.getElementById('mc-first').value.trim();
+  const lastName  = document.getElementById('mc-last').value.trim();
+  const phone     = document.getElementById('mc-phone').value.trim();
+  const email     = document.getElementById('mc-email').value.trim();
+  const situation = document.getElementById('mc-situation').value;
+  const consent   = document.getElementById('mc-consent').checked;
+  const errEl     = document.getElementById('mc-error');
+
+  if (!firstName || !lastName || !phone || !email) {
+    errEl.textContent = 'Complete todos los campos.'; errEl.style.display = 'block'; return;
+  }
+  if (!consent) {
+    errEl.textContent = 'Acepte los términos de consentimiento.'; errEl.style.display = 'block'; return;
+  }
+  errEl.style.display = 'none';
+
+  const btn = document.getElementById('mc-submit-btn');
+  btn.disabled = true; btn.textContent = 'Enviando\u2026';
+
+  const payload = {
+    first_name:         firstName,
+    last_name:          lastName,
+    email:              email,
+    phone:              phone,
+    lang:               'english',
+    medicare_situation: situation,
+    source:             'Medicare Exit Screen',
+    page:               window.location.href,
+    submitted_at:       new Date().toISOString()
+  };
+
+  try {
+    const res = await fetch('https://services.leadconnectorhq.com/hooks/RINM4TCnM4hN06UA1aK0/webhook-trigger/c3ed8125-4847-4ebb-aca6-a5aa7817b557', {
+      method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(payload)
+    });
+    if (!res.ok) throw new Error('Webhook failed');
+    document.getElementById('mc-form-fields').style.display = 'none';
+    document.getElementById('mc-submit-btn').style.display  = 'none';
+    document.getElementById('mc-success').style.display     = 'block';
+  } catch(e) {
+    console.error(e);
+    btn.disabled = false; btn.textContent = 'Que un corredor me llame';
+    alert('Something went wrong. Please call us at 1-800-380-6821.');
+  }
+}
+
+// ── Restart ───────────────────────────────────────────────────────────────────
 function restartQuiz() {
- Object.keys(respuestas).forEach(k => delete respuestas[k]);
- Object.keys(infoContacto).forEach(k => delete infoContacto[k]);
- pasoActual = 1;
- for(let i=1;i<=6;i++){
- const s = document.getElementById('step-'+i);
- if(s) {
-   s.style.display = i===1 ? 'block' : 'none';
-   s.querySelectorAll('.option,.option-grid-btn').forEach(b=>b.classList.remove('selected'));
- }
- }
- // Resetear formulario de contacto
- document.getElementById('contact-first-name').value = '';
- document.getElementById('contact-last-name').value = '';
- document.getElementById('contact-email').value = '';
- document.getElementById('contact-phone').value = '';
- document.getElementById('contact-consent').checked = false;
- document.getElementById('btn-continuar').style.display = 'block';
- document.getElementById('btn-submit-contact').style.display = 'none';
- document.getElementById('btn-volver').style.display = 'none';
- document.getElementById('quiz-card').style.display = 'block';
- document.getElementById('progress-wrap').style.display = 'block';
- document.getElementById('trust-bar').style.display = 'flex';
- document.querySelector('.quiz-header').style.display = 'block';
- document.getElementById('result-card').classList.remove('show');
- actualizarProgreso();
- window.scrollTo({top:0,behavior:'smooth'});
+  Object.keys(answers).forEach(k => delete answers[k]);
+  currentStep = 1;
+  for (let i = 1; i <= 6; i++) {
+    const s = document.getElementById('step-' + i);
+    if (s) { s.style.display = i === 1 ? 'block' : 'none'; s.querySelectorAll('.option,.option-grid-btn').forEach(b => b.classList.remove('selected')); }
+  }
+  const sr = document.getElementById('step-result');
+  if (sr) sr.style.display = 'none';
+  ['contact-first-name','contact-last-name','contact-phone','contact-email','contact-zip'].forEach(id => { const el = document.getElementById(id); if(el) el.value=''; });
+  const cc = document.getElementById('contact-consent'); if(cc) cc.checked = false;
+  document.getElementById('btn-next').style.display          = 'block';
+  document.getElementById('btn-next').disabled               = true;
+  document.getElementById('btn-submit-contact').style.display = 'none';
+  document.getElementById('btn-back').style.display          = 'none';
+  document.getElementById('quiz-nav').style.display          = 'flex';
+  document.getElementById('quiz-card').style.display         = 'block';
+  document.getElementById('progress-wrap').style.display     = 'block';
+  document.getElementById('trust-bar').style.display         = 'flex';
+  document.querySelector('.quiz-header').style.display       = 'block';
+  document.getElementById('result-card').classList.remove('show');
+  document.getElementById('other-input-wrap').style.display  = 'none';
+  updateProgress();
+  window.scrollTo({ top: 0, behavior: 'smooth' });
 }
 </script>
+<button id="scrollToTop" aria-label="Volver arriba">↑</button>
+<!-- FOOTER -->
+      <div id="site-footer" style="background:#fff;color:#241a30;padding:56px 56px 24px;border-top:1px solid #ece5f0">
+        <div style="max-width:1160px;margin:0 auto">
+          <div id="footer-grid" style="display:grid;grid-template-columns:1.3fr 1fr 1fr 1fr;gap:32px;margin-bottom:36px">
+            <div>
+              <img src="/images/logo.webp" alt="The Health Experts Insurance" style="height:70px;width:auto;margin-bottom:16px"/>
+              <p style="font-size:16px;color:#3a2f47;line-height:1.6;max-width:260px">Corredoras bilingües independientes con licencia. Oficina en Doral, FL.</p>
+              <div style="display:flex;flex-direction:column;gap:4px;margin-top:14px;font-size:16px">
+                <a href="tel:18003806821" style="color:#452068;font-weight:700">1-800-380-6821</a>
+                <a href="https://wa.me/13054646888" style="color:#452068;font-weight:700" onclick="gtag('event','whatsapp_click',{'page':window.location.pathname})">WhatsApp</a>
+                <a href="mailto:info@healthexps.com" style="color:#452068;font-weight:700">info@healthexps.com</a>
+              </div>
+              <p style="font-size:16px;color:#4a4051;margin-top:14px">1695 NW 110 Ave, Ste 224<br/>Doral, FL 33172</p>
+            </div>
+            <div>
+              <div style="font-weight:700;font-size:15px;letter-spacing:.06em;margin-bottom:14px;color:#452068">MEDICARE</div>
+              <div style="display:flex;flex-direction:column;gap:9px;font-size:16px">
+                <a href="/es/planes-de-medicare-miami" style="cursor:pointer;color:#241a30;font-weight:700">Planes de Medicare</a>
+                <a href="/es/medicare-advantage-miami" style="color:#4a4051">Medicare Advantage</a>
+                <a href="/es/medicare-suplementario-miami" style="color:#4a4051">Medicare Suplementario</a>
+                <a href="/es/medicare-medicaid-miami" style="cursor:pointer;color:#4a4051">Doble elegible (D-SNP)</a>
+                <a href="/es/buscador-de-planes" style="cursor:pointer;color:#4a4051">Buscador de planes</a>
+                <a href="/es/avmed-medicare-florida" style="color:#4a4051">Transición AvMed</a>
+              </div>
+            </div>
+            <div>
+              <div style="font-weight:700;font-size:15px;letter-spacing:.06em;margin-bottom:14px;color:#452068">GUÍAS MEDICARE</div>
+              <div style="display:flex;flex-direction:column;gap:9px;font-size:16px">
+                <a href="/es/preguntas-medicare" style="cursor:pointer;color:#4a4051">Qué es Medicare</a>
+                <a href="/es/nuevo-en-medicare-preview" style="cursor:pointer;color:#4a4051">Nuevo en Medicare</a>
+                <a href="/es/irmaa-penalidades-medicare" style="cursor:pointer;color:#4a4051">Costos de Medicare e IRMAA</a>
+                <a href="/es/medicare-advantage-miami" style="cursor:pointer;color:#4a4051">Guía de Medicare Advantage</a>
+                <a href="/es/medicare-suplementario-miami" style="cursor:pointer;color:#4a4051">Guía de Medicare Suplementario</a>
+                <a href="/es/programa-ahorros-medicare-preview" style="cursor:pointer;color:#4a4051">Programa de Ahorros Medicare</a>
+              </div>
+            </div>
+            <div>
+              <div style="font-weight:700;font-size:15px;letter-spacing:.06em;margin-bottom:14px;color:#452068">MÁS</div>
+              <div style="display:flex;flex-direction:column;gap:9px;font-size:16px">
+                <a href="/es/seguro-medico-privado-miami" style="cursor:pointer;color:#4a4051">Seguro médico privado</a>
+                <a href="/es/planes-aca-miami" style="cursor:pointer;color:#4a4051">Planes del Mercado ACA</a>
+                <a href="/es/alternativas-cobra-miami" style="cursor:pointer;color:#4a4051">Alternativas a COBRA</a>
+                <a href="/es/dental-vision-miami" style="cursor:pointer;color:#4a4051">Dental y visión</a>
+                <a href="/es/agente-de-medicare-miami" style="cursor:pointer;color:#4a4051">Nosotros</a>
+                <a href="/es/contacto" style="cursor:pointer;color:#4a4051">Contacto</a>
+                <a href="/health-insurance-quiz/" style="color:#4a4051">English site</a>
+              </div>
+            </div>
+          </div>
+          <div style="border-top:1px solid #ece5f0;padding-top:20px;font-size:16px;color:#4a4051">
+            © 2026 The Health Experts Insurance. <a href="/es/privacidad" style="color:#452068;font-weight:600">Privacidad y términos</a>
+          </div>
+          <div style="padding-top:12px;font-size:16px;color:#5a5068;line-height:1.6">
+            Medicare has not reviewed or endorsed this information. We do not offer every plan available in your area. We currently represent 14 organizations offering 82 products in your area. Please contact Medicare.gov, 1-800-MEDICARE, or your local SHIP program for information about all your options.
+          </div>
+        </div>
+      </div>
 
-  <!-- FOOTER -->
-  <div id="site-footer" class="footer-wrap" style="background:#fff;color:#241a30;padding:56px 56px 24px;border-top:1px solid #ece5f0">
-    <div style="max-width:1100px;margin:0 auto">
-      <div id="footer-grid" style="display:grid;grid-template-columns:1.3fr 1fr 1fr 1fr;gap:32px;margin-bottom:36px">
-        <div>
-          <img src="/images/logo.webp" alt="The Health Experts Insurance" style="height:70px;width:auto;margin-bottom:16px"/>
-          <p style="font-size:16px;color:#3a2f47;line-height:1.6;max-width:260px">Corredoras bilingües independientes con licencia. Oficina en Doral, FL.</p>
-          <div style="display:flex;flex-direction:column;gap:4px;margin-top:14px;font-size:16px">
-            <a href="tel:18003806821" style="color:#452068;font-weight:700">1-800-380-6821</a>
-            <a href="https://wa.me/13054646888" onclick="gtag('event','whatsapp_click',{'page':window.location.pathname})" style="color:#452068;font-weight:700">WhatsApp</a>
-            <a href="mailto:info@healthexps.com" style="color:#452068;font-weight:700">info@healthexps.com</a>
-          </div>
-          <p style="font-size:16px;color:#4a4051;margin-top:14px">1695 NW 110 Ave, Ste 224<br/>Doral, FL 33172</p>
-        </div>
-        <div>
-          <div style="font-weight:700;font-size:15px;letter-spacing:.06em;margin-bottom:14px;color:#452068">MEDICARE</div>
-          <div style="display:flex;flex-direction:column;gap:9px;font-size:16px">
-            <a href="/es/planes-de-medicare-miami" style="color:#241a30;font-weight:700">Planes de Medicare</a>
-            <a href="/es/medicare-advantage-miami" style="color:#4a4051">Medicare Advantage</a>
-            <a href="/es/medicare-suplementario-miami" style="color:#4a4051">Medicare Suplementario</a>
-            <a href="/es/medicare-medicaid-miami" style="color:#4a4051">Dual Elegible (D-SNP)</a>
-            <a href="/es/buscador-de-planes/" style="color:#4a4051">Buscador de Planes</a>
-          </div>
-        </div>
-        <div>
-          <div style="font-weight:700;font-size:15px;letter-spacing:.06em;margin-bottom:14px;color:#452068">GUÍAS</div>
-          <div style="display:flex;flex-direction:column;gap:9px;font-size:16px">
-            <a href="/es/medicare/que-es-medicare/" style="color:#4a4051">Qué es Medicare</a>
-            <a href="/es/medicare/nuevo-en-medicare/" style="color:#4a4051">Nuevo en Medicare</a>
-            <a href="/es/irmaa-penalidades-medicare/" style="color:#4a4051">Costos e IRMAA</a>
-            <a href="/es/medicare/programa-ahorros-medicare/" style="color:#4a4051">Programa de Ahorros</a>
-            <a href="/es/inscripcion-anual-medicare-2027/" style="color:#4a4051">Inscripción Anual</a>
-          </div>
-        </div>
-        <div>
-          <div style="font-weight:700;font-size:15px;letter-spacing:.06em;margin-bottom:14px;color:#452068">MÁS</div>
-          <div style="display:flex;flex-direction:column;gap:9px;font-size:16px">
-            <a href="/es/seguro-medico-privado-miami" style="color:#4a4051">Seguro Médico Privado</a>
-            <a href="/es/planes-aca-miami" style="color:#4a4051">Planes ACA</a>
-            <a href="/es/dental-vision-miami" style="color:#4a4051">Dental y Visión</a>
-            <a href="/es/blog/" style="color:#4a4051">Blog</a>
-            <a href="/es/agente-de-medicare-miami/" style="color:#452068;font-weight:700">Conócenos</a>
-            <a href="/es/contacto/" style="color:#4a4051">Contacto</a>
-          </div>
-        </div>
-      </div>
-      <div style="border-top:1px solid #ece5f0;padding-top:20px;font-size:16px;color:#4a4051">
-        © 2026 The Health Experts Insurance. <a href="/es/privacidad" style="color:#452068;font-weight:600">Política de Privacidad y Términos</a>
-      </div>
-      <div style="padding-top:12px;font-size:16px;color:#5a5068;line-height:1.6">
-        The Health Experts Insurance es una agencia de seguros independiente y licenciada en Doral, FL. No ofrecemos todos los planes disponibles en su área. Actualmente representamos 14 organizaciones que ofrecen 82 productos en su área. Comuníquese con Medicare.gov, 1-800-MEDICARE, o el programa SHIP local para obtener información sobre todas sus opciones. Medicare no ha revisado ni respaldado esta información.
-      </div>
     </div>
-  </div>
-
 
 <script>
+(function(){
+  var WEBHOOK = 'https://services.leadconnectorhq.com/hooks/RINM4TCnM4hN06UA1aK0/webhook-trigger/dc6c8b35-9480-412e-b56d-4a4c8c7bd438';
+  var form = document.getElementById('v4LeadForm');
+  if (!form) return;
+
+  form.addEventListener('submit', async function(e) {
+    e.preventDefault();
+    var btn      = document.getElementById('v4Submit');
+    var err      = document.getElementById('v4Error');
+    var first    = (document.getElementById('v4First') || {}).value || '';
+    var last     = (document.getElementById('v4Last') || {}).value || '';
+    var phone    = (document.getElementById('v4Phone') || {}).value || '';
+    var email    = (document.getElementById('v4Email') || {}).value || '';
+    var coverage = (document.getElementById('v4Coverage') || {}).value || '';
+    var consent  = document.getElementById('v4Consent') && document.getElementById('v4Consent').checked;
+
+    first = first.trim(); last = last.trim(); phone = phone.trim(); email = email.trim();
+
+    if (!first || !last || !phone || !email || !coverage || !consent) {
+      err.style.display = 'block';
+      err.textContent = 'Please fill in all required fields.';
+      return;
+    }
+    btn.disabled = true;
+    btn.textContent = 'Enviando...';
+    err.style.display = 'none';
+
+    try {
+      var res = await fetch(WEBHOOK, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          first_name: first,
+          last_name: last,
+          phone: phone,
+          email: email,
+          coverage_type: coverage,
+          source: 'Homepage Form',
+          page: window.location.href,
+          submitted_at: new Date().toISOString()
+        })
+      });
+      if (res.ok) {
+        form.style.display = 'none';
+        var success = document.getElementById('v4Success');
+        if (success) success.style.display = 'block';
+      } else { throw new Error('Server error'); }
+    } catch(ex) {
+      btn.disabled = false;
+      btn.textContent = 'Book My Consulta gratis →';
+      err.style.display = 'block';
+      err.textContent = 'Something went wrong. Please try again or call 1-800-380-6821.';
+    }
+  });
+})();
+</script>
+
+<script>
+// V4 hamburger toggle
 (function(){
   var btn = document.getElementById('v4HamburgerBtn');
   var closeBtn = document.getElementById('v4MobileClose');
@@ -790,23 +1366,29 @@ function restartQuiz() {
   }
   btn.addEventListener('click', openMenu);
   if (closeBtn) closeBtn.addEventListener('click', closeMenu);
+  // Close on Escape
   document.addEventListener('keydown', function(e){ if(e.key==='Escape') closeMenu(); });
 })();
 </script>
+
 <script>
+// V4 nav mobile — hover for desktop, click for mobile
 (function(){
   var navItems = document.querySelectorAll('.v4-nav-item');
   function isMobile(){ return window.innerWidth <= 900; }
   navItems.forEach(function(item){
     var drop = item.querySelector('.v4-nav-dropdown');
     if (!drop) return;
+    // Desktop: CSS handles hover; Mobile: toggle on click
     item.addEventListener('click', function(e){
       if (!isMobile()) return;
       var open = drop.style.display === 'block';
+      // Close all
       navItems.forEach(function(ni){ var d = ni.querySelector('.v4-nav-dropdown'); if(d) d.style.display=''; });
       drop.style.display = open ? '' : 'block';
     });
   });
+  // Close on outside click
   document.addEventListener('click', function(e){
     if (!isMobile()) return;
     navItems.forEach(function(item){
@@ -818,15 +1400,19 @@ function restartQuiz() {
   });
 })();
 </script>
-<button id="scrollToTop" aria-label="Volver al inicio">↑</button>
+
 <script>
 (function(){
-  var s=document.getElementById('scrollToTop');
-  if(!s)return;
-  window.addEventListener('scroll',function(){s.style.display=window.pageYOffset>300?'flex':'none';});
-  s.addEventListener('click',function(){window.scrollTo({top:0,behavior:'smooth'});});
+  var s = document.getElementById('scrollToTop');
+  if (!s) return;
+  var prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  window.addEventListener('scroll', function(){
+    s.style.display = window.pageYOffset > 300 ? 'flex' : 'none';
+  });
+  s.addEventListener('click', function(){
+    window.scrollTo({ top: 0, behavior: prefersReduced ? 'instant' : 'smooth' });
+  });
 })();
 </script>
-
 </body>
 </html>

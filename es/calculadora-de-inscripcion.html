@@ -105,6 +105,18 @@ a{text-decoration:none;color:inherit;}
 .cta-btns{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;}
 .cta-btn-pink{display:inline-block;background:#ff1090;color:white;padding:13px 24px;border-radius:50px;font-weight:700;font-size:18px;}
 .cta-btn-wa{display:inline-flex;align-items:center;gap:6px;background:#25D366;color:white;padding:13px 24px;border-radius:50px;font-weight:700;font-size:18px;}
+.calc-error{display:none;color:#b32d2d;font-weight:700;font-size:16px;margin:10px 0 0;}
+.windows-note{background:#fff;border:1px solid #e8e0f4;border-radius:14px;padding:16px 18px;margin:0 0 24px;font-size:16px;color:#3a2f47;line-height:1.6;box-shadow:0 2px 16px rgba(69,32,104,.06);}
+.enroll-more{margin:8px 0 16px;text-align:center;}
+.enroll-more-title{font-size:15px;font-weight:700;color:#452068;text-transform:uppercase;letter-spacing:.06em;margin-bottom:10px;}
+.enroll-more a{display:block;font-weight:700;margin:6px 0;color:#452068;}
+.enroll-share{border-top:2px dashed #e8e0f4;margin:8px 0 20px;padding-top:20px;text-align:center;}
+.enroll-share-label{font-size:14px;font-weight:700;color:#5a5068;text-transform:uppercase;letter-spacing:.08em;margin-bottom:8px;}
+.enroll-share-title{font-size:16px;font-weight:700;color:#452068;margin-bottom:16px;}
+.enroll-share-btns{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;}
+.enroll-copy-btn{display:inline-flex;align-items:center;background:#fff;color:#452068;padding:13px 24px;border-radius:50px;font-weight:700;font-size:17px;border:2px solid #e8e0f4;cursor:pointer;font-family:inherit;}
+.key-fact-box{background:#f0fdf4;border:2px solid #16a34a;border-radius:12px;padding:16px 20px;margin-bottom:16px;font-size:16px;color:#166534;line-height:1.7;}
+.urgency-box{border-radius:12px;padding:16px 20px;margin-bottom:16px;font-size:18px;font-weight:700;text-align:center;}
 
 /* SEP TRIGGER */
 .trigger-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;margin-bottom:20px;}
@@ -305,8 +317,13 @@ a{text-decoration:none;color:inherit;}
 
   <!-- TOOL TABS -->
   <div class="tool-tabs">
-    <button class="tool-tab active" id="tab-iep" onclick="switchTab('iep')" id="tab-iep-btn">Turning 65 (IEP)</button>
-    <button class="tool-tab" id="tab-sep" onclick="switchTab('sep')">Lost Coverage (SEP)</button>
+    <button class="tool-tab active" id="tab-iep" onclick="switchTab('iep')">Cumpliendo 65 (IEP)</button>
+    <button class="tool-tab" id="tab-sep" onclick="switchTab('sep')">Perdí cobertura (SEP)</button>
+  </div>
+
+  <div class="windows-note" id="aep-box">
+    <div id="aep-title" style="font-weight:700;margin-bottom:6px;color:#241a30">¿Ya tiene Medicare? Otras ventanas</div>
+    <div id="aep-body">AEP: del 15 de octubre al 7 de diciembre. OEP: del 1 de enero al 31 de marzo si ya está en Medicare Advantage.</div>
   </div>
 
   <!-- IEP TOOL -->
@@ -339,8 +356,9 @@ a{text-decoration:none;color:inherit;}
           </select>
         </div>
       </div>
-      <div class="field-note" id="iep-note">Your IEP is a 7-month window — 3 months before your 65th birthday month, your birthday month, and 3 months after.</div>
-      <button class="btn-calc" onclick="calcIEP()" id="iep-btn">Calculate My Enrollment Window &rarr;</button>
+      <div class="field-note" id="iep-note">Tu IEP es una ventana de 7 meses — 3 meses antes de tu mes de cumpleaños número 65, ese mes, y 3 meses después.</div>
+      <div class="calc-error" id="iep-error" hidden></div>
+      <button class="btn-calc" onclick="calcIEP()" id="iep-btn">Calcular mi ventana de inscripción &rarr;</button>
     </div>
 
     <div class="result-wrap" id="iep-result"></div>
@@ -372,7 +390,8 @@ a{text-decoration:none;color:inherit;}
         </div>
       </div>
       <div class="field">
-        <label id="lbl-sepdate">When does/did your coverage end?</label>
+        <label id="lbl-sepdate">¿Cuándo termina o terminó su cobertura?</label>
+        <div id="sep-date-wrap">
         <div class="field-row">
           <div class="field" style="margin-bottom:0;">
             <select id="sep-month">
@@ -397,9 +416,11 @@ a{text-decoration:none;color:inherit;}
             </select>
           </div>
         </div>
-        <div class="field-note" id="sep-note">We'll calculate your Special Enrollment Period based on this date.</div>
+        </div>
+        <div class="field-note" id="sep-note">Calcularemos su Período de Inscripción Especial con esta fecha.</div>
+        <div class="calc-error" id="sep-error" hidden></div>
       </div>
-      <button class="btn-calc" onclick="calcSEP()" id="sep-btn">Calculate My SEP Window &rarr;</button>
+      <button class="btn-calc" onclick="calcSEP()" id="sep-btn">Calcular mi ventana SEP &rarr;</button>
     </div>
 
     <div class="result-wrap" id="sep-result"></div>
@@ -407,455 +428,9 @@ a{text-decoration:none;color:inherit;}
 
 </div><!-- /main -->
 
-<script>
-var lang = 'es';
-var sepTrigger = 'employer';
-
-var MONTHS_EN = ['January','February','March','April','May','June','July','August','September','October','November','December'];
-var MONTHS_ES = ['Enero','Febrero','Marzo','Abril','Mayo','Junio','Julio','Agosto','Septiembre','Octubre','Noviembre','Diciembre'];
-
-var T = {
-  en: {
-    hero_tag: 'FREE TOOL \u00b7 2026',
-    hero_title: 'Medicare Enrollment<br><em>Window Calculator</em>',
-    hero_sub: 'Enter your birthday or coverage end date to see exactly when you can enroll in Medicare \u2014 and what happens if you wait.',
-    tab_iep: 'Turning 65 (IEP)',
-    tab_sep: 'Lost Coverage (SEP)',
-    iep_card: 'YOUR BIRTHDAY',
-    lbl_month: 'Birth Month',
-    lbl_year: 'Birth Year',
-    iep_note: 'Your IEP is a 7-month window \u2014 3 months before your 65th birthday month, your birthday month, and 3 months after.',
-    iep_btn: 'Calculate My Enrollment Window \u2192',
-    sep_card: 'YOUR SITUATION',
-    lbl_trigger: 'What happened?',
-    trig_employer_t: 'Employer coverage ending',
-    trig_employer_d: 'Retiring or losing job-based health insurance',
-    trig_move_t: 'Moving to a new area',
-    trig_move_d: 'Relocating to a different county or state',
-    trig_newmedicare_t: 'Missed enrollment window (GEP)',
-    trig_newmedicare_d: 'Didn\'t enroll at 65 and need to sign up now',
-    lbl_sepdate: 'When does/did your coverage end?',
-    sep_note: "We'll calculate your Special Enrollment Period based on this date.",
-    sep_btn: 'Calculate My SEP Window \u2192',
-    months: MONTHS_EN,
-    err_select: 'Please select both month and year.',
-    iep_result_label: 'YOUR 7-MONTH IEP WINDOW',
-    iep_window: 'Enrollment Window',
-    iep_best: 'Best time to enroll',
-    iep_good: 'Good \u2014 coverage starts same month',
-    iep_warn: 'Coverage delayed 1 month',
-    iep_warn2: 'Coverage delayed 2 months',
-    iep_warn3: 'Coverage delayed 3 months',
-    iep_late: 'After IEP \u2014 may face late penalties',
-    iep_best_badge: 'Ideal \u2014 no delay',
-    iep_bday_badge: 'Birthday month',
-    iep_warn_badge: 'Delay possible',
-    iep_late_badge: 'Risk of penalty',
-    penalty_title: 'Miss your window? Penalties are permanent.',
-    penalty_desc: 'Part B: +10% added to your premium for each 12-month period you delayed. Part D: +1% per month of delay. Both last as long as you have Medicare.',
-    cta_title: 'Not sure which plan to pick during your IEP?',
-    cta_desc: "Our bilingual brokers compare every carrier in Florida for you \u2014 at no cost. We'll make sure you enroll on time in the right plan.",
-    cta_call: 'Free consultation \u2192',
-    cta_wa: 'WhatsApp us',
-    sep_result_label: 'YOUR SEP WINDOW',
-    sep_window_employer: '2-month Special Enrollment Period',
-    sep_window_move: '2-month Special Enrollment Period',
-    sep_window_lost: '8-month Special Enrollment Period',
-    sep_window_newmedicare: 'General Enrollment Period (GEP)',
-    sep_starts: 'SEP starts',
-    sep_ends: 'SEP ends',
-    sep_deadline: 'Deadline',
-    sep_warning_employer: 'You have 2 months from when your employer coverage ends to enroll in or switch Medicare plans. COBRA does NOT count as employer coverage for this window \u2014 your clock starts when your active group coverage ends.',
-    sep_warning_move: 'You have 2 months from your move date to enroll or switch plans. Make sure your new address is in the plan\u2019s service area.',
-    sep_warning_newmedicare: 'If you missed your IEP, you can sign up during the General Enrollment Period (GEP): January 1 \u2013 March 31 each year. Coverage starts July 1. You may face a late enrollment penalty. Call us \u2014 we can check if you qualify for a Special Enrollment Period instead.',
-    cta_sep_title: 'Need help enrolling before your deadline?',
-    cta_sep_desc: 'Our licensed brokers can walk you through your options and make sure you enroll in the right plan before your SEP closes.',
-  },
-  es: {
-    hero_tag: 'HERRAMIENTA GRATUITA \u00b7 2026',
-    hero_title: 'Calculadora de Ventana de<br><em>Inscripci\u00f3n Medicare</em>',
-    hero_sub: 'Ingresa tu fecha de nacimiento o cuando termina tu cobertura para ver exactamente cu\u00e1ndo puedes inscribirte en Medicare.',
-    tab_iep: 'Cumpliendo 65 (IEP)',
-    tab_sep: 'Perdi Cobertura (SEP)',
-    iep_card: 'TU FECHA DE NACIMIENTO',
-    lbl_month: 'Mes de nacimiento',
-    lbl_year: 'Ano de nacimiento',
-    iep_note: 'Tu IEP es una ventana de 7 meses \u2014 3 meses antes de tu mes de cumplea\u00f1os, tu mes de cumplea\u00f1os, y 3 meses despu\u00e9s.',
-    iep_btn: 'Calcular mi Ventana de Inscripci\u00f3n \u2192',
-    sep_card: 'TU SITUACI\u00d3N',
-    lbl_trigger: '\u00bfQu\u00e9 pas\u00f3?',
-    trig_employer_t: 'Cobertura de empleador termina',
-    trig_employer_d: 'Jubil\u00e1ndose o perdiendo seguro de trabajo',
-    trig_move_t: 'Mudanza a nueva \u00e1rea',
-    trig_move_d: 'Mudarse a diferente condado o estado',
-    trig_newmedicare_t: 'Perdi\u00f3 la ventana de inscripci\u00f3n (GEP)',
-    trig_newmedicare_d: 'No se inscribi\u00f3 a los 65 y necesita inscribirse ahora',
-    lbl_sepdate: '\u00bfCu\u00e1ndo termina/termin\u00f3 su cobertura?',
-    sep_note: 'Calcularemos su Per\u00edodo de Inscripci\u00f3n Especial basado en esta fecha.',
-    sep_btn: 'Calcular mi Ventana SEP \u2192',
-    months: MONTHS_ES,
-    err_select: 'Por favor selecciona mes y ano.',
-    iep_result_label: 'TU VENTANA IEP DE 7 MESES',
-    iep_window: 'Ventana de inscripci\u00f3n',
-    iep_best: 'Mejor momento para inscribirse',
-    iep_good: 'Bien \u2014 cobertura empieza el mismo mes',
-    iep_warn: 'Cobertura se retrasa 1 mes',
-    iep_warn2: 'Cobertura se retrasa 2 meses',
-    iep_warn3: 'Cobertura se retrasa 3 meses',
-    iep_late: 'Despu\u00e9s del IEP \u2014 puede tener penalidades',
-    iep_best_badge: 'Ideal \u2014 sin retraso',
-    iep_bday_badge: 'Mes de cumplea\u00f1os',
-    iep_warn_badge: 'Retraso posible',
-    iep_late_badge: 'Riesgo de penalidad',
-    penalty_title: '\u00bfPierde su ventana? Las penalidades son permanentes.',
-    penalty_desc: 'Parte B: +10% a su prima por cada periodo de 12 meses que retras\u00f3. Parte D: +1% por mes de retraso. Ambas duran mientras tenga Medicare.',
-    cta_title: '\u00bfNo sabe qu\u00e9 plan elegir durante su IEP?',
-    cta_desc: 'Nuestros corredores bilingues comparan cada aseguradora en Florida para usted \u2014 sin costo. Nos aseguramos que se inscriba a tiempo en el plan correcto.',
-    cta_call: 'Consulta gratuita \u2192',
-    cta_wa: 'WhatsApp',
-    sep_result_label: 'TU VENTANA SEP',
-    sep_window_employer: 'Per\u00edodo Especial de Inscripci\u00f3n de 2 meses',
-    sep_window_move: 'Per\u00edodo Especial de Inscripci\u00f3n de 2 meses',
-    sep_window_lost: 'Per\u00edodo Especial de Inscripci\u00f3n de 8 meses',
-    sep_window_newmedicare: 'Per\u00edodo de Inscripci\u00f3n General (GEP)',
-    sep_starts: 'SEP comienza',
-    sep_ends: 'SEP termina',
-    sep_deadline: 'Fecha l\u00edmite',
-    sep_warning_employer: 'Tiene 2 meses desde que termina su cobertura de empleador para inscribirse o cambiar planes Medicare. COBRA NO cuenta como cobertura de empleador \u2014 su reloj comienza cuando termina su cobertura activa.',
-    sep_warning_move: 'Tiene 2 meses desde su fecha de mudanza para inscribirse o cambiar planes.',
-    sep_warning_newmedicare: 'Si perdi\u00f3 su IEP, puede inscribirse durante el Per\u00edodo de Inscripci\u00f3n General (GEP): del 1 de enero al 31 de marzo de cada a\u00f1o. La cobertura empieza el 1 de julio. Puede tener penalidad. Ll\u00e1menos \u2014 podemos verificar si califica para un SEP.',
-    cta_sep_title: '\u00bfNecesita ayuda antes de su fecha l\u00edmite?',
-    cta_sep_desc: 'Nuestros corredores con licencia pueden guiarle y asegurarse de que se inscriba en el plan correcto antes de que cierre su SEP.',
-  }
-};
-
-function g(id){return document.getElementById(id);}
-
-function setLang(l){
-  lang=l;
-  var t=T[l];
-  var lbs=document.querySelectorAll('.lb');
-  for(var i=0;i<lbs.length;i++){lbs[i].classList.toggle('active',lbs[i].textContent===l.toUpperCase());}
-  g('hero-tag').textContent=t.hero_tag;
-  g('hero-title').innerHTML=t.hero_title;
-  g('hero-sub').textContent=t.hero_sub;
-  g('tab-iep').textContent=t.tab_iep;
-  g('tab-sep').textContent=t.tab_sep;
-  g('iep-card-title').textContent=t.iep_card;
-  g('lbl-month').textContent=t.lbl_month;
-  g('lbl-year').textContent=t.lbl_year;
-  g('iep-note').textContent=t.iep_note;
-  g('iep-btn').textContent=t.iep_btn;
-  g('sep-card-title').textContent=t.sep_card;
-  g('lbl-trigger').textContent=t.lbl_trigger;
-  g('trig-employer-title').textContent=t.trig_employer_t;
-  g('trig-employer-desc').textContent=t.trig_employer_d;
-  g('trig-move-title').textContent=t.trig_move_t;
-  g('trig-move-desc').textContent=t.trig_move_d;
-  g('trig-newmedicare-title').textContent=t.trig_newmedicare_t;
-  g('trig-newmedicare-desc').textContent=t.trig_newmedicare_d;
-  g('lbl-sepdate').textContent=t.lbl_sepdate;
-  g('sep-note').textContent=t.sep_note;
-  g('sep-btn').textContent=t.sep_btn;
-
-  // Update month dropdowns
-  var selects=['iep-month','sep-month'];
-  for(var s=0;s<selects.length;s++){
-    var sel=g(selects[s]);
-    var val=sel.value;
-    sel.options[0].text=l==='es'?'Selecciona mes...':'Select month...';
-    for(var m=0;m<12;m++){sel.options[m+1].text=t.months[m];}
-    sel.value=val;
-  }
-
-  // Clear results
-  g('iep-result').style.display='none';
-  g('sep-result').style.display='none';
-}
-
-function switchTab(tab){
-  g('tool-iep').style.display=tab==='iep'?'block':'none';
-  g('tool-sep').style.display=tab==='sep'?'block':'none';
-  g('tab-iep').classList.toggle('active',tab==='iep');
-  g('tab-sep').classList.toggle('active',tab==='sep');
-}
-
-function selectTrigger(t){
-  sepTrigger=t;
-  var btns=['employer','move','newmedicare'];
-  for(var i=0;i<btns.length;i++){
-    g('trig-'+btns[i]).classList.toggle('active',btns[i]===t);
-  }
-}
-
-function addMonth(y,m,n){
-  var d=new Date(y,m-1+n,1);
-  return {y:d.getFullYear(),m:d.getMonth()+1};
-}
-
-function monthName(m,y){
-  return T[lang].months[m-1]+' '+y;
-}
-
-function calcIEP(){
-  var t=T[lang];
-  var bm=parseInt(g('iep-month').value);
-  var by=parseInt(g('iep-year').value);
-  if(!bm||!by){alert(t.err_select);return;}
-
-  var bday65y=by+65;
-  var bday65m=bm;
-
-  // IEP months
-  var w1=addMonth(bday65y,bday65m,-3);
-  var w2=addMonth(bday65y,bday65m,-2);
-  var w3=addMonth(bday65y,bday65m,-1);
-  var w4={y:bday65y,m:bday65m};
-  var w5=addMonth(bday65y,bday65m,1);
-  var w6=addMonth(bday65y,bday65m,2);
-  var w7=addMonth(bday65y,bday65m,3);
-
-  // Coverage start dates per CMS rules - ALWAYS the 1st of the month
-  // Months 1-3 before bday: coverage starts 1st of bday month
-  var cs_bday=addMonth(bday65y,bday65m,0);
-  // Month 4 (bday month): coverage starts 1st of month AFTER bday month
-  var cs_m4=addMonth(bday65y,bday65m,1);
-  // Month 5: 2 months after bday month
-  var cs_m5=addMonth(bday65y,bday65m,2);
-  // Month 6: 3 months after bday month
-  var cs_m6=addMonth(bday65y,bday65m,3);
-  // Month 7: 3 months after bday month (same as month 6 per CMS)
-  var cs_m7=addMonth(bday65y,bday65m,3);
-
-  var covStart=lang==='es'?'Cobertura empieza el ':'Coverage starts ';
-  var firstOf=lang==='es'?'1 de ':' 1, ';
-
-  var rows=[
-    {dot:'best', month:monthName(w1.m,w1.y), desc:covStart+t.months[cs_bday.m-1]+firstOf+cs_bday.y+'.', badge:'best', badge_text:t.iep_best_badge},
-    {dot:'best', month:monthName(w2.m,w2.y), desc:covStart+t.months[cs_bday.m-1]+firstOf+cs_bday.y+'.', badge:'best', badge_text:t.iep_best_badge},
-    {dot:'best', month:monthName(w3.m,w3.y), desc:covStart+t.months[cs_bday.m-1]+firstOf+cs_bday.y+'.', badge:'best', badge_text:t.iep_best_badge},
-    {dot:'good', month:monthName(w4.m,w4.y)+' ('+t.iep_bday_badge+')', desc:covStart+t.months[cs_m4.m-1]+firstOf+cs_m4.y+'.', badge:'good', badge_text:t.iep_good},
-    {dot:'warn', month:monthName(w5.m,w5.y), desc:covStart+t.months[cs_m5.m-1]+firstOf+cs_m5.y+'.', badge:'warn', badge_text:t.iep_warn},
-    {dot:'warn', month:monthName(w6.m,w6.y), desc:covStart+t.months[cs_m6.m-1]+firstOf+cs_m6.y+'.', badge:'warn', badge_text:t.iep_warn2},
-    {dot:'warn', month:monthName(w7.m,w7.y), desc:covStart+t.months[cs_m7.m-1]+firstOf+cs_m7.y+' '+(lang==='es'?'(mismo que mes 6 segun CMS)':'(same as month 6 per CMS)')+'.', badge:'warn', badge_text:t.iep_warn3},
-  ];
-
-  var h='';
-  h+='<div class="result-hero" style="background:linear-gradient(135deg,#f4eefa,#fff0f8);border:2px solid #452068;">';
-  h+='<div class="result-label" style="color:#452068;">'+t.iep_result_label+'</div>';
-  h+='<div class="result-main" style="color:#452068;">'+monthName(w1.m,w1.y)+' – '+monthName(w7.m,w7.y)+'</div>';
-  h+='<div class="result-sub" style="color:#452068;">'+(lang==='es'?'Tu ventana de 7 meses para inscribirte en Medicare':'Your 7-month window to enroll in Medicare')+'</div>';
-  h+='</div>';
-
-  // Key tip box
-  h+='<div style="background:#f0fdf4;border:2px solid #16a34a;border-radius:12px;padding:16px 20px;margin-bottom:16px;font-size:18px;color:#166534;line-height:1.7;">';
-  h+='<strong>'+(lang==='es'?'Dato importante:':'Key fact:')+'</strong> '+(lang==='es'?'La cobertura Medicare siempre empieza el <strong>1ro del mes</strong> — sin importar el día exacto de tu cumpleaños. Inscribirte 3 meses antes = cobertura empieza el 1 de '+t.months[cs_bday.m-1]+' '+cs_bday.y+'.':'Medicare coverage always starts on the <strong>1st of the month</strong> — no matter what day your birthday falls on. Enrolling 3 months early = coverage starts '+t.months[cs_bday.m-1]+' 1, '+cs_bday.y+'.'); 
-  h+='</div>';
-
-  h+='<div class="timeline">';
-  h+='<div class="timeline-title">'+(lang==='es'?'Ventana de inscripción — mes por mes':'Enrollment window — month by month')+'</div>';
-  for(var i=0;i<rows.length;i++){
-    var r=rows[i];
-    h+='<div class="tl-row">';
-    h+='<div class="tl-dot '+r.dot+'">'+(i+1)+'</div>';
-    h+='<div class="tl-content">';
-    h+='<div class="tl-month">'+r.month+'</div>';
-    h+='<div class="tl-desc">'+r.desc+'</div>';
-    h+='<span class="tl-badge '+r.dot+'">'+r.badge_text+'</span>';
-    h+='</div></div>';
-  }
-  h+='</div>';
-
-  h+='<div class="warning-box"><strong>'+t.penalty_title+'</strong><br>'+t.penalty_desc+'</div>';
-
-  h+='<div id="iep-share-ph"></div>';
-  h+='<div class="cta-box">';
-  h+='<div class="cta-box-title">'+t.cta_title+'</div>';
-  h+='<p class="cta-box-desc">'+t.cta_desc+'</p>';
-  h+='<div class="cta-btns">';
-  h+='<a href="https://calendly.com/healthexps-info/" target="_blank" class="cta-btn-pink">'+t.cta_call+'</a>';
-  h+='<a href="https://wa.me/13054646888" target="_blank" class="cta-btn-wa" onclick="gtag('event','whatsapp_click',{'page':window.location.pathname})">'+t.cta_wa+'</a>';
-  h+='</div></div>';
-
-  var wrap=g('iep-result');
-  wrap.innerHTML=h;
-  wrap.style.display='block';
-
-  // Share section
-  var shareDiv=document.createElement('div');
-  shareDiv.style.cssText='border-top:2px dashed #e8e0f4;margin:8px 0 20px;padding-top:20px;text-align:center;';
-  var shareLabel=document.createElement('div');
-  shareLabel.style.cssText='font-size:16px;font-weight:700;color:#5a5068;text-transform:uppercase;letter-spacing:0.08em;margin-bottom:8px;';
-  shareLabel.textContent=lang==='es'?'Conoces a alguien que necesita saber esto?':'Know someone who needs to see this?';
-  var shareTitle=document.createElement('div');
-  shareTitle.style.cssText='font-size:16px;font-weight:700;color:#452068;margin-bottom:16px;';
-  shareTitle.textContent=lang==='es'?'Comparte esta calculadora gratuita':'Share this free calculator';
-  var shareBtns=document.createElement('div');
-  shareBtns.style.cssText='display:flex;gap:10px;justify-content:center;flex-wrap:wrap;';
-  var waMsg=lang==='es'?'Calcula tu ventana de inscripcion Medicare gratis: ':'Calculate your Medicare enrollment window free: ';
-  var waURL='https://wa.me/?text='+encodeURIComponent(waMsg+window.location.href);
-  var waSVG='<svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.123.556 4.116 1.526 5.845L0 24l6.335-1.508A11.945 11.945 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.818 9.818 0 01-5.006-1.368l-.359-.214-3.728.887.916-3.636-.234-.374A9.818 9.818 0 1112 21.818z"/></svg>';
-  var waBtn=document.createElement('a');
-  waBtn.href=waURL;
-  waBtn.target='_blank';
-  waBtn.style.cssText='display:inline-flex;align-items:center;gap:8px;background:#25D366;color:white;padding:13px 24px;border-radius:50px;font-weight:700;font-size:18px;text-decoration:none;';
-  waBtn.innerHTML=waSVG+(lang==='es'?'Enviar por WhatsApp':'Share via WhatsApp');
-  var cpBtn=document.createElement('button');
-  cpBtn.style.cssText='display:inline-flex;align-items:center;gap:8px;background:white;color:#452068;padding:13px 24px;border-radius:50px;font-weight:700;font-size:18px;border:2px solid #e8e0f4;cursor:pointer;font-family:Arial;';
-  cpBtn.textContent=lang==='es'?'Copiar enlace':'Copy link';
-  cpBtn.onclick=function(){
-    navigator.clipboard.writeText(window.location.href).then(function(){
-      cpBtn.textContent=lang==='es'?'Copiado!':'Copied!';
-      setTimeout(function(){cpBtn.textContent=lang==='es'?'Copiar enlace':'Copy link';},2000);
-    });
-  };
-  shareBtns.appendChild(waBtn);
-  shareBtns.appendChild(cpBtn);
-  shareDiv.appendChild(shareLabel);
-  shareDiv.appendChild(shareTitle);
-  shareDiv.appendChild(shareBtns);
-  var iepPh=document.getElementById('iep-share-ph');
-  if(iepPh){iepPh.parentNode.replaceChild(shareDiv,iepPh);}
-  try{wrap.scrollIntoView({behavior:'smooth',block:'start'});}catch(e){wrap.scrollIntoView(true);}
-}
-
-function calcSEP(){
-  var t=T[lang];
-  var sm=parseInt(g('sep-month').value);
-  var sy=parseInt(g('sep-year').value);
-  if(!sm||!sy){alert(t.err_select);return;}
-
-  var windowMonths = (sepTrigger==='move'||sepTrigger==='employer')?2:0;
-
-  // GEP special case
-  if(sepTrigger==='newmedicare'){
-    var t2=T[lang];
-    var gepText=t2.sep_warning_newmedicare;
-    var gepWin=lang==='es'?'1 de enero – 31 de marzo de cada año':'January 1 – March 31 each year';
-    var gepCov=lang==='es'?'Cobertura empieza el 1 de julio':'Coverage starts July 1';
-    var h2='';
-    h2+='<div class="result-hero" style="background:#fff8e7;border:2px solid #d97706;">';
-    h2+='<div class="result-label" style="color:#d97706;">'+(lang==='es'?'PERIODO DE INSCRIPCION GENERAL (GEP)':'GENERAL ENROLLMENT PERIOD (GEP)')+'</div>';
-    h2+='<div class="result-main" style="color:#92400e;">'+gepWin+'</div>';
-    h2+='<div class="result-sub" style="color:#92400e;">'+gepCov+'</div>';
-    h2+='</div>';
-    h2+='<div class="warning-box">'+gepText+'</div>';
-    h2+='<div class="cta-box"><div class="cta-box-title">'+t2.cta_sep_title+'</div><p class="cta-box-desc">'+t2.cta_sep_desc+'</p>';
-    h2+='<div class="cta-btns"><a href="https://calendly.com/healthexps-info/" target="_blank" class="cta-btn-pink">'+t2.cta_call+'</a>';
-    h2+='<a href="https://wa.me/13054646888" target="_blank" class="cta-btn-wa" onclick="gtag('event','whatsapp_click',{'page':window.location.pathname})">'+t2.cta_wa+'</a></div></div>';
-    var wrap2=g('sep-result');
-    wrap2.innerHTML=h2;
-    wrap2.style.display='block';
-    try{wrap2.scrollIntoView({behavior:'smooth',block:'start'});}catch(e){wrap2.scrollIntoView(true);}
-    return;
-  }
-  var end=addMonth(sy,sm,windowMonths);
-  var warningText=t['sep_warning_'+sepTrigger];
-  var windowLabel=t['sep_window_'+sepTrigger];
-
-  var urgency=0;
-  var now=new Date();
-  var endDate=new Date(end.y,end.m-1,1);
-  var diffMs=endDate-now;
-  var diffDays=Math.ceil(diffMs/(1000*60*60*24));
-
-  var urgencyColor=diffDays>60?'#16a34a':diffDays>30?'#d97706':'#dc2626';
-  var urgencyBg=diffDays>60?'#f0fdf4':diffDays>30?'#fffbeb':'#fff5f5';
-  var urgencyBorder=urgencyColor;
-  var urgencyMsg=diffDays>60?(lang==='es'?'Tienes '+diffDays+' dias restantes':'You have '+diffDays+' days remaining'):diffDays>30?(lang==='es'?'Solo '+diffDays+' dias restantes - actua pronto':'Only '+diffDays+' days left - act soon'):(lang==='es'?'Urgente - solo '+diffDays+' dias restantes':'Urgent - only '+diffDays+' days remaining');
-  if(diffDays<=0){urgencyMsg=lang==='es'?'Esta ventana puede haber cerrado - llama ahora':'This window may have closed - call now';urgencyColor='#dc2626';urgencyBg='#fff5f5';}
-
-  var h='';
-  h+='<div class="result-hero" style="background:'+urgencyBg+';border:2px solid '+urgencyBorder+';">';
-  h+='<div class="result-label" style="color:'+urgencyColor+';">'+t.sep_result_label+'</div>';
-  h+='<div class="result-main" style="color:'+urgencyColor+';">'+monthName(sm,sy)+' \u2013 '+monthName(end.m,end.y)+'</div>';
-  h+='<div class="result-sub" style="color:'+urgencyColor+';">'+windowLabel+'</div>';
-  h+='</div>';
-
-  if(diffDays>0){
-    h+='<div style="background:'+urgencyBg+';border:2px solid '+urgencyBorder+';border-radius:12px;padding:16px 20px;margin-bottom:16px;font-size:16px;font-weight:700;color:'+urgencyColor+';text-align:center;">'+urgencyMsg+'</div>';
-  }
-
-  h+='<div class="warning-box">'+warningText+'</div>';
-
-  h+='<div class="timeline">';
-  h+='<div class="timeline-title">'+(lang==='es'?'Tu ventana SEP':'Your SEP window')+'</div>';
-  h+='<div class="tl-row"><div class="tl-dot best">1</div><div class="tl-content"><div class="tl-month">'+t.sep_starts+': '+monthName(sm,sy)+'</div><div class="tl-desc">'+(lang==='es'?'Tu ventana de inscripcion comienza':'Your enrollment window begins')+'</div><span class="tl-badge best">'+(lang==='es'?'Fecha de inicio':'Start date')+'</span></div></div>';
-  h+='<div class="tl-row"><div class="tl-dot warn">!</div><div class="tl-content"><div class="tl-month">'+t.sep_deadline+': '+monthName(end.m,end.y)+'</div><div class="tl-desc">'+(lang==='es'?'Tu ventana cierra. Despues de esto, puede que no puedas inscribirte sin penalidad.':'Your window closes. After this, you may not be able to enroll without penalty.')+'</div><span class="tl-badge warn">'+(lang==='es'?'Fecha limite':'Deadline')+'</span></div></div>';
-  h+='</div>';
-
-  h+='<div id="sep-share-ph2"></div>';
-  h+='<div class="cta-box">';
-  h+='<div class="cta-box-title">'+t.cta_sep_title+'</div>';
-  h+='<p class="cta-box-desc">'+t.cta_sep_desc+'</p>';
-  h+='<div class="cta-btns">';
-  h+='<a href="https://calendly.com/healthexps-info/" target="_blank" class="cta-btn-pink">'+t.cta_call+'</a>';
-  h+='<a href="https://wa.me/13054646888" target="_blank" class="cta-btn-wa" onclick="gtag('event','whatsapp_click',{'page':window.location.pathname})">'+t.cta_wa+'</a>';
-  h+='</div></div>';
-
-  var wrap=g('sep-result');
-  wrap.innerHTML=h;
-  wrap.style.display='block';
-
-  // Share section
-  var shareDiv=document.createElement('div');
-  shareDiv.style.cssText='border-top:2px dashed #e8e0f4;margin:8px 0 20px;padding-top:20px;text-align:center;';
-  var shareLabel=document.createElement('div');
-  shareLabel.style.cssText='font-size:16px;font-weight:700;color:#5a5068;text-transform:uppercase;letter-spacing:0.08em;margin-bottom:8px;';
-  shareLabel.textContent=lang==='es'?'Conoces a alguien que necesita saber esto?':'Know someone who needs to see this?';
-  var shareTitle=document.createElement('div');
-  shareTitle.style.cssText='font-size:16px;font-weight:700;color:#452068;margin-bottom:16px;';
-  shareTitle.textContent=lang==='es'?'Comparte esta calculadora gratuita':'Share this free calculator';
-  var shareBtns=document.createElement('div');
-  shareBtns.style.cssText='display:flex;gap:10px;justify-content:center;flex-wrap:wrap;';
-  var waMsg=lang==='es'?'Calcula tu ventana de inscripcion Medicare gratis: ':'Calculate your Medicare enrollment window free: ';
-  var waURL='https://wa.me/?text='+encodeURIComponent(waMsg+window.location.href);
-  var waSVG='<svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.123.556 4.116 1.526 5.845L0 24l6.335-1.508A11.945 11.945 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.818 9.818 0 01-5.006-1.368l-.359-.214-3.728.887.916-3.636-.234-.374A9.818 9.818 0 1112 21.818z"/></svg>';
-  var waBtn=document.createElement('a');
-  waBtn.href=waURL;
-  waBtn.target='_blank';
-  waBtn.style.cssText='display:inline-flex;align-items:center;gap:8px;background:#25D366;color:white;padding:13px 24px;border-radius:50px;font-weight:700;font-size:18px;text-decoration:none;';
-  waBtn.innerHTML=waSVG+(lang==='es'?'Enviar por WhatsApp':'Share via WhatsApp');
-  var cpBtn=document.createElement('button');
-  cpBtn.style.cssText='display:inline-flex;align-items:center;gap:8px;background:white;color:#452068;padding:13px 24px;border-radius:50px;font-weight:700;font-size:18px;border:2px solid #e8e0f4;cursor:pointer;font-family:Arial;';
-  cpBtn.textContent=lang==='es'?'Copiar enlace':'Copy link';
-  cpBtn.onclick=function(){
-    navigator.clipboard.writeText(window.location.href).then(function(){
-      cpBtn.textContent=lang==='es'?'Copiado!':'Copied!';
-      setTimeout(function(){cpBtn.textContent=lang==='es'?'Copiar enlace':'Copy link';},2000);
-    });
-  };
-  shareBtns.appendChild(waBtn);
-  shareBtns.appendChild(cpBtn);
-  shareDiv.appendChild(shareLabel);
-  shareDiv.appendChild(shareTitle);
-  shareDiv.appendChild(shareBtns);
-  var sepPh=document.getElementById('sep-share-ph2');
-  if(sepPh){sepPh.parentNode.replaceChild(shareDiv,sepPh);}
-  try{wrap.scrollIntoView({behavior:'smooth',block:'start'});}catch(e){wrap.scrollIntoView(true);}
-}
-
-// Populate year dropdowns
-(function(){
-  var now=new Date().getFullYear();
-  var iepYr=g('iep-year');
-  var sepYr=g('sep-year');
-  // IEP: birth years where 65th bday is 2024-2030
-  for(var y=now-68;y<=now-62;y++){
-    var o=document.createElement('option');
-    o.value=y;o.text=y;
-    iepYr.appendChild(o);
-  }
-  // SEP: current and past 2 years
-  for(var sy2=now-2;sy2<=now+1;sy2++){
-    var o2=document.createElement('option');
-    o2.value=sy2;o2.text=sy2;
-    sepYr.appendChild(o2);
-  }
-})();
-
-setLang('es');
-</script>
+<script>window.ENROLL_LANG = 'es';</script>
+<script src="/js/medicare-enrollment-calc.js"></script>
+<script>setLang('es');</script>
 
   <!-- FOOTER -->
   <div id="site-footer" class="footer-wrap" style="background:#fff;color:#241a30;padding:56px 56px 24px;border-top:1px solid #ece5f0">
