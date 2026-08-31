@@ -5,8 +5,8 @@
    - Coverage always starts the 1st of a month
    - Enroll in birthday month or later in IEP → coverage starts 1st of next month
    - GEP is Jan 1–Mar 31; coverage starts 1st of the month after you enroll
-   - Leaving employer/group coverage: 8-month Part B SEP (COBRA does not extend it)
-   - MA/Part D after losing employer coverage or moving: typically 2 months
+   - Leaving employer coverage: 60-day SEP (COBRA does not extend it)
+   - Moving: typically 2 months for Advantage / Part D
 */
 (function (global) {
   var lang = (global.ENROLL_LANG || (document.documentElement.lang || 'en')).slice(0, 2);
@@ -73,21 +73,21 @@
       share_copy: 'Copy link',
       share_copied: 'Copied!',
       sep_result_label: 'YOUR SEP WINDOW',
-      sep_window_employer: '8-month Part B Special Enrollment Period',
+      sep_window_employer: '60-day Special Enrollment Period',
       sep_window_move: '2-month Special Enrollment Period (MA / Part D)',
       sep_window_newmedicare: 'General Enrollment Period (GEP)',
       sep_starts: 'SEP starts',
       sep_ends: 'SEP ends',
       sep_deadline: 'Deadline',
       sep_begin: 'Your enrollment window begins',
-      sep_close: 'Your window closes. After this, you may not be able to enroll in Part B without a late penalty.',
+      sep_close: 'Your window closes. After this, you may have to wait for the next enrollment period to join or switch plans.',
       start_date: 'Start date',
       deadline: 'Deadline',
       days_left: function (n) { return 'You have ' + n + ' days remaining'; },
       days_soon: function (n) { return 'Only ' + n + ' days left — act soon'; },
       days_urgent: function (n) { return 'Urgent — only ' + n + ' days remaining'; },
       window_closed: 'This window may have closed — call now',
-      sep_warning_employer: 'Leaving employer or group coverage gives you an <strong>8-month Part B SEP</strong>. The clock usually starts the month after employment or group coverage ends — whichever is first. <strong>COBRA does not extend this clock.</strong> Medicare Advantage and Part D typically give you only about <strong>2 months</strong> after coverage ends to pick or change those plans.',
+      sep_warning_employer: 'When employer or group coverage ends, you have <strong>60 days</strong> to enroll in or switch Medicare plans. Count 60 days from the day coverage actually ends. <strong>COBRA does not extend this clock</strong> — it starts when active group coverage ends, not when COBRA later ends.',
       sep_warning_move: 'Moving to a new county or state usually opens a <strong>2-month SEP</strong> to join or switch a Medicare Advantage or Part D plan. Your new address must be in the plan’s service area. This does not by itself enroll you in Part A or B.',
       sep_warning_newmedicare: 'If you missed your IEP and do not have another SEP, you can sign up during the General Enrollment Period: <strong>January 1 – March 31</strong> each year. Since 2023, coverage starts the <strong>first day of the month after you enroll</strong>. You may still owe a late-enrollment penalty. Call us — we can check whether a Special Enrollment Period applies instead.',
       gep_label: 'GENERAL ENROLLMENT PERIOD (GEP)',
@@ -155,21 +155,21 @@
       share_copy: 'Copiar enlace',
       share_copied: '¡Copiado!',
       sep_result_label: 'TU VENTANA SEP',
-      sep_window_employer: 'SEP de Parte B de 8 meses',
+      sep_window_employer: 'SEP de 60 días',
       sep_window_move: 'SEP de 2 meses (Advantage / Parte D)',
       sep_window_newmedicare: 'Período de Inscripción General (GEP)',
       sep_starts: 'El SEP comienza',
       sep_ends: 'El SEP termina',
       sep_deadline: 'Fecha límite',
       sep_begin: 'Su ventana de inscripción comienza',
-      sep_close: 'Su ventana cierra. Después de esto, puede que no pueda inscribirse en Parte B sin penalidad.',
+      sep_close: 'Su ventana cierra. Después de esto, puede que tenga que esperar al próximo período de inscripción para unirse o cambiar de plan.',
       start_date: 'Fecha de inicio',
       deadline: 'Fecha límite',
       days_left: function (n) { return 'Le quedan ' + n + ' días'; },
       days_soon: function (n) { return 'Solo ' + n + ' días — actúe pronto'; },
       days_urgent: function (n) { return 'Urgente — solo ' + n + ' días'; },
       window_closed: 'Esta ventana puede haber cerrado — llame ahora',
-      sep_warning_employer: 'Al dejar la cobertura del empleador o del grupo tiene un <strong>SEP de Parte B de 8 meses</strong>. El reloj suele empezar el mes siguiente al fin del empleo o de la cobertura grupal — lo que ocurra primero. <strong>COBRA no extiende este reloj.</strong> Medicare Advantage y Parte D suelen dar solo unos <strong>2 meses</strong> después de que termina la cobertura para elegir o cambiar esos planes.',
+      sep_warning_employer: 'Cuando termina la cobertura del empleador o del grupo, tiene <strong>60 días</strong> para inscribirse o cambiar planes de Medicare. Cuente 60 días desde el día en que realmente termina la cobertura. <strong>COBRA no extiende este reloj</strong> — empieza cuando termina la cobertura grupal activa, no cuando después termina COBRA.',
       sep_warning_move: 'Mudarse a otro condado o estado suele abrir un <strong>SEP de 2 meses</strong> para unirse o cambiar un plan Advantage o Parte D. La nueva dirección debe estar en el área de servicio del plan. Esto no lo inscribe por sí solo en Parte A o B.',
       sep_warning_newmedicare: 'Si perdió su IEP y no tiene otro SEP, puede inscribirse en el Período de Inscripción General: del <strong>1 de enero al 31 de marzo</strong> de cada año. Desde 2023, la cobertura empieza el <strong>primer día del mes siguiente a su inscripción</strong>. Puede haber penalidad por inscripción tardía. Llámenos — podemos ver si califica para un SEP.',
       gep_label: 'PERÍODO DE INSCRIPCIÓN GENERAL (GEP)',
@@ -289,8 +289,19 @@
     return { y: d.getFullYear(), m: d.getMonth() + 1 };
   }
 
+  function addDays(y, m, day, n) {
+    var d = new Date(y, m - 1, day);
+    d.setDate(d.getDate() + n);
+    return { y: d.getFullYear(), m: d.getMonth() + 1, d: d.getDate() };
+  }
+
   function monthName(m, y) {
     return t().months[m - 1] + ' ' + y;
+  }
+
+  function formatDay(p) {
+    if (lang === 'es') return p.d + ' de ' + t().months[p.m - 1] + ' ' + p.y;
+    return t().months[p.m - 1] + ' ' + p.d + ', ' + p.y;
   }
 
   function formatStart(cs) {
@@ -481,14 +492,26 @@
     var sy = parseInt(g('sep-year') && g('sep-year').value, 10);
     if (!sm || !sy) { showError('sep-error', copy.err_select); return; }
 
-    var windowMonths = sepTrigger === 'employer' ? 8 : 2;
-    var start = sepTrigger === 'employer' ? addMonth(sy, sm, 1) : { y: sy, m: sm };
-    var end = addMonth(start.y, start.m, windowMonths);
+    var startLabel;
+    var endLabel;
+    var endDate;
+    if (sepTrigger === 'employer') {
+      var start = { y: sy, m: sm, d: 1 };
+      var end = addDays(sy, sm, 1, 60);
+      startLabel = formatDay(start);
+      endLabel = formatDay(end);
+      endDate = new Date(end.y, end.m - 1, end.d);
+    } else {
+      var startM = { y: sy, m: sm };
+      var endM = addMonth(sy, sm, 2);
+      startLabel = monthName(startM.m, startM.y);
+      endLabel = monthName(endM.m, endM.y);
+      endDate = new Date(endM.y, endM.m - 1, 1);
+    }
     var warningText = copy['sep_warning_' + sepTrigger];
     var windowLabel = copy['sep_window_' + sepTrigger];
 
     var now = new Date();
-    var endDate = new Date(end.y, end.m - 1, 1);
     var diffDays = Math.ceil((endDate - now) / (1000 * 60 * 60 * 24));
     var urgencyColor = diffDays > 60 ? '#16a34a' : diffDays > 30 ? '#d97706' : '#dc2626';
     var urgencyBg = diffDays > 60 ? '#f0fdf4' : diffDays > 30 ? '#fffbeb' : '#fff5f5';
@@ -504,7 +527,7 @@
     var h = '';
     h += '<div class="result-hero" style="background:' + urgencyBg + ';border:2px solid ' + urgencyColor + ';">';
     h += '<div class="result-label" style="color:' + urgencyColor + ';">' + copy.sep_result_label + '</div>';
-    h += '<div class="result-main" style="color:' + urgencyColor + ';">' + monthName(start.m, start.y) + ' – ' + monthName(end.m, end.y) + '</div>';
+    h += '<div class="result-main" style="color:' + urgencyColor + ';">' + startLabel + ' – ' + endLabel + '</div>';
     h += '<div class="result-sub" style="color:' + urgencyColor + ';">' + windowLabel + '</div></div>';
     if (diffDays > 0) {
       h += '<div class="urgency-box" style="background:' + urgencyBg + ';border:2px solid ' + urgencyColor + ';color:' + urgencyColor + ';">' + urgencyMsg + '</div>';
@@ -513,8 +536,8 @@
     }
     h += '<div class="warning-box penalty-box">' + warningText + '</div>';
     h += '<div class="timeline tl-timeline"><div class="timeline-title tl-title">' + copy.sep_result_label + '</div>';
-    h += '<div class="tl-row"><div class="tl-dot best">1</div><div class="tl-content"><div class="tl-month">' + copy.sep_starts + ': ' + monthName(start.m, start.y) + '</div><div class="tl-desc">' + copy.sep_begin + '</div><span class="tl-badge best">' + copy.start_date + '</span></div></div>';
-    h += '<div class="tl-row"><div class="tl-dot warn">!</div><div class="tl-content"><div class="tl-month">' + copy.sep_deadline + ': ' + monthName(end.m, end.y) + '</div><div class="tl-desc">' + copy.sep_close + '</div><span class="tl-badge warn">' + copy.deadline + '</span></div></div>';
+    h += '<div class="tl-row"><div class="tl-dot best">1</div><div class="tl-content"><div class="tl-month">' + copy.sep_starts + ': ' + startLabel + '</div><div class="tl-desc">' + copy.sep_begin + '</div><span class="tl-badge best">' + copy.start_date + '</span></div></div>';
+    h += '<div class="tl-row"><div class="tl-dot warn">!</div><div class="tl-content"><div class="tl-month">' + copy.sep_deadline + ': ' + endLabel + '</div><div class="tl-desc">' + copy.sep_close + '</div><span class="tl-badge warn">' + copy.deadline + '</span></div></div>';
     h += '</div>';
     h += '<div id="sep-share-ph"></div>';
     h += ctaBox(copy.cta_sep_title, copy.cta_sep_desc);
