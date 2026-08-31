@@ -461,7 +461,7 @@ img { max-width: 100%; height: auto; }
       </div>
       <div style="margin-top:20px;display:flex;flex-direction:column;gap:12px">
         <a href="tel:18003806821" style="background:#241a30;color:#fff;padding:16px;border-radius:12px;font-weight:700;font-size:16px;text-align:center">1-800-380-6821</a>
-        <a href="#finder-form" onclick="document.getElementById('v4-mobile-menu').classList.remove('open');document.getElementById('v4HamburgerBtn').setAttribute('aria-expanded','false');" style="background:#ff1090;color:#fff;padding:16px;border-radius:12px;font-weight:700;font-size:16px;text-align:center">Find My Plans</a>
+        <a href="#finder-form" onclick="document.getElementById('v4-mobile-menu').classList.remove('open');document.getElementById('v4HamburgerBtn').setAttribute('aria-expanded','false');" style="background:#ff1090;color:#fff;padding:16px;border-radius:12px;font-weight:700;font-size:16px;text-align:center">Get a free comparison</a>
       </div>
     </nav>
   </div>
@@ -479,8 +479,8 @@ img { max-width: 100%; height: auto; }
     <!-- HERO -->
     <div class="finder-hero">
       <div class="finder-hero-badge">Free Tool &middot; 2026</div>
-      <h1>Free Medicare Plan Finder &mdash; Florida 2026</h1>
-      <p>Compare 2026 Medicare Advantage, Supplement &amp; Part D plans across 14 carriers &mdash; free, no obligation.</p>
+      <h1>Compare 2026 Medicare plans in your ZIP</h1>
+      <p>We&rsquo;ll open a comparison for the 14 carriers we represent, and a licensed broker will follow up. This is not Medicare.gov &mdash; we don&rsquo;t show every plan in your ZIP.</p>
     </div>
 
     <!-- FORM SECTION -->
@@ -563,7 +563,7 @@ img { max-width: 100%; height: auto; }
 
               <!-- SUBMIT -->
               <button type="submit" class="finder-submit" id="finderSubmit">
-                Find My Plans &rarr;
+                Get a free comparison &rarr;
               </button>
 
             </div><!-- /formFields -->
@@ -574,8 +574,8 @@ img { max-width: 100%; height: auto; }
             <div class="finder-success-icon">
               <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.4"><path d="M5 12l4 4 10-10"/></svg>
             </div>
-            <h3>Your options are on the way!</h3>
-            <p>Based on your ZIP code and coverage, a licensed bilingual broker will call within 1 business hour with real plans matched to your doctors, medications, and budget.</p>
+            <h3>A broker will follow up &mdash; and we&rsquo;re opening the comparison tool.</h3>
+            <p>Based on your ZIP and coverage type, a licensed bilingual broker will call within 1 business hour. Next we&rsquo;ll open the comparison tool for the 14 carriers we can sell. For every plan in your area, use Medicare.gov or 1-800-MEDICARE.</p>
             <p style="font-size:16px;color:#5a5068;margin-bottom:20px">Connecting you to the plan comparison tool&hellip;</p>
             <a href="tel:18003806821" onclick="gtag('event','phone_click',{'page':window.location.pathname})"
                style="display:inline-block;background:#ff1090;color:#fff;padding:13px 22px;border-radius:999px;font-weight:700;font-size:17px;text-decoration:none">
@@ -611,7 +611,7 @@ img { max-width: 100%; height: auto; }
               Is the Medicare plan finder really free?
               <span class="faq-icon">+</span>
             </div>
-            <div class="faq-answer">Yes. The tool is completely free, and there&rsquo;s no cost to enroll through our licensed brokers. We&rsquo;re compensated by carriers, never by you. No obligation, and we don&rsquo;t sell or share your information.</div>
+            <div class="faq-answer">Yes. There&rsquo;s no cost to you. After you submit, we open a comparison tool and a licensed broker follows up. We&rsquo;re paid by carriers, never by you. No obligation to enroll.</div>
           </div>
 
           <div class="faq-item">
@@ -619,7 +619,7 @@ img { max-width: 100%; height: auto; }
               Which Medicare plans can I compare?
               <span class="faq-icon">+</span>
             </div>
-            <div class="faq-answer">2026 Medicare Advantage (Part C), standalone Part D drug plans, and Medicare Supplement (Medigap) plans available in your Florida ZIP code &mdash; across 14 carriers including Humana, UnitedHealthcare, Aetna, and Wellcare.</div>
+            <div class="faq-answer">Medicare Advantage (Part C), standalone Part D, and Medicare Supplement (Medigap) from the 14 carriers we represent &mdash; including Humana, UnitedHealthcare, Aetna, and Wellcare. We do not offer every plan in your ZIP. Medicare.gov, 1-800-MEDICARE, or Florida SHIP can show all options.</div>
           </div>
 
           <div class="faq-item">
@@ -627,7 +627,7 @@ img { max-width: 100%; height: auto; }
               Do I need to enter personal information?
               <span class="faq-icon">+</span>
             </div>
-            <div class="faq-answer">You&rsquo;ll need your ZIP code and current coverage type to see accurate options. Adding prescriptions or doctors gets you personalized estimates. We never require your Social Security or Medicare number to compare plans.</div>
+            <div class="faq-answer">ZIP and coverage type come first. We also ask for name, phone, and email so a broker can follow up &mdash; that is a request for contact, not a condition of seeing Medicare.gov. We never ask for your Social Security or Medicare number here.</div>
           </div>
 
           <div class="faq-item">
@@ -870,7 +870,7 @@ img { max-width: 100%; height: auto; }
     } catch(err) {
       document.getElementById('finderErrorBanner').style.display = 'block';
       btn.disabled = false;
-      btn.textContent = 'Find My Plans \u2192';
+        btn.textContent = 'Get a free comparison \u2192';
     }
   });
 
