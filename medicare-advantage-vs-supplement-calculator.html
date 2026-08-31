@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>Medicare Advantage vs. Supplement Calculator | Health Experts</title>
-<meta name="description" content="Free Medicare Advantage vs. Medigap cost calculator. Compare your total costs at 5, 10, and 20 years based on age, premiums, and healthcare usage. Bilingual Miami brokers.">
+<meta name="description" content="Free Medicare Advantage vs. Medigap calculator. Compare 5-, 10-, and 20-year costs — plus doctors, travel, and switching later. Bilingual Miami brokers.">
 <link rel="canonical" href="https://www.healthexps.com/medicare-advantage-vs-supplement-calculator/">
 
 <!-- Google tag (gtag.js) -->
@@ -342,6 +342,86 @@ img { max-width: 100%; height: auto; }
 }
 .calc-cta-restart:hover { color: var(--purple); }
 
+.calc-error {
+  display: none;
+  color: #b32d2d;
+  font-size: 15px;
+  font-weight: 600;
+  margin: 8px 0 0;
+}
+.calc-q { margin-top: 22px; }
+.calc-q-label { font-size: 16px; font-weight: 700; color: var(--black); margin-bottom: 8px; line-height: 1.4; }
+.calc-choice-row { display: flex; gap: 10px; }
+.calc-choice-row button {
+  flex: 1;
+  padding: 12px 10px;
+  border: 2px solid var(--gray-mid);
+  border-radius: 12px;
+  background: #fff;
+  font-family: inherit;
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--black);
+  cursor: pointer;
+  line-height: 1.35;
+}
+.calc-choice-row button.selected {
+  border-color: var(--purple);
+  background: var(--purple-light);
+  color: var(--purple);
+}
+.calc-warn {
+  background: #fff8e8;
+  border: 1px solid #e6c766;
+  border-radius: 12px;
+  padding: 14px 16px;
+  font-size: 15px;
+  line-height: 1.55;
+  color: #5a4300;
+  margin-bottom: 18px;
+  text-align: left;
+}
+.calc-warn strong { color: #3d2e00; }
+.calc-tradeoff {
+  border: 1px solid var(--gray-mid);
+  border-radius: 14px;
+  overflow: hidden;
+  margin-bottom: 20px;
+}
+.calc-tradeoff-caption {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--black);
+  margin: 0 0 10px;
+}
+.calc-tradeoff-row {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr 1fr;
+  gap: 0;
+  padding: 12px 14px;
+  font-size: 15px;
+  line-height: 1.4;
+  border-top: 1px solid var(--gray-mid);
+}
+.calc-tradeoff-row.head {
+  background: var(--purple);
+  color: #fff;
+  font-weight: 700;
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: .03em;
+  border-top: none;
+}
+.calc-tradeoff-row span:first-child { font-weight: 600; color: #4a4051; }
+.calc-tradeoff-row.head span:first-child { color: #fff; }
+.calc-next-tool {
+  text-align: center;
+  margin: 20px 0 4px;
+  font-size: 16px;
+  line-height: 1.5;
+}
+.calc-next-tool a { font-weight: 700; }
+
 
 .footer-copy {
   border-top: 1px solid var(--gray-mid);
@@ -370,13 +450,8 @@ img { max-width: 100%; height: auto; }
 @media (max-width: 480px) {
   .calc-compare-table { font-size:14px; }
   .calc-th, .calc-td { padding: 10px 8px; }
-  var btn = document.getElementById('scrollToTop');
-  if (!btn) return;
-  window.addEventListener('scroll', function(){ btn.style.display = window.pageYOffset > 300 ? 'flex' : 'none'; });
-  btn.addEventListener('click', function(){ window.scrollTo({top:0,behavior:'smooth'}); });
-  btn.addEventListener('mouseenter', function(){ btn.style.background='#ff1090'; btn.style.transform='translateY(-3px)'; });
-  btn.addEventListener('mouseleave', function(){ btn.style.background='#452068'; btn.style.transform='translateY(0)'; });
-
+  .calc-tradeoff-row { grid-template-columns: 1.1fr 1fr 1fr; font-size:13px; padding:10px 8px; }
+}
 </style>
 <style>
 /* Task 1.7 — scroll-to-top: WCAG 48×48 target, brand purple, visible shadow */
@@ -537,7 +612,7 @@ img { max-width: 100%; height: auto; }
   <div class="calc-hero">
     <div class="calc-hero-pill">Free Tool</div>
     <h1>Medicare Advantage vs. Supplement Calculator</h1>
-    <p>See your estimated total cost at 5, 10, and 20 years &mdash; free, no signup required.</p>
+    <p>Estimate premiums and out-of-pocket costs at 5, 10, and 20 years. Then see the trade-offs numbers miss &mdash; doctors, travel, and switching later. Free, no signup.</p>
   </div>
 
   <!-- CALCULATOR BODY -->
@@ -550,15 +625,17 @@ img { max-width: 100%; height: auto; }
           <div class="calc-progress-label" id="prog-label">Step 1 of 4</div>
           <div class="calc-progress-bar"><div class="calc-progress-fill" id="prog-fill" style="width:25%"></div></div>
           <div class="calc-step-title">Your basics</div>
+          <div class="calc-step-sub">Florida shoppers. Premiums vary by ZIP, gender, and tobacco use.</div>
           <div class="calc-field" style="margin-top:18px;">
-            <label>Your current age</label>
-            <input type="number" id="i-age" value="65" min="60" max="90" placeholder="65">
+            <label for="i-age">Your current age</label>
+            <input type="text" id="i-age" value="65" inputmode="numeric" pattern="[0-9]*" maxlength="2" placeholder="65" autocomplete="off">
           </div>
           <div class="calc-field">
-            <label>Monthly Part B premium ($)</label>
-            <input type="number" id="i-pb" value="202.90" step="0.01" placeholder="202.90">
-            <div class="calc-field-hint">$202.90 is the standard 2026 premium.</div>
+            <label for="i-pb">Monthly Part B premium ($)</label>
+            <input type="number" id="i-pb" value="202.90" step="0.01" min="0" max="800" placeholder="202.90" onfocus="this.select()">
+            <div class="calc-field-hint">$202.90 is the standard 2026 premium. Higher if IRMAA applies.</div>
           </div>
+          <div class="calc-error" id="calc-error"></div>
           <div class="calc-btn-row">
             <button class="calc-btn-next" onclick="goStep(2)">Continue &rarr;</button>
           </div>
@@ -569,16 +646,16 @@ img { max-width: 100%; height: auto; }
           <div class="calc-progress-label" id="prog-label-2">Step 2 of 4</div>
           <div class="calc-progress-bar"><div class="calc-progress-fill" style="width:50%"></div></div>
           <div class="calc-step-title">Medicare Advantage plan</div>
-          <div class="calc-step-sub">All-in-one plan through a private insurer</div>
+          <div class="calc-step-sub">All-in-one private plan. Usually a doctor network, prior authorization, and benefits that can change every year. Many include Part D.</div>
           <div class="calc-field">
-            <label>Monthly plan premium ($)</label>
-            <input type="number" id="i-map" value="0" min="0" placeholder="0">
-            <div class="calc-field-hint">Many plans in South Florida have $0 premium.</div>
+            <label for="i-map">Monthly plan premium ($)</label>
+            <input type="number" id="i-map" value="0" min="0" max="400" placeholder="0" onfocus="this.select()">
+            <div class="calc-field-hint">Many plans in South Florida have $0 premium. You still pay Part B.</div>
           </div>
           <div class="calc-field">
-            <label>Annual out-of-pocket maximum ($)</label>
-            <input type="number" id="i-mao" value="5000" min="0" max="9350" placeholder="5000">
-            <div class="calc-field-hint">2026 limit: $9,250. Typical: $4,000&ndash;$6,000.</div>
+            <label for="i-mao">Annual out-of-pocket maximum ($)</label>
+            <input type="number" id="i-mao" value="5000" min="0" max="9250" placeholder="5000" onfocus="this.select()">
+            <div class="calc-field-hint">2026 in-network limit: $9,250. Typical South Florida: $4,000&ndash;$6,000.</div>
           </div>
           <div class="calc-btn-row">
             <button class="calc-btn-back" onclick="goStep(1)">&larr; Back</button>
@@ -591,16 +668,16 @@ img { max-width: 100%; height: auto; }
           <div class="calc-progress-label">Step 3 of 4</div>
           <div class="calc-progress-bar"><div class="calc-progress-fill" style="width:75%"></div></div>
           <div class="calc-step-title">Medicare Supplement (Medigap)</div>
-          <div class="calc-step-sub">Works alongside Original Medicare</div>
+          <div class="calc-step-sub">Works with Original Medicare. Any doctor who takes Medicare. Standardized benefits. You need a separate Part D drug plan.</div>
           <div class="calc-field">
-            <label>Monthly Plan G premium ($)</label>
-            <input type="number" id="i-mgp" value="165" min="0" placeholder="165">
-            <div class="calc-field-hint" id="h-mgp">Typical Florida range: $148&ndash;$355/mo, depending on age.</div>
+            <label for="i-mgp">Monthly Plan G premium ($)</label>
+            <input type="number" id="i-mgp" value="165" min="0" max="800" placeholder="165" onfocus="this.select()">
+            <div class="calc-field-hint" id="h-mgp">Typical Florida midpoint for your age. You can type a real quote.</div>
           </div>
           <div class="calc-field">
-            <label>Part D plan premium ($)</label>
-            <input type="number" id="i-pdp" value="35" min="0" placeholder="35">
-            <div class="calc-field-hint">You need Part D with Medigap. Average: $25&ndash;$60/mo.</div>
+            <label for="i-pdp">Part D plan premium ($)</label>
+            <input type="number" id="i-pdp" value="35" min="0" max="200" placeholder="35" onfocus="this.select()">
+            <div class="calc-field-hint">Required with Medigap. Average: $25&ndash;$60/mo. Advantage often includes drugs.</div>
           </div>
           <div class="calc-btn-row">
             <button class="calc-btn-back" onclick="goStep(2)">&larr; Back</button>
@@ -612,20 +689,35 @@ img { max-width: 100%; height: auto; }
         <div id="step-4" style="display:none">
           <div class="calc-progress-label">Step 4 of 4</div>
           <div class="calc-progress-bar"><div class="calc-progress-fill" style="width:90%"></div></div>
-          <div class="calc-step-title">How much healthcare do you typically use?</div>
+          <div class="calc-step-title">How you use care &mdash; and what matters</div>
+          <div class="calc-step-sub">Cost is only half the decision. Doctors and travel often matter more.</div>
           <div class="calc-usage-list" style="margin-top:18px;">
-            <button class="calc-usage-btn" id="u-low" onclick="setUsage('low')">
+            <button type="button" class="calc-usage-btn" id="u-low" onclick="setUsage('low')">
               <div class="calc-usage-main">Light</div>
-              <div class="calc-usage-sub">Routine visits, generally healthy</div>
+              <div class="calc-usage-sub">A checkup once or twice a year</div>
             </button>
-            <button class="calc-usage-btn selected" id="u-med" onclick="setUsage('med')">
+            <button type="button" class="calc-usage-btn selected" id="u-med" onclick="setUsage('med')">
               <div class="calc-usage-main">Moderate</div>
-              <div class="calc-usage-sub">Some specialists, medications</div>
+              <div class="calc-usage-sub">Regular checkups plus a specialist or two</div>
             </button>
-            <button class="calc-usage-btn" id="u-high" onclick="setUsage('high')">
+            <button type="button" class="calc-usage-btn" id="u-high" onclick="setUsage('high')">
               <div class="calc-usage-main">Frequent</div>
-              <div class="calc-usage-sub">Multiple specialists, chronic conditions</div>
+              <div class="calc-usage-sub">Ongoing conditions, frequent visits</div>
             </button>
+          </div>
+          <div class="calc-q">
+            <div class="calc-q-label">Do you want to keep specific doctors?</div>
+            <div class="calc-choice-row">
+              <button type="button" id="doc-yes" class="selected" onclick="setDoctors(true)">Yes, I want to keep them</button>
+              <button type="button" id="doc-no" onclick="setDoctors(false)">I&rsquo;m flexible</button>
+            </div>
+          </div>
+          <div class="calc-q">
+            <div class="calc-q-label">Do you travel or split time between states?</div>
+            <div class="calc-choice-row">
+              <button type="button" id="trv-yes" onclick="setTravel(true)">Yes, I travel</button>
+              <button type="button" id="trv-no" class="selected" onclick="setTravel(false)">Mostly stay local</button>
+            </div>
           </div>
           <div class="calc-btn-row">
             <button class="calc-btn-back" onclick="goStep(3)">&larr; Back</button>
@@ -663,7 +755,27 @@ img { max-width: 100%; height: auto; }
           <!-- Verdict -->
           <div class="calc-verdict">
             <div class="calc-verdict-main" id="res-verdict"></div>
-            <div class="calc-verdict-disc">Estimate only &mdash; actual costs depend on your real usage and plan details.</div>
+            <div class="calc-verdict-disc">Estimate only &mdash; real costs depend on your doctors, drugs, and the specific plan.</div>
+          </div>
+
+          <div class="calc-warn" id="res-underwrite">
+            <strong>If you try Advantage first:</strong> After your initial Medicare window, switching to a Medigap plan often requires medical underwriting. You can be denied or charged more. Florida&rsquo;s birthday rule helps you switch Medigap plans later &mdash; it does not guarantee a move from Advantage to Medigap.
+          </div>
+
+          <div class="calc-tradeoff-caption">What the dollar comparison does not include</div>
+          <div class="calc-tradeoff" aria-label="Advantage vs Supplement trade-offs">
+            <div class="calc-tradeoff-row head"><span>Factor</span><span>Advantage</span><span>Supplement</span></div>
+            <div class="calc-tradeoff-row"><span>Doctors</span><span>Plan network</span><span>Any Medicare doctor</span></div>
+            <div class="calc-tradeoff-row"><span>Prior authorization</span><span>Often required</span><span>Rare for Medicare services</span></div>
+            <div class="calc-tradeoff-row"><span>Travel / snowbirds</span><span>Limited out of area</span><span>Nationwide</span></div>
+            <div class="calc-tradeoff-row"><span>Benefits next year</span><span>Can change annually</span><span>Standardized and stable</span></div>
+            <div class="calc-tradeoff-row"><span>Drug coverage</span><span>Usually included</span><span>Separate Part D plan</span></div>
+            <div class="calc-tradeoff-row"><span>Switching later</span><span>Easy to leave</span><span>Harder to join after trial</span></div>
+          </div>
+
+          <div class="calc-next-tool">
+            If Supplement looks like a fit, compare Plan G vs Plan N vs High-Deductible G:<br>
+            <a href="/medigap-plan-calculator/">Open the Medigap plan calculator &rarr;</a>
           </div>
 
           <!-- CTAs -->
@@ -674,7 +786,7 @@ img { max-width: 100%; height: auto; }
 
           <!-- Disclaimer -->
           <div style="margin-top:24px;font-size:15px;color:#5a5068;line-height:1.6;padding:14px;background:#fdfaf7;border-radius:10px;">
-            Part B premium applied to both options. Annual increases: 5% Advantage premiums, 4% Supplement premiums. Out-of-pocket costs estimated based on usage level (light: 15%, moderate: 40%, frequent: 85% of annual max). Results are educational estimates, not official quotes. A licensed broker can compare real plans at no cost to you.
+            Part B premium is counted on both sides. We assume Advantage premiums grow 5%/year and Supplement 4%/year. Out-of-pocket on Advantage is estimated as 15% / 40% / 85% of your annual maximum (light / moderate / frequent). Supplement out-of-pocket is the 2026 Part B deductible ($283). This is an educational estimate, not a quote, and it does not check networks or formularies.
           </div>
         </div>
 
@@ -760,8 +872,11 @@ img { max-width: 100%; height: auto; }
   // ── State ────────────────────────────────────────────────────────────────
   var currentStep = 1;
   var usageLevel = 'med';
+  var keepDoctors = true;
+  var doesTravel = false;
   var USAGE_FACTORS = { low: 0.15, med: 0.40, high: 0.85 };
   var USAGE_LABELS  = { low: 'light', med: 'moderate', high: 'frequent' };
+  var PART_B_DEDUCTIBLE = 283;
 
   // ── Plan G age-based rate lookup (Florida typical midpoints, 2026) ────────
   var PG_RATES = {
@@ -780,22 +895,50 @@ img { max-width: 100%; height: auto; }
   function g(id) { return document.getElementById(id); }
   function fmt(n) { return '$' + Math.round(n).toLocaleString('en-US'); }
 
+  function showError(msg) {
+    var err = g('calc-error');
+    if (!err) return false;
+    err.style.display = 'block';
+    err.textContent = msg;
+    return false;
+  }
+
+  function validateBasics() {
+    var raw = String(g('i-age').value || '').trim();
+    var age = parseInt(raw, 10);
+    var pb = parseFloat(g('i-pb').value);
+    if (!/^\d{2}$/.test(raw) || age < 60 || age > 95) {
+      g('i-age').focus();
+      return showError('Enter an age between 60 and 95.');
+    }
+    if (isNaN(pb) || pb < 0 || pb > 800) {
+      g('i-pb').focus();
+      return showError('Enter a Part B premium between $0 and $800.');
+    }
+    g('i-age').value = age;
+    var err = g('calc-error');
+    if (err) { err.style.display = 'none'; err.textContent = ''; }
+    return true;
+  }
+
   // ── Step navigation ───────────────────────────────────────────────────────
   window.goStep = function(n) {
+    if (currentStep === 1 && n === 2 && !validateBasics()) return;
     g('step-' + currentStep).style.display = 'none';
     currentStep = n;
     g('step-' + n).style.display = 'block';
 
     // Auto-fill Plan G based on age when reaching step 3
     if (n === 3) {
-      var age = parseFloat(g('i-age').value) || 65;
+      var age = Math.min(80, Math.max(60, Math.round(parseFloat(g('i-age').value) || 65)));
       var suggested = getPGRate(age);
       g('i-mgp').value = suggested;
       var hEl = g('h-mgp');
-      if (hEl) hEl.textContent = 'Typical for your age (~' + age + '): ~$' + suggested + '/mo. You can adjust this.';
+      if (hEl) hEl.textContent = 'Typical Florida midpoint at age ' + age + ': ~$' + suggested + '/mo. Type a real quote if you have one.';
     }
 
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    var card = g('calc-card');
+    if (card) card.scrollIntoView({ behavior: 'smooth', block: 'start' });
   };
 
   // ── Usage selection ───────────────────────────────────────────────────────
@@ -805,6 +948,22 @@ img { max-width: 100%; height: auto; }
       var btn = g('u-' + k);
       if (btn) btn.className = 'calc-usage-btn' + (k === level ? ' selected' : '');
     });
+  };
+
+  window.setDoctors = function(keep) {
+    keepDoctors = !!keep;
+    var yes = g('doc-yes');
+    var no = g('doc-no');
+    if (yes) yes.className = keepDoctors ? 'selected' : '';
+    if (no) no.className = keepDoctors ? '' : 'selected';
+  };
+
+  window.setTravel = function(travel) {
+    doesTravel = !!travel;
+    var yes = g('trv-yes');
+    var no = g('trv-no');
+    if (yes) yes.className = doesTravel ? 'selected' : '';
+    if (no) no.className = doesTravel ? '' : 'selected';
   };
 
   // ── Cumulative cost helper ────────────────────────────────────────────────
@@ -829,7 +988,7 @@ img { max-width: 100%; height: auto; }
 
     var fac  = USAGE_FACTORS[usageLevel];
     var maOop = mo * fac;          // MA expected out-of-pocket (usage % of max)
-    var mgOop = 240;               // Medigap: ~Part B deductible only (Plan G covers most else)
+    var mgOop = PART_B_DEDUCTIBLE; // Plan G: Part B deductible; plan covers most else
 
     // Monthly premium bases
     var maMo = pb + mp;
@@ -861,15 +1020,23 @@ img { max-width: 100%; height: auto; }
       mg20cells.forEach(function(id){ var el=g(id); if(el) el.style.background='#f0fdf4'; });
     }
 
-    // Verdict
+    // Verdict — cost plus the lifestyle answers from step 4
     var diff20 = Math.abs(ma20 - mg20);
+    var costFavorsMA = ma20 < mg20 - 500;
+    var costFavorsMG = mg20 < ma20 - 500;
+    var lifestyleWantsMG = keepDoctors || doesTravel;
     var verdict;
-    if (ma20 < mg20 - 500) {
-      verdict = 'Based on your ' + USAGE_LABELS[usageLevel] + ' usage, Medicare Advantage may save you about ' + fmt(diff20) + ' over 20 years. Verify your doctors are in-network.';
-    } else if (mg20 < ma20 - 500) {
-      verdict = 'Based on your ' + USAGE_LABELS[usageLevel] + ' usage, Medicare Supplement may save you about ' + fmt(diff20) + ' over 20 years \u2014 with no network restrictions.';
+    if (lifestyleWantsMG && costFavorsMA) {
+      var why = [];
+      if (keepDoctors) why.push('keeping specific doctors');
+      if (doesTravel) why.push('travel');
+      verdict = 'Advantage may cost about ' + fmt(diff20) + ' less over 20 years. Because you care about ' + why.join(' and ') + ', Supplement can still be the better fit — cost is only part of this decision.';
+    } else if (costFavorsMA) {
+      verdict = 'Based on ' + USAGE_LABELS[usageLevel] + ' usage, Advantage may cost about ' + fmt(diff20) + ' less over 20 years — if your doctors are in-network and you are comfortable with prior authorization. Confirm both before you enroll.';
+    } else if (costFavorsMG) {
+      verdict = 'Based on ' + USAGE_LABELS[usageLevel] + ' usage, Supplement may cost about ' + fmt(diff20) + ' less over 20 years — and you can see any doctor who takes Medicare.';
     } else {
-      verdict = 'Based on your ' + USAGE_LABELS[usageLevel] + ' usage, costs are close. The best choice depends on your doctors and preferences.';
+      verdict = 'Costs are close over 20 years. Choose based on doctors, travel, and whether you want a network — not the dollar difference.';
     }
     g('res-verdict').textContent = verdict;
 
@@ -889,7 +1056,8 @@ img { max-width: 100%; height: auto; }
       });
     }
 
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    var card = g('calc-card');
+    if (card) card.scrollIntoView({ behavior: 'smooth', block: 'start' });
   };
 
   // ── Restart ───────────────────────────────────────────────────────────────
@@ -902,8 +1070,19 @@ img { max-width: 100%; height: auto; }
     currentStep = 1;
     g('step-1').style.display = 'block';
     setUsage('med');
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    setDoctors(true);
+    setTravel(false);
+    var card = g('calc-card');
+    if (card) card.scrollIntoView({ behavior: 'smooth', block: 'start' });
   };
+
+  // Select-on-focus so typing replaces the current number (mouseup needed in Chrome)
+  ['i-age','i-pb','i-map','i-mao','i-mgp','i-pdp'].forEach(function(id){
+    var el = g(id);
+    if (!el) return;
+    el.addEventListener('focus', function(){ this.select(); });
+    el.addEventListener('mouseup', function(e){ e.preventDefault(); this.select(); });
+  });
 
 })();
 </script>

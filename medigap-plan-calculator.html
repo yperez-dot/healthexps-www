@@ -5,8 +5,10 @@
 <meta charset="UTF-8">
 <link rel="stylesheet" href="/css/global.css">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" href="/favicon.ico" type="image/x-icon">
+<link rel="canonical" href="https://www.healthexps.com/medigap-plan-calculator/">
 <title>Medigap Cost Calculator Florida 2026 | Compare G vs N</title>
-<meta name="description" content="Free Medigap cost calculator for Florida. Compare Plan G, N and HD monthly rates by age — see what a Medicare Supplement really costs. No email required.">
+<meta name="description" content="Free Florida Medigap calculator. Compare Plan G, Plan N, and High-Deductible Plan G by age and doctor visits — no email required.">
 <style>
   :root{
     --navy:#4b1e63; --coral:#e5148c; --coral-dark:#c40f78;
@@ -33,7 +35,11 @@
   .help{color:var(--muted);font-size:16px;margin-bottom:18px;line-height:1.55}
   .age-box{display:flex;align-items:center;gap:16px;justify-content:center;margin:16px 0}
   .age-box button{width:44px;height:44px;border-radius:50%;border:2px solid var(--navy);background:#fff;color:var(--navy);font-size:22px;cursor:pointer;font-weight:700}
-  .age-box .num{font-size:40px;font-weight:700;color:var(--navy);min-width:70px;text-align:center}
+  .age-box .num{font-size:40px;font-weight:700;color:var(--navy);min-width:70px;text-align:center;border:none;background:transparent;width:90px;font-family:inherit;-moz-appearance:textfield}
+  .age-box .num::-webkit-outer-spin-button,.age-box .num::-webkit-inner-spin-button{-webkit-appearance:none;margin:0}
+  .winner-banner.warn{background:#fff8e8;border-color:#e6c766}
+  .winner-banner.warn .label{color:#8a6d00}
+  .usage-error{display:none;color:#b32d2d;font-weight:700;font-size:16px;margin:8px 0 0}
   .choices{display:flex;flex-direction:column;gap:10px}
   .choice{border:2px solid var(--line);border-radius:12px;padding:16px;cursor:pointer;background:#fff;text-align:left;font-family:inherit;transition:border-color .15s,background .15s}
   .choice:hover{border-color:var(--navy)}
@@ -264,7 +270,7 @@
 <header>
     <span class="eyebrow">FREE TOOL</span>
     <h1>Which Medigap plan costs less for you?</h1>
-    <p>Two quick questions. We compare Plan G, Plan N, and High-Deductible Plan G using Florida median rates.</p>
+    <p>Two questions. We compare Plan G, Plan N, and High-Deductible Plan G using typical Florida midpoint rates — not a carrier quote.</p>
     <div class="learn-link"><a href="/medicare-supplement-miami">New to these plans? Learn about Medicare Supplement coverage →</a></div>
     <p class="help" style="margin-top:12px">Medigap follows different enrollment windows than Medicare Advantage. If you also have Advantage or Part D, review those during <a href="/medicare-annual-enrollment-2027">Medicare Annual Enrollment 2027 in Miami (Oct 15–Dec 7)</a>.</p>
   </header>
@@ -275,11 +281,11 @@
   <div class="card" id="step1">
     <div class="step-label">Step 1 of 2</div>
     <h2>How old are you?</h2>
-    <div class="help">Most people sign up for Medigap at 65. <span id="ageNote"></span></div>
+    <div class="help">Most people buy Medigap at 65, during a 6-month open enrollment with no health questions. After that, Florida&rsquo;s birthday rule can still let you switch to an equal or lesser Medigap plan without underwriting. <span id="ageNote"></span></div>
     <div class="age-box">
-      <button onclick="changeAge(-1)">−</button>
-      <div class="num" id="ageNum">65</div>
-      <button onclick="changeAge(1)">+</button>
+      <button type="button" onclick="changeAge(-1)" aria-label="Decrease age">−</button>
+      <input class="num" id="ageNum" type="text" inputmode="numeric" pattern="[0-9]*" maxlength="2" value="65" autocomplete="off" onblur="setAge(this.value,true)" aria-label="Your age">
+      <button type="button" onclick="changeAge(1)" aria-label="Increase age">+</button>
     </div>
     <div class="nav-btns">
       <button class="btn btn-primary" onclick="goStep(2)">Next</button>
@@ -304,6 +310,7 @@
         <span class="d">Ongoing health needs, frequent visits</span>
       </button>
     </div>
+    <div class="usage-error" id="usageError">Pick how often you go to the doctor so we can estimate visit costs.</div>
     <div class="advanced-toggle" onclick="toggleAdvanced()">I know my exact premium quotes — let me enter them</div>
     <div id="advancedPanel">
       <label>Plan G monthly premium ($)</label>
@@ -320,14 +327,14 @@
   </div>
 
   <div class="card" id="resultView">
-    <div class="winner-banner">
-      <div class="label">Best match for your answers</div>
+    <div class="winner-banner" id="winnerBanner">
+      <div class="label" id="winnerLabel">Lowest estimated cost</div>
       <div class="plan" id="winnerName">Plan N</div>
       <div class="save" id="winnerSave">Saves about $4,200 over 20 years vs. Plan G</div>
     </div>
 
     <div class="plan-rows" id="planRows"></div>
-    <div class="includes-note">Estimated monthly total at age <span id="thisYearAge"></span> — includes Part B ($202.90/mo) and expected out-of-pocket costs.</div>
+    <div class="includes-note">Estimated monthly total at age <span id="thisYearAge"></span> — includes Part B ($202.90/mo) and expected out-of-pocket. Drug coverage is separate: budget about $25–$60/mo for Part D.</div>
 
     <div class="plain-explain" id="plainExplain"></div>
 
@@ -365,20 +372,22 @@
 
     <button type="button" class="detail-toggle" onclick="toggleDetail('aboutDetails')" aria-expanded="false" id="aboutDetailsToggle">About these estimates <span id="aboutDetailsArrow">▾</span></button>
     <div id="aboutDetails" class="detail-panel">
-      <div class="disclaimer-box" style="background:#f7f2fb;border:1px solid #c9aee0;color:#2a2333;font-size:15px;line-height:1.55;border-radius:8px;padding:12px 14px;margin:8px 0 12px">Premium estimates are Florida medians from Medicare.gov Plan Finder (comparison only). We represent 14 organizations offering 82 products in your area. Not affiliated with or endorsed by Medicare or the U.S. government.</div>
+      <div class="disclaimer-box" style="background:#f7f2fb;border:1px solid #c9aee0;color:#2a2333;font-size:15px;line-height:1.55;border-radius:8px;padding:12px 14px;margin:8px 0 12px">Premiums are typical Florida midpoints for a non-tobacco applicant, blended across gender — not a quote for your ZIP. We represent 14 organizations offering 82 products in your area. Not affiliated with or endorsed by Medicare or the U.S. government.</div>
       <div class="about-section">
         <div class="about-h">How we calculated this</div>
         <ul>
           <li>Part B premium: $202.90/month; Part B deductible: $283/year (CMS, 2026)</li>
           <li>HD Plan G deductible: $2,950/year (CMS, 2026)</li>
-          <li>Default premiums: Florida median at ages 65, 70, and 75, blended for men and women</li>
-          <li>Ages between 65–75 are interpolated; enter your own quotes on step 2 for a custom comparison</li>
+          <li>Default premiums: typical Florida midpoints at 65, 70, and 75; ages in between are interpolated</li>
+          <li>Enter your own quotes on step 2 if you already have carrier prices</li>
+          <li>Florida birthday rule: around your birthday you can usually switch to an equal or lesser Medigap plan without underwriting</li>
         </ul>
-        <div class="about-note">Comparing premiums at different ages approximates how costs grow over time — not the same as tracking one policy's actual price history.</div>
+        <div class="about-note">Year-over-year growth is an estimate. It is not the same as one policy&rsquo;s actual rate history. Your ZIP, gender, tobacco use, and carrier will change the price.</div>
       </div>
     </div>
 
     <div class="results-actions">
+      <div class="learn-link"><a href="/medicare-advantage-vs-supplement-calculator/">Still deciding Advantage vs Supplement? Compare those costs →</a></div>
       <div class="learn-link"><a href="/medicare-supplement-miami">Read our Medicare Supplement guide →</a></div>
       <div class="startover" onclick="startOver()">Start over</div>
     </div>
@@ -389,15 +398,12 @@
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.js"></script>
 <script>
-/* ============================================================
-   SAMPLE PLACEHOLDER RATE DATA — replace with real FL Medigap
-   quotes before this goes live. Structure mirrors the existing
-   life-estimate-calculator.html pattern on the site.
-   ============================================================ */
+/* Typical Florida midpoint Plan G/N/HD premiums (2026), aligned with
+   the Advantage vs Supplement calculator. Not a carrier quote. */
 var DEFAULT_PREMIUMS_BY_AGE = {
-  65:{G:374,N:287,HD:127},
-  70:{G:405,N:316,HD:138},
-  75:{G:458,N:360,HD:161}
+  65:{G:170,N:130,HD:52},
+  70:{G:210,N:162,HD:65},
+  75:{G:254,N:198,HD:80}
 };
 var INCREASE_RATE = {G:0.021,N:0.024,HD:0.024};
 var USAGE_COPAYS = { low:{visits:2,er:0}, med:{visits:5,er:0}, high:{visits:10,er:1} };
@@ -408,10 +414,17 @@ var HD_G_TOTAL_DEDUCTIBLE = 2950;
 
 var state = { age:65, usage:null, useAdvanced:false };
 
+function setAge(v, commit){
+  var raw = String(v == null ? '' : v).trim();
+  var age = parseInt(raw, 10);
+  if (isNaN(age)) age = 65;
+  state.age = Math.max(65, Math.min(85, age));
+  var el = document.getElementById('ageNum');
+  if (el && commit !== false) el.value = state.age;
+  document.getElementById('ageNote').textContent = [65,70,75].indexOf(state.age)>-1 ? '' : 'Premiums between 65, 70, and 75 are interpolated from Florida midpoints.';
+}
 function changeAge(d){
-  state.age = Math.max(65, Math.min(85, state.age+d));
-  document.getElementById('ageNum').textContent = state.age;
-  document.getElementById('ageNote').textContent = [65,70,75].indexOf(state.age)>-1 ? '' : 'Between our real data points (65/70/75) — estimated by interpolating.';
+  setAge(state.age + d, true);
 }
 function goStep(n){
   document.getElementById('step1').style.display = n===1?'block':'none';
@@ -423,6 +436,8 @@ function pickUsage(v,el){
   state.usage = v;
   document.querySelectorAll('.choice').forEach(function(c){c.classList.remove('selected')});
   el.classList.add('selected');
+  var err = document.getElementById('usageError');
+  if (err) err.style.display = 'none';
 }
 function toggleDetail(id){
   var panel = document.getElementById(id);
@@ -441,19 +456,24 @@ function toggleAdvanced(){
   state.useAdvanced = !state.useAdvanced;
   document.getElementById('advancedPanel').style.display = state.useAdvanced ? 'block' : 'none';
 }
-function nearestAgeBand(age){
-  var bands = Object.keys(DEFAULT_PREMIUMS_BY_AGE).map(Number).sort(function(a,b){return a-b});
-  var best = bands[0];
-  bands.forEach(function(b){ if (age>=b) best=b; });
-  return best;
+function lerp(a, b, t){ return a + (b - a) * t; }
+function premiumAtAge(age, plan){
+  var a = Math.max(65, Math.min(85, Math.round(age)));
+  var table = DEFAULT_PREMIUMS_BY_AGE;
+  if (table[a]) return table[a][plan];
+  if (a < 70) return Math.round(lerp(table[65][plan], table[70][plan], (a - 65) / 5));
+  if (a < 75) return Math.round(lerp(table[70][plan], table[75][plan], (a - 70) / 5));
+  return Math.round(table[75][plan] * Math.pow(1 + INCREASE_RATE[plan], a - 75));
 }
 function calculate(){
-  if (!state.usage) state.usage='med';
-  var band = nearestAgeBand(state.age);
-  var base = DEFAULT_PREMIUMS_BY_AGE[band];
-  var G = state.useAdvanced && document.getElementById('advG').value ? parseFloat(document.getElementById('advG').value) : base.G;
-  var N = state.useAdvanced && document.getElementById('advN').value ? parseFloat(document.getElementById('advN').value) : base.N;
-  var HD = state.useAdvanced && document.getElementById('advHD').value ? parseFloat(document.getElementById('advHD').value) : base.HD;
+  if (!state.usage) {
+    var err = document.getElementById('usageError');
+    if (err) err.style.display = 'block';
+    return;
+  }
+  var G = state.useAdvanced && document.getElementById('advG').value ? parseFloat(document.getElementById('advG').value) : premiumAtAge(state.age, 'G');
+  var N = state.useAdvanced && document.getElementById('advN').value ? parseFloat(document.getElementById('advN').value) : premiumAtAge(state.age, 'N');
+  var HD = state.useAdvanced && document.getElementById('advHD').value ? parseFloat(document.getElementById('advHD').value) : premiumAtAge(state.age, 'HD');
 
   var usage = USAGE_COPAYS[state.usage];
   var nCopayYearly = usage.visits*20 + usage.er*50;
@@ -480,9 +500,15 @@ function calculate(){
   var savingsVsG = totals.G - totals[winner];
 
   document.getElementById('winnerName').textContent = names[winner];
+  var banner = document.getElementById('winnerBanner');
+  var label = document.getElementById('winnerLabel');
+  if (banner) banner.className = winner === 'HD' ? 'winner-banner warn' : 'winner-banner';
+  if (label) label.textContent = winner === 'HD' ? 'Lowest estimated cost — with a real deductible risk' : 'Best match for your answers';
   document.getElementById('winnerSave').textContent = winner==='G'
-    ? 'The most predictable costs over ' + YEARS + ' years'
-    : 'Saves about $' + savingsVsG.toLocaleString() + ' over ' + YEARS + ' years vs. Plan G';
+    ? 'The most predictable costs over ' + YEARS + ' years — you mainly pay the Part B deductible'
+    : (winner==='HD'
+      ? 'Saves about $' + savingsVsG.toLocaleString() + ' over ' + YEARS + ' years vs. Plan G if you stay healthy. One hospital stay can mean paying up to $2,950 first.'
+      : 'Saves about $' + savingsVsG.toLocaleString() + ' over ' + YEARS + ' years vs. Plan G, if you do not mind office and ER copays');
 
   var rows = document.getElementById('planRows');
   rows.innerHTML='';
@@ -533,11 +559,23 @@ function calculate(){
   });
 
   var explainMap = {
-    low: 'Because you rarely go to the doctor, a lower monthly premium usually beats a plan with a higher premium but fewer copays.',
-    med: 'With a few doctor visits a year, this plan balances your monthly premium against what you would pay at each visit.',
-    high: 'Since you visit the doctor often, a plan that covers more up front can save you money even with a higher monthly premium.'
+    low: {
+      G: 'Even with few visits, Plan G is the most predictable — you mainly pay the yearly Part B deductible. You are paying extra each month for that certainty.',
+      N: 'With few visits, Plan N usually costs less than Plan G because office copays stay small. That is why it often wins for healthier shoppers.',
+      HD: 'High-Deductible Plan G has the lowest premium. That only pays off if you stay healthy. A single hospital stay can mean paying up to $2,950 before the plan helps.'
+    },
+    med: {
+      G: 'Plan G costs more each month but you almost never get a surprise bill after the Part B deductible. Useful if you dislike copays.',
+      N: 'A few visits a year usually is not enough copays to erase Plan N’s lower premium. That is the typical G vs N trade-off.',
+      HD: 'High-Deductible Plan G can look cheapest on paper. Remember you are estimating $1,500 out-of-pocket this year — a bad year can hit the full $2,950 deductible.'
+    },
+    high: {
+      G: 'Because you use care often, paying more each month to avoid copays and a large deductible usually costs less in the long run.',
+      N: 'Frequent visits add Plan N copays (up to $20 office / $50 ER). Still often cheaper than Plan G if you do not have many ER trips.',
+      HD: 'Frequent care makes the $2,950 High-Deductible Plan G deductible a real cost, not a hypothetical. Plan G or N is usually the safer pick.'
+    }
   };
-  document.getElementById('plainExplain').textContent = explainMap[state.usage];
+  document.getElementById('plainExplain').textContent = explainMap[state.usage][winner];
 
   document.getElementById('calcIntro').style.display='none';
   document.getElementById('step2').style.display='none';
@@ -559,7 +597,7 @@ function calculate(){
     },
     options:{
       responsive:true,maintainAspectRatio:false,
-      plugins:{legend:{display:false}},
+      plugins:{legend:{display:true,position:'bottom'}},
       scales:{
         y:{ticks:{callback:function(v){return '$'+(v/1000)+'k'}}},
         x:{ticks:{maxTicksLimit:6}}
@@ -582,9 +620,19 @@ function startOver(){
     if (toggle) toggle.setAttribute('aria-expanded','false');
   });
   state = { age:65, usage:null, useAdvanced:false };
-  document.getElementById('ageNum').textContent='65';
+  setAge(65);
+  document.getElementById('advancedPanel').style.display='none';
+  ['advG','advN','advHD'].forEach(function(id){ var i=document.getElementById(id); if(i) i.value=''; });
+  var err = document.getElementById('usageError');
+  if (err) err.style.display='none';
   document.querySelectorAll('.choice').forEach(function(c){c.classList.remove('selected')});
 }
+(function(){
+  var ageEl = document.getElementById('ageNum');
+  if (!ageEl) return;
+  ageEl.addEventListener('focus', function(){ this.select(); });
+  ageEl.addEventListener('mouseup', function(e){ e.preventDefault(); this.select(); });
+})();
 </script>
 <!-- FOOTER -->
       <div id="site-footer" style="background:#fff;color:#241a30;padding:56px 56px 24px;border-top:1px solid #ece5f0">
