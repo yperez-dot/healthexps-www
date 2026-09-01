@@ -1,0 +1,851 @@
+From 1d5341ccd4e01848b48486c593d3efae9207b09d Mon Sep 17 00:00:00 2001
+From: Cursor Agent <cursoragent@cursor.com>
+Date: Tue, 1 Sep 2026 11:53:50 +0000
+Subject: [PATCH] Let Telegram Igor write and post healthexps.com blogs
+
+Add publish_blog so @Igor_theibot can draft a bilingual Eleventy post, open a PR on healthexps-www, and merge when Yahoska says put it live. github_write stays issues/comments only.
+---
+ README.md                   |   2 +-
+ docs/SITE-PUBLISH.md        |  28 +++
+ docs/SYSTEMS.md             |   2 +-
+ memory/knowledge/website.md |   1 +
+ memory/standing.md          |   1 +
+ package.json                |   2 +-
+ src/identity.js             |   1 +
+ src/publish-blog.js         | 434 ++++++++++++++++++++++++++++++++++++
+ src/tools.js                |  33 ++-
+ test/publish-blog.test.js   | 197 ++++++++++++++++
+ 10 files changed, 696 insertions(+), 5 deletions(-)
+ create mode 100644 docs/SITE-PUBLISH.md
+ create mode 100644 src/publish-blog.js
+ create mode 100644 test/publish-blog.test.js
+
+diff --git a/README.md b/README.md
+index 334e297..edbb5d2 100644
+--- a/README.md
++++ b/README.md
+@@ -52,4 +52,4 @@ See [the standing-approval policy](docs/AUTONOMY-POLICY.md) for the difference b
+ 
+ - All non-health endpoints require `Authorization: Bearer <IGOR_API_KEY>` when the key is set; production refuses to start without it.
+ - Task and schedule audit events record task type/status metadata; task payloads are persisted separately in PostgreSQL. Keep PHI/PII out of payloads and configure the host's storage encryption and access controls.
+-- This starter can reply through an authorized Telegram bot. Live system adapters run from Railway secrets listed in [docs/SYSTEMS.md](docs/SYSTEMS.md). Email, GitHub writes, Netlify deploys, and calendar bookings still require in-chat confirmation.
++- This starter can reply through an authorized Telegram bot. Live system adapters run from Railway secrets listed in [docs/SYSTEMS.md](docs/SYSTEMS.md). Email, GitHub writes, Netlify deploys, calendar bookings, and `publish_blog` (healthexps.com posts) still require in-chat confirmation. Blog playbook: [SITE-PUBLISH.md](docs/SITE-PUBLISH.md).
+diff --git a/docs/SITE-PUBLISH.md b/docs/SITE-PUBLISH.md
+new file mode 100644
+index 0000000..f4a26f7
+--- /dev/null
++++ b/docs/SITE-PUBLISH.md
+@@ -0,0 +1,28 @@
++# Telegram Igor — write and post healthexps.com blogs
++
++**Bot:** `@Igor_theibot` (Railway Igor V2 + Grok)  
++**Site repo:** `yperez-dot/healthexps-www`  
++**Tool:** `publish_blog`
++
++Igor posts blogs **in healthexps-www**, not in this config repo. Do not dump articles into `igor-config`.
++
++## What you say in Telegram
++
++1. **Write it** — paste the piece (or the facts + source). Igor drafts EN (and ES if you want both). He does not pick a plan.
++2. **Post it / put it live** — Igor calls `publish_blog` with `confirmed=true` and `mode=live`. That opens a PR on `healthexps-www` and merges to `main`. Netlify deploys.
++3. **Just open a PR** — say “open a PR” / “don’t merge yet”. `mode=pr`.
++
++## What the tool writes
++
++- `blog/<en-slug>.md` (Eleventy layout `layouts/blog-post.njk`)
++- `es/blog/<es-slug>.md` when Spanish is included
++- Listing cards on `/blog/` (date order) and `/es/blog/` (first)
++- `sitemap.xml` + hreflang
++
++Header, footer, GA4, canonical, scroll-to-top, and TPMO disclaimer come from the layouts. Do not paste placeholder “Content unavailable”.
++
++## Railway secret
++
++`GITHUB_TOKEN` on **Igor V2** and **igor-config** must have **Contents** and **Pull requests** write on `yperez-dot/healthexps-www`. If publish returns 403, refresh that token — do not paste it in Telegram.
++
++After this code lands, **redeploy Igor V2** so Telegram loads `publish_blog`.
+diff --git a/docs/SYSTEMS.md b/docs/SYSTEMS.md
+index 7d91f74..4feaa39 100644
+--- a/docs/SYSTEMS.md
++++ b/docs/SYSTEMS.md
+@@ -8,7 +8,7 @@ Set these on **both** the `Igor V2` web service and the `igor-config` worker. Ru
+ | --- | --- | --- |
+ | GoHighLevel | `GHL_API_TOKEN` (required), `GHL_LOCATION_ID` (defaults to the THEI location) | `ghl_stale_leads`, `ghl_search_contacts`, `ghl_list_pipelines` |
+ | Notion | `NOTION_TOKEN` | `notion_search` |
+-| GitHub | `GITHUB_TOKEN`, optional `GITHUB_ALLOWED_OWNERS` (default `yperez-dot`) | `github_get` (read), `github_write` (confirm required) |
++| GitHub | `GITHUB_TOKEN`, optional `GITHUB_ALLOWED_OWNERS` (default `yperez-dot`) | `github_get` (read), `github_write` (issues/comments, confirm required), `publish_blog` (healthexps.com posts, confirm required). Token needs **Contents + Pull requests** write on `yperez-dot/healthexps-www`. |
+ | Netlify | `NETLIFY_AUTH_TOKEN` | `netlify_list_sites`, `netlify_deploy` (confirm required) |
+ | Facebook Ads | `FACEBOOK_ACCESS_TOKEN`, optional `FACEBOOK_AD_ACCOUNT_ID` / `FACEBOOK_CAMPAIGN_ID` | `facebook_ads_insights` |
+ | Tavily | `TAVILY_API_KEY` | `web_search` |
+diff --git a/memory/knowledge/website.md b/memory/knowledge/website.md
+index 92d402f..4115a3a 100644
+--- a/memory/knowledge/website.md
++++ b/memory/knowledge/website.md
+@@ -29,6 +29,7 @@ Repo: `yperez-dot/healthexps-www`. Live site: healthexps.com on Netlify. Spanish
+ ## Deploys
+ 
+ - Confirm in Telegram, then `netlify_deploy` with `confirmed=true`.
++- **Blogs from Telegram:** CALL `publish_blog`. That writes `blog/<slug>.md` (and the ES twin), listing cards, and sitemap on `healthexps-www`, then opens a PR. `mode=live` merges to main. Do not store the article in `igor-config`.
+ - Batch fixes. Do not push one typo at a time. Historically Netlify credits were burned by excessive individual deploys (site went down June 24, 2026).
+ - Never mark a page done from code inspection alone for header/footer — visual check required.
+ - Never push a blog post with placeholder “Content unavailable”.
+diff --git a/memory/standing.md b/memory/standing.md
+index 23196af..cf042aa 100644
+--- a/memory/standing.md
++++ b/memory/standing.md
+@@ -119,6 +119,7 @@ Florida 2026 dollars are in the how-paid section. Do not invent rates for other
+ - Never batch-delete without approval. Soft-delete over hard-delete.
+ - Documents/reports for Yahoska: email yperez@healthexps.com (standing-approved) and tell her it was emailed — she cannot read Railway disk files.
+ - Deploys, GitHub writes, calendar create/update/cancel: confirm in Telegram, then `confirmed=true`.
++- **Telegram can write and post blogs.** Repo is `yperez-dot/healthexps-www`. Tool: `publish_blog` (confirm, then `confirmed=true`). `mode=live` merges to main (Netlify). `mode=pr` opens a PR only. Never dump posts into `igor-config`. Never recommend a plan. Never ship “Content unavailable”.
+ - PHI-light in Telegram: first name + last initial, last 4 phone, email domain. No SSN/MBI/full phone.
+ - Do not recommend or rank Medicare plans for a person.
+ - After a mistake: write the lesson via `memory_remember` (and this pack when it is a standing rule).
+diff --git a/package.json b/package.json
+index d515718..b1f94c5 100644
+--- a/package.json
++++ b/package.json
+@@ -9,7 +9,7 @@
+     "worker": "IGOR_SERVICE_ROLE=worker node src/entry.js",
+     "dev": "node --watch src/server.js",
+     "test": "node --test",
+-    "lint": "node --check src/entry.js && node --check src/server.js && node --check src/store.js && node --check src/grok.js && node --check src/identity.js && node --check src/chat.js && node --check src/telegram.js && node --check src/inbound-file.js && node --check src/zip.js && node --check src/email.js && node --check src/industry-pulse.js && node --check src/agent-pulse.js && node --check src/carrier-digest.js && node --check src/hub-ticker.js && node --check src/hub-sneak-peeks.js && node --check src/imap-accounts.js && node --check src/pulse-readiness.js && node --check src/pulse-catchup.js && node --check src/task-runner.js && node --check src/heartbeat.js && node --check src/mail-alerts.js && node --check src/lookout.js && node --check src/migration.js && node --check src/legacy-schedules.js && node --check src/sales-sync.js && node --check src/worker-core.js && node --check src/worker.js && node --check src/systems.js && node --check src/redact.js && node --check src/ghl.js && node --check src/tools.js && node --check src/olicomm.js && node --check src/spreadsheet-preview.js && node --check src/calendar.js && node --check src/memory.js && node --check scripts/queue-sales-sync.js && node --check scripts/google-calendar-oauth.js",
++    "lint": "node --check src/entry.js && node --check src/server.js && node --check src/store.js && node --check src/grok.js && node --check src/identity.js && node --check src/chat.js && node --check src/telegram.js && node --check src/inbound-file.js && node --check src/zip.js && node --check src/email.js && node --check src/industry-pulse.js && node --check src/agent-pulse.js && node --check src/carrier-digest.js && node --check src/hub-ticker.js && node --check src/hub-sneak-peeks.js && node --check src/imap-accounts.js && node --check src/pulse-readiness.js && node --check src/pulse-catchup.js && node --check src/task-runner.js && node --check src/heartbeat.js && node --check src/mail-alerts.js && node --check src/lookout.js && node --check src/migration.js && node --check src/legacy-schedules.js && node --check src/sales-sync.js && node --check src/worker-core.js && node --check src/worker.js && node --check src/systems.js && node --check src/redact.js && node --check src/ghl.js && node --check src/tools.js && node --check src/publish-blog.js && node --check src/olicomm.js && node --check src/spreadsheet-preview.js && node --check src/calendar.js && node --check src/memory.js && node --check scripts/queue-sales-sync.js && node --check scripts/google-calendar-oauth.js",
+     "queue-sales-test": "node scripts/queue-sales-sync.js"
+   },
+   "engines": {
+diff --git a/src/identity.js b/src/identity.js
+index da4b4a1..d910d71 100644
+--- a/src/identity.js
++++ b/src/identity.js
+@@ -65,6 +65,7 @@ export const SYSTEM_PROMPT = `You are Igor, the internal operations assistant fo
+ - Telegram output stays PHI-light: first name + last initial, last 4 of phone, email domain only. No SSN, MBI, or full phone. Exception: Google Calendar attendee emails are allowed when listing or booking Yahoska’s appointments — do not copy those emails into unrelated replies.
+ - The ghl_stale_leads tool delivers the full CSV to this Telegram chat and emails yperez@healthexps.com when SMTP for info@ is on. Do not say the file or email went out unless delivered.telegram or delivered.email is true.
+ - GitHub writes, Netlify deploys, calendar create/update/cancel, and OliComm file uploads require the user to confirm in this chat; then call the tool again with confirmed=true. Email to yperez@healthexps.com is standing-approved.
++- Write and post blogs from Telegram. healthexps.com lives in yperez-dot/healthexps-www, not igor-config. When she asks you to write, draft, post, or put a blog live, CALL publish_blog. Draft the piece in chat first (keep her wording when she supplied it). We do not pick the plan. After she says post it / put it live, call again with confirmed=true and mode=live. If she only wants a PR, use mode=pr. Do not dump the article into igor-config. Do not say you cannot post because you are on Railway. Do not use github_write for blog files.
+ - When a user sends a commission statement, BSI statement, MedicarePro CSV, agency production Excel, or agent payout file and wants it ingested, CALL olicomm_preview_upload first. Auto-detect the OliComm upload bucket from filename plus headers when they did not name the tab; if filename and headers disagree, ask which bucket is correct. Show source row count, commission total, and bucket recommendation. Only propose olicomm_upload when preview confidence is medium/high with row match keys, or when the user explicitly accepts manual spot-check risk. After upload, only call it successful if verification.status is match — that includes row-by-row reconciliation, not just totals. On mismatch, say plainly that OliComm does not match the Excel and do not paper over parser bugs.
+ - Google Calendar is always Yahoska Perez’s calendar, including when her husband or another allowlisted person is chatting. View availability and book for her. Confirm create/update/cancel with the person in this chat, then call the tool with confirmed=true. Say “Yahoska is free/busy,” not “you are free,” unless this chat is Yahoska. Pass naive local datetimes (2026-08-26T14:00:00) or ISO timestamps. For no-school days and reminders, pass allDay=true plus free=true (or transparency=transparent) so they show as free. Date-only start like 2026-09-07 is all-day; end is the last inclusive day. Do not claim an appointment was booked, moved, or cancelled unless the tool result has booked/updated/cancelled true. Flag a duplicate or a busy-block once, kindly — then follow her.
+ - Each turn includes a Florida clock. “Today,” “tomorrow,” “this morning,” and “now” are relative to that clock. Do not say you don’t know what day it is.
+diff --git a/src/publish-blog.js b/src/publish-blog.js
+new file mode 100644
+index 0000000..4194aea
+--- /dev/null
++++ b/src/publish-blog.js
+@@ -0,0 +1,434 @@
++/**
++ * Telegram Igor → healthexps.com blog publish.
++ * Writes Eleventy markdown + listing cards + sitemap on yperez-dot/healthexps-www
++ * via the GitHub Contents API, then opens a PR (and optionally merges).
++ */
++
++export const SITE_REPO = "yperez-dot/healthexps-www";
++export const SITE_OWNER = "yperez-dot";
++export const SITE_NAME = "healthexps-www";
++export const DEFAULT_BASE_BRANCH = "main";
++
++const PLACEHOLDER_RE = /content unavailable|lorem ipsum|TODO:\s*write|placeholder copy/i;
++const PLAN_STEER_RE =
++  /\b(you should (enroll in|pick|choose|get|switch to)|i recommend|best (medicare )?(advantage )?plan|switch to (cigna|wellcare|uhc|united|humana|aetna))\b/i;
++
++export function slugify(value) {
++  return String(value ?? "")
++    .trim()
++    .toLowerCase()
++    .replace(/['’]/g, "")
++    .replace(/[^a-z0-9]+/g, "-")
++    .replace(/^-+|-+$/g, "")
++    .slice(0, 80);
++}
++
++export function noonUtcIso(ymd) {
++  const match = String(ymd ?? "").trim().match(/^(\d{4}-\d{2}-\d{2})/);
++  if (!match) return null;
++  return `${match[1]}T12:00:00.000Z`;
++}
++
++export function todayYmdET(now = new Date()) {
++  return now.toLocaleDateString("en-CA", { timeZone: "America/New_York" });
++}
++
++export function ensureFrontMatter(markdown, fields) {
++  const text = String(markdown ?? "").trim();
++  if (text.startsWith("---")) return text.endsWith("\n") ? text : `${text}\n`;
++  const lines = [
++    "---",
++    `layout: ${fields.layout}`,
++    `category: ${JSON.stringify(fields.category)}`,
++    `title: ${JSON.stringify(fields.title)}`,
++    `description: ${JSON.stringify(fields.description)}`,
++    `date: ${fields.dateIso}`,
++    `lang: ${fields.lang}`
++  ];
++  if (fields.hreflangEs) lines.push(`hreflang_es: ${fields.hreflangEs}`);
++  if (fields.hreflangEn) lines.push(`hreflang_en: ${fields.hreflangEn}`);
++  lines.push(`permalink: ${fields.permalink}`, "---", "", text, "");
++  return lines.join("\n");
++}
++
++export function validatePostCopy(markdown) {
++  const text = String(markdown ?? "");
++  if (!text.trim()) return "Post body is empty.";
++  if (PLACEHOLDER_RE.test(text)) return "Refusing placeholder copy (Content unavailable / lorem).";
++  if (PLAN_STEER_RE.test(text)) {
++    return "Refusing plan-recommendation copy. Licensed agent walks it — we do not pick the plan.";
++  }
++  return null;
++}
++
++export function englishCardHtml({ category, slug, title, excerpt, date }) {
++  return [
++    `<a class="blog-card" data-category="${escapeHtml(category)}" href="/blog/${escapeHtml(slug)}/">`,
++    `<div class="card-category">${escapeHtml(category)}</div>`,
++    `<h2 class="card-title">${escapeHtml(title)}</h2>`,
++    `<p class="card-excerpt">${escapeHtml(excerpt)}</p>`,
++    `<div class="card-footer"><span class="card-date">${escapeHtml(date)}</span><span class="card-read">Read →</span></div>`,
++    "</a>"
++  ].join("");
++}
++
++export function spanishCardHtml({ category, slug, title, excerpt, date }) {
++  return [
++    `    <a href="/es/blog/${escapeHtml(slug)}/" class="blog-card" data-category="${escapeHtml(category)}">`,
++    `      <div class="card-category">${escapeHtml(category)}</div>`,
++    `      <h2 class="card-title">${escapeHtml(title)}</h2>`,
++    `      <p class="card-excerpt">${escapeHtml(excerpt)}</p>`,
++    `      <div class="card-footer"><span class="card-date">${escapeHtml(date)}</span><span class="card-read">Leer →</span></div>`,
++    "    </a>"
++  ].join("\n");
++}
++
++export function insertCardByDate(listingHtml, cardHtml, dateYmd, { position = "date" } = {}) {
++  const html = String(listingHtml ?? "");
++  const grid = html.search(/<div class="card-grid" id="blogGrid">/);
++  if (grid < 0) throw new Error("blog listing is missing #blogGrid");
++
++  const cardRe = /<a\b(?=[^>]*\bclass="[^"]*\bblog-card\b)[^>]*>[\s\S]*?<\/a>/gi;
++  const cards = [...html.matchAll(cardRe)];
++  if (!cards.length) {
++    const openEnd = html.indexOf(">", grid) + 1;
++    return html.slice(0, openEnd) + "\n" + cardHtml + html.slice(openEnd);
++  }
++
++  if (position === "first") {
++    return html.slice(0, cards[0].index) + cardHtml + "\n" + html.slice(cards[0].index);
++  }
++
++  for (const card of cards) {
++    const dateMatch = card[0].match(/class="card-date"[^>]*>\s*(\d{4}-\d{2}-\d{2})/);
++    const cardDate = dateMatch?.[1];
++    if (cardDate && cardDate < dateYmd) {
++      return html.slice(0, card.index) + cardHtml + html.slice(card.index);
++    }
++  }
++  const last = cards[cards.length - 1];
++  const end = last.index + last[0].length;
++  return html.slice(0, end) + cardHtml + html.slice(end);
++}
++
++export function insertSitemapUrls({ sitemap, enUrl, esUrl, lastmod }) {
++  const xml = String(sitemap ?? "");
++  if (xml.includes(enUrl)) return xml;
++  const block = [
++    "",
++    `<!-- blog ${lastmod} -->`,
++    `<url><loc>${enUrl}</loc><lastmod>${lastmod}</lastmod><changefreq>monthly</changefreq><priority>0.7</priority>`,
++    `  <xhtml:link rel="alternate" hreflang="en" href="${enUrl}"/>`,
++    esUrl ? `  <xhtml:link rel="alternate" hreflang="es" href="${esUrl}"/>` : null,
++    "</url>",
++    esUrl
++      ? `<url><loc>${esUrl}</loc><lastmod>${lastmod}</lastmod><changefreq>monthly</changefreq><priority>0.7</priority>
++  <xhtml:link rel="alternate" hreflang="es" href="${esUrl}"/>
++  <xhtml:link rel="alternate" hreflang="en" href="${enUrl}"/>
++</url>`
++      : null,
++    ""
++  ]
++    .filter((line) => line !== null)
++    .join("\n");
++
++  if (xml.includes("</urlset>")) {
++    return xml.replace("</urlset>", `${block}</urlset>`);
++  }
++  return xml + block;
++}
++
++function escapeHtml(value) {
++  return String(value ?? "")
++    .replace(/&/g, "&amp;")
++    .replace(/</g, "&lt;")
++    .replace(/>/g, "&gt;")
++    .replace(/"/g, "&quot;");
++}
++
++function decodeContent(file) {
++  if (!file?.content) return "";
++  return Buffer.from(String(file.content).replace(/\n/g, ""), "base64").toString("utf8");
++}
++
++async function githubJson(path, { method = "GET", token, body, fetchImpl = fetch } = {}) {
++  const response = await fetchImpl(`https://api.github.com/repos/${path}`, {
++    method,
++    headers: {
++      Authorization: `Bearer ${token}`,
++      Accept: "application/vnd.github+json",
++      "Content-Type": "application/json",
++      "User-Agent": "igor-v2"
++    },
++    body: body ? JSON.stringify(body) : undefined,
++    signal: AbortSignal.timeout(25_000)
++  });
++  const text = await response.text();
++  let parsed;
++  try {
++    parsed = text ? JSON.parse(text) : {};
++  } catch {
++    parsed = { text: text.slice(0, 2_000) };
++  }
++  if (!response.ok) {
++    const message = parsed.message || parsed.error || text.slice(0, 400);
++    const error = new Error(`GitHub HTTP ${response.status}: ${message}`);
++    error.status = response.status;
++    error.detail = parsed;
++    throw error;
++  }
++  return parsed;
++}
++
++export function previewPublishBlog(args, { now = new Date() } = {}) {
++  const date = String(args.date ?? todayYmdET(now)).slice(0, 10);
++  const dateIso = noonUtcIso(date);
++  if (!dateIso) return { error: "date must be YYYY-MM-DD." };
++
++  const enSlug = slugify(args.enSlug || args.slug);
++  if (!enSlug) return { error: "enSlug is required." };
++  const esSlug = args.esMarkdown || args.esSlug ? slugify(args.esSlug) : "";
++  if ((args.esMarkdown || args.esTitle) && !esSlug) return { error: "esSlug is required when posting Spanish." };
++
++  const category = String(args.category || "Medicare").trim() || "Medicare";
++  const enTitle = String(args.enTitle || args.title || "").trim();
++  const enDescription = String(args.enDescription || args.description || "").trim();
++  const enBody = String(args.enMarkdown || args.markdown || "").trim();
++  if (!enTitle || !enDescription || !enBody) {
++    return { error: "enTitle, enDescription, and enMarkdown are required." };
++  }
++
++  const enError = validatePostCopy(enBody);
++  if (enError) return { error: enError };
++  if (args.esMarkdown) {
++    const esError = validatePostCopy(args.esMarkdown);
++    if (esError) return { error: esError };
++  }
++
++  const enMarkdown = ensureFrontMatter(enBody, {
++    layout: "layouts/blog-post.njk",
++    category,
++    title: enTitle,
++    description: enDescription,
++    dateIso,
++    lang: "en",
++    hreflangEs: esSlug ? `/es/blog/${esSlug}/` : undefined,
++    permalink: `/blog/${enSlug}/`
++  });
++
++  let esMarkdown = null;
++  if (esSlug) {
++    const esTitle = String(args.esTitle || "").trim();
++    const esDescription = String(args.esDescription || "").trim();
++    const esBody = String(args.esMarkdown || "").trim();
++    if (!esTitle || !esDescription || !esBody) {
++      return { error: "esTitle, esDescription, and esMarkdown are required for the Spanish twin." };
++    }
++    esMarkdown = ensureFrontMatter(esBody, {
++      layout: "layouts/blog-post-es.njk",
++      category,
++      title: esTitle,
++      description: esDescription,
++      dateIso,
++      lang: "es",
++      hreflangEn: enSlug,
++      permalink: `/es/blog/${esSlug}/`
++    });
++  }
++
++  const mode = args.mode === "live" ? "live" : "pr";
++  return {
++    date,
++    dateIso,
++    category,
++    mode,
++    enSlug,
++    esSlug: esSlug || null,
++    enTitle,
++    esTitle: esSlug ? String(args.esTitle).trim() : null,
++    enMarkdown,
++    esMarkdown,
++    enCardTitle: String(args.enCardTitle || enTitle).trim(),
++    enCardExcerpt: String(args.enCardExcerpt || enDescription).trim(),
++    esCardTitle: esSlug ? String(args.esCardTitle || args.esTitle).trim() : null,
++    esCardExcerpt: esSlug ? String(args.esCardExcerpt || args.esDescription).trim() : null,
++    enUrl: `https://www.healthexps.com/blog/${enSlug}/`,
++    esUrl: esSlug ? `https://www.healthexps.com/es/blog/${esSlug}/` : null
++  };
++}
++
++export async function publishBlog(rawArgs, {
++  environment = process.env,
++  fetchImpl = fetch,
++  now = new Date()
++} = {}) {
++  const preview = previewPublishBlog(rawArgs, { now });
++  if (preview.error) return preview;
++
++  if (rawArgs.confirmed !== true) {
++    return {
++      needsConfirmation: true,
++      action: "publish_blog",
++      mode: preview.mode,
++      title: preview.enTitle,
++      date: preview.date,
++      urls: [preview.enUrl, preview.esUrl].filter(Boolean),
++      hint: preview.mode === "live"
++        ? "This will open a PR on healthexps-www and merge it to main (Netlify deploy). Confirm in chat, then call again with confirmed=true."
++        : "This will open a PR on healthexps-www. It will not go live until that PR is merged. Confirm in chat, then call again with confirmed=true."
++    };
++  }
++
++  const token = environment.GITHUB_TOKEN;
++  if (!token) return { error: "GITHUB_TOKEN is not set on Igor V2." };
++
++  const repo = SITE_REPO;
++  const base = environment.GITHUB_SITE_BASE_BRANCH || DEFAULT_BASE_BRANCH;
++  const branch = `igor/blog-${preview.enSlug}`.slice(0, 80);
++  const gh = (path, opts) => githubJson(path, { ...opts, token, fetchImpl });
++
++  try {
++    const ref = await gh(`${repo}/git/ref/heads/${base}`);
++    const baseSha = ref.object?.sha;
++    if (!baseSha) return { error: `Could not read ${base} SHA.` };
++
++    try {
++      await gh(`${repo}/git/refs`, {
++        method: "POST",
++        body: { ref: `refs/heads/${branch}`, sha: baseSha }
++      });
++    } catch (error) {
++      if (error.status !== 422) throw error;
++    }
++
++    async function putFile(path, content, message) {
++      let sha;
++      try {
++        const existing = await gh(`${repo}/contents/${path}?ref=${encodeURIComponent(branch)}`);
++        sha = existing.sha;
++      } catch (error) {
++        if (error.status !== 404) throw error;
++      }
++      return gh(`${repo}/contents/${path}`, {
++        method: "PUT",
++        body: {
++          message,
++          content: Buffer.from(content, "utf8").toString("base64"),
++          branch,
++          sha
++        }
++      });
++    }
++
++    await putFile(
++      `blog/${preview.enSlug}.md`,
++      preview.enMarkdown,
++      `Add EN blog ${preview.enSlug}`
++    );
++    if (preview.esMarkdown) {
++      await putFile(
++        `es/blog/${preview.esSlug}.md`,
++        preview.esMarkdown,
++        `Add ES blog ${preview.esSlug}`
++      );
++    }
++
++    const enListing = await gh(`${repo}/contents/blog/index.html?ref=${encodeURIComponent(branch)}`);
++    const enHtml = insertCardByDate(
++      decodeContent(enListing),
++      englishCardHtml({
++        category: preview.category,
++        slug: preview.enSlug,
++        title: preview.enCardTitle,
++        excerpt: preview.enCardExcerpt,
++        date: preview.date
++      }),
++      preview.date
++    );
++    await putFile("blog/index.html", enHtml, `List EN card for ${preview.enSlug}`);
++
++    if (preview.esSlug) {
++      const esListing = await gh(`${repo}/contents/es/blog/index.html?ref=${encodeURIComponent(branch)}`);
++      const esHtml = insertCardByDate(
++        decodeContent(esListing),
++        spanishCardHtml({
++          category: preview.category,
++          slug: preview.esSlug,
++          title: preview.esCardTitle,
++          excerpt: preview.esCardExcerpt,
++          date: preview.date
++        }),
++        preview.date,
++        { position: "first" }
++      );
++      await putFile("es/blog/index.html", esHtml, `List ES card for ${preview.esSlug}`);
++    }
++
++    const sitemapFile = await gh(`${repo}/contents/sitemap.xml?ref=${encodeURIComponent(branch)}`);
++    const sitemap = insertSitemapUrls({
++      sitemap: decodeContent(sitemapFile),
++      enUrl: preview.enUrl,
++      esUrl: preview.esUrl,
++      lastmod: preview.date
++    });
++    await putFile("sitemap.xml", sitemap, `Sitemap for ${preview.enSlug}`);
++
++    const pr = await gh(`${repo}/pulls`, {
++      method: "POST",
++      body: {
++        title: preview.enTitle,
++        head: branch,
++        base,
++        body: [
++          `Telegram Igor publish (${preview.mode}).`,
++          "",
++          `- EN: ${preview.enUrl}`,
++          preview.esUrl ? `- ES: ${preview.esUrl}` : null,
++          `- Date: ${preview.date}`,
++          "",
++          "We do not pick the plan. Header/footer/GA4/canonical/TPMO come from the Eleventy blog layouts."
++        ]
++          .filter(Boolean)
++          .join("\n")
++      }
++    });
++
++    let merged = false;
++    let mergeError = null;
++    if (preview.mode === "live" && pr.number) {
++      try {
++        await gh(`${repo}/pulls/${pr.number}/merge`, {
++          method: "PUT",
++          body: {
++            merge_method: "squash",
++            commit_title: preview.enTitle
++          }
++        });
++        merged = true;
++      } catch (error) {
++        mergeError = error.message;
++      }
++    }
++
++    return {
++      published: true,
++      merged,
++      mergeError,
++      mode: preview.mode,
++      branch,
++      prUrl: pr.html_url,
++      prNumber: pr.number,
++      urls: [preview.enUrl, preview.esUrl].filter(Boolean),
++      note: merged
++        ? "Merged to main. Netlify will deploy healthexps.com from that push."
++        : "PR opened. It is not live until merged to main."
++    };
++  } catch (error) {
++    return {
++      error: error.message,
++      hint: error.status === 403 || error.status === 404
++        ? "GITHUB_TOKEN on Igor V2 needs Contents + Pull requests write on yperez-dot/healthexps-www."
++        : undefined
++    };
++  }
++}
+diff --git a/src/tools.js b/src/tools.js
+index 1e0046b..4e096be 100644
+--- a/src/tools.js
++++ b/src/tools.js
+@@ -36,11 +36,13 @@ import { runLookout } from "./lookout.js";
+ import { runSneakPeekUpdate } from "./hub-sneak-peeks.js";
+ import { imapAccounts, PULSE_INBOX } from "./imap-accounts.js";
+ import { pulseReadiness, pulseReadinessAlert } from "./pulse-readiness.js";
++import { publishBlog } from "./publish-blog.js";
+ 
+ const WRITE_TOOLS = new Set([
+   "send_internal_email",
+   "netlify_deploy",
+   "github_write",
++  "publish_blog",
+   "calendar_create_event",
+   "calendar_update_event",
+   "calendar_delete_event",
+@@ -165,7 +167,7 @@ export function grokTools(environment = process.env) {
+         required: ["path"],
+         additionalProperties: false
+       }),
+-      functionTool("github_write", "Create a GitHub issue or comment. Requires confirmed=true after the user approves.", {
++      functionTool("github_write", "Create a GitHub issue or comment. Do not use this to post blogs — use publish_blog. Requires confirmed=true after the user approves.", {
+         type: "object",
+         properties: {
+           method: { type: "string", enum: ["POST", "PATCH"] },
+@@ -175,6 +177,29 @@ export function grokTools(environment = process.env) {
+         },
+         required: ["method", "path"],
+         additionalProperties: false
++      }),
++      functionTool("publish_blog", "Write and post a healthexps.com blog (EN required, ES optional) on yperez-dot/healthexps-www. Draft in chat first. After she says post it, call again with confirmed=true. mode=pr opens a PR; mode=live merges to main (Netlify deploy). Never recommend a plan. Never use placeholder copy.", {
++        type: "object",
++        properties: {
++          enSlug: { type: "string", description: "English URL slug, e.g. nch-drops-cigna-wellcare-medicare-advantage-2027" },
++          enTitle: { type: "string" },
++          enDescription: { type: "string", description: "~155 char meta. No plan pick." },
++          enMarkdown: { type: "string", description: "English body. H1 + sections. May omit YAML; the tool adds Eleventy front matter." },
++          enCardTitle: { type: "string" },
++          enCardExcerpt: { type: "string" },
++          esSlug: { type: "string" },
++          esTitle: { type: "string" },
++          esDescription: { type: "string" },
++          esMarkdown: { type: "string" },
++          esCardTitle: { type: "string" },
++          esCardExcerpt: { type: "string" },
++          category: { type: "string", description: "Listing category. Default Medicare." },
++          date: { type: "string", description: "YYYY-MM-DD publish date (Florida). Default today ET." },
++          mode: { type: "string", enum: ["pr", "live"], description: "pr = open PR only. live = merge to main after confirm. Use live when she says post it / put it live." },
++          confirmed: { type: "boolean" }
++        },
++        required: ["enSlug", "enTitle", "enDescription", "enMarkdown"],
++        additionalProperties: false
+       })
+     );
+   }
+@@ -483,7 +508,7 @@ export async function executeTool(name, rawArgs, {
+ } = {}) {
+   const args = parseArgs(rawArgs);
+   const blocked = needsConfirmation(name, args, environment);
+-  if (blocked && !String(name).startsWith("calendar_") && name !== "olicomm_upload") return blocked;
++  if (blocked && !String(name).startsWith("calendar_") && name !== "olicomm_upload" && name !== "publish_blog") return blocked;
+ 
+   try {
+     if (name === "list_connected_systems") {
+@@ -714,6 +739,10 @@ export async function executeTool(name, rawArgs, {
+       });
+     }
+ 
++    if (name === "publish_blog") {
++      return publishBlog(args, { environment, fetchImpl });
++    }
++
+     if (name === "netlify_list_sites") {
+       const sites = await jsonFetch("https://api.netlify.com/api/v1/sites?per_page=30", {
+         headers: { Authorization: `Bearer ${environment.NETLIFY_AUTH_TOKEN}` },
+diff --git a/test/publish-blog.test.js b/test/publish-blog.test.js
+new file mode 100644
+index 0000000..799aa34
+--- /dev/null
++++ b/test/publish-blog.test.js
+@@ -0,0 +1,197 @@
++import assert from "node:assert/strict";
++import test from "node:test";
++import {
++  englishCardHtml,
++  ensureFrontMatter,
++  insertCardByDate,
++  insertSitemapUrls,
++  noonUtcIso,
++  previewPublishBlog,
++  publishBlog,
++  slugify,
++  validatePostCopy
++} from "../src/publish-blog.js";
++import { executeTool, grokTools } from "../src/tools.js";
++
++test("publish_blog appears when GITHUB_TOKEN is set", () => {
++  const names = grokTools({ GITHUB_TOKEN: "gh" }).map((tool) => tool.function.name);
++  assert.equal(names.includes("publish_blog"), true);
++  assert.equal(names.includes("github_get"), true);
++});
++
++test("slugify and noon UTC date", () => {
++  assert.equal(slugify("NCH Drops Cigna!"), "nch-drops-cigna");
++  assert.equal(noonUtcIso("2026-09-01"), "2026-09-01T12:00:00.000Z");
++});
++
++test("validatePostCopy blocks placeholders and plan steering", () => {
++  assert.equal(validatePostCopy("Content unavailable"), "Refusing placeholder copy (Content unavailable / lorem).");
++  assert.match(
++    validatePostCopy("You should enroll in a Cigna plan"),
++    /plan-recommendation/
++  );
++  assert.equal(validatePostCopy("We do not pick the plan. Check the 2027 directory."), null);
++});
++
++test("ensureFrontMatter adds Eleventy YAML when missing", () => {
++  const md = ensureFrontMatter("# Hello", {
++    layout: "layouts/blog-post.njk",
++    category: "Medicare",
++    title: "NCH Drops Cigna",
++    description: "Check the 2027 network.",
++    dateIso: "2026-09-01T12:00:00.000Z",
++    lang: "en",
++    permalink: "/blog/nch-drops-cigna/"
++  });
++  assert.match(md, /^---\nlayout: layouts\/blog-post.njk/);
++  assert.match(md, /permalink: \/blog\/nch-drops-cigna\//);
++  assert.match(md, /# Hello/);
++});
++
++test("insertCardByDate keeps newest-first EN order", () => {
++  const listing = `<div class="card-grid" id="blogGrid">
++<a class="blog-card" href="/blog/sep9/"><span class="card-date">2026-09-09</span></a>
++<a class="blog-card" href="/blog/sep2/"><span class="card-date">2026-09-02</span></a>
++<a class="blog-card" href="/blog/aug26/"><span class="card-date">2026-08-26</span></a>
++</div>`;
++  const card = englishCardHtml({
++    category: "Medicare",
++    slug: "nch",
++    title: "NCH",
++    excerpt: "Check 2027.",
++    date: "2026-09-01"
++  });
++  const out = insertCardByDate(listing, card, "2026-09-01");
++  const dates = [...out.matchAll(/card-date">(\d{4}-\d{2}-\d{2})/g)].map((m) => m[1]);
++  assert.deepEqual(dates, ["2026-09-09", "2026-09-02", "2026-09-01", "2026-08-26"]);
++});
++
++test("insertCardByDate position=first puts the news card on top", () => {
++  const listing = `<div class="card-grid" id="blogGrid">
++    <a href="/es/blog/old/" class="blog-card"><span class="card-date">2026-01-01</span></a>
++</div>`;
++  const out = insertCardByDate(listing, "<a class=\"blog-card\">NEW</a>", "2026-09-01", { position: "first" });
++  assert.match(out, /id="blogGrid">\s*<a class="blog-card">NEW<\/a>/);
++});
++
++test("insertSitemapUrls adds EN/ES hreflang pair", () => {
++  const xml = `<?xml version="1.0"?>
++<urlset>
++<url><loc>https://www.healthexps.com/</loc></url>
++</urlset>`;
++  const out = insertSitemapUrls({
++    sitemap: xml,
++    enUrl: "https://www.healthexps.com/blog/nch/",
++    esUrl: "https://www.healthexps.com/es/blog/nch/",
++    lastmod: "2026-09-01"
++  });
++  assert.match(out, /blog\/nch\/<\/loc>/);
++  assert.match(out, /hreflang="es"/);
++  assert.match(out, /<\/urlset>/);
++});
++
++test("publish_blog requires confirmed=true", async () => {
++  const result = await executeTool("publish_blog", {
++    enSlug: "nch-drops-cigna-wellcare-medicare-advantage-2027",
++    enTitle: "NCH Drops Cigna and Wellcare Medicare Advantage in 2027",
++    enDescription: "NCH will drop Cigna and Wellcare MA on Jan. 1, 2027. We do not pick the plan.",
++    enMarkdown: "# Naples hospital will drop two Medicare Advantage contracts in 2027\n\nWe do not pick the plan."
++  }, { environment: { GITHUB_TOKEN: "gh" } });
++  assert.equal(result.needsConfirmation, true);
++  assert.equal(result.action, "publish_blog");
++  assert.equal(result.mode, "pr");
++});
++
++test("previewPublishBlog builds bilingual files", () => {
++  const preview = previewPublishBlog({
++    enSlug: "nch-en",
++    enTitle: "NCH EN",
++    enDescription: "Check 2027.",
++    enMarkdown: "# EN\n\nWe do not pick the plan.",
++    esSlug: "nch-es",
++    esTitle: "NCH ES",
++    esDescription: "Revise 2027.",
++    esMarkdown: "# ES\n\nNo elegimos el plan.",
++    date: "2026-09-01",
++    mode: "live"
++  });
++  assert.equal(preview.mode, "live");
++  assert.match(preview.enMarkdown, /hreflang_es: \/es\/blog\/nch-es\//);
++  assert.match(preview.esMarkdown, /hreflang_en: nch-en/);
++  assert.equal(preview.enUrl, "https://www.healthexps.com/blog/nch-en/");
++});
++
++test("publish_blog writes files, listing, sitemap, and opens a PR", async () => {
++  const calls = [];
++  const files = {
++    "blog/index.html": Buffer.from(`<div class="card-grid" id="blogGrid">
++<a class="blog-card" href="/blog/old/"><span class="card-date">2026-08-01</span></a>
++</div>`).toString("base64"),
++    "es/blog/index.html": Buffer.from(`<div class="card-grid" id="blogGrid">
++    <a href="/es/blog/old/" class="blog-card"><span class="card-date">2026-01-01</span></a>
++</div>`).toString("base64"),
++    "sitemap.xml": Buffer.from("<?xml version=\"1.0\"?><urlset></urlset>").toString("base64")
++  };
++
++  const result = await publishBlog({
++    enSlug: "nch-en",
++    enTitle: "NCH EN",
++    enDescription: "Check 2027.",
++    enMarkdown: "# EN\n\nWe do not pick the plan.",
++    esSlug: "nch-es",
++    esTitle: "NCH ES",
++    esDescription: "Revise 2027.",
++    esMarkdown: "# ES\n\nNo elegimos el plan.",
++    date: "2026-09-01",
++    mode: "pr",
++    confirmed: true
++  }, {
++    environment: { GITHUB_TOKEN: "gh" },
++    fetchImpl: async (url, opts = {}) => {
++      const method = opts.method || "GET";
++      calls.push({ method, url });
++      const body = opts.body ? JSON.parse(opts.body) : {};
++      if (url.endsWith("/git/ref/heads/main") && method === "GET") {
++        return json({ object: { sha: "abc123" } });
++      }
++      if (url.endsWith("/git/refs") && method === "POST") {
++        return json({ ref: body.ref });
++      }
++      if (url.includes("/contents/") && method === "GET") {
++        const path = decodeURIComponent(url.split("/contents/")[1].split("?")[0]);
++        if (files[path]) {
++          return json({ sha: `sha-${path}`, content: files[path], encoding: "base64" });
++        }
++        return json({ message: "Not Found" }, 404);
++      }
++      if (url.includes("/contents/") && method === "PUT") {
++        const path = decodeURIComponent(url.split("/contents/")[1]);
++        files[path] = body.content;
++        return json({ content: { path } });
++      }
++      if (url.endsWith("/pulls") && method === "POST") {
++        return json({ html_url: "https://github.com/yperez-dot/healthexps-www/pull/99", number: 99 });
++      }
++      return json({ message: `unexpected ${method} ${url}` }, 500);
++    }
++  });
++
++  assert.equal(result.published, true);
++  assert.equal(result.merged, false);
++  assert.equal(result.prNumber, 99);
++  assert.ok(files["blog/nch-en.md"]);
++  assert.ok(files["es/blog/nch-es.md"]);
++  const listing = Buffer.from(files["blog/index.html"], "base64").toString("utf8");
++  assert.match(listing, /nch-en/);
++  const sitemap = Buffer.from(files["sitemap.xml"], "base64").toString("utf8");
++  assert.match(sitemap, /blog\/nch-en\//);
++  assert.equal(calls.some((c) => c.url.endsWith("/pulls") && c.method === "POST"), true);
++});
++
++function json(body, status = 200) {
++  return {
++    ok: status >= 200 && status < 300,
++    status,
++    text: async () => JSON.stringify(body)
++  };
++}
+-- 
+2.43.0
+
