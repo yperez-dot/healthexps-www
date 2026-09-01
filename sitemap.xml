@@ -767,6 +767,16 @@
   <xhtml:link rel="alternate" hreflang="en" href="https://www.healthexps.com/life-insurance-calculator"/>
 </url>
 
+<!-- NCH Medicare Advantage network change — published 2026-09-01 -->
+<url><loc>https://www.healthexps.com/blog/nch-drops-cigna-wellcare-medicare-advantage-2027/</loc><lastmod>2026-09-01</lastmod><changefreq>monthly</changefreq><priority>0.7</priority>
+  <xhtml:link rel="alternate" hreflang="en" href="https://www.healthexps.com/blog/nch-drops-cigna-wellcare-medicare-advantage-2027/"/>
+  <xhtml:link rel="alternate" hreflang="es" href="https://www.healthexps.com/es/blog/nch-deja-cigna-wellcare-medicare-advantage-2027/"/>
+</url>
+<url><loc>https://www.healthexps.com/es/blog/nch-deja-cigna-wellcare-medicare-advantage-2027/</loc><lastmod>2026-09-01</lastmod><changefreq>monthly</changefreq><priority>0.7</priority>
+  <xhtml:link rel="alternate" hreflang="es" href="https://www.healthexps.com/es/blog/nch-deja-cigna-wellcare-medicare-advantage-2027/"/>
+  <xhtml:link rel="alternate" hreflang="en" href="https://www.healthexps.com/blog/nch-drops-cigna-wellcare-medicare-advantage-2027/"/>
+</url>
+
 <!-- Posts added after the last sitemap pass -->
 <url><loc>https://www.healthexps.com/blog/medicare-green-card-holders-florida/</loc><lastmod>2026-08-26</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
 <url><loc>https://www.healthexps.com/blog/what-is-life-insurance-florida/</loc><lastmod>2026-08-26</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
