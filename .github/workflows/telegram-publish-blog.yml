@@ -1,0 +1,102 @@
+name: Telegram publish blog
+
+# @Igor_theibot posts with github_write:
+#   method POST, path yperez-dot/healthexps-www/dispatches, confirmed=true
+#   body { event_type: "publish-blog", client_payload: { ...post fields, mode: "live" } }
+
+on:
+  repository_dispatch:
+    types: [publish-blog]
+  workflow_dispatch:
+    inputs:
+      payload_json:
+        description: Blog JSON (enSlug, enTitle, enDescription, enMarkdown, optional ES fields, date, mode)
+        required: true
+        type: string
+      merge:
+        description: Merge the PR to main (goes live on Netlify)
+        required: false
+        type: boolean
+        default: false
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Write payload
+        env:
+          EVENT_NAME: ${{ github.event_name }}
+          DISPATCH_PAYLOAD: ${{ toJson(github.event.client_payload) }}
+          MANUAL_PAYLOAD: ${{ inputs.payload_json }}
+          MANUAL_MERGE: ${{ inputs.merge }}
+        run: |
+          python3 <<'PY'
+          import json, os
+          if os.environ.get("EVENT_NAME") == "workflow_dispatch":
+              payload = json.loads(os.environ["MANUAL_PAYLOAD"])
+              if os.environ.get("MANUAL_MERGE") == "true":
+                  payload["mode"] = "live"
+                  payload["merge"] = True
+          else:
+              payload = json.loads(os.environ["DISPATCH_PAYLOAD"])
+          if not (payload.get("enSlug") or payload.get("slug")):
+              raise SystemExit("enSlug required")
+          if not (payload.get("enMarkdown") or payload.get("markdown")):
+              raise SystemExit("enMarkdown required")
+          with open("/tmp/blog-payload.json", "w") as f:
+              json.dump(payload, f)
+          print("payload ok", payload.get("enSlug") or payload.get("slug"))
+          PY
+
+      - name: Apply post
+        id: apply
+        run: |
+          set -euo pipefail
+          node scripts/apply-blog-post.js /tmp/blog-payload.json | tee /tmp/apply-out.json
+          python3 - <<'PY'
+          import json, os
+          out = json.load(open("/tmp/apply-out.json"))
+          with open(os.environ["GITHUB_OUTPUT"], "a") as f:
+              f.write(f"enSlug={out['enSlug']}\n")
+              f.write(f"merge={str(out.get('merge', False)).lower()}\n")
+          PY
+
+      - name: Open pull request
+        id: pr
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          SLUG="${{ steps.apply.outputs.enSlug }}"
+          BRANCH="igor/blog-${SLUG}"
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git checkout -b "$BRANCH"
+          git add blog es/blog sitemap.xml
+          git status
+          git commit -m "Publish blog ${SLUG} from Telegram"
+          git push -u origin "$BRANCH"
+          URL=$(gh pr create --title "Publish blog ${SLUG}" --body "Opened by Telegram Igor (publish-blog workflow).
+
+          We do not pick the plan." --base main --head "$BRANCH")
+          echo "url=$URL" >> "$GITHUB_OUTPUT"
+          echo "PR $URL"
+
+      - name: Merge if live
+        if: steps.apply.outputs.merge == 'true'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          gh pr merge "${{ steps.pr.outputs.url }}" --squash --delete-branch
+          echo "Merged to main — Netlify will deploy."
