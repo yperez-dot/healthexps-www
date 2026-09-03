@@ -519,7 +519,9 @@ img { max-width: 100%; height: auto; }
               <div style="font-family:Poppins,sans-serif;font-weight:700;font-size:20px;color:#241a30;margin-bottom:6px">Get my free health insurance quote</div>
               <div style="font-size:16px;color:#3a2f47">A licensed bilingual broker will reach out within 1 business hour.</div>
             </div>
-            <form id="privForm" action="https://services.leadconnectorhq.com/hooks/RINM4TCnM4hN06UA1aK0/webhook-trigger/9eebf549-c131-4d43-8432-0f6628211899" method="POST">
+            <form id="privForm" data-spam-guard="proxy" method="POST" action="/.netlify/functions/submit-lead" novalidate>
+              <input type="hidden" name="source_key" value="en-private"/>
+              <input type="hidden" name="source" value="Private Health Page Form"/>
               <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:12px">
                 <input type="text" name="first_name" placeholder="First Name" required style="padding:13px 14px;border-radius:10px;border:2px solid #ddd2e6;font-size:16px;font-family:Inter,sans-serif;width:100%;box-sizing:border-box;"/>
                 <input type="text" name="last_name" placeholder="Last Name" required style="padding:13px 14px;border-radius:10px;border:2px solid #ddd2e6;font-size:16px;font-family:Inter,sans-serif;width:100%;box-sizing:border-box;"/>
@@ -749,33 +751,92 @@ img { max-width: 100%; height: auto; }
   </script>
 
   <script>
-  // Quote form submission
+  // Quote form submission (proxied + anti-bot)
   (function(){
     var form = document.getElementById('privForm');
-    if (!form) return;
+    if (!form || !window.FormSpamGuard) return;
+    var guard = FormSpamGuard.attach(form);
+    var btn = document.getElementById('privFormBtn');
+    var errEl = document.getElementById('priv-form-error');
+
     form.addEventListener('submit', function(e){
       e.preventDefault();
-      var btn = document.getElementById('privFormBtn');
-      var errEl = document.getElementById('priv-form-error');
       var consent = document.getElementById('privConsent');
+      var fields = FormSpamGuard.formToObject(form);
+      var first = String(fields.first_name || '').trim();
+      var last = String(fields.last_name || '').trim();
+      var phone = String(fields.phone || '').trim();
+      var email = String(fields.email || '').trim();
+      var reason = String(fields.private_reason || '').trim();
+      var notes = String(fields.notes || '').trim();
 
       if (!consent || !consent.checked) {
         errEl.style.display = 'block';
         errEl.textContent = 'Please agree to the consent statement to proceed.';
         return;
       }
+
+      if (!first || !last || !phone || !email || !reason) {
+        errEl.style.display = 'block';
+        errEl.textContent = !reason
+          ? 'Please select what coverage you need.'
+          : 'Please fill in all required fields.';
+        return;
+      }
+      if (!FormSpamGuard.isValidUsPhone(phone)) {
+        errEl.style.display = 'block';
+        errEl.textContent = 'Please enter a valid 10-digit U.S. phone number.';
+        return;
+      }
+
+      var spamFields = {
+        first_name: first,
+        last_name: last,
+        phone: phone,
+        email: email,
+        notes: notes,
+        additional_notes: notes,
+        private_reason: reason
+      };
+
+      if (guard.isBot() || guard.clientSpam(spamFields)) {
+        document.getElementById('priv-form-body').style.display = 'none';
+        document.getElementById('priv-form-success').style.display = 'block';
+        return;
+      }
+
       errEl.style.display = 'none';
       btn.disabled = true;
       btn.textContent = 'Sending...';
 
-      fetch(form.action, { method: 'POST', body: new FormData(form) })
-        .then(function(){
-          document.getElementById('priv-form-body').style.display = 'none';
-          document.getElementById('priv-form-success').style.display = 'block';
+      var payload = Object.assign({}, spamFields, guard.meta(), {
+        source_key: 'en-private',
+        source: 'Private Health Page Form',
+        coverage_type: reason,
+        looking_for: reason,
+        page: window.location.href,
+        page_path: window.location.pathname,
+        form_page: window.location.pathname,
+        submitted_at: new Date().toISOString()
+      });
+
+      FormSpamGuard.submit(payload)
+        .then(function(result){
+          if (result.body && result.body.ok) {
+            document.getElementById('priv-form-body').style.display = 'none';
+            document.getElementById('priv-form-success').style.display = 'block';
+            if (typeof gtag === 'function') {
+              gtag('event', 'private_health_form_submit', { page: window.location.pathname });
+            }
+            return;
+          }
+          throw new Error('submit failed');
         })
         .catch(function(){
-          // Fallback: native submit
-          form.submit();
+          btn.disabled = false;
+          btn.textContent = 'Get my free quote \u2192';
+          errEl.style.display = 'block';
+          errEl.textContent = 'Something went wrong. Please try again or call 1-800-380-6821.';
         });
     });
   })();

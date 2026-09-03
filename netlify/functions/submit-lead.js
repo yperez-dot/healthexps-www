@@ -21,6 +21,7 @@ const WEBHOOKS = {
   'es-cobra': '520e997b-69a4-4330-b3d9-96b452af28bf',
   'es-aca': 'cNWs0DqK73DvGCTLzGHI',
   'es-private': 'FklcK7rZSNfB9SlLueOm',
+  'en-private': '9eebf549-c131-4d43-8432-0f6628211899',
   'aep-2027': 'dc6c8b35-9480-412e-b56d-4a4c8c7bd438',
 };
 
@@ -132,12 +133,62 @@ function looksLikeBotName(first, last) {
   const f = String(first || '').trim();
   const l = String(last || '').trim();
   if (!f || !l) return true;
+  if (f.length > 48 || l.length > 48) return true;
   if (f.toLowerCase() === l.toLowerCase() && f.length >= 6) return true;
   const combined = f + l;
+  if (containsPromoSpam(combined)) return true;
   if (/\d/.test(combined) && /[A-Za-z]/.test(combined) && combined.length >= 10) {
     return true;
   }
   return false;
+}
+
+/** Fields that legitimately contain URLs (page attribution) — do not scan. */
+const SKIP_PROMO_KEYS = new Set([
+  'page',
+  'page_url',
+  'page_path',
+  'form_page',
+  'source',
+  'submitted_at',
+  'webhook_id',
+  'source_key',
+  '_form_loaded_at',
+  'form_loaded_at',
+]);
+
+/**
+ * Crypto-faucet / URL-in-name spam (e.g. "📈 +2.84 BTC. GET -> Graph.org/Mining-…").
+ * Does not scan page/source fields, which contain the real site URL.
+ */
+function containsPromoSpam(text) {
+  const s = String(text || '');
+  if (!s) return false;
+  if (/https?:\/\//i.test(s)) return true;
+  if (/\bwww\./i.test(s)) return true;
+  if (/\bgraph\.org\b/i.test(s)) return true;
+  if (/\bt\.me\//i.test(s)) return true;
+  if (/\b(?:bit\.ly|tinyurl\.com|goo\.gl)\b/i.test(s)) return true;
+  if (/\.[a-z]{2,}\/[A-Za-z0-9._~:/?#\[\]@!$&'()*+,;=%-]+/.test(s)) return true;
+  if (/\b(?:\d+[.,]\d+\s*)?BTC\b/i.test(s) && /(?:GET\s*->|mining|wallet|graph\.org)/i.test(s)) {
+    return true;
+  }
+  if (
+    /\b(?:bitcoin|ethereum|usdt|crypto)\b/i.test(s) &&
+    /(?:https?:|www\.|wallet|mining)/i.test(s)
+  ) {
+    return true;
+  }
+  return false;
+}
+
+function collectLeadText(data) {
+  const parts = [];
+  for (const [k, v] of Object.entries(data || {})) {
+    if (SKIP_PROMO_KEYS.has(k)) continue;
+    if (typeof v === 'string') parts.push(v);
+  }
+  return parts.join('\n');
 }
 
 /** Field names used across EN/ES contact & lead forms for “what do you need?” */
@@ -224,6 +275,11 @@ function assessSpam(data) {
   }
 
   if (looksLikeGibberish(notes)) return 'gibberish_notes';
+
+  const displayName = [first, last, data.name, data.full_name].filter(Boolean).join(' ');
+  if (containsPromoSpam(displayName) || containsPromoSpam(collectLeadText(data))) {
+    return 'promo_spam';
+  }
 
   return null;
 }
@@ -329,6 +385,25 @@ function resolveWebhookId(data) {
   return null;
 }
 
+function parseRequestBody(event) {
+  const raw = event.isBase64Encoded
+    ? Buffer.from(event.body || '', 'base64').toString('utf8')
+    : String(event.body || '');
+  const ct = String(
+    event.headers['content-type'] || event.headers['Content-Type'] || ''
+  ).toLowerCase();
+
+  if (ct.includes('application/x-www-form-urlencoded')) {
+    const obj = {};
+    new URLSearchParams(raw).forEach((value, key) => {
+      obj[key] = value;
+    });
+    return obj;
+  }
+
+  return JSON.parse(raw || '{}');
+}
+
 exports.handler = async (event) => {
   if (event.httpMethod === 'OPTIONS') {
     return { statusCode: 204, headers: CORS_HEADERS, body: '' };
@@ -344,7 +419,7 @@ exports.handler = async (event) => {
 
   let data;
   try {
-    data = JSON.parse(event.body || '{}');
+    data = parseRequestBody(event);
   } catch (e) {
     return json(400, { ok: false, error: 'Invalid JSON' });
   }
@@ -390,3 +465,9 @@ exports.handler = async (event) => {
     return json(500, { ok: false, error: 'Submit failed' });
   }
 };
+
+exports.assessSpam = assessSpam;
+exports.containsPromoSpam = containsPromoSpam;
+exports.isValidUsPhone = isValidUsPhone;
+exports.parseRequestBody = parseRequestBody;
+exports.WEBHOOKS = WEBHOOKS;
