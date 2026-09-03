@@ -67,7 +67,7 @@ This is the most expensive COBRA mistake we see: **COBRA does not count as emplo
 
 ## Don't decide from the kitchen table alone
 
-You have 60 days, three options, and — as of 2026 — subsidy rules that changed underneath everyone. We compare all three paths in one free conversation, in English or Spanish. See your options on our [COBRA alternatives page](/cobra-alternatives-miami), call **1-800-380-6821**, or [book a time here](https://calendly.com/healthexps-info/). Most people save hundreds a month over COBRA; the ones who shouldn't switch, we tell them so.
+You have 60 days, three options, and — as of 2026 — subsidy rules that changed underneath everyone. We compare all three paths in one free conversation, in English or Spanish. See your options on our [COBRA alternatives page](/cobra-alternatives-miami), call **1-800-380-6821**, or [book a time here](/book). Most people save hundreds a month over COBRA; the ones who shouldn't switch, we tell them so.
 
 ## Frequently Asked Questions
 

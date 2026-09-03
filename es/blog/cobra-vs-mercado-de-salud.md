@@ -68,7 +68,7 @@ Este es el error de COBRA más caro que vemos: **COBRA no cuenta como cobertura 
 
 ## No decida solo desde la mesa de la cocina
 
-Tiene 60 días, tres opciones y — desde 2026 — reglas de subsidios que cambiaron para todo el mundo. Nosotros comparamos los tres caminos en una sola conversación gratuita, en español o inglés. Llame al **1-800-380-6821** o [agende su cita aquí](https://calendly.com/healthexps-info/). La mayoría ahorra cientos de dólares al mes frente a COBRA; y a quien le conviene quedarse en COBRA, se lo decimos con la misma honestidad.
+Tiene 60 días, tres opciones y — desde 2026 — reglas de subsidios que cambiaron para todo el mundo. Nosotros comparamos los tres caminos en una sola conversación gratuita, en español o inglés. Llame al **1-800-380-6821** o [agende su cita aquí](/es/reservar). La mayoría ahorra cientos de dólares al mes frente a COBRA; y a quien le conviene quedarse en COBRA, se lo decimos con la misma honestidad.
 
 ## Preguntas frecuentes
 

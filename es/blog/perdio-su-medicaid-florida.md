@@ -52,7 +52,7 @@ Esto es lo más importante que cambió en 2026: los subsidios ampliados de la pa
 
 ## No espere a que llegue una factura del médico
 
-Los 60 días del Mercado de Salud y las oportunidades de cambio de plan de Medicare no esperan. Cuanto antes revisemos su situación, más rápido evitamos un mes sin cobertura. Llame al **1-800-380-6821** o [agende una cita gratuita](https://calendly.com/healthexps-info/) — en español o inglés, sin costo, sin presión.
+Los 60 días del Mercado de Salud y las oportunidades de cambio de plan de Medicare no esperan. Cuanto antes revisemos su situación, más rápido evitamos un mes sin cobertura. Llame al **1-800-380-6821** o [agende una cita gratuita](/es/reservar) — en español o inglés, sin costo, sin presión.
 
 ## Preguntas frecuentes
 

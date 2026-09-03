@@ -51,7 +51,7 @@ Comprar la Parte A sin necesidad — o no comprarla cuando sí conviene — pued
 
 ## No lo resuelva solo — revíselo con nosotros
 
-Las reglas de créditos de trabajo, totalización y residencia se cruzan de formas distintas para cada familia. Nosotros las revisamos con usted, en español, sin costo. Llame al **1-800-380-6821** o [agende una cita gratuita](https://calendly.com/healthexps-info/).
+Las reglas de créditos de trabajo, totalización y residencia se cruzan de formas distintas para cada familia. Nosotros las revisamos con usted, en español, sin costo. Llame al **1-800-380-6821** o [agende una cita gratuita](/es/reservar).
 
 ## Preguntas frecuentes
 

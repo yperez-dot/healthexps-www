@@ -27,7 +27,7 @@ Two things Miami seniors get wrong all the time:
 1. **Enrollment isn't always automatic.** If you're already collecting Social Security, you'll be enrolled in Parts A and B automatically. If you're not — and more people are delaying Social Security every year — you have to sign up yourself through Social Security.
 2. **Timing inside the window matters.** Sign up during the 3 months before your birthday month and coverage starts the first day of your birthday month. Sign up later in the window and coverage starts the month after you enroll.
 
-If you (or your spouse) are still working with employer coverage from a company with 20+ employees, you can usually delay Part B without penalty — but confirm this before your birthday, not after. [Our new-to-Medicare guide](/medicare/new-to-medicare) walks through it, or [schedule a free consultation](https://calendly.com/healthexps-info/) and we'll map your exact dates.
+If you (or your spouse) are still working with employer coverage from a company with 20+ employees, you can usually delay Part B without penalty — but confirm this before your birthday, not after. [Our new-to-Medicare guide](/medicare/new-to-medicare) walks through it, or [schedule a free consultation](/book) and we'll map your exact dates.
 
 ## Annual Enrollment Period (AEP): October 15 – December 7
 

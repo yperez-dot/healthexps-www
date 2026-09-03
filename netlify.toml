@@ -176,7 +176,13 @@
 
 [[redirects]]
   from = "/book-online"
-  to = "https://calendly.com/healthexps-info/"
+  to = "/book"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/book-online/"
+  to = "/book"
   status = 301
   force = true
 
@@ -322,7 +328,13 @@
 
 [[redirects]]
   from = "/book-online"
-  to = "https://calendly.com/healthexps-info/"
+  to = "/book"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/book-online/"
+  to = "/book"
   status = 301
   force = true
 

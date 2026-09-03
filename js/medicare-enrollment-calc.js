@@ -359,7 +359,7 @@
       '<div class="cta-box-title">' + title + '</div>' +
       '<p class="cta-box-desc">' + desc + '</p>' +
       '<div class="cta-btns cta-full-btns">' +
-      '<a href="https://calendly.com/healthexps-info/" target="_blank" rel="noopener" class="cta-btn-pink result-cta-btn-pink">' + copy.cta_call + '</a>' +
+      '<a href="'+(lang==='es'?'/es/reservar':'/book')+'" class="cta-btn-pink result-cta-btn-pink">' + copy.cta_call + '</a>' +
       '<a href="https://wa.me/13054646888" target="_blank" rel="noopener" class="cta-btn-wa" onclick="gtag(\'event\',\'whatsapp_click\',{\'page\':location.pathname})">' + copy.cta_wa + '</a>' +
       '</div></div>';
   }

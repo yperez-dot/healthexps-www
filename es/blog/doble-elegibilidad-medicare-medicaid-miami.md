@@ -65,7 +65,7 @@ La mayoría de las personas con Medicare están amarradas a su plan salvo durant
 
 ## Hable con alguien que maneja esto todos los días — en su idioma
 
-La doble elegibilidad está en el cruce de dos programas con dos juegos de reglas y papeleo en dos idiomas. Esa es nuestra especialidad. Llame al **1-800-380-6821** o [agende una cita gratuita](https://calendly.com/healthexps-info/) — en español o inglés — y verificamos su elegibilidad, sus opciones de plan y si está dejando dinero sobre la mesa.
+La doble elegibilidad está en el cruce de dos programas con dos juegos de reglas y papeleo en dos idiomas. Esa es nuestra especialidad. Llame al **1-800-380-6821** o [agende una cita gratuita](/es/reservar) — en español o inglés — y verificamos su elegibilidad, sus opciones de plan y si está dejando dinero sobre la mesa.
 
 ## Preguntas frecuentes
 

@@ -428,6 +428,25 @@
   <xhtml:link rel="alternate" hreflang="es" href="https://www.healthexps.com/es/agente-de-medicare-miami"/>
 </url>
 
+
+<url>
+  <loc>https://www.healthexps.com/book</loc>
+  <lastmod>2026-09-03</lastmod>
+  <changefreq>monthly</changefreq>
+  <priority>0.8</priority>
+  <xhtml:link rel="alternate" hreflang="en" href="https://www.healthexps.com/book"/>
+  <xhtml:link rel="alternate" hreflang="es" href="https://www.healthexps.com/es/reservar"/>
+</url>
+
+<url>
+  <loc>https://www.healthexps.com/es/reservar</loc>
+  <lastmod>2026-09-03</lastmod>
+  <changefreq>monthly</changefreq>
+  <priority>0.8</priority>
+  <xhtml:link rel="alternate" hreflang="en" href="https://www.healthexps.com/book"/>
+  <xhtml:link rel="alternate" hreflang="es" href="https://www.healthexps.com/es/reservar"/>
+</url>
+
 <url>
   <loc>https://www.healthexps.com/contact</loc>
   <lastmod>2026-06-15</lastmod>
