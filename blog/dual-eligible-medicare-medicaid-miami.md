@@ -65,7 +65,7 @@ Most people on Medicare are locked into their plan except during the fall Annual
 
 ## Talk to someone who handles this every day — in your language
 
-Dual eligibility sits at the intersection of two programs with two sets of rules, in two languages' worth of paperwork. That's our specialty. Call **1-800-380-6821** or [book a free appointment](https://calendly.com/healthexps-info/) — English o español — and we'll check your eligibility, your plan options, and whether you're leaving money on the table.
+Dual eligibility sits at the intersection of two programs with two sets of rules, in two languages' worth of paperwork. That's our specialty. Call **1-800-380-6821** or [book a free appointment](/book) — English o español — and we'll check your eligibility, your plan options, and whether you're leaving money on the table.
 
 ## Frequently Asked Questions
 

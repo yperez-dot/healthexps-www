@@ -45,7 +45,7 @@ Un D-SNP a $0 de prima puede incluir beneficios que un plan regular no tiene: as
 
 ## Evalúe su costo real, no solo el anuncio
 
-Cada aseguradora estructura sus D-SNP un poco distinto, y el costo real depende de detalles específicos de su Medicaid que no aparecen en un anuncio genérico. Nosotros comparamos más de 14 aseguradoras y le decimos exactamente qué pagaría usted — no un promedio. Llame al **1-800-380-6821** o [agende una cita gratuita](https://calendly.com/healthexps-info/), en español o inglés.
+Cada aseguradora estructura sus D-SNP un poco distinto, y el costo real depende de detalles específicos de su Medicaid que no aparecen en un anuncio genérico. Nosotros comparamos más de 14 aseguradoras y le decimos exactamente qué pagaría usted — no un promedio. Llame al **1-800-380-6821** o [agende una cita gratuita](/es/reservar), en español o inglés.
 
 ## Preguntas frecuentes
 

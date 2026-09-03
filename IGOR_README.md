@@ -156,7 +156,7 @@ src/es/medicare/
 
 ## LINKS
 
-- **Calendly:** https://calendly.com/healthexps-info/
+- **Scheduling:** GoHighLevel calendar `nxnfX0ftIxkjtrpFxHRx` — `/book` (EN) and `/es/reservar` (ES). Embed: `https://api.leadconnectorhq.com/widget/booking/nxnfX0ftIxkjtrpFxHRx`
 - **Typeform:** https://form.typeform.com/to/HAWpOxNm
 - **HealthSherpa:** https://www.healthsherpa.com/?_agent_id=sabri-perez
 - **WhatsApp:** https://wa.me/13054646888

@@ -67,7 +67,7 @@ If your income has **dropped since that two-year-old tax return because of a lif
 - Loss or reduction of a pension
 - An employer settlement payment
 
-Retired in 2025 or 2026 but being charged based on your 2024 salary? That's the textbook SSA-44 case. We walk clients through this filing routinely — bring your letter to [a free appointment](https://calendly.com/healthexps-info/) and we'll look at it together.
+Retired in 2025 or 2026 but being charged based on your 2024 salary? That's the textbook SSA-44 case. We walk clients through this filing routinely — bring your letter to [a free appointment](/book) and we'll look at it together.
 
 One thing SSA-44 does *not* cover: a one-time income spike (a big capital gain, a large Roth conversion, a lump-sum withdrawal). Those aren't "life-changing events" — which is why the planning below matters.
 

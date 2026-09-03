@@ -125,7 +125,7 @@ Where it gets complicated is for the self-employed, S-corp owners, and anyone pa
 
 Whether you're shopping for individual coverage, comparing group plan options for your small business, or trying to figure out your best move after losing job-based insurance, our licensed bilingual brokers in Doral can help — at no cost to you.
 
-Call **1-800-380-6821** or [schedule a free consultation](https://calendly.com/healthexps-info/).
+Call **1-800-380-6821** or [schedule a free consultation](/book).
 
 ## Frequently Asked Questions
 
