@@ -77,12 +77,35 @@
     return vowels / letters.length < 0.18;
   }
 
+  function containsPromoSpam(text) {
+    var s = String(text || '');
+    if (!s) return false;
+    if (/https?:\/\//i.test(s)) return true;
+    if (/\bwww\./i.test(s)) return true;
+    if (/\bgraph\.org\b/i.test(s)) return true;
+    if (/\bt\.me\//i.test(s)) return true;
+    if (/\b(?:bit\.ly|tinyurl\.com|goo\.gl)\b/i.test(s)) return true;
+    if (/\.[a-z]{2,}\/[A-Za-z0-9._~:/?#\[\]@!$&'()*+,;=%-]+/.test(s)) return true;
+    if (/\b(?:\d+[.,]\d+\s*)?BTC\b/i.test(s) && /(?:GET\s*->|mining|wallet|graph\.org)/i.test(s)) {
+      return true;
+    }
+    if (
+      /\b(?:bitcoin|ethereum|usdt|crypto)\b/i.test(s) &&
+      /(?:https?:|www\.|wallet|mining)/i.test(s)
+    ) {
+      return true;
+    }
+    return false;
+  }
+
   function looksLikeBotName(first, last) {
     var f = String(first || '').trim();
     var l = String(last || '').trim();
     if (!f || !l) return true;
+    if (f.length > 48 || l.length > 48) return true;
     if (f.toLowerCase() === l.toLowerCase() && f.length >= 6) return true;
     var combined = f + l;
+    if (containsPromoSpam(combined)) return true;
     if (/\d/.test(combined) && /[A-Za-z]/.test(combined) && combined.length >= 10) {
       return true;
     }
@@ -227,6 +250,15 @@
         if (!isValidUsPhone(phone)) return 'bad_phone';
         if (looksLikeBotName(first, last)) return 'bot_name';
         if (looksLikeGibberish(notes)) return 'gibberish_notes';
+        if (
+          containsPromoSpam(first) ||
+          containsPromoSpam(last) ||
+          containsPromoSpam(notes) ||
+          containsPromoSpam(fields.name) ||
+          containsPromoSpam(fields.email)
+        ) {
+          return 'promo_spam';
+        }
         return null;
       },
     };
@@ -375,7 +407,7 @@
 
   // Mark explicit proxy forms so native interceptor does not double-handle
   function markProxyForms() {
-    ['esContactForm', 'enContactForm', 'cobraForm', 'acaFormEs', 'esSeguroForm'].forEach(
+    ['esContactForm', 'enContactForm', 'cobraForm', 'acaFormEs', 'esSeguroForm', 'privForm'].forEach(
       function (id) {
         var el = document.getElementById(id);
         if (el) el.setAttribute('data-spam-guard', 'proxy');
