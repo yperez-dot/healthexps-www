@@ -37,7 +37,7 @@ This is the big one. Every year during AEP, anyone on Medicare can:
 - Switch from one Medicare Advantage plan to another
 - Join, drop, or change a Part D drug plan
 
-Changes take effect January 1. In late September, your plan mails you an **Annual Notice of Change (ANOC)** describing what your plan will cost and cover next year — read it, because plans change premiums, drug formularies, and doctor networks every single year. We review ANOC letters for clients at no charge. Details on this year's window are on our [Annual Enrollment page](/medicare-annual-enrollment-2027).
+Changes take effect January 1. In late September, your plan mails you an **Annual Notice of Change (ANOC)** describing what your plan will cost and cover next year — read it, because plans change premiums, drug formularies, and doctor networks every single year. We review ANOC letters at no charge. Details: [ANOC 2027 free review](/medicare-anoc-2027/) and this year's [Annual Enrollment page](/medicare-annual-enrollment-2027).
 
 ## Medicare Advantage Open Enrollment (MA OEP): January 1 – March 31
 
