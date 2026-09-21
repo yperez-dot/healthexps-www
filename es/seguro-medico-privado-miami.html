@@ -64,7 +64,32 @@
       {
         "@type": "Question",
         "name": "¿Cuánto cuesta el seguro médico privado para individuos en Miami?",
-        "acceptedAnswer": {"@type": "Answer", "text": "El costo varía según edad, nivel de cobertura, tipo de plan e historial de salud. Nuestros corredores bilingües con licencia comparan planes de 14+ aseguradoras para encontrar la opción más asequible — sin costo para usted."}
+        "acceptedAnswer": {"@type": "Answer", "text": "El costo varía según edad, nivel de cobertura, tipo de plan e historial de salud. En el Mercado ACA 2026, los rangos orientativos del sur de Florida después de subsidios son aproximadamente $0–$350 al mes para un adulto, $0–$700 para una pareja y $0–$1,200 para una familia de 4. Los planes privados fuera del Mercado los cotiza cada aseguradora por separado — no aplican subsidios. Comparamos cotizaciones reales para su ZIP, sin costo."}
+      },
+      {
+        "@type": "Question",
+        "name": "¿Necesito esperar el período de inscripción para obtener seguro privado?",
+        "acceptedAnswer": {"@type": "Answer", "text": "No. Los planes de seguro médico privado fuera del Mercado ACA generalmente están disponibles durante todo el año sin esperar un período de inscripción abierta. Contáctenos para explorar sus opciones inmediatamente."}
+      },
+      {
+        "@type": "Question",
+        "name": "¿Cuál es la diferencia entre seguro privado y el Plan del Mercado (ACA / Obamacare)?",
+        "acceptedAnswer": {"@type": "Answer", "text": "El Mercado ACA (Obamacare) funciona bien para personas que califican para créditos fiscales de prima y cubre condiciones preexistentes por ley. El seguro privado fuera del Mercado suele estar disponible todo el año, no usa subsidios y puede incluir revisión médica (underwriting). Le comparamos ambas para que elija con información completa."}
+      },
+      {
+        "@type": "Question",
+        "name": "¿Cubren enfermedades preexistentes los planes privados?",
+        "acceptedAnswer": {"@type": "Answer", "text": "Depende del tipo de plan. Los planes ACA están obligados por ley a cubrir condiciones preexistentes. Los planes privados fuera del Mercado varían — algunos las cubren, otros no o tienen períodos de espera. Le explicamos exactamente qué cubre cada opción antes de tomar una decisión."}
+      },
+      {
+        "@type": "Question",
+        "name": "¿Verifican si mis hospitales (Baptist, Jackson, UHealth) están en la red?",
+        "acceptedAnswer": {"@type": "Answer", "text": "Sí. Verificamos si SUS médicos y hospitales participan en la red de los planes que comparamos — Baptist Health, Jackson Health System, UHealth / Universidad de Miami, Memorial Healthcare, Cleveland Clinic Florida y HCA Florida Healthcare. The Health Experts Insurance no está “dentro de la red” de estos sistemas; revisamos el directorio de cada plan porque las redes cambian cada año."}
+      },
+      {
+        "@type": "Question",
+        "name": "¿Qué documentos necesito para aplicar a un seguro médico en Miami?",
+        "acceptedAnswer": {"@type": "Answer", "text": "Tenga a mano una identificación con foto, comprobante de ingresos o documentos de impuestos si va a solicitar un plan del Mercado, documentos migratorios si aplican para elegibilidad en el Mercado, su tarjeta de seguro actual si tiene una, y una lista de médicos, hospitales y medicamentos. Con eso podemos cotizar más rápido por WhatsApp, teléfono o en la oficina de Doral."}
       }
     ]
   }
@@ -147,6 +172,28 @@ details[open] .faq-icon{transform:rotate(45deg);}
 .event-card p{color:var(--gray-text);font-size:17px;line-height:1.6;margin-bottom:14px;flex:1;}
 .event-card a{font-size:17px;font-weight:700;color:var(--pink);margin-top:auto;}
 .event-card a:hover{color:var(--pink-hover);}
+.priv-hospitals{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px;}
+.priv-hospital{background:#fff;border:2px solid #ece5f0;border-radius:12px;padding:20px 22px;}
+.priv-hospital h3{font-size:18px;color:var(--purple);margin-bottom:6px;}
+.priv-hospital p{font-size:15px;color:var(--gray-text);line-height:1.55;margin:0;}
+.priv-chips{display:flex;flex-wrap:wrap;gap:10px;}
+.priv-chips span{display:inline-block;background:var(--purple-light);color:var(--purple);border-radius:999px;padding:8px 16px;font-size:15px;font-weight:700;}
+.doc-list{list-style:none;display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:14px;margin:0;}
+.doc-list li{background:#fff;border:2px solid #ece5f0;border-radius:12px;padding:18px 20px;}
+.doc-list h3{font-size:17px;color:var(--purple);margin-bottom:6px;}
+.doc-list p{font-size:16px;color:var(--gray-text);line-height:1.6;margin:0;}
+.factor-table{width:100%;border-collapse:collapse;font-size:16px;background:#fff;border-radius:12px;overflow:hidden;}
+.factor-table th{background:var(--purple);color:#fff;padding:12px 16px;text-align:left;font-size:15px;}
+.factor-table td{padding:12px 16px;border-bottom:1px solid var(--gray-mid);vertical-align:top;color:var(--gray-text);}
+.factor-table tr:nth-child(even) td{background:var(--purple-light);}
+.wa-cta{display:inline-flex;align-items:center;justify-content:center;gap:8px;background:#25D366;color:#fff;padding:14px 24px;border-radius:12px;font-weight:700;font-size:18px;}
+.wa-cta:hover{color:#fff;background:#1da851;}
+@media(max-width:768px){
+  .priv-cost-grid{grid-template-columns:repeat(2,1fr)!important;}
+}
+@media(max-width:480px){
+  .priv-cost-grid{grid-template-columns:1fr!important;}
+}
 </style>
 </head>
 <body>
@@ -444,6 +491,114 @@ details[open] .faq-icon{transform:rotate(45deg);}
       </div>
     </section>
 
+    <!-- RANGOS DE PRIMA 2026 -->
+    <section class="section">
+      <div class="container">
+        <h2 style="font-family:'Poppins',sans-serif;font-size:28px;font-weight:700;color:#452068;margin-bottom:10px;text-align:center">Rangos de prima orientativos 2026</h2>
+        <p style="color:#3a2f47;font-size:18px;line-height:1.7;margin:0 auto 24px;text-align:center;max-width:820px">Rangos reales 2026 del Mercado ACA para residentes del sur de Florida, <strong>después de subsidios</strong> — los mismos que publicamos en la página en inglés. Los planes privados fuera del Mercado los cotiza cada aseguradora por separado: no aplican subsidios y la prima mensual típica varía por edad, ZIP y deducible. Comparemos cotizaciones reales; no adivinamos un precio genérico.</p>
+        <div class="priv-cost-grid" style="display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-bottom:28px">
+          <div style="background:#fff;border:2px solid #ece5f0;border-radius:14px;padding:20px;text-align:center"><div style="font-size:15px;color:#3a2f47;margin-bottom:6px">Adulto solo</div><div style="font-family:Poppins,sans-serif;font-weight:700;font-size:20px;color:#452068">$0–$350</div><div style="font-size:16px;color:#5a5068;margin-top:4px">al mes</div></div>
+          <div style="background:#fff;border:2px solid #ece5f0;border-radius:14px;padding:20px;text-align:center"><div style="font-size:15px;color:#3a2f47;margin-bottom:6px">Pareja</div><div style="font-family:Poppins,sans-serif;font-weight:700;font-size:20px;color:#452068">$0–$700</div><div style="font-size:16px;color:#5a5068;margin-top:4px">al mes</div></div>
+          <div style="background:#fff;border:2px solid #ece5f0;border-radius:14px;padding:20px;text-align:center"><div style="font-size:15px;color:#3a2f47;margin-bottom:6px">Familia de 4</div><div style="font-family:Poppins,sans-serif;font-weight:700;font-size:20px;color:#452068">$0–$1,200</div><div style="font-size:16px;color:#5a5068;margin-top:4px">al mes</div></div>
+          <div style="background:#fdfaf7;border:1px dashed #ddd2e6;border-radius:14px;padding:20px;text-align:center"><div style="font-size:15px;color:#3a2f47;margin-bottom:6px">Sin una cotización</div><div style="font-family:Poppins,sans-serif;font-weight:700;font-size:20px;color:#5a5068">$???</div><div style="font-size:16px;color:#5a5068;margin-top:4px">no adivine</div></div>
+        </div>
+        <h3 style="font-family:'Poppins',sans-serif;font-size:20px;font-weight:700;color:#452068;margin:0 0 12px">Qué mueve la prima (privado y Mercado)</h3>
+        <div style="overflow-x:auto;margin-bottom:20px">
+          <table class="factor-table">
+            <thead>
+              <tr>
+                <th style="width:32%">Factor</th>
+                <th>Cómo suele afectar el precio</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td><strong>Edad</strong></td><td>Las primas individuales suelen subir con la edad. Un adulto de 55 años no paga lo mismo que uno de 30 en el mismo ZIP.</td></tr>
+              <tr><td><strong>ZIP / condado</strong></td><td>Miami-Dade y Broward tienen tarifas distintas. Traiga su código postal — no usamos un promedio genérico de Florida.</td></tr>
+              <tr><td><strong>Deducible y red</strong></td><td>Un PPO más amplio suele costar más que un HMO más restringido. El deducible alto baja la prima mensual.</td></tr>
+              <tr><td><strong>Subsidio ACA</strong></td><td>Si califica por ingresos, el Mercado suele ser más barato que un plan privado fuera del Mercado. Sin subsidio, comparamos ambos.</td></tr>
+              <tr><td><strong>Revisión médica</strong></td><td>Los planes privados fuera del Mercado pueden ajustar precio o negar cobertura según historial de salud. El Mercado no.</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p style="color:#5a5068;font-size:16px;line-height:1.6;margin:0">Estas cifras del Mercado son orientativas, no una cotización. La prima privada exacta solo sale con su edad, ZIP y diseño de plan. <a href="https://wa.me/13054646888" onclick="gtag('event','whatsapp_click',{'page':window.location.pathname})" style="font-weight:700;color:#25D366">Escríbanos por WhatsApp</a> y comparamos números reales.</p>
+      </div>
+    </section>
+
+    <!-- HOSPITALES QUE VERIFICAMOS -->
+    <section class="section section-alt">
+      <div class="container">
+        <h2 style="font-family:'Poppins',sans-serif;font-size:28px;font-weight:700;color:#452068;margin-bottom:10px;text-align:center">Hospitales que verificamos</h2>
+        <p style="color:#3a2f47;font-size:18px;line-height:1.7;margin:0 auto 28px;text-align:center;max-width:780px">Revisamos si <strong>sus</strong> médicos y hospitales participan en la red de los planes que comparamos. The Health Experts Insurance no está “dentro de la red” de estos sistemas — verificamos la participación plan por plan, porque las redes cambian cada año.</p>
+        <div class="priv-hospitals">
+          <div class="priv-hospital">
+            <h3>Baptist Health</h3>
+            <p>Hospitales de Baptist Health South Florida y médicos afiliados en Miami-Dade y alrededores.</p>
+          </div>
+          <div class="priv-hospital">
+            <h3>Jackson Health System</h3>
+            <p>Jackson Memorial y clínicas de Jackson Health que atienden Miami-Dade.</p>
+          </div>
+          <div class="priv-hospital">
+            <h3>UHealth / Universidad de Miami</h3>
+            <p>University of Miami Health System, incluidos especialistas que muchas familias quieren conservar.</p>
+          </div>
+          <div class="priv-hospital">
+            <h3>Memorial Healthcare System</h3>
+            <p>Hospitales y médicos afiliados en el condado Broward (Hollywood, Pembroke Pines y cercanías).</p>
+          </div>
+          <div class="priv-hospital">
+            <h3>Cleveland Clinic Florida</h3>
+            <p>Campus de Weston y otras sedes de Cleveland Clinic Florida que contrastamos con el directorio de cada plan.</p>
+          </div>
+          <div class="priv-hospital">
+            <h3>HCA Florida Healthcare</h3>
+            <p>Hospitales del este de Florida como Kendall, Aventura y Mercy — se confirman en la red del plan, no se asumen.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- DOCUMENTOS PARA APLICAR -->
+    <section class="section">
+      <div class="container">
+        <h2 style="font-family:'Poppins',sans-serif;font-size:28px;font-weight:700;color:#452068;margin-bottom:10px;text-align:center">Documentos para aplicar</h2>
+        <p style="color:#3a2f47;font-size:18px;line-height:1.7;margin:0 auto 28px;text-align:center;max-width:760px">Tenga esto a mano — por WhatsApp, teléfono o en la oficina de Doral. No tiene que enviarlo todo de una vez; con estos datos cotizamos más rápido y con menos idas y vueltas.</p>
+        <ul class="doc-list">
+          <li>
+            <h3>Identificación</h3>
+            <p>Identificación con foto vigente (licencia de conducir de Florida o pasaporte).</p>
+          </li>
+          <li>
+            <h3>Ingresos / impuestos (si es ACA)</h3>
+            <p>Comprobante de ingresos o documentos de impuestos recientes si va a solicitar un plan del Mercado y posibles créditos de prima.</p>
+          </li>
+          <li>
+            <h3>Documentos migratorios</h3>
+            <p>Si aplican para elegibilidad en el Mercado (por ejemplo, residencia permanente u otro estatus elegible). No todos los planes privados fuera del Mercado piden lo mismo.</p>
+          </li>
+          <li>
+            <h3>Tarjeta de seguro actual</h3>
+            <p>Si ya tiene cobertura (empleo, COBRA o un plan individual), tenga la tarjeta o el nombre del plan a la mano.</p>
+          </li>
+          <li>
+            <h3>Médicos y medicamentos</h3>
+            <p>Lista de doctores, hospitales preferidos y recetas con dosis. Así verificamos la red y el formulario antes de que aplique.</p>
+          </li>
+          <li>
+            <h3>ZIP y presupuesto</h3>
+            <p>Código postal de Miami-Dade o Broward y un rango mensual. Las primas y las redes cambian por ZIP.</p>
+          </li>
+        </ul>
+        <div style="margin-top:28px;background:#f0fdf4;border:2px solid #25D366;border-radius:16px;padding:22px 24px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px">
+          <div>
+            <div style="font-family:Poppins,sans-serif;font-weight:700;font-size:18px;color:#241a30;margin-bottom:4px">¿Ya tiene los documentos?</div>
+            <p style="margin:0;color:#3a2f47;font-size:16px;line-height:1.6">Escríbanos por WhatsApp — es la forma más rápida de empezar. También puede llamar o usar el formulario.</p>
+          </div>
+          <a href="https://wa.me/13054646888" onclick="gtag('event','whatsapp_click',{'page':window.location.pathname})" class="wa-cta">WhatsApp</a>
+        </div>
+      </div>
+    </section>
+
     <!-- POR QUÉ NOSOTROS -->
     <section class="section">
       <div class="container">
@@ -474,10 +629,13 @@ details[open] .faq-icon{transform:rotate(45deg);}
         <h2 style="font-family:'Poppins',sans-serif;font-size:28px;font-weight:700;color:#452068;margin-bottom:28px">Preguntas Frecuentes</h2>
         <div style="max-width:780px">
           <details><summary>¿Los trabajadores independientes pueden obtener seguro médico privado en Florida? <span class="faq-icon">+</span></summary><p>Sí. Los trabajadores independientes, freelancers y contratistas 1099 en Florida tienen acceso a planes de seguro médico privado disponibles todo el año, sin esperar un período de inscripción abierta. Comparamos todas las opciones sin costo.</p></details>
-          <details><summary>¿Cuánto cuesta el seguro médico privado para individuos en Miami? <span class="faq-icon">+</span></summary><p>El costo varía según su edad, nivel de cobertura, tipo de plan e historial de salud. Nuestros corredores bilingües con licencia comparan planes de múltiples aseguradoras para encontrar la opción más asequible para su situación — completamente gratis.</p></details>
+          <details><summary>¿Cuánto cuesta el seguro médico privado para individuos en Miami? <span class="faq-icon">+</span></summary><p>El costo varía según edad, cobertura, tipo de plan e historial de salud. En el Mercado ACA 2026, los rangos orientativos del sur de Florida después de subsidios son aproximadamente $0–$350 al mes para un adulto, $0–$700 para una pareja y $0–$1,200 para una familia de 4. Los planes privados fuera del Mercado los cotiza cada aseguradora — no aplican subsidios. Comparamos cotizaciones reales para su ZIP, sin costo.</p></details>
           <details><summary>¿Necesito esperar el período de inscripción para obtener seguro privado? <span class="faq-icon">+</span></summary><p>No. Los planes de seguro médico privado fuera del Mercado ACA generalmente están disponibles durante todo el año sin esperar un período de inscripción abierta. Contáctenos para explorar sus opciones inmediatamente.</p></details>
-          <details><summary>¿Cuál es la diferencia entre seguro privado y el Plan del Mercado (ACA)? <span class="faq-icon">+</span></summary><p>El Mercado ACA funciona bien para personas que califican para créditos fiscales de prima. Sin embargo, si sus ingresos son más altos, si necesita más flexibilidad, o si quiere cobertura inmediata, las opciones privadas pueden ser mejores. Le comparamos ambas para que elija con información completa.</p></details>
+          <details><summary>¿Cuál es la diferencia entre seguro privado y el Plan del Mercado (ACA)? <span class="faq-icon">+</span></summary><p>El Mercado ACA (Obamacare) funciona bien para personas que califican para créditos fiscales de prima y cubre condiciones preexistentes por ley. El seguro privado fuera del Mercado suele estar disponible todo el año, no usa subsidios y puede incluir revisión médica. Le comparamos ambas para que elija con información completa.</p></details>
           <details><summary>¿Cubren enfermedades preexistentes los planes privados? <span class="faq-icon">+</span></summary><p>Depende del tipo de plan. Los planes ACA están obligados por ley a cubrir condiciones preexistentes. Los planes privados fuera del Mercado varían — algunos las cubren, otros no o tienen períodos de espera. Le explicamos exactamente qué cubre cada opción antes de tomar una decisión.</p></details>
+          <details><summary>¿Cuánto cuesta un seguro privado en Miami en 2026? <span class="faq-icon">+</span></summary><p>En el Mercado ACA 2026, los rangos orientativos del sur de Florida después de subsidios son aproximadamente $0–$350 al mes para un adulto, $0–$700 para una pareja y $0–$1,200 para una familia de 4. Un plan privado fuera del Mercado no tiene subsidio: la prima depende de edad, ZIP, deducible y, a veces, de una revisión médica. Comparemos cotizaciones reales — no publicamos un precio inventado.</p></details>
+          <details><summary>¿Verifican si mis hospitales (Baptist, Jackson, UHealth) están en la red? <span class="faq-icon">+</span></summary><p>Sí. Verificamos si SUS médicos y hospitales participan en la red de los planes que comparamos — Baptist Health, Jackson Health System, UHealth / Universidad de Miami, Memorial Healthcare, Cleveland Clinic Florida y HCA Florida Healthcare. No estamos “dentro de la red” de esos sistemas; revisamos el directorio de cada plan porque las redes cambian cada año.</p></details>
+          <details><summary>¿Qué documentos necesito para aplicar? <span class="faq-icon">+</span></summary><p>Identificación con foto, comprobante de ingresos o documentos de impuestos si va al Mercado, documentos migratorios si aplican para elegibilidad, su tarjeta de seguro actual y una lista de médicos, hospitales y medicamentos. Con eso cotizamos más rápido por WhatsApp, teléfono o en Doral.</p></details>
         </div>
       </div>
     </section>
@@ -487,7 +645,8 @@ details[open] .faq-icon{transform:rotate(45deg);}
       <div style="max-width:1100px;margin:0 auto;display:grid;grid-template-columns:0.9fr 1.1fr;gap:56px;align-items:center">
         <div style="color:#fff">
           <h2 style="font-family:'Poppins',sans-serif;font-size:30px;font-weight:700;margin:0 0 16px">Solicita tu Consulta Gratis</h2>
-          <p style="font-size:17px;line-height:1.6;opacity:.85;margin:0 0 26px;max-width:420px">Una corredora bilingüe con licencia se comunicará personalmente — sin centros de llamadas, sin presión.</p>
+          <p style="font-size:17px;line-height:1.6;opacity:.85;margin:0 0 18px;max-width:420px">Una corredora bilingüe con licencia se comunicará personalmente — sin centros de llamadas, sin presión.</p>
+          <a href="https://wa.me/13054646888" onclick="gtag('event','whatsapp_click',{'page':window.location.pathname})" class="wa-cta" style="margin-bottom:22px;width:fit-content">WhatsApp — la vía más rápida</a>
           <div style="display:flex;flex-direction:column;gap:12px">
             <div style="display:flex;align-items:center;gap:10px;font-size:18px"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#ff90c8" stroke-width="2.2"><path d="M5 12l4 4 10-10"/></svg> Consultas sin costo</div>
             <div style="display:flex;align-items:center;gap:10px;font-size:18px"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#ff90c8" stroke-width="2.2"><path d="M5 12l4 4 10-10"/></svg> Corredoras con licencia en Florida</div>
@@ -563,6 +722,7 @@ details[open] .faq-icon{transform:rotate(45deg);}
       <h2 style="font-family:'Poppins',sans-serif;font-size:28px;font-weight:700;margin:0 0 10px">¿Listo para encontrar tu plan?</h2>
       <p style="font-size:16px;color:#f0eaf7;margin:0 0 26px">Habla con una corredora de seguros con licencia. Gratis, local, sin presión.</p>
       <div style="display:flex;gap:14px;justify-content:center;flex-wrap:wrap">
+        <a href="https://wa.me/13054646888" onclick="gtag('event','whatsapp_click',{'page':window.location.pathname})" style="background:#25D366;color:#fff;padding:16px 28px;border-radius:12px;font-weight:700;font-size:18px">WhatsApp</a>
         <a href="#lead-form" style="background:#ff1090;color:#fff;padding:16px 28px;border-radius:12px;font-weight:700;font-size:18px">Comparar Planes Gratis</a>
         <a href="tel:18003806821" style="border:2px solid #fff;color:#fff;padding:14px 26px;border-radius:12px;font-weight:700;font-size:18px">1-800-380-6821</a>
       </div>

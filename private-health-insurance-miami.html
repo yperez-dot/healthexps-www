@@ -76,7 +76,11 @@
     {"@type": "Question", "name": "How much does private health insurance cost in Miami, Florida?", "acceptedAnswer": {"@type": "Answer", "text": "Private health insurance costs in Miami depend on your household income, age, ZIP code, and whether you qualify for ACA subsidies. Above 400% of the federal poverty level there is no premium tax credit — and private plans outside the Marketplace often compare well at that income range. Self-employed individuals may be able to deduct 100% of premiums from their federal taxes. A licensed broker can run your actual numbers at no cost."}},
     {"@type": "Question", "name": "Can I get private health insurance if I'm self-employed in Florida?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. Self-employed individuals in Florida can purchase private health insurance year-round without waiting for Open Enrollment. You may also qualify for ACA Marketplace subsidies depending on your income. A licensed broker can compare both options at no cost to you."}},
     {"@type": "Question", "name": "What's the difference between ACA and private health insurance?", "acceptedAnswer": {"@type": "Answer", "text": "ACA Marketplace plans follow federal rules — they cover pre-existing conditions and may qualify for subsidies based on income. Private off-exchange plans offer more flexibility and are available year-round, but may not cover pre-existing conditions the same way and don't offer subsidies."}},
-    {"@type": "Question", "name": "Do I need to wait for Open Enrollment to get private health insurance in Florida?", "acceptedAnswer": {"@type": "Answer", "text": "No. Off-exchange private health insurance plans are available year-round in Florida — no Open Enrollment period required. This makes them a popular choice for people who need coverage immediately, such as new Florida residents or those who recently lost job-based coverage."}}
+    {"@type": "Question", "name": "Do I need to wait for Open Enrollment to get private health insurance in Florida?", "acceptedAnswer": {"@type": "Answer", "text": "No. Off-exchange private health insurance plans are available year-round in Florida — no Open Enrollment period required. This makes them a popular choice for people who need coverage immediately, such as new Florida residents or those who recently lost job-based coverage."}},
+    {"@type": "Question", "name": "Do you check Baptist, Jackson, UHealth, and other Miami hospitals?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. We verify whether your doctors and hospitals are in-network for the plans we compare — including Baptist Health, Jackson Health System, UHealth / University of Miami, Memorial Healthcare System, Cleveland Clinic Florida, and HCA Florida Healthcare. The Health Experts Insurance is not in-network with these systems; we check each plan's directory because networks change every year."}},
+    {"@type": "Question", "name": "Do private off-exchange plans use medical underwriting?", "acceptedAnswer": {"@type": "Answer", "text": "Often yes. Off-exchange private plans may review your health history and pre-existing conditions before issuing coverage. Approval is not guaranteed. ACA Marketplace plans are generally guaranteed-issue and cannot deny you for a pre-existing condition; they may also include income-based subsidies. We compare both paths and tell you which rules apply before you apply."}},
+    {"@type": "Question", "name": "I'm self-employed in Miami — can I get coverage year-round and use an HSA?", "acceptedAnswer": {"@type": "Answer", "text": "Self-employed, 1099, and freelance workers in Florida can shop off-exchange private plans year-round. We still compare ACA Marketplace coverage when Open Enrollment or a Special Enrollment Period applies, because a subsidy can beat a private premium. An HSA-eligible high-deductible health plan can be a fit when you want a lower premium and a tax-advantaged medical account — talk with your tax professional before treating premiums or HSA deposits as a deduction."}},
+    {"@type": "Question", "name": "Which Miami-Dade and Broward neighborhoods do you serve?", "acceptedAnswer": {"@type": "Answer", "text": "We are based in Doral and serve Miami-Dade and Broward, including Miami, Hialeah, Kendall, Coral Gables, Homestead, Miami Beach, Aventura, Pembroke Pines, Hollywood, Fort Lauderdale, Miramar, and nearby communities. Meet in person, by phone, video, or WhatsApp."}}
   ]
 }
 </script>
@@ -198,6 +202,21 @@ img { max-width: 100%; height: auto; }
   .v4-nav-desktop { display: none !important; }
   .v4-nav-mobile-btn { display: flex !important; align-items:center; }
 }
+.priv-deck { display:grid; grid-template-columns:repeat(3,1fr); gap:16px; margin-top:28px; text-align:left; }
+.priv-deck-card { background:#fff; border:2px solid #ece5f0; border-radius:14px; padding:22px; }
+.priv-deck-card h3 { font-family:Poppins,sans-serif; font-size:17px; color:#452068; margin:0 0 8px; }
+.priv-deck-card p { font-size:16px; color:#3a2f47; line-height:1.6; margin:0; }
+.priv-hospitals { display:grid; grid-template-columns:repeat(auto-fit,minmax(240px,1fr)); gap:16px; }
+.priv-hospital { background:#fff; border:2px solid #ece5f0; border-radius:12px; padding:20px 22px; }
+.priv-hospital h3 { font-family:Poppins,sans-serif; font-size:18px; color:#452068; margin:0 0 6px; }
+.priv-hospital p { font-size:15px; color:#3a2f47; line-height:1.55; margin:0; }
+.priv-chips { display:flex; flex-wrap:wrap; gap:10px; }
+.priv-chips span { display:inline-block; background:#f7f2fb; color:#452068; border-radius:999px; padding:8px 16px; font-size:15px; font-weight:700; }
+.priv-callout { background:#fff8ee; border-left:4px solid #f0a500; border-radius:0 14px 14px 0; padding:22px 24px; }
+.priv-callout h3 { font-family:Poppins,sans-serif; font-size:20px; color:#241a30; margin:0 0 10px; }
+.priv-callout p { font-size:17px; color:#3a2f47; line-height:1.7; margin:0 0 12px; }
+.priv-callout p:last-child { margin-bottom:0; }
+.priv-se-grid { display:grid; grid-template-columns:1fr 1fr; gap:16px; }
 @media (max-width: 768px) {
   .top-bar-inner { padding-left: 20px !important; padding-right: 20px !important; }
   .v4-nav-outer { padding-left: 20px !important; padding-right: 20px !important; }
@@ -205,6 +224,8 @@ img { max-width: 100%; height: auto; }
   .priv-options-grid { grid-template-columns: 1fr !important; }
   .priv-cost-grid { grid-template-columns: repeat(2, 1fr) !important; }
   .priv-carriers-wrap { gap: 8px !important; }
+  .priv-deck { grid-template-columns: 1fr !important; }
+  .priv-se-grid { grid-template-columns: 1fr !important; }
 }
 @media (max-width: 640px) {
 }
@@ -340,11 +361,25 @@ img { max-width: 100%; height: auto; }
         </div>
       </div>
 
-      <!-- WHAT IS PRIVATE INSURANCE -->
+      <!-- WHAT IS PRIVATE INSURANCE + PRIVATE VS ACA DECK -->
       <div style="background:#fff;padding:48px 56px">
-        <div style="max-width:760px;margin:0 auto;text-align:center">
+        <div style="max-width:960px;margin:0 auto;text-align:center">
           <h2 style="font-family:Poppins,sans-serif;font-size:24px;font-weight:700;color:#241a30;margin:0 0 12px">What is private health insurance?</h2>
-          <p style="color:#3a2f47;font-size:18px;line-height:1.65;margin:0">Any plan you buy directly — rather than through an employer or Medicare — is "private" coverage. That includes ACA Marketplace plans (bought "on-exchange," with possible subsidies) and off-exchange plans sold directly by carriers. Both cover individuals and families; the right one depends on your income and timing.</p>
+          <p style="color:#3a2f47;font-size:18px;line-height:1.65;margin:0 auto;max-width:760px">Any plan you buy directly — rather than through an employer or Medicare — is "private" coverage. That includes ACA Marketplace plans (bought "on-exchange," with possible subsidies) and off-exchange plans sold directly by carriers. Both cover individuals and families; the right one depends on your income and timing.</p>
+          <div class="priv-deck" aria-label="Private vs ACA at a glance">
+            <div class="priv-deck-card" style="border-top:4px solid #452068">
+              <h3>What most people mean by “private”</h3>
+              <p>Off-exchange PPO or similar individual coverage — year-round enrollment, no Marketplace subsidy, often a broader doctor list. This is the plan type many Miami searches are asking for.</p>
+            </div>
+            <div class="priv-deck-card" style="border-top:4px solid #ff1090">
+              <h3>ACA Marketplace (Obamacare)</h3>
+              <p>Also individual coverage, but sold on-exchange. Income-based subsidies may apply. Enrollment is Open Enrollment or a Special Enrollment Period. Pre-existing conditions are generally covered.</p>
+            </div>
+            <div class="priv-deck-card" style="border-top:4px solid #f0a500">
+              <h3>We compare both — you pick</h3>
+              <p>If a subsidy would lower your premium, we usually start with the Marketplace. If you are above the subsidy range or need coverage now, we quote off-exchange options we can actually offer in your ZIP.</p>
+            </div>
+          </div>
         </div>
       </div>
 
@@ -385,6 +420,24 @@ img { max-width: 100%; height: auto; }
               <div style="font-weight:700;font-size:18px;color:#241a30;margin-bottom:6px">I own a small business</div>
               <div style="font-size:16px;color:#3a2f47;line-height:1.5;margin-bottom:10px">Group plans for teams of any size, available year-round.</div>
               <a href="#priv-quote-form" style="font-size:16px;font-weight:700;color:#ff1090">Explore business options →</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- SELF-EMPLOYED / HSA DEEPEN -->
+      <div style="background:#f7f2fb;padding:64px 56px">
+        <div style="max-width:960px;margin:0 auto">
+          <h2 style="font-family:Poppins,sans-serif;font-size:26px;font-weight:700;color:#241a30;margin:0 0 10px;text-align:center">Self-employed in Miami: year-round options</h2>
+          <p style="color:#3a2f47;font-size:18px;line-height:1.65;margin:0 0 28px;text-align:center;max-width:760px;margin-left:auto;margin-right:auto">1099, freelancer, or small-business owner — you can shop off-exchange private plans any month. We still compare Marketplace coverage when Open Enrollment or a Special Enrollment Period applies, because a subsidy can beat a private premium.</p>
+          <div class="priv-se-grid">
+            <div style="background:#fff;border:2px solid #ece5f0;border-radius:14px;padding:24px">
+              <h3 style="font-family:Poppins,sans-serif;font-size:18px;color:#452068;margin:0 0 10px">Marketplace vs off-exchange</h3>
+              <p style="font-size:16px;color:#3a2f47;line-height:1.65;margin:0">Variable income makes subsidy math messy. We run both paths for your ZIP, doctors, and budget: guaranteed-issue Marketplace plans when you can enroll, and year-round private quotes when you need coverage now or sit above the subsidy range.</p>
+            </div>
+            <div style="background:#fff;border:2px solid #ece5f0;border-radius:14px;padding:24px">
+              <h3 style="font-family:Poppins,sans-serif;font-size:18px;color:#452068;margin:0 0 10px">HSA-eligible HDHP — when it fits</h3>
+              <p style="font-size:16px;color:#3a2f47;line-height:1.65;margin:0">A high-deductible health plan paired with a Health Savings Account can work if you want a lower monthly premium and a tax-advantaged way to save for care. Whether an HSA contribution or premium deduction is right for you depends on your taxes — talk with your tax professional before you treat either as a write-off. This is not tax advice.</p>
             </div>
           </div>
         </div>
@@ -452,6 +505,13 @@ img { max-width: 100%; height: auto; }
             <div class="aca-cell" style="padding:14px 16px;font-size:16px;color:#4a4051;border-top:1px solid #ece5f0;border-left:1px solid #ece5f0;border-bottom:1px solid #ece5f0;background:#f4eefa;font-weight:600">Most individuals &amp; families</div>
             <div class="private-cell" style="padding:14px 16px;font-size:16px;color:#4a4051;border-top:1px solid #ece5f0;border-left:1px solid #ece5f0;border-bottom:1px solid #ece5f0">Missed enrollment, or want more plan choice</div>
           </div>
+
+          <div class="priv-callout" style="margin-top:28px">
+            <h3>Underwriting, honestly</h3>
+            <p>Off-exchange private plans may use <strong>medical underwriting</strong> — a health questionnaire and a review of pre-existing conditions. Approval is not guaranteed. Some conditions can raise the premium, add a waiting period, or lead to a decline. That is a real difference from the Marketplace, not a scare line.</p>
+            <p>ACA Marketplace plans are generally <strong>guaranteed-issue</strong>: they cannot deny you for a pre-existing condition, and many households qualify for premium tax credits. If a subsidy would apply, we usually start there. If you need coverage outside Open Enrollment and do not have a qualifying event, off-exchange may be the path that is actually open.</p>
+            <p>We tell you which rules apply to <em>your</em> application before you apply — subsidy vs private — so you are not guessing.</p>
+          </div>
         </div>
       </div>
 
@@ -490,8 +550,8 @@ img { max-width: 100%; height: auto; }
       <!-- CARRIERS -->
       <div style="background:#fff;padding:56px 56px 64px">
         <div style="max-width:1160px;margin:0 auto">
-          <h2 style="font-family:Poppins,sans-serif;font-size:26px;font-weight:700;color:#241a30;margin:0 0 10px">Carriers we work with</h2>
-          <p style="color:#3a2f47;font-size:18px;margin:0 0 24px">We compare plans from every major carrier available in Florida to find the right option.</p>
+          <h2 style="font-family:Poppins,sans-serif;font-size:26px;font-weight:700;color:#241a30;margin:0 0 10px">Carriers we compare</h2>
+          <p style="color:#3a2f47;font-size:18px;margin:0 0 24px">We compare individual and family plans from carriers available in your Florida ZIP. We do not sell every issuer or every plan in the area — we quote the options we can actually offer and tell you when another path (Marketplace or a carrier we do not represent) may fit better.</p>
           <div class="priv-carriers-wrap" style="display:flex;flex-wrap:wrap;gap:12px">
             <span style="background:#fdfaf7;border:2px solid #ece5f0;border-radius:10px;padding:14px 22px;font-weight:700;font-size:17px;color:#241a30">Florida Blue</span>
             <span style="background:#fdfaf7;border:2px solid #ece5f0;border-radius:10px;padding:14px 22px;font-weight:700;font-size:17px;color:#241a30">Ambetter</span>
@@ -502,6 +562,66 @@ img { max-width: 100%; height: auto; }
             <span style="background:#fdfaf7;border:2px solid #ece5f0;border-radius:10px;padding:14px 22px;font-weight:700;font-size:17px;color:#241a30">Cigna</span>
             <span style="background:#fdfaf7;border:2px solid #ece5f0;border-radius:10px;padding:14px 22px;font-weight:700;font-size:17px;color:#241a30">Humana</span>
             <span style="background:#f7f2fb;border:2px solid #ece5f0;border-radius:10px;padding:14px 22px;font-weight:700;font-size:17px;color:#452068">+ More</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- HOSPITALS WE VERIFY -->
+      <div style="background:#f7f2fb;padding:64px 56px">
+        <div style="max-width:1100px;margin:0 auto">
+          <h2 style="font-family:Poppins,sans-serif;font-size:26px;font-weight:700;color:#241a30;margin:0 0 10px;text-align:center">Miami hospital systems we verify</h2>
+          <p style="color:#3a2f47;font-size:18px;line-height:1.65;margin:0 0 28px;text-align:center;max-width:780px;margin-left:auto;margin-right:auto">We check whether <strong>your</strong> doctors and hospitals are in-network for the plans we compare. The Health Experts Insurance is not in-network with these systems — we verify network participation plan by plan, because networks change every year.</p>
+          <div class="priv-hospitals">
+            <div class="priv-hospital">
+              <h3>Baptist Health</h3>
+              <p>Baptist Health South Florida hospitals and affiliated physicians in Miami-Dade and surrounding areas.</p>
+            </div>
+            <div class="priv-hospital">
+              <h3>Jackson Health System</h3>
+              <p>Jackson Memorial and Jackson Health clinics serving Miami-Dade.</p>
+            </div>
+            <div class="priv-hospital">
+              <h3>UHealth / University of Miami</h3>
+              <p>University of Miami Health System, including specialists many families want to keep.</p>
+            </div>
+            <div class="priv-hospital">
+              <h3>Memorial Healthcare System</h3>
+              <p>Broward County hospitals and affiliated doctors (Hollywood, Pembroke Pines, and nearby).</p>
+            </div>
+            <div class="priv-hospital">
+              <h3>Cleveland Clinic Florida</h3>
+              <p>Weston campus and affiliated Cleveland Clinic Florida locations we check against plan directories.</p>
+            </div>
+            <div class="priv-hospital">
+              <h3>HCA Florida Healthcare</h3>
+              <p>East Florida hospitals such as Kendall, Aventura, and Mercy — confirmed against each plan's network, not assumed.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- NEIGHBORHOOD / ZIP CHIPS -->
+      <div style="background:#fff;padding:56px 56px 64px">
+        <div style="max-width:960px;margin:0 auto;text-align:center">
+          <h2 style="font-family:Poppins,sans-serif;font-size:26px;font-weight:700;color:#241a30;margin:0 0 10px">Miami-Dade &amp; Broward areas we serve</h2>
+          <p style="color:#3a2f47;font-size:18px;line-height:1.65;margin:0 0 8px">Doral office, bilingual service. Premiums and networks vary by ZIP — bring yours and we will quote for that county, not a generic Florida average.</p>
+          <div class="priv-chips" aria-label="Cities and neighborhoods we serve" style="justify-content:center;margin-top:24px">
+            <span>Doral</span>
+            <span>Miami</span>
+            <span>Hialeah</span>
+            <span>Kendall</span>
+            <span>Coral Gables</span>
+            <span>Homestead</span>
+            <span>Miami Beach</span>
+            <span>Aventura</span>
+            <span>Pembroke Pines</span>
+            <span>Hollywood</span>
+            <span>Fort Lauderdale</span>
+            <span>Miramar</span>
+            <span>Sweetwater</span>
+            <span>Cutler Bay</span>
+            <span>Davie</span>
+            <span>Plantation</span>
           </div>
         </div>
       </div>
@@ -599,9 +719,29 @@ img { max-width: 100%; height: auto; }
             <div style="padding:0 24px 20px;font-size:18px;color:#3a2f47;line-height:1.7;">Yes, though timing depends on your situation — ACA enrollment is generally limited to Open Enrollment or a qualifying life event, so we'll walk you through what's possible and when.</div>
           </details>
 
-          <details style="background:#fff;border:1px solid #ece5f0;border-radius:4px 4px 14px 14px;overflow:hidden;">
+          <details style="background:#fff;border:1px solid #ece5f0;border-radius:4px;overflow:hidden;">
             <summary style="padding:20px 24px;font-weight:700;font-size:18px;color:#241a30;cursor:pointer;list-style:none;display:flex;justify-content:space-between;align-items:center;">Does private health insurance cover pre-existing conditions?<span style="font-size:20px;color:#452068;flex-shrink:0;margin-left:12px;">+</span></summary>
             <div style="padding:0 24px 20px;font-size:18px;color:#3a2f47;line-height:1.7;">It depends on your specific plan and situation. Before you enroll, one of our licensed brokers will walk you through exactly what's covered and what isn't — so there are no surprises later.</div>
+          </details>
+
+          <details style="background:#fff;border:1px solid #ece5f0;border-radius:4px;overflow:hidden;">
+            <summary style="padding:20px 24px;font-weight:700;font-size:18px;color:#241a30;cursor:pointer;list-style:none;display:flex;justify-content:space-between;align-items:center;">Do you check Baptist, Jackson, UHealth, and other Miami hospitals?<span style="font-size:20px;color:#452068;flex-shrink:0;margin-left:12px;">+</span></summary>
+            <div style="padding:0 24px 20px;font-size:18px;color:#3a2f47;line-height:1.7;">Yes. We verify whether <strong>your</strong> doctors and hospitals are in-network for the plans we compare — including Baptist Health, Jackson Health System, UHealth / University of Miami, Memorial Healthcare System, Cleveland Clinic Florida, and HCA Florida Healthcare. We are not “in-network” with those systems; we check each plan’s directory because networks change every year.</div>
+          </details>
+
+          <details style="background:#fff;border:1px solid #ece5f0;border-radius:4px;overflow:hidden;">
+            <summary style="padding:20px 24px;font-weight:700;font-size:18px;color:#241a30;cursor:pointer;list-style:none;display:flex;justify-content:space-between;align-items:center;">Do private off-exchange plans use medical underwriting?<span style="font-size:20px;color:#452068;flex-shrink:0;margin-left:12px;">+</span></summary>
+            <div style="padding:0 24px 20px;font-size:18px;color:#3a2f47;line-height:1.7;">Often yes. Off-exchange private plans may review your health history and pre-existing conditions before issuing coverage. Approval is not guaranteed. ACA Marketplace plans are generally guaranteed-issue and cannot deny you for a pre-existing condition; they may also include income-based subsidies. We compare both paths and tell you which rules apply before you apply.</div>
+          </details>
+
+          <details style="background:#fff;border:1px solid #ece5f0;border-radius:4px;overflow:hidden;">
+            <summary style="padding:20px 24px;font-weight:700;font-size:18px;color:#241a30;cursor:pointer;list-style:none;display:flex;justify-content:space-between;align-items:center;">I’m self-employed — can I enroll year-round and use an HSA?<span style="font-size:20px;color:#452068;flex-shrink:0;margin-left:12px;">+</span></summary>
+            <div style="padding:0 24px 20px;font-size:18px;color:#3a2f47;line-height:1.7;">Yes. Self-employed, 1099, and freelance workers in Florida can shop off-exchange private plans year-round. We still compare Marketplace coverage when you can enroll there, because a subsidy can beat a private premium. An HSA-eligible high-deductible plan can be a fit when you want a lower premium and a tax-advantaged medical account — talk with your tax professional before treating premiums or HSA deposits as a deduction.</div>
+          </details>
+
+          <details style="background:#fff;border:1px solid #ece5f0;border-radius:4px 4px 14px 14px;overflow:hidden;">
+            <summary style="padding:20px 24px;font-weight:700;font-size:18px;color:#241a30;cursor:pointer;list-style:none;display:flex;justify-content:space-between;align-items:center;">Which Miami-Dade and Broward neighborhoods do you serve?<span style="font-size:20px;color:#452068;flex-shrink:0;margin-left:12px;">+</span></summary>
+            <div style="padding:0 24px 20px;font-size:18px;color:#3a2f47;line-height:1.7;">We are based in Doral and serve Miami-Dade and Broward, including Miami, Hialeah, Kendall, Coral Gables, Homestead, Miami Beach, Aventura, Pembroke Pines, Hollywood, Fort Lauderdale, Miramar, and nearby communities. Meet in person, by phone, video, or WhatsApp.</div>
           </details>
 
         </div>
