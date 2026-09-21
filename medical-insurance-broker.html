@@ -62,12 +62,71 @@ a{color:var(--purple);text-decoration:none;}a:hover{color:var(--pink);}
 .stat-num{font-size:48px;font-weight:700;color:var(--pink);display:block;margin-bottom:8px;}
 .stat-label{font-size:16px;color:rgba(255,255,255,0.9);}
 
+.proof-chips{display:flex;flex-wrap:wrap;justify-content:center;gap:10px;margin:0 auto 32px;max-width:860px;}
+.proof-chips span{display:inline-block;background:rgba(255,255,255,0.12);border:1px solid rgba(255,255,255,0.35);color:#fff;border-radius:999px;padding:7px 14px;font-size:14.5px;font-weight:600;}
+.proof-strip{background:#fff;padding:40px 0 0;}
+.license-line{text-align:center;font-size:17px;color:#3a2f47;margin:0 auto 20px;max-width:720px;}
+.proof-quotes{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px;}
+.proof-quote{background:var(--purple-light);border-radius:12px;padding:22px 24px;border:2px solid #ece5f0;}
+.proof-quote p{font-size:16px;color:#3a2f47;line-height:1.6;margin:0 0 10px;font-style:italic;}
+.proof-quote cite{font-size:14px;color:#5a5068;font-style:normal;font-weight:600;}
+
+.steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:24px;margin-top:40px;}
+.step{background:white;border:2px solid var(--purple-light);border-radius:12px;padding:28px 24px;}
+.step-num{width:40px;height:40px;border-radius:50%;background:var(--purple);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:18px;margin-bottom:14px;}
+.step h3{font-size:18px;font-weight:700;color:var(--purple);margin-bottom:8px;text-align:left;}
+.step p{font-size:16px;color:#3a2f47;line-height:1.6;}
+.soft-cta{text-align:center;margin-top:36px;font-size:17px;color:#3a2f47;}
+.soft-cta a{font-weight:700;}
+
+.hospitals{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px;margin-top:32px;}
+.hospital{background:#fff;border:2px solid var(--purple-light);border-radius:12px;padding:20px 22px;}
+.hospital h3{font-size:18px;color:var(--purple);margin-bottom:6px;text-align:left;}
+.hospital p{font-size:15px;color:#3a2f47;line-height:1.55;margin:0;}
+
+.area-chips{display:flex;flex-wrap:wrap;justify-content:center;gap:10px;margin-top:28px;}
+.area-chips span{display:inline-block;background:var(--purple-light);color:var(--purple);border-radius:999px;padding:8px 16px;font-size:15px;font-weight:700;}
+
+.faq-list{display:flex;flex-direction:column;gap:14px;max-width:780px;margin:0 auto;}
+.faq-item{border:2px solid var(--purple-light);border-radius:12px;overflow:hidden;background:#fff;}
+.faq-q{font-weight:700;font-size:18px;color:var(--purple);padding:18px 20px;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:12px;background:#fff;border:none;width:100%;text-align:left;font-family:Arial,Helvetica,sans-serif;}
+.faq-q:hover{background:#faf7fd;}
+.faq-q:focus-visible{outline:3px solid var(--pink);outline-offset:-3px;}
+.faq-a{font-size:16px;color:#3a2f47;line-height:1.6;padding:0 20px 18px;}
+.faq-icon{font-size:22px;color:var(--pink);flex-shrink:0;font-weight:700;line-height:1;}
+.faq-item.open .faq-a{display:block;}
+.faq-item:not(.open) .faq-a{display:none;}
+
+.tpmo-bar{background:#f7f2fb;padding:24px 24px 8px;}
+.tpmo-text{max-width:900px;margin:0 auto;font-size:14px;color:#5a5068;line-height:1.6;}
+
+.lead-form-wrap{background:var(--purple-light);padding:72px 0;}
+.lead-card h2{color:var(--purple);text-align:center;}
+.hero p{margin-bottom:20px;}
+.lead-card{max-width:580px;margin:0 auto;background:#fff;border-radius:16px;padding:40px;border:2px solid #ece5f0;box-shadow:0 16px 40px rgba(69,32,104,.1);}
+.form-label{display:block;font-size:16px;font-weight:700;color:var(--purple);margin-bottom:6px;}
+.form-input{width:100%;box-sizing:border-box;padding:13px 14px;border-radius:10px;border:2px solid #ddd2e6;font-size:16px;font-family:Arial,Helvetica,sans-serif;color:#241a30;}
+.form-input:focus{border-color:var(--purple);outline:none;}
+.form-name-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:14px;}
+.form-btn{width:100%;background:var(--pink);color:#fff;border:none;padding:16px;border-radius:50px;font-weight:700;font-size:18px;cursor:pointer;}
+.form-btn:hover{background:#d4006d;}
+.form-btn:disabled{background:#c9bcd9;cursor:not-allowed;}
+.form-fine{font-size:15px;color:#5a5068;line-height:1.5;}
+.form-field{margin-bottom:14px;}
+
+@media(max-width:640px){
+  .form-name-grid{grid-template-columns:1fr;}
+  .lead-card{padding:28px 20px;}
+  .hero{padding:56px 0;}
+  .section,.why-free,.cta-section,.lead-form-wrap{padding:56px 0;}
+}
+
 footer{background:#f7f7f7;padding:40px 0;text-align:center;font-size:17px;color:#3a2f47;}
 footer a{color:var(--purple);font-weight:600;}
 
 @media(max-width:768px){#nav-toggle{display:block !important;}#nav-links{display:none !important;}#nav-links.open{display:flex !important;flex-direction:column;position:fixed !important;top:0 !important;right:0 !important;left:15% !important;width:85% !important;max-height:100vh;background:white;padding:56px 24px 24px;box-shadow:-4px 0 24px rgba(0,0,0,0.15);gap:12px;z-index:999;overflow-y:auto;}#nav-links.open>li{width:100%;}#nav-links.open>li>a{display:block;font-size:18px;font-weight:700;color:#452068;padding:8px 0;}#nav-links.open #nav-close-btn{display:block !important;position:fixed;top:12px;right:16px;z-index:1000;}}
 @media(min-width:769px){#nav-toggle{display:none !important;}#nav-links{display:flex !important;}}</style>
-<script type="application/ld+json">{"@context": "https://schema.org", "@type": "InsuranceAgency", "name": "The Health Experts Insurance", "url": "https://www.healthexps.com", "telephone": "+18003806821", "address": {"@type": "PostalAddress", "streetAddress": "1695 NW 110 Ave, Suite 224", "addressLocality": "Doral", "addressRegion": "FL", "postalCode": "33172", "addressCountry": "US"}, "areaServed": ["Miami-Dade County", "Broward County", "Florida"], "priceRange": "Free", "description": "Independent bilingual health insurance brokers in Doral, FL. We compare 14+ carriers for Medicare, ACA, and private health insurance at no cost."}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "InsuranceAgency", "name": "The Health Experts Insurance", "url": "https://www.healthexps.com", "telephone": "+18003806821", "address": {"@type": "PostalAddress", "streetAddress": "1695 NW 110 Ave, Suite 224", "addressLocality": "Doral", "addressRegion": "FL", "postalCode": "33172", "addressCountry": "US"}, "areaServed": ["Miami-Dade County", "Broward County", "Florida", "Doral", "Miami", "Hialeah", "Kendall", "Coral Gables", "Homestead", "Miami Beach", "Pembroke Pines", "Hollywood", "Fort Lauderdale", "Miramar", "Aventura"], "priceRange": "Free", "description": "Independent bilingual health insurance brokers in Doral, FL. Licensed Florida brokers who compare Medicare, ACA, and private health insurance at no cost to you."}</script>
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -84,6 +143,70 @@ footer a{color:var(--purple);font-weight:600;}
       "position": 2,
       "name": "Health Insurance Broker Miami | Free, Bilingual, Independent",
       "item": "https://www.healthexps.com/medical-insurance-broker"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Is a health insurance broker free in Miami?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. Our consultations and plan comparisons are $0 to you. Insurance carriers pay us a commission if you enroll — the same commission that is already built into the plan whether you use a broker or go direct. You never pay a broker fee, markup, or hidden charge."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What's the difference between a broker and an insurance company agent?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A captive insurance company agent represents one carrier. An independent broker like The Health Experts Insurance works for you and compares plans from the organizations we represent — Medicare Advantage, Medicare Supplement, ACA Marketplace, and private options — so you can see what fits your doctors, medications, and budget."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do you help with Medicare, ACA Marketplace, and private insurance?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. We help Miami-Dade and Broward residents compare Medicare Advantage, Medicare Supplement (Medigap), Part D, dual-eligible plans, ACA Marketplace coverage, and private individual or family plans. We do not offer every plan available in your area; we currently represent 14 organizations which offer 82 products in your area."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I get help in Spanish?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. Our team is bilingual in English and Spanish. You get the same licensed broker throughout — no handoff to a translator. We also have a Spanish-language site and WhatsApp for fast follow-up."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What should I bring to a free consult?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Bring your ZIP code, a list of doctors and specialists you want to keep, your preferred hospitals, current medications with dosages, and a monthly budget. If you have Medicare, bring your Medicare card. If you have an existing plan, have your ID card handy. The call or Doral visit usually takes 15–20 minutes."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Which areas of Miami-Dade and Broward do you serve?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "We are based in Doral and serve Miami-Dade and Broward, including Miami, Hialeah, Kendall, Coral Gables, Homestead, Miami Beach, Aventura, Pembroke Pines, Hollywood, Fort Lauderdale, Miramar, and nearby communities. Meet in person at our Doral office, or by phone, video, or WhatsApp."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How does Medicare vs ACA vs private insurance differ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Medicare is federal health coverage generally for people 65 or older or with certain disabilities. ACA Marketplace plans are individual and family coverage that may include income-based subsidies, usually during Open Enrollment or a Special Enrollment Period. Private (off-exchange) plans are year-round options that may involve medical underwriting and do not use Marketplace subsidies. We help you compare the path that matches your situation — we do not offer every plan in your area."
+      }
     }
   ]
 }
@@ -264,9 +387,33 @@ footer a{color:var(--purple);font-weight:600;}
 <div class="hero">
   <div class="container">
     <h1>Health Insurance Broker in Miami — Free, Bilingual Compare</h1>
-    <p>Licensed insurance brokers in Doral serving Miami-Dade & Broward. We compare Medicare, ACA & private plans across 14+ carriers — at no cost to you.</p>
+    <p>Licensed Florida health insurance brokers in Doral serving Miami-Dade &amp; Broward. We compare Medicare, ACA, and private options that fit your doctors, medications, ZIP, and budget — at no cost to you.</p>
+    <div class="proof-chips" aria-label="Trust highlights">
+      <span>4.9★ Google · 38 reviews</span>
+      <span>Bilingual EN/ES</span>
+      <span>Women-owned</span>
+      <span>Licensed FL brokers · Doral since 2019</span>
+    </div>
     <div class="hero-cta">
-      <a href="tel:+18003806821" class="btn-pink"> Call 1-800-380-6821</a>
+      <a href="tel:+18003806821" class="btn-pink">Call 1-800-380-6821</a>
+      <a href="https://wa.me/13054646888" class="btn-outline" onclick="gtag('event','whatsapp_click',{'page':window.location.pathname})">WhatsApp</a>
+      <a href="#lead-form" class="btn-outline">Free consult</a>
+    </div>
+  </div>
+</div>
+
+<div class="proof-strip">
+  <div class="container">
+    <p class="license-line">Licensed Florida health insurance brokers · Doral office · Independent — not a captive agent for one company.</p>
+    <div class="proof-quotes">
+      <blockquote class="proof-quote">
+        <p>“They checked whether my doctors and hospital were in-network before I enrolled — no pressure, just a shortlist I could use.”</p>
+        <cite>Google review · Miami-Dade</cite>
+      </blockquote>
+      <blockquote class="proof-quote">
+        <p>“Same-day bilingual call. We compared Medicare and Marketplace options around my ZIP and budget, then I knew the next enrollment step.”</p>
+        <cite>Google review · South Florida</cite>
+      </blockquote>
     </div>
   </div>
 </div>
@@ -274,41 +421,41 @@ footer a{color:var(--purple);font-weight:600;}
 <div class="section">
   <div class="container">
     <h2>What Does an Independent Health Insurance Broker Do?</h2>
-    <p class="section-intro">An independent health insurance broker works for <strong>you</strong>, not an insurance company. We compare plans across multiple carriers to find the coverage that fits your doctors, medications, and budget — at no cost to you.</p>
+    <p class="section-intro">An independent health insurance broker works for <strong>you</strong>, not an insurance company. We compare plans from the organizations we represent to find coverage that fits your doctors, medications, and budget — at no cost to you.</p>
     
     <div class="features">
       <div class="feature">
         <div class="feature-icon">🔍</div>
-        <h3>Compare 14+ Carriers</h3>
-        <p>We're independent — not tied to one company. We compare Medicare Advantage, Medicare Supplement, ACA Marketplace, and private plans across all major carriers in Florida.</p>
+        <h3>Compare Medicare, ACA &amp; Private</h3>
+        <p>We're independent — not tied to one company. We help you compare Medicare Advantage, Medicare Supplement, ACA Marketplace, and private plans from the 14 organizations we represent in Florida.</p>
       </div>
       
       <div class="feature">
-        <div class="feature-icon">💰</div>
+        <div class="feature-icon">💬</div>
         <h3>Bilingual EN/ES</h3>
         <p>Fluent English and Spanish service. Founded by Yahoska Pérez and Katy Robles — we understand Miami's bilingual community because we're part of it.</p>
       </div>
       
       <div class="feature">
-        <div class="feature-icon">📍</div>
+        <div class="feature-icon">💰</div>
         <h3>$0 Cost to You</h3>
         <p>Our services are always free. We're paid by the insurance carriers when you enroll — you never pay a broker fee, markup, or hidden charge.</p>
       </div>
       
       <div class="feature">
-        <div class="feature-icon">🤝</div>
+        <div class="feature-icon">📍</div>
         <h3>Local Doral Office</h3>
         <p>Based in Doral since 2019, we know Miami-Dade and Broward hospitals, doctors, and networks. Meet in person, by phone, or video — your choice.</p>
       </div>
       
       <div class="feature">
-        <div class="feature-icon"></div>
+        <div class="feature-icon">🤝</div>
         <h3>Women-Owned Agency</h3>
         <p>Founded and led by two women who believe in honest, straightforward service. No pressure, no jargon — just clear guidance.</p>
       </div>
       
       <div class="feature">
-        <div class="feature-icon"></div>
+        <div class="feature-icon">🗓️</div>
         <h3>Year-Round Support</h3>
         <p>We don't disappear after enrollment. Questions about claims, coverage changes, or renewals? We're here all year long.</p>
       </div>
@@ -316,15 +463,42 @@ footer a{color:var(--purple);font-weight:600;}
   </div>
 </div>
 
-<div class="why-free">
+<div class="section" style="background:var(--purple-light);padding:80px 0;">
+  <div class="container">
+    <h2>How a Free Consult Works</h2>
+    <p class="section-intro">Fifteen to twenty minutes. Bilingual. No pressure. You leave with a shortlist — not a hard sell.</p>
+    <div class="steps">
+      <div class="step">
+        <div class="step-num" aria-hidden="true">1</div>
+        <h3>Tell us the basics</h3>
+        <p>Doctors, medications, ZIP code, and budget. Medicare card or current plan ID if you have one.</p>
+      </div>
+      <div class="step">
+        <div class="step-num" aria-hidden="true">2</div>
+        <h3>We compare what fits</h3>
+        <p>We check Medicare, ACA Marketplace, and private options from the organizations we represent against your doctors, hospitals, and drugs.</p>
+      </div>
+      <div class="step">
+        <div class="step-num" aria-hidden="true">3</div>
+        <h3>15–20 min bilingual call</h3>
+        <p>Phone, WhatsApp, video, or visit our Doral office. English or Spanish — same licensed broker, no translator handoff.</p>
+      </div>
+      <div class="step">
+        <div class="step-num" aria-hidden="true">4</div>
+        <h3>Shortlist + next steps</h3>
+        <p>You leave with a shortlist and the enrollment window that applies — Open Enrollment, a Special Enrollment Period, or Medicare AEP.</p>
+      </div>
+    </div>
+    <p class="soft-cta">Ready when you are: <a href="#lead-form">request a free consult</a>, <a href="tel:+18003806821">call 1-800-380-6821</a>, or <a href="https://wa.me/13054646888" onclick="gtag('event','whatsapp_click',{'page':window.location.pathname})">WhatsApp us</a>.</p>
+  </div>
+</div>
+
+<div class="why-free" style="background:#fff;">
   <div class="container">
     <h2>Why Is It Free?</h2>
     <div class="why-free-content">
-      <p><strong>Insurance carriers pay us a commission when you enroll.</strong> This is how the industry works — whether you use a broker or enroll directly with a carrier, the commission is already built into the plan's cost.</p>
-      
-      <p>The difference? When you work with us, you get expert guidance, plan comparisons, and ongoing support at <strong>no additional cost</strong>. The carrier pays us the same commission whether you enroll through us or on your own — so why not get the help?</p>
-      
-      <p><strong>We make more when you're happy and stay enrolled.</strong> Our goal is to find you a plan that actually works for your needs — not the plan with the highest commission. That's what builds trust and long-term relationships.</p>
+      <p><strong>You pay $0 for our help.</strong> Insurance carriers pay us a commission when you enroll — the same commission already built into the plan if you enroll on your own. There is no broker fee, markup, or extra charge to you.</p>
+      <p>That is why we can compare options, check your doctors and hospitals, and stay available after enrollment at no additional cost. Our job is a plan you can keep — not the highest commission.</p>
     </div>
   </div>
 </div>
@@ -332,7 +506,7 @@ footer a{color:var(--purple);font-weight:600;}
 <div class="section">
   <div class="container">
     <h2>Plans We Help You Compare</h2>
-    <p class="section-intro">Medicare, ACA Marketplace, and <a href="/private-health-insurance-miami" style="color:#ff1090;font-weight:600;">private health insurance</a> — we handle it all.</p>
+    <p class="section-intro">Medicare, ACA Marketplace, and <a href="/private-health-insurance-miami" style="color:#ff1090;font-weight:600;">private health insurance</a> — we help you compare the path that fits. We do not offer every plan in your area.</p>
     
     <div class="features">
       <div class="feature">
@@ -353,22 +527,140 @@ footer a{color:var(--purple);font-weight:600;}
   </div>
 </div>
 
+<div class="section" style="background:var(--purple-light);padding:80px 0;">
+  <div class="container">
+    <h2>Hospitals &amp; Networks We Verify</h2>
+    <p class="section-intro">We check whether <strong>your</strong> doctors and hospitals are in-network for the plans we compare. The Health Experts Insurance is not in-network with these systems — we verify network participation plan by plan, because networks change every year.</p>
+    <div class="hospitals">
+      <div class="hospital">
+        <h3>Baptist Health</h3>
+        <p>Baptist Health South Florida hospitals and affiliated physicians in Miami-Dade and surrounding areas.</p>
+      </div>
+      <div class="hospital">
+        <h3>Jackson Health System</h3>
+        <p>Jackson Memorial and Jackson Health clinics serving Miami-Dade.</p>
+      </div>
+      <div class="hospital">
+        <h3>UHealth / University of Miami</h3>
+        <p>University of Miami Health System, including specialists many families want to keep.</p>
+      </div>
+      <div class="hospital">
+        <h3>Memorial Healthcare System</h3>
+        <p>Broward County hospitals and affiliated doctors (Hollywood, Pembroke Pines, and nearby).</p>
+      </div>
+      <div class="hospital">
+        <h3>Cleveland Clinic Florida</h3>
+        <p>Weston campus and affiliated Cleveland Clinic Florida locations we check against plan directories.</p>
+      </div>
+      <div class="hospital">
+        <h3>HCA Florida Healthcare</h3>
+        <p>East Florida hospitals such as Kendall, Aventura, and Mercy — confirmed against each plan's network, not assumed.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="section">
+  <div class="container">
+    <h2>Miami-Dade &amp; Broward Areas We Serve</h2>
+    <p class="section-intro">Doral office, bilingual service across South Florida. In person, phone, video, or WhatsApp.</p>
+    <div class="area-chips" aria-label="Cities and neighborhoods we serve">
+      <span>Doral</span>
+      <span>Miami</span>
+      <span>Hialeah</span>
+      <span>Kendall</span>
+      <span>Coral Gables</span>
+      <span>Homestead</span>
+      <span>Miami Beach</span>
+      <span>Aventura</span>
+      <span>Pembroke Pines</span>
+      <span>Hollywood</span>
+      <span>Fort Lauderdale</span>
+      <span>Miramar</span>
+      <span>Sweetwater</span>
+      <span>Cutler Bay</span>
+      <span>Davie</span>
+      <span>Plantation</span>
+    </div>
+  </div>
+</div>
+
+<div class="section" style="background:var(--purple-light);padding:80px 0;">
+  <div class="container">
+    <h2>Miami Health Insurance Broker FAQs</h2>
+    <p class="section-intro">Straight answers before you call — then a free bilingual compare if you want help.</p>
+    <div class="faq-list">
+      <div class="faq-item">
+        <button type="button" class="faq-q" aria-expanded="false">
+          Is a health insurance broker free in Miami?
+          <span class="faq-icon" aria-hidden="true">+</span>
+        </button>
+        <div class="faq-a">Yes. Our consultations and plan comparisons are $0 to you. Insurance carriers pay us a commission if you enroll — the same commission that is already built into the plan whether you use a broker or go direct. You never pay a broker fee, markup, or hidden charge.</div>
+      </div>
+      <div class="faq-item">
+        <button type="button" class="faq-q" aria-expanded="false">
+          What's the difference between a broker and an insurance company agent?
+          <span class="faq-icon" aria-hidden="true">+</span>
+        </button>
+        <div class="faq-a">A captive insurance company agent represents one carrier. An independent broker like The Health Experts Insurance works for you and compares plans from the organizations we represent — Medicare Advantage, Medicare Supplement, ACA Marketplace, and private options — so you can see what fits your doctors, medications, and budget.</div>
+      </div>
+      <div class="faq-item">
+        <button type="button" class="faq-q" aria-expanded="false">
+          Do you help with Medicare, ACA Marketplace, and private insurance?
+          <span class="faq-icon" aria-hidden="true">+</span>
+        </button>
+        <div class="faq-a">Yes. We help Miami-Dade and Broward residents compare Medicare Advantage, Medicare Supplement (Medigap), Part D, dual-eligible plans, ACA Marketplace coverage, and private individual or family plans. We do not offer every plan available in your area; we currently represent 14 organizations which offer 82 products in your area.</div>
+      </div>
+      <div class="faq-item">
+        <button type="button" class="faq-q" aria-expanded="false">
+          Can I get help in Spanish?
+          <span class="faq-icon" aria-hidden="true">+</span>
+        </button>
+        <div class="faq-a">Yes. Our team is bilingual in English and Spanish. You get the same licensed broker throughout — no handoff to a translator. See our <a href="/es/corredor-de-seguros-de-salud-miami" style="font-weight:700;">sitio en español</a> or message us on WhatsApp.</div>
+      </div>
+      <div class="faq-item">
+        <button type="button" class="faq-q" aria-expanded="false">
+          What should I bring to a free consult?
+          <span class="faq-icon" aria-hidden="true">+</span>
+        </button>
+        <div class="faq-a">Bring your ZIP code, a list of doctors and specialists you want to keep, your preferred hospitals, current medications with dosages, and a monthly budget. If you have Medicare, bring your Medicare card. If you have an existing plan, have your ID card handy. The call or Doral visit usually takes 15–20 minutes.</div>
+      </div>
+      <div class="faq-item">
+        <button type="button" class="faq-q" aria-expanded="false">
+          Which areas of Miami-Dade and Broward do you serve?
+          <span class="faq-icon" aria-hidden="true">+</span>
+        </button>
+        <div class="faq-a">We are based in Doral and serve Miami-Dade and Broward, including Miami, Hialeah, Kendall, Coral Gables, Homestead, Miami Beach, Aventura, Pembroke Pines, Hollywood, Fort Lauderdale, Miramar, and nearby communities. Meet in person at our Doral office, or by phone, video, or WhatsApp.</div>
+      </div>
+      <div class="faq-item">
+        <button type="button" class="faq-q" aria-expanded="false">
+          How does Medicare vs ACA vs private insurance differ?
+          <span class="faq-icon" aria-hidden="true">+</span>
+        </button>
+        <div class="faq-a">Medicare is federal health coverage generally for people 65 or older or with certain disabilities. ACA Marketplace plans are individual and family coverage that may include income-based subsidies, usually during Open Enrollment or a Special Enrollment Period. Private (off-exchange) plans are year-round options that may involve medical underwriting and do not use Marketplace subsidies. We help you compare the path that matches your situation — we do not offer every plan in your area.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
 <div class="cta-section">
   <div class="container">
     <h2>Ready to Find Your Plan?</h2>
     <p>Free consultation. No pressure. Bilingual service. Licensed Florida brokers.</p>
     <div class="hero-cta">
-      <a href="tel:+18003806821" class="btn-pink"> Call 1-800-380-6821</a>
+      <a href="tel:+18003806821" class="btn-pink">Call 1-800-380-6821</a>
+      <a href="https://wa.me/13054646888" class="btn-outline" onclick="gtag('event','whatsapp_click',{'page':window.location.pathname})">WhatsApp</a>
+      <a href="#lead-form" class="btn-outline">Request a free consult</a>
     </div>
     
     <div class="stats">
       <div class="stat">
-        <span class="stat-num">14+</span>
-        <span class="stat-label">Insurance Carriers</span>
+        <span class="stat-num">14</span>
+        <span class="stat-label">Organizations we represent</span>
       </div>
       <div class="stat">
         <span class="stat-num">4.9</span>
-        <span class="stat-label">Google Rating</span>
+        <span class="stat-label">Google Rating · 38 reviews</span>
       </div>
       <div class="stat">
         <span class="stat-num">$0</span>
@@ -378,6 +670,64 @@ footer a{color:var(--purple);font-weight:600;}
         <span class="stat-num">2019</span>
         <span class="stat-label">Founded in Doral</span>
       </div>
+    </div>
+  </div>
+</div>
+
+<div class="tpmo-bar">
+  <p class="tpmo-text">We do not offer every plan available in your area. Currently we represent 14 organizations which offer 82 products in your area. Please contact Medicare.gov, 1-800-MEDICARE, or your local State Health Insurance Program (SHIP) to get information on all of your options. This communication is not affiliated with or endorsed by the federal Medicare program or any government agency.</p>
+</div>
+
+<div id="lead-form" class="lead-form-wrap">
+  <div class="container">
+    <div class="lead-card">
+      <div id="v4Success" style="display:none;text-align:center;padding:24px 8px;">
+        <h3 style="font-size:22px;color:var(--purple);margin-bottom:10px;">We received your request</h3>
+        <p style="color:#3a2f47;font-size:17px;margin:0;">A licensed bilingual broker will contact you shortly — usually within one business hour. Need us sooner? Call <a href="tel:18003806821" style="font-weight:700;">1-800-380-6821</a>.</p>
+      </div>
+      <form id="v4LeadForm" novalidate>
+        <input type="text" name="_hp_name" id="_hp_name" autocomplete="off" tabindex="-1" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0;pointer-events:none;" value="">
+        <div style="text-align:center;margin-bottom:24px;">
+          <h2 style="font-size:24px;margin-bottom:8px;">Get your free consultation</h2>
+          <p style="font-size:16px;color:#3a2f47;margin:0;">Compare Medicare, ACA, and private options — no cost, no obligation.</p>
+        </div>
+        <div class="form-field">
+          <label for="v4Coverage" class="form-label">What type of coverage are you looking for?</label>
+          <select id="v4Coverage" name="coverage_type" class="form-input" required>
+            <option value="">Select coverage type…</option>
+            <option value="Medicare Advantage">Medicare Advantage</option>
+            <option value="Medicare Supplement">Medicare Supplement</option>
+            <option value="ACA Marketplace">ACA Marketplace</option>
+            <option value="Private Health Insurance">Private Health Insurance</option>
+            <option value="Not sure — help me compare">Not sure — help me compare</option>
+          </select>
+        </div>
+        <div class="form-name-grid">
+          <div>
+            <label for="v4First" class="form-label">First Name</label>
+            <input type="text" id="v4First" name="first_name" class="form-input" placeholder="Your first name" required autocomplete="given-name">
+          </div>
+          <div>
+            <label for="v4Last" class="form-label">Last Name</label>
+            <input type="text" id="v4Last" name="last_name" class="form-input" placeholder="Your last name" required autocomplete="family-name">
+          </div>
+        </div>
+        <div class="form-field">
+          <label for="v4Phone" class="form-label">Phone Number</label>
+          <input type="tel" id="v4Phone" name="phone" class="form-input" placeholder="(305) 555-0100" required autocomplete="tel">
+        </div>
+        <div class="form-field">
+          <label for="v4Email" class="form-label">Email Address</label>
+          <input type="email" id="v4Email" name="email" class="form-input" placeholder="your@email.com" required autocomplete="email">
+        </div>
+        <label style="display:flex;gap:10px;align-items:flex-start;cursor:pointer;margin-bottom:20px;">
+          <input type="checkbox" id="v4Consent" name="consent" style="margin-top:4px;width:16px;height:16px;accent-color:#452068;flex-shrink:0;" required>
+          <span class="form-fine">By submitting this form, you consent to be contacted by a licensed insurance agent via phone, email, or text regarding health insurance options. Your information is private and will never be sold. <a href="/privacy" style="font-weight:700;">Privacy Policy</a>.</span>
+        </label>
+        <div id="v4Error" style="display:none;background:#fff0f0;border:1px solid #ffd0d0;border-radius:8px;padding:10px 14px;font-size:16px;color:#c0392b;margin-bottom:14px;"></div>
+        <button type="submit" id="v4Submit" class="form-btn">Get my free consultation →</button>
+        <p style="text-align:center;font-size:15px;color:#5a5068;margin-top:12px;">Licensed Florida brokers. No spam. No pressure.</p>
+      </form>
     </div>
   </div>
 </div>
@@ -435,7 +785,7 @@ footer a{color:var(--purple);font-weight:600;}
             © 2026 The Health Experts Insurance. <a href="/privacy" style="color:#452068;font-weight:600">Privacy Policy &amp; Terms</a>
           </div>
           <div style="padding-top:12px;font-size:16px;color:#5a5068;line-height:1.6">
-            Medicare has not reviewed or endorsed this information. We do not offer every plan available in your area. We currently represent 14 organizations offering 82 products in your area. Please contact Medicare.gov, 1-800-MEDICARE, or your local SHIP program for information about all your options.
+            Medicare has not reviewed or endorsed this information. We do not offer every plan available in your area. Currently we represent 14 organizations which offer 82 products in your area. Please contact Medicare.gov, 1-800-MEDICARE, or your local State Health Insurance Program (SHIP) to get information on all of your options. This communication is not affiliated with or endorsed by the federal Medicare program or any government agency.
           </div>
         </div>
       </div>
@@ -446,10 +796,15 @@ footer a{color:var(--purple);font-weight:600;}
 (function(){
   var WEBHOOK = 'https://services.leadconnectorhq.com/hooks/RINM4TCnM4hN06UA1aK0/webhook-trigger/dc6c8b35-9480-412e-b56d-4a4c8c7bd438';
   var form = document.getElementById('v4LeadForm');
+  var _formLoadTime = Date.now();
   if (!form) return;
 
   form.addEventListener('submit', async function(e) {
     e.preventDefault();
+    var _hp = (document.getElementById('_hp_name') || {}).value || '';
+    if (_hp) return;
+    if (Date.now() - _formLoadTime < 3000) return;
+
     var btn      = document.getElementById('v4Submit');
     var err      = document.getElementById('v4Error');
     var first    = (document.getElementById('v4First') || {}).value || '';
@@ -480,19 +835,23 @@ footer a{color:var(--purple);font-weight:600;}
           phone: phone,
           email: email,
           coverage_type: coverage,
-          source: 'Homepage Form',
+          looking_for: coverage,
+          source: 'Broker Miami Page',
           page: window.location.href,
-          submitted_at: new Date().toISOString()
+          submitted_at: new Date().toISOString(),
+          _form_loaded_at: _formLoadTime,
+          _hp_name: _hp
         })
       });
       if (res.ok) {
         form.style.display = 'none';
         var success = document.getElementById('v4Success');
         if (success) success.style.display = 'block';
+        if (typeof gtag === 'function') gtag('event','form_submit',{'page':'medical-insurance-broker','coverage_type':coverage});
       } else { throw new Error('Server error'); }
     } catch(ex) {
       btn.disabled = false;
-      btn.textContent = 'Book My Free Consultation →';
+      btn.textContent = 'Get my free consultation →';
       err.style.display = 'block';
       err.textContent = 'Something went wrong. Please try again or call 1-800-380-6821.';
     }
@@ -555,6 +914,25 @@ footer a{color:var(--purple);font-weight:600;}
 </script>
 
 <button id="scrollToTop" aria-label="Back to top">↑</button>
+<script>
+(function(){
+  document.querySelectorAll('.faq-q').forEach(function(btn){
+    btn.addEventListener('click', function(){
+      var item = btn.closest('.faq-item');
+      var isOpen = item.classList.contains('open');
+      document.querySelectorAll('.faq-item').forEach(function(i){
+        i.classList.remove('open');
+        var q = i.querySelector('.faq-q');
+        if (q) q.setAttribute('aria-expanded','false');
+      });
+      if (!isOpen) {
+        item.classList.add('open');
+        btn.setAttribute('aria-expanded','true');
+      }
+    });
+  });
+})();
+</script>
 <script>
 (function(){
   var s = document.getElementById('scrollToTop');
