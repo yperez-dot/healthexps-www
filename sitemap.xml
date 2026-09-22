@@ -111,6 +111,23 @@
   <xhtml:link rel="alternate" hreflang="es" href="https://www.healthexps.com/es/inscripcion-anual-medicare-2027/"/>
 </url>
 
+<url>
+  <loc>https://www.healthexps.com/medicare-anoc-2027/</loc>
+  <lastmod>2026-08-31</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>0.9</priority>
+  <xhtml:link rel="alternate" hreflang="en" href="https://www.healthexps.com/medicare-anoc-2027/"/>
+  <xhtml:link rel="alternate" hreflang="es" href="https://www.healthexps.com/es/aviso-anual-cambios-medicare-2027/"/>
+</url>
+<url>
+  <loc>https://www.healthexps.com/es/aviso-anual-cambios-medicare-2027/</loc>
+  <lastmod>2026-08-31</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>0.9</priority>
+  <xhtml:link rel="alternate" hreflang="en" href="https://www.healthexps.com/medicare-anoc-2027/"/>
+  <xhtml:link rel="alternate" hreflang="es" href="https://www.healthexps.com/es/aviso-anual-cambios-medicare-2027/"/>
+</url>
+
 <!-- Medicare Guide Pages -->
 <url>
   <loc>https://www.healthexps.com/medicare/what-is-medicare</loc>
