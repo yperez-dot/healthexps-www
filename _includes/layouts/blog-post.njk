@@ -6,6 +6,12 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>{{ title }} | The Health Experts</title>
 <meta name="description" content="{{ description }}">
+{% if keywords %}<meta name="keywords" content="{{ keywords }}">{% endif %}
+<meta property="og:type" content="article">
+<meta property="og:title" content="{{ title }} | The Health Experts">
+<meta property="og:description" content="{{ description }}">
+<meta property="og:url" content="https://www.healthexps.com{{ page.url | replace('/index.html','') | replace('index.html','') }}">
+<meta name="twitter:card" content="summary_large_image">
 {% if noindex %}<meta name="robots" content="noindex, nofollow">{% endif %}
 <link rel="canonical" href="https://www.healthexps.com{{ page.url | replace('/index.html','') | replace('index.html','') }}">
 {% if hreflang_es %}<link rel="alternate" hreflang="en" href="https://www.healthexps.com{{ page.url | replace('/index.html','') }}">
