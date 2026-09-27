@@ -152,7 +152,7 @@
 
 [[redirects]]
   from = "/independent-healthcare-agents"
-  to = "/independent-health-insurance-broker"
+  to = "/medical-insurance-broker/"
   status = 301
   force = true
 
@@ -768,6 +768,7 @@
   status = 301
   force = true
 
+# GA4 404 pack + forced consolidations live in _redirects (evaluated first, 301!).
 # 404 handler — serve 404.html for any unmatched route (replaces the 200 catch-all that was silently serving homepage content)
 [[redirects]]
   from = "/*"
