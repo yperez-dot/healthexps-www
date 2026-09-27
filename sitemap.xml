@@ -149,20 +149,11 @@
 </url>
 
 <url>
-  <loc>https://www.healthexps.com/medicare/medicare-advantage-plans</loc>
-  <lastmod>2026-08-27</lastmod>
-  <changefreq>monthly</changefreq>
-  <priority>0.8</priority>
-  <xhtml:link rel="alternate" hreflang="en" href="https://www.healthexps.com/medicare/medicare-advantage-plans"/>
-  <xhtml:link rel="alternate" hreflang="es" href="https://www.healthexps.com/es/medicare/planes-medicare-advantage"/>
-</url>
-
-<url>
   <loc>https://www.healthexps.com/es/medicare/planes-medicare-advantage</loc>
   <lastmod>2026-08-27</lastmod>
   <changefreq>monthly</changefreq>
   <priority>0.8</priority>
-  <xhtml:link rel="alternate" hreflang="en" href="https://www.healthexps.com/medicare/medicare-advantage-plans"/>
+  <xhtml:link rel="alternate" hreflang="en" href="https://www.healthexps.com/medicare-advantage-miami"/>
   <xhtml:link rel="alternate" hreflang="es" href="https://www.healthexps.com/es/medicare/planes-medicare-advantage"/>
 </url>
 

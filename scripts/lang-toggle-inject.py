@@ -28,6 +28,7 @@ EN_ES = {
     "/dental-vision-miami":                     "/es/dental-vision-miami",
     "/medicare/what-is-medicare":               "/es/medicare/que-es-medicare",
     "/medicare/new-to-medicare":                "/es/medicare/nuevo-en-medicare",
+    "/medicare-advantage-miami":                "/es/medicare-advantage-miami",
     "/medicare/medicare-advantage-plans":       "/es/medicare/planes-medicare-advantage",
     "/medicare-irmaa-penalties":                "/es/irmaa-penalidades-medicare",
     "/medicare-savings-program":                "/es/medicare/programa-ahorros-medicare",
@@ -38,7 +39,7 @@ EN_ES = {
     "/find-my-plan":                            "/es/encuentra-mi-plan",
     "/compare-medicare-plans":                  "/es/comparar-planes-de-medicare",
     "/enrollment-calculator":                   "/es/calculadora-de-inscripcion",
-    "/faq":                                     "/es/preguntas-frecuentes",            # sub-blocker resolved: fuller content page
+    "/faq":                                     "/es/faq",
     "/contact":                                 "/es/contacto",
     "/resources":                               "/es/recursos",
     "/privacy":                                 "/es/privacidad",

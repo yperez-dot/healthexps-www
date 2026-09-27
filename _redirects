@@ -1,77 +1,218 @@
-# Netlify redirects
-# Old Spanish quiz URL → New Spanish SEO-friendly URL
-/es/encuentra-mi-plan  /es/find-my-plan  301
+# Netlify _redirects
+# Evaluated BEFORE netlify.toml. Use 301! (force) so existing HTML cannot shadow.
+# Keep the /* → /404.html 404 catch-all in netlify.toml (must remain last there).
+# Do not invent a HealthSpring SEP URL.
 
-# Blog migration — Tier 1 posts (2026-06-24)
-# /post/ → /blog/ (keeping Wix slugs exactly as-is)
-/post/avmed-medicare-ending-florida-what-to-do-2026  /blog/avmed-medicare-ending-florida-what-to-do-2026  301
-/post/medicare-plans-replace-avmed-florida-2026  /blog/medicare-plans-replace-avmed-florida-2026  301
-/post/why-is-there-a-medicare-premium-i-thought-it-was-free  /blog/why-is-there-a-medicare-premium-i-thought-it-was-free  301
-/post/navigating-the-medicare-plan-finder-tool-your-ultimate-guide  /blog/navigating-the-medicare-plan-finder-tool-your-ultimate-guide  301
-/post/understanding-how-income-affects-medicare-premiums-a-complete-guide-for-retirees  /blog/understanding-how-income-affects-medicare-premiums-a-complete-guide-for-retirees  301
-/post/understanding-the-key-differences-between-mapd-and-traditional-medicare  /blog/understanding-the-key-differences-between-mapd-and-traditional-medicare  301
-/post/unlocking-the-secrets-finding-preventative-services-under-medicare  /blog/unlocking-the-secrets-finding-preventative-services-under-medicare  301
-/post/mastering-medicare-essential-tips-to-avoid-common-enrollment-mistakes  /blog/mastering-medicare-essential-tips-to-avoid-common-enrollment-mistakes  301
-/post/private-health-insurance-basics-plans-costs-and-coverage-explained  /blog/private-health-insurance-basics-plans-costs-and-coverage-explained  301
-/post/miami-s-trusted-health-insurance-experts-why-a-broker-makes-all-the-difference  /blog/miami-s-trusted-health-insurance-experts-why-a-broker-makes-all-the-difference  301
-/post/the-hidden-treasure-how-medicare-savings-programs-slash-your-health-insurance-costs  /blog/the-hidden-treasure-how-medicare-savings-programs-slash-your-health-insurance-costs  301
-/post/mastering-medicare-essential-tips-for-comparing-plans-effectively  /blog/mastering-medicare-essential-tips-for-comparing-plans-effectively  301
-/post/what-is-a-special-enrollment-period-for-medicare-in-florida  /blog/what-is-a-special-enrollment-period-for-medicare-in-florida  301
-/post/unlocking-your-rights-how-to-appeal-decision-on-medicare-coverage-denials  /blog/unlocking-your-rights-how-to-appeal-decision-on-medicare-coverage-denials  301
-/post/still-haven-t-switched-your-medicare-plan-you-may-qualify-for-a-special-enrollment-period  /blog/still-haven-t-switched-your-medicare-plan-you-may-qualify-for-a-special-enrollment-period  301
+###############################################################################
+# A) /event-info/* seminar pages (GA4 ~67 views Aug 30–Sep 26) — all true 404
+#    Lead-intent: send leftover seminar traffic to contact.
+###############################################################################
+/event-info/medicare-101-mt-sinai-er-physician-offices-3              /contact/  301!
+/event-info/medicare-101-mt-sinai-coral-gables-3                      /contact/  301!
+/event-info/medicare-101-mt-sinai-er-physician-offices                 /contact/  301!
+/event-info/preferred-care-partner-sales-event-9                      /contact/  301!
+/event-info/devoted-sales-event                                       /contact/  301!
+/event-info/medicare-101-mt-sinai-coral-gables-7                      /contact/  301!
+/event-info/medicare-101-mt-sinai-er-physician-offices-4               /contact/  301!
+/event-info/medicare-101-mt-sinai-hialeah-primary-specialty-care      /contact/  301!
+/event-info/medicare-made-easy-4                                      /contact/  301!
+/event-info/ymca-medicare-minute                                      /contact/  301!
+/event-info                                                           /contact/  301!
+/event-info/                                                          /contact/  301!
+/event-info/*                                                         /contact/  301!
 
-# Spanish URL cleanup — proper Spanish slugs (2026-06-24)
-/es/enrollment-calculator  /calculadora-de-inscripcion.html  301
-/es/programa-ahorros-medicare  /es/medicare/programa-ahorros-medicare  301
-/es/faq-aca  /es/preguntas-aca  301
-/es/faq-medicare  /es/preguntas-medicare  301
-/es/preguntas-frecuentes  /es/faq  301
-/es/preguntas-frecuentes/  /es/faq  301
-/es/avmed-medicare-florida-espanol  /es/avmed-medicare-florida  301
-/es/medicare-advantage-en-espanol  /es/medicare-advantage-miami  301
+###############################################################################
+# B) Old FAQ / Wix (GA4 ~38+ views)
+###############################################################################
+/medicarefaq                    /faq/               301!
+/medicarefaq/                   /faq/               301!
+/faq/medicare-penalties         /faq/               301!
+/faq/medicare-penalties/        /faq/               301!
+/es/faq/medicarefaq             /es/faq/            301!
+/es/faq/medicarefaq/            /es/faq/            301!
+/copy-of-faq                    /faq/               301!
+/copy-of-faq/                   /faq/               301!
+/faq/marketplace                /aca-plans-miami/   301!
+/faq/marketplace/               /aca-plans-miami/   301!
 
-# SEO canonical redirects — keep higher-performing URL, redirect duplicate
-/medicare/medicare-advantage-plans  /medicare-advantage-miami  301
-/medicare/medicare-supplement-plans  /medicare-supplement-miami  301
-/medicare/medicare-costs-irmaa  /medicare/medicare-costs  301
+###############################################################################
+# C) Old chrome / about
+###############################################################################
+/terms                          /privacy/   301!
+/terms/                         /privacy/   301!
+/about                          /           301!
+/about/                         /           301!
+/about-us                       /           301!
+/about-us/                      /           301!
+/who-we-are                     /           301!
+/who-we-are/                    /           301!
+/contact-us                     /contact/   301!
+/contact-us/                    /contact/   301!
+/communities-we-serve           /           301!
+/communities-we-serve/          /           301!
+/privacy-policy                 /privacy/   301!
+/privacy-policy/                /privacy/   301!
+/our-services                   /           301!
+/our-services/                  /           301!
 
-# Duplicate ES find-my-plan — keep encuentra-mi-plan (Spanish URL) (2026-07-15)
-/es/find-my-plan  /es/encuentra-mi-plan  301
+###############################################################################
+# D) Old broker / product aliases
+###############################################################################
+/medicare-insurance-broker          /medical-insurance-broker/              301!
+/medicare-insurance-broker/         /medical-insurance-broker/              301!
+/es/medical-insurance-broker        /es/corredor-de-seguros-de-salud-miami/ 301!
+/es/medical-insurance-broker/       /es/corredor-de-seguros-de-salud-miami/ 301!
+/es/medicare-supplements            /es/medicare-suplementario-miami/       301!
+/es/medicare-supplements/           /es/medicare-suplementario-miami/       301!
+/marketplace                        /aca-plans-miami/                       301!
+/marketplace/                       /aca-plans-miami/                       301!
+/medicare-advantage                 /medicare-advantage-miami/              301!
+/medicare-advantage/                /medicare-advantage-miami/              301!
+/medicare-costs                     /medicare-irmaa-penalties/              301!
+/medicare-costs/                    /medicare-irmaa-penalties/              301!
+/medicare-penalties                 /medicare-irmaa-penalties/              301!
+/medicare-penalties/                /medicare-irmaa-penalties/              301!
+/part-a                             /medicare/what-is-medicare/             301!
+/part-a/                            /medicare/what-is-medicare/             301!
+/insurance/private-insurance        /private-health-insurance-miami/        301!
+/insurance/private-insurance/       /private-health-insurance-miami/        301!
+/texas                              /                                       301!
+/texas/                             /                                       301!
+/covid-10-update                    /                                       301!
+/covid-10-update/                   /                                       301!
 
-# Approved /post/ redirects — 30 Wix legacy URLs (2026-07-15, approved by Yahoska)
-/post/private-health-insurance-made-easy-a-guide-for-families  /private-health-insurance-miami  301
-/post/private-health-insurance-a-simple-guide-for-your-family  /private-health-insurance-miami  301
-/post/private-health-insurance-simple-guide-for-families  /private-health-insurance-miami  301
-/post/master-private-health-insurance-a-guide-for-your-family  /private-health-insurance-miami  301
-/post/understand-private-health-insurance-a-simple-family-guide  /private-health-insurance-miami  301
-/post/how-to-switch-medicare-plans-after-avmed-exits-florida  /blog/avmed-medicare-ending-florida-what-to-do-2026  301
-/post/what-replaced-avmed-medicare-in-florida  /blog/avmed-medicare-ending-florida-what-to-do-2026  301
-/post/best-medicare-advantage-plans-to-replace-avmed-in-florida-2026-by-yahoska-perez-licensed-medicare  /blog/avmed-medicare-ending-florida-what-to-do-2026  301
-/es/post/planes-medicare-reemplazo-avmed-florida-2026  /es/avmed-medicare-florida  301
-/es/post/avmed-medicare-termino-florida-que-hacer-2026  /es/avmed-medicare-florida  301
-/post/the-essential-guide-to-understanding-medicare-supplement-plans  /medicare-supplement-miami  301
-/post/mastering-the-medicare-enrollment-process-your-guide-to-a-stress-free-experience  /medicare-enrollment-periods  301
-/post/understanding-medicare-enrollment-periods-a-comprehensive-guide  /medicare-enrollment-periods  301
-/post/unlocking-medicare-enrollment-periods-your-complete-guide-to-health-insurance-benefits  /medicare-enrollment-periods  301
-/post/missed-your-medicare-enrollment-period-heres-your-essential-guide  /medicare-enrollment-periods  301
-/post/exploring-special-enrollment-periods-who-qualifies  /medicare-enrollment-periods  301
-/post/navigating-the-medicare-enrollment-process-step-by-step-instructions  /medicare-enrollment-periods  301
-/post/unlocking-the-medicare-advantage-open-enrollment-period-a-comprehensive-guide-to-your-health-benefi  /medicare-enrollment-periods  301
-/post/open-enrollment-vs-annual-enrollment-period-whats-the-difference  /medicare-enrollment-periods  301
-/post/unlocking-benefits-medicare-coverage-for-specific-health-conditions  /blog/unlocking-the-secrets-finding-preventative-services-under-medicare  301
-/post/what-is-a-medicare-late-enrollment-penalty-lep  /medicare-enrollment-periods  301
-/post/why-use-a-health-insurance-brokerage  /medicare-agent-miami  301
-/post/unlocking-the-secrets-of-preventative-care-benefits-in-medicare  /blog/unlocking-the-secrets-finding-preventative-services-under-medicare  301
-/post/key-differences-between-medicare-and-medicaid-what-you-need-to-know  /medicare-dual-eligible-miami  301
-/post/unlocking-the-benefits-of-medicare-advantage-plans-mapd  /medicare-advantage-miami  301
-/post/uncovering-hidden-costs-in-medicare-what-every-retired-individual-needs-to-know  /medicare/medicare-costs  301
-/post/comparing-costs-medicare-advantage-plans-vs-original-medicare  /medicare-advantage-miami  301
-/post/smart-ways-to-save-money-during-medicare-enrollment-budgeting-tips  /medicare/medicare-costs  301
-/post/cost-comparisons-mapd-vs-original-medicare-making-the-right-choice-for-your-health-insurance  /medicare-advantage-miami  301
+###############################################################################
+# E) /post/ Wix aliases — specific mismatches first, then splat to live /blog/
+###############################################################################
+# GA4 + audit gaps (slug does not match a live /blog/ post)
+/post/avmed-medicare-ending-florida-options-guide                       /blog/avmed-medicare-ending-florida-what-to-do-2026/  301!
+/post/updated-2024-medicare-irmaa-premium                               /blog/what-is-irmaa-avoid-medicare-surcharge/  301!
+/post/what-are-the-4-parts-of-medicare-1                                /medicare/what-is-medicare/  301!
+/post/is-the-affordable-care-act-really-helping-people                  /aca-plans-miami/  301!
 
-# Broker page consolidation — keep /medical-insurance-broker, fold /independent in (2026-08-26)
-/independent-health-insurance-broker  /medical-insurance-broker/  301
-/independent-health-insurance-broker/  /medical-insurance-broker/  301
-/post/the-vital-need-for-timely-medicare-enrollment-sidestepping-penalties  /medicare-enrollment-periods  301
-/turning-65-medicare-miami  /medicare/new-to-medicare/  301
-/turning-65-medicare-miami/  /medicare/new-to-medicare/  301
+# Approved Wix aliases that must not fall through to /blog/:splat
+/post/private-health-insurance-made-easy-a-guide-for-families           /private-health-insurance-miami/  301!
+/post/private-health-insurance-a-simple-guide-for-your-family           /private-health-insurance-miami/  301!
+/post/private-health-insurance-simple-guide-for-families                /private-health-insurance-miami/  301!
+/post/master-private-health-insurance-a-guide-for-your-family           /private-health-insurance-miami/  301!
+/post/understand-private-health-insurance-a-simple-family-guide         /private-health-insurance-miami/  301!
+/post/how-to-switch-medicare-plans-after-avmed-exits-florida            /blog/avmed-medicare-ending-florida-what-to-do-2026/  301!
+/post/what-replaced-avmed-medicare-in-florida                           /blog/avmed-medicare-ending-florida-what-to-do-2026/  301!
+/post/best-medicare-advantage-plans-to-replace-avmed-in-florida-2026-by-yahoska-perez-licensed-medicare  /blog/avmed-medicare-ending-florida-what-to-do-2026/  301!
+/post/the-essential-guide-to-understanding-medicare-supplement-plans    /medicare-supplement-miami/  301!
+/post/mastering-the-medicare-enrollment-process-your-guide-to-a-stress-free-experience  /medicare-enrollment-periods/  301!
+/post/understanding-medicare-enrollment-periods-a-comprehensive-guide   /medicare-enrollment-periods/  301!
+/post/unlocking-medicare-enrollment-periods-your-complete-guide-to-health-insurance-benefits  /medicare-enrollment-periods/  301!
+/post/missed-your-medicare-enrollment-period-heres-your-essential-guide /medicare-enrollment-periods/  301!
+/post/exploring-special-enrollment-periods-who-qualifies                /medicare-enrollment-periods/  301!
+/post/navigating-the-medicare-enrollment-process-step-by-step-instructions  /medicare-enrollment-periods/  301!
+/post/unlocking-the-medicare-advantage-open-enrollment-period-a-comprehensive-guide-to-your-health-benefi  /medicare-enrollment-periods/  301!
+/post/open-enrollment-vs-annual-enrollment-period-whats-the-difference  /medicare-enrollment-periods/  301!
+/post/unlocking-benefits-medicare-coverage-for-specific-health-conditions  /blog/unlocking-the-secrets-finding-preventative-services-under-medicare/  301!
+/post/what-is-a-medicare-late-enrollment-penalty-lep                    /medicare-enrollment-periods/  301!
+/post/why-use-a-health-insurance-brokerage                              /medicare-agent-miami/  301!
+/post/unlocking-the-secrets-of-preventative-care-benefits-in-medicare   /blog/unlocking-the-secrets-finding-preventative-services-under-medicare/  301!
+/post/key-differences-between-medicare-and-medicaid-what-you-need-to-know  /medicare-dual-eligible-miami/  301!
+/post/unlocking-the-benefits-of-medicare-advantage-plans-mapd           /medicare-advantage-miami/  301!
+/post/uncovering-hidden-costs-in-medicare-what-every-retired-individual-needs-to-know  /medicare-irmaa-penalties/  301!
+/post/comparing-costs-medicare-advantage-plans-vs-original-medicare     /medicare-advantage-miami/  301!
+/post/smart-ways-to-save-money-during-medicare-enrollment-budgeting-tips  /medicare-irmaa-penalties/  301!
+/post/cost-comparisons-mapd-vs-original-medicare-making-the-right-choice-for-your-health-insurance  /medicare-advantage-miami/  301!
+/post/the-vital-need-for-timely-medicare-enrollment-sidestepping-penalties  /medicare-enrollment-periods/  301!
+/post/are-health-insurance-premiums-subject-to-fica                     /blog/understanding-how-income-affects-medicare-premiums-a-complete-guide-for-retirees/  301!
+/post/avmed-medicare-is-ending-in-2026-what-florida-seniors-need-to-know  /blog/avmed-medicare-ending-florida-what-to-do-2026/  301!
+/es/post/planes-medicare-reemplazo-avmed-florida-2026                   /es/avmed-medicare-florida/  301!
+/es/post/avmed-medicare-termino-florida-que-hacer-2026                  /es/avmed-medicare-florida/  301!
+
+# Consolidated blog slug — do not splat to the retired URL
+/post/mastering-medicare-essential-tips-to-avoid-common-enrollment-mistakes  /blog/medicare-enrollment-periods-explained/  301!
+
+# Live posts whose Wix slug matches /blog/{slug} (turned-26, self-employed, ACA, etc.)
+/post/*  /blog/:splat  301!
+
+###############################################################################
+# F) Audit extras
+###############################################################################
+# Broken ES calculator (was pointed at a missing root .html)
+/es/enrollment-calculator               /es/calculadora-de-inscripcion/  301!
+/es/enrollment-calculator/              /es/calculadora-de-inscripcion/  301!
+/es/enrollment-calculator.html          /es/calculadora-de-inscripcion/  301!
+/calculadora-de-inscripcion.html        /es/calculadora-de-inscripcion/  301!
+/es/calculadora-de-inscripcion.html     /es/calculadora-de-inscripcion/  301!
+
+# Soft 404: Pretty URLs would otherwise serve 404.html as HTTP 200
+/404            /  301!
+/404/           /  301!
+/404.html       /  301!
+
+# Sep 8 leftovers — .html → slash for money pages
+/medical-insurance-broker.html              /medical-insurance-broker/  301!
+/medicare-savings-program.html              /medicare-savings-program/  301!
+/private-health-insurance-miami.html        /private-health-insurance-miami/  301!
+/medicare-advantage-miami.html              /medicare-advantage-miami/  301!
+/medicare-supplement-miami.html             /medicare-supplement-miami/  301!
+/medicare-plans-miami.html                  /medicare-plans-miami/  301!
+/aca-plans-miami.html                       /aca-plans-miami/  301!
+/medicare-agent-miami.html                  /medicare-agent-miami/  301!
+/medicare-irmaa-penalties.html              /medicare-irmaa-penalties/  301!
+/cobra-alternatives-miami.html              /cobra-alternatives-miami/  301!
+/medicare-dual-eligible-miami.html          /medicare-dual-eligible-miami/  301!
+/medicare-enrollment-periods.html           /medicare-enrollment-periods/  301!
+/medicare-annual-enrollment-2027.html       /medicare-annual-enrollment-2027/  301!
+/avmed-medicare-florida.html                /avmed-medicare-florida/  301!
+/contact.html                               /contact/  301!
+/book.html                                  /book/  301!
+/faq.html                                   /faq/  301!
+/health-insurance-quiz.html                 /health-insurance-quiz/  301!
+/medicare-enrollment-calculator.html        /medicare-enrollment-calculator/  301!
+/dental-vision-miami.html                   /dental-vision-miami/  301!
+/life-insurance-miami.html                  /life-insurance-miami/  301!
+/final-expense-insurance.html               /final-expense-insurance/  301!
+/medicare-plan-finder.html                  /medicare-plan-finder/  301!
+/compare-medicare-plans.html                /compare-medicare-plans/  301!
+/resources.html                             /resources/  301!
+/privacy.html                               /privacy/  301!
+/es/corredor-de-seguros-de-salud-miami.html /es/corredor-de-seguros-de-salud-miami/  301!
+/es/medicare-suplementario-miami.html       /es/medicare-suplementario-miami/  301!
+/es/medicare-advantage-miami.html           /es/medicare-advantage-miami/  301!
+/es/planes-aca-miami.html                   /es/planes-aca-miami/  301!
+/es/contacto.html                           /es/contacto/  301!
+
+# Forced consolidations (HTML deleted so they cannot 200)
+/independent-health-insurance-broker        /medical-insurance-broker/  301!
+/independent-health-insurance-broker/       /medical-insurance-broker/  301!
+/independent-health-insurance-broker.html   /medical-insurance-broker/  301!
+/independent-healthcare-agents              /medical-insurance-broker/  301!
+/independent-healthcare-agents/             /medical-insurance-broker/  301!
+/es/preguntas-frecuentes                    /es/faq/  301!
+/es/preguntas-frecuentes/                   /es/faq/  301!
+/medicare/medicare-supplement-plans         /medicare-supplement-miami/  301!
+/medicare/medicare-supplement-plans/        /medicare-supplement-miami/  301!
+/medicare/medicare-supplement-plans.html    /medicare-supplement-miami/  301!
+/es/find-my-plan                            /es/encuentra-mi-plan/  301!
+/es/find-my-plan/                           /es/encuentra-mi-plan/  301!
+/es/find-my-plan.html                       /es/encuentra-mi-plan/  301!
+/medicare/medicare-advantage-plans          /medicare-advantage-miami/  301!
+/medicare/medicare-advantage-plans/         /medicare-advantage-miami/  301!
+/medicare/medicare-advantage-plans.html     /medicare-advantage-miami/  301!
+
+# Blog tags 404
+/blog/tags      /blog/  301!
+/blog/tags/     /blog/  301!
+/blog/tags/*    /blog/  301!
+
+###############################################################################
+# Preserved existing rules (upgraded to 301!; reverse ES find-my-plan loop removed)
+###############################################################################
+/es/programa-ahorros-medicare               /es/medicare/programa-ahorros-medicare/  301!
+/es/programa-ahorros-medicare/              /es/medicare/programa-ahorros-medicare/  301!
+/es/faq-aca                                 /es/preguntas-aca/  301!
+/es/faq-aca/                                /es/preguntas-aca/  301!
+/es/faq-medicare                            /es/preguntas-medicare/  301!
+/es/faq-medicare/                           /es/preguntas-medicare/  301!
+/es/avmed-medicare-florida-espanol          /es/avmed-medicare-florida/  301!
+/es/medicare-advantage-en-espanol           /es/medicare-advantage-miami/  301!
+/medicare/medicare-costs-irmaa              /medicare-irmaa-penalties/  301!
+/medicare/medicare-costs-irmaa/             /medicare-irmaa-penalties/  301!
+/turning-65-medicare-miami                  /medicare/new-to-medicare/  301!
+/turning-65-medicare-miami/                 /medicare/new-to-medicare/  301!
