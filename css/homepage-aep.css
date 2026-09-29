@@ -1,0 +1,201 @@
+/* Homepage AEP refresh — Sep 29 2026 brief
+   Brand: purple #3F2566 (white/light on purple only). Pink #EA158C on light backgrounds. */
+
+.home-sticky-chrome {
+  position: sticky;
+  top: 0;
+  z-index: 600;
+  background: #fff;
+}
+
+.aep-topbar {
+  background: #3F2566;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 8px 56px;
+  font-size: 16px;
+}
+
+.aep-topbar a {
+  text-decoration: none;
+}
+
+.aep-topbar-left,
+.aep-topbar-right {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex: 0 1 auto;
+}
+
+.aep-topbar-left {
+  min-width: 0;
+}
+
+#aep-message {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  flex: 1 1 auto;
+  min-width: 0;
+}
+
+#aep-message[hidden] {
+  display: none !important;
+}
+
+.aep-topbar-text {
+  color: #fff;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 1.3;
+  white-space: nowrap;
+}
+
+.aep-topbar-cta {
+  display: inline-flex;
+  align-items: center;
+  background: #fff;
+  color: #3F2566 !important;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 1.2;
+  padding: 6px 14px;
+  border-radius: 999px;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.aep-topbar-cta:hover,
+.aep-topbar-cta:focus {
+  color: #3F2566 !important;
+  opacity: 0.92;
+}
+
+.aep-wa {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: #25D366;
+  color: #fff !important;
+  padding: 5px 12px;
+  border-radius: 999px;
+  font-weight: 700;
+  font-size: 15px;
+  text-decoration: none;
+}
+
+.aep-wa svg {
+  flex-shrink: 0;
+}
+
+#stat-strip.aep-stats {
+  background: #3F2566;
+  color: #fff;
+  padding: 16px 56px;
+  min-height: 72px;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 16px 24px;
+}
+
+.aep-stat {
+  text-align: center;
+}
+
+.aep-stat-num {
+  font-family: Poppins, sans-serif;
+  font-weight: 700;
+  font-size: 28px;
+  color: #fff;
+  line-height: 1;
+}
+
+.aep-stat-label {
+  font-size: 13px;
+  color: #fff;
+  opacity: 0.85;
+  margin-top: 4px;
+}
+
+#plans-grid-cards {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 18px;
+}
+
+#plan-tile-medicare.is-aep {
+  border-color: #EA158C !important;
+}
+
+@media (max-width: 1200px) {
+  .aep-topbar-text {
+    font-size: 14px;
+    white-space: normal;
+    text-align: right;
+  }
+}
+
+@media (max-width: 900px) {
+  .aep-topbar {
+    padding: 8px 16px;
+    flex-wrap: wrap;
+  }
+
+  #aep-message {
+    order: 3;
+    flex: 1 1 100%;
+    flex-direction: column;
+    gap: 8px;
+    padding: 4px 0 6px;
+  }
+
+  .aep-topbar-text {
+    white-space: normal;
+    text-align: center;
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 768px) {
+  #plans-grid-cards {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+
+  #stat-strip.aep-stats {
+    padding: 16px 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .aep-cd-wrap {
+    display: none;
+  }
+
+  .aep-wa-label {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+  }
+
+  .aep-wa {
+    padding: 6px 8px;
+  }
+
+  #plans-grid-cards {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+}

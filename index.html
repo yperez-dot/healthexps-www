@@ -6,6 +6,7 @@
 <link rel="icon" href="/favicon.ico" type="image/x-icon">
 <meta charset="UTF-8">
 <link rel="stylesheet" href="/css/global.css">
+<link rel="stylesheet" href="/css/homepage-aep.css">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>Medicare Broker Miami | Open Enrollment 2027</title>
@@ -780,12 +781,8 @@ src="https://www.facebook.com/tr?id=3257807051192879&ev=PageView&noscript=1"/></
   [style*="grid-template-columns:repeat(4"] { grid-template-columns: repeat(2,1fr) !important; }
   [style*="grid-template-columns:repeat(5"] { grid-template-columns: repeat(2,1fr) !important; }
 }
-@media (max-width: 480px) {
-  #plans-grid [style*="grid-template-columns:repeat(4,1fr)"] { grid-template-columns: 1fr !important; }
-  #plans-grid-cards { grid-template-columns: 1fr !important; }
-}
 @media (max-width: 768px) {
-  #plans-grid-cards { grid-template-columns: 1fr !important; }
+  #plans-grid-cards { grid-template-columns: repeat(2, 1fr) !important; }
 }
 
 /* V4 nav dropdown hover */
@@ -806,19 +803,23 @@ src="https://www.facebook.com/tr?id=3257807051192879&ev=PageView&noscript=1"/></
 <body>
     <div style="font-family:Inter,sans-serif;color:#241a30;background:#fff">
 
+      <div class="home-sticky-chrome">
       <!-- utility bar -->
-      <div class="top-bar-inner" style="background:#2f1550;color:#fff;display:flex;align-items:center;justify-content:space-between;padding:9px 56px;font-size:16px">
-        <div style="display:flex;align-items:center;gap:12px">
-          <a href="tel:18003806821" style="color:#fff;display:flex;align-items:center;" aria-label="Call 1-800-380-6821"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 1.27h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.91a16 16 0 0 0 6.29 6.29l.91-.91a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg></a>
+      <div class="top-bar-inner aep-topbar">
+        <div class="aep-topbar-left">
           <span style="display:inline-flex;align-items:center;border:1px solid rgba(255,255,255,0.35);border-radius:999px;padding:3px 10px;gap:3px;font-size:14.5px;"><span style="opacity:.65;font-weight:400">EN</span><span style="opacity:.35;margin:0 1px">|</span><a href="/es/" style="color:#fff;text-decoration:none;font-weight:700">ES</a></span>
         </div>
-        <div style="display:flex;align-items:center;gap:16px">
-          <a href="https://wa.me/13054646888" onclick="gtag('event','whatsapp_click',{'page':window.location.pathname})" style="display:inline-flex;align-items:center;gap:6px;background:#25D366;color:#fff;padding:5px 12px;border-radius:999px;font-weight:700;font-size:15px;text-decoration:none;">WhatsApp</a>
+        <div id="aep-message">
+          <span class="aep-topbar-text">Medicare Open Enrollment: Oct 15 to Dec 7<span class="aep-cd-wrap"> · <span id="aep-countdown"></span></span></span>
+          <a class="aep-topbar-cta" href="/medicare-annual-enrollment-2027">Free 2027 plan review →</a>
+        </div>
+        <div class="aep-topbar-right">
+          <a class="aep-wa" href="https://wa.me/13054646888" onclick="gtag('event','whatsapp_click',{'page':window.location.pathname})"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.47 14.38c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.17-.17.2-.35.22-.65.07-.3-.15-1.26-.46-2.4-1.48-.89-.79-1.48-1.77-1.66-2.07-.17-.3-.02-.46.13-.61.14-.14.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.07-.15-.67-1.62-.92-2.22-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.8.37-.27.3-1.05 1.02-1.05 2.5s1.08 2.9 1.23 3.1c.15.2 2.12 3.24 5.14 4.54.72.31 1.28.5 1.72.64.72.23 1.38.2 1.9.12.58-.09 1.76-.72 2.01-1.42.25-.7.25-1.3.17-1.42-.07-.12-.27-.2-.57-.35z"/><path d="M12.04 2C6.5 2 2 6.48 2 12c0 1.77.46 3.45 1.28 4.9L2 22l5.25-1.38A9.96 9.96 0 0 0 12.04 22C17.56 22 22 17.52 22 12S17.56 2 12.04 2zm0 18.2c-1.64 0-3.2-.45-4.56-1.26l-.33-.2-3.12.82.83-3.04-.21-.35A8.18 8.18 0 0 1 3.8 12c0-4.53 3.7-8.2 8.24-8.2 4.54 0 8.24 3.67 8.24 8.2 0 4.53-3.7 8.2-8.24 8.2z"/></svg><span class="aep-wa-label">WhatsApp</span></a>
         </div>
       </div>
 
       <!-- nav -->
-      <div class="v4-nav-outer" style="display:flex;align-items:center;justify-content:space-between;padding:14px 56px;border-bottom:1px solid #ece5f0;position:sticky;top:0;background:#fff;z-index:500">
+      <div class="v4-nav-outer" style="display:flex;align-items:center;justify-content:space-between;padding:14px 56px;border-bottom:1px solid #ece5f0;background:#fff">
         <a href="/"><img src="/images/logo.webp" alt="The Health Experts Insurance" style="height:80px;width:auto;cursor:pointer"/></a>
         <div class="v4-nav-desktop" style="display:flex;align-items:center;gap:26px;font-size:18px;font-weight:600;color:#3a2f47">
           <a href="/" style="cursor:pointer">Home</a>
@@ -870,6 +871,7 @@ src="https://www.facebook.com/tr?id=3257807051192879&ev=PageView&noscript=1"/></
             <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#241a30" stroke-width="2.2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
           </button>
         </div>
+      </div>
       </div>
 
       <!-- Mobile nav panel -->
@@ -968,16 +970,16 @@ src="https://www.facebook.com/tr?id=3257807051192879&ev=PageView&noscript=1"/></
                 Doral, FL &middot; Serving all of South Florida
               </div>
               <h1 style="font-family:Poppins,sans-serif;font-weight:700;font-size:clamp(32px,5vw,52px);line-height:1.1;color:#241a30;margin:0 0 20px">Medicare in Miami, explained clearly — in English or Español.</h1>
-              <p style="font-size:18.5px;line-height:1.65;color:#3a2f47;max-width:480px;margin:0 0 30px">Free bilingual Medicare compare in Miami. We check your doctors and meds across Advantage, Medigap and Part D — plus Dual/D-SNP eligibility.</p>
+              <p style="font-size:18.5px;line-height:1.65;color:#3a2f47;max-width:480px;margin:0 0 30px">Free bilingual Medicare comparison in Miami. We check your doctors and meds across Advantage, Medigap and Part D, plus Dual/D-SNP eligibility.</p>
               <div id="hero-btns" style="display:flex;gap:14px;margin-bottom:28px;flex-wrap:wrap">
-                <a href="#lead-form" style="background:#ff1090;color:#fff;padding:17px 30px;border-radius:12px;font-weight:700;font-size:16px;box-shadow:0 10px 24px rgba(255,16,144,.28)">Book Your Free Consultation →</a>
+                <a href="/medicare-annual-enrollment-2027" style="background:#ff1090;color:#fff;padding:17px 30px;border-radius:12px;font-weight:700;font-size:16px;box-shadow:0 10px 24px rgba(255,16,144,.28)">Review your 2027 Medicare plan →</a>
                 <a href="tel:18003806821" style="border:2px solid #452068;color:#452068;padding:15px 26px;border-radius:12px;font-weight:700;font-size:16px;white-space:nowrap">Call 1-800-380-6821</a>
               </div>
               <div style="display:flex;flex-wrap:wrap;gap:10px">
-                <span style="background:#fff;border:2px solid #ece5f0;padding:8px 14px;border-radius:999px;font-size:16px;font-weight:600;color:#452068">14+ Carriers</span>
+                <span style="background:#fff;border:2px solid #ece5f0;padding:8px 14px;border-radius:999px;font-size:16px;font-weight:600;color:#452068">Licensed Florida agents</span>
                 <span style="background:#fff;border:2px solid #ece5f0;padding:8px 14px;border-radius:999px;font-size:16px;font-weight:600;color:#452068">Doral Office</span>
                 <span style="background:#fff;border:2px solid #ece5f0;padding:8px 14px;border-radius:999px;font-size:16px;font-weight:600;color:#452068">English &amp; Spanish</span>
-                <span style="background:#fff;border:2px solid #ece5f0;padding:8px 14px;border-radius:999px;font-size:16px;font-weight:600;color:#452068">$0 Cost to You</span>
+                <span style="background:#fff;border:2px solid #ece5f0;padding:8px 14px;border-radius:999px;font-size:16px;font-weight:600;color:#452068">Local, women-owned</span>
               </div>
             </div>
             <div id="hero-right" style="position:relative">
@@ -993,19 +995,6 @@ src="https://www.facebook.com/tr?id=3257807051192879&ev=PageView&noscript=1"/></
           </div>
         </div>
 
-        <div id="aep-home-banner" style="background:#fff0f8;border-bottom:1px solid #f5d0e8;padding:16px 56px;text-align:center">
-          <p style="margin:0;font-size:17px;color:#3a2f47">Medicare Annual Enrollment 2027 in Miami is Oct 15–Dec 7. <a href="/medicare-annual-enrollment-2027" style="color:#c40074;font-weight:700">Medicare open enrollment dates and free 2027 plan review →</a></p>
-        </div>
-
-        <!-- STAT STRIP -->
-        <div id="stat-strip" style="background:#452068;color:#fff;padding:30px 56px;display:flex;justify-content:space-around;flex-wrap:wrap;gap:24px">
-          <div style="text-align:center"><div style="font-family:Poppins,sans-serif;font-weight:700;font-size:30px">14+</div><div style="font-size:16px;opacity:.8;margin-top:4px">insurance carriers</div></div>
-          <div style="text-align:center"><div style="font-family:Poppins,sans-serif;font-weight:700;font-size:30px">82</div><div style="font-size:16px;opacity:.8;margin-top:4px">products in Florida</div></div>
-          <div style="text-align:center"><div style="font-family:Poppins,sans-serif;font-weight:700;font-size:30px">$0</div><div style="font-size:16px;opacity:.8;margin-top:4px">cost to you</div></div>
-          <div style="text-align:center"><div style="font-family:Poppins,sans-serif;font-weight:700;font-size:30px">2019</div><div style="font-size:16px;opacity:.8;margin-top:4px">founded in Doral</div></div>
-        </div>
-
-        
 <!-- PATH STRIP — Task 2 / Aug 12, 2026 -->
 <div id="path-strip" style="background:#fdfaf7;padding:44px 56px;border-bottom:1px solid #ece5f0">
   <div style="max-width:1320px;margin:0 auto">
@@ -1029,6 +1018,67 @@ src="https://www.facebook.com/tr?id=3257807051192879&ev=PageView&noscript=1"/></
     </div>
   </div>
 </div>
+
+        <!-- PLANS GRID -->
+        <div id="plans-grid" style="background:#fdfaf7;padding:80px 56px">
+          <div style="max-width:1160px;margin:0 auto">
+            <div style="text-align:center;margin-bottom:44px">
+              <h2 style="font-family:Poppins,sans-serif;font-size:32px;font-weight:700;color:#241a30;margin:0 0 10px">Plans We Help You Compare</h2>
+              <p style="color:#3a2f47;font-size:16px;margin:0">Clear guidance on the insurance types most requested by Florida residents.</p>
+            </div>
+            <div id="plans-grid-cards" style="display:grid;grid-template-columns:repeat(4,1fr);gap:18px">
+              <a id="plan-tile-medicare" href="/medicare-plans-miami" style="display:block;text-decoration:none;color:inherit;background:#fff;border:2px solid #ece5f0;border-radius:16px;padding:24px">
+                <div style="width:44px;height:44px;border-radius:12px;background:#f7f2fb;display:flex;align-items:center;justify-content:center;margin-bottom:14px"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#452068" stroke-width="1.8"><path d="M12 3v10M12 17v.01"/></svg></div>
+                <div style="font-weight:700;font-size:18px;margin-bottom:6px">Medicare</div>
+                <div style="font-size:16px;color:#3a2f47;line-height:1.5">Advantage, Supplement, Part D</div>
+              </a>
+              <a href="/aca-plans-miami" style="display:block;text-decoration:none;color:inherit;background:#fff;border:2px solid #ece5f0;border-radius:16px;padding:24px">
+                <div style="width:44px;height:44px;border-radius:12px;background:#f7f2fb;display:flex;align-items:center;justify-content:center;margin-bottom:14px"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#452068" stroke-width="1.8"><rect x="4" y="6" width="16" height="12" rx="2"/></svg></div>
+                <div style="font-weight:700;font-size:18px;margin-bottom:6px">ACA Marketplace</div>
+                <div style="font-size:16px;color:#3a2f47;line-height:1.5">Individual &amp; family plans</div>
+              </a>
+              <a href="/private-health-insurance-miami" style="display:block;text-decoration:none;color:inherit;background:#fff;border:2px solid #ece5f0;border-radius:16px;padding:24px">
+                <div style="width:44px;height:44px;border-radius:12px;background:#f7f2fb;display:flex;align-items:center;justify-content:center;margin-bottom:14px"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#452068" stroke-width="1.8"><circle cx="9" cy="12" r="6"/><circle cx="15" cy="12" r="6"/></svg></div>
+                <div style="font-weight:700;font-size:18px;margin-bottom:6px">Private Insurance</div>
+                <div style="font-size:16px;color:#3a2f47;line-height:1.5">For individuals &amp; families</div>
+              </a>
+              <a href="/dental-vision-miami" style="display:block;text-decoration:none;color:inherit;background:#fff;border:2px solid #ece5f0;border-radius:16px;padding:24px">
+                <div style="width:44px;height:44px;border-radius:12px;background:#f7f2fb;display:flex;align-items:center;justify-content:center;margin-bottom:14px"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#452068" stroke-width="1.8"><rect x="3" y="8" width="18" height="8" rx="4"/><line x1="12" y1="8" x2="12" y2="16"/></svg></div>
+                <div style="font-weight:700;font-size:18px;margin-bottom:6px">Dental &amp; Supplemental</div>
+                <div style="font-size:16px;color:#3a2f47;line-height:1.5">Vision, hearing &amp; more</div>
+              </a>
+              <a href="/contact" style="display:block;text-decoration:none;color:inherit;background:#fff;border:2px solid #ece5f0;border-radius:16px;padding:24px">
+                <div style="width:44px;height:44px;border-radius:12px;background:#f7f2fb;display:flex;align-items:center;justify-content:center;margin-bottom:14px"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#452068" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><ellipse cx="12" cy="12" rx="4" ry="9"/><line x1="3" y1="12" x2="21" y2="12"/></svg></div>
+                <div style="font-weight:700;font-size:18px;margin-bottom:6px">Travel Insurance</div>
+                <div style="font-size:16px;color:#3a2f47;line-height:1.5">International &amp; travel medical coverage</div>
+              </a>
+              <a href="/contact" style="display:block;text-decoration:none;color:inherit;background:#fff;border:2px solid #ece5f0;border-radius:16px;padding:24px">
+                <div style="width:44px;height:44px;border-radius:12px;background:#f7f2fb;display:flex;align-items:center;justify-content:center;margin-bottom:14px"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#452068" stroke-width="1.8"><rect x="6" y="4" width="12" height="16" rx="2"/><line x1="9" y1="9" x2="15" y2="9"/><line x1="9" y1="13" x2="15" y2="13"/></svg></div>
+                <div style="font-weight:700;font-size:18px;margin-bottom:6px">Ancillary Benefits</div>
+                <div style="font-size:16px;color:#3a2f47;line-height:1.5">Cancer, stroke &amp; hospital indemnity</div>
+              </a>
+              <a href="/life-insurance-miami" style="display:block;text-decoration:none;color:inherit;background:#fff;border:2px solid #ece5f0;border-radius:16px;padding:24px">
+                <div style="width:44px;height:44px;border-radius:12px;background:#f7f2fb;display:flex;align-items:center;justify-content:center;margin-bottom:14px"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#452068" stroke-width="1.8"><path d="M4 11l8-6 8 6"/><rect x="7" y="11" width="10" height="8"/></svg></div>
+                <div style="font-weight:700;font-size:18px;margin-bottom:6px">Life Insurance</div>
+                <div style="font-size:16px;color:#3a2f47;line-height:1.5">Protection for you and your family</div>
+              </a>
+              <a href="/final-expense-insurance" style="display:block;text-decoration:none;color:inherit;background:#fff;border:2px solid #ece5f0;border-radius:16px;padding:24px">
+                <div style="width:44px;height:44px;border-radius:12px;background:#f7f2fb;display:flex;align-items:center;justify-content:center;margin-bottom:14px"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#452068" stroke-width="1.8"><path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"/><path d="M12 8v4l3 3"/></svg></div>
+                <div style="font-weight:700;font-size:18px;margin-bottom:6px">Final Expense</div>
+                <div style="font-size:16px;color:#3a2f47;line-height:1.5">Burial &amp; funeral coverage</div>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- STAT STRIP -->
+        <div id="stat-strip" class="aep-stats">
+          <div class="aep-stat"><div class="aep-stat-num">14</div><div class="aep-stat-label">insurance carriers</div></div>
+          <div class="aep-stat"><div class="aep-stat-num">82</div><div class="aep-stat-label">products in Florida</div></div>
+          <div class="aep-stat"><div class="aep-stat-num">$0</div><div class="aep-stat-label">cost to you</div></div>
+          <div class="aep-stat"><div class="aep-stat-num">14+</div><div class="aep-stat-label">years combined agent experience</div></div>
+        </div>
+
 <!-- TRUST QUOTE — Task 4 / Aug 12, 2026 -->
 <div id="trust-quote" style="background:#fff;padding:36px 56px;border-bottom:1px solid #ece5f0;text-align:center">
   <div style="max-width:680px;margin:0 auto">
@@ -1037,11 +1087,6 @@ src="https://www.facebook.com/tr?id=3257807051192879&ev=PageView&noscript=1"/></
     <p class="tq-micro">Real families. Real agents. Not a national call center.</p>
   </div>
 </div>
-        <!-- AVMED ALERT -->
-        <div id="avmed-alert" style="background:#fff7ec;border-top:1px solid #f3d9a8;border-bottom:1px solid #f3d9a8;padding:14px 24px;text-align:center">
-          <p style="margin:0 auto;font-size:17px;color:#5a4a2f;line-height:1.6;max-width:680px"><strong style="color:#241a30">Had Medicare with AvMed?</strong> AvMed exited the Florida Medicare market on January 1, 2026 — you may still qualify for a Special Enrollment Period. <a href="#lead-form" style="font-weight:700;color:#c40074;white-space:nowrap">See my options →</a></p>
-        </div>
-
         <!-- EMPATHY -->
         <div style="background:#fff;padding:80px 56px">
           <div style="max-width:980px;margin:0 auto">
@@ -1066,18 +1111,6 @@ src="https://www.facebook.com/tr?id=3257807051192879&ev=PageView&noscript=1"/></
                 <div style="width:44px;height:44px;border-radius:50%;background:#452068;display:flex;align-items:center;justify-content:center;flex-shrink:0"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><circle cx="12" cy="12" r="8"/><path d="M12 8v4l3 2"/></svg></div>
                 <div><div style="font-weight:700;font-size:16px;font-style:italic;color:#241a30;margin-bottom:6px">"I don't have time to figure this all out."</div><div style="font-size:17px;color:#3a2f47;line-height:1.5">We simplify the process and move it forward for you.</div></div>
               </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- TESTIMONIAL SPOTLIGHT -->
-        <div style="background:#f7f2fb;padding:72px 56px">
-          <div style="max-width:720px;margin:0 auto;text-align:center">
-            <div style="font-family:Poppins,sans-serif;font-size:64px;color:#e6b8d6;line-height:0;margin-bottom:18px">"</div>
-            <div style="font-size:22px;line-height:1.6;color:#2f1550;font-style:italic;font-weight:600;margin-bottom:22px">Yahoska Perez was absolutely incredible to work with. She really took the time to understand my mom&rsquo;s needs and helped her find the best insurance plan. She was patient, knowledgeable, and always willing to answer our questions.</div>
-            <div style="display:flex;align-items:center;justify-content:center;gap:10px">
-              <div style="width:36px;height:36px;border-radius:50%;background:#ff1090;color:#fff;font-weight:700;display:flex;align-items:center;justify-content:center;font-size:17px">W</div>
-              <div style="font-size:17px;color:#3a2f47"><strong style="color:#241a30">Winnie Tseng</strong> &middot; verified Google review</div>
             </div>
           </div>
         </div>
@@ -1191,58 +1224,6 @@ src="https://www.facebook.com/tr?id=3257807051192879&ev=PageView&noscript=1"/></
           </div>
         </div>
 
-        <!-- PLANS GRID -->
-        <div id="plans-grid" style="background:#fdfaf7;padding:80px 56px">
-          <div style="max-width:1160px;margin:0 auto">
-            <div style="text-align:center;margin-bottom:44px">
-              <h2 style="font-family:Poppins,sans-serif;font-size:32px;font-weight:700;color:#241a30;margin:0 0 10px">Plans We Help You Compare</h2>
-              <p style="color:#3a2f47;font-size:16px;margin:0">Clear guidance on the insurance types most requested by Florida residents.</p>
-            </div>
-            <div id="plans-grid-cards" style="display:grid;grid-template-columns:repeat(4,1fr);gap:18px">
-              <a href="/medicare-plans-miami" style="display:block;text-decoration:none;color:inherit;background:#fff;border:2px solid #ece5f0;border-radius:16px;padding:24px">
-                <div style="width:44px;height:44px;border-radius:12px;background:#f7f2fb;display:flex;align-items:center;justify-content:center;margin-bottom:14px"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#452068" stroke-width="1.8"><path d="M12 3v10M12 17v.01"/></svg></div>
-                <div style="font-weight:700;font-size:18px;margin-bottom:6px">Medicare</div>
-                <div style="font-size:16px;color:#3a2f47;line-height:1.5">Advantage, Supplement, Part D</div>
-              </a>
-              <a href="/aca-plans-miami" style="display:block;text-decoration:none;color:inherit;background:#fff;border:2px solid #ece5f0;border-radius:16px;padding:24px">
-                <div style="width:44px;height:44px;border-radius:12px;background:#f7f2fb;display:flex;align-items:center;justify-content:center;margin-bottom:14px"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#452068" stroke-width="1.8"><rect x="4" y="6" width="16" height="12" rx="2"/></svg></div>
-                <div style="font-weight:700;font-size:18px;margin-bottom:6px">ACA Marketplace</div>
-                <div style="font-size:16px;color:#3a2f47;line-height:1.5">Individual &amp; family plans</div>
-              </a>
-              <a href="/private-health-insurance-miami" style="display:block;text-decoration:none;color:inherit;background:#fff;border:2px solid #ece5f0;border-radius:16px;padding:24px">
-                <div style="width:44px;height:44px;border-radius:12px;background:#f7f2fb;display:flex;align-items:center;justify-content:center;margin-bottom:14px"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#452068" stroke-width="1.8"><circle cx="9" cy="12" r="6"/><circle cx="15" cy="12" r="6"/></svg></div>
-                <div style="font-weight:700;font-size:18px;margin-bottom:6px">Private Insurance</div>
-                <div style="font-size:16px;color:#3a2f47;line-height:1.5">For individuals &amp; families</div>
-              </a>
-              <a href="/dental-vision-miami" style="display:block;text-decoration:none;color:inherit;background:#fff;border:2px solid #ece5f0;border-radius:16px;padding:24px">
-                <div style="width:44px;height:44px;border-radius:12px;background:#f7f2fb;display:flex;align-items:center;justify-content:center;margin-bottom:14px"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#452068" stroke-width="1.8"><rect x="3" y="8" width="18" height="8" rx="4"/><line x1="12" y1="8" x2="12" y2="16"/></svg></div>
-                <div style="font-weight:700;font-size:18px;margin-bottom:6px">Dental &amp; Supplemental</div>
-                <div style="font-size:16px;color:#3a2f47;line-height:1.5">Vision, hearing &amp; more</div>
-              </a>
-              <a href="/contact" style="display:block;text-decoration:none;color:inherit;background:#fff;border:2px solid #ece5f0;border-radius:16px;padding:24px">
-                <div style="width:44px;height:44px;border-radius:12px;background:#f7f2fb;display:flex;align-items:center;justify-content:center;margin-bottom:14px"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#452068" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><ellipse cx="12" cy="12" rx="4" ry="9"/><line x1="3" y1="12" x2="21" y2="12"/></svg></div>
-                <div style="font-weight:700;font-size:18px;margin-bottom:6px">Travel Insurance</div>
-                <div style="font-size:16px;color:#3a2f47;line-height:1.5">International &amp; travel medical coverage</div>
-              </a>
-              <a href="/contact" style="display:block;text-decoration:none;color:inherit;background:#fff;border:2px solid #ece5f0;border-radius:16px;padding:24px">
-                <div style="width:44px;height:44px;border-radius:12px;background:#f7f2fb;display:flex;align-items:center;justify-content:center;margin-bottom:14px"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#452068" stroke-width="1.8"><rect x="6" y="4" width="12" height="16" rx="2"/><line x1="9" y1="9" x2="15" y2="9"/><line x1="9" y1="13" x2="15" y2="13"/></svg></div>
-                <div style="font-weight:700;font-size:18px;margin-bottom:6px">Ancillary Benefits</div>
-                <div style="font-size:16px;color:#3a2f47;line-height:1.5">Cancer, stroke &amp; hospital indemnity</div>
-              </a>
-              <a href="/life-insurance-miami" style="display:block;text-decoration:none;color:inherit;background:#fff;border:2px solid #ece5f0;border-radius:16px;padding:24px">
-                <div style="width:44px;height:44px;border-radius:12px;background:#f7f2fb;display:flex;align-items:center;justify-content:center;margin-bottom:14px"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#452068" stroke-width="1.8"><path d="M4 11l8-6 8 6"/><rect x="7" y="11" width="10" height="8"/></svg></div>
-                <div style="font-weight:700;font-size:18px;margin-bottom:6px">Life Insurance</div>
-                <div style="font-size:16px;color:#3a2f47;line-height:1.5">Protection for you and your family</div>
-              </a>
-              <a href="/final-expense-insurance" style="display:block;text-decoration:none;color:inherit;background:#fff;border:2px solid #ece5f0;border-radius:16px;padding:24px">
-                <div style="width:44px;height:44px;border-radius:12px;background:#f7f2fb;display:flex;align-items:center;justify-content:center;margin-bottom:14px"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#452068" stroke-width="1.8"><path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"/><path d="M12 8v4l3 3"/></svg></div>
-                <div style="font-weight:700;font-size:18px;margin-bottom:6px">Final Expense</div>
-                <div style="font-size:16px;color:#3a2f47;line-height:1.5">Burial &amp; funeral coverage</div>
-              </a>
-            </div>
-          </div>
-        </div>
-
         <!-- FREE TOOLS -->
         <div id="home-tools" style="background:#fff;padding:64px 56px;border-top:1px solid #ece5f0">
           <div style="max-width:1160px;margin:0 auto">
@@ -1291,12 +1272,12 @@ src="https://www.facebook.com/tr?id=3257807051192879&ev=PageView&noscript=1"/></
             </div>
             <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:20px">
               <div style="border:2px solid #ece5f0;border-radius:16px;padding:24px">
-                <div style="display:flex;align-items:center;gap:10px;margin-bottom:12px"><div style="width:38px;height:38px;border-radius:50%;background:#452068;color:#fff;font-weight:700;display:flex;align-items:center;justify-content:center">W</div><div><div style="font-weight:700;font-size:17px">Winnie Tseng</div><div style="font-size:16px;color:#5a5068">7 weeks ago</div></div></div>
+                <div style="display:flex;align-items:center;gap:10px;margin-bottom:12px"><div style="width:38px;height:38px;border-radius:50%;background:#452068;color:#fff;font-weight:700;display:flex;align-items:center;justify-content:center">G</div><div><div style="font-weight:700;font-size:17px">Gerry</div><div style="font-size:16px;color:#5a5068">Verified Google review</div></div></div>
                 <div style="color:#f0a500;font-size:16px;margin-bottom:8px">★★★★★</div>
-                <div style="font-size:16px;color:#4a4051;line-height:1.55">"Yahoska was absolutely incredible — she took the time to understand my mom's needs and find the best plan. Patient, knowledgeable, and genuinely cares."</div>
+                <div style="font-size:16px;color:#4a4051;line-height:1.55">"Ms. Perez and her team have been fantastic in providing excellent customer service during the open enrollment period. She provided quick responses to all our questions in order to make our decision much easier."</div>
               </div>
               <div style="border:2px solid #ece5f0;border-radius:16px;padding:24px">
-                <div style="display:flex;align-items:center;gap:10px;margin-bottom:12px"><div style="width:38px;height:38px;border-radius:50%;background:#ff1090;color:#fff;font-weight:700;display:flex;align-items:center;justify-content:center">K</div><div><div style="font-weight:700;font-size:17px">Kiss Michelle</div><div style="font-size:16px;color:#5a5068">14 weeks ago</div></div></div>
+                <div style="display:flex;align-items:center;gap:10px;margin-bottom:12px"><div style="width:38px;height:38px;border-radius:50%;background:#ff1090;color:#fff;font-weight:700;display:flex;align-items:center;justify-content:center">K</div><div><div style="font-weight:700;font-size:17px">Kiss Michelle</div><div style="font-size:16px;color:#5a5068">Verified Google review</div></div></div>
                 <div style="color:#f0a500;font-size:16px;margin-bottom:8px">★★★★★</div>
                 <div style="font-size:16px;color:#4a4051;line-height:1.55">"I got a response within 5 minutes. Sweet, knowledgeable, and secured my coverage in 20 minutes. Highly recommend!"</div>
               </div>
@@ -1333,7 +1314,7 @@ src="https://www.facebook.com/tr?id=3257807051192879&ev=PageView&noscript=1"/></
               <div style="display:flex;gap:14px"><div style="width:40px;height:40px;border-radius:50%;background:#f7f2fb;display:flex;align-items:center;justify-content:center;flex-shrink:0;color:#452068;font-weight:700;font-size:17px">$</div><div><div style="font-weight:700;font-size:18px;margin-bottom:4px">$0 cost to you</div><div style="font-size:16px;color:#3a2f47;line-height:1.5">Paid by carriers. No fees, no pressure.</div></div></div>
               <div style="display:flex;gap:14px"><div style="width:40px;height:40px;border-radius:50%;background:#f7f2fb;display:flex;align-items:center;justify-content:center;flex-shrink:0"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#452068" stroke-width="1.8"><rect x="6" y="4" width="12" height="16" rx="2"/><line x1="9" y1="9" x2="15" y2="9"/><line x1="9" y1="13" x2="15" y2="13"/></svg></div><div><div style="font-weight:700;font-size:18px;margin-bottom:4px">Side-by-side comparison</div><div style="font-size:16px;color:#3a2f47;line-height:1.5">Matched to your doctors, meds &amp; budget.</div></div></div>
               <div style="display:flex;gap:14px"><div style="width:40px;height:40px;border-radius:50%;background:#f7f2fb;display:flex;align-items:center;justify-content:center;flex-shrink:0"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#452068" stroke-width="1.8"><path d="M8 12l3 3 5-6"/><circle cx="12" cy="12" r="9"/></svg></div><div><div style="font-weight:700;font-size:18px;margin-bottom:4px">100% independent</div><div style="font-size:16px;color:#3a2f47;line-height:1.5">14 carriers, no exclusivity or favoritism.</div></div></div>
-              <div style="display:flex;gap:14px"><div style="width:40px;height:40px;border-radius:50%;background:#f7f2fb;display:flex;align-items:center;justify-content:center;flex-shrink:0"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#452068" stroke-width="1.8"><path d="M4 11l8-6 8 6"/><rect x="7" y="11" width="10" height="8"/></svg></div><div><div style="font-weight:700;font-size:18px;margin-bottom:4px">Local &amp; women-owned</div><div style="font-size:16px;color:#3a2f47;line-height:1.5">Founded by Yahoska &amp; Katy — 14+ years combined experience in Doral.</div></div></div>
+              <div style="display:flex;gap:14px"><div style="width:40px;height:40px;border-radius:50%;background:#f7f2fb;display:flex;align-items:center;justify-content:center;flex-shrink:0"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#452068" stroke-width="1.8"><path d="M4 11l8-6 8 6"/><rect x="7" y="11" width="10" height="8"/></svg></div><div><div style="font-weight:700;font-size:18px;margin-bottom:4px">Local &amp; women-owned</div><div style="font-size:16px;color:#3a2f47;line-height:1.5">Founded in 2019 by Yahoska &amp; Katy, both career agents with 14+ years of combined experience.</div></div></div>
             </div>
           </div>
         </div>
@@ -1556,5 +1537,6 @@ src="https://www.facebook.com/tr?id=3257807051192879&ev=PageView&noscript=1"/></
 })();
 </script>
 <script src="/js/aep-season.js"></script>
+<script src="/js/aep-countdown.js"></script>
 </body>
 </html>
