@@ -1,6 +1,6 @@
 /**
  * AEP 2027 capture helpers.
- * Sep 1–Dec 7: homepage primary CTA + nav chip point at the AEP landing.
+ * Sep 1–Dec 7: homepage primary CTA points at the AEP landing.
  * Always: stamp UTM/source onto #aepForm / #aepForm hidden fields.
  */
 (function () {
@@ -76,29 +76,13 @@
       : 'Review your 2027 Medicare plan →';
   }
 
-  function injectNavChip() {
-    if (!inAepWindow()) return;
-    if (document.getElementById('aep-nav-chip')) return;
-    var desktop = document.querySelector('.v4-nav-desktop');
-    if (!desktop) return;
-    var chip = document.createElement('a');
-    chip.id = 'aep-nav-chip';
-    chip.href = aepHref;
-    chip.textContent = isEs ? 'AEP 2027' : 'AEP 2027';
-    chip.style.cssText =
-      'background:#ff1090;color:#fff;padding:8px 14px;border-radius:999px;font-weight:700;font-size:15px;white-space:nowrap;text-decoration:none';
-    desktop.insertBefore(chip, desktop.firstChild);
-  }
-
   stampForm();
   if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', function () {
       rewriteHero();
-      injectNavChip();
       stampForm();
     });
   } else {
     rewriteHero();
-    injectNavChip();
   }
 })();
