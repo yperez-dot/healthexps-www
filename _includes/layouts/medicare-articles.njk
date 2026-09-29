@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="{{ 'es' if locale == 'es' else 'en' }}">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{{ article.metaTitle if article else seoTitle }}</title>
+  <meta name="description" content="{{ article.metaDescription if article else seoDescription }}">
+  <link rel="canonical" href="https://healthexps.com{{ page.url }}">
+  {% if locale == 'es' %}<link rel="alternate" hreflang="en" href="https://healthexps.com/medicare-articles/">{% elif not article %}<link rel="alternate" hreflang="es" href="https://healthexps.com/es/articulos-medicare/">{% endif %}
+  <link rel="stylesheet" href="/css/medicare-articles.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">{{ 'Ir al contenido' if locale == 'es' else 'Skip to content' }}</a>
+  <header class="site-header">
+    <div class="topbar"><div class="container"><a href="tel:18003806821">1-800-380-6821</a><span>English &amp; Español</span></div></div>
+    <nav class="container main-nav" aria-label="{{ 'Navegación principal' if locale == 'es' else 'Main navigation' }}">
+      <a class="brand" href="{{ '/es/' if locale == 'es' else '/' }}"><img src="/images/logo.webp" alt="The Health Experts Insurance" width="118" height="70"></a>
+      <div class="nav-links">
+        <a href="{{ '/es/' if locale == 'es' else '/' }}">{{ 'Inicio' if locale == 'es' else 'Home' }}</a>
+        <a aria-current="page" href="{{ '/es/articulos-medicare/' if locale == 'es' else '/medicare-articles/' }}">{{ 'Artículos de Medicare' if locale == 'es' else 'Medicare articles' }}</a>
+        <a href="{{ '/es/blog/' if locale == 'es' else '/blog/' }}">Blog</a>
+        <a href="/contact">{{ 'Contacto' if locale == 'es' else 'Contact' }}</a>
+        <a class="language-link" href="{{ '/medicare-articles/' if locale == 'es' else '/es/articulos-medicare/' }}" lang="{{ 'en' if locale == 'es' else 'es' }}">{{ 'EN' if locale == 'es' else 'ES' }}</a>
+      </div>
+    </nav>
+  </header>
+  <main id="main">{{ content | safe }}</main>
+  <footer class="site-footer"><div class="container"><a href="{{ '/es/articulos-medicare/' if locale == 'es' else '/medicare-articles/' }}">{{ 'Artículos de Medicare' if locale == 'es' else 'Medicare articles' }}</a><a href="/contact">{{ 'Contacto' if locale == 'es' else 'Contact' }}</a><a href="tel:18003806821">1-800-380-6821</a></div></footer>
+</body>
+</html>
