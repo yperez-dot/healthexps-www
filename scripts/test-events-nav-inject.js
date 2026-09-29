@@ -32,6 +32,11 @@ assert(!/Annual Enrollment \(AEP\)<\/a><a href="\/events\/">/.test(footer), "foo
 assert(header.includes('<details><summary>Resources</summary><div><a href="/resources">All Resources</a><a href="/medicare-articles/">Medicare Articles</a><a href="/events/">Events &amp; Workshops</a></div></details>'), "mobile Resources lists Events with articles");
 assert(footer.includes('<a href="/medicare-articles/">Medicare Articles</a><a href="/events/">Events &amp; Workshops</a>'), "footer Resources lists Events with articles");
 
+const aep = fs.readFileSync(path.join(__dirname, "../medicare-annual-enrollment-2027.html"), "utf8");
+assert((aep.match(/href="\/events\/"/g) || []).length >= 2, "AEP page includes Events CTAs");
+assert(aep.includes("Free local Medicare events this October"), "AEP page has the October events headline");
+assert(aep.includes("See October workshops"), "AEP page has the workshops CTA label");
+
 const css = fs.readFileSync(path.join(__dirname, "../css/events.css"), "utf8");
 assert(/\.event-card__visual\s*\{[\s\S]*aspect-ratio:\s*1\s*\/\s*1/.test(css), "flyer frames use a square aspect ratio");
 assert(/\.event-card__visual img\s*\{[\s\S]*object-fit:\s*cover/.test(css), "flyer images cover the frame without stretching");

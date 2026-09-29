@@ -460,6 +460,10 @@ body{padding-bottom:72px;}
 .aep-btn-wa:hover{color:#fff;filter:brightness(.96);}
 .aep-btn-outline{border:2px solid #452068;color:#452068;background:#fff;padding:13px 24px;border-radius:999px;font-weight:700;font-size:17px;text-decoration:none;display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:48px;}
 .aep-btn-outline:hover{background:#f7f2fb;color:#452068;}
+.aep-events-cta{background:#452068;color:#fff;padding:36px 56px;text-align:center;}
+.aep-events-cta__inner{max-width:720px;margin:0 auto;}
+.aep-events-cta__kicker{margin:0 0 8px;font-family:'Poppins',sans-serif;font-size:clamp(22px,3vw,28px);font-weight:700;line-height:1.2;color:#fff;}
+.aep-events-cta__copy{margin:0 0 20px;font-size:18px;line-height:1.55;color:#f0eaf7;}
 .hero-trust{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;font-size:15px;color:#452068;font-weight:600;padding:0;}
 .hero-chip{display:inline-flex;align-items:center;gap:6px;background:#fff;border:1.5px solid #e4d6f0;border-radius:999px;padding:8px 14px;color:#452068;font-weight:600;font-size:14.5px;}
 .hero-trust-star{color:#f0a500;}
@@ -501,6 +505,7 @@ body{padding-bottom:72px;}
   .aep-hero{padding:40px 20px 36px;}
   .aep-btns{flex-direction:column;align-items:stretch;}
   .aep-btn-pink,.aep-btn-wa,.aep-btn-outline{width:100%;text-align:center;}
+  .aep-events-cta{padding:32px 20px;}
 }
 @media(max-width:640px){
   .form-section{padding:40px 20px;}
@@ -517,6 +522,7 @@ body{padding-bottom:72px;}
     <div class="aep-btns">
       <a href="tel:18003806821" class="aep-btn-pink" onclick="gtag('event','phone_click',{'page':window.location.pathname})">Call 1-800-380-6821</a>
       <a href="https://wa.me/13054646888" class="aep-btn-wa" target="_blank" rel="noopener" onclick="gtag('event','whatsapp_click',{'page':window.location.pathname})">WhatsApp</a>
+      <a href="/events/" class="aep-btn-outline">See October workshops &rarr;</a>
       <a href="#aep-form" class="aep-btn-outline">Get a free review &rarr;</a>
     </div>
     <div class="hero-trust">
@@ -560,6 +566,15 @@ body{padding-bottom:72px;}
       </div>
     </div>
     <p class="date-note">ANOC arrives by late September.</p>
+  </div>
+</div>
+
+<!-- OCTOBER EVENTS CTA -->
+<div class="aep-events-cta">
+  <div class="aep-events-cta__inner">
+    <p class="aep-events-cta__kicker">Free local Medicare events this October</p>
+    <p class="aep-events-cta__copy">Join a coffee talk or workshop in Miami. See dates, venues, and RSVP details.</p>
+    <a href="/events/" class="aep-btn-pink">See October workshops &rarr;</a>
   </div>
 </div>
 
