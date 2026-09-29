@@ -79,7 +79,7 @@ module.exports = function (eleventyConfig) {
     return injectMobileNavAccordion(content, outputPath);
   });
 
-  // Keep Events / Eventos in the Guides menu across legacy static pages.
+  // Keep Events in the English Resources menu across leftover static pages.
   eleventyConfig.addTransform("injectEventsNav", function (content, outputPath) {
     return injectEventsNav(content, outputPath);
   });

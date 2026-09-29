@@ -7,6 +7,9 @@ const old = '<html><head></head><body><div class="v4-nav-outer"><a>Old</a></div>
 const en = injectSharedChrome(old, "/tmp/_site/index.html");
 assert(en.includes("Medicare Articles"));
 assert(en.includes("All Resources"));
+assert(en.includes("Events &amp; Workshops"));
+assert(!en.includes('Annual Enrollment (AEP)</a><a href="/events/">'));
+assert(en.includes('<a href="/medicare-articles/">Medicare Articles</a><a href="/events/">Events &amp; Workshops</a>'));
 assert(en.includes('class="shared-nav__panel"'));
 assert(!en.includes("Medicare Advantage</a><a"));
 assert(!en.includes("Medicare Supplement</a><a"));

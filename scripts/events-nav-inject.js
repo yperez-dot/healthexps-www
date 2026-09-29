@@ -1,7 +1,7 @@
 /**
- * Add the English Events destination immediately after AEP in Guides menus.
+ * Add the English Events destination in Resources menus.
  * Shared chrome already includes the link; this transform covers leftover
- * legacy HTML that still has the older AEP-only Guides list.
+ * legacy HTML that still has the older Resources list without Events.
  */
 "use strict";
 
@@ -26,10 +26,19 @@ function injectEventsNav(content, outputPath) {
   if (typeof content !== "string") return content;
   if (content.includes('href="/events/"')) return content;
 
+  const afterArticles = addAfterMatchingLink(
+    content,
+    "/medicare-articles",
+    "Medicare Articles",
+    EN_LINK,
+    EN_MOBILE_LINK
+  );
+  if (afterArticles !== content) return afterArticles;
+
   return addAfterMatchingLink(
     content,
-    "/medicare-annual-enrollment-2027",
-    "Annual Enrollment \\(AEP\\)",
+    "/resources",
+    "All Resources",
     EN_LINK,
     EN_MOBILE_LINK
   );
