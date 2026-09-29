@@ -57,18 +57,29 @@ function replaceSharedFooter(html, replacement) {
   return html.replace(/<\/body>/i, `${replacement}\n</body>`);
 }
 
+function publishedRelPath(outputPath) {
+  const norm = String(outputPath || "").replace(/\\/g, "/");
+  if (norm.includes("/_site/")) return norm.slice(norm.lastIndexOf("/_site/") + "/_site/".length);
+  return norm.replace(/^(?:\.\/)?_site\//, "").replace(/^\.\//, "");
+}
+
 function isHomepageOutput(outputPath) {
   if (!outputPath) return false;
-  const norm = String(outputPath).replace(/\\/g, "/");
-  return /\/_site\/index\.html$/i.test(norm) || /\/_site\/es\/index\.html$/i.test(norm);
+  return /^(es\/)?index\.html$/i.test(publishedRelPath(outputPath));
+}
+
+function hasHomepageAepBanner(html) {
+  return /id=["']aep-message["']/.test(String(html || ""));
 }
 
 function injectSharedChrome(content, outputPath) {
   if (!outputPath || !outputPath.endsWith(".html")) return content;
-  const locale = /(?:^|[\\/])_site[\\/]es[\\/]/i.test(outputPath) ? "es" : "en";
+  const locale = /(?:^|[\\/])(?:_site[\\/])?es[\\/]/i.test(outputPath) ? "es" : "en";
   let html = content;
   // Homepages keep their own AEP top bar + nav. Shared chrome would wipe the banner.
-  if (!isHomepageOutput(outputPath)) {
+  // Match Eleventy paths (`_site/index.html`, `./_site/index.html`, absolute) and
+  // also skip if the page already has the banner (path formats we have not seen).
+  if (!isHomepageOutput(outputPath) && !hasHomepageAepBanner(html)) {
     html = replaceSharedHeader(html, chrome[locale].header);
   }
   html = replaceSharedFooter(html, chrome[locale].footer.replace(/id=["']site-footer["']/, 'id="site-footer" class="shared-chrome-footer"'));

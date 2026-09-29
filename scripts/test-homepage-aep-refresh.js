@@ -90,9 +90,29 @@ assert.match(css, /\.aep-topbar-text\s*\{[^}]*color:\s*#fff/i);
 assert.match(css, /\.aep-topbar-cta\s*\{[^}]*color:\s*#3F2566/i);
 assert.doesNotMatch(css, /\.aep-topbar[^{]*\{[^}]*#EA158C/i);
 
-const builtHome = injectSharedChrome(en, path.join(root, "_site", "index.html"));
-assert.ok(builtHome.includes("id=\"aep-message\""), "built homepage keeps AEP banner");
-assert.ok(!builtHome.includes("shared-topbar"), "built homepage is not rewritten to shared topbar");
+for (const homePath of [
+  path.join(root, "_site", "index.html"),
+  "_site/index.html",
+  "./_site/index.html",
+  "index.html",
+]) {
+  const builtHome = injectSharedChrome(en, homePath);
+  assert.ok(builtHome.includes("id=\"aep-message\""), `inject keeps AEP banner for ${homePath}`);
+  assert.ok(!builtHome.includes("shared-topbar"), `inject does not rewrite topbar for ${homePath}`);
+}
+
+const publishedHome = path.join(root, "_site", "index.html");
+const publishedEs = path.join(root, "_site", "es", "index.html");
+if (fs.existsSync(publishedHome)) {
+  const published = fs.readFileSync(publishedHome, "utf8");
+  assert.ok(published.includes("id=\"aep-message\""), "published _site/index.html keeps AEP banner");
+  assert.ok(!published.includes("shared-topbar"), "published _site/index.html is not rewritten");
+}
+if (fs.existsSync(publishedEs)) {
+  const published = fs.readFileSync(publishedEs, "utf8");
+  assert.ok(published.includes("id=\"aep-message\""), "published _site/es/index.html keeps AEP banner");
+  assert.ok(!published.includes("shared-topbar"), "published _site/es/index.html is not rewritten");
+}
 
 const avmedEn = fs.readFileSync(path.join(root, "avmed-medicare-florida.html"), "utf8");
 const avmedEs = fs.readFileSync(path.join(root, "es", "avmed-medicare-florida.html"), "utf8");
