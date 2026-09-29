@@ -807,4 +807,14 @@
   <xhtml:link rel="alternate" hreflang="es" href="https://www.healthexps.com/es/blog/lee-health-nch-cambios-red-medicare-2027/"/>
   <xhtml:link rel="alternate" hreflang="en" href="https://www.healthexps.com/blog/lee-health-nch-medicare-network-changes-2027/"/>
 </url>
+<!-- Medicare AEP workshops and events — added 2026-09-29 -->
+<url><loc>https://www.healthexps.com/events/</loc><lastmod>2026-09-29</lastmod><changefreq>weekly</changefreq><priority>0.8</priority>
+  <xhtml:link rel="alternate" hreflang="en" href="https://www.healthexps.com/events/"/>
+  <xhtml:link rel="alternate" hreflang="es" href="https://www.healthexps.com/es/eventos/"/>
+  <xhtml:link rel="alternate" hreflang="x-default" href="https://www.healthexps.com/events/"/>
+</url>
+<url><loc>https://www.healthexps.com/es/eventos/</loc><lastmod>2026-09-29</lastmod><changefreq>weekly</changefreq><priority>0.8</priority>
+  <xhtml:link rel="alternate" hreflang="es" href="https://www.healthexps.com/es/eventos/"/>
+  <xhtml:link rel="alternate" hreflang="en" href="https://www.healthexps.com/events/"/>
+</url>
 </urlset>
