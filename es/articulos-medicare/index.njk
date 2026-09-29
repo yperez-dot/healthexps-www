@@ -1,0 +1,13 @@
+---
+layout: layouts/medicare-articles.njk
+permalink: /es/articulos-medicare/index.html
+locale: es
+seoTitle: Artículos de Medicare para el sur de Florida | THEI
+seoDescription: "Guías de Medicare en lenguaje sencillo para Miami-Dade y Broward: ANOC, AEP, Parte D, D-SNP y cómo le ayuda un agente bilingüe."
+---
+<section class="hero"><div class="container"><p class="eyebrow">The Health Experts Insurance</p><h1>{{ medicareHub.titleEs }}</h1>{% for paragraph in medicareHub.introEs %}<p>{{ paragraph }}</p>{% endfor %}</div></section>
+<section class="container cards-section" aria-label="Artículos de Medicare"><div class="cards">
+{% for item in medicareArticles %}<a class="card" href="{{ item.slug }}/" lang="en"><div class="card-top"><span class="card-number">{{ '0' if loop.index < 10 else '' }}{{ loop.index }}</span>{% if item.hasVideo %}<span class="video-badge">Video <span>· {{ item.videoDurationEstimate }}</span></span>{% endif %}</div><h2 lang="es">{{ item.titleEs }}</h2><p lang="es">{{ item.teaserEs }}</p><p class="spanish-summary" lang="es">{{ item.summaryEs }}</p><span class="card-action" lang="es">Leer en inglés <span aria-hidden="true">→</span></span></a>{% endfor %}
+</div></section>
+<section class="container cta"><h2>¿No sabe por dónde empezar?</h2><p>{{ medicareHub.ctaEs | replace('¿No sabe por dónde empezar? ', '') }}</p><a class="button" href="/contact">Solicite su revisión de planes gratis</a></section>
+<aside class="container disclaimer">{{ medicareHub.disclaimerEs }}</aside>

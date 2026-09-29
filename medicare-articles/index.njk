@@ -1,0 +1,13 @@
+---
+layout: layouts/medicare-articles.njk
+permalink: /medicare-articles/index.html
+locale: en
+seoTitle: Medicare Articles for South Florida | THEI
+seoDescription: Plain-language Medicare guides for Miami-Dade & Broward — ANOC, AEP, Part D, D-SNP, and how a bilingual broker helps.
+---
+<section class="hero"><div class="container"><p class="eyebrow">The Health Experts Insurance</p><h1>{{ medicareHub.title }}</h1>{% for paragraph in medicareHub.introEn %}<p>{{ paragraph }}</p>{% endfor %}</div></section>
+<section class="container cards-section" aria-label="Medicare articles"><div class="cards">
+{% for item in medicareArticles %}<a class="card" href="{{ item.slug }}/"><div class="card-top"><span class="card-number">{{ '0' if loop.index < 10 else '' }}{{ loop.index }}</span>{% if item.hasVideo %}<span class="video-badge">Video <span>· {{ item.videoDurationEstimate }}</span></span>{% endif %}</div><h2>{{ item.title }}</h2><p>{{ item.teaser }}</p><span class="card-action">Read article <span aria-hidden="true">→</span></span></a>{% endfor %}
+</div></section>
+<section class="container cta"><h2>Not sure where to start?</h2><p>{{ medicareHub.ctaEn | replace('Not sure where to start? ', '') }}</p><a class="button" href="/contact">Request your free plan review</a></section>
+<aside class="container disclaimer">{{ medicareHub.disclaimerEn }}</aside>
