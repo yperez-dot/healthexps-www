@@ -85,7 +85,7 @@ body { margin: 0; color: var(--events-ink); background: #fff; }
   object-fit: cover;
 }
 .event-card__visual--pinecrest img { object-position: center 28%; }
-.event-card__visual--east-ridge img { object-position: center 20%; }
+.event-card__visual--east-ridge img { object-position: center top; }
 .event-card__visual--senior-lift img { object-position: center 24%; }
 .event-card__visual--keiser img { object-position: center center; }
 .event-card__body { display: flex; flex-direction: column; flex: 1; padding: 20px 24px 24px; }
