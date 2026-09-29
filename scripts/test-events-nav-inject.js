@@ -11,8 +11,8 @@ assert.strictEqual(injectEventsNav(enResult, "/workspace/_site/index.html"), enR
 
 const es = '<a href="/es/inscripcion-anual-medicare-2027/">Inscripción Anual (AEP)</a><a href="/es/inscripcion-anual-medicare-2027/">Inscripción Anual (AEP)</a>';
 const esResult = injectEventsNav(es, "/workspace/_site/es/index.html");
-assert.strictEqual((esResult.match(/href="\/es\/eventos\/"/g) || []).length, 2, "adds desktop and mobile Spanish links");
-assert.strictEqual(injectEventsNav(esResult, "/workspace/_site/es/index.html"), esResult, "Spanish injection is idempotent");
+assert.strictEqual((esResult.match(/href="\/es\/eventos\/"/g) || []).length, 0, "does not add a Spanish events page");
+assert.strictEqual((esResult.match(/href="\/events\/"/g) || []).length, 0, "does not inject English events into Spanish chrome");
 
 assert.strictEqual(injectEventsNav(en, "/workspace/_site/app.css"), en, "skips non-HTML output");
 console.log("events nav inject tests passed");

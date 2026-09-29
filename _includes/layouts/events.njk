@@ -1,22 +1,23 @@
 <!doctype html>
-<html lang="{{ 'es' if locale == 'es' else 'en' }}">
+<html lang="en">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="icon" href="/favicon.ico" type="image/x-icon">
   <title>{{ seoTitle }}</title>
   <meta name="description" content="{{ seoDescription }}">
-  <link rel="canonical" href="https://www.healthexps.com{{ page.url }}">
+  <link rel="canonical" href="https://www.healthexps.com/events/">
   <link rel="alternate" hreflang="en" href="https://www.healthexps.com/events/">
-  <link rel="alternate" hreflang="es" href="https://www.healthexps.com/es/eventos/">
   <link rel="alternate" hreflang="x-default" href="https://www.healthexps.com/events/">
   <meta property="og:type" content="website">
   <meta property="og:title" content="{{ seoTitle }}">
   <meta property="og:description" content="{{ seoDescription }}">
-  <meta property="og:url" content="https://www.healthexps.com{{ page.url }}">
+  <meta property="og:url" content="https://www.healthexps.com/events/">
   <meta property="og:image" content="https://www.healthexps.com/images/logo.webp">
   <meta name="twitter:card" content="summary_large_image">
   <link rel="stylesheet" href="/css/global.css">
+  <link rel="stylesheet" href="/css/shared-chrome.css">
+  <link rel="stylesheet" href="/css/shared-footer.css">
   <link rel="stylesheet" href="/css/medicare-articles-shell.css">
   <link rel="stylesheet" href="/css/events.css">
   <script src="/js/mobile-nav-accordion.js?v=1" defer></script>
@@ -25,11 +26,11 @@
   <script type="application/ld+json">{{ schema | safe }}</script>
 </head>
 <body>
-  <a class="skip-link" href="#main">{{ 'Ir al contenido' if locale == 'es' else 'Skip to content' }}</a>
-  {% if locale == 'es' %}{% include "medicare-articles-es-header.njk" %}{% else %}{% include "medicare-articles-en-header.njk" %}{% endif %}
+  <a class="skip-link" href="#main">Skip to content</a>
+  {% include "medicare-articles-en-header.njk" %}
   <main id="main">{{ content | safe }}</main>
-  {% if locale == 'es' %}{% include "medicare-articles-es-footer.njk" %}{% else %}{% include "medicare-articles-en-footer.njk" %}{% endif %}
-  <button id="scrollToTop" aria-label="{{ 'Volver al inicio' if locale == 'es' else 'Back to top' }}">↑</button>
+  {% include "medicare-articles-en-footer.njk" %}
+  <button id="scrollToTop" aria-label="Back to top">↑</button>
   <script src="/js/medicare-articles-shell.js" defer></script>
 </body>
 </html>
