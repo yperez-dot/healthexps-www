@@ -252,7 +252,7 @@
       "costs"
     ],
     "hasVideo": true,
-    "videoDurationEstimate": "1:15",
+    "videoDurationEstimate": "0:50",
     "headings": [
       "Why your drug list matters",
       "What a formulary is",
@@ -355,7 +355,8 @@
         "slug": "/medicare-articles/bilingual-medicare-broker-south-florida"
       }
     ],
-    "readMinutes": 4
+    "readMinutes": 4,
+    "videoSrc": "/videos/medicare/en-medications-budget-drug-list.mp4"
   },
   {
     "title": "Save with Medicare Part D Extra Help (LIS)",
@@ -374,7 +375,7 @@
       "part-d"
     ],
     "hasVideo": true,
-    "videoDurationEstimate": "1:15",
+    "videoDurationEstimate": "0:47",
     "headings": [
       "What Extra Help is",
       "What it can help pay",
@@ -476,7 +477,8 @@
         "slug": "/medicare-articles/medicare-aep-dates"
       }
     ],
-    "readMinutes": 4
+    "readMinutes": 4,
+    "videoSrc": "/videos/medicare/en-part-d-extra-help-lis.mp4"
   },
   {
     "title": "Get help paying for Medicare Part B with a D-SNP",
@@ -553,7 +555,7 @@
       "duals"
     ],
     "hasVideo": true,
-    "videoDurationEstimate": "1:20",
+    "videoDurationEstimate": "0:40",
     "headings": [
       "Start here: a bill is not always a bill",
       "Common questions",
@@ -653,7 +655,8 @@
         "slug": "/medicare-articles/bilingual-medicare-broker-south-florida"
       }
     ],
-    "readMinutes": 4
+    "readMinutes": 4,
+    "videoSrc": "/videos/medicare/en-dsnp-billing-questions.mp4"
   },
   {
     "title": "D-SNP plans for Medicare + Medicaid (Miami-Dade & Broward)",
@@ -735,7 +738,7 @@
       "aep"
     ],
     "hasVideo": true,
-    "videoDurationEstimate": "1:15",
+    "videoDurationEstimate": "0:33",
     "headings": [
       "Why surprises happen in January",
       "Common causes and what to check",
@@ -835,6 +838,7 @@
         "slug": "/medicare-articles/bilingual-medicare-broker-south-florida"
       }
     ],
-    "readMinutes": 4
+    "readMinutes": 4,
+    "videoSrc": "/videos/medicare/en-part-d-pharmacy-costs-aep.mp4"
   }
 ]
