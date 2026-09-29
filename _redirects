@@ -216,3 +216,10 @@
 /medicare/medicare-costs-irmaa/             /medicare-irmaa-penalties/  301!
 /turning-65-medicare-miami                  /medicare/new-to-medicare/  301!
 /turning-65-medicare-miami/                 /medicare/new-to-medicare/  301!
+
+###############################################################################
+# Spanish events page waits on flyer translations — send visitors to English.
+###############################################################################
+/es/eventos                                 /events/  301!
+/es/eventos/                                /events/  301!
+/es/eventos/*                               /events/  301!

@@ -7,6 +7,7 @@ const {
 const { injectGhlChatWidget } = require("./scripts/ghl-chat-widget-inject");
 const { injectMobileNavAccordion } = require("./scripts/mobile-nav-accordion-inject");
 const { injectSharedChrome } = require("./scripts/shared-chrome");
+const { injectEventsNav } = require("./scripts/events-nav-inject");
 
 module.exports = function (eleventyConfig) {
   // Internal docs — never publish these as public pages
@@ -76,6 +77,11 @@ module.exports = function (eleventyConfig) {
   // Collapsible Insurance / Guides / More sections in the mobile nav.
   eleventyConfig.addTransform("injectMobileNavAccordion", function (content, outputPath) {
     return injectMobileNavAccordion(content, outputPath);
+  });
+
+  // Keep Events / Eventos in the Guides menu across legacy static pages.
+  eleventyConfig.addTransform("injectEventsNav", function (content, outputPath) {
+    return injectEventsNav(content, outputPath);
   });
 
   // ── Date display filters ───────────────────────────────────────────────────

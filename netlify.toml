@@ -133,12 +133,6 @@
   force = true
 
 [[redirects]]
-  from = "/events"
-  to = "/contact"
-  status = 301
-  force = true
-
-[[redirects]]
   from = "/medicare-insurance-agents"
   to = "/medicare-agent-miami"
   status = 301
@@ -293,12 +287,6 @@
 [[redirects]]
   from = "/irmaa-lep"
   to = "/medicare-irmaa-penalties"
-  status = 301
-  force = true
-
-[[redirects]]
-  from = "/events"
-  to = "/contact"
   status = 301
   force = true
 
