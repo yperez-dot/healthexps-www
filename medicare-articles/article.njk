@@ -8,8 +8,9 @@ layout: layouts/medicare-articles.njk
 locale: en
 ---
 <div class="container article-shell"><a class="back-link" href="/medicare-articles/">← Medicare articles</a>
-<article><header class="article-header"><p class="eyebrow">Medicare guide</p><h1>{{ article.title }}</h1><p class="article-meta">Updated September 28, 2026 <span aria-hidden="true">·</span> {{ article.readMinutes }} min read{% if article.hasVideo %} <span aria-hidden="true">·</span> Video script ~{{ article.videoDurationEstimate }}{% endif %}</p></header>
+<article><header class="article-header"><p class="eyebrow">Medicare guide</p><h1>{{ article.title }}</h1><p class="article-meta">Updated September 28, 2026 <span aria-hidden="true">·</span> {{ article.readMinutes }} min read{% if article.hasVideo %} <span aria-hidden="true">·</span> {% if article.videoSrc %}Video{% else %}Video script{% endif %} ~{{ article.videoDurationEstimate }}{% endif %}</p></header>
 {% if article.headings.length > 3 %}<nav class="toc" aria-label="On this page"><strong>On this page</strong><ol>{% for heading in article.headings %}<li><a href="#section-{{ loop.index }}">{{ heading }}</a></li>{% endfor %}</ol></nav>{% endif %}
+{% if article.videoSrc %}<figure class="article-video"><video controls playsinline preload="metadata" aria-label="{{ article.title }} video"><source src="{{ article.videoSrc }}" type="video/mp4"><a href="{{ article.videoSrc }}">Download the video</a></video><figcaption>Watch this short guide (~{{ article.videoDurationEstimate }}).</figcaption></figure>{% endif %}
 <div class="article-body">{{ article.bodyHtml | safe }}</div>
 {% if article.hasVideo %}<section class="transcript"><h2>Video transcript</h2>{{ article.transcriptHtml | safe }}<details><summary>Transcripción en español</summary>{% for line in article.transcriptEs %}<p lang="es">{{ line }}</p>{% endfor %}</details></section>{% endif %}
 <section class="related"><h2>Related articles</h2><ul>{% for related in article.relatedArticles %}<li><a href="{{ related.slug }}/">{{ related.title }}</a></li>{% endfor %}</ul></section>
