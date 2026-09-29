@@ -52,6 +52,19 @@
 .v4-nav-dropdown { display: none; }
 .v4-nav-item:hover > .v4-nav-dropdown,
 .v4-nav-item:focus-within > .v4-nav-dropdown { display: block; }
+/* Stack dropdown links in a column even when leftover page CSS forces
+   display:block on .v4-nav-dropdown (inline <a> would otherwise sit in a row). */
+.v4-nav-dropdown > div,
+.shared-nav__panel {
+  display: flex;
+  flex-direction: column;
+}
+.v4-nav-dropdown a,
+.shared-nav__panel a {
+  display: block;
+  width: 100%;
+  box-sizing: border-box;
+}
 
 /* footer default columns */
 #footer-grid{grid-template-columns:1.3fr 1fr 1fr 1fr;}
