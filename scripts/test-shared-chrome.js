@@ -4,7 +4,7 @@ const path = require("path");
 const { injectSharedChrome } = require("./shared-chrome");
 
 const old = '<html><head></head><body><div class="v4-nav-outer"><a>Old</a></div><div id="v4-mobile-menu"><div>Old mobile</div></div><main>Body</main><div id="site-footer"><div>Old footer</div></div></body></html>';
-const en = injectSharedChrome(old, "/tmp/_site/index.html");
+const en = injectSharedChrome(old, "/tmp/_site/medicare-plans-miami/index.html");
 assert(en.includes("Medicare Articles"));
 assert(en.includes("All Resources"));
 assert(en.includes("Events &amp; Workshops"));
@@ -16,7 +16,18 @@ assert(!en.includes("Medicare Supplement</a><a"));
 assert(!en.includes("Old mobile"));
 assert(en.includes("shared-chrome.css"));
 assert(en.includes('href="/book"'));
-const es = injectSharedChrome(old, "/tmp/_site/es/index.html");
+const es = injectSharedChrome(old, "/tmp/_site/es/planes-de-medicare-miami/index.html");
+const homeHtml = '<html><head></head><body><div id="aep-message">Banner</div><div class="v4-nav-outer"></div><div id="v4-mobile-menu"></div><div id="site-footer"></div></body></html>';
+for (const homePath of ["/_site/index.html", "_site/index.html", "./_site/index.html", "/workspace/_site/index.html", "index.html", "./index.html"]) {
+  const home = injectSharedChrome(homeHtml, homePath);
+  assert(home.includes('id="aep-message"'), `homepage keeps AEP banner for ${homePath}`);
+  assert(!home.includes("shared-topbar"), `homepage is not rewritten for ${homePath}`);
+}
+const esHome = injectSharedChrome(homeHtml, "_site/es/index.html");
+assert(esHome.includes('id="aep-message"'), "ES homepage keeps AEP banner");
+assert(!esHome.includes("shared-topbar"), "ES homepage is not rewritten");
+const homeByBanner = injectSharedChrome(homeHtml, "/tmp/_site/unexpected/index.html");
+assert(homeByBanner.includes('id="aep-message"'), "aep-message content skip keeps banner");
 assert(es.includes("Artículos de Medicare"));
 assert(es.includes("Todos los Recursos"));
 assert(es.includes("/es/contacto/"));

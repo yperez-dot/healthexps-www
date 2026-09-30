@@ -28,4 +28,10 @@ assert.strictEqual(
 const upper = injectGhlChatWidget("<BODY>x</BODY>", "/tmp/out.html");
 assert.ok(upper.includes(SCRIPT_MARK), "matches case-insensitive </body>");
 
+const fs = require("fs");
+const path = require("path");
+const widget = fs.readFileSync(path.join(__dirname, "../js/ghl-chat-widget.js"), "utf8");
+assert.ok(widget.includes("shadowRoot"), "quiets proactive greeting inside chat-widget shadow DOM");
+assert.ok(widget.includes("__THEI_CHAT_USER_OPEN"), "stops hiding after visitor clicks the icon");
+
 console.log("ghl-chat-widget inject tests passed");
