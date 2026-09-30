@@ -38,10 +38,14 @@ assert(aep.includes("Free local Medicare events this October"), "AEP page has th
 assert(aep.includes("See October workshops"), "AEP page has the workshops CTA label");
 
 const css = fs.readFileSync(path.join(__dirname, "../css/events.css"), "utf8");
-assert(/\.event-card__visual\s*\{[\s\S]*aspect-ratio:\s*1\s*\/\s*1/.test(css), "event frames use a square aspect ratio");
+assert(/\.event-card__visual\s*\{[\s\S]*aspect-ratio:\s*16\s*\/\s*9/.test(css), "event photo bands use a shared landscape 16/9 ratio");
+assert(!/\.event-card__visual\s*\{[\s\S]*aspect-ratio:\s*1\s*\/\s*1/.test(css), "event photo bands are not square");
 assert(/\.event-card__visual img\s*\{[\s\S]*object-fit:\s*cover/.test(css), "event images cover the frame without stretching");
+assert(!/object-fit:\s*contain/.test(css), "no card uses contain letterboxing");
+assert(!/#f3e6c8/.test(css), "Senior LIFT no longer uses a beige letterbox background");
 assert(/\.event-card__visual img\s*\{[\s\S]*object-position:\s*center/.test(css), "event images stay centered in the frame");
 assert(/\.event-card__visual\s*\{[\s\S]*overflow:\s*hidden/.test(css), "event frames clip overflow");
+assert(/\.events-grid\s*\{[\s\S]*align-items:\s*stretch/.test(css), "paired cards stretch to the same row height");
 
 const eventsPage = fs.readFileSync(path.join(__dirname, "../events.njk"), "utf8");
 assert(!/alt="Flyer for/.test(eventsPage), "event card alts describe the lifestyle photos, not flyers");
