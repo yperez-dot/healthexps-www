@@ -91,7 +91,6 @@ body { margin: 0; color: var(--events-ink); background: #fff; }
   object-fit: cover;
   object-position: center center;
 }
-.event-card__visual--senior-lift img { object-position: center top; }
 .event-card__body { display: flex; flex-direction: column; flex: 1; padding: 16px 20px 20px; }
 .event-card__heading { display: flex; flex-direction: column; align-items: flex-start; gap: 8px; margin: 0 0 12px; }
 .event-card__badge { color: #8b0a58; background: #fff0f8; border: 1px solid #f7b9dc; border-radius: 999px; padding: 4px 9px; font-size: 12px; font-weight: 800; text-transform: uppercase; letter-spacing: .04em; }

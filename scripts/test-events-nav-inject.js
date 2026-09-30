@@ -38,9 +38,18 @@ assert(aep.includes("Free local Medicare events this October"), "AEP page has th
 assert(aep.includes("See October workshops"), "AEP page has the workshops CTA label");
 
 const css = fs.readFileSync(path.join(__dirname, "../css/events.css"), "utf8");
-assert(/\.event-card__visual\s*\{[\s\S]*aspect-ratio:\s*1\s*\/\s*1/.test(css), "flyer frames use a square aspect ratio");
-assert(/\.event-card__visual img\s*\{[\s\S]*object-fit:\s*cover/.test(css), "flyer images cover the frame without stretching");
-assert(/\.event-card__visual img\s*\{[\s\S]*object-position:\s*center/.test(css), "flyer images stay centered in the frame");
-assert(/\.event-card__visual\s*\{[\s\S]*overflow:\s*hidden/.test(css), "flyer frames clip overflow");
+assert(/\.event-card__visual\s*\{[\s\S]*aspect-ratio:\s*1\s*\/\s*1/.test(css), "event frames use a square aspect ratio");
+assert(/\.event-card__visual img\s*\{[\s\S]*object-fit:\s*cover/.test(css), "event images cover the frame without stretching");
+assert(/\.event-card__visual img\s*\{[\s\S]*object-position:\s*center/.test(css), "event images stay centered in the frame");
+assert(/\.event-card__visual\s*\{[\s\S]*overflow:\s*hidden/.test(css), "event frames clip overflow");
+
+const eventsPage = fs.readFileSync(path.join(__dirname, "../events.njk"), "utf8");
+assert(!/alt="Flyer for/.test(eventsPage), "event card alts describe the lifestyle photos, not flyers");
+assert(eventsPage.includes('src="/images/events/pinecrest.png"'), "Pinecrest card keeps the coffee lifestyle photo");
+assert(eventsPage.includes('src="/images/events/east-ridge.png"'), "East Ridge card keeps the ice cream lifestyle photo");
+assert(eventsPage.includes('src="/images/events/senior-lift.png"'), "Senior LIFT card keeps the coffee lifestyle photo");
+assert(eventsPage.includes('src="/images/events/keiser.png"'), "Keiser card keeps the coffee lifestyle photo");
+assert(eventsPage.includes("Smiling senior couple holding coffee mugs at an outdoor table."), "coffee cards describe the couple photo");
+assert(eventsPage.includes("Diverse group of seniors laughing together while enjoying ice cream at a table."), "East Ridge alt describes the ice cream photo");
 
 console.log("events nav inject tests passed");
