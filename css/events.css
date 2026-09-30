@@ -91,6 +91,16 @@ body { margin: 0; color: var(--events-ink); background: #fff; }
   object-fit: cover;
   object-position: center center;
 }
+.event-card__visual--pinecrest,
+.event-card__visual--east-ridge,
+.event-card__visual--keiser {
+  background: #e8e4ee;
+}
+.event-card__visual--pinecrest img,
+.event-card__visual--east-ridge img,
+.event-card__visual--keiser img {
+  object-fit: cover;
+}
 .event-card__visual--senior-lift {
   background: #f3e6c8;
 }
@@ -100,6 +110,7 @@ body { margin: 0; color: var(--events-ink); background: #fff; }
 .event-card__body { display: flex; flex-direction: column; flex: 1; padding: 16px 20px 20px; }
 .event-card__heading { display: flex; flex-direction: column; align-items: flex-start; gap: 8px; margin: 0 0 12px; }
 .event-card__badge { color: #8b0a58; background: #fff0f8; border: 1px solid #f7b9dc; border-radius: 999px; padding: 4px 9px; font-size: 12px; font-weight: 800; text-transform: uppercase; letter-spacing: .04em; }
+.event-card__badge--sentence { text-transform: none; letter-spacing: .02em; }
 .event-card h3 { font-size: 21px; line-height: 1.22; margin: 0; color: var(--events-ink); }
 .event-card__learn { margin: 0 0 14px; }
 .event-card__learn h4 { margin: 0 0 8px; color: var(--events-purple); font-size: 13px; font-weight: 800; text-transform: uppercase; letter-spacing: .05em; }
