@@ -17,17 +17,25 @@ assert(!en.includes("Old mobile"));
 assert(en.includes("shared-chrome.css"));
 assert(en.includes('href="/book"'));
 const es = injectSharedChrome(old, "/tmp/_site/es/planes-de-medicare-miami/index.html");
-const homeHtml = '<html><head></head><body><div id="aep-message">Banner</div><div class="v4-nav-outer"></div><div id="v4-mobile-menu"></div><div id="site-footer"></div></body></html>';
+const homeHtml = '<html><head></head><body><div id="aep-message">Banner</div><div class="v4-nav-outer"><a href="/resources">Resources</a></div><div id="v4-mobile-menu"><a href="/resources">Resources</a></div><div id="site-footer"></div></body></html>';
 for (const homePath of ["/_site/index.html", "_site/index.html", "./_site/index.html", "/workspace/_site/index.html", "index.html", "./index.html"]) {
   const home = injectSharedChrome(homeHtml, homePath);
   assert(home.includes('id="aep-message"'), `homepage keeps AEP banner for ${homePath}`);
-  assert(!home.includes("shared-topbar"), `homepage is not rewritten for ${homePath}`);
+  assert(!home.includes("shared-topbar"), `homepage does not rewrite AEP top bar for ${homePath}`);
+  assert(home.includes("Events &amp; Workshops"), `homepage still gets shared Resources Events for ${homePath}`);
+  assert(home.includes('<details><summary>Resources</summary>'), `homepage mobile Resources accordion for ${homePath}`);
+  assert(home.includes('class="shared-nav__panel"'), `homepage desktop vertical panels for ${homePath}`);
+  assert(!home.includes('<a href="/resources">Resources</a>'), `homepage stale flat Resources link replaced for ${homePath}`);
 }
 const esHome = injectSharedChrome(homeHtml, "_site/es/index.html");
 assert(esHome.includes('id="aep-message"'), "ES homepage keeps AEP banner");
-assert(!esHome.includes("shared-topbar"), "ES homepage is not rewritten");
+assert(!esHome.includes("shared-topbar"), "ES homepage does not rewrite AEP top bar");
+assert(esHome.includes("<details><summary>Recursos</summary>"), "ES homepage mobile Recursos accordion");
+assert(esHome.includes("Todos los Recursos"), "ES homepage Resources panel");
+assert(esHome.includes('class="shared-nav__panel"'), "ES homepage desktop vertical panels");
 const homeByBanner = injectSharedChrome(homeHtml, "/tmp/_site/unexpected/index.html");
 assert(homeByBanner.includes('id="aep-message"'), "aep-message content skip keeps banner");
+assert(homeByBanner.includes("Events &amp; Workshops"), "aep-message skip still injects shared nav");
 assert(es.includes("Artículos de Medicare"));
 assert(es.includes("Todos los Recursos"));
 assert(es.includes("/es/contacto/"));

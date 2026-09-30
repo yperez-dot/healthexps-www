@@ -8,6 +8,14 @@
   background: #fff;
 }
 
+/* Shared nav is injected inside this wrapper. Keep the header in-flow so the
+   AEP bar + nav stick as one unit (do not re-stick `.shared-header` at top: 0). */
+.home-sticky-chrome .shared-header {
+  position: relative;
+  top: auto;
+  z-index: auto;
+}
+
 .aep-topbar {
   background: #3F2566;
   color: #fff;
