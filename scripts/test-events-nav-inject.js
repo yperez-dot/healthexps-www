@@ -38,25 +38,15 @@ assert(aep.includes("Free local Medicare events this October"), "AEP page has th
 assert(aep.includes("See October workshops"), "AEP page has the workshops CTA label");
 
 const css = fs.readFileSync(path.join(__dirname, "../css/events.css"), "utf8");
-assert(/\.event-card__visual\s*\{[\s\S]*aspect-ratio:\s*1\s*\/\s*1/.test(css), "event frames keep the live square size");
-assert(/\.event-card__visual img\s*\{[\s\S]*object-fit:\s*cover/.test(css), "event images cover the frame without stretching");
+assert(!/\.event-card__visual/.test(css), "event cards have no photo-band styles");
 assert(!/object-fit:\s*contain/.test(css), "no card uses contain letterboxing");
-assert(!/#f3e6c8/.test(css), "Senior LIFT no longer uses a beige letterbox background");
-assert(/\.event-card__visual img\s*\{[\s\S]*object-position:\s*center/.test(css), "event images stay centered in the frame");
-assert(/\.event-card__visual\s*\{[\s\S]*overflow:\s*hidden/.test(css), "event frames clip overflow");
+assert(!/#f3e6c8/.test(css), "no beige letterbox background remains");
+assert(/\.events-grid\s*\{[\s\S]*align-items:\s*stretch/.test(css), "text-only cards stretch to a uniform row height");
 
 const eventsPage = fs.readFileSync(path.join(__dirname, "../events.njk"), "utf8");
-assert(!/alt="Flyer for/.test(eventsPage), "event card alts describe the lifestyle photos, not flyers");
-assert(!eventsPage.includes("/images/events/pinecrest.png"), "Pinecrest no longer uses the cached flyer PNG URL");
-assert(!eventsPage.includes("/images/events/east-ridge.png"), "East Ridge no longer uses the cached flyer PNG URL");
-assert(eventsPage.includes('src="/images/events/pinecrest.jpg"'), "Pinecrest card uses the coffee couple lifestyle JPEG");
-assert(eventsPage.includes('src="/images/events/east-ridge.jpg"'), "East Ridge card uses the ice cream lifestyle JPEG");
-assert(eventsPage.includes('src="/images/events/senior-lift.webp"'), "Senior LIFT card uses the cafe trio photo");
-assert(eventsPage.includes('src="/images/events/keiser.jpg"'), "Keiser card uses the patio coffee lifestyle photo");
-assert(eventsPage.includes("Smiling senior couple in a blue cardigan and navy sweater holding coffee mugs at an outdoor table."), "Pinecrest alt describes coffee couple photo 1");
-assert(eventsPage.includes("Three diverse seniors laughing with coffee at a sunlit cafe table."), "Senior LIFT alt describes the cafe trio");
-assert(eventsPage.includes("Smiling senior couple with coffee on a sunny patio, woman in a cream cardigan and man in a blue shirt."), "Keiser alt describes the patio coffee couple");
-assert(eventsPage.includes("Diverse group of seniors laughing together while enjoying ice cream at a table."), "East Ridge alt describes the ice cream photo");
+assert(!/<figure/.test(eventsPage), "event cards have no figure wrappers");
+assert(!/<img\b/.test(eventsPage), "event cards have no images");
+assert(!eventsPage.includes("/images/events/"), "events page does not reference event image assets");
 assert(eventsPage.includes(">For residents only<"), "East Ridge badge is residents-only");
 assert(eventsPage.includes("event-card__badge--sentence"), "East Ridge badge keeps sentence-case wording");
 assert(/\.event-card__badge--sentence\s*\{[\s\S]*text-transform:\s*none/.test(css), "residents-only badge is not forced to uppercase");
@@ -64,9 +54,8 @@ assert((eventsPage.match(/RSVP required/g) || []).length === 3, "Pinecrest, Seni
 assert(eventsPage.includes("Pinecrest Community Center, 5855 Killian Dr, Pinecrest, FL 33156"), "Pinecrest location is the community center address");
 assert(!/Pinecrest Community Center,,/.test(eventsPage), "Pinecrest location has no double comma");
 assert(eventsPage.includes("Keiser University, Auditorium, 2101 NW 117th Ave, Miami, FL 33172"), "Keiser location leads with the university");
-assert(fs.existsSync(path.join(__dirname, "../images/events/pinecrest.jpg")), "Pinecrest lifestyle JPEG is committed");
-assert(fs.existsSync(path.join(__dirname, "../images/events/east-ridge.jpg")), "East Ridge lifestyle JPEG is committed");
-assert(!fs.existsSync(path.join(__dirname, "../images/events/pinecrest.png")), "old Pinecrest flyer PNG is removed");
-assert(!fs.existsSync(path.join(__dirname, "../images/events/east-ridge.png")), "old East Ridge flyer PNG is removed");
+
+const eventsDir = path.join(__dirname, "../images/events");
+assert(!fs.existsSync(eventsDir) || fs.readdirSync(eventsDir).length === 0, "unused images/events files are removed");
 
 console.log("events nav inject tests passed");
