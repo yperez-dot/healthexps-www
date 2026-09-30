@@ -45,11 +45,12 @@ assert(/\.event-card__visual\s*\{[\s\S]*overflow:\s*hidden/.test(css), "event fr
 
 const eventsPage = fs.readFileSync(path.join(__dirname, "../events.njk"), "utf8");
 assert(!/alt="Flyer for/.test(eventsPage), "event card alts describe the lifestyle photos, not flyers");
-assert(eventsPage.includes('src="/images/events/pinecrest.png"'), "Pinecrest card keeps the coffee lifestyle photo");
-assert(eventsPage.includes('src="/images/events/east-ridge.png"'), "East Ridge card keeps the ice cream lifestyle photo");
-assert(eventsPage.includes('src="/images/events/senior-lift.png"'), "Senior LIFT card keeps the coffee lifestyle photo");
+assert(eventsPage.includes('src="/images/events/pinecrest.png"'), "Pinecrest card uses coffee couple photo 1");
+assert(eventsPage.includes('src="/images/events/east-ridge.png"'), "East Ridge card uses the ice cream lifestyle photo");
+assert(eventsPage.includes('src="/images/events/senior-lift.webp"'), "Senior LIFT card uses the cafe trio photo");
 assert(eventsPage.includes('src="/images/events/keiser.jpg"'), "Keiser card uses the patio coffee lifestyle photo");
-assert((eventsPage.match(/Smiling senior couple in a blue cardigan and navy sweater holding coffee mugs at an outdoor table\./g) || []).length === 2, "Pinecrest and Senior LIFT describe coffee photo 1");
+assert(eventsPage.includes("Smiling senior couple in a blue cardigan and navy sweater holding coffee mugs at an outdoor table."), "Pinecrest alt describes coffee couple photo 1");
+assert(eventsPage.includes("Three diverse seniors laughing with coffee at a sunlit cafe table."), "Senior LIFT alt describes the cafe trio");
 assert(eventsPage.includes("Smiling senior couple with coffee on a sunny patio, woman in a cream cardigan and man in a blue shirt."), "Keiser alt describes the patio coffee couple");
 assert(eventsPage.includes("Diverse group of seniors laughing together while enjoying ice cream at a table."), "East Ridge alt describes the ice cream photo");
 
