@@ -70,36 +70,12 @@ body { margin: 0; color: var(--events-ink); background: #fff; }
 .events-section--soft { background: var(--events-lavender); }
 .events-section h2 { color: var(--events-purple); font-size: clamp(30px, 4vw, 42px); line-height: 1.15; margin: 0 0 12px; }
 .events-lede { max-width: 760px; margin: 0 0 32px; color: var(--events-muted); font-size: 19px; line-height: 1.65; }
-.events-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px; align-items: start; }
-.event-card { background: #fff; border: 1px solid var(--events-border); border-radius: 16px; padding: 0; box-shadow: 0 8px 22px rgba(63,37,102,.08); display: flex; flex-direction: column; overflow: hidden; }
-.event-card__visual {
-  margin: 0;
-  position: relative;
-  width: 100%;
-  aspect-ratio: 1 / 1;
-  flex-shrink: 0;
-  overflow: hidden;
-  border-radius: 16px 16px 0 0;
-  background: linear-gradient(145deg, #3f2566 0%, #672b86 58%, #ea158c 100%);
-}
-.event-card__visual img {
-  position: absolute;
-  inset: 0;
-  display: block;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: center center;
-}
-.event-card__visual--senior-lift {
-  background: #f3e6c8;
-}
-.event-card__visual--senior-lift img {
-  object-fit: contain;
-}
-.event-card__body { display: flex; flex-direction: column; flex: 1; padding: 16px 20px 20px; }
+.events-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px; align-items: stretch; }
+.event-card { background: #fff; border: 1px solid var(--events-border); border-radius: 16px; padding: 0; box-shadow: 0 8px 22px rgba(63,37,102,.08); display: flex; flex-direction: column; overflow: hidden; height: 100%; }
+.event-card__body { display: flex; flex-direction: column; flex: 1; padding: 22px 22px 22px; }
 .event-card__heading { display: flex; flex-direction: column; align-items: flex-start; gap: 8px; margin: 0 0 12px; }
 .event-card__badge { color: #8b0a58; background: #fff0f8; border: 1px solid #f7b9dc; border-radius: 999px; padding: 4px 9px; font-size: 12px; font-weight: 800; text-transform: uppercase; letter-spacing: .04em; }
+.event-card__badge--sentence { text-transform: none; letter-spacing: .02em; }
 .event-card h3 { font-size: 21px; line-height: 1.22; margin: 0; color: var(--events-ink); }
 .event-card__learn { margin: 0 0 14px; }
 .event-card__learn h4 { margin: 0 0 8px; color: var(--events-purple); font-size: 13px; font-weight: 800; text-transform: uppercase; letter-spacing: .05em; }
