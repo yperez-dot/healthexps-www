@@ -19,6 +19,48 @@ function findBalancedEnd(html, start, tagName) {
   return -1;
 }
 
+function findTagStart(html, pattern) {
+  const match = String(html || "").match(pattern);
+  return match ? match.index : -1;
+}
+
+function sliceBalancedElement(html, start) {
+  if (start < 0) return { start, end: -1, html: "" };
+  const tag = String(html).slice(start).match(/^<(\w+)\b/);
+  if (!tag) return { start, end: -1, html: "" };
+  const end = findBalancedEnd(html, start, tag[1]);
+  return { start, end, html: end > start ? html.slice(start, end) : "" };
+}
+
+function findNavOuter(html) {
+  return findTagStart(html, /<(?:div|header)\b[^>]*class=["'][^"']*\bv4-nav-outer\b[^"']*["'][^>]*>/i);
+}
+
+function findMobileMenu(html) {
+  return findTagStart(html, /<div\b[^>]*id=["']v4-mobile-menu["'][^>]*>/i);
+}
+
+function replaceElementAt(html, start, replacement) {
+  const sliced = sliceBalancedElement(html, start);
+  if (sliced.end < 0) return html;
+  return html.slice(0, start) + replacement + html.slice(sliced.end);
+}
+
+function sharedNavPieces(headerHtml) {
+  const nav = sliceBalancedElement(headerHtml, findNavOuter(headerHtml));
+  const mobile = sliceBalancedElement(headerHtml, findMobileMenu(headerHtml));
+  return { nav: nav.html, mobile: mobile.html };
+}
+
+function replaceSharedNav(html, headerHtml) {
+  const pieces = sharedNavPieces(headerHtml);
+  const navStart = findNavOuter(html);
+  if (navStart >= 0 && pieces.nav) html = replaceElementAt(html, navStart, pieces.nav);
+  const mobileStart = findMobileMenu(html);
+  if (mobileStart >= 0 && pieces.mobile) html = replaceElementAt(html, mobileStart, pieces.mobile);
+  return html;
+}
+
 function replaceSharedHeader(html, replacement) {
   const mobile = html.search(/<div\b[^>]*id=["']v4-mobile-menu["'][^>]*>/i);
   if (mobile >= 0) {
@@ -76,15 +118,15 @@ function injectSharedChrome(content, outputPath) {
   if (!outputPath || !outputPath.endsWith(".html")) return content;
   const locale = /(?:^|[\\/])(?:_site[\\/])?es[\\/]/i.test(outputPath) ? "es" : "en";
   let html = content;
-  // Homepages keep their own AEP top bar + nav. Shared chrome would wipe the banner.
-  // Match Eleventy paths (`_site/index.html`, `./_site/index.html`, absolute) and
-  // also skip if the page already has the banner (path formats we have not seen).
-  if (!isHomepageOutput(outputPath) && !hasHomepageAepBanner(html)) {
-    html = replaceSharedHeader(html, chrome[locale].header);
-  }
+  // Homepages keep the AEP sticky purple bar (`#aep-message`). Full header rewrite
+  // starts at `.top-bar-inner` and would wipe it. Still replace nav + mobile menu
+  // so Resources ▾ / Events stay in sync with the rest of the site.
+  const preserveAepBar = isHomepageOutput(outputPath) || hasHomepageAepBanner(html);
+  if (preserveAepBar) html = replaceSharedNav(html, chrome[locale].header);
+  else html = replaceSharedHeader(html, chrome[locale].header);
   html = replaceSharedFooter(html, chrome[locale].footer.replace(/id=["']site-footer["']/, 'id="site-footer" class="shared-chrome-footer"'));
   if (!html.includes("/css/shared-chrome.css")) html = html.replace(/<\/head>/i, '  <link rel="stylesheet" href="/css/shared-chrome.css">\n  <link rel="stylesheet" href="/css/shared-footer.css">\n</head>');
   return html;
 }
 
-module.exports = { injectSharedChrome, findBalancedEnd, isHomepageOutput };
+module.exports = { injectSharedChrome, findBalancedEnd, isHomepageOutput, replaceSharedNav };

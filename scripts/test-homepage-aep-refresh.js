@@ -89,6 +89,23 @@ assert.match(css, /\.aep-topbar\s*\{[^}]*background:\s*#3F2566/i);
 assert.match(css, /\.aep-topbar-text\s*\{[^}]*color:\s*#fff/i);
 assert.match(css, /\.aep-topbar-cta\s*\{[^}]*color:\s*#3F2566/i);
 assert.doesNotMatch(css, /\.aep-topbar[^{]*\{[^}]*#EA158C/i);
+assert.match(css, /\.home-sticky-chrome\s+\.shared-header\s*\{[^}]*position:\s*relative/i);
+
+function panelAfter(html, triggerRe) {
+  const start = html.search(triggerRe);
+  assert.ok(start >= 0, `missing trigger ${triggerRe}`);
+  const slice = html.slice(start);
+  const panel = slice.match(/<div class="shared-nav__panel">([\s\S]*?)<\/div>/);
+  assert.ok(panel, `missing shared-nav panel after ${triggerRe}`);
+  return panel[1];
+}
+
+function detailsAfter(html, summary) {
+  const re = new RegExp(`<details><summary>${summary}</summary><div>([\\s\\S]*?)</div></details>`);
+  const match = html.match(re);
+  assert.ok(match, `missing mobile <details> for ${summary}`);
+  return match[1];
+}
 
 for (const homePath of [
   path.join(root, "_site", "index.html"),
@@ -98,8 +115,38 @@ for (const homePath of [
 ]) {
   const builtHome = injectSharedChrome(en, homePath);
   assert.ok(builtHome.includes("id=\"aep-message\""), `inject keeps AEP banner for ${homePath}`);
+  assert.ok(builtHome.includes("class=\"aep-topbar-cta\""), `inject keeps AEP pill CTA for ${homePath}`);
   assert.ok(!builtHome.includes("shared-topbar"), `inject does not rewrite topbar for ${homePath}`);
+  const desktopResources = panelAfter(builtHome, /Resources <span aria-hidden="true">▾<\/span>/);
+  assert.ok(desktopResources.includes('href="/resources"'), `desktop Resources lists All Resources for ${homePath}`);
+  assert.ok(desktopResources.includes('href="/medicare-articles/"'), `desktop Resources lists Medicare Articles for ${homePath}`);
+  assert.ok(desktopResources.includes('href="/events/"'), `desktop Resources lists Events for ${homePath}`);
+  const mobileResources = detailsAfter(builtHome, "Resources");
+  assert.ok(mobileResources.includes('href="/events/"'), `mobile Resources lists Events for ${homePath}`);
+  assert.ok(mobileResources.includes("Events &amp; Workshops"), `mobile Resources Events label for ${homePath}`);
+  const desktopGuides = panelAfter(builtHome, /Guides <span aria-hidden="true">▾<\/span>/);
+  assert.ok(!desktopGuides.includes("/medicare-articles/"), `desktop Guides no longer lists Medicare Articles for ${homePath}`);
+  assert.ok(!desktopGuides.includes("AvMed"), `desktop Guides no longer lists AvMed for ${homePath}`);
+  const mobileGuides = detailsAfter(builtHome, "Guides");
+  assert.ok(!mobileGuides.includes("/medicare-articles/"), `mobile Guides no longer lists Medicare Articles for ${homePath}`);
+  assert.ok(!mobileGuides.includes("AvMed"), `mobile Guides no longer lists AvMed for ${homePath}`);
+  assert.ok(!builtHome.includes('href="/resources" style="cursor:pointer">Resources</a>'), `stale flat desktop Resources link gone for ${homePath}`);
 }
+
+const builtEsHome = injectSharedChrome(es, "_site/es/index.html");
+assert.ok(builtEsHome.includes("id=\"aep-message\""), "ES inject keeps AEP banner");
+assert.ok(!builtEsHome.includes("shared-topbar"), "ES inject does not rewrite topbar");
+const esDesktopResources = panelAfter(builtEsHome, /Recursos <span aria-hidden="true">▾<\/span>/);
+assert.ok(esDesktopResources.includes('href="/es/recursos"'), "ES desktop Recursos lists Todos los Recursos");
+assert.ok(esDesktopResources.includes('href="/es/articulos-medicare/"'), "ES desktop Recursos lists Artículos");
+const esMobileResources = detailsAfter(builtEsHome, "Recursos");
+assert.ok(esMobileResources.includes('href="/es/recursos"'), "ES mobile Recursos lists hub");
+assert.ok(esMobileResources.includes('href="/es/articulos-medicare/"'), "ES mobile Recursos lists Artículos");
+const esDesktopGuides = panelAfter(builtEsHome, /Guías <span aria-hidden="true">▾<\/span>/);
+assert.ok(!esDesktopGuides.includes("/es/articulos-medicare/"), "ES desktop Guías no longer lists Artículos");
+assert.ok(!esDesktopGuides.includes("AvMed"), "ES desktop Guías has no AvMed");
+const esMobileGuides = detailsAfter(builtEsHome, "Guías");
+assert.ok(!esMobileGuides.includes("/es/articulos-medicare/"), "ES mobile Guías no longer lists Artículos");
 
 // Do not read _site/*.html here: a leftover `eleventy --serve` can rewrite
 // those files with a stale transform while unit tests are running.
