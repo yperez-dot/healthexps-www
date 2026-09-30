@@ -101,18 +101,8 @@ for (const homePath of [
   assert.ok(!builtHome.includes("shared-topbar"), `inject does not rewrite topbar for ${homePath}`);
 }
 
-const publishedHome = path.join(root, "_site", "index.html");
-const publishedEs = path.join(root, "_site", "es", "index.html");
-if (fs.existsSync(publishedHome)) {
-  const published = fs.readFileSync(publishedHome, "utf8");
-  assert.ok(published.includes("id=\"aep-message\""), "published _site/index.html keeps AEP banner");
-  assert.ok(!published.includes("shared-topbar"), "published _site/index.html is not rewritten");
-}
-if (fs.existsSync(publishedEs)) {
-  const published = fs.readFileSync(publishedEs, "utf8");
-  assert.ok(published.includes("id=\"aep-message\""), "published _site/es/index.html keeps AEP banner");
-  assert.ok(!published.includes("shared-topbar"), "published _site/es/index.html is not rewritten");
-}
+// Do not read _site/*.html here: a leftover `eleventy --serve` can rewrite
+// those files with a stale transform while unit tests are running.
 
 const avmedEn = fs.readFileSync(path.join(root, "avmed-medicare-florida.html"), "utf8");
 const avmedEs = fs.readFileSync(path.join(root, "es", "avmed-medicare-florida.html"), "utf8");

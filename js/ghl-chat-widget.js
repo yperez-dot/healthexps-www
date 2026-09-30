@@ -73,9 +73,17 @@
 
   /**
    * Show the round launcher only. GHL auto-opens "Hi! How can I help?"
-   * and that bubble covers the homepage stats band.
+   * (often inside <chat-widget> shadow DOM) and that bubble covers the
+   * homepage stats band. Stay quiet until the visitor clicks the icon.
    */
   function quietUntilClick() {
+    var QUIET_CSS =
+      '[class*="Proactive"],[class*="proactive"],' +
+      '[class*="message-preview"],[class*="MessagePreview"],' +
+      '[class*="greeting"],[class*="Greeting"],' +
+      '[data-testid*="proactive"],[class*="widget-preview"],' +
+      '[class*="auto-message"],[class*="AutoMessage"]{display:none !important;}';
+
     if (!document.getElementById("thei-ghl-chat-quiet")) {
       var style = document.createElement("style");
       style.id = "thei-ghl-chat-quiet";
@@ -91,50 +99,97 @@
       document.head.appendChild(style);
     }
 
-    function hideGreetingCopy(root) {
-      var phrases = [
+    function greetingPhrases() {
+      return [
         "Hi! How can I help?",
         "How can I help?",
         "¡Hola! ¿En qué puedo ayudarte?",
         "¿En qué puedo ayudarte?",
       ];
-      var nodes = (root || document).querySelectorAll("div, span, p");
+    }
+
+    function hideGreetingCopy(root) {
+      if (global.__THEI_CHAT_USER_OPEN) return;
+      if (!root || !root.querySelectorAll) return;
+      var phrases = greetingPhrases();
+      var nodes = root.querySelectorAll("div, span, p, button");
       for (var i = 0; i < nodes.length; i++) {
         var text = (nodes[i].textContent || "").replace(/\s+/g, " ").trim();
         if (phrases.indexOf(text) === -1) continue;
-        var box = nodes[i].closest("div");
-        if (box && !box.querySelector("iframe") && box.offsetWidth < 420) {
-          box.style.display = "none";
+        var box = nodes[i].closest("div") || nodes[i];
+        if (box && !box.querySelector("iframe")) {
+          box.style.setProperty("display", "none", "important");
         }
       }
     }
 
-    function clickClose() {
-      var roots = document.querySelectorAll(
-        '[id*="chat-widget"], [class*="lc_text-widget"], [class*="chat-widget"]'
-      );
-      for (var r = 0; r < roots.length; r++) {
-        var buttons = roots[r].querySelectorAll("button");
-        for (var i = 0; i < buttons.length; i++) {
-          var label = (buttons[i].getAttribute("aria-label") || "").toLowerCase();
-          if (/close chat|minimize chat|cerrar chat|minimizar/.test(label) || (/close|minimize|cerrar/.test(label) && /chat|widget/.test(label))) {
-            try { buttons[i].click(); } catch (err) {}
-          }
+    function clickCloseIn(root) {
+      if (global.__THEI_CHAT_USER_OPEN) return;
+      if (!root || !root.querySelectorAll) return;
+      var buttons = root.querySelectorAll("button");
+      for (var i = 0; i < buttons.length; i++) {
+        var label = (buttons[i].getAttribute("aria-label") || "").toLowerCase();
+        if (
+          /close chat|minimize chat|cerrar chat|minimizar/.test(label) ||
+          (/close|minimize|cerrar/.test(label) && /chat|widget/.test(label))
+        ) {
+          try { buttons[i].click(); } catch (err) {}
         }
       }
     }
 
-    hideGreetingCopy();
-    clickClose();
+    function injectShadowQuiet(shadow) {
+      if (!shadow || shadow.getElementById("thei-ghl-chat-quiet-shadow")) return;
+      var style = document.createElement("style");
+      style.id = "thei-ghl-chat-quiet-shadow";
+      style.textContent = QUIET_CSS;
+      try { shadow.appendChild(style); } catch (err) {}
+    }
+
+    function walkShadows(node) {
+      if (!node) return;
+      var shadow = node.shadowRoot;
+      if (shadow) {
+        injectShadowQuiet(shadow);
+        hideGreetingCopy(shadow);
+        clickCloseIn(shadow);
+        var nested = shadow.querySelectorAll("*");
+        for (var i = 0; i < nested.length; i++) {
+          if (nested[i].shadowRoot) walkShadows(nested[i]);
+        }
+      }
+    }
+
+    function sweep() {
+      if (global.__THEI_CHAT_USER_OPEN) return;
+      hideGreetingCopy(document);
+      clickCloseIn(document);
+      var hosts = document.querySelectorAll("chat-widget, [id*='chat-widget'], [class*='lc_text-widget'], [class*='chat-widget']");
+      for (var i = 0; i < hosts.length; i++) walkShadows(hosts[i]);
+    }
+
     if (document.body && !document.body.getAttribute("data-thei-ghl-quiet")) {
       document.body.setAttribute("data-thei-ghl-quiet", "1");
-      var obs = new MutationObserver(function () {
-        hideGreetingCopy();
-      });
+      document.addEventListener(
+        "click",
+        function (event) {
+          var t = event.target;
+          if (!t || !t.closest) return;
+          if (t.closest("chat-widget, [id*='chat-widget'], [class*='lc_text-widget'], [class*='chat-widget']")) {
+            global.__THEI_CHAT_USER_OPEN = true;
+          }
+        },
+        true
+      );
+      var obs = new MutationObserver(function () { sweep(); });
       obs.observe(document.body, { childList: true, subtree: true });
-      setTimeout(function () { hideGreetingCopy(); clickClose(); }, 800);
-      setTimeout(function () { hideGreetingCopy(); clickClose(); }, 2500);
+      setTimeout(sweep, 400);
+      setTimeout(sweep, 1200);
+      setTimeout(sweep, 3000);
+      setTimeout(sweep, 6000);
     }
+
+    sweep();
   }
 
   function init() {
