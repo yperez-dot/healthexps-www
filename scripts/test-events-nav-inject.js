@@ -61,6 +61,9 @@ assert(eventsPage.includes(">For residents only<"), "East Ridge badge is residen
 assert(eventsPage.includes("event-card__badge--sentence"), "East Ridge badge keeps sentence-case wording");
 assert(/\.event-card__badge--sentence\s*\{[\s\S]*text-transform:\s*none/.test(css), "residents-only badge is not forced to uppercase");
 assert((eventsPage.match(/RSVP required/g) || []).length === 3, "Pinecrest, Senior LIFT, and Keiser stay RSVP required");
+assert(eventsPage.includes("Pinecrest Community Center, 5855 Killian Dr, Pinecrest, FL 33156"), "Pinecrest location is the community center address");
+assert(!/Pinecrest Community Center,,/.test(eventsPage), "Pinecrest location has no double comma");
+assert(eventsPage.includes("Keiser University, Auditorium, 2101 NW 117th Ave, Miami, FL 33172"), "Keiser location leads with the university");
 assert(fs.existsSync(path.join(__dirname, "../images/events/pinecrest.jpg")), "Pinecrest lifestyle JPEG is committed");
 assert(fs.existsSync(path.join(__dirname, "../images/events/east-ridge.jpg")), "East Ridge lifestyle JPEG is committed");
 assert(!fs.existsSync(path.join(__dirname, "../images/events/pinecrest.png")), "old Pinecrest flyer PNG is removed");
