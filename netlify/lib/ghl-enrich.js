@@ -224,6 +224,7 @@ async function enrichLead(data, payload, opts = {}) {
   }
 
   // 2) Create (upsert) if the workflow never created it, else update
+  let createdByUs = false;
   if (!contact) {
     const up = await ghl('POST', '/contacts/upsert', {
       locationId: LOCATION_ID,
@@ -236,6 +237,7 @@ async function enrichLead(data, payload, opts = {}) {
       ...updates,
     });
     contact = up.contact || up;
+    createdByUs = true;
     result.steps.push('upsert');
   } else {
     if (!contact.assignedTo) updates.assignedTo = OWNER_USER_ID;
@@ -281,8 +283,16 @@ async function enrichLead(data, payload, opts = {}) {
   const stepOpp = (async () => { try {
     const sinceCreate = Date.now() - new Date(contact.dateAdded || Date.now()).getTime();
     if (sinceCreate < 1200) await sleep(Math.min(1200 - sinceCreate, Math.max(0, deadline - Date.now() - 1500)));
-    const opps = await ghl('GET', `/opportunities/search?location_id=${LOCATION_ID}&contact_id=${contactId}`);
-    const list = (opps.opportunities || []).filter((o) => o.status === 'open' || !o.status);
+    // Opportunity search is eventually consistent: retry once before deciding.
+    const searchOpps = async () => {
+      const r = await ghl('GET', `/opportunities/search?location_id=${LOCATION_ID}&contact_id=${contactId}`);
+      return (r.opportunities || []).filter((o) => o.status === 'open' || !o.status);
+    };
+    let list = await searchOpps();
+    if (!list.length && deadline - Date.now() > 2500) {
+      await sleep(1200);
+      list = await searchOpps();
+    }
     const web = list.find((o) => o.pipelineId === WEBSITE_PIPELINE_ID);
     const oppName = `${fullName} — ${ctx.pageLabel}`.slice(0, 200);
     if (web) {
@@ -294,7 +304,7 @@ async function enrichLead(data, payload, opts = {}) {
         result.steps.push('opp-update');
       }
       result.opportunityId = web.id;
-    } else if (!list.length) {
+    } else if (!list.length && createdByUs) {
       const o = await ghl('POST', '/opportunities/', {
         locationId: LOCATION_ID,
         pipelineId: WEBSITE_PIPELINE_ID,
