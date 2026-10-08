@@ -11,7 +11,8 @@
  * retry; legitimate failures still return 4xx/5xx.
  */
 
-const { enrichLead } = require('../lib/ghl-enrich');
+const { enrichLead, pageLabel: labelForPage } = require('../lib/ghl-enrich');
+const { sendLeadAlert } = require('../lib/lead-alert');
 
 const GHL_BASE =
   'https://services.leadconnectorhq.com/hooks/RINM4TCnM4hN06UA1aK0/webhook-trigger';
@@ -467,15 +468,30 @@ exports.handler = async (event) => {
 
   // Save EVERY answer on the GHL contact (note, ZIP, real page, tags, owner,
   // opportunity, task for Yahoska). Never blocks or fails the lead.
+  // As soon as the contact id is known, fire the instant alert to Yahoska
+  // (email + Telegram) in parallel — never to the lead.
+  let alertPromise = null;
+  const startAlert = (info) => {
+    if (alertPromise) return;
+    alertPromise = sendLeadAlert(data, payload, info, { timeoutMs: 2500 })
+      .then((r) => console.log('[submit-lead] alert', JSON.stringify(r)))
+      .catch((e) => console.error('[submit-lead] alert failed', e && e.message));
+  };
   let enriched = null;
   try {
     // Stay well inside Netlify's 10s sync-function limit
-    const budgetMs = Math.max(1500, Math.min(7000, 9000 - (Date.now() - handlerStart)));
-    enriched = await enrichLead(data, payload, { budgetMs });
+    const budgetMs = Math.max(1500, Math.min(6500, 8500 - (Date.now() - handlerStart)));
+    enriched = await enrichLead(data, payload, { budgetMs, onContact: startAlert });
     console.log('[submit-lead] enrich', JSON.stringify({ steps: enriched.steps, skipped: enriched.skipped, ms: enriched.ms }));
   } catch (err) {
     console.error('[submit-lead] enrich failed', err && err.message);
   }
+  if (!alertPromise) {
+    const path = String(payload.page_path || payload.form_page || '');
+    startAlert({ contactId: enriched && enriched.contactId, pageLabel: labelForPage(data, path) });
+  }
+  const remaining = Math.max(300, 9400 - (Date.now() - handlerStart));
+  await Promise.race([alertPromise, new Promise((r) => setTimeout(r, remaining))]);
 
   if (webhookOk || (enriched && enriched.contactId)) {
     return json(200, { ok: true });
