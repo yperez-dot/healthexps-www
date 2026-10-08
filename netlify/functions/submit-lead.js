@@ -11,6 +11,8 @@
  * retry; legitimate failures still return 4xx/5xx.
  */
 
+const { enrichLead } = require('../lib/ghl-enrich');
+
 const GHL_BASE =
   'https://services.leadconnectorhq.com/hooks/RINM4TCnM4hN06UA1aK0/webhook-trigger';
 
@@ -446,24 +448,36 @@ exports.handler = async (event) => {
 
   const payload = buildForwardPayload(data);
 
+  let webhookOk = false;
   try {
     const res = await fetch(`${GHL_BASE}/${webhookId}`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(payload),
     });
-
+    webhookOk = res.ok;
     if (!res.ok) {
       const text = await res.text().catch(() => '');
       console.error('[submit-lead] GHL error', res.status, text.slice(0, 300));
-      return json(502, { ok: false, error: 'Upstream error' });
     }
-
-    return json(200, { ok: true });
   } catch (err) {
     console.error('[submit-lead] fetch failed', err);
-    return json(500, { ok: false, error: 'Submit failed' });
   }
+
+  // Save EVERY answer on the GHL contact (note, ZIP, real page, tags, owner,
+  // opportunity, task for Yahoska). Never blocks or fails the lead.
+  let enriched = null;
+  try {
+    enriched = await enrichLead(data, payload);
+    console.log('[submit-lead] enrich', JSON.stringify({ steps: enriched.steps, skipped: enriched.skipped, ms: enriched.ms }));
+  } catch (err) {
+    console.error('[submit-lead] enrich failed', err && err.message);
+  }
+
+  if (webhookOk || (enriched && enriched.contactId)) {
+    return json(200, { ok: true });
+  }
+  return json(502, { ok: false, error: 'Upstream error' });
 };
 
 exports.assessSpam = assessSpam;
