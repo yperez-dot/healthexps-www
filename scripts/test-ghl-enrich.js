@@ -47,7 +47,7 @@ assert.strictEqual(pageLabel({ source: "Homepage Form" }, "/es/"), "Spanish Home
   assert.strictEqual(put.body.postalCode, "33901");
   assert.strictEqual(put.body.assignedTo, "UlTM7S5uLDmQhXQ5zzfN");
   assert(!("tags" in put.body), "PUT must not replace tags");
-  const note = calls.find((c) => c.u.endsWith("/contacts/C1/notes"));
+  const note = calls.find((c) => c.m === "POST" && c.u.endsWith("/contacts/C1/notes"));
   assert(/Health system: Lee Health/.test(note.body.body) && /ZIP: 33901/.test(note.body.body));
   const opp = calls.find((c) => c.m === "PUT" && c.u.includes("/opportunities/O1"));
   assert.strictEqual(opp.body.name, "Mary Tester — 2027 Southwest Florida Network Alert Blog");
@@ -59,3 +59,11 @@ assert.strictEqual(pageLabel({ source: "Homepage Form" }, "/es/"), "Spanish Home
   assert(!r2.steps.includes("untag-homepage"));
   console.log("test-ghl-enrich: ok");
 })().catch((e) => { console.error(e); process.exit(1); });
+
+// Nested calculator answers are flattened into the note
+{
+  const lines2 = answerLines({ firstName: "A", customFields: { lifeincome: "50000", coverage_estimate: 250000 }, tags: ["life", "calc"] });
+  if (!lines2.includes("Lifeincome: 50000") || !lines2.some((l) => /Coverage estimate: 250000/.test(l))) {
+    console.error("flatten failed", lines2); process.exit(1);
+  }
+}

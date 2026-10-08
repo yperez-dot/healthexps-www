@@ -205,6 +205,13 @@ const LOOKING_FOR_KEYS = [
   'aca_reason',
   'help_with',
   'aep_plan_type',
+  'need',
+  'planInterest',
+  'plan_interest',
+  'planType',
+  'cobra_timing',
+  'current_coverage',
+  'current_situation',
 ];
 
 /**
@@ -329,6 +336,10 @@ function buildForwardPayload(data) {
   if (data.phone || data.phone_number) {
     out.phone = normalizePhone(data.phone || data.phone_number);
   }
+  // Some forms use camelCase names — GHL workflows map snake_case
+  if (!out.first_name && data.firstName) out.first_name = data.firstName;
+  if (!out.last_name && data.lastName) out.last_name = data.lastName;
+  if (!out.page && (data.pageUrl || data.page_url)) out.page = data.pageUrl || data.page_url;
   // Normalize so GHL “Looking for” always receives a value regardless of form field name
   const looking = extractLookingFor(data);
   if (looking) {
@@ -378,7 +389,14 @@ function buildForwardPayload(data) {
   return out;
 }
 
+/** Placeholder ids some pages shipped with → the real primary website webhook. */
+const WEBHOOK_ALIASES = {
+  'avmed-transition': 'dc6c8b35-9480-412e-b56d-4a4c8c7bd438',
+};
+
 function resolveWebhookId(data) {
+  const alias = WEBHOOK_ALIASES[String(data.webhook_id || '').trim()];
+  if (alias) return alias;
   const sourceKey = String(data.source_key || '').trim();
   if (sourceKey && WEBHOOKS[sourceKey]) return WEBHOOKS[sourceKey];
 
@@ -486,12 +504,12 @@ exports.handler = async (event) => {
   } catch (err) {
     console.error('[submit-lead] enrich failed', err && err.message);
   }
-  if (!alertPromise) {
+  if (!alertPromise && !(enriched && enriched.repeat)) {
     const path = String(payload.page_path || payload.form_page || '');
     startAlert({ contactId: enriched && enriched.contactId, pageLabel: labelForPage(data, path) });
   }
   const remaining = Math.max(300, 9400 - (Date.now() - handlerStart));
-  await Promise.race([alertPromise, new Promise((r) => setTimeout(r, remaining))]);
+  if (alertPromise) await Promise.race([alertPromise, new Promise((r) => setTimeout(r, remaining))]);
 
   if (webhookOk || (enriched && enriched.contactId)) {
     return json(200, { ok: true });

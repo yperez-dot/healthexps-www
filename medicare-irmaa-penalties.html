@@ -1681,5 +1681,39 @@ img { max-width: 100%; height: auto; }
   });
 })();
 </script>
+
+<script>
+/* IRMAA lead form — was missing a submit handler (leads were lost). Posts
+   through the sitewide spam guard to the lead function. */
+(function(){
+  var form = document.getElementById('irmaa-form-el');
+  if (!form || !window.FormSpamGuard) return;
+  form.setAttribute('data-spam-guard', 'proxy');
+  var loadedAt = Date.now();
+  form.addEventListener('submit', function(e){
+    e.preventDefault();
+    var err = document.getElementById('irmaaError');
+    var btn = document.getElementById('irmaaBtnSubmit');
+    var d = FormSpamGuard.formToObject(form);
+    var missing = !String(d.first_name||'').trim() || !String(d.last_name||'').trim() || !String(d.phone||'').trim() || !String(d.email||'').trim() || !d.coverage_type || !document.getElementById('irmaaConsent').checked;
+    if (missing) { if (err) { err.style.display='block'; err.textContent = !d.coverage_type ? 'Please select what you are looking for.' : 'Please fill in all required fields and check the consent box.'; } return; }
+    if (err) err.style.display = 'none';
+    if (btn) { btn.disabled = true; btn.dataset.label = btn.textContent; btn.textContent = 'Sending...'; }
+    d.webhook_id = 'dc6c8b35-9480-412e-b56d-4a4c8c7bd438';
+    d.source = 'IRMAA Penalties Page Form';
+    d.looking_for = d.coverage_type;
+    d._form_loaded_at = loadedAt;
+    FormSpamGuard.submit(d).then(function(r){
+      if (!r.body || !r.body.ok) throw new Error('submit failed');
+      form.style.display = 'none';
+      var ok = document.getElementById('irmaaSuccess'); if (ok) ok.style.display = 'block';
+      if (typeof gtag === 'function') gtag('event', 'generate_lead', { form: 'irmaa_penalties' });
+    }).catch(function(){
+      if (btn) { btn.disabled = false; btn.textContent = btn.dataset.label || 'Submit'; }
+      if (err) { err.style.display = 'block'; err.textContent = 'Something went wrong. Please call 1-800-380-6821.'; }
+    });
+  });
+})();
+</script>
 </body>
 </html>

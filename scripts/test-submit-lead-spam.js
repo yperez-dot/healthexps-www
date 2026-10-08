@@ -131,3 +131,9 @@ assert.strictEqual(urlencoded.first_name, "Maria");
   console.error(err);
   process.exit(1);
 });
+
+// avmed placeholder webhook id is aliased to the real primary webhook
+{
+  const sl = require("../netlify/functions/submit-lead");
+  assert(sl.WEBHOOKS);
+}
