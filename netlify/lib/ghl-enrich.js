@@ -202,7 +202,7 @@ async function enrichLead(data, payload, opts = {}) {
 
   // 1) Wait for the webhook workflow to create the contact (avoid duplicates)
   let contact = null;
-  for (const wait of opts.pollMs || [700, 900, 1200, 1500]) {
+  for (const wait of opts.pollMs || [500, 600, 700, 900, 1100]) {
     await sleep(wait);
     contact = await findContact(ghl, email, phoneE164);
     if (contact || Date.now() > deadline - 2500) break;
@@ -249,22 +249,23 @@ async function enrichLead(data, payload, opts = {}) {
     try { opts.onContact({ contactId, pageLabel: ctx.pageLabel }); } catch (e) { /* never block */ }
   }
 
+  // 3–6 run in parallel to stay inside the 10s function limit
   // 3) Tags: website-lead + real page + any form-provided tags
   const formTags = String(data.tags || '').split(',').map((t) => t.trim().toLowerCase()).filter(Boolean);
   const tags = Array.from(new Set(['website-lead', pageTag(path), ...formTags])).slice(0, 15);
-  try {
+  const stepTags = (async () => { try {
     await ghl('POST', `/contacts/${contactId}/tags`, { tags });
     result.steps.push('tags');
-  } catch (e) { console.warn('[ghl-enrich] tags:', e.message); }
+  } catch (e) { console.warn('[ghl-enrich] tags:', e.message); } })();
 
   // 4) Note with every answer
-  try {
+  const stepNote = (async () => { try {
     await ghl('POST', `/contacts/${contactId}/notes`, { body: buildNote(data, ctx), userId: OWNER_USER_ID });
     result.steps.push('note');
-  } catch (e) { console.warn('[ghl-enrich] note:', e.message); }
+  } catch (e) { console.warn('[ghl-enrich] note:', e.message); } })();
 
   // 5) Task for Yahoska (assignment triggers her GHL notification)
-  try {
+  const stepTask = (async () => { try {
     const due = new Date(Date.now() + 15 * 60 * 1000).toISOString();
     await ghl('POST', `/contacts/${contactId}/tasks`, {
       title: `Call new website lead: ${fullName} (${ctx.pageLabel})`.slice(0, 200),
@@ -274,12 +275,12 @@ async function enrichLead(data, payload, opts = {}) {
       assignedTo: OWNER_USER_ID,
     });
     result.steps.push('task');
-  } catch (e) { console.warn('[ghl-enrich] task:', e.message); }
+  } catch (e) { console.warn('[ghl-enrich] task:', e.message); } })();
 
   // 6) Opportunity in THEI Website pipeline (owner Yahoska); rename "— Homepage"
-  try {
+  const stepOpp = (async () => { try {
     const sinceCreate = Date.now() - new Date(contact.dateAdded || Date.now()).getTime();
-    if (sinceCreate < 1500) await sleep(Math.min(1500 - sinceCreate, Math.max(0, deadline - Date.now() - 1500)));
+    if (sinceCreate < 1200) await sleep(Math.min(1200 - sinceCreate, Math.max(0, deadline - Date.now() - 1500)));
     const opps = await ghl('GET', `/opportunities/search?location_id=${LOCATION_ID}&contact_id=${contactId}`);
     const list = (opps.opportunities || []).filter((o) => o.status === 'open' || !o.status);
     const web = list.find((o) => o.pipelineId === WEBSITE_PIPELINE_ID);
@@ -307,7 +308,8 @@ async function enrichLead(data, payload, opts = {}) {
       result.opportunityId = (o.opportunity || o).id;
       result.steps.push('opp-create');
     }
-  } catch (e) { console.warn('[ghl-enrich] opportunity:', e.message); }
+  } catch (e) { console.warn('[ghl-enrich] opportunity:', e.message); } })();
+  await Promise.all([stepTags, stepNote, stepTask, stepOpp]);
 
   // 7) Drop the workflow's hardcoded "homepage" tag when the form wasn't on the homepage
   if (path && !isHomepagePath(path)) {

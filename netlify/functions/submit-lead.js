@@ -480,7 +480,7 @@ exports.handler = async (event) => {
   let enriched = null;
   try {
     // Stay well inside Netlify's 10s sync-function limit
-    const budgetMs = Math.max(1500, Math.min(6500, 8500 - (Date.now() - handlerStart)));
+    const budgetMs = Math.max(1500, Math.min(7800, 8800 - (Date.now() - handlerStart)));
     enriched = await enrichLead(data, payload, { budgetMs, onContact: startAlert });
     console.log('[submit-lead] enrich', JSON.stringify({ steps: enriched.steps, skipped: enriched.skipped, ms: enriched.ms }));
   } catch (err) {
