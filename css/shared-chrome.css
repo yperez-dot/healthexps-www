@@ -225,3 +225,39 @@
     height: 56px;
   }
 }
+
+/* ── Purple bottom CTA (blog posts EN + ES) ──────────────────────────────
+   `.article-body a { color: pink }` out-ranked `.bottom-cta-btn { color: white }`,
+   so the pink pill's label rendered pink-on-pink (invisible). Brand rule: never
+   pink text on purple or pink; white on purple/pink. */
+.bottom-cta a.bottom-cta-btn,
+.article-body .bottom-cta a.bottom-cta-btn,
+.bottom-cta a.bottom-cta-btn:visited {
+  color: #fff !important;
+  font-weight: 800 !important;
+  font-size: 17px;
+  letter-spacing: .01em;
+  text-decoration: none !important;
+  text-shadow: 0 1px 1px rgba(0, 0, 0, .18);
+}
+.bottom-cta a.bottom-cta-btn:hover,
+.bottom-cta a.bottom-cta-btn:focus-visible,
+.article-body .bottom-cta a.bottom-cta-btn:hover {
+  color: #fff !important;
+  background: #c4006f !important;
+  text-decoration: none !important;
+}
+.bottom-cta a.bottom-cta-btn:focus-visible { outline: 3px solid #fff; outline-offset: 3px; }
+/* Any other link inside the purple box stays white (no pink on purple) */
+.bottom-cta a:not(.bottom-cta-btn),
+.article-body .bottom-cta a:not(.bottom-cta-btn) { color: #fff !important; }
+
+/* In-article links: pink on white is on-brand, but #ff1090 is only 3.7:1 on
+   white. Use the deeper brand pink (5.2:1) + underline so they read as links. */
+.article-body a:not(.bottom-cta-btn):not([class*="btn"]) {
+  color: #d4006d;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+.article-body a:not(.bottom-cta-btn):not([class*="btn"]):hover { color: #a8005a; }
+.article-body .bottom-cta a:not(.bottom-cta-btn) { text-decoration: underline; }
