@@ -244,6 +244,10 @@ async function enrichLead(data, payload, opts = {}) {
   }
   const contactId = contact.id;
   result.contactId = contactId;
+  result.pageLabel = ctx.pageLabel;
+  if (typeof opts.onContact === 'function') {
+    try { opts.onContact({ contactId, pageLabel: ctx.pageLabel }); } catch (e) { /* never block */ }
+  }
 
   // 3) Tags: website-lead + real page + any form-provided tags
   const formTags = String(data.tags || '').split(',').map((t) => t.trim().toLowerCase()).filter(Boolean);
