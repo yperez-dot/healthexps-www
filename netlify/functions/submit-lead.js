@@ -407,6 +407,7 @@ function parseRequestBody(event) {
 }
 
 exports.handler = async (event) => {
+  const handlerStart = Date.now();
   if (event.httpMethod === 'OPTIONS') {
     return { statusCode: 204, headers: CORS_HEADERS, body: '' };
   }
@@ -468,7 +469,9 @@ exports.handler = async (event) => {
   // opportunity, task for Yahoska). Never blocks or fails the lead.
   let enriched = null;
   try {
-    enriched = await enrichLead(data, payload);
+    // Stay well inside Netlify's 10s sync-function limit
+    const budgetMs = Math.max(1500, Math.min(7000, 9000 - (Date.now() - handlerStart)));
+    enriched = await enrichLead(data, payload, { budgetMs });
     console.log('[submit-lead] enrich', JSON.stringify({ steps: enriched.steps, skipped: enriched.skipped, ms: enriched.ms }));
   } catch (err) {
     console.error('[submit-lead] enrich failed', err && err.message);
