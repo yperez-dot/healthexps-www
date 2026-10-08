@@ -32,6 +32,7 @@ const INTERNAL_KEYS = new Set([
   '_hp_name', 'honeypot', 'website', 'company_url', '_form_loaded_at', 'form_loaded_at',
   'source_key', 'webhook_id', 'page_url', 'page_path', 'form_page', 'consent', 'tags',
   'submitted_at', 'page', 'source', 'lang', 'looking_for', 'additional_notes', 'notes',
+  'pageUrl', 'submittedAt', 'formSource', 'channel',
 ]);
 
 const LABELS = {
@@ -93,7 +94,18 @@ function extractZip(data) {
 function answerLines(data) {
   const lines = [];
   const seen = new Set();
+  // Flatten one level of nested objects (e.g. calculators send customFields: {...})
+  const flat = [];
   for (const [k, v] of Object.entries(data || {})) {
+    if (v && typeof v === 'object' && !Array.isArray(v)) {
+      for (const [k2, v2] of Object.entries(v)) flat.push([k2, v2]);
+    } else if (Array.isArray(v)) {
+      flat.push([k, v.filter((x) => typeof x !== 'object').join(', ')]);
+    } else {
+      flat.push([k, v]);
+    }
+  }
+  for (const [k, v] of flat) {
     if (INTERNAL_KEYS.has(k)) continue;
     if (v === undefined || v === null || typeof v === 'object') continue;
     const val = String(v).trim();
@@ -247,7 +259,16 @@ async function enrichLead(data, payload, opts = {}) {
   const contactId = contact.id;
   result.contactId = contactId;
   result.pageLabel = ctx.pageLabel;
-  if (typeof opts.onContact === 'function') {
+  // Suppress repeat alerts: calculators/quizzes post several times per visit.
+  // If we already logged a website-lead note on this contact in the last 30 min,
+  // still save everything but don't text/email again.
+  try {
+    const recent = await ghl('GET', `/contacts/${contactId}/notes`);
+    const cutoff = Date.now() - 30 * 60 * 1000;
+    result.repeat = (recent.notes || []).some((n) =>
+      /^🌐 WEBSITE LEAD/.test(String(n.body || '')) && new Date(n.dateAdded || 0).getTime() > cutoff);
+  } catch (e) { /* ignore */ }
+  if (typeof opts.onContact === 'function' && !result.repeat) {
     try { opts.onContact({ contactId, pageLabel: ctx.pageLabel }); } catch (e) { /* never block */ }
   }
 

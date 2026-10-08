@@ -26,6 +26,13 @@
     'aca_reason',
     'help_with',
     'aep_plan_type',
+    'need',
+    'planInterest',
+    'plan_interest',
+    'planType',
+    'cobra_timing',
+    'current_coverage',
+    'current_situation',
   ];
 
   function digitsOnly(v) {
@@ -217,6 +224,35 @@
     return out;
   }
 
+  // ── Lossless capture: remember the form being submitted so every field it
+  //    contains reaches the lead function, even when a page's handler only
+  //    copies a few fields into its JSON payload.
+  var lastForm = null;
+  var lastFormAt = 0;
+  document.addEventListener(
+    'submit',
+    function (e) {
+      if (e.target && e.target.tagName === 'FORM') {
+        lastForm = e.target;
+        lastFormAt = Date.now();
+      }
+    },
+    true
+  );
+
+  function mergeFormFields(payload) {
+    var out = Object.assign({}, payload || {});
+    if (!lastForm || Date.now() - lastFormAt > 60000) return out;
+    var fields = formToObject(lastForm);
+    lastForm = null;
+    Object.keys(fields).forEach(function (k) {
+      var v = fields[k];
+      if (Array.isArray(v)) v = v.join(', ');
+      if (out[k] === undefined || out[k] === null || out[k] === '') out[k] = v;
+    });
+    return out;
+  }
+
   function postToProxy(payload) {
     return originalFetch(PROXY, {
       method: 'POST',
@@ -265,7 +301,7 @@
   }
 
   function submit(payload) {
-    return postToProxy(withMeta(payload)).then(function (res) {
+    return postToProxy(withMeta(mergeFormFields(payload))).then(function (res) {
       return res.json().then(function (body) {
         return { res: res, body: body };
       });
@@ -302,7 +338,7 @@
 
       var webhookId = match[1];
       return bodyToObject(init.body).then(function (data) {
-        var payload = withMeta(data);
+        var payload = withMeta(mergeFormFields(data));
         payload.webhook_id = webhookId;
         return postToProxy(payload);
       });
