@@ -18,6 +18,8 @@ Si usted tiene un **plan Medicare Advantage de UnitedHealthcare** y se atiende c
 
 <div class="alert-box"><strong>Actualización: agosto de 2026</strong><span>UnitedHealthcare extendió el acceso a la red de UHealth hasta el 31 de diciembre de 2026 para los miembros de Preferred Care Network. La fecha de terminación anunciada anteriormente, el 1 de septiembre de 2026, ya no aplica. Los hospitales, centros y médicos de UHealth estarán fuera de la red a partir del 1 de enero de 2027.</span></div>
 
+<div class="timeline-note"><strong>¿Tiene un plan de Solis Health Plans?</strong> Solis también dará por terminada su relación con UHealth, con fecha efectiva del 31 de diciembre de 2026. Lea <a href="/es/blog/solis-uhealth-cambio-red-universidad-de-miami-2027/">¿Solis Health Plans deja a UHealth en 2027? Lo que debe saber en Miami</a>.</div>
+
 ## ¿Quiénes podrían verse afectados?
 
 | Su plan Medicare de UnitedHealthcare | Estatus de la red de UHealth | Fecha clave |
