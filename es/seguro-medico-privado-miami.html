@@ -933,7 +933,7 @@ details[open] .faq-icon{transform:rotate(45deg);}
     try {
       var res = await fetch(WEBHOOK, {
         method:'POST', headers:{'Content-Type':'application/json'},
-        body: JSON.stringify({first_name:first,last_name:last,phone:phone,email:email,zip_code:zip,coverage_type:coverage,consent:'yes',source_key:'es-private',source:'Seguro Médico Privado ES',language:'spanish',channel:channel,tags:'private,'+channel+',spanish',utm_source:_q.get('utm_source')||'',utm_medium:_q.get('utm_medium')||'',utm_campaign:_q.get('utm_campaign')||'',utm_content:_q.get('utm_content')||'',page:window.location.href,page_url:window.location.href,submitted_at:new Date().toISOString()})
+        body: JSON.stringify({first_name:first,last_name:last,phone:phone,email:email,zip_code:zip,coverage_type:coverage,private_reason:coverage,additional_notes:((document.getElementById('privNotes')||{}).value||'').trim(),consent:'yes',source_key:'es-private',source:'Seguro Médico Privado ES',language:'spanish',channel:channel,tags:'private,'+channel+',spanish',utm_source:_q.get('utm_source')||'',utm_medium:_q.get('utm_medium')||'',utm_campaign:_q.get('utm_campaign')||'',utm_content:_q.get('utm_content')||'',page:window.location.href,page_url:window.location.href,submitted_at:new Date().toISOString()})
       });
       if (res.ok) {
         document.getElementById('privForm-wrap').style.display='none';
