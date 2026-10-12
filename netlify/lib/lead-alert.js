@@ -158,7 +158,11 @@ async function sendLeadAlert(data, payload, info = {}, opts = {}) {
   const ms = Math.max(800, Math.min(opts.timeoutMs || 2500, 3500));
   const alert = buildAlert(data, payload, info);
   const out = {};
-  const email = (async () => {
+  // No code-sent email alert for these sources (GHL workflow handles them); SMS unchanged
+  const NO_EMAIL_SOURCE_KEYS = new Set(['blog-lee-nch']);
+  const skipEmail = NO_EMAIL_SOURCE_KEYS.has(String(data.source_key || '').trim());
+  if (skipEmail) out.email = 'skipped:source_key';
+  const email = skipEmail ? Promise.resolve() : (async () => {
     try {
       out.email_ghl = await sendGhlEmail(alert, ms, info.contactId);
     } catch (e) {
