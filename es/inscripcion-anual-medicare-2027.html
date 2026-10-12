@@ -48,17 +48,94 @@
     "provider": {"@type":"Organization","name":"The Health Experts Insurance","url":"https://www.healthexps.com"},
     "inLanguage": "es"
   },
-  {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    "inLanguage": "es",
-    "mainEntity": [
-      {"@type":"Question","name":"¿Cuándo es la Inscripción Anual de Medicare 2027?","acceptedAnswer":{"@type":"Answer","text":"La Inscripción Anual de Medicare 2027 (AEP o inscripción abierta) va del 15 de octubre al 7 de diciembre. Los cambios entran en vigor el 1 de enero de 2027."}},
-      {"@type":"Question","name":"¿Tengo que cambiar de plan durante el AEP?","acceptedAnswer":{"@type":"Answer","text":"No. Si está satisfecho con su plan actual, no tiene que hacer nada. De todas formas debería revisarlo: beneficios, primas y redes cambian cada año."}},
-      {"@type":"Question","name":"¿Quién puede cambiar un plan de Medicare durante el AEP?","acceptedAnswer":{"@type":"Answer","text":"Si tiene Medicare Parte A y Parte B, el AEP es la ventana anual para unirse, cambiar o cancelar un plan Medicare Advantage o Parte D. Medicare Original con Medigap sigue otras reglas."}},
-      {"@type":"Question","name":"¿De verdad es gratis?","acceptedAnswer":{"@type":"Answer","text":"Sí. Corredores bilingües con licencia en Miami comparan opciones 2027 sin costo. Paga la misma prima si usa un corredor o se inscribe directo."}}
-    ]
-  }
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "inLanguage": "es",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "¿Cuándo termina la Inscripción Anual de Medicare?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "El 7 de diciembre de 2026. Su nuevo plan tiene que recibir su solicitud a más tardar el 7 de diciembre, y su cobertura 2027 empieza el 1 de enero de 2027. Si no hace nada, por lo general se queda en su plan actual para 2027."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Puedo cambiar de plan después del 7 de diciembre?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A veces. Si tiene un plan Medicare Advantage, el Período de Inscripción Abierta de Medicare Advantage (1 de enero–31 de marzo) le permite cambiarse a otro plan Medicare Advantage, o volver a Medicare Original y unirse a un plan de medicamentos aparte. Fuera de esas fechas, por lo general necesita un Período de Inscripción Especial, por ejemplo si se muda o si obtiene Medicaid o Ayuda Adicional. Fuente: Medicare.gov."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Tengo que cambiar de plan durante el AEP?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. Si está satisfecho con su plan actual, no tiene que hacer nada. Pero de todas formas debería revisarlo — los beneficios, primas y redes cambian cada año y su plan puede haber cambiado sin que se haya dado cuenta."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Cuánto tiempo toma una revisión del plan?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "La mayoría de las revisiones toman 20–30 minutos por teléfono o en persona en nuestra oficina en Doral. Revisamos sus médicos, medicamentos y presupuesto contra los planes que ofrecemos en su área."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Cuánto cuesta usar un agente de Medicare?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "$0. A nosotros nos pagan las compañías de seguro, no usted. Su prima es la misma si se inscribe con nosotros o por su cuenta, así que una segunda opinión no le cuesta nada."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Puedo recibir ayuda en español?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Sí. Todo nuestro equipo es bilingüe. Servimos a la comunidad hispanohablante de Florida en inglés y español — mismo agente, misma experiencia, sin transferencias."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Qué pasa si tengo Medicare y Medicaid?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Puede calificar para un Plan de Necesidades Especiales Dual (D-SNP) que coordina ambos beneficios. El AEP es un buen momento para revisar sus opciones."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Cuándo es la Inscripción Anual de Medicare 2027?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "La Inscripción Anual de Medicare 2027 (inscripción abierta, o AEP) va del 15 de octubre al 7 de diciembre. Los cambios entran en vigor el 1 de enero de 2027. Las mismas fechas aplican en Miami."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Quién puede cambiar un plan de Medicare durante el AEP?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Si tiene Medicare Parte A y Parte B, el AEP es la ventana anual para unirse, cambiar o cancelar un plan Medicare Advantage o Parte D. No tiene que cambiar. Medicare Original con Medigap sigue otras reglas."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Qué debo traer a una revisión de plan?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Traiga su tarjeta de Medicare, una lista de medicamentos con dosis, los nombres de los médicos que desea conservar, su hospital preferido y un presupuesto mensual para primas y gastos de bolsillo."
+      }
+    }
+  ]
+}
+
 ]
 </script>
 
@@ -225,6 +302,10 @@ h1,h2,h3{font-family:'Poppins',sans-serif;}
 .aep-sticky .aep-wa{background:#25D366;}
 .aep-sticky .aep-form{border:2px solid #fff;}
 @media(max-width:640px){.aep-sticky a{font-size:13px;padding:10px 12px;}}
+
+/* Brand rule: never pink on purple. Buttons on purple bands become white with purple text. */
+.aep-events-cta .aep-btn-pink,.cta-strip .btn-pink-pill,.aep-sticky .aep-call{background:#fff;color:#452068;}
+.aep-events-cta .aep-btn-pink:hover,.cta-strip .btn-pink-pill:hover{background:#f7f2fb;color:#452068;}
 </style>
 </head>
 <body>
@@ -336,13 +417,13 @@ h1,h2,h3{font-family:'Poppins',sans-serif;}
 <!-- HERO -->
 <div class="aep-hero">
   <div class="aep-hero-inner">
-    <div class="aep-eyebrow">Inscripción Abierta Medicare 2027 · 15 oct – 7 dic</div>
+    <div class="aep-eyebrow" data-aep-status>El AEP ya está abierto · 15 oct – 7 dic</div>
     <h1 class="aep-h1">Inscripción abierta Medicare 2027 en Miami: 15 de octubre–7 de diciembre</h1>
-    <p class="aep-sub">Únase, cambie o cancele Advantage o Parte D para 2027. Revisión bilingüe del plan, sin costo.</p>
+    <p class="aep-sub" data-aep-lead>El Período de Inscripción Anual de Medicare ya está abierto y cierra el 7 de diciembre. Revise su plan 2027 con un agente bilingüe con licencia, sin costo para usted.</p>
     <div class="aep-btns">
       <a href="tel:18003806821" class="aep-btn-pink" onclick="gtag('event','phone_click',{'page':window.location.pathname})">Llamar 1-800-380-6821</a>
+      <a href="/es/reservar/" class="aep-btn-outline" onclick="gtag('event','book_click',{'page':window.location.pathname,'position':'hero'})">Agendar revisión gratis &rarr;</a>
       <a href="https://wa.me/13054646888" class="aep-btn-wa" target="_blank" rel="noopener" onclick="gtag('event','whatsapp_click',{'page':window.location.pathname})">WhatsApp</a>
-      <a href="#aep-form" class="aep-btn-outline">Revisión gratis &rarr;</a>
     </div>
     <div class="hero-trust">
       <span class="hero-chip">Licencia en FL</span>
@@ -388,6 +469,32 @@ h1,h2,h3{font-family:'Poppins',sans-serif;}
   </div>
 </div>
 
+<!-- CHECKLIST ESTA SEMANA -->
+<div class="section-purple-light" id="aep-esta-semana">
+  <div class="section-inner" style="max-width:780px;">
+    <div class="section-label">ESTA SEMANA</div>
+    <h2 class="section-title">Qué hacer esta semana</h2>
+    <p class="section-sub">Cuatro pasos rápidos antes de escoger su plan 2027.</p>
+    <div class="have-ready">
+      <ul>
+        <li><svg class="check" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l4 4 10-10"/></svg>
+          <span><strong>Lea su ANOC.</strong> Es el Aviso Anual de Cambios que su plan le manda cada septiembre. Fíjese en las primas, los copagos, la lista de medicamentos y la red para 2027. <a href="/es/blog/como-leer-su-anoc-2027/" style="color:#452068;font-weight:700;">Cómo leer su ANOC &rarr;</a></span></li>
+        <li><svg class="check" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l4 4 10-10"/></svg>
+          <span><strong>Confirme sus médicos y su hospital.</strong> Pregunte en cada consultorio si van a aceptar su plan en 2027 y verifíquelo en el directorio de proveedores 2027 del plan. Las redes pueden cambiar el 1 de enero. ¿Se atiende en Lee Health o NCH? <a href="/es/blog/lee-health-nch-cambios-red-medicare-2027/" style="color:#452068;font-weight:700;">Vea los cambios de red 2027 &rarr;</a></span></li>
+        <li><svg class="check" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l4 4 10-10"/></svg>
+          <span><strong>Revise sus medicinas y su farmacia.</strong> Asegúrese de que cada medicamento esté en la lista 2027 (formulario), mire en qué nivel está y confirme que su farmacia siga en la red. <a href="/es/articulos-medicare/" style="color:#452068;font-weight:700;">Parte D y farmacia: evite sorpresas &rarr;</a></span></li>
+        <li><svg class="check" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l4 4 10-10"/></svg>
+          <span><strong>Compare planes en su código postal.</strong> Mire el costo total del año (prima, medicinas y copagos), no solo la prima. Use el <a href="https://www.medicare.gov/plan-compare/" target="_blank" rel="noopener" style="color:#452068;font-weight:700;">buscador de planes de Medicare.gov</a>, o lo comparamos con usted gratis.</span></li>
+      </ul>
+    </div>
+    <p class="edu-fine">¿Tiene Medicare y Medicaid? Puede que califique para un <a href="/es/medicare-medicaid-miami" style="color:#452068;font-weight:700;">plan D-SNP</a>. Más guías: <a href="/es/articulos-medicare/" style="color:#452068;font-weight:700;">Artículos de Medicare</a>.</p>
+    <div class="aep-btns" style="margin:20px 0 0;">
+      <a href="tel:18003806821" class="aep-btn-pink" onclick="gtag('event','phone_click',{'page':window.location.pathname})">Llamar 1-800-380-6821</a>
+      <a href="/es/reservar/" class="aep-btn-outline" onclick="gtag('event','book_click',{'page':window.location.pathname,'position':'checklist'})">Agendar revisión gratis &rarr;</a>
+    </div>
+  </div>
+</div>
+
 <!-- EDUCATION -->
 <div class="section-purple-light">
   <div class="section-inner-lg">
@@ -421,6 +528,18 @@ h1,h2,h3{font-family:'Poppins',sans-serif;}
       </div>
     </div>
     <p class="edu-close">Lea el ANOC y compare: no lo deje en piloto automático.</p>
+  </div>
+</div>
+
+<!-- CTA MITAD DE PÁGINA -->
+<div class="section-white" style="border-top:1px solid #ece5f0;border-bottom:1px solid #ece5f0;">
+  <div class="section-inner" style="max-width:780px;">
+    <h2 class="section-title">¿No sabe si su plan le sigue conviniendo en 2027?</h2>
+    <p class="section-sub">Un agente bilingüe con licencia revisa con usted sus médicos, medicinas y costos en unos 20–30 minutos, sin costo. Por teléfono o en persona en nuestra oficina de Doral.</p>
+    <div class="aep-btns" style="margin-bottom:0;">
+      <a href="tel:18003806821" class="aep-btn-pink" onclick="gtag('event','phone_click',{'page':window.location.pathname})">Llamar 1-800-380-6821</a>
+      <a href="/es/contacto/" class="aep-btn-outline" onclick="gtag('event','contact_click',{'page':window.location.pathname,'position':'mid'})">Escríbanos &rarr;</a>
+    </div>
   </div>
 </div>
 
@@ -544,16 +663,24 @@ h1,h2,h3{font-family:'Poppins',sans-serif;}
     <h2 class="section-title">Preguntas frecuentes</h2>
     <div class="faq-list">
       <div class="faq-item">
+        <button type="button" class="faq-q" aria-expanded="false">¿Cuándo termina la Inscripción Anual de Medicare? <span class="faq-icon">+</span></button>
+        <div class="faq-a">El 7 de diciembre de 2026. Su nuevo plan tiene que recibir su solicitud a más tardar el 7 de diciembre, y su cobertura 2027 empieza el 1 de enero de 2027. Si no hace nada, por lo general se queda en su plan actual para 2027.</div>
+      </div>
+      <div class="faq-item">
+        <button type="button" class="faq-q" aria-expanded="false">¿Puedo cambiar de plan después del 7 de diciembre? <span class="faq-icon">+</span></button>
+        <div class="faq-a">A veces. Si tiene un plan Medicare Advantage, el Período de Inscripción Abierta de Medicare Advantage (1 de enero–31 de marzo) le permite cambiarse a otro plan Medicare Advantage, o volver a Medicare Original y unirse a un plan de medicamentos aparte. Fuera de esas fechas, por lo general necesita un Período de Inscripción Especial, por ejemplo si se muda o si obtiene Medicaid o Ayuda Adicional. Fuente: <a href="https://www.medicare.gov/basics/get-started-with-medicare/get-more-coverage/joining-a-plan" target="_blank" rel="noopener" style="color:#452068;font-weight:700;">Medicare.gov</a>.</div>
+      </div>
+      <div class="faq-item">
         <button type="button" class="faq-q" aria-expanded="false">¿Tengo que cambiar de plan durante el AEP? <span class="faq-icon">+</span></button>
         <div class="faq-a">No. Si está satisfecho con su plan actual, no tiene que hacer nada. Pero de todas formas debería revisarlo — los beneficios, primas y redes cambian cada año y su plan puede haber cambiado sin que se haya dado cuenta.</div>
       </div>
       <div class="faq-item">
         <button type="button" class="faq-q" aria-expanded="false">¿Cuánto tiempo toma una revisión del plan? <span class="faq-icon">+</span></button>
-        <div class="faq-a">La mayoría de las revisiones toman 20–30 minutos por teléfono o en persona en nuestra oficina en Doral. Revisamos sus médicos, medicamentos y presupuesto contra todos los planes disponibles en su área.</div>
+        <div class="faq-a">La mayoría de las revisiones toman 20–30 minutos por teléfono o en persona en nuestra oficina en Doral. Revisamos sus médicos, medicamentos y presupuesto contra los planes que ofrecemos en su área.</div>
       </div>
       <div class="faq-item">
-        <button type="button" class="faq-q" aria-expanded="false">¿De verdad es gratis? <span class="faq-icon">+</span></button>
-        <div class="faq-a">Sí. Somos pagados por las aseguradoras, no por ti. Pagas exactamente la misma prima si usas nuestros servicios o si te inscribes directamente — así que no hay razón para no obtener una segunda opinión.</div>
+        <button type="button" class="faq-q" aria-expanded="false">¿Cuánto cuesta usar un agente de Medicare? <span class="faq-icon">+</span></button>
+        <div class="faq-a">$0. A nosotros nos pagan las compañías de seguro, no usted. Su prima es la misma si se inscribe con nosotros o por su cuenta, así que una segunda opinión no le cuesta nada.</div>
       </div>
       <div class="faq-item">
         <button type="button" class="faq-q" aria-expanded="false">¿Puedo recibir ayuda en español? <span class="faq-icon">+</span></button>
@@ -748,6 +875,21 @@ h1,h2,h3{font-family:'Poppins',sans-serif;}
   });
 })();
 </script>
+<script>
+(function(){
+  var s=document.querySelector('[data-aep-status]'),l=document.querySelector('[data-aep-lead]');
+  if(!s||!l)return;
+  var now=new Date(),open=new Date(2026,9,15),end=new Date(2026,11,7,23,59,59);
+  if(now<open){
+    s.textContent='El AEP abre el jueves 15 de octubre · cierra el 7 de dic';
+    l.textContent='El Período de Inscripción Anual de Medicare va del 15 de octubre al 7 de diciembre. Separe ya su revisión gratis del plan 2027 con un agente bilingüe con licencia.';
+  }else if(now>end){
+    s.textContent='El AEP cerró el 7 de dic · los planes 2027 empiezan el 1 de enero';
+    l.textContent='¿Ya tiene un plan Medicare Advantage? Del 1 de enero al 31 de marzo puede cambiarse a otro plan Medicare Advantage o volver a Medicare Original. Llámenos y revisamos sus opciones.';
+  }
+})();
+</script>
 <script src="/js/aep-season.js"></script>
 </body>
 </html>
+
