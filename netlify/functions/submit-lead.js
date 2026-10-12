@@ -27,7 +27,7 @@ const WEBHOOKS = {
   'es-private': 'FklcK7rZSNfB9SlLueOm',
   'en-private': '9eebf549-c131-4d43-8432-0f6628211899',
   'aep-2027': 'dc6c8b35-9480-412e-b56d-4a4c8c7bd438',
-  'blog-lee-nch': '7fc07b50-3630-4c06-9422-34121b8687e9', // Gina workflow
+  'blog-lee-nch': '07bc8094-2c26-4c03-81bb-ea25841b00c6', // Gina workflow
   'es-home': 'bERRQvXC6yEnplM1Q0nZ',
   'plan-finder': 'e656a512-d15b-409c-924d-bb3d4627ed9f',
   'es-quiz': 'd36da03c-e92a-424a-9767-babcc77e884f',
