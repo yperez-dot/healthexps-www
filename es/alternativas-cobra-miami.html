@@ -470,6 +470,10 @@ img{max-width:100%;height:auto;}
           <input type="email" id="cobra_email" name="email" required>
         </div>
         <div class="cff">
+          <label for="cobra_zip">Código postal <em>*</em></label>
+          <input type="text" id="cobra_zip" name="zip_code" inputmode="numeric" pattern="[0-9]{5}" maxlength="5" autocomplete="postal-code" placeholder="33101" required>
+        </div>
+        <div class="cff">
           <label for="cobra_timing">¿Cuándo estás perdiendo cobertura? <em>*</em></label>
           <select id="cobra_timing" name="cobra_timing" required>
             <option value="">Selecciona...</option>
@@ -607,7 +611,7 @@ img{max-width:100%;height:auto;}
 
 <script>
 (function(){
-  var WEBHOOK = 'https://services.leadconnectorhq.com/hooks/RINM4TCnM4hN06UA1aK0/webhook-trigger/dc6c8b35-9480-412e-b56d-4a4c8c7bd438';
+  var WEBHOOK = 'https://services.leadconnectorhq.com/hooks/RINM4TCnM4hN06UA1aK0/webhook-trigger/520e997b-69a4-4330-b3d9-96b452af28bf';
   var form = document.getElementById('cobraLeadForm');
   var _formLoadTime = Date.now();
   var wrap = document.getElementById('cobraFormWrap');
@@ -625,16 +629,20 @@ img{max-width:100%;height:auto;}
     var phone = (document.getElementById('cobra_phone').value || '').trim();
     var email = (document.getElementById('cobra_email').value || '').trim();
     var timing = (document.getElementById('cobra_timing').value || '').trim();
+    var zip = ((document.getElementById('cobra_zip') || {}).value || '').trim();
     var notes = (document.getElementById('cobra_notes').value || '').trim();
     var consent = document.getElementById('cobra_consent').checked;
     errEl.style.display = 'none';
-    if(!first||!last||!phone||!email||!timing||!consent){
+    if(!first||!last||!phone||!email||!/^[0-9]{5}$/.test(zip)||!timing||!consent){
       errEl.textContent = 'Por favor completa todos los campos requeridos.';
       errEl.style.display = 'block';
       return;
     }
     btn.disabled = true;
     btn.textContent = 'Enviando...';
+    var _q = new URLSearchParams(window.location.search);
+    var _utm = (_q.get('utm_source') || '').toLowerCase();
+    var channel = (_utm === 'facebook' || _utm === 'fb' || _utm === 'meta' || _utm === 'instagram') ? 'facebook' : (_utm ? 'paid' : 'organic');
     try {
       var res = await fetch(WEBHOOK,{
         method:'POST',
@@ -648,8 +656,17 @@ img{max-width:100%;height:auto;}
           notes:notes,
           additional_notes:notes,
           looking_for:'Alternativas al COBRA',
+          zip_code:zip,
           coverage_type:'cobra',
+          consent:'yes',
+          source_key:'es-cobra',
           source:'Alternativas COBRA ES',
+          language:'spanish',
+          channel:channel,
+          tags:'cobra,'+channel+',spanish',
+          page_url:window.location.href,
+          utm_source:_q.get('utm_source')||'',utm_medium:_q.get('utm_medium')||'',utm_campaign:_q.get('utm_campaign')||'',utm_content:_q.get('utm_content')||'',
+
           page:window.location.href,
           submitted_at:new Date().toISOString()
         })
