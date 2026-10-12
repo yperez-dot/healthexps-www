@@ -749,6 +749,12 @@ body{padding-bottom:72px;}
           <input class="form-input" type="email" id="aep_email" name="email" placeholder="your@email.com" required>
         </div>
 
+        <!-- ZIP -->
+        <div style="margin-bottom:12px;">
+          <label class="form-label" for="aep_zip">ZIP code <span style="color:#ff1090;">*</span></label>
+          <input class="form-input" type="text" id="aep_zip" name="zip_code" inputmode="numeric" pattern="[0-9]{5}" maxlength="5" placeholder="33101" autocomplete="postal-code" required>
+        </div>
+
         <!-- Reason / what they need -->
         <div style="margin-bottom:12px;">
           <label class="form-label" for="aep_reason">What can we help you with? <span style="color:#ff1090;">*</span></label>
@@ -977,9 +983,11 @@ body{padding-bottom:72px;}
     var phone = document.getElementById('aep_phone').value.trim();
     var email = document.getElementById('aep_email').value.trim();
     var reason = document.getElementById('aep_reason').value;
+    var zip = (document.getElementById('aep_zip') || {}).value || '';
+    zip = zip.trim();
     var consent = document.getElementById('aep_consent').checked;
 
-    if(!fname || !lname || !phone || !email || !reason || !consent){
+    if(!fname || !lname || !phone || !email || !/^[0-9]{5}$/.test(zip) || !reason || !consent){
       alert('Please fill in all required fields and check the consent box.');
       return;
     }
@@ -997,6 +1005,7 @@ body{padding-bottom:72px;}
       last_name: lname,
       phone: phone,
       email: email,
+      zip_code: zip,
       reason: reason,
       coverage_type: reason,
       looking_for: reason,
