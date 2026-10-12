@@ -22,6 +22,7 @@ const WEBHOOKS = {
   'es-contact': 'VIGENUzik6Z1M83Y5cea',
   'en-contact': '1238c14d-f70a-49d5-a409-32d8e055d735',
   'es-cobra': '520e997b-69a4-4330-b3d9-96b452af28bf',
+  'en-cobra': 'd70d8962-255a-4c3a-acee-b8d5c26b6d2e',
   'es-aca': 'cNWs0DqK73DvGCTLzGHI',
   'es-private': 'FklcK7rZSNfB9SlLueOm',
   'en-private': '9eebf549-c131-4d43-8432-0f6628211899',

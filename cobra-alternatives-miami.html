@@ -784,6 +784,11 @@ img { max-width: 100%; height: auto; }
           </div>
 
           <div class="cff">
+            <label for="cobra_zip">ZIP code <em>*</em></label>
+            <input type="text" id="cobra_zip" name="zip_code" inputmode="numeric" pattern="[0-9]{5}" maxlength="5" autocomplete="postal-code" placeholder="33101" required/>
+          </div>
+
+          <div class="cff">
             <label for="cobra_timing">When are you losing coverage? <em>*</em></label>
             <select id="cobra_timing" name="cobra_timing" required>
               <option value="">Select...</option>
@@ -1009,12 +1014,13 @@ img { max-width: 100%; height: auto; }
     var phone   = (document.getElementById('cobra_phone').value || '').trim();
     var email   = (document.getElementById('cobra_email').value || '').trim();
     var timing  = (document.getElementById('cobra_timing').value || '').trim();
+    var zip     = ((document.getElementById('cobra_zip') || {}).value || '').trim();
     var notes   = (document.getElementById('cobra_notes').value || '').trim();
     var consent = document.getElementById('cobra_consent').checked;
 
     errEl.style.display = 'none';
 
-    if (!first || !last || !phone || !email || !timing || !consent){
+    if (!first || !last || !phone || !email || !/^[0-9]{5}$/.test(zip) || !timing || !consent){
       errEl.textContent = 'Please fill in all required fields and accept the consent.';
       errEl.style.display = 'block';
       return;
@@ -1023,6 +1029,9 @@ img { max-width: 100%; height: auto; }
     btn.disabled = true;
     btn.textContent = 'Sending...';
 
+    var _q = new URLSearchParams(window.location.search);
+    var _utm = (_q.get('utm_source') || '').toLowerCase();
+    var channel = (_utm === 'facebook' || _utm === 'fb' || _utm === 'meta' || _utm === 'instagram') ? 'facebook' : (_utm ? 'paid' : 'organic');
     try {
       var res = await fetch(WEBHOOK, {
         method: 'POST',
@@ -1034,8 +1043,17 @@ img { max-width: 100%; height: auto; }
           email:         email,
           cobra_timing:  timing,
           notes:         notes,
+          zip_code:      zip,
           coverage_type: 'cobra',
+          consent:       'yes',
+          source_key:    'en-cobra',
           source:        'COBRA Alternatives Page',
+          language:      'english',
+          channel:       channel,
+          tags:          'cobra,' + channel + ',english',
+          page_url:      window.location.href,
+          utm_source:_q.get('utm_source')||'',utm_medium:_q.get('utm_medium')||'',utm_campaign:_q.get('utm_campaign')||'',utm_content:_q.get('utm_content')||'',
+
           page:          window.location.href,
           submitted_at:  new Date().toISOString()
         })
@@ -1118,63 +1136,6 @@ img { max-width: 100%; height: auto; }
 
     </div>
 
-<script>
-(function(){
-  var WEBHOOK = 'https://services.leadconnectorhq.com/hooks/RINM4TCnM4hN06UA1aK0/webhook-trigger/dc6c8b35-9480-412e-b56d-4a4c8c7bd438';
-  var form = document.getElementById('v4LeadForm');
-  if (!form) return;
-
-  form.addEventListener('submit', async function(e) {
-    e.preventDefault();
-    var btn      = document.getElementById('v4Submit');
-    var err      = document.getElementById('v4Error');
-    var first    = (document.getElementById('v4First') || {}).value || '';
-    var last     = (document.getElementById('v4Last') || {}).value || '';
-    var phone    = (document.getElementById('v4Phone') || {}).value || '';
-    var email    = (document.getElementById('v4Email') || {}).value || '';
-    var coverage = (document.getElementById('v4Coverage') || {}).value || '';
-    var consent  = document.getElementById('v4Consent') && document.getElementById('v4Consent').checked;
-
-    first = first.trim(); last = last.trim(); phone = phone.trim(); email = email.trim();
-
-    if (!first || !last || !phone || !email || !coverage || !consent) {
-      err.style.display = 'block';
-      err.textContent = 'Please fill in all required fields.';
-      return;
-    }
-    btn.disabled = true;
-    btn.textContent = 'Sending...';
-    err.style.display = 'none';
-
-    try {
-      var res = await fetch(WEBHOOK, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          first_name: first,
-          last_name: last,
-          phone: phone,
-          email: email,
-          coverage_type: coverage,
-          source: 'Homepage Form',
-          page: window.location.href,
-          submitted_at: new Date().toISOString()
-        })
-      });
-      if (res.ok) {
-        form.style.display = 'none';
-        var success = document.getElementById('v4Success');
-        if (success) success.style.display = 'block';
-      } else { throw new Error('Server error'); }
-    } catch(ex) {
-      btn.disabled = false;
-      btn.textContent = 'Book My Free Consultation →';
-      err.style.display = 'block';
-      err.textContent = 'Something went wrong. Please try again or call 1-800-380-6821.';
-    }
-  });
-})();
-</script>
 
 <script>
 (function(){

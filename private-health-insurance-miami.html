@@ -848,6 +848,7 @@ img { max-width: 100%; height: auto; }
               </div>
               <input type="tel" name="phone" placeholder="Phone Number" required style="width:100%;box-sizing:border-box;padding:13px 14px;border-radius:10px;border:2px solid #ddd2e6;font-size:16px;margin-bottom:12px;font-family:Inter,sans-serif;"/>
               <input type="email" name="email" placeholder="Email Address" required style="width:100%;box-sizing:border-box;padding:13px 14px;border-radius:10px;border:2px solid #ddd2e6;font-size:16px;margin-bottom:12px;font-family:Inter,sans-serif;"/>
+              <input type="text" name="zip_code" id="privZip" inputmode="numeric" pattern="[0-9]{5}" maxlength="5" autocomplete="postal-code" placeholder="ZIP code" aria-label="ZIP code" required style="width:100%;box-sizing:border-box;padding:13px 14px;border-radius:10px;border:2px solid #ddd2e6;font-size:16px;margin-bottom:12px;font-family:Inter,sans-serif;"/>
               <select name="private_reason" required style="width:100%;box-sizing:border-box;padding:13px 14px;border-radius:10px;border:2px solid #ddd2e6;font-size:16px;margin-bottom:12px;font-family:Inter,sans-serif;color:#241a30;background:#fff;appearance:none;-webkit-appearance:none;">
                 <option value="">What coverage do you need?</option>
                 <option value="I lost my job coverage">I lost my job coverage</option>
@@ -1114,6 +1115,7 @@ img { max-width: 100%; height: auto; }
       var phone = String(fields.phone || '').trim();
       var email = String(fields.email || '').trim();
       var reason = String(fields.private_reason || '').trim();
+      var zip = String(fields.zip_code || '').trim();
       var notes = String(fields.notes || '').trim();
 
       if (!consent || !consent.checked) {
@@ -1122,7 +1124,7 @@ img { max-width: 100%; height: auto; }
         return;
       }
 
-      if (!first || !last || !phone || !email || !reason) {
+      if (!first || !last || !phone || !email || !/^[0-9]{5}$/.test(zip) || !reason) {
         errEl.style.display = 'block';
         errEl.textContent = !reason
           ? 'Please select what coverage you need.'
@@ -1142,7 +1144,8 @@ img { max-width: 100%; height: auto; }
         email: email,
         notes: notes,
         additional_notes: notes,
-        private_reason: reason
+        private_reason: reason,
+        zip_code: zip
       };
 
       if (guard.isBot() || guard.clientSpam(spamFields)) {
@@ -1155,8 +1158,22 @@ img { max-width: 100%; height: auto; }
       btn.disabled = true;
       btn.textContent = 'Sending...';
 
-      var payload = Object.assign({}, spamFields, guard.meta(), {
+      var _q = new URLSearchParams(window.location.search);
+    var _utm = (_q.get('utm_source') || '').toLowerCase();
+    var channel = (_utm === 'facebook' || _utm === 'fb' || _utm === 'meta' || _utm === 'instagram') ? 'facebook' : (_utm ? 'paid' : 'organic');
+    var payload = Object.assign({}, spamFields, guard.meta(), {
         source_key: 'en-private',
+        language: 'english',
+        channel: channel,
+        tags: 'private,' + channel + ',english',
+        consent: 'yes',
+        page_url: window.location.href,
+        utm_source:_q.get('utm_source')||'',
+        utm_medium:_q.get('utm_medium')||'',
+        utm_campaign:_q.get('utm_campaign')||'',
+        utm_content:_q.get('utm_content')||'',
+       
+
         source: 'Private Health Page Form',
         coverage_type: reason,
         looking_for: reason,
