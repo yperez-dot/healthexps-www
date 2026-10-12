@@ -600,6 +600,10 @@ h1,h2,h3{font-family:'Poppins',sans-serif;}
         <input type="hidden" name="looking_for" value="Inscripción Anual Medicare 2027">
         <input type="hidden" name="coverage_type" id="aep_coverage_type" value="Inscripción Anual Medicare 2027">
         <input type="hidden" name="source_key" value="aep-2027">
+        <input type="hidden" name="source" id="aep_source" value="AEP 2027 Page (ES)">
+        <input type="hidden" name="tags" id="aep_tags" value="aep-2027,organic,spanish">
+        <input type="hidden" name="channel" id="aep_channel" value="organic">
+        <input type="hidden" name="page_url" id="aep_page_url" value="https://www.healthexps.com/es/inscripcion-anual-medicare-2027/">
         <input type="hidden" name="language" value="spanish">
         <input type="text" name="_hp_name" id="_hp_name" autocomplete="off" tabindex="-1" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0;pointer-events:none;" value="">
         <div class="form-row-2">
@@ -619,6 +623,10 @@ h1,h2,h3{font-family:'Poppins',sans-serif;}
         <div style="margin-bottom:12px;">
           <label for="aep_email" class="form-label">Correo electrónico <em style="color:#ff1090">*</em></label>
           <input type="email" name="email" id="aep_email" class="form-input" placeholder="su@email.com" required>
+        </div>
+        <div style="margin-bottom:12px;">
+          <label for="aep_zip" class="form-label">Código postal <em style="color:#ff1090">*</em></label>
+          <input type="text" name="zip_code" id="aep_zip" class="form-input" inputmode="numeric" pattern="[0-9]{5}" maxlength="5" placeholder="33101" autocomplete="postal-code" required>
         </div>
         <div>
           <label for="aep_plan_type" class="form-label">¿Qué tipo de plan tiene actualmente? <em style="color:#ff1090">*</em></label>
@@ -809,7 +817,8 @@ h1,h2,h3{font-family:'Poppins',sans-serif;}
     var phone = (document.getElementById('aep_phone') || {}).value || '';
     var email = (document.getElementById('aep_email') || {}).value || '';
     var planType = (document.getElementById('aep_plan_type') || {}).value || '';
-    if (!consent || !consent.checked || !first.trim() || !last.trim() || !phone.trim() || !email.trim() || !planType) {
+    var zip = ((document.getElementById('aep_zip') || {}).value || '').trim();
+    if (!consent || !consent.checked || !first.trim() || !last.trim() || !phone.trim() || !email.trim() || !/^[0-9]{5}$/.test(zip) || !planType) {
       errEl.style.display = 'block';
       return;
     }
@@ -817,7 +826,15 @@ h1,h2,h3{font-family:'Poppins',sans-serif;}
     var cov = document.getElementById('aep_coverage_type');
     if (cov) cov.value = planType;
     if (btn) { btn.disabled = true; btn.textContent = 'Enviando...'; }
+    var q = new URLSearchParams(window.location.search);
+    var utmSource = (q.get('utm_source') || '').toLowerCase();
+    var channel = (utmSource === 'facebook' || utmSource === 'fb' || utmSource === 'meta' || utmSource === 'instagram') ? 'facebook' : (utmSource ? 'paid' : 'organic');
+    var setV = function(id, v){ var el = document.getElementById(id); if (el) el.value = v; };
+    setV('aep_channel', channel);
+    setV('aep_tags', 'aep-2027,' + channel + ',spanish');
+    setV('aep_page_url', window.location.href);
     var data = new FormData(form);
+    ['utm_source','utm_medium','utm_campaign','utm_content'].forEach(function(k){ data.set(k, q.get(k) || ''); });
     fetch(form.action, { method: 'POST', body: data })
       .then(function(res){
         if (!res.ok) throw new Error('err');
