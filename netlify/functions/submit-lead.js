@@ -493,7 +493,7 @@ exports.handler = async (event) => {
   // Save EVERY answer on the GHL contact (note, ZIP, real page, tags, owner,
   // opportunity, task for Yahoska). Never blocks or fails the lead.
   // As soon as the contact id is known, fire the instant alert to Yahoska
-  // (email + Telegram) in parallel — never to the lead.
+  // (SMS to Yahoska + Katy; email alert disabled) in parallel — never to the lead.
   let alertPromise = null;
   const startAlert = (info) => {
     if (alertPromise) return;

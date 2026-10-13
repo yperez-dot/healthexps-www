@@ -1,6 +1,8 @@
 /**
  * Instant "new website lead" alert to Yahoska — NEVER to the lead.
  *
+ * EMAIL ALERTS ARE DISABLED (all sources). Only channel 2 (SMS) is sent.
+ *
  * Channels (each env-gated, run in parallel, short timeout, errors swallowed):
  *  1. Email via GHL Conversations API, addressed to Yahoska's own GHL contact
  *     (GHL_ALERT_CONTACT_ID, yperez@healthexps.com). Uses GHL_API_TOKEN.
@@ -158,18 +160,10 @@ async function sendLeadAlert(data, payload, info = {}, opts = {}) {
   const ms = Math.max(800, Math.min(opts.timeoutMs || 2500, 3500));
   const alert = buildAlert(data, payload, info);
   const out = {};
-  // No code-sent email alert for these sources (GHL workflow handles them); SMS unchanged
-  const NO_EMAIL_SOURCE_KEYS = new Set(['blog-lee-nch']);
-  const skipEmail = NO_EMAIL_SOURCE_KEYS.has(String(data.source_key || '').trim());
-  if (skipEmail) out.email = 'skipped:source_key';
-  const email = skipEmail ? Promise.resolve() : (async () => {
-    try {
-      out.email_ghl = await sendGhlEmail(alert, ms, info.contactId);
-    } catch (e) {
-      out.email_ghl = 'error:' + e.message;
-      try { out.email_smtp = await sendSmtpEmail(alert, ms); } catch (e2) { out.email_smtp = 'error:' + e2.message; }
-    }
-  })();
+  // Code-sent email alert is turned OFF for every page/source (Yahoska, Oct 2026).
+  // SMS to Yahoska and Katy is unchanged. sendGhlEmail/sendSmtpEmail are kept but unused.
+  out.email = 'disabled';
+  const email = Promise.resolve();
   const digits = String(data.phone || data.phone_number || '').replace(/\D/g, '');
   const leadPhone = digits.length === 10 ? '+1' + digits : digits.length === 11 ? '+' + digits : '';
   const sms = (async () => {
