@@ -50,6 +50,24 @@
   "isPartOf": {"@type": "WebSite", "url": "https://www.healthexps.com"}
 }
 </script>
+<!-- JSON-LD: FAQPage -->
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "FAQPage",
+ "inLanguage": "en",
+ "mainEntity": [
+  {
+   "@type": "Question",
+   "name": "How long does IRMAA last?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "IRMAA isn’t a permanent penalty. Social Security decides it one year at a time, using your tax return from 2 years earlier. For 2026, that’s generally your 2024 return. If a later return shows income at or below that year’s limit (for 2026: $109,000 individual or $218,000 married filing jointly), you don’t pay IRMAA that year. Had a life-changing event? If your income went down because of marriage, divorce, the death of a spouse, stopping or cutting back work, losing a pension or income-producing property, or an employer settlement, you can ask Social Security for a new decision with Form SSA-44. You’ll need proof of the event and of the lower income. You don’t have to file an appeal for this."
+   }
+  }
+ ]
+}
+</script>
 
 <style>
 /* Task 1.7 — scroll-to-top: WCAG 48×48 target, brand purple, visible shadow */
@@ -607,6 +625,40 @@ img { max-width: 100%; height: auto; }
       <!-- Results container — populated by JS -->
       <div id="result-wrap" style="display:none;margin-top:24px;"></div>
 
+      <!-- IRMAA lead CTA (static; EN/ES swap via the small script near the end of the page) -->
+      <div id="irmaa-lead-cta" style="background:#f7f2fb;border:1.5px solid #452068;border-radius:16px;padding:22px;margin-top:24px;text-align:center">
+        <div class="irmaa-en">
+          <p style="font-family:Poppins,sans-serif;font-weight:700;font-size:20px;line-height:1.35;color:#241a30;margin:0 0 8px">Paying IRMAA? Let&#8217;s review your 2027 Medicare options before Dec 7.</p>
+          <p style="font-size:16px;color:#3a2f47;line-height:1.6;margin:0 0 16px">Social Security sets IRMAA from your income, so switching plans won&#8217;t remove it. Your plan&#8217;s premium, drug costs, and doctors still matter, and Annual Enrollment runs Oct 15&#8211;Dec 7. Our licensed bilingual brokers compare options for free.</p>
+          <a href="/contact/" style="display:block;background:#452068;color:#fff;padding:13px;border-radius:10px;font-weight:700;text-decoration:none;margin-bottom:10px">Book a free plan review &#8594;</a>
+          <a href="tel:18003806821" style="display:block;background:#fff;color:#452068;border:1.5px solid #452068;padding:12px;border-radius:10px;font-weight:700;text-decoration:none">Call 1-800-380-6821</a>
+        </div>
+        <div class="irmaa-es" style="display:none">
+          <p style="font-family:Poppins,sans-serif;font-weight:700;font-size:20px;line-height:1.35;color:#241a30;margin:0 0 8px">¿Paga IRMAA? Revisemos sus opciones de Medicare 2027 antes del 7 de diciembre.</p>
+          <p style="font-size:16px;color:#3a2f47;line-height:1.6;margin:0 0 16px">El Seguro Social fija el IRMAA según sus ingresos, así que cambiar de plan no lo elimina. Pero la prima de su plan, el costo de sus medicamentos y sus médicos sí importan, y la Inscripción Anual va del 15 de octubre al 7 de diciembre. Nuestros corredores bilingües con licencia comparan opciones gratis.</p>
+          <a href="/es/contacto/" style="display:block;background:#452068;color:#fff;padding:13px;border-radius:10px;font-weight:700;text-decoration:none;margin-bottom:10px">Reserve su revisión gratis &#8594;</a>
+          <a href="tel:18003806821" style="display:block;background:#fff;color:#452068;border:1.5px solid #452068;padding:12px;border-radius:10px;font-weight:700;text-decoration:none">Llame al 1-800-380-6821</a>
+        </div>
+      </div>
+
+      <!-- FAQ: how long IRMAA lasts (static; EN/ES) -->
+      <div id="irmaa-faq" style="margin-top:40px">
+        <div class="irmaa-en">
+          <h2 style="font-family:Poppins,sans-serif;font-size:24px;font-weight:700;color:#241a30;margin:0 0 14px">How long does IRMAA last?</h2>
+          <p style="font-size:16.5px;color:#3a2f47;line-height:1.7;margin:0 0 12px">IRMAA isn&#8217;t a permanent penalty. Social Security decides it one year at a time, using your tax return from 2 years earlier. For 2026, that&#8217;s generally your 2024 return. If a later return shows income at or below that year&#8217;s limit (for 2026: $109,000 individual or $218,000 married filing jointly), you don&#8217;t pay IRMAA that year.</p>
+          <p style="font-size:16.5px;color:#3a2f47;line-height:1.7;margin:0 0 12px">Had a life-changing event? If your income went down because of marriage, divorce, the death of a spouse, stopping or cutting back work, losing a pension or income-producing property, or an employer settlement, you can ask Social Security for a new decision with Form SSA-44. You&#8217;ll need proof of the event and of the lower income. You don&#8217;t have to file an appeal for this.</p>
+          <p style="font-size:16px;margin:0 0 10px"><a href="https://www.ssa.gov/medicare/lower-irmaa" target="_blank" rel="noopener" style="color:#452068;font-weight:700;text-decoration:underline">Request a lower IRMAA (Social Security)</a> &middot; <a href="/medicare-irmaa-penalties#how-to-appeal" style="color:#452068;font-weight:700;text-decoration:underline">Our IRMAA guide &#8594;</a></p>
+          <p style="font-size:14.5px;color:#5a5068;line-height:1.55;margin:0">Source: Social Security, &#8220;Premiums: Rules for Higher-Income Beneficiaries&#8221; and Form SSA-44.</p>
+        </div>
+        <div class="irmaa-es" style="display:none">
+          <h2 style="font-family:Poppins,sans-serif;font-size:24px;font-weight:700;color:#241a30;margin:0 0 14px">¿Cuánto dura el IRMAA?</h2>
+          <p style="font-size:16.5px;color:#3a2f47;line-height:1.7;margin:0 0 12px">El IRMAA no es una multa permanente. El Seguro Social lo decide año por año, con su declaración de impuestos de 2 años antes. Para 2026, normalmente es su declaración de 2024. Si una declaración posterior muestra ingresos iguales o menores al límite de ese año (para 2026: $109,000 individual o $218,000 casados que declaran juntos), no paga IRMAA ese año.</p>
+          <p style="font-size:16.5px;color:#3a2f47;line-height:1.7;margin:0 0 12px">¿Tuvo un cambio importante en su vida? Si sus ingresos bajaron por matrimonio, divorcio, fallecimiento del cónyuge, dejar de trabajar o trabajar menos, pérdida de una pensión o de una propiedad que le daba ingresos, o un pago de acuerdo de un empleador, puede pedirle al Seguro Social una nueva decisión con el Formulario SSA-44 (en inglés; para ayuda en español llame al 1-800-772-1213 y oprima 7). Necesitará pruebas del evento y de los ingresos más bajos. Para esto no tiene que presentar una apelación.</p>
+          <p style="font-size:16px;margin:0 0 10px"><a href="https://www.ssa.gov/es/medicare/lower-irmaa" target="_blank" rel="noopener" style="color:#452068;font-weight:700;text-decoration:underline">Solicite reducir su IRMAA (Seguro Social)</a> &middot; <a href="/es/irmaa-penalidades-medicare/#how-to-appeal" style="color:#452068;font-weight:700;text-decoration:underline">Nuestra guía de IRMAA &#8594;</a></p>
+          <p style="font-size:14.5px;color:#5a5068;line-height:1.55;margin:0">Fuente: Seguro Social, &#8220;Primas de Medicare: reglas para beneficiarios con ingresos altos&#8221; y Formulario SSA-44.</p>
+        </div>
+      </div>
+
     </div>
   </div>
 
@@ -1010,6 +1062,19 @@ function calculate() {
       }
     });
   });
+})();
+</script>
+
+<script>
+// EN/ES swap for the static IRMAA CTA + FAQ blocks only. Does not touch the calculator logic.
+(function(){
+  function show(lang){
+    document.querySelectorAll('.irmaa-en').forEach(function(el){ el.style.display = lang === 'en' ? '' : 'none'; });
+    document.querySelectorAll('.irmaa-es').forEach(function(el){ el.style.display = lang === 'es' ? '' : 'none'; });
+  }
+  var en = document.getElementById('btn-en'), es = document.getElementById('btn-es');
+  if (en) en.addEventListener('click', function(){ show('en'); });
+  if (es) es.addEventListener('click', function(){ show('es'); });
 })();
 </script>
 
