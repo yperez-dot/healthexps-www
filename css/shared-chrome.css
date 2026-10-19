@@ -227,24 +227,27 @@
 }
 
 /* ── Purple bottom CTA (blog posts EN + ES) ──────────────────────────────
-   `.article-body a { color: pink }` out-ranked `.bottom-cta-btn { color: white }`,
-   so the pink pill's label rendered pink-on-pink (invisible). Brand rule: never
-   pink text on purple or pink; white on purple/pink. */
+   73b7992 (Oct 7): `.article-body a { color: pink }` out-ranked the button's white
+   label, so the pink pill rendered pink-on-pink. Oct 19, 2026: brand rule is never
+   pink on purple, so the pill is now WHITE with purple text (12.65:1) and a lavender
+   hover (11.12:1). Keep !important on color so the in-article pink link color can
+   never win again (no regression of 73b7992). */
 .bottom-cta a.bottom-cta-btn,
 .article-body .bottom-cta a.bottom-cta-btn,
 .bottom-cta a.bottom-cta-btn:visited {
-  color: #fff !important;
+  background: #fff !important;
+  color: #452068 !important;
   font-weight: 800 !important;
   font-size: 17px;
   letter-spacing: .01em;
   text-decoration: none !important;
-  text-shadow: 0 1px 1px rgba(0, 0, 0, .18);
+  text-shadow: none;
 }
 .bottom-cta a.bottom-cta-btn:hover,
 .bottom-cta a.bottom-cta-btn:focus-visible,
 .article-body .bottom-cta a.bottom-cta-btn:hover {
-  color: #fff !important;
-  background: #c4006f !important;
+  color: #452068 !important;
+  background: #f4eefa !important;
   text-decoration: none !important;
 }
 .bottom-cta a.bottom-cta-btn:focus-visible { outline: 3px solid #fff; outline-offset: 3px; }
