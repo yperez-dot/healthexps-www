@@ -268,3 +268,15 @@
 /visita                                       /es/contacto/  301!
 /visita/                                      /es/contacto/  301!
 /blog-feed.xml                                /blog/  301!
+
+# Oct 19, 2026: GA4 Page Not Found leftovers
+/article/*                 /blog/                     301!
+/health-and-fitness/*      /blog/                     301!
+/es/terms                  /es/privacidad/            301!
+/es/terms/                 /es/privacidad/            301!
+/medicare/plans-miami      /medicare-plans-miami/     301!
+/medicare/plans-miami/     /medicare-plans-miami/     301!
+/es/aca-plans-miami        /es/planes-aca-miami/      301!
+/es/aca-plans-miami/       /es/planes-aca-miami/      301!
+/part-b                    /medicare-savings-program/ 301!
+/part-b/                   /medicare-savings-program/ 301!
