@@ -47,10 +47,12 @@
   "inLanguage": "es",
   "mainEntity": [
     {"@type":"Question","name":"¿Qué es el Programa de Ahorros de Medicare?","acceptedAnswer":{"@type":"Answer","text":"El Programa de Ahorros Medicare (MSP) es un programa estatal que ayuda a personas con Medicare y bajos ingresos a pagar los costos de Medicare, como primas, deducibles y copagos. En Florida lo administra el Departamento de Niños y Familias (DCF)."}},
-    {"@type":"Question","name":"¿Quién califica para el Programa de Ahorros Medicare en Florida?","acceptedAnswer":{"@type":"Answer","text":"En 2026, los límites aproximados de QMB son $1,330/mes individual y $1,803/mes pareja. SLMB: $1,596 / $2,164. QI: $1,796 / $2,435. También aplican límites de activos. Debe tener Medicare Parte A."}},
+    {"@type":"Question","name":"¿Quién califica para el Programa de Ahorros Medicare en Florida?","acceptedAnswer":{"@type":"Answer","text":"En 2026, los límites de ingresos de Florida para QMB son $1,330/mes individual y $1,803/mes pareja. SLMB: $1,596 / $2,164. QI: $1,796 / $2,435. Son cifras provisionales de Florida para 2026 y no incluyen la exclusión de $20. Los activos deben ser de $9,950 o menos para una persona o $14,910 o menos para una pareja. Los límites cambian cada año. Debe tener Medicare Parte A."}},
     {"@type":"Question","name":"¿Qué es QMB?","acceptedAnswer":{"@type":"Answer","text":"QMB (Beneficiario Medicare Calificado) es el nivel más completo. Cubre primas de Parte A y B, deducibles, copagos y coseguros. También califica automáticamente para Extra Help (Ayuda Extra) de la Parte D. QMB es el único MSP que cubre la prima de Parte A si tiene menos de 40 créditos de trabajo."}},
     {"@type":"Question","name":"¿El Programa de Ahorros Medicare también cubre medicamentos?","acceptedAnswer":{"@type":"Answer","text":"El programa en sí no cubre medicamentos, pero si califica para QMB, SLMB o QI, califica automáticamente para Extra Help (Ayuda Extra), que puede ahorrar hasta $5,300 al año en la Parte D."}},
-    {"@type":"Question","name":"¿Cómo aplico al Programa de Ahorros Medicare en Florida?","acceptedAnswer":{"@type":"Answer","text":"Puede aplicar por el portal MyACCESS de DCF en access.florida.gov, llamando al 1-866-762-2237 o visitando una oficina local de DCF. Nuestro equipo puede orientarle sin costo."}}
+    {"@type":"Question","name":"¿Cómo aplico al Programa de Ahorros Medicare en Florida?","acceptedAnswer":{"@type":"Answer","text":"En Florida, el Programa de Ahorros de Medicare se llama Medicare Buy-In y el Departamento de Niños y Familias (DCF) decide quién califica. Llene la Solicitud de Medicaid/Medicare Buy-In de DCF (formulario CF-ES 2282S en español o CF-ES 2282 en inglés). Envíela por correo a ACCESS Central Mail Center, P.O. Box 1770, Ocala, FL 34478-1770, o envíela por fax o entréguela en un centro de servicio local de DCF. Si solicita Ayuda Extra con el Seguro Social, también puede elegir que esa solicitud cuente para el Programa de Ahorros de Medicare. Nuestro equipo con licencia le ayuda con el formulario sin costo."}},
+    {"@type":"Question","name":"¿Qué documentos necesito para aplicar al Programa de Ahorros Medicare en Florida?","acceptedAnswer":{"@type":"Answer","text":"Tenga a mano su tarjeta de Medicare, los números de Seguro Social suyo y de su cónyuge, prueba de ingresos (como cartas de beneficios o talones de pago), prueba de bienes (como estados de cuenta del banco o pólizas de seguro de vida) y prueba de dónde vive. Si no es ciudadano estadounidense, incluya prueba de su estatus migratorio. DCF puede pedirle más pruebas."}},
+    {"@type":"Question","name":"¿Qué pasa después de aplicar al Programa de Ahorros Medicare?","acceptedAnswer":{"@type":"Answer","text":"DCF revisa su solicitud y, según CMS, debe recibir una respuesta dentro de 45 días. Si lo aprueban para QMB, SLMB o QI, la prima de la Parte B deja de descontarse de su cheque del Seguro Social y queda inscrito automáticamente en Ayuda Extra. QI se debe renovar cada año, y debe informar a DCF los cambios en sus ingresos o bienes dentro de 10 días. Si le niegan la solicitud, puede pedir una audiencia imparcial."}}
   ]
  }
 ]
@@ -331,19 +333,20 @@ input:focus,textarea:focus,select:focus{outline:2px solid #ff1090;outline-offset
             <th style="text-align:left;padding:12px 14px;font-weight:700;color:#241a30">Programa</th>
             <th style="text-align:left;padding:12px 14px;font-weight:700;color:#241a30">Individual</th>
             <th style="text-align:left;padding:12px 14px;font-weight:700;color:#241a30">Pareja</th>
-            <th style="text-align:left;padding:12px 14px;font-weight:700;color:#241a30">Límite de activos</th>
+            <th style="text-align:left;padding:12px 14px;font-weight:700;color:#241a30">Límite de activos (individual / pareja)</th>
           </tr>
         </thead>
         <tbody>
-          <tr style="border-top:1px solid #ece5f0"><td style="padding:12px 14px;font-weight:700;color:#452068">QMB</td><td style="padding:12px 14px;color:#4a4051">≤$1,330/mes</td><td style="padding:12px 14px;color:#4a4051">≤$1,803/mes</td><td style="padding:12px 14px;color:#4a4051">$9,950</td></tr>
-          <tr style="border-top:1px solid #ece5f0"><td style="padding:12px 14px;font-weight:700;color:#452068">SLMB</td><td style="padding:12px 14px;color:#4a4051">≤$1,596/mes</td><td style="padding:12px 14px;color:#4a4051">≤$2,164/mes</td><td style="padding:12px 14px;color:#4a4051">$9,950</td></tr>
-          <tr style="border-top:1px solid #ece5f0"><td style="padding:12px 14px;font-weight:700;color:#452068">QI</td><td style="padding:12px 14px;color:#4a4051">≤$1,796/mes</td><td style="padding:12px 14px;color:#4a4051">≤$2,435/mes</td><td style="padding:12px 14px;color:#4a4051">$9,950</td></tr>
-          <tr style="border-top:1px solid #ece5f0"><td style="padding:12px 14px;font-weight:700;color:#452068">QDWI</td><td style="padding:12px 14px;color:#4a4051">≤$2,660/mes</td><td style="padding:12px 14px;color:#4a4051">≤$3,607/mes</td><td style="padding:12px 14px;color:#4a4051">$4,000</td></tr>
-          <tr style="border-top:1px solid #ece5f0;border-bottom:1px solid #ece5f0"><td style="padding:12px 14px;font-weight:700;color:#452068">Extra Help</td><td style="padding:12px 14px;color:#4a4051">≤$1,903/mes</td><td style="padding:12px 14px;color:#4a4051">≤$2,575/mes</td><td style="padding:12px 14px;color:#4a4051">$17,220</td></tr>
+          <tr style="border-top:1px solid #ece5f0"><td style="padding:12px 14px;font-weight:700;color:#452068">QMB</td><td style="padding:12px 14px;color:#4a4051">≤$1,330/mes</td><td style="padding:12px 14px;color:#4a4051">≤$1,803/mes</td><td style="padding:12px 14px;color:#4a4051">$9,950 / $14,910</td></tr>
+          <tr style="border-top:1px solid #ece5f0"><td style="padding:12px 14px;font-weight:700;color:#452068">SLMB</td><td style="padding:12px 14px;color:#4a4051">≤$1,596/mes</td><td style="padding:12px 14px;color:#4a4051">≤$2,164/mes</td><td style="padding:12px 14px;color:#4a4051">$9,950 / $14,910</td></tr>
+          <tr style="border-top:1px solid #ece5f0"><td style="padding:12px 14px;font-weight:700;color:#452068">QI</td><td style="padding:12px 14px;color:#4a4051">≤$1,796/mes</td><td style="padding:12px 14px;color:#4a4051">≤$2,435/mes</td><td style="padding:12px 14px;color:#4a4051">$9,950 / $14,910</td></tr>
+          <tr style="border-top:1px solid #ece5f0"><td style="padding:12px 14px;font-weight:700;color:#452068">QDWI</td><td style="padding:12px 14px;color:#4a4051">≤$2,660/mes</td><td style="padding:12px 14px;color:#4a4051">≤$3,607/mes</td><td style="padding:12px 14px;color:#4a4051">$4,000 / $6,000</td></tr>
+          <tr style="border-top:1px solid #ece5f0;border-bottom:1px solid #ece5f0"><td style="padding:12px 14px;font-weight:700;color:#452068">Extra Help</td><td style="padding:12px 14px;color:#4a4051">≤$1,995/mes</td><td style="padding:12px 14px;color:#4a4051">≤$2,705/mes</td><td style="padding:12px 14px;color:#4a4051">$18,090 / $36,100</td></tr>
         </tbody>
       </table>
     </div>
     <p style="font-size:18px;color:#5a5068;margin:16px 0 0;line-height:1.7">Su ingreso contable suele ser menor que el bruto: los primeros $20 de la mayoría de los ingresos y los primeros $65 de ingreso laboral no cuentan, entre otras exclusiones. Florida también excluye su casa principal, un automóvil, muebles y fondos de entierro.</p>
+    <p style="font-size:16px;color:#5a5068;margin:12px 0 0;line-height:1.65">Los límites de ingresos de QMB, SLMB, QI y QDWI son las cifras provisionales de Florida para 2026 y no incluyen la exclusión de $20. Los límites de Extra Help son el 150% del nivel federal de pobreza. Los límites de activos incluyen $1,500 por persona para gastos de entierro. Estos límites cambian cada año. Fuente: <a href="https://training.floridashine.org/Website_Resources/SSI%20CHART.pdf" target="_blank" rel="noopener" style="color:#5a5068;text-decoration:underline">tabla SHINE del Departamento de Asuntos de Personas Mayores de Florida, &#8220;SSI-Related Programs &amp; Coverage Groups &#8211; Financial Eligibility Standards: April 2026&#8221; (en inglés)</a>.</p>
   </div>
 </div>
 
@@ -378,32 +381,67 @@ input:focus,textarea:focus,select:focus{outline:2px solid #ff1090;outline-offset
   </div>
 </div>
 
-<!-- HOW TO APPLY -->
-<div class="section-pad" style="background:#fdfaf7;padding:48px 56px">
+<!-- HOW TO APPLY: Florida Medicare Buy-In (DCF) -->
+<div id="como-aplicar" class="section-pad" style="background:#fdfaf7;padding:48px 56px">
   <div style="max-width:900px;margin:0 auto">
-    <h2 style="text-align:center;font-family:Poppins,sans-serif;font-size:26px;font-weight:700;color:#241a30;margin:0 0 32px">Cómo aplicar en Florida</h2>
-    <div class="msp-steps-grid" style="display:grid;grid-template-columns:repeat(4,1fr);gap:18px">
-      <div>
-        <div style="width:32px;height:32px;border-radius:50%;background:#ff1090;color:#fff;font-weight:700;font-size:17px;display:flex;align-items:center;justify-content:center;margin-bottom:10px">1</div>
-        <div style="font-weight:700;font-size:16.5px;color:#241a30;margin-bottom:6px">Reúna documentos</div>
-        <div style="font-size:16px;color:#3a2f47;font-weight:500;line-height:1.65">Tarjeta de Medicare, comprobante de ingresos, estados de cuenta, prueba de residencia. <em>¿Menos de 40 créditos? Pida primero “Conditional Part A” al SSA.</em></div>
-      </div>
-      <div>
-        <div style="width:32px;height:32px;border-radius:50%;background:#ff1090;color:#fff;font-weight:700;font-size:17px;display:flex;align-items:center;justify-content:center;margin-bottom:10px">2</div>
-        <div style="font-weight:700;font-size:16.5px;color:#241a30;margin-bottom:6px">Aplique por DCF</div>
-        <div style="font-size:16px;color:#3a2f47;font-weight:500;line-height:1.65">En línea en access.florida.gov, por teléfono al 1-866-762-2237, o en un centro local de DCF.</div>
-      </div>
-      <div>
-        <div style="width:32px;height:32px;border-radius:50%;background:#ff1090;color:#fff;font-weight:700;font-size:17px;display:flex;align-items:center;justify-content:center;margin-bottom:10px">3</div>
-        <div style="font-weight:700;font-size:16.5px;color:#241a30;margin-bottom:6px">Espere ~45 días</div>
-        <div style="font-size:16px;color:#3a2f47;font-weight:500;line-height:1.65">Los beneficios suelen ser retroactivos al mes de la solicitud. QI debe renovarse cada año.</div>
-      </div>
-      <div>
-        <div style="width:32px;height:32px;border-radius:50%;background:#ff1090;color:#fff;font-weight:700;font-size:17px;display:flex;align-items:center;justify-content:center;margin-bottom:10px">4</div>
-        <div style="font-weight:700;font-size:16.5px;color:#241a30;margin-bottom:6px">Le ayudamos gratis</div>
-        <div style="font-size:16px;color:#3a2f47;font-weight:500;line-height:1.65">Revisamos su solicitud y la alineamos con el plan Medicare correcto. Si necesita más apoyo, podemos referirle a <strong style="color:#241a30"><a href="https://goldenyearsfl.org" style="color:#c40074;text-decoration:underline" target="_blank" rel="noopener">Golden Years Florida</a></strong>, una organización sin fines de lucro.</div>
+    <h2 style="text-align:center;font-family:Poppins,sans-serif;font-size:26px;font-weight:700;color:#241a30;margin:0 0 12px">Cómo aplicar al Programa de Ahorros de Medicare en Florida</h2>
+    <p style="text-align:center;color:#3a2f47;font-weight:500;font-size:17px;line-height:1.7;margin:0 auto 32px;max-width:720px">En Florida, el Programa de Ahorros de Medicare se llama <strong style="color:#241a30">Medicare Buy-In</strong>, y el Departamento de Niños y Familias (DCF) decide quién califica. DCF recibe las solicitudes del Buy-In en su propio formulario en papel. La solicitud en línea de ACCESS Florida es para Medicaid regular.</p>
+    <div class="msp-steps-grid" style="display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin-bottom:28px">
+          <div>
+            <div style="width:32px;height:32px;border-radius:50%;background:#ff1090;color:#fff;font-weight:700;font-size:17px;display:flex;align-items:center;justify-content:center;margin-bottom:10px">1</div>
+            <div style="font-weight:700;font-size:16.5px;color:#241a30;margin-bottom:6px">Obtenga el formulario</div>
+            <div style="font-size:16px;color:#3a2f47;font-weight:500;line-height:1.65">Descargue la <a href="https://eds.myflfamilies.com/DCFFormsInternet/Search/OpenDCFForm.aspx?FormId=466" target="_blank" rel="noopener" style="color:#452068;font-weight:700;text-decoration:underline">Solicitud de Medicaid/Medicare Buy-In en español (CF-ES 2282S)</a> o la <a href="https://eds.myflfamilies.com/DCFFormsInternet/Search/OpenDCFForm.aspx?FormId=464" target="_blank" rel="noopener" style="color:#452068;font-weight:700;text-decoration:underline">versión en inglés (CF-ES 2282)</a>, o pídala en un centro de servicio local de DCF.</div>
+          </div>
+          <div>
+            <div style="width:32px;height:32px;border-radius:50%;background:#ff1090;color:#fff;font-weight:700;font-size:17px;display:flex;align-items:center;justify-content:center;margin-bottom:10px">2</div>
+            <div style="font-weight:700;font-size:16.5px;color:#241a30;margin-bottom:6px">Llénelo</div>
+            <div style="font-size:16px;color:#3a2f47;font-weight:500;line-height:1.65">Anote los ingresos y bienes suyos y de su cónyuge, aunque su cónyuge no esté solicitando. El formulario también pregunta si desea que revisen su elegibilidad de los 3 meses antes del mes en que solicita.</div>
+          </div>
+          <div>
+            <div style="width:32px;height:32px;border-radius:50%;background:#ff1090;color:#fff;font-weight:700;font-size:17px;display:flex;align-items:center;justify-content:center;margin-bottom:10px">3</div>
+            <div style="font-weight:700;font-size:16.5px;color:#241a30;margin-bottom:6px">Envíelo a DCF</div>
+            <div style="font-size:16px;color:#3a2f47;font-weight:500;line-height:1.65">Envíelo por correo a ACCESS Central Mail Center, P.O. Box 1770, Ocala, FL 34478-1770. También puede enviarlo por fax o entregarlo en un <a href="https://familyresourcecenter.myflfamilies.com/" target="_blank" rel="noopener" style="color:#452068;font-weight:700;text-decoration:underline">centro de servicio local de DCF</a>. Guarde una copia.</div>
+          </div>
+          <div>
+            <div style="width:32px;height:32px;border-radius:50%;background:#ff1090;color:#fff;font-weight:700;font-size:17px;display:flex;align-items:center;justify-content:center;margin-bottom:10px">4</div>
+            <div style="font-weight:700;font-size:16.5px;color:#241a30;margin-bottom:6px">¿Va a solicitar Ayuda Extra?</div>
+            <div style="font-size:16px;color:#3a2f47;font-weight:500;line-height:1.65">Cuando llene la <a href="https://secure.ssa.gov/i1020/start" target="_blank" rel="noopener" style="color:#452068;font-weight:700;text-decoration:underline">solicitud de Ayuda Extra (Extra Help) del Seguro Social</a>, puede elegir que también cuente para el Programa de Ahorros de Medicare. El Seguro Social envía su información a Florida y DCF se comunica con usted.</div>
+          </div>
+    </div><!-- /msp-steps-grid -->
+    <div class="msp-steps-grid" style="display:grid;grid-template-columns:repeat(2,1fr);gap:18px;margin-bottom:28px">
+          <div style="background:#fff;border:1px solid #ece5f0;border-radius:16px;padding:24px">
+            <h3 style="font-family:Poppins,sans-serif;font-size:19px;font-weight:700;color:#241a30;margin:0 0 12px">Documentos que debe tener a mano</h3>
+            <ul style="margin:0;padding-left:20px;font-size:16px;color:#3a2f47;font-weight:500;line-height:1.65">
+              <li style="margin:0 0 8px">Su tarjeta de Medicare (y la de su cónyuge, si también solicita)</li>
+              <li style="margin:0 0 8px">Los números de Seguro Social suyo y de su cónyuge</li>
+              <li style="margin:0 0 8px">Prueba de ingresos, como cartas de beneficios del Seguro Social o de pensión, o talones de pago</li>
+              <li style="margin:0 0 8px">Prueba de bienes, como estados de cuenta del banco o pólizas de seguro de vida</li>
+              <li style="margin:0 0 8px">Prueba de dónde vive, como un recibo de renta, una factura de luz o agua, o una identificación del estado</li>
+              <li style="margin:0 0 8px">Si no es ciudadano estadounidense, prueba de su estatus migratorio, como la tarjeta de residencia (green card)</li>
+            </ul>
+            <p style="font-size:15px;color:#5a5068;line-height:1.6;margin:10px 0 0">DCF puede pedirle más pruebas. Envíelas antes de la fecha límite que le indiquen.</p>
+          </div>
+          <div style="background:#fff;border:1px solid #ece5f0;border-radius:16px;padding:24px">
+            <h3 style="font-family:Poppins,sans-serif;font-size:19px;font-weight:700;color:#241a30;margin:0 0 12px">Qué pasa después de solicitar</h3>
+            <ul style="margin:0;padding-left:20px;font-size:16px;color:#3a2f47;font-weight:500;line-height:1.65">
+              <li style="margin:0 0 8px">DCF revisa su solicitud. Según CMS, debe recibir una respuesta dentro de 45 días. Si para entonces no le han respondido, llame a DCF al <a href="tel:18503004323" style="color:#452068;font-weight:700">(850) 300-4323</a> (lunes a viernes, 8 a.m. a 5 p.m.).</li>
+              <li style="margin:0 0 8px">Si lo aprueban para QMB, SLMB o QI, la prima de la Parte B deja de descontarse de su cheque del Seguro Social y queda inscrito automáticamente en Ayuda Extra.</li>
+              <li style="margin:0 0 8px">Con QMB, los proveedores de Medicare no pueden cobrarle por servicios cubiertos por Medicare. Muestre su tarjeta de Medicare y su tarjeta de Medicaid o QMB en cada visita.</li>
+              <li style="margin:0 0 8px">QI se debe renovar cada año.</li>
+              <li style="margin:0 0 8px">Informe a DCF cualquier cambio en sus ingresos o bienes dentro de 10 días.</li>
+              <li style="margin:0 0 8px">Si le niegan la solicitud, tiene derecho a pedir una audiencia imparcial (fair hearing).</li>
+            </ul>
+          </div>
+    </div>
+    <div style="background:#fff;border:2px solid #452068;border-radius:16px;padding:26px;text-align:center">
+      <h3 style="font-family:Poppins,sans-serif;font-size:21px;font-weight:700;color:#241a30;margin:0 0 8px">¿Quiere ayuda con la solicitud del Buy-In?</h3>
+      <p style="font-size:17px;color:#3a2f47;font-weight:500;line-height:1.65;margin:0 auto 18px;max-width:620px">Nuestro equipo bilingüe con licencia revisa el formulario con usted, le explica qué pruebas puede pedirle DCF y, cuando lo aprueben, verifica que su plan de Medicare todavía le convenga. Es gratis.</p>
+      <div class="msp-cta-btns" style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap">
+        <a href="tel:18003806821" style="background:#452068;color:#fff;padding:14px 24px;border-radius:999px;font-weight:700;font-size:17px;text-decoration:none">Llame al 1-800-380-6821</a>
+        <a href="#ahorros-form" style="background:#fff;color:#452068;border:2px solid #452068;padding:12px 22px;border-radius:999px;font-weight:700;font-size:17px;text-decoration:none">Pida ayuda gratis para aplicar &#8594;</a>
       </div>
     </div>
+    <p style="font-size:14.5px;color:#5a5068;line-height:1.6;margin:16px 0 0;text-align:center">Fuentes: <a href="https://www.myflfamilies.com/medicaid" target="_blank" rel="noopener" style="color:#5a5068;text-decoration:underline">DCF de Florida</a>, <a href="https://elderaffairs.org/programs-and-services/health-expenses-help/" target="_blank" rel="noopener" style="color:#5a5068;text-decoration:underline">Departamento de Asuntos de Personas Mayores de Florida</a>, <a href="https://www.medicare.gov/basics/costs/help/medicare-savings-programs" target="_blank" rel="noopener" style="color:#5a5068;text-decoration:underline">Medicare.gov</a> y <a href="https://www.cms.gov/files/document/mspmodelapplication.pdf" target="_blank" rel="noopener" style="color:#5a5068;text-decoration:underline">CMS</a> (en inglés).</p>
   </div>
 </div>
 
@@ -475,7 +513,7 @@ input:focus,textarea:focus,select:focus{outline:2px solid #ff1090;outline-offset
           ¿Cuánto tarda la aprobación?
           <span id="faq4Icon" style="font-size:24px;font-weight:400;flex-shrink:0;margin-left:12px">+</span>
         </button>
-        <div id="faq4" class="msp-faq-answer" style="padding:0 20px 18px;font-size:16.5px;color:#3a2f47;font-weight:500;line-height:1.7">DCF de Florida suele procesar solicitudes en unos 45 días. Si lo aprueban, los beneficios generalmente son retroactivos al mes en que aplicó.</div>
+        <div id="faq4" class="msp-faq-answer" style="padding:0 20px 18px;font-size:16.5px;color:#3a2f47;font-weight:500;line-height:1.7">Según CMS, debe recibir una respuesta dentro de 45 días después de solicitar. Si no le han respondido, llame a DCF al (850) 300-4323. La solicitud de Buy-In de Florida también pregunta si desea que revisen su elegibilidad de los 3 meses antes del mes en que solicita.</div>
       </div>
 
       <div style="background:#fff;border:1px solid #ece5f0;border-radius:14px;overflow:hidden">
@@ -515,7 +553,7 @@ input:focus,textarea:focus,select:focus{outline:2px solid #ff1090;outline-offset
           ¿Puedo calificar si no tengo 40 créditos de trabajo para Medicare?
           <span id="faq6Icon" style="font-size:24px;font-weight:400;flex-shrink:0;margin-left:12px">+</span>
         </button>
-        <div id="faq6" class="msp-faq-answer" style="padding:0 20px 18px;font-size:16.5px;color:#3a2f47;font-weight:500;line-height:1.7">Sí — puede calificar al MSP aunque no tenga 40 créditos. Siga esta secuencia:<br><br><strong style="color:#241a30">Paso 1 — Llame al SSA al 1-800-772-1213</strong> (no se puede hacer en línea). Pida una cita telefónica para aplicar a <strong style="color:#241a30">“Conditional Part A and Part B.”</strong> En la cita, diga: <strong style="color:#241a30">“Estoy aplicando a Conditional Part A porque tengo menos de 40 créditos de trabajo y estoy aplicando al programa QMB a través de Medicaid de Florida.”</strong> Así el gobierno factura a Florida mientras se procesa su QMB.<br><br><strong style="color:#241a30">⚠ Error común:</strong> algunos agentes del SSA no procesan solicitudes condicionales a diario y pueden decirle que no puede inscribirse sin 40 créditos. Si ocurre, pídales amablemente que busquen <strong style="color:#241a30"><a href="https://secure.ssa.gov/poms.nsf/lnx/0600801140" target="_blank" rel="noopener" style="color:#452068;text-decoration:underline">POMS Sección HI 00801.140</a></strong> — la política federal (actualizada ene 2025). Florida es un estado de “Part A Buy-in”: el estado debe cubrir esa prima para QMB aprobados.<br><br><strong style="color:#241a30">Paso 2 — Aplique a QMB por DCF de Florida</strong> en access.florida.gov. Lleve prueba de ingresos, estados de cuenta recientes (menos de $9,950) y su identificación de Florida.<br><br><strong style="color:#241a30">Paso 3 — Espere ~30 días.</strong> Una vez aprobado, Florida notifica al gobierno federal y sus primas de Parte A y B quedan cubiertas. Los proveedores no pueden cobrarle deducibles ni copagos por servicios cubiertos por Medicare.<br><br>SLMB y QI solo cubren la prima de Parte B — <strong style="color:#241a30">QMB es el único MSP que ayuda si está comprando la Parte A.</strong></div>
+        <div id="faq6" class="msp-faq-answer" style="padding:0 20px 18px;font-size:16.5px;color:#3a2f47;font-weight:500;line-height:1.7">Sí — puede calificar al MSP aunque no tenga 40 créditos. Siga esta secuencia:<br><br><strong style="color:#241a30">Paso 1 — Llame al SSA al 1-800-772-1213</strong> (no se puede hacer en línea). Pida una cita telefónica para aplicar a <strong style="color:#241a30">“Conditional Part A and Part B.”</strong> En la cita, diga: <strong style="color:#241a30">“Estoy aplicando a Conditional Part A porque tengo menos de 40 créditos de trabajo y estoy aplicando al programa QMB a través de Medicaid de Florida.”</strong> Así el gobierno factura a Florida mientras se procesa su QMB.<br><br><strong style="color:#241a30">⚠ Error común:</strong> algunos agentes del SSA no procesan solicitudes condicionales a diario y pueden decirle que no puede inscribirse sin 40 créditos. Si ocurre, pídales amablemente que busquen <strong style="color:#241a30"><a href="https://secure.ssa.gov/poms.nsf/lnx/0600801140" target="_blank" rel="noopener" style="color:#452068;text-decoration:underline">POMS Sección HI 00801.140</a></strong> — la política federal (actualizada ene 2025). Florida es un estado de “Part A Buy-in”: el estado debe cubrir esa prima para QMB aprobados.<br><br><strong style="color:#241a30">Paso 2 — Aplique a QMB por DCF de Florida</strong> con la <a href="#como-aplicar" style="color:#452068;text-decoration:underline">Solicitud de Medicaid/Medicare Buy-In (CF-ES 2282S)</a>. Incluya prueba de ingresos, estados de cuenta recientes (menos de $9,950) y su identificación de Florida.<br><br><strong style="color:#241a30">Paso 3 — Espere la decisión de DCF</strong> (según CMS, debe llegar dentro de 45 días). Una vez aprobado, Florida notifica al gobierno federal y sus primas de Parte A y B quedan cubiertas. Los proveedores no pueden cobrarle deducibles ni copagos por servicios cubiertos por Medicare.<br><br>SLMB y QI solo cubren la prima de Parte B — <strong style="color:#241a30">QMB es el único MSP que ayuda si está comprando la Parte A.</strong></div>
       </div>
 
     </div>
@@ -527,7 +565,7 @@ input:focus,textarea:focus,select:focus{outline:2px solid #ff1090;outline-offset
   <h2 style="font-family:Poppins,sans-serif;font-size:30px;font-weight:700;margin:0 0 10px">¿Cree que podría calificar para MSP o Extra Help?</h2>
   <p style="font-size:18px;color:#f0eaf7;margin:0 0 24px">Nuestros corredores bilingües con licencia verifican su elegibilidad y le ayudan a aplicar — gratis.</p>
   <div class="msp-cta-btns" style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap">
-    <a href="tel:18003806821" style="background:#ff1090;color:#fff;padding:15px 26px;border-radius:999px;font-weight:700;font-size:18px">Llamar 1-800-380-6821</a>
+    <a href="tel:18003806821" style="background:#fff;color:#452068;padding:15px 26px;border-radius:999px;font-weight:700;font-size:18px">Llamar 1-800-380-6821</a>
     <a href="https://wa.me/13054646888" onclick="gtag('event','whatsapp_click',{'page':window.location.pathname})" style="background:#25D366;color:#fff;padding:15px 26px;border-radius:999px;font-weight:700;font-size:18px">WhatsApp</a>
   </div>
 </div>
@@ -709,7 +747,7 @@ function calcMsp() {
   } else if ((!isCouple && income <= 1796) || (isCouple && income <= 2435)) {
     tier = 'Puede calificar para QI';
     body = 'QI cubre su prima de Parte B ($202.90/mes) y le califica para Extra Help en Parte D. Nota: QI requiere reinscripción anual y tiene cupos limitados — aplique temprano.';
-  } else if ((!isCouple && income <= 1903) || (isCouple && income <= 2575)) {
+  } else if ((!isCouple && income <= 1995) || (isCouple && income <= 2705)) {
     tier = 'Puede calificar para Extra Help (Parte D)';
     body = 'Extra Help puede reducir sus costos de medicamentos de Parte D hasta $5,300/año. Es un programa federal aparte — aplique en ssa.gov/extrahelp. Nuestro equipo puede ayudarle.';
   } else {
