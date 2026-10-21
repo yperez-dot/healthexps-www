@@ -18,6 +18,9 @@ Cada año los planes pueden cambiar sus costos, su lista de medicamentos y su re
 
 <div class="alert-box"><strong>AEP para la cobertura de 2027: del 15 de octubre al 7 de diciembre de 2026</strong><span>Según Medicare, el plan debe recibir su solicitud de inscripción a más tardar el 7 de diciembre. La cobertura que elija empieza el 1 de enero de 2027.</span></div>
 
+Los planes 2027 ya están en Medicare.gov. Para las respuestas rápidas sobre fechas y cómo comparar planes, vea [Inscripción Abierta de Medicare 2027: fechas y cómo comparar planes](/es/inscripcion-anual-medicare-2027/).
+
+
 ## Fechas clave para el año de plan 2027
 
 | Fecha | Qué pasa |

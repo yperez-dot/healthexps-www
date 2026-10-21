@@ -19,6 +19,9 @@ Una de las llamadas más comunes que recibimos en nuestra oficina de Doral empie
 
 La respuesta honesta es: **depende de en qué ventana de inscripción esté usted.** Medicare no permite cambiar de plan en cualquier momento, y dejar pasar una ventana puede significar esperar meses — o pagar una multa permanente. Aquí le explicamos cada período, en español claro.
 
+<div class="inline-cta"><div class="inline-cta-text"><strong>¿Busca las fechas de este año?</strong><span>La Inscripción Abierta de Medicare para la cobertura de 2027 va del 15 de octubre al 7 de diciembre de 2026, y los planes 2027 ya están en Medicare.gov. Vea <a href="/es/inscripcion-anual-medicare-2027/">Inscripción Abierta de Medicare 2027: fechas y cómo comparar planes</a>.</span></div><a href="/es/inscripcion-anual-medicare-2027/" class="inline-cta-btn">Ver fechas y planes 2027 →</a></div>
+
+
 ## Su Período de Inscripción Inicial (IEP): los 7 meses alrededor de sus 65 años
 
 Su primera oportunidad de inscribirse en Medicare es una ventana de 7 meses: los **3 meses antes** del mes en que cumple 65, su **mes de cumpleaños**, y los **3 meses después**.
@@ -38,7 +41,7 @@ Esta es la ventana grande. Cada año durante el AEP, cualquier persona con Medic
 - Cambiar de un plan Medicare Advantage a otro
 - Añadir, cancelar o cambiar un plan de medicamentos Parte D
 
-Los cambios entran en vigor el 1 de enero. A finales de septiembre, su plan le envía por correo el **Aviso Anual de Cambios (ANOC)** con lo que su plan costará y cubrirá el próximo año — léalo, porque los planes cambian primas, medicamentos cubiertos y redes de médicos todos los años. Nosotros revisamos cartas ANOC para nuestros clientes sin costo.
+Los cambios entran en vigor el 1 de enero. A finales de septiembre, su plan le envía por correo el **Aviso Anual de Cambios (ANOC)** con lo que su plan costará y cubrirá el próximo año — léalo, porque los planes cambian primas, medicamentos cubiertos y redes de médicos todos los años. Nosotros revisamos cartas ANOC para nuestros clientes sin costo. Para la ventana de este año, vea [Inscripción Abierta de Medicare 2027: fechas y cómo comparar planes](/es/inscripcion-anual-medicare-2027/).
 
 ## Inscripción Abierta de Medicare Advantage (MA OEP): del 1 de enero al 31 de marzo
 

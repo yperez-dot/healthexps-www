@@ -18,6 +18,9 @@ Plans can change their costs, drug lists and networks every year. A little prepa
 
 <div class="alert-box"><strong>AEP for 2027 coverage: October 15 – December 7, 2026</strong><span>Medicare says the plan must get your enrollment request by December 7. Coverage you choose starts January 1, 2027.</span></div>
 
+2027 plans are already on Medicare.gov. For the quick answers on dates and comparing plans, see [Medicare Open Enrollment 2027: dates and how to compare plans](/medicare-annual-enrollment-2027/).
+
+
 ## Key dates for the 2027 plan year
 
 | Date | What happens |
