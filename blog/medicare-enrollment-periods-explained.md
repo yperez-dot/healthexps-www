@@ -18,6 +18,9 @@ One of the most common calls we get at our Doral office starts the same way: *"I
 
 The honest answer is: **it depends on which enrollment window you're in.** Medicare doesn't let you switch plans whenever you want, and missing a window can mean waiting months — or paying a permanent penalty. Here's every enrollment period, in plain English.
 
+<div class="inline-cta"><div class="inline-cta-text"><strong>Looking for this year's dates?</strong><span>Medicare Open Enrollment for 2027 coverage runs October 15 – December 7, 2026, and 2027 plans are already on Medicare.gov. See <a href="/medicare-annual-enrollment-2027/">Medicare Open Enrollment 2027: dates and how to compare plans</a>.</span></div><a href="/medicare-annual-enrollment-2027/" class="inline-cta-btn">See 2027 dates and plans →</a></div>
+
+
 ## Your Initial Enrollment Period (IEP): the 7-month window around your 65th birthday
 
 Your first chance to enroll in Medicare is a 7-month window: the **3 months before** the month you turn 65, your **birthday month**, and the **3 months after**.
@@ -37,7 +40,7 @@ This is the big one. Every year during AEP, anyone on Medicare can:
 - Switch from one Medicare Advantage plan to another
 - Join, drop, or change a Part D drug plan
 
-Changes take effect January 1. In late September, your plan mails you an **Annual Notice of Change (ANOC)** describing what your plan will cost and cover next year — read it, because plans change premiums, drug formularies, and doctor networks every single year. We review ANOC letters for clients at no charge. Details on this year's window are on our [Annual Enrollment page](/medicare-annual-enrollment-2027).
+Changes take effect January 1. In late September, your plan mails you an **Annual Notice of Change (ANOC)** describing what your plan will cost and cover next year — read it, because plans change premiums, drug formularies, and doctor networks every single year. We review ANOC letters for clients at no charge. For this year's window, see [Medicare Open Enrollment 2027: dates and how to compare plans](/medicare-annual-enrollment-2027/).
 
 ## Medicare Advantage Open Enrollment (MA OEP): January 1 – March 31
 
