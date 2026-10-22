@@ -30,6 +30,8 @@
 /faq/medicare-penalties/        /faq/               301!
 /es/faq/medicarefaq             /es/faq/            301!
 /es/faq/medicarefaq/            /es/faq/            301!
+/es/faq/medicarefaq-espanol     /es/preguntas-medicare/  301!
+/es/faq/medicarefaq-espanol/    /es/preguntas-medicare/  301!
 /copy-of-faq                    /faq/               301!
 /copy-of-faq/                   /faq/               301!
 /faq/marketplace                /aca-plans-miami/   301!
@@ -64,6 +66,10 @@
 /es/medical-insurance-broker/       /es/corredor-de-seguros-de-salud-miami/ 301!
 /es/medicare-supplements            /es/medicare-suplementario-miami/       301!
 /es/medicare-supplements/           /es/medicare-suplementario-miami/       301!
+/es/medicare-plan-finder           /es/buscador-de-planes/                 301!
+/es/medicare-plan-finder/          /es/buscador-de-planes/                 301!
+/medicare-supplements               /medicare-supplement-miami/             301!
+/medicare-supplements/              /medicare-supplement-miami/             301!
 /marketplace                        /aca-plans-miami/                       301!
 /marketplace/                       /aca-plans-miami/                       301!
 /medicare-advantage                 /medicare-advantage-miami/              301!
