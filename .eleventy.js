@@ -8,6 +8,7 @@ const { injectGhlChatWidget } = require("./scripts/ghl-chat-widget-inject");
 const { injectMobileNavAccordion } = require("./scripts/mobile-nav-accordion-inject");
 const { injectSharedChrome } = require("./scripts/shared-chrome");
 const { injectEventsNav } = require("./scripts/events-nav-inject");
+const { normalizeSite } = require("./scripts/trailing-slash");
 
 module.exports = function (eleventyConfig) {
   // Internal docs — never publish these as public pages
@@ -82,6 +83,15 @@ module.exports = function (eleventyConfig) {
   // Keep Events in the English Resources menu across leftover static pages.
   eleventyConfig.addTransform("injectEventsNav", function (content, outputPath) {
     return injectEventsNav(content, outputPath);
+  });
+
+  // Trailing-slash consistency (EN + ES): internal links, canonical, hreflang,
+  // og:url, JSON-LD urls and sitemap <loc>s all point at the /path/ URL Netlify
+  // actually serves (not /path, which 301s). Runs after passthrough copy.
+  eleventyConfig.on("eleventy.after", ({ dir }) => {
+    const outDir = require("path").resolve(__dirname, (dir && dir.output) || "_site");
+    const r = normalizeSite(outDir, __dirname);
+    console.log(`[trailing-slash] ${r.links} links fixed in ${r.files} files; sitemap: ${r.sitemapChanged} entries fixed, ${r.sitemapDropped.length} redirected/duplicate entries removed`);
   });
 
   // ── Date display filters ───────────────────────────────────────────────────
