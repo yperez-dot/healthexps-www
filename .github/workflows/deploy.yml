@@ -4,6 +4,14 @@ on:
   push:
     branches: [main]
 
+# Queue production deploys so an older run can't publish over a newer one.
+# GitHub runs one at a time in this group; with cancel-in-progress: false the
+# running deploy finishes, at most one newer run waits, and older pending runs
+# are cancelled (the newest commit always deploys last).
+concurrency:
+  group: deploy-prod
+  cancel-in-progress: false
+
 jobs:
   deploy:
     runs-on: ubuntu-latest
