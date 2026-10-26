@@ -1,5 +1,9 @@
 README.md
 IGOR_README.md
+# Oct 26, 2026: internal docs and test snippets were being published as public pages
+docs/
+homepage-form-snippet.html
+medigap-calculator-preview.html
 node_modules/
 _site/
 scripts/

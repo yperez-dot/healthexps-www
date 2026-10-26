@@ -6,6 +6,7 @@ description: "Confused about ACA Marketplace plans in Miami-Dade and Broward? Le
 date: 2026-07-18
 lang: en
 permalink: /blog/aca-marketplace-health-insurance-miami-2026/
+hreflang_es: /es/blog/seguro-de-salud-aca-miami-2026/
 ---
 
 # ACA Health Insurance in Miami: Your 2026 Guide to Plans, Costs & Subsidies

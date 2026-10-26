@@ -150,11 +150,9 @@
 
 <url>
   <loc>https://www.healthexps.com/es/medicare/planes-medicare-advantage</loc>
-  <lastmod>2026-08-27</lastmod>
+  <lastmod>2026-10-26</lastmod>
   <changefreq>monthly</changefreq>
   <priority>0.8</priority>
-  <xhtml:link rel="alternate" hreflang="en" href="https://www.healthexps.com/medicare-advantage-miami"/>
-  <xhtml:link rel="alternate" hreflang="es" href="https://www.healthexps.com/es/medicare/planes-medicare-advantage"/>
 </url>
 
 <!-- Medicare Savings Program -->
@@ -849,5 +847,90 @@
 <url><loc>https://www.healthexps.com/events/</loc><lastmod>2026-09-29</lastmod><changefreq>weekly</changefreq><priority>0.8</priority>
   <xhtml:link rel="alternate" hreflang="en" href="https://www.healthexps.com/events/"/>
   <xhtml:link rel="alternate" hreflang="x-default" href="https://www.healthexps.com/events/"/>
+</url>
+<!-- Oct 26, 2026: indexable pages missing from the sitemap -->
+<url><loc>https://www.healthexps.com/es/encuentra-mi-plan/</loc><lastmod>2026-10-26</lastmod><changefreq>monthly</changefreq><priority>0.6</priority>
+ <xhtml:link rel="alternate" hreflang="en" href="https://www.healthexps.com/health-insurance-quiz/"/>
+ <xhtml:link rel="alternate" hreflang="es" href="https://www.healthexps.com/es/encuentra-mi-plan/"/>
+</url>
+<url><loc>https://www.healthexps.com/blog/medicare-plan-ending-2027-non-renewal-letter/</loc><lastmod>2026-10-21</lastmod><changefreq>monthly</changefreq><priority>0.7</priority>
+ <xhtml:link rel="alternate" hreflang="en" href="https://www.healthexps.com/blog/medicare-plan-ending-2027-non-renewal-letter/"/>
+ <xhtml:link rel="alternate" hreflang="es" href="https://www.healthexps.com/es/blog/plan-medicare-termina-2027-carta-no-renovacion/"/>
+</url>
+<url><loc>https://www.healthexps.com/es/blog/plan-medicare-termina-2027-carta-no-renovacion/</loc><lastmod>2026-10-21</lastmod><changefreq>monthly</changefreq><priority>0.7</priority>
+ <xhtml:link rel="alternate" hreflang="en" href="https://www.healthexps.com/blog/medicare-plan-ending-2027-non-renewal-letter/"/>
+ <xhtml:link rel="alternate" hreflang="es" href="https://www.healthexps.com/es/blog/plan-medicare-termina-2027-carta-no-renovacion/"/>
+</url>
+<url><loc>https://www.healthexps.com/blog/how-to-read-your-2027-anoc/</loc><lastmod>2026-10-14</lastmod><changefreq>monthly</changefreq><priority>0.7</priority>
+ <xhtml:link rel="alternate" hreflang="en" href="https://www.healthexps.com/blog/how-to-read-your-2027-anoc/"/>
+ <xhtml:link rel="alternate" hreflang="es" href="https://www.healthexps.com/es/blog/como-leer-su-anoc-2027/"/>
+</url>
+<url><loc>https://www.healthexps.com/es/blog/como-leer-su-anoc-2027/</loc><lastmod>2026-10-14</lastmod><changefreq>monthly</changefreq><priority>0.7</priority>
+ <xhtml:link rel="alternate" hreflang="en" href="https://www.healthexps.com/blog/how-to-read-your-2027-anoc/"/>
+ <xhtml:link rel="alternate" hreflang="es" href="https://www.healthexps.com/es/blog/como-leer-su-anoc-2027/"/>
+</url>
+<url><loc>https://www.healthexps.com/blog/medicare-advantage-vs-original-medicare/</loc><lastmod>2026-10-26</lastmod><changefreq>monthly</changefreq><priority>0.7</priority>
+ <xhtml:link rel="alternate" hreflang="en" href="https://www.healthexps.com/blog/medicare-advantage-vs-original-medicare/"/>
+ <xhtml:link rel="alternate" hreflang="es" href="https://www.healthexps.com/es/blog/medicare-advantage-vs-medicare-original/"/>
+</url>
+<url><loc>https://www.healthexps.com/es/blog/medicare-advantage-vs-medicare-original/</loc><lastmod>2026-10-26</lastmod><changefreq>monthly</changefreq><priority>0.7</priority>
+ <xhtml:link rel="alternate" hreflang="en" href="https://www.healthexps.com/blog/medicare-advantage-vs-original-medicare/"/>
+ <xhtml:link rel="alternate" hreflang="es" href="https://www.healthexps.com/es/blog/medicare-advantage-vs-medicare-original/"/>
+</url>
+<url><loc>https://www.healthexps.com/blog/missed-medicare-open-enrollment/</loc><lastmod>2026-10-26</lastmod><changefreq>monthly</changefreq><priority>0.7</priority>
+ <xhtml:link rel="alternate" hreflang="en" href="https://www.healthexps.com/blog/missed-medicare-open-enrollment/"/>
+ <xhtml:link rel="alternate" hreflang="es" href="https://www.healthexps.com/es/blog/perdi-inscripcion-abierta-medicare/"/>
+</url>
+<url><loc>https://www.healthexps.com/es/blog/perdi-inscripcion-abierta-medicare/</loc><lastmod>2026-10-26</lastmod><changefreq>monthly</changefreq><priority>0.7</priority>
+ <xhtml:link rel="alternate" hreflang="en" href="https://www.healthexps.com/blog/missed-medicare-open-enrollment/"/>
+ <xhtml:link rel="alternate" hreflang="es" href="https://www.healthexps.com/es/blog/perdi-inscripcion-abierta-medicare/"/>
+</url>
+<url><loc>https://www.healthexps.com/blog/medicare-agent-or-enroll-myself/</loc><lastmod>2026-10-26</lastmod><changefreq>monthly</changefreq><priority>0.7</priority>
+ <xhtml:link rel="alternate" hreflang="en" href="https://www.healthexps.com/blog/medicare-agent-or-enroll-myself/"/>
+ <xhtml:link rel="alternate" hreflang="es" href="https://www.healthexps.com/es/blog/necesito-agente-medicare-o-inscribirme-solo/"/>
+</url>
+<url><loc>https://www.healthexps.com/es/blog/necesito-agente-medicare-o-inscribirme-solo/</loc><lastmod>2026-10-26</lastmod><changefreq>monthly</changefreq><priority>0.7</priority>
+ <xhtml:link rel="alternate" hreflang="en" href="https://www.healthexps.com/blog/medicare-agent-or-enroll-myself/"/>
+ <xhtml:link rel="alternate" hreflang="es" href="https://www.healthexps.com/es/blog/necesito-agente-medicare-o-inscribirme-solo/"/>
+</url>
+<url><loc>https://www.healthexps.com/blog/medicare-savings-program-lower-costs/</loc><lastmod>2026-10-26</lastmod><changefreq>monthly</changefreq><priority>0.7</priority>
+ <xhtml:link rel="alternate" hreflang="en" href="https://www.healthexps.com/blog/medicare-savings-program-lower-costs/"/>
+ <xhtml:link rel="alternate" hreflang="es" href="https://www.healthexps.com/es/blog/programa-ahorros-medicare-reducir-costos/"/>
+</url>
+<url><loc>https://www.healthexps.com/es/blog/programa-ahorros-medicare-reducir-costos/</loc><lastmod>2026-10-26</lastmod><changefreq>monthly</changefreq><priority>0.7</priority>
+ <xhtml:link rel="alternate" hreflang="en" href="https://www.healthexps.com/blog/medicare-savings-program-lower-costs/"/>
+ <xhtml:link rel="alternate" hreflang="es" href="https://www.healthexps.com/es/blog/programa-ahorros-medicare-reducir-costos/"/>
+</url>
+<url><loc>https://www.healthexps.com/es/blog/seguro-de-salud-aca-miami-2026/</loc><lastmod>2026-10-26</lastmod><changefreq>monthly</changefreq><priority>0.7</priority>
+ <xhtml:link rel="alternate" hreflang="en" href="https://www.healthexps.com/blog/aca-marketplace-health-insurance-miami-2026/"/>
+ <xhtml:link rel="alternate" hreflang="es" href="https://www.healthexps.com/es/blog/seguro-de-salud-aca-miami-2026/"/>
+</url>
+<url><loc>https://www.healthexps.com/medicare-articles/</loc><lastmod>2026-10-26</lastmod><changefreq>monthly</changefreq><priority>0.6</priority>
+ <xhtml:link rel="alternate" hreflang="en" href="https://www.healthexps.com/medicare-articles/"/>
+ <xhtml:link rel="alternate" hreflang="es" href="https://www.healthexps.com/es/articulos-medicare/"/>
+</url>
+<url><loc>https://www.healthexps.com/es/articulos-medicare/</loc><lastmod>2026-10-26</lastmod><changefreq>monthly</changefreq><priority>0.6</priority>
+ <xhtml:link rel="alternate" hreflang="en" href="https://www.healthexps.com/medicare-articles/"/>
+ <xhtml:link rel="alternate" hreflang="es" href="https://www.healthexps.com/es/articulos-medicare/"/>
+</url>
+<url><loc>https://www.healthexps.com/medicare-articles/anoc-what-to-check-before-aep/</loc><lastmod>2026-10-26</lastmod><changefreq>monthly</changefreq><priority>0.6</priority>
+</url>
+<url><loc>https://www.healthexps.com/medicare-articles/medicare-advantage-vs-medigap-south-florida/</loc><lastmod>2026-10-26</lastmod><changefreq>monthly</changefreq><priority>0.6</priority>
+</url>
+<url><loc>https://www.healthexps.com/medicare-articles/part-d-pharmacy-costs-aep/</loc><lastmod>2026-10-26</lastmod><changefreq>monthly</changefreq><priority>0.6</priority>
+</url>
+<url><loc>https://www.healthexps.com/medicare-articles/part-d-extra-help-lis/</loc><lastmod>2026-10-26</lastmod><changefreq>monthly</changefreq><priority>0.6</priority>
+</url>
+<url><loc>https://www.healthexps.com/medicare-articles/dsnp-billing-questions/</loc><lastmod>2026-10-26</lastmod><changefreq>monthly</changefreq><priority>0.6</priority>
+</url>
+<url><loc>https://www.healthexps.com/medicare-articles/medications-budget-drug-list/</loc><lastmod>2026-10-26</lastmod><changefreq>monthly</changefreq><priority>0.6</priority>
+</url>
+<url><loc>https://www.healthexps.com/medicare-articles/medicare-aep-dates/</loc><lastmod>2026-10-26</lastmod><changefreq>monthly</changefreq><priority>0.6</priority>
+</url>
+<url><loc>https://www.healthexps.com/medicare-articles/dsnp-help-pay-part-b/</loc><lastmod>2026-10-26</lastmod><changefreq>monthly</changefreq><priority>0.6</priority>
+</url>
+<url><loc>https://www.healthexps.com/medicare-articles/dsnp-miami-dade-broward/</loc><lastmod>2026-10-26</lastmod><changefreq>monthly</changefreq><priority>0.6</priority>
+</url>
+<url><loc>https://www.healthexps.com/medicare-articles/bilingual-medicare-broker-south-florida/</loc><lastmod>2026-10-26</lastmod><changefreq>monthly</changefreq><priority>0.6</priority>
 </url>
 </urlset>
