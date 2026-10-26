@@ -50,7 +50,7 @@ Ese último punto importa en Miami, donde una liquidación o el sueldo del cóny
 
 ## La tercera opción que nadie le manda por correo: los planes privados
 
-El **seguro médico privado** fuera del Mercado — planes individuales y familiares comprados directamente a través de un corredor — es la comparación que casi siempre falta. Para hogares por encima del precipicio de subsidios, o para solicitantes sanos que no califican para ayuda significativa, un plan privado puede costar bastante menos que COBRA por una cobertura comparable. Desde 2026, "Mercado vs. COBRA" es en realidad una comparación de tres caminos — y nosotros los comparamos lado a lado.
+El **[seguro médico privado](/es/seguro-medico-privado-miami/)** fuera del Mercado — planes individuales y familiares comprados directamente a través de un corredor — es la comparación que casi siempre falta. Para hogares por encima del precipicio de subsidios, o para solicitantes sanos que no califican para ayuda significativa, un plan privado puede costar bastante menos que COBRA por una cobertura comparable. Desde 2026, "Mercado vs. COBRA" es en realidad una comparación de tres caminos — y nosotros los comparamos lado a lado.
 
 ## Si usted tiene 65 años o más, deténgase — lea esto primero
 
