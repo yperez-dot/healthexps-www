@@ -683,7 +683,22 @@
 <url><loc>https://www.healthexps.com/es/blog/alternativas-cobra-miami-ahorra-dinero</loc><lastmod>2026-06-28</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
 
 <!-- 4 new English blog posts -->
-<url><loc>https://www.healthexps.com/blog/self-employed-health-insurance-miami</loc><lastmod>2026-06-28</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+<url><loc>https://www.healthexps.com/blog/self-employed-health-insurance-miami/</loc><lastmod>2026-10-26</lastmod><changefreq>monthly</changefreq><priority>0.7</priority>
+  <xhtml:link rel="alternate" hreflang="en" href="https://www.healthexps.com/blog/self-employed-health-insurance-miami/"/>
+  <xhtml:link rel="alternate" hreflang="es" href="https://www.healthexps.com/es/blog/seguro-medico-trabajadores-independientes-miami/"/>
+</url>
+<url><loc>https://www.healthexps.com/es/blog/seguro-medico-trabajadores-independientes-miami/</loc><lastmod>2026-10-26</lastmod><changefreq>monthly</changefreq><priority>0.7</priority>
+  <xhtml:link rel="alternate" hreflang="es" href="https://www.healthexps.com/es/blog/seguro-medico-trabajadores-independientes-miami/"/>
+  <xhtml:link rel="alternate" hreflang="en" href="https://www.healthexps.com/blog/self-employed-health-insurance-miami/"/>
+</url>
+<url><loc>https://www.healthexps.com/blog/how-much-does-health-insurance-cost-miami/</loc><lastmod>2026-10-26</lastmod><changefreq>monthly</changefreq><priority>0.7</priority>
+  <xhtml:link rel="alternate" hreflang="en" href="https://www.healthexps.com/blog/how-much-does-health-insurance-cost-miami/"/>
+  <xhtml:link rel="alternate" hreflang="es" href="https://www.healthexps.com/es/blog/cuanto-cuesta-seguro-medico-miami/"/>
+</url>
+<url><loc>https://www.healthexps.com/es/blog/cuanto-cuesta-seguro-medico-miami/</loc><lastmod>2026-10-26</lastmod><changefreq>monthly</changefreq><priority>0.7</priority>
+  <xhtml:link rel="alternate" hreflang="es" href="https://www.healthexps.com/es/blog/cuanto-cuesta-seguro-medico-miami/"/>
+  <xhtml:link rel="alternate" hreflang="en" href="https://www.healthexps.com/blog/how-much-does-health-insurance-cost-miami/"/>
+</url>
 <url><loc>https://www.healthexps.com/blog/turned-26-health-insurance-florida</loc><lastmod>2026-06-28</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
 <url><loc>https://www.healthexps.com/blog/aca-marketplace-enrollment-florida-2026</loc><lastmod>2026-06-28</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
 <url><loc>https://www.healthexps.com/blog/how-to-get-health-insurance-subsidy-miami</loc><lastmod>2026-06-28</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
