@@ -46,6 +46,58 @@
     document.head.appendChild(style);
   }
 
+  /**
+   * Phones only (max-width 640px): the floating back-to-top and chat buttons
+   * sit on top of the right edge of lead-form fields. While a lead form (a
+   * form with a phone or email field) is on screen, or a page form field has
+   * focus, fade both buttons out. They come back as soon as the form scrolls
+   * away. Desktop and tablet are unchanged. An open chat window is never hidden.
+   */
+  function guardLeadForms() {
+    if (document.getElementById("thei-form-guard-css")) return;
+    var style = document.createElement("style");
+    style.id = "thei-form-guard-css";
+    style.textContent =
+      "@media (max-width:640px){" +
+      "html.thei-form-active #scrollToTop," +
+      'html.thei-form-active chat-widget:not([data-active="true"])' +
+      "{opacity:0 !important;visibility:hidden !important;pointer-events:none !important;}}";
+    document.head.appendChild(style);
+
+    var root = document.documentElement;
+    var visible = [];
+    var focused = false;
+    function update() {
+      root.classList.toggle("thei-form-active", focused || visible.length > 0);
+    }
+    function isPageField(el) {
+      return !!(el && el.matches && el.matches("input, select, textarea") &&
+        !(el.closest && el.closest("chat-widget")));
+    }
+
+    var forms = document.querySelectorAll("form");
+    if ("IntersectionObserver" in global) {
+      var io = new IntersectionObserver(function (entries) {
+        for (var i = 0; i < entries.length; i++) {
+          var idx = visible.indexOf(entries[i].target);
+          if (entries[i].isIntersecting && idx === -1) visible.push(entries[i].target);
+          if (!entries[i].isIntersecting && idx !== -1) visible.splice(idx, 1);
+        }
+        update();
+      });
+      for (var i = 0; i < forms.length; i++) {
+        if (forms[i].querySelector('input[type="tel"], input[type="email"]')) io.observe(forms[i]);
+      }
+    }
+
+    document.addEventListener("focusin", function (event) {
+      if (isPageField(event.target)) { focused = true; update(); }
+    });
+    document.addEventListener("focusout", function () {
+      setTimeout(function () { focused = isPageField(document.activeElement); update(); }, 0);
+    });
+  }
+
   function track(eventName, params) {
     if (typeof global.gtag === "function") {
       global.gtag("event", eventName, params || {});
@@ -193,6 +245,7 @@
   }
 
   function init() {
+    guardLeadForms();
     var lang = pageLang();
     var widgetId = widgetIdFor(lang);
     if (!widgetId) return;

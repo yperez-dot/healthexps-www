@@ -56,9 +56,24 @@ assert.ok(!en.includes("14+ Carriers"), "EN hero no longer says 14+ Carriers");
 assert.ok(en.includes("Licensed Florida agents"), "optional hero pill swap");
 assert.ok(en.includes("Local, women-owned"), "optional hero pill swap");
 assert.ok(
-  en.includes("Free bilingual Medicare comparison in Miami"),
-  "EN hero paragraph updated"
+  en.includes(">Health Insurance Experts.<br>Bilingual. Independent.<br>No Cost to You.</h1>"),
+  "EN H1 follows HOMEPAGE-RULES #1"
 );
+assert.ok(
+  es.includes(">Expertos en Seguros de Salud.<br>Bilingüe. Independiente.<br>Sin Costo Para Ti.</h1>"),
+  "ES H1 follows HOMEPAGE-RULES #1"
+);
+assert.ok(!/<h1[^>]*>[^<]*Medicare/i.test(en) && !/<h1[^>]*>[^<]*Medicare/i.test(es), "H1 is never Medicare-only");
+assert.ok(
+  en.includes("We compare 14+ insurance carriers to find the right plan for your family — completely free. English &amp; Spanish."),
+  "EN hero subtext follows HOMEPAGE-RULES #2"
+);
+assert.ok(
+  es.includes("Comparamos más de 14 aseguradoras para encontrar el plan correcto para tu familia — completamente gratis. Inglés y Español."),
+  "ES hero subtext follows HOMEPAGE-RULES #2"
+);
+assert.ok(en.includes("Review your 2027 Medicare plan"), "EN hero keeps Medicare AEP button");
+assert.ok(es.includes("Revisar mi plan Medicare 2027"), "ES hero keeps Medicare AEP button");
 assert.ok(
   en.includes("Founded in 2019 by Yahoska &amp; Katy, both career agents with 14+ years of combined experience."),
   "EN local card copy updated"
