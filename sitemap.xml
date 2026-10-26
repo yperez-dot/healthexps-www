@@ -635,10 +635,12 @@
 </url>
 
 <url>
-  <loc>https://www.healthexps.com/blog/cobra-vs-aca-marketplace-miami</loc>
-  <lastmod>2026-06-24</lastmod>
+  <loc>https://www.healthexps.com/blog/cobra-vs-aca-marketplace-miami/</loc>
+  <lastmod>2026-10-26</lastmod>
   <changefreq>monthly</changefreq>
-  <priority>0.6</priority>
+  <priority>0.7</priority>
+  <xhtml:link rel="alternate" hreflang="en" href="https://www.healthexps.com/blog/cobra-vs-aca-marketplace-miami/"/>
+  <xhtml:link rel="alternate" hreflang="es" href="https://www.healthexps.com/es/blog/alternativas-cobra-miami-ahorra-dinero/"/>
 </url>
 
 
@@ -681,7 +683,10 @@
 <url><loc>https://www.healthexps.com/es/blog/que-es-el-periodo-inscripcion-especial-medicare-florida</loc><lastmod>2026-06-28</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
 <url><loc>https://www.healthexps.com/es/blog/por-que-necesitas-corredor-seguros-salud-miami</loc><lastmod>2026-06-28</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
 <url><loc>https://www.healthexps.com/es/blog/programa-ahorros-medicare-florida</loc><lastmod>2026-06-28</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
-<url><loc>https://www.healthexps.com/es/blog/alternativas-cobra-miami-ahorra-dinero</loc><lastmod>2026-06-28</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+<url><loc>https://www.healthexps.com/es/blog/alternativas-cobra-miami-ahorra-dinero/</loc><lastmod>2026-10-26</lastmod><changefreq>monthly</changefreq><priority>0.7</priority>
+  <xhtml:link rel="alternate" hreflang="es" href="https://www.healthexps.com/es/blog/alternativas-cobra-miami-ahorra-dinero/"/>
+  <xhtml:link rel="alternate" hreflang="en" href="https://www.healthexps.com/blog/cobra-vs-aca-marketplace-miami/"/>
+</url>
 
 <!-- 4 new English blog posts -->
 <url><loc>https://www.healthexps.com/blog/self-employed-health-insurance-miami/</loc><lastmod>2026-10-26</lastmod><changefreq>monthly</changefreq><priority>0.7</priority>
