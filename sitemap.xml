@@ -549,12 +549,13 @@
 <!-- Health Insurance Broker pages (EN/ES) -->
 <url>
   <loc>https://www.healthexps.com/medical-insurance-broker</loc>
-  <lastmod>2026-08-26</lastmod>
+  <lastmod>2026-10-26</lastmod>
   <xhtml:link rel="alternate" hreflang="en" href="https://www.healthexps.com/medical-insurance-broker"/>
   <xhtml:link rel="alternate" hreflang="es" href="https://www.healthexps.com/es/corredor-de-seguros-de-salud-miami"/>
 </url>
 <url>
   <loc>https://www.healthexps.com/es/corredor-de-seguros-de-salud-miami</loc>
+  <lastmod>2026-10-26</lastmod>
   <xhtml:link rel="alternate" hreflang="en" href="https://www.healthexps.com/medical-insurance-broker"/>
   <xhtml:link rel="alternate" hreflang="es" href="https://www.healthexps.com/es/corredor-de-seguros-de-salud-miami"/>
 </url>
