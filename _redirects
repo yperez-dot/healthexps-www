@@ -289,3 +289,9 @@
 /medicare-supplements      /medicare-supplement-miami/ 301!
 /medicare-supplements/     /medicare-supplement-miami/ 301!
 /hair-care/*               /blog/                     301!
+
+# Oct 26, 2026: broken ES URLs (old hreflang target + old in-body links)
+/es/faq/medicarefaq-espanol    /es/preguntas-medicare/   301!
+/es/faq/medicarefaq-espanol/   /es/preguntas-medicare/   301!
+/es/medicare-plan-finder       /es/buscador-de-planes/   301!
+/es/medicare-plan-finder/      /es/buscador-de-planes/   301!
