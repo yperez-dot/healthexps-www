@@ -995,27 +995,51 @@ src="https://www.facebook.com/tr?id=3257807051192879&ev=PageView&noscript=1"/></
           </div>
         </div>
 
-<!-- PATH STRIP — Task 2 / Aug 12, 2026 -->
+<!-- PATH STRIP — Task 2 / Aug 12, 2026; merged with 'Which coverage fits you?' Oct 26, 2026 -->
+<!-- DEADLINE BAR (homepage-visuals-oct26) -->
+<div id="deadline-bar" role="region" aria-label="Enrollment deadlines">
+<style>
+#deadline-bar{background:#452068;color:#fff;padding:12px 24px}
+#deadline-bar .dl-wrap{max-width:1320px;margin:0 auto;display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:8px 16px;font-size:15.5px;line-height:1.5;text-align:center}
+#deadline-bar strong{font-weight:800}
+#deadline-bar .dl-btn{display:inline-block;background:#fff;color:#452068;font-weight:700;font-size:15px;padding:7px 14px;border-radius:9px;text-decoration:none;white-space:nowrap}
+#deadline-bar .dl-src{font-size:12.5px;color:#fff;opacity:.9}
+#deadline-bar .dl-src a{color:#fff;text-decoration:underline}
+#path-strip .hs-h{font-family:'Poppins',sans-serif;font-size:30px;font-weight:800;color:#452068;margin:0 0 20px;line-height:1.2}
+#path-strip .hs-grid{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:14px}
+#path-strip .hs-card{background:#fff;border:1.5px solid #ece1f3;border-radius:14px;padding:18px;display:flex;flex-direction:column;color:#241a30}
+#path-strip .hs-tag{align-self:flex-start;background:#f7f2fb;color:#452068;border-radius:999px;padding:2px 10px;font-size:13px;font-weight:700;margin-bottom:8px}
+#path-strip .hs-card h3{font-family:'Poppins',sans-serif;font-size:16.5px;font-weight:700;color:#452068;margin:0 0 6px;line-height:1.3}
+#path-strip .hs-card p{font-size:15.5px;line-height:1.5;color:#3a2f47;margin:0 0 12px;flex:1}
+#path-strip .hs-card a{font-weight:700;font-size:15.5px;color:#452068;text-decoration:underline}
+#path-strip .hs-card.hs-aep{background:#452068;border-color:#452068}
+#path-strip .hs-aep h3,#path-strip .hs-aep p{color:#fff}
+#path-strip .hs-aep .hs-tag{background:#fff}
+#path-strip .hs-aep a{align-self:flex-start;background:#fff;color:#452068;text-decoration:none;padding:7px 12px;border-radius:9px}
+#path-strip .hs-note{margin:14px 0 0;font-size:14.5px;color:#452068;text-align:center}
+#path-strip .hs-note a{color:#452068;text-decoration:underline}
+@media(max-width:1100px){#path-strip .hs-grid{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media(max-width:700px){#deadline-bar{padding:10px 16px}#deadline-bar .dl-wrap{font-size:14.5px;gap:6px 12px}
+#path-strip .hs-h{font-size:24px;margin-bottom:14px}#path-strip .hs-grid{grid-template-columns:1fr;gap:10px}#path-strip .hs-card{padding:14px 16px}#path-strip .hs-card p{margin-bottom:8px}#path-strip .hs-note{text-align:left}}
+</style>
+  <div class="dl-wrap">
+    <span><strong>Deadlines:</strong> <span data-aep-item>Medicare AEP ends Dec 7<span data-aep-days></span> · </span>ACA: enroll by Dec 15 for Jan 1 coverage · Open Enrollment ends Jan 15</span>
+    <a class="dl-btn" href="/medicare-annual-enrollment-2027/">See all dates →</a>
+    <span class="dl-src">Sources: <a href="https://www.medicare.gov/basics/get-started-with-medicare/get-more-coverage/joining-a-plan" target="_blank" rel="noopener">Medicare.gov</a> · <a href="https://www.healthcare.gov/quick-guide/dates-and-deadlines/" target="_blank" rel="noopener">HealthCare.gov</a></span>
+  </div>
+</div>
+
 <div id="path-strip" style="background:#fdfaf7;padding:44px 56px;border-bottom:1px solid #ece5f0">
   <div style="max-width:1320px;margin:0 auto">
-    <p style="text-transform:uppercase;letter-spacing:2px;font-size:14px;font-weight:700;color:#452068;margin-bottom:18px">START HERE</p>
-    <div class="ps-grid">
-      <div class="ps-card ps-card-primary">
-        <p class="ps-title">Medicare + Medicaid (Dual / D-SNP)</p>
-        <p class="ps-body">Have both cards? See if you qualify for extra benefits — $0 premium on many plans.</p>
-        <a href="/medicare-dual-eligible-miami" class="ps-btn-primary">Check My Eligibility →</a>
-      </div>
-      <div class="ps-card ps-card-std">
-        <p class="ps-title">Turning 65 or on Medicare</p>
-        <p class="ps-body">Your 7-month window starts 3 months before your birthday. We compare Advantage, Medigap and Part D for your doctors.</p>
-        <a href="/medicare/new-to-medicare" class="ps-btn-std">Turning 65 Guide →</a>
-      </div>
-      <div class="ps-card ps-card-std">
-        <p class="ps-title">Under 65 or lost coverage</p>
-        <p class="ps-body">ACA Marketplace and private options — 2-minute quiz shows what fits.</p>
-        <a href="/health-insurance-quiz" class="ps-btn-std">Find My Plan →</a>
-      </div>
+    <h2 class="hs-h">Start here</h2>
+    <div class="hs-grid">
+      <div class="hs-card "><span class="hs-tag">Dual / D-SNP</span><h3>Medicare + Medicaid</h3><p>Have both cards? $0 premium on many plans.</p><a href="/medicare-dual-eligible-miami">Check my eligibility →</a></div>
+      <div class="hs-card hs-aep"><span class="hs-tag">AEP open</span><h3>Turning 65 or on Medicare</h3><p>Review your 2027 plan by Dec 7.</p><a href="/medicare-annual-enrollment-2027/">Review my plan →</a></div>
+      <div class="hs-card "><span class="hs-tag">Under 65</span><h3>Income qualifies for a subsidy</h3><p>ACA plans with a tax credit.</p><a href="/aca-plans-miami/">ACA plans →</a></div>
+      <div class="hs-card "><span class="hs-tag">Under 65</span><h3>Over the subsidy limit and healthy</h3><p>A private plan may cost less than full-price ACA.</p><a href="/private-health-insurance-miami/">Private plans →</a></div>
+      <div class="hs-card "><span class="hs-tag">Under 65</span><h3>Lost job coverage</h3><p>Compare COBRA with your other options.</p><a href="/blog/cobra-vs-aca-marketplace-miami/">COBRA vs. Marketplace →</a></div>
     </div>
+    <p class="hs-note">2027 subsidy cutoff: $63,840 for 1 person · $132,000 for a family of 4 · <a href="/private-health-insurance-miami/#subsidy-2027">See the table</a></p>
   </div>
 </div>
 

@@ -24,4 +24,16 @@
 
   var tile = document.getElementById('plan-tile-medicare');
   if (tile && now <= end) tile.classList.add('is-aep');
+
+  // Deadline bar: "(X days left)" next to plain dates; without JS the dates still show.
+  var items = document.querySelectorAll('[data-aep-days]');
+  for (var i = 0; i < items.length; i++) {
+    if (now >= start && now <= end) {
+      var d = Math.ceil((end - now) / day);
+      items[i].textContent = es ? ' (quedan ' + d + unit(d) + ')' : ' (' + d + unit(d) + ' left)';
+    } else if (now > end) {
+      var wrap = items[i].closest ? items[i].closest('[data-aep-item]') : null;
+      if (wrap) wrap.hidden = true;
+    }
+  }
 })();
