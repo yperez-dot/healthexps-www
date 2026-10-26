@@ -284,3 +284,8 @@
 /es/aca-plans-miami/       /es/planes-aca-miami/      301!
 /part-b                    /medicare-savings-program/ 301!
 /part-b/                   /medicare-savings-program/ 301!
+
+# Oct 26, 2026: GA4 Page Not Found leftovers (/hair-care/* also catches //hair-care/, same as /article/*)
+/medicare-supplements      /medicare-supplement-miami/ 301!
+/medicare-supplements/     /medicare-supplement-miami/ 301!
+/hair-care/*               /blog/                     301!
