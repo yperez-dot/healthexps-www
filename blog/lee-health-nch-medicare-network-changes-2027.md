@@ -20,6 +20,8 @@ If you use **Lee Health** and have a **UnitedHealthcare Medicare Advantage plan*
 
 *Updated October 19, 2026: Medicare Annual Enrollment is now open. We added answers about NCH and UnitedHealthcare and where to find Wellcare's 2027 provider directory.*
 
+**Comparing plans for 2027?** Start with our [Medicare Annual Enrollment 2027 guide](/medicare-annual-enrollment-2027/) for this year's dates and how to compare plans.
+
 <div class="inline-cta"><div class="inline-cta-text"><strong>AEP is open now — review your 2027 plan before December 7</strong><span>Medicare Annual Enrollment runs October 15–December 7, 2026, and changes take effect January 1, 2027. Request a free network check below or call <a href="tel:18003806821">1-800-380-6821</a>.</span></div><a href="#network-check" class="inline-cta-btn">Check my 2027 network →</a></div>
 
 ## Who is affected?

@@ -625,21 +625,78 @@ img { max-width: 100%; height: auto; }
       <!-- Results container — populated by JS -->
       <div id="result-wrap" style="display:none;margin-top:24px;"></div>
 
-      <!-- IRMAA lead CTA (static; EN/ES swap via the small script near the end of the page) -->
-      <div id="irmaa-lead-cta" style="background:#f7f2fb;border:1.5px solid #452068;border-radius:16px;padding:22px;margin-top:24px;text-align:center">
+      <!-- IRMAA lead CTA + inline lead form (static; EN/ES swap via the small script near the end of the page). Posts to submit-lead (source_key aep-2027) and fires generate_lead. -->
+      <div id="irmaa-lead-cta" style="background:#f7f2fb;border:1.5px solid #452068;border-radius:16px;padding:22px;margin-top:24px;scroll-margin-top:90px">
         <div class="irmaa-en">
-          <p style="font-family:Poppins,sans-serif;font-weight:700;font-size:20px;line-height:1.35;color:#241a30;margin:0 0 8px">Paying IRMAA? Let&#8217;s review your 2027 Medicare options before Dec 7.</p>
-          <p style="font-size:16px;color:#3a2f47;line-height:1.6;margin:0 0 16px">Social Security sets IRMAA from your income, so switching plans won&#8217;t remove it. Your plan&#8217;s premium, drug costs, and doctors still matter, and Annual Enrollment runs Oct 15&#8211;Dec 7. Our licensed bilingual brokers compare options for free.</p>
-          <a href="/contact/" style="display:block;background:#452068;color:#fff;padding:13px;border-radius:10px;font-weight:700;text-decoration:none;margin-bottom:10px">Book a free plan review &#8594;</a>
-          <a href="tel:18003806821" style="display:block;background:#fff;color:#452068;border:1.5px solid #452068;padding:12px;border-radius:10px;font-weight:700;text-decoration:none">Call 1-800-380-6821</a>
+          <p style="font-family:Poppins,sans-serif;font-weight:700;font-size:20px;line-height:1.35;color:#241a30;margin:0 0 8px;text-align:center">Paying IRMAA? Get a free check from a licensed broker.</p>
+          <p style="font-size:16px;color:#3a2f47;line-height:1.6;margin:0 0 16px;text-align:center">A licensed broker can check whether you may qualify to ask Social Security for a lower IRMAA and compare 2027 plans, including Part B giveback options, at no cost. Social Security sets IRMAA from your income, so switching plans won&#8217;t remove it, and Part B giveback plans are only offered by some plans in some counties. Annual Enrollment runs Oct 15&#8211;Dec 7.</p>
+          <div id="irmaa-form-success-en" hidden style="background:#fff;border:1.5px solid #452068;border-radius:12px;padding:16px;color:#241a30;line-height:1.55;text-align:left"><strong>Request received.</strong><br>A licensed broker will contact you shortly. For immediate help, call <a href="tel:18003806821" style="color:#452068;font-weight:700">1-800-380-6821</a>.</div>
+          <form id="irmaa-form-en" class="irmaa-lead-form" data-lang="en" data-success="irmaa-form-success-en" novalidate style="text-align:left">
+            <input type="text" name="_hp_name" autocomplete="off" tabindex="-1" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0">
+            <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:0 12px"><label style="display:block;text-align:left;color:#452068;font-size:15px;font-weight:700;margin-bottom:12px">First name *<input name="first_name" autocomplete="given-name" required style="display:block;width:100%;box-sizing:border-box;margin-top:5px;padding:12px;border:2px solid #ddd3e5;border-radius:8px;font:inherit;font-weight:400;color:#241a30;background:#fff"></label><label style="display:block;text-align:left;color:#452068;font-size:15px;font-weight:700;margin-bottom:12px">Last name *<input name="last_name" autocomplete="family-name" required style="display:block;width:100%;box-sizing:border-box;margin-top:5px;padding:12px;border:2px solid #ddd3e5;border-radius:8px;font:inherit;font-weight:400;color:#241a30;background:#fff"></label></div>
+            <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:0 12px"><label style="display:block;text-align:left;color:#452068;font-size:15px;font-weight:700;margin-bottom:12px">Phone *<input name="phone" type="tel" autocomplete="tel" placeholder="(305) 555-0100" required style="display:block;width:100%;box-sizing:border-box;margin-top:5px;padding:12px;border:2px solid #ddd3e5;border-radius:8px;font:inherit;font-weight:400;color:#241a30;background:#fff"></label><label style="display:block;text-align:left;color:#452068;font-size:15px;font-weight:700;margin-bottom:12px">Email *<input name="email" type="email" autocomplete="email" required style="display:block;width:100%;box-sizing:border-box;margin-top:5px;padding:12px;border:2px solid #ddd3e5;border-radius:8px;font:inherit;font-weight:400;color:#241a30;background:#fff"></label></div>
+            <label style="display:block;text-align:left;color:#452068;font-size:15px;font-weight:700;margin-bottom:12px">ZIP code *<input name="zip_code" inputmode="numeric" pattern="[0-9]{5}" maxlength="5" autocomplete="postal-code" required style="display:block;width:100%;box-sizing:border-box;margin-top:5px;padding:12px;border:2px solid #ddd3e5;border-radius:8px;font:inherit;font-weight:400;color:#241a30;background:#fff"></label>
+            <label style="display:flex;align-items:flex-start;gap:9px;font-size:12.5px;line-height:1.45;color:#3a2f47;margin:4px 0 14px;text-align:left"><input name="consent" type="checkbox" required style="margin-top:3px;flex:0 0 auto"><span>By checking this box, I consent to receive calls and texts from The Health Experts Insurance about Medicare plan options. Consent is not required to purchase services. Message and data rates may apply. Reply STOP to opt out.</span></label>
+            <button type="submit" style="display:block;width:100%;border:0;background:#452068;color:#fff;padding:14px;border-radius:10px;font:inherit;font-weight:700;font-size:17px;cursor:pointer;margin-top:4px">Get my free IRMAA &amp; plan check &#8594;</button>
+            <p style="font-size:14px;color:#5a5068;margin:10px 0 0;text-align:center">Licensed Florida brokers &middot; No cost &middot; No obligation</p>
+          </form>
+          <a href="tel:18003806821" style="display:block;background:#fff;color:#452068;border:1.5px solid #452068;padding:12px;border-radius:10px;font-weight:700;text-decoration:none;text-align:center;margin-top:12px">Or call 1-800-380-6821</a>
         </div>
         <div class="irmaa-es" style="display:none">
-          <p style="font-family:Poppins,sans-serif;font-weight:700;font-size:20px;line-height:1.35;color:#241a30;margin:0 0 8px">¿Paga IRMAA? Revisemos sus opciones de Medicare 2027 antes del 7 de diciembre.</p>
-          <p style="font-size:16px;color:#3a2f47;line-height:1.6;margin:0 0 16px">El Seguro Social fija el IRMAA según sus ingresos, así que cambiar de plan no lo elimina. Pero la prima de su plan, el costo de sus medicamentos y sus médicos sí importan, y la Inscripción Anual va del 15 de octubre al 7 de diciembre. Nuestros corredores bilingües con licencia comparan opciones gratis.</p>
-          <a href="/es/contacto/" style="display:block;background:#452068;color:#fff;padding:13px;border-radius:10px;font-weight:700;text-decoration:none;margin-bottom:10px">Reserve su revisión gratis &#8594;</a>
-          <a href="tel:18003806821" style="display:block;background:#fff;color:#452068;border:1.5px solid #452068;padding:12px;border-radius:10px;font-weight:700;text-decoration:none">Llame al 1-800-380-6821</a>
+          <p style="font-family:Poppins,sans-serif;font-weight:700;font-size:20px;line-height:1.35;color:#241a30;margin:0 0 8px;text-align:center">¿Paga IRMAA? Reciba una revisión gratis de un corredor licenciado.</p>
+          <p style="font-size:16px;color:#3a2f47;line-height:1.6;margin:0 0 16px;text-align:center">Un corredor licenciado puede revisar si usted podría calificar para pedirle al Seguro Social un IRMAA más bajo y comparar planes 2027, incluidas opciones con reembolso de la prima de la Parte B (Part B giveback), sin costo. El Seguro Social fija el IRMAA según sus ingresos, así que cambiar de plan no lo elimina, y los planes con reembolso de la Parte B solo los ofrecen algunos planes en algunos condados. La Inscripción Anual va del 15 de octubre al 7 de diciembre.</p>
+          <div id="irmaa-form-success-es" hidden style="background:#fff;border:1.5px solid #452068;border-radius:12px;padding:16px;color:#241a30;line-height:1.55;text-align:left"><strong>Recibimos su solicitud.</strong><br>Un corredor licenciado le contactará pronto. Para ayuda inmediata, llame al <a href="tel:18003806821" style="color:#452068;font-weight:700">1-800-380-6821</a>.</div>
+          <form id="irmaa-form-es" class="irmaa-lead-form" data-lang="es" data-success="irmaa-form-success-es" novalidate style="text-align:left">
+            <input type="text" name="_hp_name" autocomplete="off" tabindex="-1" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0">
+            <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:0 12px"><label style="display:block;text-align:left;color:#452068;font-size:15px;font-weight:700;margin-bottom:12px">Nombre *<input name="first_name" autocomplete="given-name" required style="display:block;width:100%;box-sizing:border-box;margin-top:5px;padding:12px;border:2px solid #ddd3e5;border-radius:8px;font:inherit;font-weight:400;color:#241a30;background:#fff"></label><label style="display:block;text-align:left;color:#452068;font-size:15px;font-weight:700;margin-bottom:12px">Apellido *<input name="last_name" autocomplete="family-name" required style="display:block;width:100%;box-sizing:border-box;margin-top:5px;padding:12px;border:2px solid #ddd3e5;border-radius:8px;font:inherit;font-weight:400;color:#241a30;background:#fff"></label></div>
+            <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:0 12px"><label style="display:block;text-align:left;color:#452068;font-size:15px;font-weight:700;margin-bottom:12px">Teléfono *<input name="phone" type="tel" autocomplete="tel" placeholder="(305) 555-0100" required style="display:block;width:100%;box-sizing:border-box;margin-top:5px;padding:12px;border:2px solid #ddd3e5;border-radius:8px;font:inherit;font-weight:400;color:#241a30;background:#fff"></label><label style="display:block;text-align:left;color:#452068;font-size:15px;font-weight:700;margin-bottom:12px">Correo electrónico *<input name="email" type="email" autocomplete="email" required style="display:block;width:100%;box-sizing:border-box;margin-top:5px;padding:12px;border:2px solid #ddd3e5;border-radius:8px;font:inherit;font-weight:400;color:#241a30;background:#fff"></label></div>
+            <label style="display:block;text-align:left;color:#452068;font-size:15px;font-weight:700;margin-bottom:12px">Código postal *<input name="zip_code" inputmode="numeric" pattern="[0-9]{5}" maxlength="5" autocomplete="postal-code" required style="display:block;width:100%;box-sizing:border-box;margin-top:5px;padding:12px;border:2px solid #ddd3e5;border-radius:8px;font:inherit;font-weight:400;color:#241a30;background:#fff"></label>
+            <label style="display:flex;align-items:flex-start;gap:9px;font-size:12.5px;line-height:1.45;color:#3a2f47;margin:4px 0 14px;text-align:left"><input name="consent" type="checkbox" required style="margin-top:3px;flex:0 0 auto"><span>Al marcar esta casilla, consiento recibir llamadas y mensajes de texto de The Health Experts Insurance sobre opciones de planes de Medicare. El consentimiento no es requisito para adquirir servicios. Se pueden aplicar tarifas de mensajes y datos. Responda STOP para cancelar.</span></label>
+            <button type="submit" style="display:block;width:100%;border:0;background:#452068;color:#fff;padding:14px;border-radius:10px;font:inherit;font-weight:700;font-size:17px;cursor:pointer;margin-top:4px">Quiero mi revisión gratis &#8594;</button>
+            <p style="font-size:14px;color:#5a5068;margin:10px 0 0;text-align:center">Corredores licenciados en Florida &middot; Sin costo &middot; Sin compromiso</p>
+          </form>
+          <a href="tel:18003806821" style="display:block;background:#fff;color:#452068;border:1.5px solid #452068;padding:12px;border-radius:10px;font-weight:700;text-decoration:none;text-align:center;margin-top:12px">O llame al 1-800-380-6821</a>
         </div>
       </div>
+      <script>
+      // IRMAA inline lead forms (EN + ES). Same pattern as the blog network-check forms.
+      (function(){
+        var loaded = Date.now();
+        document.querySelectorAll('.irmaa-lead-form').forEach(function(form){
+          form.addEventListener('submit', async function(e){
+            e.preventDefault();
+            if (!form.checkValidity()) { form.reportValidity(); return; }
+            var es = form.getAttribute('data-lang') === 'es';
+            var btn = form.querySelector('button[type="submit"]');
+            var label = btn.innerHTML;
+            btn.disabled = true;
+            btn.textContent = es ? 'Enviando…' : 'Sending…';
+            var d = Object.fromEntries(new FormData(form).entries());
+            d.source_key = 'aep-2027';
+            d.source = es ? 'Calculadora IRMAA' : 'IRMAA Calculator';
+            d.looking_for = es ? 'Ayuda con IRMAA y comparación de planes 2027' : 'IRMAA help + 2027 plan comparison';
+            d.coverage_type = 'Medicare — IRMAA / 2027 plan review';
+            d.tags = 'irmaa-calculator,aep-2027,organic,' + (es ? 'spanish' : 'english');
+            d.lang = es ? 'spanish' : 'english';
+            d.page = location.href;
+            d._form_loaded_at = loaded;
+            d.submitted_at = new Date().toISOString();
+            try {
+              var r = await fetch('/.netlify/functions/submit-lead', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(d) });
+              if (!r.ok) throw new Error('submit failed');
+              form.hidden = true;
+              var ok = document.getElementById(form.getAttribute('data-success'));
+              if (ok) ok.hidden = false;
+              if (typeof gtag === 'function') gtag('event', 'generate_lead', { campaign: 'irmaa_calculator', language: es ? 'es' : 'en' });
+            } catch (err) {
+              btn.disabled = false;
+              btn.innerHTML = label;
+              alert(es ? 'No pudimos enviar su solicitud. Llame al 1-800-380-6821.' : 'We could not send your request. Please call 1-800-380-6821.');
+            }
+          });
+        });
+      })();
+      </script>
 
       <!-- FAQ: how long IRMAA lasts (static; EN/ES) -->
       <div id="irmaa-faq" style="margin-top:40px">
@@ -863,7 +920,8 @@ var COPY = {
     noteLabel: 'Part D IRMAA is added on top of your drug plan’s own premium. Enter that premium above for a fuller total. Part A is separate and usually premium-free.',
     appealLabel: 'If your income dropped (retirement, divorce, death of a spouse), you can ask Social Security to use current income — Form SSA-44.',
     discLabel: 'Estimates from CMS 2026 figures (publication 11579). Social Security determines the official amount. Contact Medicare.gov or 1-800-MEDICARE for official information.',
-    ctaLabel: 'Want help with IRMAA or a plan that fits your doctors? Licensed bilingual brokers compare options for free.',
+    ctaLabel: 'Paying IRMAA? A licensed broker can check whether you may qualify to ask Social Security for a lower IRMAA and compare 2027 plans, including Part B giveback options, at no cost.',
+    formLabel: 'Get my free IRMAA & plan check ↓',
     callLabel: 'Call 1-800-380-6821',
     waLabel: 'WhatsApp us',
     errLabel: 'Please enter your 2024 annual MAGI.',
@@ -883,7 +941,8 @@ var COPY = {
     noteLabel: 'El IRMAA de Parte D se suma a la prima de su plan de medicamentos. Ingrese esa prima arriba para un total más completo. La Parte A es aparte y normalmente no tiene prima.',
     appealLabel: 'Si su ingreso bajó (jubilación, divorcio, fallecimiento del cónyuge), puede pedir a Social Security que use el ingreso actual — Formulario SSA-44.',
     discLabel: 'Estimaciones según cifras CMS 2026 (publicación 11579). Social Security determina el monto oficial. Consulte Medicare.gov o 1-800-MEDICARE.',
-    ctaLabel: '¿Quiere ayuda con IRMAA o un plan que cubra a sus médicos? Corredores bilingües comparan opciones gratis.',
+    ctaLabel: '¿Paga IRMAA? Un corredor licenciado puede revisar si usted podría calificar para pedirle al Seguro Social un IRMAA más bajo y comparar planes 2027, incluidas opciones con reembolso de la Parte B (Part B giveback), sin costo.',
+    formLabel: 'Quiero mi revisión gratis ↓',
     callLabel: 'Llame al 1-800-380-6821',
     waLabel: 'Escríbanos por WhatsApp',
     errLabel: 'Por favor ingrese su MAGI anual de 2024.',
@@ -997,6 +1056,7 @@ function calculate() {
 
   html += '<div style="background:#fff;border:1.5px solid #e4dcec;border-radius:12px;padding:18px;text-align:center">';
   html += '<p style="font-size:18px;color:#3a2f47;margin-bottom:14px">' + c.ctaLabel + '</p>';
+  html += '<a href="#irmaa-lead-cta" style="display:block;background:#452068;color:#fff;padding:13px;border-radius:10px;font-weight:700;text-decoration:none;margin-bottom:10px">' + c.formLabel + '</a>';
   html += '<a href="tel:18003806821" style="display:block;background:#452068;color:#fff;padding:13px;border-radius:10px;font-weight:700;text-decoration:none;margin-bottom:10px">' + c.callLabel + '</a>';
   html += '<a href="https://wa.me/13054646888" onclick="gtag(\'event\',\'whatsapp_click\',{\'page\':window.location.pathname})" style="display:block;background:#25d366;color:#fff;padding:13px;border-radius:10px;font-weight:700;text-decoration:none">' + c.waLabel + '</a>';
   html += '</div>';
