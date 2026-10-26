@@ -114,6 +114,34 @@ function hasHomepageAepBanner(html) {
   return /id=["']aep-message["']/.test(String(html || ""));
 }
 
+function hreflangAlternates(html) {
+  const out = {};
+  const head = String(html || "").split(/<\/head>/i)[0];
+  for (const m of head.matchAll(/<link\b[^>]*>/gi)) {
+    const tag = m[0];
+    if (!/\brel=["']alternate["']/i.test(tag)) continue;
+    const lang = (tag.match(/\bhreflang=["']([^"']+)["']/i) || [])[1];
+    const href = (tag.match(/\bhref=["']([^"']+)["']/i) || [])[1];
+    if (!lang || !href) continue;
+    const key = lang.toLowerCase();
+    if (key === "en" || key === "es") {
+      if (!out[key]) out[key] = href.replace(/^https?:\/\/(?:www\.)?healthexps\.com(?=\/|$)/i, "") || "/";
+    }
+  }
+  return out;
+}
+
+// Point the shared top-bar language toggle at this page's own hreflang alternate
+// (EN button on an ES page -> hreflang="en" URL; ES button on an EN page -> hreflang="es").
+// Falls back to the homepage (/ or /es/) only when the page has no alternate.
+function localizeLangToggle(html) {
+  const alt = hreflangAlternates(html);
+  const attr = (url) => String(url).replace(/&(?!amp;|#\d+;|[a-z]+;)/gi, "&amp;").replace(/"/g, "&quot;");
+  return html
+    .replace('<div class="shared-topbar__actions"><a href="/">EN</a><span>ES</span>', `<div class="shared-topbar__actions"><a href="${attr(alt.en || "/")}">EN</a><span>ES</span>`)
+    .replace('<div class="shared-topbar__actions"><span>EN</span><a href="/es/">ES</a>', `<div class="shared-topbar__actions"><span>EN</span><a href="${attr(alt.es || "/es/")}">ES</a>`);
+}
+
 function injectSharedChrome(content, outputPath) {
   if (!outputPath || !outputPath.endsWith(".html")) return content;
   const locale = /(?:^|[\\/])(?:_site[\\/])?es[\\/]/i.test(outputPath) ? "es" : "en";
@@ -125,8 +153,9 @@ function injectSharedChrome(content, outputPath) {
   if (preserveAepBar) html = replaceSharedNav(html, chrome[locale].header);
   else html = replaceSharedHeader(html, chrome[locale].header);
   html = replaceSharedFooter(html, chrome[locale].footer.replace(/id=["']site-footer["']/, 'id="site-footer" class="shared-chrome-footer"'));
+  html = localizeLangToggle(html);
   if (!html.includes("/css/shared-chrome.css")) html = html.replace(/<\/head>/i, '  <link rel="stylesheet" href="/css/shared-chrome.css">\n  <link rel="stylesheet" href="/css/shared-footer.css">\n</head>');
   return html;
 }
 
-module.exports = { injectSharedChrome, findBalancedEnd, isHomepageOutput, replaceSharedNav };
+module.exports = { injectSharedChrome, findBalancedEnd, isHomepageOutput, replaceSharedNav, hreflangAlternates };

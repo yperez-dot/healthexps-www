@@ -41,6 +41,15 @@ assert(es.includes("Todos los Recursos"));
 assert(es.includes("/es/contacto/"));
 assert(es.includes('class="shared-nav__panel"'));
 
+// Language toggle follows the page's own hreflang alternate
+const pairHead = '<html><head><link rel="alternate" hreflang="en" href="https://www.healthexps.com/medical-insurance-broker/"/><link rel="alternate" hreflang="es" href="https://www.healthexps.com/es/corredor-de-seguros-de-salud-miami/"/></head><body><div class="v4-nav-outer"></div><div id="v4-mobile-menu"></div><div id="site-footer"></div></body></html>';
+const esPair = injectSharedChrome(pairHead, "/tmp/_site/es/corredor-de-seguros-de-salud-miami/index.html");
+assert(esPair.includes('<a href="/medical-insurance-broker/">EN</a><span>ES</span>'), "ES toggle -> hreflang en");
+const enPair = injectSharedChrome(pairHead, "/tmp/_site/medical-insurance-broker/index.html");
+assert(enPair.includes('<span>EN</span><a href="/es/corredor-de-seguros-de-salud-miami/">ES</a>'), "EN toggle -> hreflang es");
+assert(es.includes('<a href="/">EN</a><span>ES</span>'), "ES toggle falls back to / without hreflang");
+assert(en.includes('<span>EN</span><a href="/es/">ES</a>'), "EN toggle falls back to /es/ without hreflang");
+
 const css = fs.readFileSync(path.join(__dirname, "../css/shared-chrome.css"), "utf8");
 assert(css.includes(".shared-nav__panel"));
 assert(/flex-direction:\s*column/.test(css));
