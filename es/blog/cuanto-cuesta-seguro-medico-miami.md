@@ -87,6 +87,8 @@ Por encima del 400% FPL no recibe el crédito tributario en 2027, así que paga 
 - **Compre directamente con la aseguradora.** Los planes ACA también se venden fuera del Mercado, con las mismas protecciones pero sin subsidio. El resumen 2027 de la OIR muestra aseguradoras que venden solo fuera del Mercado ([OIR](https://floir.gov/docs-sf/life-health-libraries/federal-health-insurance/2027-plan-year/aca-2027-web-tables_deliverable-part-1.pdf)).
 - **Conozca las diferencias de los planes que no son ACA.** Los planes de corto plazo no están sujetos a las reglas federales que prohíben excluir condiciones preexistentes ni a las que exigen cobertura completa ([CMS](https://www.cms.gov/newsroom/fact-sheets/short-term-limited-duration-insurance-and-independent-noncoordinated-excepted-benefits-coverage-cms), en inglés). Le explicamos las diferencias antes de que compre.
 
+¿Está sano y gana más del límite? Compare también un [seguro médico privado en Miami](/es/seguro-medico-privado-miami/): algunos planes aceptan solicitudes cualquier mes.
+
 ¿Trabaja por cuenta propia? Lea nuestra guía de [seguro médico para trabajadores independientes en Miami](/es/blog/seguro-medico-trabajadores-independientes-miami/), que incluye la deducción del IRS por seguro médico.
 
 <div class="inline-cta"><div class="inline-cta-text"><strong>¿No sabe en qué rango queda su ingreso?</strong><span>Envíenos cuántas personas hay en su hogar y su ingreso estimado para 2027, y le mostramos los planes y ahorros disponibles.</span></div><a href="#cost-quote" class="inline-cta-btn">Revisar mis ahorros →</a></div>
