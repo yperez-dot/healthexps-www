@@ -32,6 +32,7 @@ module.exports = function (eleventyConfig) {
   // ── Static asset passthrough ───────────────────────────────────────────────
   eleventyConfig.addPassthroughCopy("css");
   eleventyConfig.addPassthroughCopy("js");
+  eleventyConfig.addPassthroughCopy("fonts");
   eleventyConfig.addPassthroughCopy("images");
   eleventyConfig.addPassthroughCopy("videos/medicare");
   eleventyConfig.addPassthroughCopy("favicon.ico");

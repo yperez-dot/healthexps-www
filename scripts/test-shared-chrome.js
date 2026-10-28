@@ -15,6 +15,11 @@ assert(!en.includes("Medicare Advantage</a><a"));
 assert(!en.includes("Medicare Supplement</a><a"));
 assert(!en.includes("Old mobile"));
 assert(en.includes("shared-chrome.css"));
+assert(en.includes("/css/shared-footer.css"));
+assert(en.includes("media=\"print\" onload=\"this.media='all'\""));
+assert(en.includes("/css/fonts.css"));
+assert(en.includes('href="/fonts/poppins-latin-700.woff2"'));
+assert(en.includes('href="/fonts/inter-latin-400.woff2"'));
 assert(en.includes('href="/book"'));
 const es = injectSharedChrome(old, "/tmp/_site/es/planes-de-medicare-miami/index.html");
 const homeHtml = '<html><head></head><body><div id="aep-message">Banner</div><div class="v4-nav-outer"><a href="/resources">Resources</a></div><div id="v4-mobile-menu"><a href="/resources">Resources</a></div><div id="site-footer"></div></body></html>';
@@ -54,5 +59,19 @@ const css = fs.readFileSync(path.join(__dirname, "../css/shared-chrome.css"), "u
 assert(css.includes(".shared-nav__panel"));
 assert(/flex-direction:\s*column/.test(css));
 assert(/\.shared-nav__panel a[\s\S]*display:\s*block/.test(css));
+
+const fontsCss = fs.readFileSync(path.join(__dirname, "../css/fonts.css"), "utf8");
+assert(fontsCss.includes("font-display: swap"));
+assert(fontsCss.includes("/fonts/inter-latin-400.woff2"));
+assert(fontsCss.includes("/fonts/poppins-latin-700.woff2"));
+
+const withGoogle = injectSharedChrome(
+  '<html><head><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet"><link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&display=swap" rel="stylesheet"></head><body><div class="v4-nav-outer"></div><div id="v4-mobile-menu"></div><div id="site-footer"></div></body></html>',
+  "/tmp/_site/index.html"
+);
+assert(!withGoogle.includes("family=Poppins"), "drops render-blocking Inter/Poppins Google Fonts CSS");
+assert(!withGoogle.includes('href="https://fonts.googleapis.com"'), "drops fonts.googleapis preconnect");
+assert(withGoogle.includes("family=Playfair+Display"), "keeps non-Inter/Poppins Google Fonts");
+assert(withGoogle.includes('media="print" onload="this.media=\'all\'"'), "other Google Fonts CSS loads non-blocking");
 
 console.log("shared chrome tests passed");
