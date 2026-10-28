@@ -37,13 +37,32 @@
     return String(WIDGET_IDS[lang] || "").trim();
   }
 
-  function bumpScrollTopButton() {
-    if (document.getElementById("thei-ghl-chat-offset")) return;
-    var style = document.createElement("style");
-    style.id = "thei-ghl-chat-offset";
+  /**
+   * Keep #scrollToTop above the chat launcher, and lift both above the AEP
+   * sticky Call/WhatsApp bar so they no longer cover those CTAs.
+   */
+  function liftFloatingWidgets(hasChat) {
+    var root = document.documentElement;
+    if (document.querySelector(".aep-sticky")) root.classList.add("thei-aep-sticky");
+    if (hasChat) root.classList.add("thei-has-chat");
+
+    var style = document.getElementById("thei-ghl-chat-offset");
+    if (!style) {
+      style = document.createElement("style");
+      style.id = "thei-ghl-chat-offset";
+      document.head.appendChild(style);
+    }
     style.textContent =
-      "#scrollToTop{bottom:96px !important;}@media (max-width:640px){#scrollToTop{bottom:88px !important;}}";
-    document.head.appendChild(style);
+      "html.thei-has-chat #scrollToTop{bottom:96px !important;}" +
+      "@media (max-width:640px){html.thei-has-chat #scrollToTop{bottom:88px !important;}}" +
+      /* Two-row AEP bar is ~116px on 390px; sit the launcher fully above it. */
+      "html.thei-aep-sticky chat-widget{bottom:120px !important;}" +
+      "html.thei-aep-sticky #scrollToTop{bottom:184px !important;}" +
+      "@media (max-width:640px){" +
+      "html.thei-aep-sticky chat-widget{bottom:124px !important;}" +
+      "html.thei-aep-sticky #scrollToTop{bottom:132px !important;}" +
+      "html.thei-aep-sticky.thei-has-chat #scrollToTop{bottom:192px !important;}" +
+      "}";
   }
 
   /**
@@ -74,6 +93,9 @@
       return !!(el && el.matches && el.matches("input, select, textarea") &&
         !(el.closest && el.closest("chat-widget")));
     }
+    // Home EN/ES #v4LeadForm uses type=text for phone/email. Also match by name.
+    var LEAD_FIELDS = 'input[type="tel"], input[type="email"], input[name*="phone" i], input[name*="email" i]';
+    var BOOKING_IFRAME = 'iframe[src*="leadconnectorhq.com/widget/booking"]';
 
     var forms = document.querySelectorAll("form");
     if ("IntersectionObserver" in global) {
@@ -86,8 +108,10 @@
         update();
       });
       for (var i = 0; i < forms.length; i++) {
-        if (forms[i].querySelector('input[type="tel"], input[type="email"]')) io.observe(forms[i]);
+        if (forms[i].querySelector(LEAD_FIELDS)) io.observe(forms[i]);
       }
+      var bookings = document.querySelectorAll(BOOKING_IFRAME);
+      for (var j = 0; j < bookings.length; j++) io.observe(bookings[j]);
     }
 
     document.addEventListener("focusin", function (event) {
@@ -114,7 +138,7 @@
     script.setAttribute("data-widget-id", widgetId);
     document.body.appendChild(script);
 
-    bumpScrollTopButton();
+    liftFloatingWidgets(true);
     quietUntilClick();
 
     global.addEventListener("LC_chatWidgetLoaded", function () {
@@ -134,7 +158,11 @@
       '[class*="message-preview"],[class*="MessagePreview"],' +
       '[class*="greeting"],[class*="Greeting"],' +
       '[data-testid*="proactive"],[class*="widget-preview"],' +
-      '[class*="auto-message"],[class*="AutoMessage"]{display:none !important;}';
+      '[class*="auto-message"],[class*="AutoMessage"]{display:none !important;}' +
+      /* Launcher is position:fixed inside the closed shadow tree, so host
+         bottom: rules never move it. :host-context sees the page classes. */
+      ':host-context(html.thei-aep-sticky) #lc_text-widget--btn,' +
+      ':host-context(html.thei-aep-sticky) .lc_text-widget--bubble{bottom:124px !important;}';
 
     if (!document.getElementById("thei-ghl-chat-quiet")) {
       var style = document.createElement("style");
@@ -153,11 +181,23 @@
 
     function greetingPhrases() {
       return [
-        "Hi! How can I help?",
-        "How can I help?",
-        "¡Hola! ¿En qué puedo ayudarte?",
-        "¿En qué puedo ayudarte?",
+        "hi how can i help",
+        "how can i help",
+        "hola en que puedo ayudarte",
+        "en que puedo ayudarte",
+        "hola como puedo ayudar",
+        "como puedo ayudar",
       ];
+    }
+
+    function normalizePhrase(s) {
+      return String(s || "")
+        .toLowerCase()
+        .normalize("NFD")
+        .replace(/[\u0300-\u036f]/g, "")
+        .replace(/[¿?¡!.,;:'"«»]/g, "")
+        .replace(/\s+/g, " ")
+        .trim();
     }
 
     function hideGreetingCopy(root) {
@@ -166,7 +206,7 @@
       var phrases = greetingPhrases();
       var nodes = root.querySelectorAll("div, span, p, button");
       for (var i = 0; i < nodes.length; i++) {
-        var text = (nodes[i].textContent || "").replace(/\s+/g, " ").trim();
+        var text = normalizePhrase(nodes[i].textContent);
         if (phrases.indexOf(text) === -1) continue;
         var box = nodes[i].closest("div") || nodes[i];
         if (box && !box.querySelector("iframe")) {
@@ -246,6 +286,7 @@
 
   function init() {
     guardLeadForms();
+    liftFloatingWidgets(false);
     var lang = pageLang();
     var widgetId = widgetIdFor(lang);
     if (!widgetId) return;
