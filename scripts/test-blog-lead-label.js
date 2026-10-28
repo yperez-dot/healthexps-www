@@ -77,7 +77,7 @@ for (const dir of ["blog", "es/blog"]) {
   }
 }
 
-// ── scheduled cleanup renames only blog leads' "— Homepage" opps ──
+// ── scheduled cleanup renames non-homepage website leads' "— Homepage" opps ──
 (async () => {
   const { sweep } = require("../netlify/functions/blog-lead-cleanup");
   delete process.env.GHL_API_TOKEN;
@@ -94,18 +94,32 @@ for (const dir of ["blog", "es/blog"]) {
       { id: "O2", name: "Home Person — Homepage", contactId: "C2", createdAt: recent },
       { id: "O3", name: "Old Person — Homepage", contactId: "C3", createdAt: "2020-01-01T00:00:00Z" },
       { id: "O4", name: "Done Person — Blog: X", contactId: "C4", createdAt: recent },
+      { id: "O5", name: "Page Person — Homepage", contactId: "C5", createdAt: recent },
+      { id: "O6", name: "Es Home Person — Homepage", contactId: "C6", createdAt: recent },
+      { id: "O7", name: "Mixed Person — Homepage", contactId: "C7", createdAt: recent },
+      { id: "O8", name: "Unlabeled Person — Homepage", contactId: "C8", createdAt: recent },
     ] });
     if (m === "GET" && u.endsWith("/contacts/C1")) return r({ contact: { id: "C1", source: "Blog: How to Read Your 2027 ANOC", tags: ["website-lead", "blog", "homepage"] } });
-    if (m === "GET" && u.endsWith("/contacts/C2")) return r({ contact: { id: "C2", source: "Homepage Form", tags: ["website-lead", "homepage"] } });
+    if (m === "GET" && u.endsWith("/contacts/C2")) return r({ contact: { id: "C2", source: "Homepage Form", tags: ["website-lead", "homepage", "web:homepage"] } });
+    if (m === "GET" && u.endsWith("/contacts/C5")) return r({ contact: { id: "C5", source: "Medicare Plans Page Form", tags: ["website-lead", "web:medicare-plans-miami", "homepage"] } });
+    if (m === "GET" && u.endsWith("/contacts/C6")) return r({ contact: { id: "C6", source: "Spanish Homepage Form", tags: ["website-lead", "web:es-homepage"] } });
+    // came in on a page AND on the homepage: ambiguous, leave alone
+    if (m === "GET" && u.endsWith("/contacts/C7")) return r({ contact: { id: "C7", source: "Medicare Plans Page Form", tags: ["website-lead", "web:medicare-plans-miami", "web:homepage"] } });
+    // not a website lead (no website-lead tag) — leave alone
+    if (m === "GET" && u.endsWith("/contacts/C8")) return r({ contact: { id: "C8", source: "Facebook Lead", tags: ["homepage"] } });
     return r({});
   };
   const res = await sweep();
-  assert.deepStrictEqual(res, { checked: 2, renamed: 1, untagged: 1 });
-  const put = calls.find((c) => c.m === "PUT");
-  assert(put.u.endsWith("/opportunities/O1"));
-  assert.strictEqual(put.body.name, "Blog Person — Blog: How to Read Your 2027 ANOC");
-  const del = calls.find((c) => c.m === "DELETE");
-  assert(del.u.endsWith("/contacts/C1/tags") && del.body.tags[0] === "homepage");
-  assert(!calls.some((c) => c.u.includes("/opportunities/O2") || c.u.includes("/contacts/C2/tags")), "homepage lead untouched");
+  assert.deepStrictEqual(res, { checked: 6, renamed: 2, untagged: 2 });
+  const puts = calls.filter((c) => c.m === "PUT");
+  assert.deepStrictEqual(puts.map((p) => p.u.split("/").pop()), ["O1", "O5"]);
+  assert.strictEqual(puts[0].body.name, "Blog Person — Blog: How to Read Your 2027 ANOC");
+  assert.strictEqual(puts[1].body.name, "Page Person — Medicare Plans Page Form");
+  const dels = calls.filter((c) => c.m === "DELETE");
+  assert.deepStrictEqual(dels.map((d) => d.u.split("/").slice(-2)[0]), ["C1", "C5"]);
+  assert(dels.every((d) => d.body.tags[0] === "homepage"));
+  for (const id of ["2", "6", "7", "8"]) {
+    assert(!calls.some((c) => c.u.includes("/opportunities/O" + id) || c.u.includes("/contacts/C" + id + "/tags")), "lead " + id + " untouched");
+  }
   console.log("test-blog-lead-label: ok");
 })().catch((e) => { console.error(e); process.exit(1); });

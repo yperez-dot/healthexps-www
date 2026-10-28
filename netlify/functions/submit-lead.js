@@ -87,8 +87,27 @@ function json(statusCode, body) {
   return { statusCode, headers: CORS_HEADERS, body: JSON.stringify(body) };
 }
 
-function okFiltered(reason) {
-  console.log('[submit-lead] filtered:', reason);
+/**
+ * Safe, value-free summary of a submission for the function log: which page,
+ * label and workflow, and which contact fields were present — never the values.
+ */
+function logSummary(data, webhookId) {
+  const has = (v) => Boolean(String(v || '').trim());
+  return JSON.stringify({
+    page_path: String(data.page_path || data.form_page || pathFromPage(data.page || data.page_url || data.pageUrl) || '').slice(0, 120),
+    source: String(data.source || data.formSource || '').slice(0, 80),
+    webhook: String(webhookId || data.webhook_id || data.source_key || '').slice(0, 8),
+    fields: {
+      first: has(data.first_name || data.firstName),
+      last: has(data.last_name || data.lastName),
+      phone: has(data.phone || data.phone_number),
+      email: has(data.email),
+    },
+  });
+}
+
+function okFiltered(reason, data, webhookId) {
+  console.log('[submit-lead] filtered:', reason, logSummary(data || {}, webhookId));
   return json(200, { ok: true, filtered: true });
 }
 
@@ -164,7 +183,26 @@ const SKIP_PROMO_KEYS = new Set([
   'source_key',
   '_form_loaded_at',
   'form_loaded_at',
+  // camelCase / extra attribution fields some pages send (e.g. AvMed pageUrl)
+  'pageUrl',
+  'page_href',
+  'url',
+  'referrer',
+  'referer',
+  'landing_page',
+  'formSource',
+  'submittedAt',
+  'utm_source',
+  'utm_medium',
+  'utm_campaign',
+  'utm_content',
+  'utm_term',
+  'tags',
+  'emailHtml',
 ]);
+
+/** Our own site's URLs are attribution, not promo links. */
+const OWN_SITE_URL_RE = /https?:\/\/(?:www\.)?healthexps\.com(?:\/[^\s]*)?/gi;
 
 /**
  * Crypto-faucet / URL-in-name spam (e.g. "📈 +2.84 BTC. GET -> Graph.org/Mining-…").
@@ -195,7 +233,7 @@ function collectLeadText(data) {
   const parts = [];
   for (const [k, v] of Object.entries(data || {})) {
     if (SKIP_PROMO_KEYS.has(k)) continue;
-    if (typeof v === 'string') parts.push(v);
+    if (typeof v === 'string') parts.push(v.replace(OWN_SITE_URL_RE, ''));
   }
   return parts.join('\n');
 }
@@ -229,6 +267,7 @@ const EXEMPT_LOOKING_FOR_WEBHOOKS = new Set([
   'd36da03c-e92a-424a-9767-babcc77e884f', // quiz / find-my-plan ES
   'e656a512-d15b-409c-924d-bb3d4627ed9f', // buscador-de-planes
   '961af3bd-5a04-415f-9c59-6ada70219a4f', // life insurance calculator
+  '28058d00-7965-45e2-ae3c-e37459f9464b', // life insurance calculator ES
 ]);
 
 function extractLookingFor(data) {
@@ -425,6 +464,68 @@ function resolveWebhookId(data) {
   return null;
 }
 
+/**
+ * Some pages post GHL-style nested contact data ({ contactData: { firstName,
+ * phone } }). Lift those fields to the top level so validation and the GHL
+ * workflow see them like every other form.
+ */
+function flattenContactData(data) {
+  const nested = data && typeof data.contactData === 'object' && data.contactData;
+  if (!nested) return data;
+  const out = { ...data };
+  const map = {
+    firstName: 'first_name', first_name: 'first_name',
+    lastName: 'last_name', last_name: 'last_name',
+    name: 'name', phone: 'phone', email: 'email',
+  };
+  for (const [from, to] of Object.entries(map)) {
+    const v = nested[from];
+    if (v !== undefined && v !== null && String(v).trim() && !String(out[to] || '').trim()) out[to] = v;
+  }
+  delete out.contactData;
+  return out;
+}
+
+/** Bot-only signals: drop quietly (200) so bots learn nothing. */
+const HARD_SPAM_REASONS = new Set(['honeypot', 'too_fast', 'bot_name', 'gibberish_notes']);
+
+/** A phone or email a person could actually be reached at. */
+function hasReachableContact(data) {
+  const phoneDigits = digitsOnly(data.phone || data.phone_number || '');
+  const email = String(data.email || '').trim();
+  return phoneDigits.length >= 7 || /^[^\s@]+@[^\s@]+$/.test(email);
+}
+
+/** Promo links typed into the name / notes / email fields themselves = real spam. */
+function promoInPersonFields(data) {
+  const fields = [
+    data.first_name, data.firstName, data.last_name, data.lastName, data.name, data.full_name,
+    data.additional_notes, data.notes, data.message, data.email,
+  ];
+  return fields.some((v) => containsPromoSpam(v));
+}
+
+/**
+ * Decide what to do with a submission that failed validation.
+ *  - 'drop'   : bot signals → quiet 200 (filtered)
+ *  - 'reject' : nothing to contact → 400 so the visitor sees an error
+ *  - 'review' : a real-looking lead → forward to GHL tagged needs-review
+ */
+function triageRejection(reason, data) {
+  if (HARD_SPAM_REASONS.has(reason)) return 'drop';
+  if (reason === 'promo_spam' && promoInPersonFields(data)) return 'drop';
+  if (reason === 'missing_contact') return 'reject';
+  return hasReachableContact(data) ? 'review' : 'reject';
+}
+
+function addReviewTags(data, reason) {
+  const list = (Array.isArray(data.tags) ? data.tags : String(data.tags || '').split(','))
+    .map((t) => String(t).trim())
+    .filter(Boolean);
+  for (const t of ['needs-review', `review:${reason}`]) if (!list.includes(t)) list.push(t);
+  return { ...data, tags: list.join(','), review_reason: reason };
+}
+
 function parseRequestBody(event) {
   const raw = event.isBase64Encoded
     ? Buffer.from(event.body || '', 'base64').toString('utf8')
@@ -470,19 +571,29 @@ exports.handler = async (event) => {
     return json(400, { ok: false, error: 'Unknown form source' });
   }
 
-  const spamReason = assessSpam(data);
-  if (spamReason) {
-    return okFiltered(spamReason);
-  }
+  data = flattenContactData(data);
 
-  // Full name+phone leads must say what they need help with (blocks empty “Looking for”)
+  // Full name+phone leads must say what they need help with (empty “Looking for”)
+  let reason = assessSpam(data);
   if (
+    !reason &&
     !EXEMPT_LOOKING_FOR_WEBHOOKS.has(webhookId) &&
     isFullContactLead(data) &&
     !extractLookingFor(data)
   ) {
-    console.log('[submit-lead] rejected: missing_looking_for');
-    return json(400, { ok: false, error: 'missing_looking_for' });
+    reason = 'missing_looking_for';
+  }
+  if (reason) {
+    const action = triageRejection(reason, data);
+    if (action === 'drop') return okFiltered(reason, data, webhookId);
+    if (action === 'reject') {
+      console.log('[submit-lead] rejected:', reason, logSummary(data, webhookId));
+      return json(400, { ok: false, error: reason });
+    }
+    // Never silently lose a real-looking lead: forward it, tagged for review,
+    // and still fire the lead alert below.
+    console.log('[submit-lead] needs-review:', reason, logSummary(data, webhookId));
+    data = addReviewTags(data, reason);
   }
 
   const payload = buildForwardPayload(data);
@@ -542,3 +653,7 @@ exports.isValidUsPhone = isValidUsPhone;
 exports.parseRequestBody = parseRequestBody;
 exports.WEBHOOKS = WEBHOOKS;
 exports.buildForwardPayload = buildForwardPayload;
+exports.resolveWebhookId = resolveWebhookId;
+exports.flattenContactData = flattenContactData;
+exports.triageRejection = triageRejection;
+exports.logSummary = logSummary;

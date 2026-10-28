@@ -981,6 +981,7 @@ function copyLink(){
       if (typeof gtag === 'function') gtag('event','form_submit',{page:'mitos-medicare',coverage_type:interest});
     }).catch(function() {
       if (btn) { btn.disabled = false; btn.textContent = 'Agendar Consulta Gratis →'; }
+      alert('Algo salió mal. Por favor intente de nuevo o llame al 1-800-380-6821.');
     });
   };
 })();

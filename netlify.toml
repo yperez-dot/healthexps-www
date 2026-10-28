@@ -1,6 +1,8 @@
 [build]
   publish = "_site"
-  command = "npm ci && npx @11ty/eleventy"
+  # The form guard fails the build (= no deploy) if any form on any built page
+  # would be rejected by submit-lead, mislabeled, or show a fake thank-you.
+  command = "npm ci && npx @11ty/eleventy && node scripts/test-form-submit-paths.js --site _site"
   functions = "netlify/functions"
 
 [build.environment]

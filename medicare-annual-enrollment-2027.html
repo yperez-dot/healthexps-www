@@ -1072,8 +1072,15 @@ body{padding-bottom:72px;}
       body: JSON.stringify(payload),
       signal: controller.signal
     })
-    .then(function(){
+    .then(function(res){
       clearTimeout(timeoutId);
+      if (res && res.ok === false) {
+        // The lead was not accepted — never show a thank-you for it.
+        submitBtn.disabled = false;
+        submitBtn.textContent = 'Book my free 2027 plan review →';
+        alert('Something went wrong. Please try again or call 1-800-380-6821.');
+        return;
+      }
       showSuccess();
     })
     .catch(function(){

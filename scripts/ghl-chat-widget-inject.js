@@ -5,6 +5,8 @@
  */
 "use strict";
 
+const { insertBeforeBodyEnd } = require("./insert-before-body-end");
+
 const SCRIPT_MARK = "js/ghl-chat-widget.js";
 // Query string busts the 4-hour CDN/browser cache after widget ID swaps.
 const SCRIPT_TAG = '<script src="/js/ghl-chat-widget.js?v=formguard1" defer></script>\n';
@@ -14,7 +16,7 @@ function injectGhlChatWidget(content, outputPath) {
   if (typeof content !== "string") return content;
   if (content.includes(SCRIPT_MARK)) return content;
   if (!/<\/body>/i.test(content)) return content;
-  return content.replace(/<\/body>/i, SCRIPT_TAG + "</body>");
+  return insertBeforeBodyEnd(content, SCRIPT_TAG);
 }
 
 module.exports = { injectGhlChatWidget, SCRIPT_TAG, SCRIPT_MARK };

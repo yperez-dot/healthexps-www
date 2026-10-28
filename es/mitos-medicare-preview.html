@@ -510,6 +510,8 @@ a{color:var(--purple);text-decoration:none;}a:hover{color:var(--pink);}
       <div style="background:white;border-radius:16px;padding:32px;max-width:580px;margin:0 auto;box-shadow:0 8px 24px rgba(69,32,104,.12)">
         <form id="mitosForm" action="https://services.leadconnectorhq.com/hooks/RINM4TCnM4hN06UA1aK0/webhook-trigger/dc6c8b35-9480-412e-b56d-4a4c8c7bd438" method="POST" novalidate>
                   <!-- Honeypot: hidden from humans, bots fill it in -->
+                  <input type="hidden" name="source" value="Mitos de Medicare ES Preview">
+                  <input type="hidden" name="looking_for" value="Mitos de Medicare">
                   <input type="text" name="_hp_name" id="_hp_name" autocomplete="off" tabindex="-1" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0;pointer-events:none;" value="">
           <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:12px">
             <div>
@@ -647,7 +649,7 @@ function toggleMyth(btn){
       if(submitBtn){submitBtn.disabled=true;submitBtn.textContent='Enviando...';}
       var data=new FormData(form);
       fetch(form.action,{method:'POST',body:data})
-        .then(function(){form.style.display='none';document.getElementById('mitos_success').style.display='block';})
+        .then(function(res){if(res&&res.ok===false){if(submitBtn){submitBtn.disabled=false;submitBtn.textContent='Agendar Consulta Gratis →';}alert('Algo salió mal. Por favor intente de nuevo o llame al 1-800-380-6821.');return;}form.style.display='none';document.getElementById('mitos_success').style.display='block';})
         .catch(function(){if(submitBtn){submitBtn.disabled=false;submitBtn.textContent='Agendar Consulta Gratis →';}form.submit();});
     });
   }

@@ -627,7 +627,7 @@ img{max-width:100%;height:auto;}
     if(!first||!last||!phone||!email||!coverage||!consent){err.style.display='block';err.textContent='Por favor complete todos los campos requeridos.';return;}
     btn.disabled=true;btn.textContent='Enviando...';err.style.display='none';
     try{
-      var res=await fetch(WEBHOOK,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({first_name:first,last_name:last,phone:phone,email:email,coverage_type:coverage,notes:(document.getElementById('vidaNotes')||{}).value||'',source:'Life Insurance ES Preview',page:window.location.href,submitted_at:new Date().toISOString()})});
+      var res=await fetch(WEBHOOK,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({first_name:first,last_name:last,phone:phone,email:email,coverage_type:coverage,notes:(document.getElementById('vidaNotes')||{}).value||'',source:'Life Insurance ES Page',page:window.location.href,submitted_at:new Date().toISOString()})});
       if(res.ok){document.getElementById('vidaFormBody').style.display='none';document.getElementById('vidaSuccess').style.display='block';if(typeof gtag!=='undefined')gtag('event','form_submit',{page:'seguro-de-vida-miami-es',coverage_type:coverage});}
       else throw new Error('err');
     }catch(ex){btn.disabled=false;btn.textContent='Hablar con un agente \u2192';err.style.display='block';err.textContent='Algo salió mal. Por favor intente de nuevo o llame al 1-800-380-6821.';}

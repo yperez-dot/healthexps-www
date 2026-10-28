@@ -328,7 +328,9 @@ async function enrichLead(data, payload, opts = {}) {
   // 3–6 run in parallel to stay inside the 10s function limit
   // 3) Tags: website-lead + real page + any form-provided tags
   const formTags = String(data.tags || '').split(',').map((t) => t.trim().toLowerCase()).filter(Boolean);
-  const tags = Array.from(new Set(['website-lead', pageTag(path), ...blogTags(blog), ...formTags])).slice(0, 15);
+  // needs-review / review:<reason> go first so the 15-tag cap never drops them
+  const reviewTags = formTags.filter((t) => t === 'needs-review' || t.startsWith('review:'));
+  const tags = Array.from(new Set(['website-lead', ...reviewTags, pageTag(path), ...blogTags(blog), ...formTags])).slice(0, 15);
   const stepTags = (async () => { try {
     await ghl('POST', `/contacts/${contactId}/tags`, { tags });
     result.steps.push('tags');

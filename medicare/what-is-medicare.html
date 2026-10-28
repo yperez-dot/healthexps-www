@@ -837,8 +837,18 @@ a:hover { color: #ff1090; }
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(payload)
     })
-    .then(function(){ showSuccess(); })
-    .catch(function(){ showSuccess(); }); // show success even on network error — GHL may block CORS
+    .then(function(res){
+      if (res && res.ok === false) throw new Error('Server error');
+      showSuccess();
+    })
+    .catch(function(){
+      // Never a fake thank-you: the lead goes through our own endpoint, so a
+      // failure here means it was not received.
+      submitBtn.disabled = false;
+      submitBtn.textContent = 'Get My Free Consultation \u2192';
+      formError.textContent = 'Something went wrong. Please try again or call 1-800-380-6821.';
+      formError.style.display = 'block';
+    });
 
     // GA4 event
     if(typeof gtag === 'function'){

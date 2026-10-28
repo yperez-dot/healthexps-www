@@ -1,3 +1,4 @@
+const { insertBeforeBodyEnd } = require("./insert-before-body-end");
 const fs = require("fs");
 const path = require("path");
 
@@ -96,7 +97,7 @@ function replaceSharedFooter(html, replacement) {
     const end = findBalancedEnd(html, start, "footer");
     if (end > start) return html.slice(0, start) + replacement + html.slice(end);
   }
-  return html.replace(/<\/body>/i, `${replacement}\n</body>`);
+  return insertBeforeBodyEnd(html, `${replacement}\n`);
 }
 
 function publishedRelPath(outputPath) {

@@ -41,4 +41,14 @@ assert.ok(widget.includes('chat-widget:not([data-active=\\"true\\"])') || widget
 assert.ok(widget.includes("IntersectionObserver"), "guard watches lead forms coming into view");
 assert.ok(SCRIPT_TAG.includes("?v=formguard1"), "cache-bust for the guard release");
 
+// "</body>" inside a JS string (e.g. an email template) must not get the tag:
+// that split the life-insurance calculator's main script in two.
+{
+  const page = "<body><script>var t = `<html><body>x</body></html>`; window.ok = 1;</script></body>";
+  const out = injectGhlChatWidget(page, "/tmp/out.html");
+  assert.ok(out.includes("`<html><body>x</body></html>`"), "leaves </body> inside a JS string alone");
+  assert.ok(/<\/script>\n?<\/body>$/.test(out.replace(SCRIPT_TAG, "")), "inserts before the real closing </body>");
+  assert.ok(out.lastIndexOf(SCRIPT_TAG) > out.indexOf("window.ok"), "tag goes after the page script");
+}
+
 console.log("ghl-chat-widget inject tests passed");

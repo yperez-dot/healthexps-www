@@ -1180,22 +1180,34 @@ function submitQuickCallback() {
   var consent = document.getElementById('qcb-consent') && document.getElementById('qcb-consent').checked;
   var hp = (document.getElementById('_qcb_hp')||{}).value || '';
   if (!name.trim() || !phone.trim() || !consent || hp) return;
+  var btn = document.getElementById('qcb-btn');
+  if (btn) btn.disabled = true;
   var now = new Date().toISOString();
+  // Flat fields (first_name / phone) so the lead passes submit-lead validation.
   fetch(QCB_WEBHOOK, {
     method: 'POST',
     headers: {'Content-Type':'application/json'},
     body: JSON.stringify({
-      contactData: { firstName: name.trim(), phone: phone.trim() },
-      tags: ['quick-callback','life-insurance'],
-      customFields: { callback_requested_at: now }
+      first_name: name.trim(),
+      phone: phone.trim(),
+      coverage_type: 'Life Insurance',
+      source: 'Life Insurance Page - Quick Callback',
+      tags: 'quick-callback,life-insurance',
+      callback_requested_at: now,
+      page: window.location.href,
+      submitted_at: now
     })
-  }).catch(function(){});
-  if (typeof gtag === 'function') gtag('event','quick_callback_submit',{page:window.location.pathname});
-  var form = document.getElementById('qcbForm');
-  if (form) form.style.display = 'none';
-  var success = document.getElementById('qcb-success');
-  if (success) success.style.display = 'block';
-  // Hide the divider + WA button row (keep in DOM for WA tracking)
+  }).then(function(res) {
+    if (!res || !res.ok) throw new Error('Server error');
+    if (typeof gtag === 'function') gtag('event','quick_callback_submit',{page:window.location.pathname});
+    var form = document.getElementById('qcbForm');
+    if (form) form.style.display = 'none';
+    var success = document.getElementById('qcb-success');
+    if (success) success.style.display = 'block';
+  }).catch(function() {
+    if (btn) btn.disabled = false;
+    alert('Something went wrong. Please try again or call 1-800-380-6821.');
+  });
 }
 
 function qcbTrackWa() {
