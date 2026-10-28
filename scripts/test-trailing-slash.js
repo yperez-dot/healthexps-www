@@ -1,5 +1,6 @@
 const assert = require("assert");
-const { makeResolver, normalizeHtml, normalizeSitemap } = require("./trailing-slash");
+const path = require("path");
+const { makeResolver, normalizeHtml, normalizeSitemap, loadRedirects } = require("./trailing-slash");
 
 const pages = new Set(["/book", "/private-health-insurance-miami", "/es/seguro-medico-privado-miami",
   "/medicare-annual-enrollment-2027", "/es/inscripcion-anual-medicare-2027", "/es", "/faq", "/enrollment-calculator",
@@ -65,4 +66,29 @@ assert.strictEqual((sm.xml.match(/<loc>https:\/\/www\.healthexps\.com\/faq\/<\/l
 assert(!sm.xml.includes("mastering-medicare-essential-tips-to-avoid"), "redirected loc dropped");
 assert(sm.xml.includes("<loc>https://www.healthexps.com/</loc>"));
 assert.strictEqual(sm.dropped.length, 2);
+
+const live = loadRedirects(path.resolve(__dirname, ".."));
+function follow(start) {
+  const seen = [];
+  let cur = start;
+  for (let i = 0; i < 8; i++) {
+    const key = cur.length > 1 ? cur.replace(/\/+$/, "") : cur;
+    if (seen.includes(key)) throw new Error("redirect loop: " + seen.concat(key).join(" -> "));
+    if (!live.has(key)) return { hops: seen.length, final: cur };
+    seen.push(key);
+    const next = live.get(key);
+    const nextKey = next.length > 1 ? next.replace(/\/+$/, "") : next;
+    if (nextKey === key) return { hops: seen.length, final: next };
+    cur = next;
+  }
+  throw new Error("redirect chain too long from " + start);
+}
+let twoHop = 0;
+for (const from of live.keys()) {
+  const r = follow(from);
+  if (r.hops > 1) twoHop++;
+}
+assert.strictEqual(twoHop, 0, "redirect targets should not themselves redirect");
+assert.ok(live.has("/blog/free-health-insurance-consultation-miami"));
+
 console.log("test-trailing-slash: ok");

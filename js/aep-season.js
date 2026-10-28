@@ -6,8 +6,8 @@
 (function () {
   'use strict';
 
-  var AEP_EN = '/medicare-annual-enrollment-2027';
-  var AEP_ES = '/es/inscripcion-anual-medicare-2027';
+  var AEP_EN = '/medicare-annual-enrollment-2027/';
+  var AEP_ES = '/es/inscripcion-anual-medicare-2027/';
   var isEs = location.pathname.indexOf('/es/') === 0;
   var aepHref = isEs ? AEP_ES : AEP_EN;
 

@@ -564,9 +564,13 @@
 </url>
 <url>
   <loc>https://www.healthexps.com/blog/avmed-medicare-ending-florida-what-to-do-2026</loc>
+  <xhtml:link rel="alternate" hreflang="en" href="https://www.healthexps.com/blog/avmed-medicare-ending-florida-what-to-do-2026/"/>
+  <xhtml:link rel="alternate" hreflang="es" href="https://www.healthexps.com/es/blog/avmed-medicare-termino-florida-que-hacer/"/>
 </url>
 <url>
   <loc>https://www.healthexps.com/blog/medicare-plans-replace-avmed-florida-2026</loc>
+  <xhtml:link rel="alternate" hreflang="en" href="https://www.healthexps.com/blog/medicare-plans-replace-avmed-florida-2026/"/>
+  <xhtml:link rel="alternate" hreflang="es" href="https://www.healthexps.com/es/blog/planes-medicare-reemplazaron-avmed-florida/"/>
 </url>
 <url>
   <loc>https://www.healthexps.com/blog/why-is-there-a-medicare-premium-i-thought-it-was-free</loc>
@@ -576,9 +580,13 @@
 </url>
 <url>
   <loc>https://www.healthexps.com/blog/understanding-how-income-affects-medicare-premiums-a-complete-guide-for-retirees</loc>
+  <xhtml:link rel="alternate" hreflang="en" href="https://www.healthexps.com/blog/understanding-how-income-affects-medicare-premiums-a-complete-guide-for-retirees/"/>
+  <xhtml:link rel="alternate" hreflang="es" href="https://www.healthexps.com/es/blog/como-el-ingreso-afecta-primas-medicare/"/>
 </url>
 <url>
   <loc>https://www.healthexps.com/blog/understanding-the-key-differences-between-mapd-and-traditional-medicare</loc>
+  <xhtml:link rel="alternate" hreflang="en" href="https://www.healthexps.com/blog/understanding-the-key-differences-between-mapd-and-traditional-medicare/"/>
+  <xhtml:link rel="alternate" hreflang="es" href="https://www.healthexps.com/es/blog/diferencias-mapd-medicare-tradicional/"/>
 </url>
 <url>
   <loc>https://www.healthexps.com/blog/unlocking-the-secrets-finding-preventative-services-under-medicare</loc>
@@ -591,15 +599,21 @@
 </url>
 <url>
   <loc>https://www.healthexps.com/blog/miami-s-trusted-health-insurance-experts-why-a-broker-makes-all-the-difference</loc>
+  <xhtml:link rel="alternate" hreflang="en" href="https://www.healthexps.com/blog/miami-s-trusted-health-insurance-experts-why-a-broker-makes-all-the-difference/"/>
+  <xhtml:link rel="alternate" hreflang="es" href="https://www.healthexps.com/es/blog/por-que-necesitas-corredor-seguros-salud-miami/"/>
 </url>
 <url>
   <loc>https://www.healthexps.com/blog/the-hidden-treasure-how-medicare-savings-programs-slash-your-health-insurance-costs</loc>
+  <xhtml:link rel="alternate" hreflang="en" href="https://www.healthexps.com/blog/the-hidden-treasure-how-medicare-savings-programs-slash-your-health-insurance-costs/"/>
+  <xhtml:link rel="alternate" hreflang="es" href="https://www.healthexps.com/es/blog/programa-ahorros-medicare-florida/"/>
 </url>
 <url>
   <loc>https://www.healthexps.com/blog/mastering-medicare-essential-tips-for-comparing-plans-effectively</loc>
 </url>
 <url>
   <loc>https://www.healthexps.com/blog/what-is-a-special-enrollment-period-for-medicare-in-florida</loc>
+  <xhtml:link rel="alternate" hreflang="en" href="https://www.healthexps.com/blog/what-is-a-special-enrollment-period-for-medicare-in-florida/"/>
+  <xhtml:link rel="alternate" hreflang="es" href="https://www.healthexps.com/es/blog/que-es-el-periodo-inscripcion-especial-medicare-florida/"/>
 </url>
 <url>
   <loc>https://www.healthexps.com/blog/unlocking-your-rights-how-to-appeal-decision-on-medicare-coverage-denials</loc>
@@ -673,14 +687,28 @@
 </url>
 
 <!-- 9 Spanish blog posts -->
-<url><loc>https://www.healthexps.com/es/blog/avmed-medicare-termino-florida-que-hacer</loc><lastmod>2026-06-28</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
-<url><loc>https://www.healthexps.com/es/blog/planes-medicare-reemplazaron-avmed-florida</loc><lastmod>2026-06-28</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
-<url><loc>https://www.healthexps.com/es/blog/como-el-ingreso-afecta-primas-medicare</loc><lastmod>2026-06-28</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
-<url><loc>https://www.healthexps.com/es/blog/diferencias-mapd-medicare-tradicional</loc><lastmod>2026-06-28</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+<url><loc>https://www.healthexps.com/es/blog/avmed-medicare-termino-florida-que-hacer</loc><lastmod>2026-06-28</lastmod><changefreq>monthly</changefreq><priority>0.6</priority>  <xhtml:link rel="alternate" hreflang="en" href="https://www.healthexps.com/blog/avmed-medicare-ending-florida-what-to-do-2026/"/>
+  <xhtml:link rel="alternate" hreflang="es" href="https://www.healthexps.com/es/blog/avmed-medicare-termino-florida-que-hacer/"/>
+</url>
+<url><loc>https://www.healthexps.com/es/blog/planes-medicare-reemplazaron-avmed-florida</loc><lastmod>2026-06-28</lastmod><changefreq>monthly</changefreq><priority>0.6</priority>  <xhtml:link rel="alternate" hreflang="en" href="https://www.healthexps.com/blog/medicare-plans-replace-avmed-florida-2026/"/>
+  <xhtml:link rel="alternate" hreflang="es" href="https://www.healthexps.com/es/blog/planes-medicare-reemplazaron-avmed-florida/"/>
+</url>
+<url><loc>https://www.healthexps.com/es/blog/como-el-ingreso-afecta-primas-medicare</loc><lastmod>2026-06-28</lastmod><changefreq>monthly</changefreq><priority>0.6</priority>  <xhtml:link rel="alternate" hreflang="en" href="https://www.healthexps.com/blog/understanding-how-income-affects-medicare-premiums-a-complete-guide-for-retirees/"/>
+  <xhtml:link rel="alternate" hreflang="es" href="https://www.healthexps.com/es/blog/como-el-ingreso-afecta-primas-medicare/"/>
+</url>
+<url><loc>https://www.healthexps.com/es/blog/diferencias-mapd-medicare-tradicional</loc><lastmod>2026-06-28</lastmod><changefreq>monthly</changefreq><priority>0.6</priority>  <xhtml:link rel="alternate" hreflang="en" href="https://www.healthexps.com/blog/understanding-the-key-differences-between-mapd-and-traditional-medicare/"/>
+  <xhtml:link rel="alternate" hreflang="es" href="https://www.healthexps.com/es/blog/diferencias-mapd-medicare-tradicional/"/>
+</url>
 <url><loc>https://www.healthexps.com/es/blog/errores-comunes-inscripcion-medicare</loc><lastmod>2026-06-28</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
-<url><loc>https://www.healthexps.com/es/blog/que-es-el-periodo-inscripcion-especial-medicare-florida</loc><lastmod>2026-06-28</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
-<url><loc>https://www.healthexps.com/es/blog/por-que-necesitas-corredor-seguros-salud-miami</loc><lastmod>2026-06-28</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
-<url><loc>https://www.healthexps.com/es/blog/programa-ahorros-medicare-florida</loc><lastmod>2026-06-28</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+<url><loc>https://www.healthexps.com/es/blog/que-es-el-periodo-inscripcion-especial-medicare-florida</loc><lastmod>2026-06-28</lastmod><changefreq>monthly</changefreq><priority>0.6</priority>  <xhtml:link rel="alternate" hreflang="en" href="https://www.healthexps.com/blog/what-is-a-special-enrollment-period-for-medicare-in-florida/"/>
+  <xhtml:link rel="alternate" hreflang="es" href="https://www.healthexps.com/es/blog/que-es-el-periodo-inscripcion-especial-medicare-florida/"/>
+</url>
+<url><loc>https://www.healthexps.com/es/blog/por-que-necesitas-corredor-seguros-salud-miami</loc><lastmod>2026-06-28</lastmod><changefreq>monthly</changefreq><priority>0.6</priority>  <xhtml:link rel="alternate" hreflang="en" href="https://www.healthexps.com/blog/miami-s-trusted-health-insurance-experts-why-a-broker-makes-all-the-difference/"/>
+  <xhtml:link rel="alternate" hreflang="es" href="https://www.healthexps.com/es/blog/por-que-necesitas-corredor-seguros-salud-miami/"/>
+</url>
+<url><loc>https://www.healthexps.com/es/blog/programa-ahorros-medicare-florida</loc><lastmod>2026-06-28</lastmod><changefreq>monthly</changefreq><priority>0.6</priority>  <xhtml:link rel="alternate" hreflang="en" href="https://www.healthexps.com/blog/the-hidden-treasure-how-medicare-savings-programs-slash-your-health-insurance-costs/"/>
+  <xhtml:link rel="alternate" hreflang="es" href="https://www.healthexps.com/es/blog/programa-ahorros-medicare-florida/"/>
+</url>
 <url><loc>https://www.healthexps.com/es/blog/alternativas-cobra-miami-ahorra-dinero/</loc><lastmod>2026-10-26</lastmod><changefreq>monthly</changefreq><priority>0.7</priority>
   <xhtml:link rel="alternate" hreflang="es" href="https://www.healthexps.com/es/blog/alternativas-cobra-miami-ahorra-dinero/"/>
   <xhtml:link rel="alternate" hreflang="en" href="https://www.healthexps.com/blog/cobra-vs-aca-marketplace-miami/"/>
@@ -711,13 +739,27 @@
   <!-- New blog posts added 2026-07-19 -->
 <url><loc>https://www.healthexps.com/blog/are-health-insurance-premiums-subject-to-fica/</loc><lastmod>2026-07-19</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
 <url><loc>https://www.healthexps.com/blog/florida-health-insurance-subsidy-expiration-2026/</loc><lastmod>2026-07-19</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
-<url><loc>https://www.healthexps.com/blog/lost-medicaid-coverage-florida/</loc><lastmod>2026-07-19</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
-<url><loc>https://www.healthexps.com/blog/what-is-irmaa-avoid-medicare-surcharge/</loc><lastmod>2026-07-19</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
-<url><loc>https://www.healthexps.com/blog/aca-marketplace-health-insurance-miami-2026/</loc><lastmod>2026-07-19</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
-<url><loc>https://www.healthexps.com/blog/cobra-vs-marketplace-losing-job-coverage/</loc><lastmod>2026-07-19</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
-<url><loc>https://www.healthexps.com/blog/dual-eligible-medicare-medicaid-miami/</loc><lastmod>2026-07-19</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
-<url><loc>https://www.healthexps.com/blog/medicare-enrollment-periods-explained/</loc><lastmod>2026-07-19</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
-<url><loc>https://www.healthexps.com/blog/uhealth-unitedhealthcare-medicare-advantage-network-change/</loc><lastmod>2026-07-19</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+<url><loc>https://www.healthexps.com/blog/lost-medicaid-coverage-florida/</loc><lastmod>2026-07-19</lastmod><changefreq>monthly</changefreq><priority>0.6</priority>  <xhtml:link rel="alternate" hreflang="en" href="https://www.healthexps.com/blog/lost-medicaid-coverage-florida/"/>
+  <xhtml:link rel="alternate" hreflang="es" href="https://www.healthexps.com/es/blog/perdio-su-medicaid-florida/"/>
+</url>
+<url><loc>https://www.healthexps.com/blog/what-is-irmaa-avoid-medicare-surcharge/</loc><lastmod>2026-07-19</lastmod><changefreq>monthly</changefreq><priority>0.6</priority>  <xhtml:link rel="alternate" hreflang="en" href="https://www.healthexps.com/blog/what-is-irmaa-avoid-medicare-surcharge/"/>
+  <xhtml:link rel="alternate" hreflang="es" href="https://www.healthexps.com/es/blog/que-es-irmaa-medicare/"/>
+</url>
+<url><loc>https://www.healthexps.com/blog/aca-marketplace-health-insurance-miami-2026/</loc><lastmod>2026-07-19</lastmod><changefreq>monthly</changefreq><priority>0.6</priority>  <xhtml:link rel="alternate" hreflang="en" href="https://www.healthexps.com/blog/aca-marketplace-health-insurance-miami-2026/"/>
+  <xhtml:link rel="alternate" hreflang="es" href="https://www.healthexps.com/es/blog/seguro-de-salud-aca-miami-2026/"/>
+</url>
+<url><loc>https://www.healthexps.com/blog/cobra-vs-marketplace-losing-job-coverage/</loc><lastmod>2026-07-19</lastmod><changefreq>monthly</changefreq><priority>0.6</priority>  <xhtml:link rel="alternate" hreflang="en" href="https://www.healthexps.com/blog/cobra-vs-marketplace-losing-job-coverage/"/>
+  <xhtml:link rel="alternate" hreflang="es" href="https://www.healthexps.com/es/blog/cobra-vs-mercado-de-salud/"/>
+</url>
+<url><loc>https://www.healthexps.com/blog/dual-eligible-medicare-medicaid-miami/</loc><lastmod>2026-07-19</lastmod><changefreq>monthly</changefreq><priority>0.7</priority>  <xhtml:link rel="alternate" hreflang="en" href="https://www.healthexps.com/blog/dual-eligible-medicare-medicaid-miami/"/>
+  <xhtml:link rel="alternate" hreflang="es" href="https://www.healthexps.com/es/blog/doble-elegibilidad-medicare-medicaid-miami/"/>
+</url>
+<url><loc>https://www.healthexps.com/blog/medicare-enrollment-periods-explained/</loc><lastmod>2026-07-19</lastmod><changefreq>monthly</changefreq><priority>0.6</priority>  <xhtml:link rel="alternate" hreflang="en" href="https://www.healthexps.com/blog/medicare-enrollment-periods-explained/"/>
+  <xhtml:link rel="alternate" hreflang="es" href="https://www.healthexps.com/es/blog/periodos-de-inscripcion-medicare/"/>
+</url>
+<url><loc>https://www.healthexps.com/blog/uhealth-unitedhealthcare-medicare-advantage-network-change/</loc><lastmod>2026-07-19</lastmod><changefreq>monthly</changefreq><priority>0.6</priority>  <xhtml:link rel="alternate" hreflang="en" href="https://www.healthexps.com/blog/uhealth-unitedhealthcare-medicare-advantage-network-change/"/>
+  <xhtml:link rel="alternate" hreflang="es" href="https://www.healthexps.com/es/blog/cambio-red-uhealth-unitedhealthcare-medicare-advantage/"/>
+</url>
   <!-- ES blog pipeline posts (2026-07-27) — proper url+hreflang entries -->
 <url><loc>https://www.healthexps.com/es/blog/periodos-de-inscripcion-medicare/</loc><lastmod>2026-07-27</lastmod><changefreq>monthly</changefreq><priority>0.7</priority>
   <xhtml:link rel="alternate" hreflang="es" href="https://www.healthexps.com/es/blog/periodos-de-inscripcion-medicare/"/>
@@ -807,7 +849,9 @@
 </url>
 
 <!-- Posts added after the last sitemap pass -->
-<url><loc>https://www.healthexps.com/blog/medicare-green-card-holders-florida/</loc><lastmod>2026-08-26</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+<url><loc>https://www.healthexps.com/blog/medicare-green-card-holders-florida/</loc><lastmod>2026-08-26</lastmod><changefreq>monthly</changefreq><priority>0.6</priority>  <xhtml:link rel="alternate" hreflang="en" href="https://www.healthexps.com/blog/medicare-green-card-holders-florida/"/>
+  <xhtml:link rel="alternate" hreflang="es" href="https://www.healthexps.com/es/blog/medicare-residentes-permanentes/"/>
+</url>
 <url><loc>https://www.healthexps.com/blog/what-is-life-insurance-florida/</loc><lastmod>2026-08-26</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
 <url><loc>https://www.healthexps.com/blog/term-vs-whole-vs-final-expense-life-insurance/</loc><lastmod>2026-08-26</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
 <url><loc>https://www.healthexps.com/blog/how-to-pick-aca-marketplace-plan-florida/</loc><lastmod>2026-08-26</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
