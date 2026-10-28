@@ -11,7 +11,7 @@
  * retry; legitimate failures still return 4xx/5xx.
  */
 
-const { enrichLead, pageLabel: labelForPage } = require('../lib/ghl-enrich');
+const { enrichLead, pageLabel: labelForPage, blogInfo, blogTags } = require('../lib/ghl-enrich');
 const { sendLeadAlert } = require('../lib/lead-alert');
 
 const GHL_BASE =
@@ -367,6 +367,19 @@ function buildForwardPayload(data) {
     out.form_page = path;
   }
 
+  // Blog posts: label the lead "Blog: <post title>" and add blog + topic tags
+  // (blog-medicare / blog-aca / blog-private) so GHL can route by topic.
+  const blog = blogInfo(data, path);
+  if (blog) {
+    if (out.source && String(out.source).trim()) out.form_name = String(out.source).trim();
+    out.source = labelForPage(data, path);
+    out.blog_title = blog.title;
+    if (blog.category) out.blog_category = blog.category;
+    const tagList = String(out.tags || '').split(',').map((t) => t.trim()).filter(Boolean);
+    for (const t of blogTags(blog)) if (!tagList.includes(t)) tagList.push(t);
+    out.tags = tagList.join(',');
+  }
+
   // Fix misleading "Homepage Form" source when the real path is not home
   const src = String(out.source || '').trim();
   if (/^Homepage Form$/i.test(src) && path && !isHomepagePath(path)) {
@@ -528,3 +541,4 @@ exports.containsPromoSpam = containsPromoSpam;
 exports.isValidUsPhone = isValidUsPhone;
 exports.parseRequestBody = parseRequestBody;
 exports.WEBHOOKS = WEBHOOKS;
+exports.buildForwardPayload = buildForwardPayload;

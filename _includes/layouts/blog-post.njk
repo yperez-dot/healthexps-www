@@ -2,6 +2,12 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
+<meta name="thei-blog-title" content="{{ title }}">
+<meta name="thei-blog-category" content="{{ category }}">
+<script>
+/* Blog lead label: every lead form on a blog post is sent to GHL as "Blog: <post title>" with its topic tag (Medicare / ACA / Private). */
+(function(){var T={{ title | dump | safe }},C={{ (category or "") | dump | safe }};var f=window.fetch;if(!f)return;window.fetch=function(input,init){try{var u=typeof input==="string"?input:(input&&input.url)||"";if(u.indexOf("/.netlify/functions/submit-lead")!==-1&&init&&typeof init.body==="string"){var d=JSON.parse(init.body);if(d&&typeof d==="object"){if(!d.blog_title)d.blog_title=T;if(!d.blog_category&&C)d.blog_category=C;if(!d.page_path)d.page_path=location.pathname;if(!d.page_url)d.page_url=location.href;init=Object.assign({},init,{body:JSON.stringify(d)});}}}catch(e){}return f.call(window,input,init);};})();
+</script>
 <link rel="stylesheet" href="/css/global.css">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>{{ title }} | The Health Experts</title>
