@@ -24,8 +24,6 @@ Si usted usa **Lee Health** y tiene un plan **UnitedHealthcare Medicare Advantag
 
 **¿Va a comparar planes para 2027?** Empiece con nuestra [guía de Inscripción Anual de Medicare 2027](/es/inscripcion-anual-medicare-2027/) para ver las fechas de este año y cómo comparar planes.
 
-<div class="inline-cta"><div class="inline-cta-text"><strong>El AEP ya está abierto: revise su plan 2027 antes del 7 de diciembre</strong><span>La Inscripción Anual de Medicare va del 15 de octubre al 7 de diciembre de 2026, y los cambios comienzan el 1 de enero de 2027. Solicite abajo una revisión gratis de su red o llame al <a href="tel:18003806821">1-800-380-6821</a>.</span></div><a href="#network-check" class="inline-cta-btn">Revisar mi red 2027 →</a></div>
-
 ## ¿Quiénes podrían verse afectados?
 
 | Sistema de salud | Aseguradora Medicare Advantage | Fecha efectiva | Cambio confirmado |
