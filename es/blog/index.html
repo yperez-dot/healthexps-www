@@ -60,6 +60,46 @@ body{font-family:Arial,Helvetica,sans-serif;background:var(--white);line-height:
 #scrollToTop{display:none;position:fixed;bottom:28px;right:28px;width:48px;height:48px;background:#452068;color:#fff;border:none;border-radius:50%;font-size:22px;font-weight:700;cursor:pointer;align-items:center;justify-content:center;box-shadow:0 4px 16px rgba(69,32,104,.35);z-index:998;transition:background .2s,transform .15s;}
 #scrollToTop:hover{background:#ff1090;transform:translateY(-2px);}
 </style>
+<style>
+/* Blog listing: compact hero, one-row filters, featured strip (Oct 2026) */
+.hero{padding:32px 24px 28px;}
+.hero h1{font-size:clamp(26px,4vw,40px);margin-bottom:8px;line-height:1.25;}
+.hero-subtext{font-size:17px;line-height:1.5;}
+.featured{max-width:1200px;margin:0 auto;padding:20px 24px 4px;}
+.featured-head{display:flex;justify-content:space-between;align-items:baseline;gap:12px;flex-wrap:wrap;margin-bottom:10px;}
+.featured-label{font-size:14px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:#452068;}
+.featured-video{font-size:16px;font-weight:700;color:#452068;text-decoration:none;}
+.featured-video:hover{text-decoration:underline;}
+.featured-row{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;}
+.feat-card{display:block;background:#f4eefa;border-radius:10px;padding:12px 16px;text-decoration:none;color:#3a2468;}
+.feat-card:hover{background:#ebe1f5;}
+.feat-cat{display:block;font-size:13px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;color:#452068;margin-bottom:2px;}
+.feat-title{display:block;font-size:17px;font-weight:600;line-height:1.35;color:#3a2468;}
+.filters{background:#fff;padding:14px 24px;flex-wrap:nowrap;overflow-x:auto;justify-content:center;-webkit-overflow-scrolling:touch;scrollbar-width:none;}
+.filters::-webkit-scrollbar{display:none;}
+.filter-btn{flex:0 0 auto;padding:6px 16px;font-size:16px;white-space:nowrap;}
+.container{padding-top:16px;}
+.card-read{color:#452068;}
+.cta-btn{background:#ffffff;color:#452068;}
+.cta-btn:hover{background:#f4eefa;color:#452068;}
+@media (max-width:768px){
+  .hero{padding:20px 20px 18px;}
+  .hero-subtext{font-size:16px;}
+  .featured{padding:14px 0 0;}
+  .featured-head{padding:0 20px;margin-bottom:8px;}
+  .featured-row{display:flex;overflow-x:auto;gap:10px;padding:0 20px 4px;scroll-snap-type:x mandatory;scroll-padding-left:20px;scrollbar-width:none;}
+  .featured-row::-webkit-scrollbar{display:none;}
+  .feat-card{flex:0 0 78%;scroll-snap-align:start;}
+  .feat-title{font-size:16px;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;}
+  .filters{justify-content:flex-start;padding:12px 20px;gap:8px;}
+  .container{padding:12px 16px 32px;}
+  .card-grid{gap:16px;}
+  .blog-card{padding:16px 18px;}
+  .card-category{margin-bottom:6px;}
+  .card-title{margin-bottom:6px;}
+  .card-excerpt{display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;margin-bottom:10px;}
+}
+</style>
 </head>
 <body>
 
@@ -178,6 +218,14 @@ body{font-family:Arial,Helvetica,sans-serif;background:var(--white);line-height:
 </div>
 
 <!-- FILTERS -->
+<section class="featured" aria-label="Empieza aquí">
+<div class="featured-head"><span class="featured-label">Empieza aquí</span><a class="featured-video" href="/es/articulos-medicare/">Guías de Medicare en video →</a></div>
+<div class="featured-row">
+<a class="feat-card" href="/es/blog/lee-health-nch-cambios-red-medicare-2027/"><span class="feat-cat">Medicare</span><span class="feat-title">¿Lee Health o NCH aceptará su plan de Medicare en 2027?</span></a>
+<a class="feat-card" href="/es/blog/como-leer-su-anoc-2027/"><span class="feat-cat">Medicare</span><span class="feat-title">Cómo leer su ANOC 2027 (Aviso Anual de Cambios)</span></a>
+<a class="feat-card" href="/es/blog/cuanto-cuesta-seguro-medico-miami/"><span class="feat-cat">ACA y Mercado</span><span class="feat-title">¿Cuánto cuesta un seguro médico en Miami en 2027?</span></a>
+</div>
+</section>
 <div class="filters">
   <button class="filter-btn active" data-filter="all">Todos</button>
   <button class="filter-btn" data-filter="Medicare">Medicare</button>
@@ -189,6 +237,12 @@ body{font-family:Arial,Helvetica,sans-serif;background:var(--white);line-height:
 <!-- CARD GRID -->
 <div class="container">
   <div class="card-grid" id="blogGrid">
+    <a href="/es/blog/dsnp-doble-elegibilidad-florida-2027/" class="blog-card" data-category="Medicare">
+      <div class="card-category">Medicare</div>
+      <h2 class="card-title">Planes D-SNP para personas con Medicare y Medicaid en Florida: lo básico para 2027</h2>
+      <p class="card-excerpt">¿Tiene Medicare y Medicaid en Florida? Conozca cómo funcionan los planes D-SNP, sus oportunidades mensuales para inscribirse y lo que cambia CMS a partir de 2027.</p>
+      <div class="card-footer"><span class="card-date">2026-10-28</span><span class="card-read">Leer →</span></div>
+    </a>
     <a href="/es/blog/cuanto-cuesta-seguro-medico-miami/" class="blog-card" data-category="ACA y Mercado">
       <div class="card-category">ACA y Mercado</div>
       <h2 class="card-title">¿Cuánto cuesta un seguro médico en Miami en 2027?</h2>
@@ -200,13 +254,6 @@ body{font-family:Arial,Helvetica,sans-serif;background:var(--white);line-height:
       <h2 class="card-title">Seguro médico para trabajadores independientes en Miami: guía 2027</h2>
       <p class="card-excerpt">Cómo calcular su ingreso para el subsidio 2027, la deducción del IRS por seguro médico y cuándo inscribirse si trabaja por cuenta propia.</p>
       <div class="card-footer"><span class="card-date">2026-10-26</span><span class="card-read">Leer →</span></div>
-    </a>
-
-        <a href="/es/blog/dsnp-doble-elegibilidad-florida-2027/" class="blog-card" data-category="Medicare">
-      <div class="card-category">Medicare</div>
-      <h2 class="card-title">Planes D-SNP para personas con Medicare y Medicaid en Florida: lo básico para 2027</h2>
-      <p class="card-excerpt">¿Tiene Medicare y Medicaid en Florida? Conozca cómo funcionan los planes D-SNP, sus oportunidades mensuales para inscribirse y lo que cambia CMS a partir de 2027.</p>
-      <div class="card-footer"><span class="card-date">2026-10-28</span><span class="card-read">Leer →</span></div>
     </a>
     <a href="/es/blog/plan-medicare-termina-2027-carta-no-renovacion/" class="blog-card" data-category="Medicare">
       <div class="card-category">Medicare</div>
@@ -244,23 +291,11 @@ body{font-family:Arial,Helvetica,sans-serif;background:var(--white);line-height:
       <p class="card-excerpt">UnitedHealthcare en Lee Health y Wellcare o Cigna/HealthSpring en NCH tendrán cambios confirmados en 2027. Revise su red gratis.</p>
       <div class="card-footer"><span class="card-date">2026-09-22</span><span class="card-read">Leer →</span></div>
     </a>
-<a href="/es/blog/nch-deja-cigna-wellcare-medicare-advantage-2027/" class="blog-card" data-category="Medicare">
+    <a href="/es/blog/nch-deja-cigna-wellcare-medicare-advantage-2027/" class="blog-card" data-category="Medicare">
       <div class="card-category">Medicare</div>
       <h2 class="card-title">Hospital de Naples deja dos contratos Medicare Advantage en 2027</h2>
       <p class="card-excerpt">NCH dejará de aceptar Cigna y Wellcare Medicare Advantage el 1 de enero de 2027. Revise su red 2027 antes del AEP. Agentes licenciados — no elegimos el plan.</p>
       <div class="card-footer"><span class="card-date">2026-09-01</span><span class="card-read">Leer →</span></div>
-    </a>
-        <a href="/es/blog/alternativas-cobra-miami-ahorra-dinero/" class="blog-card" data-category="COBRA">
-      <div class="card-category">COBRA</div>
-      <h2 class="card-title">Alternativas al COBRA en Miami: ¿Cuánto Puedes Ahorrar en 2027?</h2>
-      <p class="card-excerpt">¿Recibiste la carta del COBRA y te asustaste con el precio? En Miami hay alternativas que cuestan hasta 60% menos.</p>
-      <div class="card-footer"><span class="card-date">2026-01-01</span><span class="card-read">Leer →</span></div>
-    </a>
-    <a href="/es/blog/avmed-medicare-termino-florida-que-hacer/" class="blog-card" data-category="Medicare">
-      <div class="card-category">Medicare</div>
-      <h2 class="card-title">AvMed Medicare Terminó en Florida: ¿Qué Hacer Ahora?</h2>
-      <p class="card-excerpt">AvMed terminó sus planes Medicare Advantage en Florida el 1 de enero de 2026. Si eras miembro de AvMed, todavía tienes opciones. Te explicamos paso a paso qué hacer.</p>
-      <div class="card-footer"><span class="card-date">2026-01-01</span><span class="card-read">Leer →</span></div>
     </a>
     <a href="/es/blog/costo-medicare-dsnp/" class="blog-card" data-category="Medicare">
       <div class="card-category">Medicare</div>
@@ -268,29 +303,11 @@ body{font-family:Arial,Helvetica,sans-serif;background:var(--white);line-height:
       <p class="card-excerpt">Costo de planes D-SNP en Miami 2026 — muchos con prima $0. Vea qué determina el costo real y por qué su nivel de Medicaid es la clave.</p>
       <div class="card-footer"><span class="card-date">2026-08-18</span><span class="card-read">Leer →</span></div>
     </a>
-    <a href="/es/blog/cobra-vs-mercado-de-salud/" class="blog-card" data-category="COBRA">
-      <div class="card-category">COBRA</div>
-      <h2 class="card-title">COBRA vs. el Mercado de Salud: qué hacer si pierde su cobertura del trabajo</h2>
-      <p class="card-excerpt">¿Perdió su seguro médico del trabajo? Compare COBRA, el Mercado de Salud (Obamacare) y planes privados — incluyendo el cambio de subsidios en 2026.</p>
-      <div class="card-footer"><span class="card-date">2026-01-01</span><span class="card-read">Leer →</span></div>
-    </a>
-    <a href="/es/blog/como-el-ingreso-afecta-primas-medicare/" class="blog-card" data-category="Medicare">
+    <a href="/es/blog/medicare-residentes-permanentes/" class="blog-card" data-category="Medicare">
       <div class="card-category">Medicare</div>
-      <h2 class="card-title">Cómo Tus Ingresos Afectan lo que Pagas por Medicare en 2026</h2>
-      <p class="card-excerpt">¿Sabías que Medicare cobra más según tus ingresos? El recargo IRMAA puede aumentar tu prima significativamente.</p>
-      <div class="card-footer"><span class="card-date">2026-01-01</span><span class="card-read">Leer →</span></div>
-    </a>
-    <a href="/es/blog/diferencias-mapd-medicare-tradicional/" class="blog-card" data-category="Medicare">
-      <div class="card-category">Medicare</div>
-      <h2 class="card-title">Medicare Advantage vs Medicare Original: ¿Cuál Te Conviene en Miami?</h2>
-      <p class="card-excerpt">¿Cuál es la diferencia entre Medicare Advantage y Medicare Original? Te explicamos pros y contras para ayudarte a elegir.</p>
-      <div class="card-footer"><span class="card-date">2026-01-01</span><span class="card-read">Leer →</span></div>
-    </a>
-    <a href="/es/blog/doble-elegibilidad-medicare-medicaid-miami/" class="blog-card" data-category="Medicare">
-      <div class="card-category">Medicare</div>
-      <h2 class="card-title">Medicare y Medicaid en Miami: Costo y Beneficios D-SNP</h2>
-      <p class="card-excerpt">Costo y beneficios de planes D-SNP en Miami 2026. ¿Tiene Medicare y Medicaid? Ahorre en primas, medicamentos y copagos. Corredores bilingües, gratis.</p>
-      <div class="card-footer"><span class="card-date">2026-01-01</span><span class="card-read">Leer →</span></div>
+      <h2 class="card-title">Medicare para residentes permanentes y recién llegados a Florida</h2>
+      <p class="card-excerpt">¿Tiene green card? Aprenda las reglas de elegibilidad de Medicare: los 40 créditos de trabajo, el requisito de 5 años y cómo comprar la Parte A si no califica gratis.</p>
+      <div class="card-footer"><span class="card-date">2026-08-12</span><span class="card-read">Leer →</span></div>
     </a>
     <a href="/es/blog/perdio-su-medicaid-florida/" class="blog-card" data-category="Medicare">
       <div class="card-category">Medicare</div>
@@ -298,83 +315,113 @@ body{font-family:Arial,Helvetica,sans-serif;background:var(--white);line-height:
       <p class="card-excerpt">¿Le quitaron el Medicaid en la renovación? Conozca el MSP, los planes D-SNP y el Mercado de Salud — cuál le conviene según su situación.</p>
       <div class="card-footer"><span class="card-date">2026-08-05</span><span class="card-read">Leer →</span></div>
     </a>
-    <a href="/es/blog/medicare-residentes-permanentes/" class="blog-card" data-category="Medicare">
-      <div class="card-category">Medicare</div>
-      <h2 class="card-title">Medicare para residentes permanentes y recién llegados a Florida</h2>
-      <p class="card-excerpt">¿Tiene green card? Aprenda las reglas de elegibilidad de Medicare: los 40 créditos de trabajo, el requisito de 5 años y cómo comprar la Parte A si no califica gratis.</p>
-      <div class="card-footer"><span class="card-date">2026-08-12</span><span class="card-read">Leer →</span></div>
-    </a>
-    <a href="/es/blog/errores-comunes-inscripcion-medicare/" class="blog-card" data-category="Medicare">
-      <div class="card-category">Medicare</div>
-      <h2 class="card-title">7 Errores Comunes al Inscribirse en Medicare (y Cómo Evitarlos)</h2>
-      <p class="card-excerpt">Evita penalidades permanentes. Estos son los errores más comunes al inscribirse en Medicare en Florida.</p>
-      <div class="card-footer"><span class="card-date">2026-01-01</span><span class="card-read">Leer →</span></div>
-    </a>
-    <a href="/es/blog/medicare-advantage-vs-medicare-original/" class="blog-card" data-category="Medicare">
-      <div class="card-category">Medicare</div>
-      <h2 class="card-title">Medicare Advantage vs Medicare Original: ¿Cuál Es Mejor Para Ti?</h2>
-      <p class="card-excerpt">¿Medicare Advantage o Medicare Original? Compara costos, redes de médicos, beneficios adicionales y flexibilidad lado a lado para decidir qué camino se ajusta a tu vida en el </p>
-      <div class="card-footer"><span class="card-date">2026-01-01</span><span class="card-read">Leer →</span></div>
-    </a>
-    <a href="/es/blog/necesito-agente-medicare-o-inscribirme-solo/" class="blog-card" data-category="Medicare">
-      <div class="card-category">Medicare</div>
-      <h2 class="card-title">¿Necesito un Agente de Medicare o Puedo Inscribirme Solo?</h2>
-      <p class="card-excerpt">Sí puedes inscribirte en Medicare por tu cuenta — entonces, ¿cuándo vale la pena trabajar con un agente licenciado? Una mirada honesta a las dos opciones, cuánto cuesta un age</p>
-      <div class="card-footer"><span class="card-date">2026-01-01</span><span class="card-read">Leer →</span></div>
-    </a>
-    <a href="/es/blog/perdi-inscripcion-abierta-medicare/" class="blog-card" data-category="Medicare">
-      <div class="card-category">Medicare</div>
-      <h2 class="card-title">¿Qué Pasa Si Perdiste la Inscripción Abierta de Medicare?</h2>
-      <p class="card-excerpt">¿Se te pasó el período de inscripción anual de Medicare (15 de octubre – 7 de diciembre)? Tranquilo. Aquí te explicamos qué pasa ahora, qué ventanas siguen abiertas y cómo evi</p>
-      <div class="card-footer"><span class="card-date">2026-01-01</span><span class="card-read">Leer →</span></div>
-    </a>
-    <a href="/es/blog/periodos-de-inscripcion-medicare/" class="blog-card" data-category="Medicare">
-      <div class="card-category">Medicare</div>
-      <h2 class="card-title">Períodos de inscripción de Medicare: ¿cuándo puede hacer cambios realmente?</h2>
-      <p class="card-excerpt">IEP, AEP, OEP, SEP — las ventanas de inscripción de Medicare explicadas en español claro por corredores licenciados de Miami.</p>
-      <div class="card-footer"><span class="card-date">2026-01-01</span><span class="card-read">Leer →</span></div>
-    </a>
-    <a href="/es/blog/planes-medicare-reemplazaron-avmed-florida/" class="blog-card" data-category="Medicare">
-      <div class="card-category">Medicare</div>
-      <h2 class="card-title">Planes de Medicare que Reemplazaron a AvMed en Florida 2026</h2>
-      <p class="card-excerpt">AvMed salió del mercado Medicare en Florida. Estos son los principales planes disponibles en Miami-Dade y Broward para reemplazarlo.</p>
-      <div class="card-footer"><span class="card-date">2026-01-01</span><span class="card-read">Leer →</span></div>
-    </a>
-    <a href="/es/blog/por-que-necesitas-corredor-seguros-salud-miami/" class="blog-card" data-category="Medicare">
-      <div class="card-category">Medicare</div>
-      <h2 class="card-title">Por Qué un Corredor de Seguros Independiente Marca la Diferencia en Miami</h2>
-      <p class="card-excerpt">Un corredor independiente bilingüe en Miami compara 14+ aseguradoras por ti — sin costo.</p>
-      <div class="card-footer"><span class="card-date">2026-01-01</span><span class="card-read">Leer →</span></div>
-    </a>
-    <a href="/es/blog/programa-ahorros-medicare-florida/" class="blog-card" data-category="Medicare">
-      <div class="card-category">Medicare</div>
-      <h2 class="card-title">El Programa de Ahorros de Medicare en Florida: ¿Calificas para Ayuda?</h2>
-      <p class="card-excerpt">El Programa de Ahorros de Medicare puede pagar tu prima de Parte B. Muchos floridanos califican sin saberlo.</p>
-      <div class="card-footer"><span class="card-date">2026-01-01</span><span class="card-read">Leer →</span></div>
-    </a>
-    <a href="/es/blog/programa-ahorros-medicare-reducir-costos/" class="blog-card" data-category="Medicare">
-      <div class="card-category">Medicare</div>
-      <h2 class="card-title">Cómo el Programa de Ahorros de Medicare Puede Reducir Tus Costos</h2>
-      <p class="card-excerpt">El Programa de Ahorros de Medicare puede pagar tu prima de la Parte B y reducir otros costos de Medicare si calificas. Conoce los niveles QMB, SLMB y QI, quién califica en la </p>
-      <div class="card-footer"><span class="card-date">2026-01-01</span><span class="card-read">Leer →</span></div>
-    </a>
-    <a href="/es/blog/que-es-el-periodo-inscripcion-especial-medicare-florida/" class="blog-card" data-category="Medicare">
-      <div class="card-category">Medicare</div>
-      <h2 class="card-title">¿Qué es un Período de Inscripción Especial de Medicare en Florida?</h2>
-      <p class="card-excerpt">Un SEP te permite cambiar tu plan fuera del período anual. Te explicamos qué lo activa y cómo usarlo en Florida.</p>
-      <div class="card-footer"><span class="card-date">2026-01-01</span><span class="card-read">Leer →</span></div>
-    </a>
     <a href="/es/blog/que-es-irmaa-medicare/" class="blog-card" data-category="Medicare">
       <div class="card-category">Medicare</div>
       <h2 class="card-title">Qué es IRMAA y cómo evitar el recargo de Medicare</h2>
       <p class="card-excerpt">IRMAA puede añadir cientos de dólares al mes a sus primas de Medicare según sus ingresos de hace dos años. Conozca los niveles 2026 y la apelación SSA-44.</p>
-      <div class="card-footer"><span class="card-date">2026-01-01</span><span class="card-read">Leer →</span></div>
+      <div class="card-footer"><span class="card-date">2026-07-29</span><span class="card-read">Leer →</span></div>
+    </a>
+    <a href="/es/blog/cobra-vs-mercado-de-salud/" class="blog-card" data-category="COBRA">
+      <div class="card-category">COBRA</div>
+      <h2 class="card-title">COBRA vs. el Mercado de Salud: qué hacer si pierde su cobertura del trabajo</h2>
+      <p class="card-excerpt">¿Perdió su seguro médico del trabajo? Compare COBRA, el Mercado de Salud (Obamacare) y planes privados — incluyendo el cambio de subsidios en 2026.</p>
+      <div class="card-footer"><span class="card-date">2026-07-22</span><span class="card-read">Leer →</span></div>
     </a>
     <a href="/es/blog/seguro-de-salud-aca-miami-2026/" class="blog-card" data-category="ACA y Mercado">
       <div class="card-category">ACA y Mercado</div>
       <h2 class="card-title">Seguro de Salud ACA en Miami: Guía 2026 de Planes, Costos y Subsidios</h2>
       <p class="card-excerpt">¿Confundido con los planes del Mercado de Salud en Miami-Dade y Broward? Aprenda qué planes hay, cómo funcionan los subsidios y cómo inscribirse. Corredores bilingües, sin cos</p>
-      <div class="card-footer"><span class="card-date">2026-01-01</span><span class="card-read">Leer →</span></div>
+      <div class="card-footer"><span class="card-date">2026-07-17</span><span class="card-read">Leer →</span></div>
+    </a>
+    <a href="/es/blog/doble-elegibilidad-medicare-medicaid-miami/" class="blog-card" data-category="Medicare">
+      <div class="card-category">Medicare</div>
+      <h2 class="card-title">Medicare y Medicaid en Miami: Costo y Beneficios D-SNP</h2>
+      <p class="card-excerpt">Costo y beneficios de planes D-SNP en Miami 2026. ¿Tiene Medicare y Medicaid? Ahorre en primas, medicamentos y copagos. Corredores bilingües, gratis.</p>
+      <div class="card-footer"><span class="card-date">2026-07-15</span><span class="card-read">Leer →</span></div>
+    </a>
+    <a href="/es/blog/medicare-advantage-vs-medicare-original/" class="blog-card" data-category="Medicare">
+      <div class="card-category">Medicare</div>
+      <h2 class="card-title">Medicare Advantage vs Medicare Original: ¿Cuál Es Mejor Para Ti?</h2>
+      <p class="card-excerpt">¿Medicare Advantage o Medicare Original? Compara costos, redes de médicos, beneficios adicionales y flexibilidad lado a lado para decidir qué camino se ajusta a tu vida en el </p>
+      <div class="card-footer"><span class="card-date">2026-07-12</span><span class="card-read">Leer →</span></div>
+    </a>
+    <a href="/es/blog/necesito-agente-medicare-o-inscribirme-solo/" class="blog-card" data-category="Medicare">
+      <div class="card-category">Medicare</div>
+      <h2 class="card-title">¿Necesito un Agente de Medicare o Puedo Inscribirme Solo?</h2>
+      <p class="card-excerpt">Sí puedes inscribirte en Medicare por tu cuenta — entonces, ¿cuándo vale la pena trabajar con un agente licenciado? Una mirada honesta a las dos opciones, cuánto cuesta un age</p>
+      <div class="card-footer"><span class="card-date">2026-07-12</span><span class="card-read">Leer →</span></div>
+    </a>
+    <a href="/es/blog/perdi-inscripcion-abierta-medicare/" class="blog-card" data-category="Medicare">
+      <div class="card-category">Medicare</div>
+      <h2 class="card-title">¿Qué Pasa Si Perdiste la Inscripción Abierta de Medicare?</h2>
+      <p class="card-excerpt">¿Se te pasó el período de inscripción anual de Medicare (15 de octubre – 7 de diciembre)? Tranquilo. Aquí te explicamos qué pasa ahora, qué ventanas siguen abiertas y cómo evi</p>
+      <div class="card-footer"><span class="card-date">2026-07-12</span><span class="card-read">Leer →</span></div>
+    </a>
+    <a href="/es/blog/programa-ahorros-medicare-reducir-costos/" class="blog-card" data-category="Medicare">
+      <div class="card-category">Medicare</div>
+      <h2 class="card-title">Cómo el Programa de Ahorros de Medicare Puede Reducir Tus Costos</h2>
+      <p class="card-excerpt">El Programa de Ahorros de Medicare puede pagar tu prima de la Parte B y reducir otros costos de Medicare si calificas. Conoce los niveles QMB, SLMB y QI, quién califica en la </p>
+      <div class="card-footer"><span class="card-date">2026-07-12</span><span class="card-read">Leer →</span></div>
+    </a>
+    <a href="/es/blog/periodos-de-inscripcion-medicare/" class="blog-card" data-category="Medicare">
+      <div class="card-category">Medicare</div>
+      <h2 class="card-title">Períodos de inscripción de Medicare: ¿cuándo puede hacer cambios realmente?</h2>
+      <p class="card-excerpt">IEP, AEP, OEP, SEP — las ventanas de inscripción de Medicare explicadas en español claro por corredores licenciados de Miami.</p>
+      <div class="card-footer"><span class="card-date">2026-07-08</span><span class="card-read">Leer →</span></div>
+    </a>
+    <a href="/es/blog/alternativas-cobra-miami-ahorra-dinero/" class="blog-card" data-category="COBRA">
+      <div class="card-category">COBRA</div>
+      <h2 class="card-title">Alternativas al COBRA en Miami: ¿Cuánto Puedes Ahorrar en 2027?</h2>
+      <p class="card-excerpt">¿Recibiste la carta del COBRA y te asustaste con el precio? En Miami hay alternativas que cuestan hasta 60% menos.</p>
+      <div class="card-footer"><span class="card-date">2026-06-18</span><span class="card-read">Leer →</span></div>
+    </a>
+    <a href="/es/blog/programa-ahorros-medicare-florida/" class="blog-card" data-category="Medicare">
+      <div class="card-category">Medicare</div>
+      <h2 class="card-title">El Programa de Ahorros de Medicare en Florida: ¿Calificas para Ayuda?</h2>
+      <p class="card-excerpt">El Programa de Ahorros de Medicare puede pagar tu prima de Parte B. Muchos floridanos califican sin saberlo.</p>
+      <div class="card-footer"><span class="card-date">2026-06-12</span><span class="card-read">Leer →</span></div>
+    </a>
+    <a href="/es/blog/por-que-necesitas-corredor-seguros-salud-miami/" class="blog-card" data-category="Medicare">
+      <div class="card-category">Medicare</div>
+      <h2 class="card-title">Por Qué un Corredor de Seguros Independiente Marca la Diferencia en Miami</h2>
+      <p class="card-excerpt">Un corredor independiente bilingüe en Miami compara 14+ aseguradoras por ti — sin costo.</p>
+      <div class="card-footer"><span class="card-date">2026-06-08</span><span class="card-read">Leer →</span></div>
+    </a>
+    <a href="/es/blog/que-es-el-periodo-inscripcion-especial-medicare-florida/" class="blog-card" data-category="Medicare">
+      <div class="card-category">Medicare</div>
+      <h2 class="card-title">¿Qué es un Período de Inscripción Especial de Medicare en Florida?</h2>
+      <p class="card-excerpt">Un SEP te permite cambiar tu plan fuera del período anual. Te explicamos qué lo activa y cómo usarlo en Florida.</p>
+      <div class="card-footer"><span class="card-date">2026-06-03</span><span class="card-read">Leer →</span></div>
+    </a>
+    <a href="/es/blog/errores-comunes-inscripcion-medicare/" class="blog-card" data-category="Medicare">
+      <div class="card-category">Medicare</div>
+      <h2 class="card-title">7 Errores Comunes al Inscribirse en Medicare (y Cómo Evitarlos)</h2>
+      <p class="card-excerpt">Evita penalidades permanentes. Estos son los errores más comunes al inscribirse en Medicare en Florida.</p>
+      <div class="card-footer"><span class="card-date">2026-05-28</span><span class="card-read">Leer →</span></div>
+    </a>
+    <a href="/es/blog/diferencias-mapd-medicare-tradicional/" class="blog-card" data-category="Medicare">
+      <div class="card-category">Medicare</div>
+      <h2 class="card-title">Medicare Advantage vs Medicare Original: ¿Cuál Te Conviene en Miami?</h2>
+      <p class="card-excerpt">¿Cuál es la diferencia entre Medicare Advantage y Medicare Original? Te explicamos pros y contras para ayudarte a elegir.</p>
+      <div class="card-footer"><span class="card-date">2026-05-22</span><span class="card-read">Leer →</span></div>
+    </a>
+    <a href="/es/blog/como-el-ingreso-afecta-primas-medicare/" class="blog-card" data-category="Medicare">
+      <div class="card-category">Medicare</div>
+      <h2 class="card-title">Cómo Tus Ingresos Afectan lo que Pagas por Medicare en 2026</h2>
+      <p class="card-excerpt">¿Sabías que Medicare cobra más según tus ingresos? El recargo IRMAA puede aumentar tu prima significativamente.</p>
+      <div class="card-footer"><span class="card-date">2026-05-20</span><span class="card-read">Leer →</span></div>
+    </a>
+    <a href="/es/blog/planes-medicare-reemplazaron-avmed-florida/" class="blog-card" data-category="Medicare">
+      <div class="card-category">Medicare</div>
+      <h2 class="card-title">Planes de Medicare que Reemplazaron a AvMed en Florida 2026</h2>
+      <p class="card-excerpt">AvMed salió del mercado Medicare en Florida. Estos son los principales planes disponibles en Miami-Dade y Broward para reemplazarlo.</p>
+      <div class="card-footer"><span class="card-date">2026-05-15</span><span class="card-read">Leer →</span></div>
+    </a>
+    <a href="/es/blog/avmed-medicare-termino-florida-que-hacer/" class="blog-card" data-category="Medicare">
+      <div class="card-category">Medicare</div>
+      <h2 class="card-title">AvMed Medicare Terminó en Florida: ¿Qué Hacer Ahora?</h2>
+      <p class="card-excerpt">AvMed terminó sus planes Medicare Advantage en Florida el 1 de enero de 2026. Si eras miembro de AvMed, todavía tienes opciones. Te explicamos paso a paso qué hacer.</p>
+      <div class="card-footer"><span class="card-date">2026-05-12</span><span class="card-read">Leer →</span></div>
     </a>
 
   </div>

@@ -9,6 +9,7 @@ const { injectMobileNavAccordion } = require("./scripts/mobile-nav-accordion-inj
 const { injectSharedChrome } = require("./scripts/shared-chrome");
 const { injectEventsNav } = require("./scripts/events-nav-inject");
 const { normalizeSite } = require("./scripts/trailing-slash");
+const { formatBlogListing } = require("./scripts/blog-listing-format");
 
 module.exports = function (eleventyConfig) {
   // Internal docs — never publish these as public pages
@@ -63,6 +64,14 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addTransform("hideFutureBlogCards", function (content, outputPath) {
     if (!isBlogListingOutput(outputPath)) return content;
     return stripFutureBlogCards(content, now);
+  });
+
+  // Sort listing cards newest first and show readable dates ("Oct 26, 2026" /
+  // "26 oct 2026"). Runs after the future-card strip; source keeps ISO dates.
+  eleventyConfig.addTransform("formatBlogListing", function (content, outputPath) {
+    if (!isBlogListingOutput(outputPath)) return content;
+    const lang = String(outputPath).replace(/\\/g, "/").includes("/es/blog/") ? "es" : "en";
+    return formatBlogListing(content, lang);
   });
 
   // Sitewide GHL chat bubble. IDs live in js/ghl-chat-widget.js (no-op until set).

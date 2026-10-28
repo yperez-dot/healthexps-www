@@ -103,6 +103,46 @@ body{font-family:Arial,Helvetica,sans-serif;background:var(--white);line-height:
 #scrollToTop:hover { background: #ff1090; transform: translateY(-2px); }
 #scrollToTop:focus-visible { outline: 3px solid #ff1090; outline-offset: 3px; }
 </style>
+<style>
+/* Blog listing: compact hero, one-row filters, featured strip (Oct 2026) */
+.hero{padding:32px 24px 28px;}
+.hero h1{font-size:clamp(26px,4vw,40px);margin-bottom:8px;line-height:1.25;}
+.hero-subtext{font-size:17px;line-height:1.5;}
+.featured{max-width:1200px;margin:0 auto;padding:20px 24px 4px;}
+.featured-head{display:flex;justify-content:space-between;align-items:baseline;gap:12px;flex-wrap:wrap;margin-bottom:10px;}
+.featured-label{font-size:14px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:#452068;}
+.featured-video{font-size:16px;font-weight:700;color:#452068;text-decoration:none;}
+.featured-video:hover{text-decoration:underline;}
+.featured-row{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;}
+.feat-card{display:block;background:#f4eefa;border-radius:10px;padding:12px 16px;text-decoration:none;color:#3a2468;}
+.feat-card:hover{background:#ebe1f5;}
+.feat-cat{display:block;font-size:13px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;color:#452068;margin-bottom:2px;}
+.feat-title{display:block;font-size:17px;font-weight:600;line-height:1.35;color:#3a2468;}
+.filters{background:#fff;padding:14px 24px;flex-wrap:nowrap;overflow-x:auto;justify-content:center;-webkit-overflow-scrolling:touch;scrollbar-width:none;}
+.filters::-webkit-scrollbar{display:none;}
+.filter-btn{flex:0 0 auto;padding:6px 16px;font-size:16px;white-space:nowrap;}
+.container{padding-top:16px;}
+.card-read{color:#452068;}
+.cta-btn{background:#ffffff;color:#452068;}
+.cta-btn:hover{background:#f4eefa;color:#452068;}
+@media (max-width:768px){
+  .hero{padding:20px 20px 18px;}
+  .hero-subtext{font-size:16px;}
+  .featured{padding:14px 0 0;}
+  .featured-head{padding:0 20px;margin-bottom:8px;}
+  .featured-row{display:flex;overflow-x:auto;gap:10px;padding:0 20px 4px;scroll-snap-type:x mandatory;scroll-padding-left:20px;scrollbar-width:none;}
+  .featured-row::-webkit-scrollbar{display:none;}
+  .feat-card{flex:0 0 78%;scroll-snap-align:start;}
+  .feat-title{font-size:16px;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;}
+  .filters{justify-content:flex-start;padding:12px 20px;gap:8px;}
+  .container{padding:12px 16px 32px;}
+  .card-grid{gap:16px;}
+  .blog-card{padding:16px 18px;}
+  .card-category{margin-bottom:6px;}
+  .card-title{margin-bottom:6px;}
+  .card-excerpt{display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;margin-bottom:10px;}
+}
+</style>
 </head>
 <body>
 <div style="font-family:Inter,sans-serif;color:#241a30;background:#fff">
@@ -294,6 +334,14 @@ body{font-family:Arial,Helvetica,sans-serif;background:var(--white);line-height:
 <h1>Medicare &amp; Health Insurance Blog</h1>
 <p class="hero-subtext">Expert guidance for Florida families navigating Medicare, ACA, and private insurance — in English and Spanish.</p>
 </div>
+<section class="featured" aria-label="Start here">
+<div class="featured-head"><span class="featured-label">Start here</span><a class="featured-video" href="/medicare-articles/">Medicare video guides →</a></div>
+<div class="featured-row">
+<a class="feat-card" href="/blog/lee-health-nch-medicare-network-changes-2027/"><span class="feat-cat">Medicare</span><span class="feat-title">Will Lee Health or NCH Accept Your Medicare Plan in 2027?</span></a>
+<a class="feat-card" href="/blog/how-to-read-your-2027-anoc/"><span class="feat-cat">Medicare</span><span class="feat-title">How to Read Your 2027 ANOC (Annual Notice of Change)</span></a>
+<a class="feat-card" href="/blog/how-much-does-health-insurance-cost-miami/"><span class="feat-cat">ACA &amp; Marketplace</span><span class="feat-title">How Much Does Health Insurance Cost in Miami in 2027?</span></a>
+</div>
+</section>
 <div class="filters">
 <button class="filter-btn active" data-filter="all">All</button>
 <button class="filter-btn" data-filter="Medicare">Medicare</button>
@@ -304,174 +352,262 @@ body{font-family:Arial,Helvetica,sans-serif;background:var(--white);line-height:
 </div>
 <div class="container">
 <div class="card-grid" id="blogGrid">
+<a class="blog-card" data-category="Medicare" href="/blog/florida-dual-eligible-dsnp-basics-2027/"><div class="card-category">Medicare</div><h2 class="card-title">Florida Dual-Eligible D-SNP Basics for 2027</h2><p class="card-excerpt">Have Medicare and Medicaid in Florida? Learn how Dual Eligible Special Needs Plans (D-SNPs) work, your monthly enrollment chances, and what CMS changes starting in 2027.</p><div class="card-footer"><span class="card-date">2026-10-28</span><span class="card-read">Read →</span></div></a>
+
 <a class="blog-card" data-category="ACA &amp; Marketplace" href="/blog/how-much-does-health-insurance-cost-miami/"><div class="card-category">ACA &amp; Marketplace</div><h2 class="card-title">How Much Does Health Insurance Cost in Miami in 2027?</h2><p class="card-excerpt">Florida's 2027 numbers for Miami-Dade and Broward, what changes your price, who qualifies for a subsidy, and what to do if you earn too much.</p><div class="card-footer"><span class="card-date">2026-10-26</span><span class="card-read">Read →</span></div></a>
 
-<a class="blog-card" data-category="Medicare" href="/blog/florida-dual-eligible-dsnp-basics-2027/"><div class="card-category">Medicare</div><h2 class="card-title">Florida Dual-Eligible D-SNP Basics for 2027</h2><p class="card-excerpt">Have Medicare and Medicaid in Florida? Learn how Dual Eligible Special Needs Plans (D-SNPs) work, your monthly enrollment chances, and what CMS changes starting in 2027.</p><div class="card-footer"><span class="card-date">2026-10-28</span><span class="card-read">Read →</span></div></a><a class="blog-card" data-category="Medicare" href="/blog/medicare-plan-ending-2027-non-renewal-letter/"><div class="card-category">Medicare</div><h2 class="card-title">Your Medicare Plan Is Ending in 2027: What a Non-Renewal Letter Means</h2><p class="card-excerpt">Got a Plan Non-Renewal Notice? Your Medicare plan is leaving next year. Learn your deadlines, your Special Enrollment Period, and your Medigap guaranteed-issue rights.</p><div class="card-footer"><span class="card-date">2026-10-21</span><span class="card-read">Read →</span></div></a><a class="blog-card" data-category="Medicare" href="/blog/how-to-read-your-2027-anoc/"><div class="card-category">Medicare</div><h2 class="card-title">How to Read Your 2027 ANOC (Annual Notice of Change)</h2><p class="card-excerpt">Your Medicare plan's Annual Notice of Change shows what changes on January 1, 2027. Here is what to check, section by section, before AEP ends December 7.</p><div class="card-footer"><span class="card-date">2026-10-14</span><span class="card-read">Read →</span></div></a><a class="blog-card" data-category="Medicare" href="/blog/solis-uhealth-university-of-miami-network-change-2027/"><div class="card-category">Medicare</div><h2 class="card-title">Solis Health Plans Ending UHealth in 2027? What Miami Members Should Know</h2><p class="card-excerpt">Solis Health Plans is removing UHealth (University of Miami Health System) from its network effective Dec. 31, 2026. See continuity-of-care rules and request a free 2027 network check.</p><div class="card-footer"><span class="card-date">2026-10-11</span><span class="card-read">Read →</span></div></a><a class="blog-card" data-category="Medicare" href="/blog/medicare-aep-2027-checklist/"><div class="card-category">Medicare</div><h2 class="card-title">Your 2027 Medicare AEP Checklist: What to Review Before October 15</h2><p class="card-excerpt">Medicare Annual Enrollment runs October 15 to December 7, 2026, for coverage starting January 1, 2027. Use this checklist to review your plan, drugs and doctors, then get a free review.</p><div class="card-footer"><span class="card-date">2026-10-07</span><span class="card-read">Read →</span></div></a><a class="blog-card" data-category="Medicare" href="/blog/uhealth-unitedhealthcare-medicare-advantage-network-change/"><div class="card-category">Medicare</div><h2 class="card-title">UHealth Leaving UnitedHealthcare Medicare? Your 2027 Miami Options</h2><p class="card-excerpt">UHealth stays in-network for UHC Preferred Care Network through Dec. 31, 2026, then goes out of network Jan. 1, 2027. See who is affected and request a free 2027 network check.</p><div class="card-footer"><span class="card-date">2026-10-07</span><span class="card-read">Read →</span></div></a><a class="blog-card" data-category="Medicare" href="/blog/lee-health-nch-medicare-network-changes-2027/"><div class="card-category">Medicare</div><h2 class="card-title">Will Lee Health or NCH Accept Your Medicare Plan in 2027?</h2><p class="card-excerpt">UnitedHealthcare at Lee Health—and Wellcare or Cigna/HealthSpring at NCH—face confirmed 2027 network changes. See who is affected and request a free check.</p><div class="card-footer"><span class="card-date">2026-09-22</span><span class="card-read">Read →</span></div></a><a class="blog-card" data-category="Private Insurance" href="/blog/private-health-insurance-miami-guide/">
+<a class="blog-card" data-category="Medicare" href="/blog/medicare-plan-ending-2027-non-renewal-letter/"><div class="card-category">Medicare</div><h2 class="card-title">Your Medicare Plan Is Ending in 2027: What a Non-Renewal Letter Means</h2><p class="card-excerpt">Got a Plan Non-Renewal Notice? Your Medicare plan is leaving next year. Learn your deadlines, your Special Enrollment Period, and your Medigap guaranteed-issue rights.</p><div class="card-footer"><span class="card-date">2026-10-21</span><span class="card-read">Read →</span></div></a>
+
+<a class="blog-card" data-category="Medicare" href="/blog/how-to-read-your-2027-anoc/"><div class="card-category">Medicare</div><h2 class="card-title">How to Read Your 2027 ANOC (Annual Notice of Change)</h2><p class="card-excerpt">Your Medicare plan's Annual Notice of Change shows what changes on January 1, 2027. Here is what to check, section by section, before AEP ends December 7.</p><div class="card-footer"><span class="card-date">2026-10-14</span><span class="card-read">Read →</span></div></a>
+
+<a class="blog-card" data-category="Medicare" href="/blog/solis-uhealth-university-of-miami-network-change-2027/"><div class="card-category">Medicare</div><h2 class="card-title">Solis Health Plans Ending UHealth in 2027? What Miami Members Should Know</h2><p class="card-excerpt">Solis Health Plans is removing UHealth (University of Miami Health System) from its network effective Dec. 31, 2026. See continuity-of-care rules and request a free 2027 network check.</p><div class="card-footer"><span class="card-date">2026-10-11</span><span class="card-read">Read →</span></div></a>
+
+<a class="blog-card" data-category="Medicare" href="/blog/medicare-aep-2027-checklist/"><div class="card-category">Medicare</div><h2 class="card-title">Your 2027 Medicare AEP Checklist: What to Review Before October 15</h2><p class="card-excerpt">Medicare Annual Enrollment runs October 15 to December 7, 2026, for coverage starting January 1, 2027. Use this checklist to review your plan, drugs and doctors, then get a free review.</p><div class="card-footer"><span class="card-date">2026-10-07</span><span class="card-read">Read →</span></div></a>
+
+<a class="blog-card" data-category="Medicare" href="/blog/uhealth-unitedhealthcare-medicare-advantage-network-change/"><div class="card-category">Medicare</div><h2 class="card-title">UHealth Leaving UnitedHealthcare Medicare? Your 2027 Miami Options</h2><p class="card-excerpt">UHealth stays in-network for UHC Preferred Care Network through Dec. 31, 2026, then goes out of network Jan. 1, 2027. See who is affected and request a free 2027 network check.</p><div class="card-footer"><span class="card-date">2026-10-07</span><span class="card-read">Read →</span></div></a>
+
+<a class="blog-card" data-category="Medicare" href="/blog/lee-health-nch-medicare-network-changes-2027/"><div class="card-category">Medicare</div><h2 class="card-title">Will Lee Health or NCH Accept Your Medicare Plan in 2027?</h2><p class="card-excerpt">UnitedHealthcare at Lee Health—and Wellcare or Cigna/HealthSpring at NCH—face confirmed 2027 network changes. See who is affected and request a free check.</p><div class="card-footer"><span class="card-date">2026-09-22</span><span class="card-read">Read →</span></div></a>
+
+<a class="blog-card" data-category="Private Insurance" href="/blog/private-health-insurance-miami-guide/">
 <div class="card-category">Private Insurance</div>
 <h2 class="card-title">Private Health Insurance in Miami: The Non-ACA Option Explained</h2>
 <p class="card-excerpt">Not on an ACA plan? Private off-exchange health insurance in Miami may offer more flexibility, wider networks, and lower costs for self-employed Floridians.</p>
 <div class="card-footer"><span class="card-date">2026-09-09</span><span class="card-read">Read →</span></div>
-</a><a class="blog-card" data-category="ACA &amp; Marketplace" href="/blog/how-to-pick-aca-marketplace-plan-florida/">
+</a>
+
+<a class="blog-card" data-category="ACA &amp; Marketplace" href="/blog/how-to-pick-aca-marketplace-plan-florida/">
 <div class="card-category">ACA &amp; Marketplace</div>
 <h2 class="card-title">How to Pick a Health Insurance Plan on the ACA Marketplace in Florida</h2>
 <p class="card-excerpt">Open enrollment in Florida: learn ACA subsidies, income limits, metal tiers, and how to pick the right Marketplace plan. Free bilingual help from licensed agents.</p>
 <div class="card-footer"><span class="card-date">2026-09-02</span><span class="card-read">Read →</span></div>
-</a><a class="blog-card" data-category="Medicare" href="/blog/nch-drops-cigna-wellcare-medicare-advantage-2027/">
+</a>
+
+<a class="blog-card" data-category="Medicare" href="/blog/nch-drops-cigna-wellcare-medicare-advantage-2027/">
 <div class="card-category">Medicare</div>
 <h2 class="card-title">Naples Hospital Drops Two Medicare Advantage Contracts in 2027</h2>
 <p class="card-excerpt">NCH will stop accepting Cigna and Wellcare Medicare Advantage on Jan. 1, 2027. Check your 2027 hospital network before AEP. Licensed agents — we don't pick the plan.</p>
 <div class="card-footer"><span class="card-date">2026-09-01</span><span class="card-read">Read →</span></div>
-</a><a class="blog-card" data-category="Life Insurance" href="/blog/term-vs-whole-vs-final-expense-life-insurance/">
+</a>
+
+<a class="blog-card" data-category="Life Insurance" href="/blog/term-vs-whole-vs-final-expense-life-insurance/">
 <div class="card-category">Life Insurance</div>
 <h2 class="card-title">Term vs. Whole vs. Final Expense Life Insurance: Which Is Right for You?</h2>
 <p class="card-excerpt">Term, whole, or final expense life insurance — which fits your Florida family best? Compare costs, benefits, and use cases in this clear guide for seniors and families.</p>
 <div class="card-footer"><span class="card-date">2026-08-26</span><span class="card-read">Read →</span></div>
-</a><a class="blog-card" data-category="Life Insurance" href="/blog/what-is-life-insurance-florida/">
+</a>
+
+<a class="blog-card" data-category="Life Insurance" href="/blog/what-is-life-insurance-florida/">
 <div class="card-category">Life Insurance</div>
 <h2 class="card-title">What Is Life Insurance and Do You Really Need It? A Plain English Guide for Florida Families</h2>
 <p class="card-excerpt">Confused about life insurance? Learn term, whole, and final expense plans in plain English. Helping Miami and Florida families protect what matters most.</p>
 <div class="card-footer"><span class="card-date">2026-08-19</span><span class="card-read">Read →</span></div>
-</a><a class="blog-card" data-category="Medicare" href="/blog/medicare-green-card-holders-florida/">
+</a>
+
+<a class="blog-card" data-category="Medicare" href="/blog/medicare-green-card-holders-florida/">
 <div class="card-category">Medicare</div>
 <h2 class="card-title">Can Green Card Holders Get Medicare in Florida? What You Need to Know</h2>
 <p class="card-excerpt">Green card holders in Florida: learn Medicare eligibility rules, the 5-year residency requirement, work credits, and your options in South Florida.</p>
 <div class="card-footer"><span class="card-date">2026-08-12</span><span class="card-read">Read →</span></div>
-</a><a class="blog-card" data-category="ACA &amp; Marketplace" href="/blog/florida-health-insurance-subsidy-expiration-2026/">
+</a>
+
+<a class="blog-card" data-category="ACA &amp; Marketplace" href="/blog/florida-health-insurance-subsidy-expiration-2026/">
 <div class="card-category">ACA &amp; Marketplace</div>
 <h2 class="card-title">Florida Health Insurance Costs Just Went Up — Here's What To Do</h2>
 <p class="card-excerpt">ACA subsidies expired in Florida, with marketplace premiums up an average of 31.5% before subsidies. Learn your options: ACA plans, private insurance, COBRA.</p>
 <div class="card-footer"><span class="card-date">2026-08-05</span><span class="card-read">Read →</span></div>
-</a><a class="blog-card" data-category="Medicare" href="/blog/what-is-irmaa-avoid-medicare-surcharge/">
+</a>
+
+<a class="blog-card" data-category="Medicare" href="/blog/what-is-irmaa-avoid-medicare-surcharge/">
 <div class="card-category">Medicare</div>
 <h2 class="card-title">What Is IRMAA — and How to Avoid the Medicare Surcharge</h2>
 <p class="card-excerpt">IRMAA can add hundreds a month to your Medicare premiums based on income from two years ago. Learn how it works, who it affects, and how to appeal it.</p>
 <div class="card-footer"><span class="card-date">2026-07-29</span><span class="card-read">Read →</span></div>
-</a><a class="blog-card" data-category="Medicare" href="/blog/lost-medicaid-coverage-florida/">
+</a>
+
+<a class="blog-card" data-category="Medicare" href="/blog/lost-medicaid-coverage-florida/">
 <div class="card-category">Medicare</div>
 <h2 class="card-title">Lost Medicaid Coverage in Florida? Here's What to Do Next</h2>
 <p class="card-excerpt">Lost Medicaid in Florida? Learn your Medicare SEP options, Medicare Savings Programs, and D-SNP eligibility with help from a licensed bilingual broker.</p>
 <div class="card-footer"><span class="card-date">2026-07-22</span><span class="card-read">Read →</span></div>
-</a><a class="blog-card" data-category="ACA &amp; Marketplace" href="/blog/aca-marketplace-health-insurance-miami-2026/">
+</a>
+
+<a class="blog-card" data-category="ACA &amp; Marketplace" href="/blog/aca-marketplace-health-insurance-miami-2026/">
 <div class="card-category">ACA &amp; Marketplace</div>
 <h2 class="card-title">ACA Health Insurance in Miami: Your 2026 Guide to Plans, Costs &amp; Subsidies</h2>
 <p class="card-excerpt">Confused about ACA Marketplace plans in Miami-Dade and Broward? Learn what plans are available, how subsidies work, and when you can enroll.</p>
 <div class="card-footer"><span class="card-date">2026-07-18</span><span class="card-read">Read →</span></div>
-</a><a class="blog-card" data-category="Medicare" href="/blog/dual-eligible-medicare-medicaid-miami/">
+</a>
+
+<a class="blog-card" data-category="Medicare" href="/blog/dual-eligible-medicare-medicaid-miami/">
 <div class="card-category">Medicare</div>
 <h2 class="card-title">Dual Eligible: What It Means to Have Medicare and Medicaid Together in Miami</h2>
 <p class="card-excerpt">Have both Medicare and Medicaid? You may qualify for D-SNP plans with extra benefits, Extra Help with prescriptions, and monthly plan-change rights. Miami brokers explain.</p>
 <div class="card-footer"><span class="card-date">2026-07-14</span><span class="card-read">Read →</span></div>
-</a><a class="blog-card" data-category="Medicare" href="/blog/medicare-advantage-vs-original-medicare/"><div class="card-category">Medicare</div><h2 class="card-title">Medicare Advantage vs Original Medicare: Which Is Right for You?</h2><p class="card-excerpt">Compare costs, networks, extra benefits, and flexibility side by side so you can decide which path fits your life in South Florida.</p><div class="card-footer"><span class="card-date">2026-07-12</span><span class="card-read">Read →</span></div></a><a class="blog-card" data-category="Medicare" href="/blog/medicare-agent-or-enroll-myself/"><div class="card-category">Medicare</div><h2 class="card-title">Do I Need a Medicare Agent, or Can I Enroll Myself?</h2><p class="card-excerpt">An honest look at enrolling on your own vs. working with a licensed agent, what agents cost (nothing), and how to choose.</p><div class="card-footer"><span class="card-date">2026-07-12</span><span class="card-read">Read →</span></div></a><a class="blog-card" data-category="Medicare" href="/blog/medicare-savings-program-lower-costs/"><div class="card-category">Medicare</div><h2 class="card-title">How the Medicare Savings Program Can Lower Your Costs</h2><p class="card-excerpt">QMB, SLMB, and QI can pay your Part B premium and reduce other Medicare costs. Who qualifies in Florida and how to apply.</p><div class="card-footer"><span class="card-date">2026-07-12</span><span class="card-read">Read →</span></div></a><a class="blog-card" data-category="Medicare" href="/blog/missed-medicare-open-enrollment/"><div class="card-category">Medicare</div><h2 class="card-title">What Happens If You Miss Medicare Open Enrollment?</h2><p class="card-excerpt">Missed the Oct. 15 – Dec. 7 Annual Enrollment Period? What happens next, which windows may still be open, and how to avoid late penalties.</p><div class="card-footer"><span class="card-date">2026-07-12</span><span class="card-read">Read →</span></div></a><a class="blog-card" data-category="Private Insurance" href="/blog/are-health-insurance-premiums-subject-to-fica/">
+</a>
+
+<a class="blog-card" data-category="Medicare" href="/blog/medicare-advantage-vs-original-medicare/"><div class="card-category">Medicare</div><h2 class="card-title">Medicare Advantage vs Original Medicare: Which Is Right for You?</h2><p class="card-excerpt">Compare costs, networks, extra benefits, and flexibility side by side so you can decide which path fits your life in South Florida.</p><div class="card-footer"><span class="card-date">2026-07-12</span><span class="card-read">Read →</span></div></a>
+
+<a class="blog-card" data-category="Medicare" href="/blog/medicare-agent-or-enroll-myself/"><div class="card-category">Medicare</div><h2 class="card-title">Do I Need a Medicare Agent, or Can I Enroll Myself?</h2><p class="card-excerpt">An honest look at enrolling on your own vs. working with a licensed agent, what agents cost (nothing), and how to choose.</p><div class="card-footer"><span class="card-date">2026-07-12</span><span class="card-read">Read →</span></div></a>
+
+<a class="blog-card" data-category="Medicare" href="/blog/medicare-savings-program-lower-costs/"><div class="card-category">Medicare</div><h2 class="card-title">How the Medicare Savings Program Can Lower Your Costs</h2><p class="card-excerpt">QMB, SLMB, and QI can pay your Part B premium and reduce other Medicare costs. Who qualifies in Florida and how to apply.</p><div class="card-footer"><span class="card-date">2026-07-12</span><span class="card-read">Read →</span></div></a>
+
+<a class="blog-card" data-category="Medicare" href="/blog/missed-medicare-open-enrollment/"><div class="card-category">Medicare</div><h2 class="card-title">What Happens If You Miss Medicare Open Enrollment?</h2><p class="card-excerpt">Missed the Oct. 15 – Dec. 7 Annual Enrollment Period? What happens next, which windows may still be open, and how to avoid late penalties.</p><div class="card-footer"><span class="card-date">2026-07-12</span><span class="card-read">Read →</span></div></a>
+
+<a class="blog-card" data-category="Private Insurance" href="/blog/are-health-insurance-premiums-subject-to-fica/">
 <div class="card-category">Private Insurance</div>
 <h2 class="card-title">Are Health Insurance Premiums Subject to FICA Taxes?</h2>
 <p class="card-excerpt">Most employer-sponsored health premiums are exempt from FICA — but the rules differ for self-employed workers and S-corp owners. Here's what you need to know.</p>
 <div class="card-footer"><span class="card-date">2026-07-10</span><span class="card-read">Read →</span></div>
-</a><a class="blog-card" data-category="COBRA" href="/blog/cobra-vs-marketplace-losing-job-coverage/">
+</a>
+
+<a class="blog-card" data-category="COBRA" href="/blog/cobra-vs-marketplace-losing-job-coverage/">
 <div class="card-category">COBRA</div>
 <h2 class="card-title">COBRA vs. the Marketplace: What to Do When You Lose Job Coverage</h2>
 <p class="card-excerpt">Lost your job-based health insurance? Compare COBRA, ACA Marketplace, and private plans — including what changed with subsidies in 2026. Miami brokers explain.</p>
 <div class="card-footer"><span class="card-date">2026-07-09</span><span class="card-read">Read →</span></div>
-</a><a class="blog-card" data-category="Medicare" href="/blog/medicare-enrollment-periods-explained/">
+</a>
+
+<a class="blog-card" data-category="Medicare" href="/blog/medicare-enrollment-periods-explained/">
 <div class="card-category">Medicare</div>
 <h2 class="card-title">Medicare Enrollment Periods Explained: When Can You Actually Make Changes?</h2>
 <p class="card-excerpt">IEP, AEP, OEP, SEP — Medicare's enrollment windows explained in plain English by licensed Miami brokers. Find out exactly when you can enroll or switch plans.</p>
 <div class="card-footer"><span class="card-date">2026-07-07</span><span class="card-read">Read →</span></div>
-</a><a class="blog-card" data-category="ACA &amp; Marketplace" href="/blog/how-to-get-health-insurance-subsidy-miami/">
+</a>
+
+<a class="blog-card" data-category="ACA &amp; Marketplace" href="/blog/how-to-get-health-insurance-subsidy-miami/">
 <div class="card-category">ACA &amp; Marketplace</div>
 <h2 class="card-title">How to Get a Health Insurance Subsidy in Miami (ACA Guide 2026)</h2>
 <p class="card-excerpt">Many Miami residents qualify for $0 or low-cost health insurance through ACA subsidies. Here's how income affects your subsidy and how to apply.</p>
 <div class="card-footer"><span class="card-date">2026-06-26</span><span class="card-read">Read →</span></div>
-</a><a class="blog-card" data-category="ACA &amp; Marketplace" href="/blog/aca-marketplace-enrollment-florida-2026/">
+</a>
+
+<a class="blog-card" data-category="ACA &amp; Marketplace" href="/blog/aca-marketplace-enrollment-florida-2026/">
 <div class="card-category">ACA &amp; Marketplace</div>
 <h2 class="card-title">When Can I Enroll in ACA Marketplace Plans in Florida? (2026 Guide)</h2>
 <p class="card-excerpt">Open Enrollment for ACA Marketplace plans in Florida runs November 1 – January 15. But you may qualify for a Special Enrollment Period year-round.</p>
 <div class="card-footer"><span class="card-date">2026-06-25</span><span class="card-read">Read →</span></div>
-</a><a class="blog-card" data-category="COBRA" href="/blog/cobra-vs-aca-marketplace-miami/">
+</a>
+
+<a class="blog-card" data-category="COBRA" href="/blog/cobra-vs-aca-marketplace-miami/">
 <div class="card-category">COBRA</div>
 <h2 class="card-title">COBRA vs ACA Marketplace in Miami: Which One Actually Saves You More Money?</h2>
 <p class="card-excerpt">Average COBRA is about $833/month for one person. See 2027 Miami-Dade and Broward Marketplace prices, and when a private plan can make sense.</p>
 <div class="card-footer"><span class="card-date">2026-06-24</span><span class="card-read">Read →</span></div>
-</a><a class="blog-card" data-category="Private Insurance" href="/blog/turned-26-health-insurance-florida/">
+</a>
+
+<a class="blog-card" data-category="Private Insurance" href="/blog/turned-26-health-insurance-florida/">
 <div class="card-category">Private Insurance</div>
 <h2 class="card-title">Just Turned 26 in Florida? Here's What to Do About Health Insurance</h2>
 <p class="card-excerpt">Coming off your parents' plan at 26 triggers a Special Enrollment Period. Here's exactly what to do in Florida to get covered fast.</p>
 <div class="card-footer"><span class="card-date">2026-06-24</span><span class="card-read">Read →</span></div>
-</a><a class="blog-card" data-category="Medicare" href="/blog/why-is-medicare-free-for-some-but-not-others/">
+</a>
+
+<a class="blog-card" data-category="Medicare" href="/blog/why-is-medicare-free-for-some-but-not-others/">
 <div class="card-category">Medicare</div>
 <h2 class="card-title">Why Is Medicare Free for Some But Not Others?</h2>
 <p class="card-excerpt">Many people think Medicare is completely free, but that's not always true. Learn which parts are free, who qualifies, and what you might pay. Free consultation with Miami Medi</p>
 <div class="card-footer"><span class="card-date">2026-06-24</span><span class="card-read">Read →</span></div>
-</a><a class="blog-card" data-category="Private Insurance" href="/blog/self-employed-health-insurance-miami/">
+</a>
+
+<a class="blog-card" data-category="Private Insurance" href="/blog/self-employed-health-insurance-miami/">
 <div class="card-category">Private Insurance</div>
 <h2 class="card-title">Self-Employed in Miami? Here's How to Get Health Insurance</h2>
 <p class="card-excerpt">Self-employed in Miami? You have more options than you think — ACA subsidies, private plans, and group alternatives. Licensed bilingual brokers compare all options free.</p>
 <div class="card-footer"><span class="card-date">2026-06-22</span><span class="card-read">Read →</span></div>
-</a><a class="blog-card" data-category="Medicare" href="/blog/what-is-a-special-enrollment-period-for-medicare-in-florida/">
+</a>
+
+<a class="blog-card" data-category="Medicare" href="/blog/what-is-a-special-enrollment-period-for-medicare-in-florida/">
 <div class="card-category">Medicare</div>
 <h2 class="card-title">What Is a Special Enrollment Period for Medicare in Florida? (2026 Guide)</h2>
 <p class="card-excerpt">A Special Enrollment Period (SEP) is a federally protected window that allows Medicare-eligible individuals to enroll in, switch, or drop a Medicare plan outside of the standa</p>
 <div class="card-footer"><span class="card-date">2026-04-09</span><span class="card-read">Read →</span></div>
-</a><a class="blog-card" data-category="Private Insurance" href="/blog/private-health-insurance-basics-plans-costs-and-coverage-explained/">
+</a>
+
+<a class="blog-card" data-category="Private Insurance" href="/blog/private-health-insurance-basics-plans-costs-and-coverage-explained/">
 <div class="card-category">Private Insurance</div>
 <h2 class="card-title">Private Health Insurance Basics:  Plans, Costs, and Coverage Explained</h2>
 <p class="card-excerpt">Private health insurance can feel overwhelming, with different plan types, costs, and coverage rules to understand. This article breaks down common options like HMOs, PPOs, EP</p>
 <div class="card-footer"><span class="card-date">2026-01-14</span><span class="card-read">Read →</span></div>
-</a><a class="blog-card" data-category="Medicare" href="/blog/avmed-medicare-ending-florida-what-to-do-2026/">
+</a>
+
+<a class="blog-card" data-category="Medicare" href="/blog/avmed-medicare-ending-florida-what-to-do-2026/">
 <div class="card-category">Medicare</div>
 <h2 class="card-title">AvMed Medicare Ended in Florida: What to Do Now</h2>
 <p class="card-excerpt">AvMed Medicare Advantage ended January 1, 2026 in Florida. Here's what AvMed members need to know about coverage, doctors, and next steps. Free help from a licensed broke</p>
 <div class="card-footer"><span class="card-date">2026-01-01</span><span class="card-read">Read →</span></div>
-</a><a class="blog-card" data-category="Medicare" href="/blog/medicare-plans-replace-avmed-florida-2026/">
+</a>
+
+<a class="blog-card" data-category="Medicare" href="/blog/medicare-plans-replace-avmed-florida-2026/">
 <div class="card-category">Medicare</div>
 <h2 class="card-title">Medicare Plans That Replaced AvMed in Florida 2026</h2>
 <p class="card-excerpt">AvMed Medicare ended January 1, 2026. Get a straightforward look at the major Medicare Advantage carriers in South Florida and what to consider when comparing.</p>
 <div class="card-footer"><span class="card-date">2026-01-01</span><span class="card-read">Read →</span></div>
-</a><a class="blog-card" data-category="Medicare" href="/blog/still-haven-t-switched-your-medicare-plan-you-may-qualify-for-a-special-enrollment-period/">
+</a>
+
+<a class="blog-card" data-category="Medicare" href="/blog/still-haven-t-switched-your-medicare-plan-you-may-qualify-for-a-special-enrollment-period/">
 <div class="card-category">Medicare</div>
 <h2 class="card-title">Still Haven’t Switched Your Medicare Plan? You May Qualify for a Special Enrollment Period</h2>
 <p class="card-excerpt">Missed the Medicare AEP? If your plan was discontinued — like AvMed — you may still qualify for a Special Enrollment Period in 2026. Don't lose coverage. Free help.</p>
 <div class="card-footer"><span class="card-date">2025-12-12</span><span class="card-read">Read →</span></div>
-</a><a class="blog-card" data-category="Medicare" href="/blog/unlocking-your-rights-how-to-appeal-decision-on-medicare-coverage-denials/">
+</a>
+
+<a class="blog-card" data-category="Medicare" href="/blog/unlocking-your-rights-how-to-appeal-decision-on-medicare-coverage-denials/">
 <div class="card-category">Medicare</div>
 <h2 class="card-title">Unlocking Your Rights: How to Appeal Decision on Medicare Coverage Denials</h2>
 <p class="card-excerpt">For many retired individuals, navigating the complexities of Medicare can often feel overwhelming, especially when faced with a denial of coverage for health insurance benefit</p>
 <div class="card-footer"><span class="card-date">2025-08-24</span><span class="card-read">Read →</span></div>
-</a><a class="blog-card" data-category="Medicare" href="/blog/understanding-how-income-affects-medicare-premiums-a-complete-guide-for-retirees/">
+</a>
+
+<a class="blog-card" data-category="Medicare" href="/blog/understanding-how-income-affects-medicare-premiums-a-complete-guide-for-retirees/">
 <div class="card-category">Medicare</div>
 <h2 class="card-title">Understanding How Income Affects Medicare Premiums: A Complete Guide for Retirees</h2>
 <p class="card-excerpt">When it comes to retirement planning, understanding Medicare premiums is a significant factor for retirees. Many individuals approaching retirement often wonder how their inco</p>
 <div class="card-footer"><span class="card-date">2025-07-06</span><span class="card-read">Read →</span></div>
-</a><a class="blog-card" data-category="Medicare" href="/blog/unlocking-the-secrets-finding-preventative-services-under-medicare/">
+</a>
+
+<a class="blog-card" data-category="Medicare" href="/blog/unlocking-the-secrets-finding-preventative-services-under-medicare/">
 <div class="card-category">Medicare</div>
 <h2 class="card-title">Unlocking the Secrets: Finding Preventative Services Under Medicare</h2>
 <p class="card-excerpt">As we journey through life, one of the most essential aspects of maintaining good health is understanding the importance of preventative services. If you are retired or approa</p>
 <div class="card-footer"><span class="card-date">2025-06-08</span><span class="card-read">Read →</span></div>
-</a><a class="blog-card" data-category="Medicare" href="/blog/understanding-the-key-differences-between-mapd-and-traditional-medicare/">
+</a>
+
+<a class="blog-card" data-category="Medicare" href="/blog/understanding-the-key-differences-between-mapd-and-traditional-medicare/">
 <div class="card-category">Medicare</div>
 <h2 class="card-title">Medicare Advantage vs Original Medicare: Which Is Right for You?</h2>
 <p class="card-excerpt">Medicare Advantage or Original Medicare — which covers more in Florida? Compare costs, networks, and extra benefits side by side. Free help from Miami Medicare brokers.</p>
 <div class="card-footer"><span class="card-date">2025-05-25</span><span class="card-read">Read →</span></div>
-</a><a class="blog-card" data-category="Medicare" href="/blog/mastering-medicare-essential-tips-to-avoid-common-enrollment-mistakes/">
+</a>
+
+<a class="blog-card" data-category="Medicare" href="/blog/mastering-medicare-essential-tips-to-avoid-common-enrollment-mistakes/">
 <div class="card-category">Medicare</div>
 <h2 class="card-title">Mastering Medicare: Essential Tips to Avoid Common Enrollment Mistakes</h2>
 <p class="card-excerpt">Understanding Medicare can feel overwhelming, especially for those who are newly retired or approaching retirement age. The various components—Original Medicare, Medicare Adva</p>
 <div class="card-footer"><span class="card-date">2025-05-18</span><span class="card-read">Read →</span></div>
-</a><a class="blog-card" data-category="Medicare" href="/blog/miami-s-trusted-health-insurance-experts-why-a-broker-makes-all-the-difference/">
+</a>
+
+<a class="blog-card" data-category="Medicare" href="/blog/miami-s-trusted-health-insurance-experts-why-a-broker-makes-all-the-difference/">
 <div class="card-category">Medicare</div>
 <h2 class="card-title">Miami’s Trusted Health Insurance Experts: Why a Broker Makes All the Difference</h2>
 <p class="card-excerpt">Your Trusted Health Insurance Experts Whenever the time comes to buy medical insurance—at any age—there are many factors to consider,...</p>
 <div class="card-footer"><span class="card-date">2025-05-16</span><span class="card-read">Read →</span></div>
-</a><a class="blog-card" data-category="Medicare" href="/blog/the-hidden-treasure-how-medicare-savings-programs-slash-your-health-insurance-costs/">
+</a>
+
+<a class="blog-card" data-category="Medicare" href="/blog/the-hidden-treasure-how-medicare-savings-programs-slash-your-health-insurance-costs/">
 <div class="card-category">Medicare</div>
 <h2 class="card-title">The Hidden Treasure: How Medicare Savings Programs Slash Your Health Insurance Costs</h2>
 <p class="card-excerpt">As we age, managing healthcare costs becomes a pressing concern for many retired individuals. The alarming rise in medical expenses often weighs heavily on the minds of those </p>
 <div class="card-footer"><span class="card-date">2025-05-11</span><span class="card-read">Read →</span></div>
-</a><a class="blog-card" data-category="Medicare" href="/blog/mastering-medicare-essential-tips-for-comparing-plans-effectively/">
+</a>
+
+<a class="blog-card" data-category="Medicare" href="/blog/mastering-medicare-essential-tips-for-comparing-plans-effectively/">
 <div class="card-category">Medicare</div>
 <h2 class="card-title">Mastering Medicare: Essential Tips for Comparing Plans Effectively</h2>
 <p class="card-excerpt">As the American population ages, understanding Medicare becomes increasingly crucial for retirees. With the complexities of health insurance, navigating through the difference</p>
 <div class="card-footer"><span class="card-date">2025-05-04</span><span class="card-read">Read →</span></div>
-</a><a class="blog-card" data-category="Medicare" href="/blog/navigating-the-medicare-plan-finder-tool-your-ultimate-guide/">
+</a>
+
+<a class="blog-card" data-category="Medicare" href="/blog/navigating-the-medicare-plan-finder-tool-your-ultimate-guide/">
 <div class="card-category">Medicare</div>
 <h2 class="card-title">Navigating the Medicare Plan Finder Tool: Your Ultimate Guide</h2>
 <p class="card-excerpt">Step-by-step guide to Medicare's Plan Finder at Medicare.gov. Compare Advantage plans, Part D drug costs, star ratings &amp; networks. Free help from Florida brokers.</p>

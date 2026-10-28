@@ -205,6 +205,7 @@ a{text-decoration:none;color:inherit}
       {% if category %}<span class="article-category">{{ category }}</span>{% endif %}
       <p class="article-meta">The Health Experts Insurance &nbsp;·&nbsp; {{ date | readableDateEs }}</p>
     </header>
+    {% if not ("<h1" in content) %}<h1 class="article-title">{{ title }}</h1>{% endif %}
     <div class="article-body">
       {{ content | safe }}
     </div>

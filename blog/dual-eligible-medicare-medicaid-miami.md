@@ -14,6 +14,9 @@ permalink: /blog/dual-eligible-medicare-medicaid-miami/
 
 # Dual Eligible: What It Means to Have Medicare and Medicaid Together in Miami
 
+<div class="quick-answer" style="background:#f4eefa;border:1px solid #e3d8ef;border-radius:12px;padding:16px 20px;margin:20px 0 28px;color:#3a2468;"><p style="margin:0 0 6px;font-size:15px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;color:#452068;">Quick answer</p><p style="margin:0 0 12px;font-size:18px;line-height:1.6;color:#3a2468;">Dual eligible means you have both Medicare and Medicaid. Medicare pays first and Medicaid can pick up costs it leaves behind, like premiums, deductibles and copays. You automatically get Extra Help with Part D drug costs, may qualify for a D-SNP, and can make certain plan changes monthly instead of only in the fall.</p><a href="/book" style="display:inline-block;background:#452068;color:#ffffff;padding:8px 18px;border-radius:8px;font-weight:600;font-size:16px;text-decoration:none;">Get free help →</a></div>
+
+
 If you have Medicare **and** Florida Medicaid — or you think you might qualify for both — you're what's called **dual eligible**. In Miami-Dade, that's a big deal: dual-eligible residents have access to special plans, extra benefits, and prescription savings that most people on Medicare never see.
 
 It's also one of the most under-used opportunities we come across. Every month, clients walk into our Doral office paying costs that Medicaid or a Medicare Savings Program could be covering.

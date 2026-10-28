@@ -14,6 +14,9 @@ permalink: /es/blog/doble-elegibilidad-medicare-medicaid-miami/
 
 # Doble elegibilidad: qué significa tener Medicare y Medicaid a la vez en Miami
 
+<div class="quick-answer" style="background:#f4eefa;border:1px solid #e3d8ef;border-radius:12px;padding:16px 20px;margin:20px 0 28px;color:#3a2468;"><p style="margin:0 0 6px;font-size:15px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;color:#452068;">Respuesta rápida</p><p style="margin:0 0 12px;font-size:18px;line-height:1.6;color:#3a2468;">Doble elegibilidad significa tener Medicare y Medicaid a la vez. Medicare paga primero y Medicaid puede cubrir lo que queda, como primas, deducibles y copagos. Incluye Ayuda Adicional (Extra Help) automática para los medicamentos de la Parte D, acceso a planes D-SNP y oportunidades mensuales para ciertos cambios de plan.</p><a href="/es/reservar" style="display:inline-block;background:#452068;color:#ffffff;padding:8px 18px;border-radius:8px;font-weight:600;font-size:16px;text-decoration:none;">Recibir ayuda gratis →</a></div>
+
+
 Si usted tiene Medicare **y** Medicaid de Florida — o cree que podría calificar para ambos — usted es lo que se llama **doble elegible**. En Miami-Dade, eso significa mucho: los residentes con doble elegibilidad tienen acceso a planes especiales, beneficios adicionales y ahorros en medicamentos que la mayoría de las personas con Medicare nunca ven.
 
 También es una de las oportunidades más desaprovechadas que encontramos. Cada mes llegan clientes a nuestra oficina de Doral pagando costos que Medicaid o un Programa de Ahorros de Medicare podría estar cubriendo.

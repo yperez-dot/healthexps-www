@@ -14,6 +14,9 @@ hreflang_en: medicare-green-card-holders-florida
 
 # Medicare para residentes permanentes y recién llegados a Florida
 
+<div class="quick-answer" style="background:#f4eefa;border:1px solid #e3d8ef;border-radius:12px;padding:16px 20px;margin:20px 0 28px;color:#3a2468;"><p style="margin:0 0 6px;font-size:15px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;color:#452068;">Respuesta rápida</p><p style="margin:0 0 12px;font-size:18px;line-height:1.6;color:#3a2468;">Sí, al cumplir 65 años y con 5 años consecutivos de residencia legal permanente. Con 40 créditos de trabajo (unos 10 años pagando impuestos de Medicare, propios o del cónyuge), la Parte A es gratis; con menos, se puede comprar la Parte A. La Parte B siempre tiene su propia prima.</p><a href="/es/reservar" style="display:inline-block;background:#452068;color:#ffffff;padding:8px 18px;border-radius:8px;font-weight:600;font-size:16px;text-decoration:none;">Recibir ayuda gratis →</a></div>
+
+
 En una familia multigeneracional de Miami, casi siempre hay alguien preguntando lo mismo: *"Mi mamá tiene green card, ¿puede tener Medicare?"* La respuesta es sí — pero las reglas no son las mismas que para alguien nacido en Estados Unidos, y casi nadie las explica en español con claridad.
 
 Aquí están, sin rodeos.
