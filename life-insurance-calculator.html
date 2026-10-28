@@ -1037,7 +1037,7 @@ details[open] .why-we-ask-chevron { transform:rotate(180deg); }
   <div class="field hidden" id="custom-income-field">
     <label>Annual Income</label>
     <input type="number" id="custom-income" placeholder="Enter amount" min="0" max="9999999" oninput="updateCustomIncome()">
-    <button class="cont-btn on" onclick="proceedFromIncome()" style="margin-top: 12px;">Continuar</button>
+    <button class="cont-btn on" onclick="proceedFromIncome()" style="margin-top: 12px;">Continue</button>
   </div>
   <details class="why-we-ask">
     <summary><span class="why-we-ask-q">?</span><span id="wya-s1">Why We Ask — About Your Income</span><span class="why-we-ask-chevron">&#9660;</span></summary>
@@ -1931,8 +1931,10 @@ function loadState() {
 
 function setLang(l) {
   S.language = l;
-  document.getElementById('lb-en').classList.toggle('active', l === 'en');
-  document.getElementById('lb-es').classList.toggle('active', l === 'es');
+  var bEn = document.getElementById('lb-en');
+  if (bEn) bEn.classList.toggle('active', l === 'en');
+  var bEs = document.getElementById('lb-es');
+  if (bEs) bEs.classList.toggle('active', l === 'es');
   updateUI();
   saveState();
 }
