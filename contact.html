@@ -816,6 +816,7 @@ img { max-width: 100%; height: auto; }
           document.getElementById('cSuccess').style.display = 'block';
           if (typeof gtag === 'function') {
             gtag('event', 'contact_form_submit', { page: window.location.pathname });
+            gtag('event', 'generate_lead', { campaign: 'contact', language: 'en', page: window.location.pathname });
           }
           return;
         }

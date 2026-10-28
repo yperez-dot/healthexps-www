@@ -47,7 +47,9 @@ assert.ok(widget.includes(":host-context(html.thei-aep-sticky)"), "lifts the sha
 assert.ok(widget.includes("#lc_text-widget--btn"), "targets the live GHL launcher button");
 assert.ok(widget.includes("hola como puedo ayudar"), "hides the live Spanish greeting copy");
 assert.ok(widget.includes("como puedo ayudar"), "hides short Spanish greeting variants");
-assert.ok(SCRIPT_TAG.includes("?v=overlay3"), "cache-bust for the overlay release");
+assert.ok(SCRIPT_TAG.includes("?v=track1"), "cache-bust for the tracking-trigger fix");
+assert.ok(!/LC_chatWidgetLoaded[\s\S]{0,200}chat_widget_loaded/.test(widget), "does not fire chat_widget_loaded when the widget script loads");
+assert.ok(widget.includes('track("chat_widget_opened"'), "fires chat_widget_opened only after a visitor click");
 
 // "</body>" inside a JS string (e.g. an email template) must not get the tag:
 // that split the life-insurance calculator's main script in two.
