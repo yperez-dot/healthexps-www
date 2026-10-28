@@ -43,9 +43,11 @@ assert.ok(widget.includes('input[name*="phone" i]'), "guard matches home form ph
 assert.ok(widget.includes('input[name*="email" i]'), "guard matches home form email fields by name");
 assert.ok(widget.includes('iframe[src*="leadconnectorhq.com/widget/booking"]'), "guard hides widgets over booking calendars");
 assert.ok(widget.includes(".aep-sticky"), "lifts widgets above the AEP sticky Call/WhatsApp bar");
+assert.ok(widget.includes(":host-context(html.thei-aep-sticky)"), "lifts the shadow-DOM launcher above the sticky bar");
+assert.ok(widget.includes("#lc_text-widget--btn"), "targets the live GHL launcher button");
 assert.ok(widget.includes("hola como puedo ayudar"), "hides the live Spanish greeting copy");
 assert.ok(widget.includes("como puedo ayudar"), "hides short Spanish greeting variants");
-assert.ok(SCRIPT_TAG.includes("?v=overlay2"), "cache-bust for the overlay release");
+assert.ok(SCRIPT_TAG.includes("?v=overlay3"), "cache-bust for the overlay release");
 
 // "</body>" inside a JS string (e.g. an email template) must not get the tag:
 // that split the life-insurance calculator's main script in two.

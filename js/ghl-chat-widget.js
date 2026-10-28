@@ -55,12 +55,13 @@
     style.textContent =
       "html.thei-has-chat #scrollToTop{bottom:96px !important;}" +
       "@media (max-width:640px){html.thei-has-chat #scrollToTop{bottom:88px !important;}}" +
-      "html.thei-aep-sticky #scrollToTop{bottom:130px !important;}" +
-      "html.thei-aep-sticky chat-widget{bottom:72px !important;}" +
+      /* Two-row AEP bar is ~116px on 390px; sit the launcher fully above it. */
+      "html.thei-aep-sticky chat-widget{bottom:120px !important;}" +
+      "html.thei-aep-sticky #scrollToTop{bottom:184px !important;}" +
       "@media (max-width:640px){" +
-      "html.thei-aep-sticky #scrollToTop{bottom:130px !important;}" +
-      "html.thei-aep-sticky.thei-has-chat #scrollToTop{bottom:148px !important;}" +
-      "html.thei-aep-sticky chat-widget{bottom:80px !important;}" +
+      "html.thei-aep-sticky chat-widget{bottom:124px !important;}" +
+      "html.thei-aep-sticky #scrollToTop{bottom:132px !important;}" +
+      "html.thei-aep-sticky.thei-has-chat #scrollToTop{bottom:192px !important;}" +
       "}";
   }
 
@@ -157,7 +158,11 @@
       '[class*="message-preview"],[class*="MessagePreview"],' +
       '[class*="greeting"],[class*="Greeting"],' +
       '[data-testid*="proactive"],[class*="widget-preview"],' +
-      '[class*="auto-message"],[class*="AutoMessage"]{display:none !important;}';
+      '[class*="auto-message"],[class*="AutoMessage"]{display:none !important;}' +
+      /* Launcher is position:fixed inside the closed shadow tree, so host
+         bottom: rules never move it. :host-context sees the page classes. */
+      ':host-context(html.thei-aep-sticky) #lc_text-widget--btn,' +
+      ':host-context(html.thei-aep-sticky) .lc_text-widget--bubble{bottom:124px !important;}';
 
     if (!document.getElementById("thei-ghl-chat-quiet")) {
       var style = document.createElement("style");
