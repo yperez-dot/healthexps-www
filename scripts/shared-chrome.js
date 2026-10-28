@@ -143,6 +143,44 @@ function localizeLangToggle(html) {
     .replace('<div class="shared-topbar__actions"><span>EN</span><a href="/es/">ES</a>', `<div class="shared-topbar__actions"><span>EN</span><a href="${attr(alt.es || "/es/")}">ES</a>`);
 }
 
+const LOCAL_FONT_TAGS =
+  '  <link rel="preload" href="/fonts/inter-latin-400.woff2" as="font" type="font/woff2" crossorigin>\n' +
+  '  <link rel="preload" href="/fonts/poppins-latin-700.woff2" as="font" type="font/woff2" crossorigin>\n' +
+  '  <link rel="stylesheet" href="/css/fonts.css">\n';
+
+const INTER_POPPINS_GOOGLE = /family=Poppins(?=[^"']*family=Inter)|family=Inter(?=[^"']*family=Poppins)/i;
+
+function stripRenderBlockingGoogleFonts(html) {
+  html = html.replace(/<link\b[^>]*href=["']https:\/\/fonts\.googleapis\.com["'][^>]*>\s*/gi, "");
+  html = html.replace(/<link\b[^>]*href=["']https:\/\/fonts\.gstatic\.com["'][^>]*>\s*/gi, "");
+  html = html.replace(/<link\b[^>]*href=["']https:\/\/fonts\.googleapis\.com\/css2\?[^"']+["'][^>]*>\s*/gi, (tag) => {
+    const href = (tag.match(/href=["']([^"']+)["']/i) || [])[1] || "";
+    if (INTER_POPPINS_GOOGLE.test(href) && !/Playfair|DM\+Sans|family=Playfair|family=DM/i.test(href)) {
+      return "";
+    }
+    if (/media=/i.test(tag)) return tag;
+    const noscript = tag.replace(/\s*\/?>$/, ">");
+    return tag.replace(/<link\b/i, '<link media="print" onload="this.media=\'all\'"') + `<noscript>${noscript}</noscript>`;
+  });
+  return html;
+}
+
+function injectLocalFonts(html) {
+  if (/\/css\/fonts\.css/.test(html)) return html;
+  if (/<head[^>]*>/i.test(html)) return html.replace(/<head[^>]*>/i, (m) => m + "\n" + LOCAL_FONT_TAGS);
+  return html;
+}
+
+function injectChromeCss(html) {
+  if (html.includes("/css/shared-chrome.css")) return html;
+  return html.replace(
+    /<\/head>/i,
+    '  <link rel="stylesheet" href="/css/shared-chrome.css">\n' +
+      '  <link rel="stylesheet" href="/css/shared-footer.css" media="print" onload="this.media=\'all\'">\n' +
+      '  <noscript><link rel="stylesheet" href="/css/shared-footer.css"></noscript>\n</head>'
+  );
+}
+
 function injectSharedChrome(content, outputPath) {
   if (!outputPath || !outputPath.endsWith(".html")) return content;
   const locale = /(?:^|[\\/])(?:_site[\\/])?es[\\/]/i.test(outputPath) ? "es" : "en";
@@ -155,8 +193,10 @@ function injectSharedChrome(content, outputPath) {
   else html = replaceSharedHeader(html, chrome[locale].header);
   html = replaceSharedFooter(html, chrome[locale].footer.replace(/id=["']site-footer["']/, 'id="site-footer" class="shared-chrome-footer"'));
   html = localizeLangToggle(html);
-  if (!html.includes("/css/shared-chrome.css")) html = html.replace(/<\/head>/i, '  <link rel="stylesheet" href="/css/shared-chrome.css">\n  <link rel="stylesheet" href="/css/shared-footer.css">\n</head>');
+  html = stripRenderBlockingGoogleFonts(html);
+  html = injectLocalFonts(html);
+  html = injectChromeCss(html);
   return html;
 }
 
-module.exports = { injectSharedChrome, findBalancedEnd, isHomepageOutput, replaceSharedNav, hreflangAlternates };
+module.exports = { injectSharedChrome, findBalancedEnd, isHomepageOutput, replaceSharedNav, hreflangAlternates, stripRenderBlockingGoogleFonts, injectLocalFonts };
