@@ -40,6 +40,9 @@ jobs:
           node scripts/assert-no-future-blog-cards.js
           echo "Build OK: $(find _site -type f | wc -l) files"
 
+      - name: Form guard (blocks deploy if any form would lose a lead)
+        run: node scripts/test-form-submit-paths.js --site _site
+
       - name: Deploy to Netlify
         env:
           NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}

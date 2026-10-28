@@ -1127,7 +1127,7 @@ async function submitContact() {
   } catch(e) {
     console.error(e);
     btn.disabled = false; btn.textContent = 'Enviar a un corredor \u2192';
-    alert('Something went wrong. Please call us at 1-800-380-6821.');
+    alert('Algo salió mal. Por favor llame al 1-800-380-6821.');
   }
 }
 
@@ -1179,9 +1179,9 @@ async function submitMedicareExit() {
     last_name:          lastName,
     email:              email,
     phone:              phone,
-    lang:               'english',
+    lang:               'spanish',
     medicare_situation: situation,
-    source:             'Medicare Exit Screen',
+    source:             'Medicare Exit Screen ES',
     page:               window.location.href,
     submitted_at:       new Date().toISOString()
   };
@@ -1197,7 +1197,7 @@ async function submitMedicareExit() {
   } catch(e) {
     console.error(e);
     btn.disabled = false; btn.textContent = 'Que un corredor me llame';
-    alert('Something went wrong. Please call us at 1-800-380-6821.');
+    alert('Algo salió mal. Por favor llame al 1-800-380-6821.');
   }
 }
 

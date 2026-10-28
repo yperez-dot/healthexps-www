@@ -1730,6 +1730,7 @@ const STRINGS = {
     callbackQuietConsentLbl: 'I agree to be contacted by a licensed agent at The Health Experts Insurance by phone or text at the number provided. <a href="/privacy">View full consent</a>',
     callbackQuietBtn: "Call Me →",
     callbackQuietOk: "Got it — someone will call you shortly.",
+    submitErr: "Something went wrong. Please try again or call 1-800-380-6821.",
     gateFname: "First Name",
     gateLname: "Last Name",
     gateEmail: "Email Address",
@@ -1894,6 +1895,7 @@ const STRINGS = {
     callbackQuietConsentLbl: 'Acepto ser contactado por un agente licenciado de The Health Experts Insurance por teléfono o mensaje de texto al número proporcionado. <a href="/privacy">Ver consentimiento completo</a>',
     callbackQuietBtn: "Llámenme →",
     callbackQuietOk: "Recibido — alguien le llamará en breve.",
+    submitErr: "Algo salió mal. Por favor intente de nuevo o llame al 1-800-380-6821.",
     interstitialCaption: "Su necesidad de cobertura",
     interstitialQ: "Unas preguntas m\u00e1s para darle el estimado de la tarifa.",
     interstitialSub: "Solo su fecha de nacimiento, sexo y uso de tabaco \u2014 eso es lo que las aseguradoras usan para calcular el precio. Sin examen m\u00e9dico y sin llamadas.",
@@ -2918,13 +2920,18 @@ async function submitToGHL(completion) {
   };
 
   try {
-    await fetch('https://services.leadconnectorhq.com/hooks/RINM4TCnM4hN06UA1aK0/webhook-trigger/961af3bd-5a04-415f-9c59-6ada70219a4f', {
+    const res = await fetch('https://services.leadconnectorhq.com/hooks/RINM4TCnM4hN06UA1aK0/webhook-trigger/961af3bd-5a04-415f-9c59-6ada70219a4f', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(payload)
     });
+    if (!res || !res.ok) throw new Error('lead not accepted (' + (res && res.status) + ')');
   } catch (e) {
     console.error('GHL submission failed', e);
+    // Never a silent failure: tell the visitor when their contact details did not go through.
+    if ((completion === 'partial' || completion === 'complete') && (S.phone || S.email)) {
+      alert(str('submitErr'));
+    }
   }
 }
 
@@ -3198,12 +3205,21 @@ function submitCalcQcbQuiet() {
   var p = (document.getElementById('qcb-quiet-phone')||{}).value||'';
   var c = document.getElementById('qcb-quiet-consent')&&document.getElementById('qcb-quiet-consent').checked;
   if (!n.trim()||!p.trim()||!c) return;
+  var btn = document.getElementById('qcb-quiet-btn');
+  if (btn) btn.disabled = true;
   fetch(CALC_QCB_WEBHOOK,{method:'POST',headers:{'Content-Type':'application/json'},
-    body:JSON.stringify({firstName:n,phone:p,tags:['quick-callback','life-insurance','source:intro-quiet'],source:'calc-intro-quiet',
-      customFields:{callback_requested_at:new Date().toISOString()}})});
-  if (typeof gtag==='function') gtag('event','quick_callback_submit',{page:window.location.pathname,source:'calc-intro-quiet'});
-  var wrap = document.getElementById('callback-quiet-wrap');
-  if (wrap) wrap.innerHTML = '<p style="font-size:17px;color:#452068;font-weight:600;text-align:center;padding:12px 0;">' + str('callbackQuietOk') + '</p>';
+    body:JSON.stringify({first_name:n.trim(),phone:p.trim(),coverage_type:'Life Insurance',
+      tags:'quick-callback,life-insurance,source:intro-quiet',source:'calc-intro-quiet',
+      callback_requested_at:new Date().toISOString(),page:window.location.href})})
+  .then(function(res){
+    if (!res || !res.ok) throw new Error('Server error');
+    if (typeof gtag==='function') gtag('event','quick_callback_submit',{page:window.location.pathname,source:'calc-intro-quiet'});
+    var wrap = document.getElementById('callback-quiet-wrap');
+    if (wrap) wrap.innerHTML = '<p style="font-size:17px;color:#452068;font-weight:600;text-align:center;padding:12px 0;">' + str('callbackQuietOk') + '</p>';
+  }).catch(function(){
+    if (btn) btn.disabled = false;
+    alert(str('submitErr'));
+  });
 }
 
 // Quick-callback strip — calc hero (item 3 batch 2)
@@ -3224,15 +3240,24 @@ function submitCalcQcb() {
   var c = document.getElementById('calc-qcb-consent')&&document.getElementById('calc-qcb-consent').checked;
   var hp = (document.getElementById('_calc_qcb_hp')||{}).value||'';
   if (!n.trim()||!p.trim()||!c||hp) return;
+  var btn=document.getElementById('calc-qcb-btn'); if(btn) btn.disabled=true;
+  // Flat fields (first_name / phone) so the lead passes submit-lead validation.
   fetch(CALC_QCB_WEBHOOK,{method:'POST',headers:{'Content-Type':'application/json'},
-    body:JSON.stringify({contactData:{firstName:n.trim(),phone:p.trim()},
-      tags:['quick-callback','life-insurance'],
-      customFields:{callback_requested_at:new Date().toISOString()}
+    body:JSON.stringify({first_name:n.trim(),phone:p.trim(),coverage_type:'Life Insurance',
+      source:'Life Insurance Calculator - Quick Callback',
+      tags:'quick-callback,life-insurance',
+      callback_requested_at:new Date().toISOString(),
+      page:window.location.href
     })
-  }).catch(function(){});
-  if (typeof gtag==='function') gtag('event','quick_callback_submit',{page:window.location.pathname,source:'calc-hero'});
-  var form=document.getElementById('calc-qcb-form'); if(form) form.style.display='none';
-  var ok=document.getElementById('calc-qcb-success'); if(ok) ok.style.display='block';
+  }).then(function(res){
+    if (!res || !res.ok) throw new Error('Server error');
+    if (typeof gtag==='function') gtag('event','quick_callback_submit',{page:window.location.pathname,source:'calc-hero'});
+    var form=document.getElementById('calc-qcb-form'); if(form) form.style.display='none';
+    var ok=document.getElementById('calc-qcb-success'); if(ok) ok.style.display='block';
+  }).catch(function(){
+    if(btn) btn.disabled=false;
+    alert(str('submitErr'));
+  });
 }
 function calcQcbTrackWa() {
   fetch(CALC_QCB_WEBHOOK,{method:'POST',headers:{'Content-Type':'application/json'},

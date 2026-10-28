@@ -959,6 +959,7 @@ nav{display:flex;align-items:center;justify-content:space-between;height:76px;}
       if (success) success.style.display = 'block';
     }).catch(function() {
       if (btn) { btn.disabled = false; btn.textContent = 'Get Free Consultation →'; }
+      alert('Something went wrong. Please try again or call 1-800-380-6821.');
     });
   };
 })();

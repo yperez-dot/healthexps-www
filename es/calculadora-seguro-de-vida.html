@@ -2235,7 +2235,7 @@ async function emailResult() {
       body: JSON.stringify({
         to: email,
         subject: 'Tu Estimado de Seguro de Vida — The Health Experts Insurance',
-        html: buildEmailHtml()
+        html: typeof buildEmailHtml === 'function' ? buildEmailHtml() : ''
       })
     });
     // Also submit to GHL for CRM (fire and forget)
@@ -2604,7 +2604,7 @@ async function submitToGHL(completion) {
       life_calc_language: S.language,
       life_calc_completion: completion,
       life_calc_timestamp: S.timestamp,
-      emailHtml: buildEmailHtml(),
+      emailHtml: typeof buildEmailHtml === 'function' ? buildEmailHtml() : '',
       life_calc_income_fmt: typeof fmt === 'function' ? fmt(S.income) : S.income,
       life_calc_recommended_fmt: typeof fmt === 'function' ? fmt(S.recommended) : S.recommended,
       life_calc_gross_need_fmt: typeof fmt === 'function' ? fmt(S.gross_need) : S.gross_need,
@@ -2615,13 +2615,18 @@ async function submitToGHL(completion) {
   };
 
   try {
-    await fetch('https://services.leadconnectorhq.com/hooks/RINM4TCnM4hN06UA1aK0/webhook-trigger/28058d00-7965-45e2-ae3c-e37459f9464b', {
+    const res = await fetch('https://services.leadconnectorhq.com/hooks/RINM4TCnM4hN06UA1aK0/webhook-trigger/28058d00-7965-45e2-ae3c-e37459f9464b', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(payload)
     });
+    if (!res || !res.ok) throw new Error('lead not accepted (' + (res && res.status) + ')');
   } catch (e) {
     console.error('GHL submission failed', e);
+    // Never a silent failure: tell the visitor when their contact details did not go through.
+    if ((completion === 'partial' || completion === 'complete') && (S.phone || S.email)) {
+      alert('Algo salió mal. Por favor intente de nuevo o llame al 1-800-380-6821.');
+    }
   }
 }
 
@@ -2928,15 +2933,24 @@ function submitCalcQcb() {
   var c = document.getElementById('calc-qcb-consent')&&document.getElementById('calc-qcb-consent').checked;
   var hp = (document.getElementById('_calc_qcb_hp')||{}).value||'';
   if (!n.trim()||!p.trim()||!c||hp) return;
+  var btn=document.getElementById('calc-qcb-btn'); if(btn) btn.disabled=true;
+  // Flat fields (first_name / phone) so the lead passes submit-lead validation.
   fetch(CALC_QCB_WEBHOOK,{method:'POST',headers:{'Content-Type':'application/json'},
-    body:JSON.stringify({contactData:{firstName:n.trim(),phone:p.trim()},
-      tags:['quick-callback','life-insurance'],
-      customFields:{callback_requested_at:new Date().toISOString()}
+    body:JSON.stringify({first_name:n.trim(),phone:p.trim(),coverage_type:'Life Insurance',
+      source:'Calculadora de Seguro de Vida ES - Llamada Rapida',
+      tags:'quick-callback,life-insurance',
+      callback_requested_at:new Date().toISOString(),
+      page:window.location.href
     })
-  }).catch(function(){});
-  if (typeof gtag==='function') gtag('event','quick_callback_submit',{page:window.location.pathname,source:'calc-hero-es'});
-  var form=document.getElementById('calc-qcb-form'); if(form) form.style.display='none';
-  var ok=document.getElementById('calc-qcb-success'); if(ok) ok.style.display='block';
+  }).then(function(res){
+    if (!res || !res.ok) throw new Error('Server error');
+    if (typeof gtag==='function') gtag('event','quick_callback_submit',{page:window.location.pathname,source:'calc-hero'});
+    var form=document.getElementById('calc-qcb-form'); if(form) form.style.display='none';
+    var ok=document.getElementById('calc-qcb-success'); if(ok) ok.style.display='block';
+  }).catch(function(){
+    if(btn) btn.disabled=false;
+    alert('Algo salió mal. Por favor intente de nuevo o llame al 1-800-380-6821.');
+  });
 }
 function calcQcbTrackWa() {
   fetch(CALC_QCB_WEBHOOK,{method:'POST',headers:{'Content-Type':'application/json'},

@@ -770,8 +770,17 @@ a:hover { color: #ff1090; }
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(payload)
     })
-    .then(function(){ showSuccess(); })
-    .catch(function(){ showSuccess(); });
+    .then(function(res){
+      if (res && res.ok === false) throw new Error('Server error');
+      showSuccess();
+    })
+    .catch(function(){
+      // Nunca un falso "gracias": si falla, el visitante ve el error.
+      btn.disabled = false;
+      btn.textContent = 'Solicitar mi Consulta Gratuita \u2192';
+      err.textContent = 'Algo salió mal. Por favor intente de nuevo o llame al 1-800-380-6821.';
+      err.style.display = 'block';
+    });
     if (typeof gtag === 'function') {
       gtag('event', 'lead_form_submit', {
         event_category: 'Lead',
