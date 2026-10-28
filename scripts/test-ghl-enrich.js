@@ -8,6 +8,7 @@ const blog = {
   health_system: "Lee Health", current_carrier: "UnitedHealthcare / AARP", zip_code: "33901",
   consent: "on", _hp_name: "", source_key: "aep-2027", tags: "aep-2027,network-alert",
   source: "2027 Southwest Florida Network Alert Blog", lang: "english",
+  blog_title: "Will Lee Health or NCH Accept Your Medicare Plan in 2027?", blog_category: "Medicare",
   page: "https://www.healthexps.com/blog/lee-health-nch-medicare-network-changes-2027/",
 };
 const lines = answerLines(blog);
@@ -50,9 +51,11 @@ assert.strictEqual(pageLabel({ source: "Homepage Form" }, "/es/"), "Spanish Home
   const note = calls.find((c) => c.m === "POST" && c.u.endsWith("/contacts/C1/notes"));
   assert(/Health system: Lee Health/.test(note.body.body) && /ZIP: 33901/.test(note.body.body));
   const opp = calls.find((c) => c.m === "PUT" && c.u.includes("/opportunities/O1"));
-  assert.strictEqual(opp.body.name, "Mary Tester — 2027 Southwest Florida Network Alert Blog");
+  assert.strictEqual(opp.body.name, "Mary Tester — Blog: Will Lee Health or NCH Accept Your Medicare Plan in 2027?");
+  assert(/Form: 2027 Southwest Florida Network Alert Blog/.test(note.body.body), "note keeps the original form name");
   const tags = calls.find((c) => c.u.endsWith("/contacts/C1/tags") && c.m === "POST");
   assert(tags.body.tags.includes("website-lead") && tags.body.tags.includes("web:blog-lee-health-nch-medicare-network-changes-2027"));
+  assert(tags.body.tags.includes("blog") && tags.body.tags.includes("blog-medicare"), "blog topic tags");
   // Homepage lead must keep "homepage" tag
   calls.length = 0;
   const r2 = await enrichLead({ ...blog, source: "Homepage Form" }, { ...payload, page_path: "/" }, { pollMs: [0] });

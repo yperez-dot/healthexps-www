@@ -32,7 +32,7 @@ const INTERNAL_KEYS = new Set([
   '_hp_name', 'honeypot', 'website', 'company_url', '_form_loaded_at', 'form_loaded_at',
   'source_key', 'webhook_id', 'page_url', 'page_path', 'form_page', 'consent', 'tags',
   'submitted_at', 'page', 'source', 'lang', 'looking_for', 'additional_notes', 'notes',
-  'pageUrl', 'submittedAt', 'formSource', 'channel',
+  'pageUrl', 'submittedAt', 'formSource', 'channel', 'blog_title', 'blog_category', 'form_name',
 ]);
 
 const LABELS = {
@@ -75,7 +75,57 @@ function pageTag(path) {
   return ('web:' + slug).slice(0, 90);
 }
 
+/** Map a blog category / form key to the routing tag suffix (Medicare / ACA / Private / Life). */
+function normalizeBlogCategory(value) {
+  const c = String(value || '').toLowerCase();
+  if (!c) return '';
+  if (/\baca\b|marketplace|mercado|obamacare/.test(c)) return 'aca';
+  if (/private|privado|cobra/.test(c)) return 'private';
+  if (/life|vida|final expense|gastos finales/.test(c)) return 'life';
+  if (/medicare|medicaid|dsnp|d-snp|aep|medigap/.test(c)) return 'medicare';
+  return '';
+}
+
+const CATEGORY_BY_SOURCE_KEY = {
+  'aep-2027': 'medicare', 'blog-lee-nch': 'medicare',
+  'en-private': 'private', 'es-private': 'private', 'en-cobra': 'private', 'es-cobra': 'private',
+  'en-aca': 'aca', 'es-aca': 'aca',
+};
+
+function humanizeSlug(slug) {
+  const s = String(slug || '').replace(/[-_]+/g, ' ').trim();
+  return s ? s.charAt(0).toUpperCase() + s.slice(1) : '';
+}
+
+/**
+ * Blog post info for /blog/<slug>/ and /es/blog/<slug>/ (not the listing pages).
+ * Returns null for every non-blog path.
+ */
+function blogInfo(data, path) {
+  const m = String(path || '').match(/^\/(es\/)?blog\/([^/?#]+?)(?:\.html)?\/?$/i);
+  if (!m || /^index$/i.test(m[2])) return null;
+  const d = data || {};
+  const title = String(d.blog_title || '').trim() || humanizeSlug(m[2]);
+  let category = normalizeBlogCategory(d.blog_category);
+  if (!category) category = CATEGORY_BY_SOURCE_KEY[String(d.source_key || '').trim()] || '';
+  if (!category) {
+    const tags = String(d.tags || '').toLowerCase().split(',').map((t) => t.trim());
+    if (tags.includes('private')) category = 'private';
+    else if (tags.includes('aca')) category = 'aca';
+    else if (tags.some((t) => /^aep-|medicare|network-alert|dsnp/.test(t))) category = 'medicare';
+  }
+  return { lang: m[1] ? 'es' : 'en', slug: m[2], title, category };
+}
+
+/** Tags every blog lead gets: "blog" + "blog-<category>" (routing by topic). */
+function blogTags(info) {
+  if (!info) return [];
+  return ['blog', info.category ? 'blog-' + info.category : null].filter(Boolean);
+}
+
 function pageLabel(data, path) {
+  const blog = blogInfo(data, path);
+  if (blog) return ('Blog: ' + blog.title).slice(0, 100);
   const src = String(data.source || '').trim();
   if (src && !/^Homepage Form$/i.test(src)) return src;
   if (isHomepagePath(path)) return path.startsWith('/es') ? 'Spanish Homepage Form' : 'Homepage Form';
@@ -126,6 +176,7 @@ function buildNote(data, ctx) {
     `🌐 WEBSITE LEAD — ${ctx.pageLabel}`,
     `Submitted: ${fmtEt(ctx.submittedAt)}`,
     `Page: ${ctx.pageUrl || ctx.path || '(unknown)'}`,
+    ctx.formName && ctx.formName !== ctx.pageLabel ? `Form: ${ctx.formName}` : null,
     data.lang ? `Language: ${data.lang}` : null,
     '',
     'Answers:',
@@ -205,8 +256,10 @@ async function enrichLead(data, payload, opts = {}) {
     path,
     pageUrl: String(payload.page || payload.page_url || '').trim(),
     pageLabel: pageLabel(data, path),
+    formName: String(data.source || '').trim(),
     submittedAt: payload.submitted_at || new Date().toISOString(),
   };
+  const blog = blogInfo(data, path);
   const zip = extractZip(data);
   const first = String(data.first_name || data.firstName || '').trim();
   const last = String(data.last_name || data.lastName || '').trim();
@@ -275,7 +328,7 @@ async function enrichLead(data, payload, opts = {}) {
   // 3–6 run in parallel to stay inside the 10s function limit
   // 3) Tags: website-lead + real page + any form-provided tags
   const formTags = String(data.tags || '').split(',').map((t) => t.trim().toLowerCase()).filter(Boolean);
-  const tags = Array.from(new Set(['website-lead', pageTag(path), ...formTags])).slice(0, 15);
+  const tags = Array.from(new Set(['website-lead', pageTag(path), ...blogTags(blog), ...formTags])).slice(0, 15);
   const stepTags = (async () => { try {
     await ghl('POST', `/contacts/${contactId}/tags`, { tags });
     result.steps.push('tags');
@@ -310,7 +363,14 @@ async function enrichLead(data, payload, opts = {}) {
       return (r.opportunities || []).filter((o) => o.status === 'open' || !o.status);
     };
     let list = await searchOpps();
-    if (!list.length && deadline - Date.now() > 2500) {
+    // The GHL workflow can create its "— Homepage" opp a few seconds after the
+    // contact; keep checking while there is budget (the scheduled
+    // blog-lead-cleanup function catches anything that lands later).
+    while (!list.length && !createdByUs && deadline - Date.now() > 2500) {
+      await sleep(1200);
+      list = await searchOpps();
+    }
+    if (!list.length && createdByUs && deadline - Date.now() > 2500) {
       await sleep(1200);
       list = await searchOpps();
     }
@@ -358,4 +418,8 @@ async function enrichLead(data, payload, opts = {}) {
   return result;
 }
 
-module.exports = { enrichLead, answerLines, buildNote, pageTag, pageLabel, extractZip };
+module.exports = {
+  enrichLead, answerLines, buildNote, pageTag, pageLabel, extractZip,
+  blogInfo, blogTags, normalizeBlogCategory, makeClient, isHomepagePath,
+  LOCATION_ID, WEBSITE_PIPELINE_ID,
+};

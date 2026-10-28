@@ -6,6 +6,12 @@
 [build.environment]
   NODE_VERSION = "20"
 
+# Every 10 min: rename blog leads' "— Homepage" opportunities (created late by
+# the GHL Homepage Lead workflow) to "— Blog: <post title>" and drop the
+# "homepage" tag. See netlify/functions/blog-lead-cleanup.js.
+[functions."blog-lead-cleanup"]
+  schedule = "*/10 * * * *"
+
 # 301 redirect for renamed calculator
 [[redirects]]
   from = "/medigap-calculator"
