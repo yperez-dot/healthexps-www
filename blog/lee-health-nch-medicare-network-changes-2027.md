@@ -12,6 +12,8 @@ permalink: /blog/lee-health-nch-medicare-network-changes-2027/
 
 # Will Lee Health or NCH Accept Your Medicare Plan in 2027?
 
+<div class="quick-answer" style="background:#f4eefa;border:1px solid #e3d8ef;border-radius:12px;padding:14px 18px;margin:16px 0 24px;color:#3a2468;"><p style="margin:0 0 4px;font-size:14px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;color:#452068;">Quick answer</p><p style="margin:0 0 12px;font-size:16px;line-height:1.5;color:#3a2468;">From January 1, 2027, Lee Health is out of network for affected UnitedHealthcare Medicare Advantage plans, and NCH stops taking Wellcare and Cigna/HealthSpring Medicare Advantage. Medigap isn't affected.</p><a href="#network-check" style="display:inline-block;background:#452068;color:#ffffff;padding:8px 18px;border-radius:8px;font-weight:600;font-size:16px;text-decoration:none;">Check my 2027 network →</a></div>
+
 **Two confirmed Southwest Florida Medicare Advantage network changes could affect where thousands of Lee and Collier County residents receive care beginning January 1, 2027.**
 
 If you use **Lee Health** and have a **UnitedHealthcare Medicare Advantage plan**, or use **Naples Comprehensive Health (NCH)** and have a **Wellcare or Cigna/HealthSpring Medicare Advantage plan**, review your coverage before the 2026 Annual Enrollment Period ends on **December 7**.

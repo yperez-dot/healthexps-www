@@ -478,7 +478,13 @@
       }
     ],
     "readMinutes": 4,
-    "videoSrc": "/videos/medicare/en-part-d-extra-help-lis.mp4"
+    "videoSrc": "/videos/medicare/en-part-d-extra-help-lis.mp4",
+    "quickAnswer": "Extra Help (LIS) is a Medicare program that lowers Part D premiums, deductibles and copays for people with limited income and resources. You get it automatically if you have full Medicaid, SSI or a Medicare Savings Program.",
+    "quickAnswerCta": {
+      "text": "Request your free plan review",
+      "href": "/contact/"
+    },
+    "videoFirst": true
   },
   {
     "title": "Get help paying for Medicare Part B with a D-SNP",
