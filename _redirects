@@ -295,3 +295,7 @@
 /es/faq/medicarefaq-espanol/   /es/preguntas-medicare/   301!
 /es/medicare-plan-finder       /es/buscador-de-planes/   301!
 /es/medicare-plan-finder/      /es/buscador-de-planes/   301!
+
+# Oct 28, 2026: GA4 leftover 404 — old consultation post
+/blog/free-health-insurance-consultation-miami     /book/  301!
+/blog/free-health-insurance-consultation-miami/    /book/  301!

@@ -7,7 +7,12 @@
   <title>{{ article.metaTitle if article else seoTitle }}</title>
   <meta name="description" content="{{ article.metaDescription if article else seoDescription }}">
   <link rel="canonical" href="https://healthexps.com{{ page.url }}">
-  {% if locale == 'es' %}<link rel="alternate" hreflang="en" href="https://healthexps.com/medicare-articles/">{% elif not article %}<link rel="alternate" hreflang="es" href="https://healthexps.com/es/articulos-medicare/">{% endif %}
+  {% if not article %}
+  <link rel="alternate" hreflang="en" href="https://www.healthexps.com/medicare-articles/">
+  <link rel="alternate" hreflang="es" href="https://www.healthexps.com/es/articulos-medicare/">
+  {% elif locale == 'es' %}
+  <link rel="alternate" hreflang="en" href="https://www.healthexps.com/medicare-articles/">
+  {% endif %}
   <link rel="stylesheet" href="/css/global.css">
   <link rel="stylesheet" href="/css/medicare-articles.css">
   <link rel="stylesheet" href="/css/medicare-articles-shell.css">

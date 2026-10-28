@@ -17,14 +17,14 @@
 # 301 redirect for renamed calculator
 [[redirects]]
   from = "/medigap-calculator"
-  to = "/medicare-advantage-vs-supplement-calculator"
+  to = "/medicare-advantage-vs-supplement-calculator/"
   status = 301
   force = true
 
 # 301 redirect for MSP (consolidate to real page)
 [[redirects]]
   from = "/medicare/medicare-savings-program"
-  to = "/medicare-savings-program"
+  to = "/medicare-savings-program/"
   status = 301
   force = true
 
@@ -32,7 +32,7 @@
 # 301 redirect for ACA (fix URL conflict - acaplans → aca-plans-miami)
 [[redirects]]
   from = "/acaplans"
-  to = "/aca-plans-miami"
+  to = "/aca-plans-miami/"
   status = 301
   force = true
 
@@ -44,86 +44,86 @@
 # GROUP 1: /post/* → /blog/* (138 clicks/90d)
 [[redirects]]
   from = "/post/avmed-medicare-ending-florida-what-to-do-2026"
-  to = "/blog/avmed-medicare-ending-florida-what-to-do-2026"
+  to = "/blog/avmed-medicare-ending-florida-what-to-do-2026/"
   status = 301
   force = true
 
 [[redirects]]
   from = "/post/are-health-insurance-premiums-subject-to-fica"
-  to = "/blog/understanding-how-income-affects-medicare-premiums-a-complete-guide-for-retirees"
+  to = "/blog/understanding-how-income-affects-medicare-premiums-a-complete-guide-for-retirees/"
   status = 301
   force = true
 
 [[redirects]]
   from = "/post/avmed-medicare-is-ending-in-2026-what-florida-seniors-need-to-know"
-  to = "/blog/avmed-medicare-ending-florida-what-to-do-2026"
+  to = "/blog/avmed-medicare-ending-florida-what-to-do-2026/"
   status = 301
   force = true
 
 [[redirects]]
   from = "/post/navigating-the-medicare-plan-finder-tool-your-ultimate-guide"
-  to = "/blog/navigating-the-medicare-plan-finder-tool-your-ultimate-guide"
+  to = "/blog/navigating-the-medicare-plan-finder-tool-your-ultimate-guide/"
   status = 301
   force = true
 
 [[redirects]]
   from = "/post/what-is-a-special-enrollment-period-for-medicare-in-florida"
-  to = "/blog/what-is-a-special-enrollment-period-for-medicare-in-florida"
+  to = "/blog/what-is-a-special-enrollment-period-for-medicare-in-florida/"
   status = 301
   force = true
 
 [[redirects]]
   from = "/post/understanding-how-income-affects-medicare-premiums-a-complete-guide-for-retirees"
-  to = "/blog/understanding-how-income-affects-medicare-premiums-a-complete-guide-for-retirees"
+  to = "/blog/understanding-how-income-affects-medicare-premiums-a-complete-guide-for-retirees/"
   status = 301
   force = true
 
 [[redirects]]
   from = "/post/what-replaced-avmed-medicare-in-florida"
-  to = "/blog/avmed-medicare-ending-florida-what-to-do-2026"
+  to = "/blog/avmed-medicare-ending-florida-what-to-do-2026/"
   status = 301
   force = true
 
 [[redirects]]
   from = "/post/why-is-there-a-medicare-premium-i-thought-it-was-free"
-  to = "/blog/why-is-there-a-medicare-premium-i-thought-it-was-free"
+  to = "/blog/why-is-there-a-medicare-premium-i-thought-it-was-free/"
   status = 301
   force = true
 
 [[redirects]]
   from = "/post/best-medicare-advantage-plans-to-replace-avmed-in-florida-2026-by-yahoska-perez-licensed-medicare"
-  to = "/blog/medicare-plans-replace-avmed-florida-2026"
+  to = "/blog/medicare-plans-replace-avmed-florida-2026/"
   status = 301
   force = true
 
 [[redirects]]
   from = "/post/medicare-plans-replace-avmed-florida-2026"
-  to = "/blog/medicare-plans-replace-avmed-florida-2026"
+  to = "/blog/medicare-plans-replace-avmed-florida-2026/"
   status = 301
   force = true
 
 [[redirects]]
   from = "/post/cost-comparisons-mapd-vs-original-medicare-making-the-right-choice-for-your-health-insurance"
-  to = "/blog/understanding-the-key-differences-between-mapd-and-traditional-medicare"
+  to = "/blog/understanding-the-key-differences-between-mapd-and-traditional-medicare/"
   status = 301
   force = true
 
 [[redirects]]
   from = "/post/how-to-switch-medicare-plans-after-avmed-exits-florida"
-  to = "/blog/avmed-medicare-ending-florida-what-to-do-2026"
+  to = "/blog/avmed-medicare-ending-florida-what-to-do-2026/"
   status = 301
   force = true
 
 # GROUP 2: /insurance/* → service pages (3 clicks/90d)
 [[redirects]]
   from = "/insurance/acaplans"
-  to = "/aca-plans-miami"
+  to = "/aca-plans-miami/"
   status = 301
   force = true
 
 [[redirects]]
   from = "/insurance/medicareplans"
-  to = "/medicare-plans-miami"
+  to = "/medicare-plans-miami/"
   status = 301
   force = true
 
@@ -136,19 +136,19 @@
 # GROUP 3: Other legacy Wix URLs (26 clicks/90d)
 [[redirects]]
   from = "/irmaa-lep"
-  to = "/medicare-irmaa-penalties"
+  to = "/medicare-irmaa-penalties/"
   status = 301
   force = true
 
 [[redirects]]
   from = "/medicare-insurance-agents"
-  to = "/medicare-agent-miami"
+  to = "/medicare-agent-miami/"
   status = 301
   force = true
 
 [[redirects]]
   from = "/medicare-insurance-agents-miami"
-  to = "/medicare-agent-miami"
+  to = "/medicare-agent-miami/"
   status = 301
   force = true
 
@@ -160,7 +160,7 @@
 
 [[redirects]]
   from = "/faq/mapd-termination"
-  to = "/faq"
+  to = "/faq/"
   status = 301
   force = true
 
@@ -172,19 +172,19 @@
 
 [[redirects]]
   from = "/brokerservices"
-  to = "/medical-insurance-broker"
+  to = "/medical-insurance-broker/"
   status = 301
   force = true
 
 [[redirects]]
   from = "/book-online"
-  to = "/book"
+  to = "/book/"
   status = 301
   force = true
 
 [[redirects]]
   from = "/book-online/"
-  to = "/book"
+  to = "/book/"
   status = 301
   force = true
 
@@ -194,7 +194,6 @@
   status = 301
   force = true
 
-# WILDCARD CATCH-ALL — MUST REMAIN LAST
 [[redirects]]
   from = "/health-insurance-broker"
   to = "/"
@@ -202,154 +201,17 @@
   force = true
 
 
-[[redirects]]
-  from = "/post/avmed-medicare-ending-florida-what-to-do-2026"
-  to = "/blog/avmed-medicare-ending-florida-what-to-do-2026"
-  status = 301
-  force = true
-
-[[redirects]]
-  from = "/post/are-health-insurance-premiums-subject-to-fica"
-  to = "/blog/understanding-how-income-affects-medicare-premiums-a-complete-guide-for-retirees"
-  status = 301
-  force = true
-
-[[redirects]]
-  from = "/post/avmed-medicare-is-ending-in-2026-what-florida-seniors-need-to-know"
-  to = "/blog/avmed-medicare-ending-florida-what-to-do-2026"
-  status = 301
-  force = true
-
-[[redirects]]
-  from = "/post/navigating-the-medicare-plan-finder-tool-your-ultimate-guide"
-  to = "/blog/navigating-the-medicare-plan-finder-tool-your-ultimate-guide"
-  status = 301
-  force = true
-
-[[redirects]]
-  from = "/post/what-is-a-special-enrollment-period-for-medicare-in-florida"
-  to = "/blog/what-is-a-special-enrollment-period-for-medicare-in-florida"
-  status = 301
-  force = true
-
-[[redirects]]
-  from = "/post/understanding-how-income-affects-medicare-premiums-a-complete-guide-for-retirees"
-  to = "/blog/understanding-how-income-affects-medicare-premiums-a-complete-guide-for-retirees"
-  status = 301
-  force = true
-
-[[redirects]]
-  from = "/post/what-replaced-avmed-medicare-in-florida"
-  to = "/blog/avmed-medicare-ending-florida-what-to-do-2026"
-  status = 301
-  force = true
-
-[[redirects]]
-  from = "/post/why-is-there-a-medicare-premium-i-thought-it-was-free"
-  to = "/blog/why-is-there-a-medicare-premium-i-thought-it-was-free"
-  status = 301
-  force = true
-
-[[redirects]]
-  from = "/post/best-medicare-advantage-plans-to-replace-avmed-in-florida-2026-by-yahoska-perez-licensed-medicare"
-  to = "/blog/medicare-plans-replace-avmed-florida-2026"
-  status = 301
-  force = true
-
-[[redirects]]
-  from = "/post/medicare-plans-replace-avmed-florida-2026"
-  to = "/blog/medicare-plans-replace-avmed-florida-2026"
-  status = 301
-  force = true
-
-[[redirects]]
-  from = "/post/cost-comparisons-mapd-vs-original-medicare-making-the-right-choice-for-your-health-insurance"
-  to = "/blog/understanding-the-key-differences-between-mapd-and-traditional-medicare"
-  status = 301
-  force = true
-
-[[redirects]]
-  from = "/post/how-to-switch-medicare-plans-after-avmed-exits-florida"
-  to = "/blog/avmed-medicare-ending-florida-what-to-do-2026"
-  status = 301
-  force = true
-
-[[redirects]]
-  from = "/insurance/acaplans"
-  to = "/aca-plans-miami"
-  status = 301
-  force = true
-
-[[redirects]]
-  from = "/insurance/medicareplans"
-  to = "/medicare-plans-miami"
-  status = 301
-  force = true
-
-[[redirects]]
-  from = "/es/insurance/travelinsurance"
-  to = "/es/"
-  status = 301
-  force = true
-
-[[redirects]]
-  from = "/irmaa-lep"
-  to = "/medicare-irmaa-penalties"
-  status = 301
-  force = true
-
-[[redirects]]
-  from = "/medicare-insurance-agents"
-  to = "/medicare-agent-miami"
-  status = 301
-  force = true
-
-[[redirects]]
-  from = "/medicare-insurance-agents-miami"
-  to = "/medicare-agent-miami"
-  status = 301
-  force = true
-
-[[redirects]]
-  from = "/faq/mapd-termination"
-  to = "/faq"
-  status = 301
-  force = true
-
-[[redirects]]
-  from = "/our-services"
-  to = "/"
-  status = 301
-  force = true
-
-[[redirects]]
-  from = "/book-online"
-  to = "/book"
-  status = 301
-  force = true
-
-[[redirects]]
-  from = "/book-online/"
-  to = "/book"
-  status = 301
-  force = true
-
-[[redirects]]
-  from = "/es/our-services"
-  to = "/es/"
-  status = 301
-  force = true
 
 # Additional legacy pages (2026-07-12)
 [[redirects]]
   from = "/healthcare-insurance-for-seniors"
-  to = "/medicare-plans-miami"
+  to = "/medicare-plans-miami/"
   status = 301
   force = true
 
 [[redirects]]
   from = "/service-page/medicare-made-easy"
-  to = "/resources"
+  to = "/resources/"
   status = 410
   force = true
 
@@ -357,51 +219,51 @@
 # Task 2.1 — Consolidate /medicare/medicare-costs into /medicare-irmaa-penalties
 [[redirects]]
   from = "/medicare/medicare-costs"
-  to = "/medicare-irmaa-penalties"
+  to = "/medicare-irmaa-penalties/"
   status = 301
   force = true
 
 [[redirects]]
   from = "/medicare/medicare-costs/"
-  to = "/medicare-irmaa-penalties"
+  to = "/medicare-irmaa-penalties/"
   status = 301
   force = true
 
 # ES: consolidate education stubs into money/authority pages
 [[redirects]]
   from = "/es/medicare/costos-de-medicare"
-  to = "/es/irmaa-penalidades-medicare"
+  to = "/es/irmaa-penalidades-medicare/"
   status = 301
   force = true
 
 [[redirects]]
   from = "/es/medicare/costos-de-medicare/"
-  to = "/es/irmaa-penalidades-medicare"
+  to = "/es/irmaa-penalidades-medicare/"
   status = 301
   force = true
 
 [[redirects]]
   from = "/es/medicare/medicare-suplementario"
-  to = "/es/medicare-suplementario-miami"
+  to = "/es/medicare-suplementario-miami/"
   status = 301
   force = true
 
 [[redirects]]
   from = "/es/medicare/medicare-suplementario/"
-  to = "/es/medicare-suplementario-miami"
+  to = "/es/medicare-suplementario-miami/"
   status = 301
   force = true
 
 # EN: consolidate supplement education stub into money/authority page
 [[redirects]]
   from = "/medicare/medicare-supplement-plans"
-  to = "/medicare-supplement-miami"
+  to = "/medicare-supplement-miami/"
   status = 301
   force = true
 
 [[redirects]]
   from = "/medicare/medicare-supplement-plans/"
-  to = "/medicare-supplement-miami"
+  to = "/medicare-supplement-miami/"
   status = 301
   force = true
 
@@ -409,160 +271,156 @@
 # GROUP: Missing Wix /post/ → /blog/ redirects (fixed 2026-07-15)
 [[redirects]]
   from = "/post/private-health-insurance-made-easy-a-guide-for-families"
-  to = "/private-health-insurance-miami"
+  to = "/private-health-insurance-miami/"
   status = 301
 
 [[redirects]]
   from = "/post/private-health-insurance-a-simple-guide-for-your-family"
-  to = "/private-health-insurance-miami"
+  to = "/private-health-insurance-miami/"
   status = 301
 
 [[redirects]]
   from = "/post/private-health-insurance-simple-guide-for-families"
-  to = "/private-health-insurance-miami"
+  to = "/private-health-insurance-miami/"
   status = 301
 
 [[redirects]]
   from = "/post/master-private-health-insurance-a-guide-for-your-family"
-  to = "/private-health-insurance-miami"
+  to = "/private-health-insurance-miami/"
   status = 301
 
 [[redirects]]
   from = "/post/understand-private-health-insurance-a-simple-family-guide"
-  to = "/private-health-insurance-miami"
+  to = "/private-health-insurance-miami/"
   status = 301
 
 [[redirects]]
   from = "/post/the-essential-guide-to-understanding-medicare-supplement-plans"
-  to = "/blog/mastering-medicare-essential-tips-for-comparing-plans-effectively"
+  to = "/blog/mastering-medicare-essential-tips-for-comparing-plans-effectively/"
   status = 301
 
 [[redirects]]
   from = "/post/mastering-the-medicare-enrollment-process-your-guide-to-a-stress-free-experience"
-  to = "/blog/mastering-medicare-essential-tips-to-avoid-common-enrollment-mistakes"
+  to = "/blog/medicare-enrollment-periods-explained/"
   status = 301
 
 [[redirects]]
   from = "/post/unlocking-benefits-medicare-coverage-for-specific-health-conditions"
-  to = "/blog/unlocking-the-secrets-finding-preventative-services-under-medicare"
+  to = "/blog/unlocking-the-secrets-finding-preventative-services-under-medicare/"
   status = 301
 
 [[redirects]]
   from = "/post/what-is-a-medicare-late-enrollment-penalty-lep"
-  to = "/medicare-irmaa-penalties"
+  to = "/medicare-irmaa-penalties/"
   status = 301
 
 [[redirects]]
   from = "/post/understanding-medicare-enrollment-periods-a-comprehensive-guide"
-  to = "/blog/medicare-enrollment-periods-explained"
+  to = "/blog/medicare-enrollment-periods-explained/"
   status = 301
 
 [[redirects]]
   from = "/post/why-use-a-health-insurance-brokerage"
-  to = "/medicare-agent-miami"
+  to = "/medicare-agent-miami/"
   status = 301
 
 [[redirects]]
   from = "/post/unlocking-the-secrets-of-preventative-care-benefits-in-medicare"
-  to = "/blog/unlocking-the-secrets-finding-preventative-services-under-medicare"
+  to = "/blog/unlocking-the-secrets-finding-preventative-services-under-medicare/"
   status = 301
 
 [[redirects]]
   from = "/post/unlocking-medicare-enrollment-periods-your-complete-guide-to-health-insurance-benefits"
-  to = "/blog/medicare-enrollment-periods-explained"
+  to = "/blog/medicare-enrollment-periods-explained/"
   status = 301
 
 [[redirects]]
   from = "/post/unlocking-the-benefits-of-medicare-advantage-plans-mapd"
-  to = "/blog/understanding-the-key-differences-between-mapd-and-traditional-medicare"
+  to = "/blog/understanding-the-key-differences-between-mapd-and-traditional-medicare/"
   status = 301
 
 [[redirects]]
   from = "/post/missed-your-medicare-enrollment-period-heres-your-essential-guide"
-  to = "/blog/missed-medicare-open-enrollment"
+  to = "/blog/missed-medicare-open-enrollment/"
   status = 301
 
 [[redirects]]
   from = "/post/key-differences-between-medicare-and-medicaid-what-you-need-to-know"
-  to = "/blog/dual-eligible-medicare-medicaid-miami"
+  to = "/blog/dual-eligible-medicare-medicaid-miami/"
   status = 301
 
 [[redirects]]
   from = "/post/exploring-special-enrollment-periods-who-qualifies"
-  to = "/blog/what-is-a-special-enrollment-period-for-medicare-in-florida"
+  to = "/blog/what-is-a-special-enrollment-period-for-medicare-in-florida/"
   status = 301
 
 [[redirects]]
   from = "/post/navigating-the-medicare-enrollment-process-step-by-step-instructions"
-  to = "/blog/medicare-enrollment-periods-explained"
+  to = "/blog/medicare-enrollment-periods-explained/"
   status = 301
 
 [[redirects]]
   from = "/post/unlocking-the-medicare-advantage-open-enrollment-period-a-comprehensive-guide-to-your-health-benefi"
-  to = "/blog/medicare-enrollment-periods-explained"
+  to = "/blog/medicare-enrollment-periods-explained/"
   status = 301
 
 [[redirects]]
   from = "/post/uncovering-hidden-costs-in-medicare-what-every-retired-individual-needs-to-know"
-  to = "/blog/understanding-how-income-affects-medicare-premiums-a-complete-guide-for-retirees"
+  to = "/blog/understanding-how-income-affects-medicare-premiums-a-complete-guide-for-retirees/"
   status = 301
 
 [[redirects]]
   from = "/post/comparing-costs-medicare-advantage-plans-vs-original-medicare"
-  to = "/blog/understanding-the-key-differences-between-mapd-and-traditional-medicare"
+  to = "/blog/understanding-the-key-differences-between-mapd-and-traditional-medicare/"
   status = 301
 
 [[redirects]]
   from = "/post/open-enrollment-vs-annual-enrollment-period-whats-the-difference"
-  to = "/blog/medicare-enrollment-periods-explained"
+  to = "/blog/medicare-enrollment-periods-explained/"
   status = 301
 
 [[redirects]]
   from = "/post/smart-ways-to-save-money-during-medicare-enrollment-budgeting-tips"
-  to = "/medicare-savings-program"
+  to = "/medicare-savings-program/"
   status = 301
 
 # Spanish /post/ redirects
 [[redirects]]
   from = "/es/post/planes-medicare-reemplazo-avmed-florida-2026"
-  to = "/es/blog/planes-medicare-reemplazaron-avmed-florida"
+  to = "/es/blog/planes-medicare-reemplazaron-avmed-florida/"
   status = 301
 
 [[redirects]]
   from = "/es/post/avmed-medicare-termino-florida-que-hacer-2026"
-  to = "/es/blog/avmed-medicare-termino-florida-que-hacer"
+  to = "/es/blog/avmed-medicare-termino-florida-que-hacer/"
   status = 301
 
 # GROUP: 404 pages — redirect to best match (fixed 2026-07-15)
 [[redirects]]
   from = "/private-insurance"
-  to = "/private-health-insurance-miami"
+  to = "/private-health-insurance-miami/"
   status = 301
 
 [[redirects]]
   from = "/medicareplans"
-  to = "/medicare-plans-miami"
+  to = "/medicare-plans-miami/"
   status = 301
 
 [[redirects]]
   from = "/mapd-termination"
-  to = "/blog/understanding-the-key-differences-between-mapd-and-traditional-medicare"
+  to = "/blog/understanding-the-key-differences-between-mapd-and-traditional-medicare/"
   status = 301
 
 [[redirects]]
   from = "/health-insurance-broker-miami"
-  to = "/medicare-agent-miami"
+  to = "/medicare-agent-miami/"
   status = 301
 
 [[redirects]]
   from = "/msp"
-  to = "/medicare-savings-program"
+  to = "/medicare-savings-program/"
   status = 301
 
-[[redirects]]
-  from = "/service-page/medicare-made-easy"
-  to = "/medicare-plans-miami"
-  status = 301
 
 # GROUP: Duplicate content consolidation — 2026-08-03
 # Medicare enrollment cluster → /blog/medicare-enrollment-periods-explained/
@@ -697,7 +555,7 @@
 # Leftover Wix slug still in Google results (Aug 26 health check)
 [[redirects]]
   from = "/post/the-vital-need-for-timely-medicare-enrollment-sidestepping-penalties"
-  to = "/medicare-enrollment-periods"
+  to = "/medicare-enrollment-periods/"
   status = 301
   force = true
 

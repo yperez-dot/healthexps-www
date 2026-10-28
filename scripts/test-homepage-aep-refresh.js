@@ -10,6 +10,7 @@ const root = path.resolve(__dirname, "..");
 const en = fs.readFileSync(path.join(root, "index.html"), "utf8");
 const es = fs.readFileSync(path.join(root, "es", "index.html"), "utf8");
 const countdown = fs.readFileSync(path.join(root, "js", "aep-countdown.js"), "utf8");
+const aepSeason = fs.readFileSync(path.join(root, "js", "aep-season.js"), "utf8");
 const css = fs.readFileSync(path.join(root, "css", "homepage-aep.css"), "utf8");
 
 function sectionOrder(html, ids) {
@@ -72,6 +73,8 @@ assert.ok(
   es.includes("Comparamos más de 14 aseguradoras para encontrar el plan correcto para tu familia — completamente gratis. Inglés y Español."),
   "ES hero subtext follows HOMEPAGE-RULES #2"
 );
+assert.ok(aepSeason.includes("'/medicare-annual-enrollment-2027/'"), "AEP hero rewrite uses trailing slash (EN)");
+assert.ok(aepSeason.includes("'/es/inscripcion-anual-medicare-2027/'"), "AEP hero rewrite uses trailing slash (ES)");
 assert.ok(en.includes("Review your 2027 Medicare plan"), "EN hero keeps Medicare AEP button");
 assert.ok(es.includes("Revisar mi plan Medicare 2027"), "ES hero keeps Medicare AEP button");
 assert.ok(
@@ -81,12 +84,12 @@ assert.ok(
 
 const enBannerHref = (en.match(/class="aep-topbar-cta" href="([^"]+)"/) || [])[1];
 const enHeroHref = (en.match(/id="hero-btns"[\s\S]*?<a href="([^"]+)"/) || [])[1];
-assert.strictEqual(enBannerHref, "/medicare-annual-enrollment-2027");
+assert.strictEqual(enBannerHref, "/medicare-annual-enrollment-2027/");
 assert.strictEqual(enHeroHref, enBannerHref, "EN enrollment buttons share a destination");
 
 const esBannerHref = (es.match(/class="aep-topbar-cta" href="([^"]+)"/) || [])[1];
 const esHeroHref = (es.match(/id="hero-btns"[\s\S]*?<a href="([^"]+)"/) || [])[1];
-assert.strictEqual(esBannerHref, "/es/inscripcion-anual-medicare-2027");
+assert.strictEqual(esBannerHref, "/es/inscripcion-anual-medicare-2027/");
 assert.strictEqual(esHeroHref, esBannerHref, "ES enrollment buttons share a destination");
 assert.ok(es.includes("Inscripción Abierta de Medicare"), "ES banner uses brief Spanish copy");
 assert.ok(es.includes("Revisión gratuita de su plan 2027"), "ES banner CTA");
