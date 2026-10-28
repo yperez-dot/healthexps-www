@@ -12,6 +12,9 @@ hreflang_en: medicare-aep-2027-checklist
 
 # Su lista para el AEP de Medicare 2027: qué revisar antes del 15 de octubre
 
+<div class="quick-answer" style="background:#f4eefa;border:1px solid #e3d8ef;border-radius:12px;padding:16px 20px;margin:20px 0 28px;color:#3a2468;"><p style="margin:0 0 6px;font-size:15px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;color:#452068;">Respuesta rápida</p><p style="margin:0 0 12px;font-size:18px;line-height:1.6;color:#3a2468;">El Período de Inscripción Anual de Medicare va del 15 de octubre al 7 de diciembre de 2026, y cualquier cambio empieza el 1 de enero de 2027. Lo clave: leer el Aviso Anual de Cambios (ANOC), confirmar que los médicos, medicamentos y farmacia sigan en el plan para 2027, y comparar el costo total del año, no solo la prima.</p><a href="#plan-review" style="display:inline-block;background:#452068;color:#ffffff;padding:8px 18px;border-radius:8px;font-weight:600;font-size:16px;text-decoration:none;">Quiero mi revisión 2027 gratis →</a></div>
+
+
 **El Período de Inscripción Anual de Medicare (AEP) abre el 15 de octubre y cierra el 7 de diciembre de 2026. Cualquier cambio que haga empieza el 1 de enero de 2027.**
 
 Cada año los planes pueden cambiar sus costos, su lista de medicamentos y su red de médicos. Prepararse un poco ahora, antes de que empiece la temporada, le facilita mucho decidir si se queda con su plan o si le conviene cambiar. Esta lista le guía paso a paso.

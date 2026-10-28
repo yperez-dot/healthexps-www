@@ -12,6 +12,9 @@ permalink: /blog/medicare-aep-2027-checklist/
 
 # Your 2027 Medicare AEP Checklist: What to Review Before October 15
 
+<div class="quick-answer" style="background:#f4eefa;border:1px solid #e3d8ef;border-radius:12px;padding:16px 20px;margin:20px 0 28px;color:#3a2468;"><p style="margin:0 0 6px;font-size:15px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;color:#452068;">Quick answer</p><p style="margin:0 0 12px;font-size:18px;line-height:1.6;color:#3a2468;">Medicare’s Annual Enrollment Period runs October 15 to December 7, 2026, and any change starts January 1, 2027. Read your Annual Notice of Change (ANOC), check that your doctors, drugs and pharmacy are in the plan for 2027, and compare total yearly cost, not just the premium.</p><a href="#plan-review" style="display:inline-block;background:#452068;color:#ffffff;padding:8px 18px;border-radius:8px;font-weight:600;font-size:16px;text-decoration:none;">Get my free 2027 review →</a></div>
+
+
 **Medicare's Annual Enrollment Period (AEP) opens October 15 and closes December 7, 2026. Any change you make takes effect January 1, 2027.**
 
 Plans can change their costs, drug lists and networks every year. A little preparation now, before the busy season starts, makes it much easier to decide whether to keep your plan or switch. This checklist walks you through it step by step.

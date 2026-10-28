@@ -1,0 +1,13 @@
+const assert = require("assert");
+const { formatBlogListing } = require("./blog-listing-format");
+const card = (href, d) => `<a class="blog-card" href="${href}"><h2>${href}</h2><div class="card-footer">${d === null ? "" : `<span class="card-date">${d}</span>`}<span class="card-read">Read →</span></div></a>`;
+const src = `<div class="card-grid" id="blogGrid">\n${[card("/a/", "2026-10-26"), card("/b/", "2026-10-28"), card("/c/", "2026-07-12"), card("/d/", "not-a-date"), card("/e/", "2026-10-26")].join("")}\n</div>`;
+const en = formatBlogListing(src, "en");
+const order = [...en.matchAll(/href="([^"]+)"/g)].map((m) => m[1]);
+assert.deepStrictEqual(order, ["/b/", "/a/", "/e/", "/c/", "/d/"], "newest first, stable, undated last");
+assert.ok(en.includes('<time class="card-date" datetime="2026-10-28">Oct 28, 2026</time>'));
+assert.ok(!en.includes("not-a-date"), "invalid dates are hidden, not guessed");
+const es = formatBlogListing(src, "es");
+assert.ok(es.includes('datetime="2026-10-26">26 oct 2026</time>'));
+assert.ok(es.includes('datetime="2026-07-12">12 jul 2026</time>'));
+console.log("blog listing format: OK");

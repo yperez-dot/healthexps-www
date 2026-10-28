@@ -9,6 +9,9 @@ hreflang_es: /es/blog/medicare-residentes-permanentes/
 permalink: /blog/medicare-green-card-holders-florida/
 ---
 
+<div class="quick-answer" style="background:#f4eefa;border:1px solid #e3d8ef;border-radius:12px;padding:16px 20px;margin:20px 0 28px;color:#3a2468;"><p style="margin:0 0 6px;font-size:15px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;color:#452068;">Quick answer</p><p style="margin:0 0 12px;font-size:18px;line-height:1.6;color:#3a2468;">Usually yes, once you’re 65 and have been a lawful permanent resident for at least 5 continuous years. If you or your spouse worked about 10 years (40 quarters) paying Medicare taxes, Part A is premium-free; with fewer, you can still enroll but pay a Part A premium. Part B has its own monthly premium either way.</p><a href="/book" style="display:inline-block;background:#452068;color:#ffffff;padding:8px 18px;border-radius:8px;font-weight:600;font-size:16px;text-decoration:none;">Get free help →</a></div>
+
+
 South Florida is home to one of the most diverse immigrant communities in the United States. Miami-Dade, Broward, and Palm Beach counties have large populations of Cuban, Haitian, Venezuelan, Colombian, Nicaraguan, and Brazilian residents — many of whom are lawful permanent residents (green card holders) who have built their lives here and are now approaching Medicare age.
 
 One of the most common questions we hear from clients in our community is: **"I have a green card — am I eligible for Medicare?"**

@@ -31,7 +31,13 @@ for (const file of listingFiles()) {
       /<span\b[^>]*\bclass="[^"]*\bcard-date\b[^"]*"[^>]*>\s*([^<]+?)\s*</gi
     ),
   ];
-  const future = dates
+  // Built listings render dates as <time class="card-date" datetime="YYYY-MM-DD">.
+  const timeDates = [
+    ...html.matchAll(
+      /<time\b[^>]*\bclass="[^"]*\bcard-date\b[^"]*"[^>]*\bdatetime="([^"]+)"/gi
+    ),
+  ];
+  const future = [...dates, ...timeDates]
     .map((m) => m[1].trim())
     .filter((ymd) => isFuturePublishDate(ymd));
   if (future.length) {
