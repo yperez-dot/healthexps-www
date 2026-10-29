@@ -142,7 +142,8 @@
     quietUntilClick();
 
     global.addEventListener("LC_chatWidgetLoaded", function () {
-      track("chat_widget_loaded", { language: lang });
+      // Widget ready is not a conversion and must not fire a GA4 event.
+      // chat_widget_opened fires only after a real visitor click.
       quietUntilClick();
     });
   }
@@ -268,6 +269,9 @@
           var t = event.target;
           if (!t || !t.closest) return;
           if (t.closest("chat-widget, [id*='chat-widget'], [class*='lc_text-widget'], [class*='chat-widget']")) {
+            if (!global.__THEI_CHAT_USER_OPEN) {
+              track("chat_widget_opened", { language: pageLang() });
+            }
             global.__THEI_CHAT_USER_OPEN = true;
           }
         },

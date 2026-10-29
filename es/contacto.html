@@ -506,6 +506,10 @@ a{color:var(--purple);text-decoration:none;}a:hover{color:var(--pink);}
       if(res.ok){
         document.getElementById('contactFormSuccess').style.display='block';
         form.style.display='none';
+        if (typeof gtag === 'function') {
+          gtag('event', 'contact_form_submit', { page: window.location.pathname });
+          gtag('event', 'generate_lead', { campaign: 'contacto', language: 'es', page: window.location.pathname });
+        }
       } else {throw new Error('error');}
     } catch(ex){
       btn.disabled=false;btn.textContent='Enviar mi mensaje →';
