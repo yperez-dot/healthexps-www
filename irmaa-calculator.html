@@ -580,6 +580,8 @@ img { max-width: 100%; height: auto; }
     <h1 id="hero-title">2026 IRMAA Calculator</h1>
     <p class="irmaa-hero-sub" id="hero-sub">Estimate your 2026 Part B and Part D surcharge from your 2024 tax return. Social Security bills the official amount &mdash; this is not a quote.</p>
     <a href="/medicare-irmaa-penalties#what-is-irmaa" class="irmaa-hero-link" id="hero-link">New to IRMAA? See what it means &rarr;</a>
+    <!-- Lead CTA (one button): jumps to the inline lead form below, which fires generate_lead on submit. -->
+    <div id="irmaa-hero-cta" style="margin-top:16px"><a href="#irmaa-lead-cta" style="display:inline-block;background:#452068;color:#ffffff;padding:8px 18px;border-radius:8px;font-weight:600;font-size:16px;text-decoration:none;" onclick="if(typeof gtag==='function')gtag('event','contact_click',{page:location.pathname,position:'hero',target:'irmaa_lead_form'})"><span class="irmaa-en">Request your free plan review &rarr;</span><span class="irmaa-es" style="display:none">Pide tu revisión gratis del plan &rarr;</span></a></div>
   </div>
 
   <!-- ===== CALCULATOR SECTION ===== -->
