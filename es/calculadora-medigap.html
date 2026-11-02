@@ -518,7 +518,7 @@ function calculate(){
     var row = document.createElement('div');
     row.className = 'plan-row' + (k===winner?' best':'');
     var allInMonthly = Math.round(yearlyChart[k][0]/12);
-    row.innerHTML = '<span class="name">'+names[k]+'</span><span class="cost">$'+allInMonthly.toLocaleString()+'/mo</span>';
+    row.innerHTML = '<span class="name">'+names[k]+'</span><span class="cost">$'+allInMonthly.toLocaleString()+'\u002Fmo</span>';
     rows.appendChild(row);
   });
 
