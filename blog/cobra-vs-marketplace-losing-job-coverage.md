@@ -14,90 +14,128 @@ permalink: /blog/cobra-vs-marketplace-losing-job-coverage/
 
 # COBRA vs. the Marketplace: What to Do When You Lose Job Coverage
 
-The COBRA packet arrives in the mail, you flip to the price, and there it is: **$700, $900, sometimes $1,800+ a month for a family.** If you've just lost job-based health coverage in South Florida, that sticker shock is usually the first phone call we get.
+**Lost your job, or your hours were cut, in Miami-Dade or Broward? You have three ways to stay covered: COBRA, a Marketplace plan, or a private plan. Each one has its own deadline and its own rules, so here's how to compare them before you pay anything.**
 
-Here's the good news: COBRA is one option, not your only option — and you have a defined window to compare all of them. Here's how to think it through.
+<p class="source-note">Updated November 2, 2026, for 2027 Open Enrollment. Facts come from the U.S. Department of Labor, HealthCare.gov and Medicare.gov, linked below.</p>
 
-## First, understand your two clocks
+<div class="quick-answer"><span class="qa-label">Quick answer</span>
+<ul><li><strong>COBRA</strong> keeps your same job plan, usually for up to <strong>18 months</strong>. You pay the full premium, including your employer's old share, <strong>plus 2%</strong>. You have <strong>60 days</strong> to elect it (<a href="https://www.dol.gov/agencies/ebsa/about-ebsa/our-activities/resource-center/faqs/cobra-continuation-health-coverage-workers">U.S. Department of Labor</a>).</li>
+<li><strong>Marketplace:</strong> losing job coverage gives you a Special Enrollment Period from <strong>60 days before to 60 days after</strong> the coverage ends. Subsidies are based on your income for the year (<a href="https://www.healthcare.gov/coverage-outside-open-enrollment/special-enrollment-period/">HealthCare.gov</a>).</li>
+<li><strong>Private plan:</strong> if you're healthy and earn too much for a subsidy, a private plan may cost less than COBRA. These plans ask health questions and don't cover pre-existing conditions. Ask for a quote.</li>
+<li><strong>Careful:</strong> dropping COBRA on your own doesn't open a Marketplace Special Enrollment Period. Compare first.</li></ul></div>
 
-When you lose employer coverage, two 60-day windows start:
+## Your two 60-day clocks
 
-1. **60 days to elect COBRA.** You can even elect it retroactively within that window — meaning if something happens in week 5, you can activate COBRA back to day one.
-2. **60 days of a Special Enrollment Period** to buy an ACA Marketplace plan (you can also enroll up to 60 days *before* your coverage ends, so there's no gap).
+When job-based coverage ends, two windows run at the same time:
 
-These clocks run at the same time. Smart move: use them. You don't have to send COBRA a check on day one — you can shop the Marketplace and private plans first, keeping COBRA as your retroactive safety net.
+1. **COBRA election: 60 days.** The clock starts when your coverage ends or when you get your COBRA election notice, whichever is later. After you elect, you have 45 days to make the first payment, and COBRA is retroactive to the day you lost your job plan ([DOL COBRA FAQs](https://www.dol.gov/agencies/ebsa/about-ebsa/our-activities/resource-center/faqs/cobra-continuation-health-coverage-workers)).
+2. **Marketplace Special Enrollment Period.** You can qualify if you lost job-based coverage in the past 60 days or expect to lose it in the next 60 days ([HealthCare.gov](https://www.healthcare.gov/coverage-outside-open-enrollment/special-enrollment-period/)). Applying before your job plan ends helps you avoid a gap.
 
-## What COBRA actually is (and costs)
+Use both windows. You can compare Marketplace and private prices first, and COBRA is still there while your election period is open.
 
-COBRA lets you keep your exact employer plan — same doctors, same deductible progress — for 18 months in most cases (up to 36 in some situations). The catch: your employer stops paying their share. You pay **the full premium plus a 2% administrative fee**. Most people were only seeing 20–40% of their plan's true cost on their paystub, which is why the first COBRA bill feels like a punch.
+## COBRA: same plan, full price
 
-**When COBRA genuinely makes sense:**
+COBRA lets you and your family keep the same plan, with the same doctors, copays and deductibles. Coverage after a job loss or cut in hours generally lasts up to **18 months**, and some events can extend it up to 36 months ([DOL](https://www.dol.gov/agencies/ebsa/about-ebsa/our-activities/resource-center/faqs/cobra-continuation-health-coverage-workers)).
 
-- You're mid-treatment with specific doctors you cannot switch
-- You've already met a large deductible this year and have procedures coming
-- You have a confirmed new job with benefits starting within 30–60 days
+The catch is price. You usually pay **the full premium**, your share plus the part your employer used to pay, **plus 2%**. Your plan sponsor can tell you the exact amount. To see what that looks like in dollars, read [COBRA vs. ACA Marketplace in Miami](/blog/cobra-vs-aca-marketplace-miami/).
 
-## The ACA Marketplace in 2026: still valuable, but the math changed
+**COBRA often makes sense when:**
 
-Here's what you need to know this year: the **enhanced pandemic-era subsidies expired on January 1, 2026.** Subsidies still exist, but they reverted to the original ACA rules:
+- You're in the middle of treatment with doctors you can't switch.
+- You've already met a big part of this year's deductible.
+- You have a health condition and want to keep the exact same plan.
+- A new job with benefits starts soon.
 
-- Financial help is available for households earning between **100% and 400% of the federal poverty level** — for 2026, the 400% ceiling is about $62,600 for a single person or $128,600 for a family of four.
-- Below that ceiling, subsidies are real and can still bring premiums well under COBRA prices — especially if your income *dropped* because you lost your job. Marketplace subsidies are based on your **estimated current-year income**, not last year's salary.
-- Above that ceiling, there's no subsidy at all now — the "cliff" is back. One dollar over can mean paying full price.
+## The Marketplace: subsidies based on this year's income
 
-That last point matters in Miami, where a severance payout or a working spouse can push a household just over the line. This is exactly the kind of situation where you want someone running the numbers before you enroll. Our [ACA Marketplace page](/aca-plans-miami) covers the basics, and our team screens your subsidy eligibility for free.
+A Marketplace plan can cost less than COBRA, especially if you qualify for savings based on your income ([HealthCare.gov](https://www.healthcare.gov/unemployed/cobra-coverage/)). Subsidies use your **expected income for the year you're buying coverage**, so a job loss can lower your estimate.
 
-## The third option nobody mails you a packet about: private plans
+For 2027 coverage, the premium tax credit is generally available with household income between **100% and 400% of the federal poverty level** ([HealthCare.gov](https://www.healthcare.gov/glossary/federal-poverty-level-fpl/)). Using the 2026 [HHS poverty guidelines](https://aspe.hhs.gov/topics/poverty-economic-mobility/poverty-guidelines), 400% is **$63,840** for one person and **$132,000** for a family of four. Above that, there's no premium tax credit.
 
-Off-Marketplace **private health insurance** — individual and family plans bought directly through a broker — is often the missing comparison. For households above the subsidy cliff, or for healthy applicants who don't qualify for meaningful subsidies, a private plan can cost significantly less than COBRA for comparable coverage. We compare these side by side with Marketplace options on our [private health insurance page](/private-health-insurance-miami) — because since 2026, "Marketplace vs. COBRA" is really a three-way comparison.
+Marketplace plans must cover pre-existing conditions ([HealthCare.gov](https://www.healthcare.gov/coverage/pre-existing-conditions/)). If you or someone in your family has ongoing care, this is usually the option to compare against COBRA. Our [ACA Marketplace plans in Miami](/aca-plans-miami/) page explains how subsidies and metal levels work.
 
-## If you're 65 or older, stop — read this part first
+## Private plans: worth a look if you're healthy
 
-This is the most expensive COBRA mistake we see: **COBRA does not count as employer coverage for Medicare.** If you're 65+, your 8-month window to enroll in Medicare Part B penalty-free starts when your *employment* ends — not when your COBRA ends. Ride COBRA for a year and a half first, and you can face a lifetime Part B late penalty plus a coverage gap. If you're Medicare-eligible and just left a job, [talk to us this month](/medicare-agent-miami), not next year.
+If you earn above the subsidy limit, the Marketplace means full price, and COBRA means full price plus 2%. That's when a private plan is worth comparing.
 
-## A simple decision framework
+- **What they are:** the private plans we offer are short-term plans from [Golden Rule (UnitedHealthcare)](https://www.uhone.com/health-insurance/short-term-health-insurance), on UnitedHealthcare Choice or Choice Plus networks, and [Allstate Health Solutions](https://allstatehealth.com/provider-search/browse-networks/), on Aetna Open Choice PPO or Cigna PPO networks.
+- **The trade-off:** they're medically underwritten, which means they ask health questions, and they don't cover pre-existing conditions. They aren't ACA plans.
+- **Price:** it depends on your age and health, so ask for a quote and we'll put it next to your COBRA price.
 
-| Your situation | Usually strongest option |
+Learn more on our [private health insurance in Miami](/private-health-insurance-miami/) page.
+
+<div class="inline-cta private-route-cta"><div class="inline-cta-text"><strong>Got your COBRA price?</strong><span>We'll compare it with a private plan quote and your Marketplace options, at no cost, in English or Spanish.</span></div><a href="/private-health-insurance-miami/#priv-quote-form" class="inline-cta-btn" onclick="if(typeof gtag==='function')gtag('event','contact_click',{page:location.pathname,position:'job_loss_post_private',target:'private_page_form'})">Compare my COBRA price&nbsp;→</a></div>
+
+## Switching later: what's allowed
+
+- **During Open Enrollment** (November 1 to January 15), you can move from COBRA to a Marketplace plan for any reason. For 2027, enroll by December 15 for coverage on January 1 ([HealthCare.gov](https://www.healthcare.gov/quick-guide/dates-and-deadlines/)).
+- **When COBRA runs out**, you get 60 days to enroll in a Marketplace plan.
+- **If you drop COBRA on your own** outside Open Enrollment, you generally wait until the next Open Enrollment, unless you have another life event ([HealthCare.gov](https://www.healthcare.gov/unemployed/cobra-coverage/)).
+- **Private plans** can accept applications any month, but approval depends on your health answers. Check your new start date before you cancel COBRA.
+
+## 65 or older? Read this first
+
+COBRA isn't considered job-based coverage for Medicare. Your Special Enrollment Period for Part B ends **8 months after your job or group coverage ends**, whichever happens first, and getting COBRA doesn't change that date ([Medicare.gov](https://www.medicare.gov/basics/get-started-with-medicare/sign-up/when-does-medicare-coverage-start)). Miss it and you may pay a Part B late penalty for as long as you have Part B. If you're Medicare-eligible and just left a job, [talk to a Medicare agent](/medicare-agent-miami/) now.
+
+## Which option fits?
+
+| Your situation | Usually compare first |
 |---|---|
-| Income dropped, under ~400% FPL | Marketplace with subsidies |
-| Mid-treatment / deductible already met | COBRA (short-term) |
-| Household over the subsidy cliff, healthy | Private plan — compare against COBRA |
-| New job starting within 60 days | COBRA as retroactive backstop (often $0 if unused) |
-| 65+ | Medicare — do not delay Part B |
+| Income dropped and under 400% FPL | Marketplace with a subsidy |
+| Mid-treatment or deductible already met | COBRA |
+| Pre-existing condition or ongoing care | Marketplace or COBRA |
+| Healthy and over the subsidy limit | Private plan vs. COBRA |
+| 65 or older | Medicare, don't wait on Part B |
 
-## Don't decide from the kitchen table alone
+## Frequently asked questions
 
-You have 60 days, three options, and — as of 2026 — subsidy rules that changed underneath everyone. We compare all three paths in one free conversation, in English or Spanish. See your options on our [COBRA alternatives page](/cobra-alternatives-miami), call **1-800-380-6821**, or [book a time here](/book). Most people save hundreds a month over COBRA; the ones who shouldn't switch, we tell them so.
+### How long do I have to decide on COBRA?
 
-## Frequently Asked Questions
+You have 60 days, starting when your coverage ends or when you get your COBRA election notice, whichever is later. If you elect it, coverage is retroactive to the day your job plan ended, and you have 45 days to make the first payment ([DOL](https://www.dol.gov/agencies/ebsa/about-ebsa/our-activities/resource-center/faqs/cobra-continuation-health-coverage-workers)).
 
-**How long do I have to decide on COBRA?**
-You have 60 days from your qualifying event (or from receiving your election notice) to elect COBRA, and it can be applied retroactively to the date you lost coverage.
+### Is the Marketplace cheaper than COBRA?
 
-**Is the Marketplace cheaper than COBRA in 2026?**
-Often, yes — especially if your household income is between 100% and 400% of the federal poverty level, where subsidies apply. Above 400% FPL, subsidies are no longer available in 2026, and a private plan may be the better comparison.
+It can be, especially if your household income qualifies you for a subsidy. For 2027, subsidies are generally available between 100% and 400% of the federal poverty level. Above that, compare full-price Marketplace plans, COBRA and a private plan quote.
 
-**Did ACA subsidies end in 2026?**
-The enhanced subsidies from 2021–2025 expired on January 1, 2026. Standard ACA premium tax credits still exist for households earning between 100% and 400% of the federal poverty level.
+### Do private plans cover pre-existing conditions?
 
-**Can I drop COBRA later and switch to a Marketplace plan?**
-You can drop COBRA at any time, but voluntarily dropping it mid-year does not trigger a Special Enrollment Period. You'd generally need to wait for Open Enrollment (November 1 – January 15) or for your COBRA to run out, which does qualify.
+The private plans we offer don't. They're short-term plans that ask health questions. If you have a health condition, a Marketplace plan must cover it, and COBRA keeps the plan you already have.
 
-**Does COBRA protect me from Medicare late penalties?**
-No. COBRA is not creditable coverage for Medicare Part B. If you're 65 or older, your 8-month Part B enrollment window starts when your employment ends, even if your COBRA continues.
+### Can I drop COBRA later and switch to a Marketplace plan?
+
+Yes, during Open Enrollment (November 1 to January 15). Outside Open Enrollment, dropping COBRA on your own doesn't qualify you for a Special Enrollment Period. COBRA running out does ([HealthCare.gov](https://www.healthcare.gov/unemployed/cobra-coverage/)).
+
+### Does COBRA protect me from the Medicare Part B penalty?
+
+No. COBRA isn't group health plan coverage for Medicare. Your 8-month Part B window starts when your job or group coverage ends, even if COBRA continues ([Medicare.gov](https://www.medicare.gov/basics/get-started-with-medicare/sign-up/when-does-medicare-coverage-start)).
+
+## Confirm with the official sources
+
+- [U.S. Department of Labor: COBRA FAQs for workers](https://www.dol.gov/agencies/ebsa/about-ebsa/our-activities/resource-center/faqs/cobra-continuation-health-coverage-workers)
+- [HealthCare.gov: COBRA coverage when you're unemployed](https://www.healthcare.gov/unemployed/cobra-coverage/)
+- [HealthCare.gov: Special Enrollment Periods](https://www.healthcare.gov/coverage-outside-open-enrollment/special-enrollment-period/)
+- [HealthCare.gov: Open Enrollment dates](https://www.healthcare.gov/quick-guide/dates-and-deadlines/)
+- [HealthCare.gov: pre-existing conditions](https://www.healthcare.gov/coverage/pre-existing-conditions/)
+- [Medicare.gov: when Medicare coverage starts](https://www.medicare.gov/basics/get-started-with-medicare/sign-up/when-does-medicare-coverage-start)
+
+¿Prefieres español? Lee [COBRA vs. el Mercado de Salud](/es/blog/cobra-vs-mercado-de-salud/).
+
+<style>
+.quick-answer{background:#fbf8f2;border:2px solid #ddd3e5;border-left:6px solid #452068;border-radius:12px;padding:20px 24px;margin:28px 0}.quick-answer .qa-label{display:block;font-size:14px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:#452068;margin-bottom:8px}.quick-answer ul{margin:10px 0 0 24px}.quick-answer li{margin-bottom:8px}.source-note{font-size:15.5px;color:#5a5068}@media(max-width:760px){.article-body table{display:block;overflow-x:auto}}
+</style>
 
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "FAQPage",
   "mainEntity": [
-    {"@type": "Question", "name": "How long do I have to decide on COBRA?", "acceptedAnswer": {"@type": "Answer", "text": "You have 60 days from your qualifying event or from receiving your election notice to elect COBRA, and it can be applied retroactively to the date you lost coverage."}},
-    {"@type": "Question", "name": "Is the Marketplace cheaper than COBRA in 2026?", "acceptedAnswer": {"@type": "Answer", "text": "Often, yes — especially if your household income is between 100% and 400% of the federal poverty level, where subsidies apply. Above 400% FPL, subsidies are no longer available in 2026, and a private plan may be the better comparison."}},
-    {"@type": "Question", "name": "Did ACA subsidies end in 2026?", "acceptedAnswer": {"@type": "Answer", "text": "The enhanced subsidies from 2021 to 2025 expired on January 1, 2026. Standard ACA premium tax credits still exist for households earning between 100% and 400% of the federal poverty level."}},
-    {"@type": "Question", "name": "Can I drop COBRA later and switch to a Marketplace plan?", "acceptedAnswer": {"@type": "Answer", "text": "You can drop COBRA at any time, but voluntarily dropping it mid-year does not trigger a Special Enrollment Period. You would generally need to wait for Open Enrollment or for your COBRA coverage to run out, which does qualify."}},
-    {"@type": "Question", "name": "Does COBRA protect me from Medicare late penalties?", "acceptedAnswer": {"@type": "Answer", "text": "No. COBRA is not creditable coverage for Medicare Part B. If you are 65 or older, your 8-month Part B enrollment window starts when your employment ends, even if your COBRA continues."}}
+    {"@type": "Question", "name": "How long do I have to decide on COBRA?", "acceptedAnswer": {"@type": "Answer", "text": "You have 60 days, starting when your coverage ends or when you get your COBRA election notice, whichever is later. If you elect it, coverage is retroactive to the day your job plan ended, and you have 45 days to make the first payment (U.S. Department of Labor)."}},
+    {"@type": "Question", "name": "Is the Marketplace cheaper than COBRA?", "acceptedAnswer": {"@type": "Answer", "text": "It can be, especially if your household income qualifies you for a subsidy. For 2027, subsidies are generally available between 100% and 400% of the federal poverty level. Above that, compare full-price Marketplace plans, COBRA and a private plan quote."}},
+    {"@type": "Question", "name": "Do private plans cover pre-existing conditions?", "acceptedAnswer": {"@type": "Answer", "text": "The private plans we offer don't. They're short-term plans that ask health questions. If you have a health condition, a Marketplace plan must cover it, and COBRA keeps the plan you already have."}},
+    {"@type": "Question", "name": "Can I drop COBRA later and switch to a Marketplace plan?", "acceptedAnswer": {"@type": "Answer", "text": "Yes, during Open Enrollment (November 1 to January 15). Outside Open Enrollment, dropping COBRA on your own doesn't qualify you for a Special Enrollment Period. COBRA running out does (HealthCare.gov)."}},
+    {"@type": "Question", "name": "Does COBRA protect me from the Medicare Part B penalty?", "acceptedAnswer": {"@type": "Answer", "text": "No. COBRA isn't group health plan coverage for Medicare. Your 8-month Part B window starts when your job or group coverage ends, even if COBRA continues (Medicare.gov)."}}
   ]
 }
 </script>
 
-*The Health Experts Insurance is a licensed, independent insurance brokerage in Doral, FL.*
+*This article is general information, not legal or tax advice. Premiums, subsidies and plan availability vary by ZIP code, household and income. The Health Experts Insurance is a licensed, independent insurance brokerage in Doral, FL, and does not offer every plan available in your area.*

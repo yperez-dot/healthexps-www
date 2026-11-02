@@ -68,6 +68,8 @@ CMS has announced that in 2027 the Part D annual out-of-pocket threshold is **$2
 
 You may have more chances to make changes during the year. Medicare says people with Medicaid or Extra Help can change their drug coverage once a calendar month, and people with full Medicaid may be able to join an integrated Dual Eligible Special Needs Plan (D-SNP) monthly, if one is available. Ask us which options apply to you.
 
+**A spouse or family member under 65?** Medicare AEP doesn't apply to them. If they're losing job coverage or paying for COBRA, compare Marketplace plans and [private health insurance in Miami](/private-health-insurance-miami/). Marketplace Open Enrollment for 2027 runs November 1, 2026, to January 15, 2027 ([HealthCare.gov](https://www.healthcare.gov/quick-guide/dates-and-deadlines/)).
+
 <div class="lead-magnet" id="plan-review">
   <div class="lead-magnet-copy">
     <span class="lead-kicker">FREE 2027 PLAN REVIEW</span>

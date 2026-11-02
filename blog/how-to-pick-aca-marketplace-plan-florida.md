@@ -63,6 +63,8 @@ General 2026 income guidelines (approximate):
 
 **Important:** If you qualify for Medicaid, you're not eligible for Marketplace subsidies. If you have affordable employer coverage offered to you, your subsidy eligibility may be limited.
 
+**Earn above 400% FPL and healthy?** A full-price Marketplace plan isn't your only option. The private plans we offer may cost less for some healthy people, but they ask health questions and don't cover pre-existing conditions. Compare both on our [private health insurance in Miami](/private-health-insurance-miami/) page.
+
 ### Cost-Sharing Reductions (CSRs)
 If you earn between 100% and 250% of FPL and enroll in a **Silver-tier plan**, you may also qualify for cost-sharing reductions — extra help that lowers your deductibles, copays, and out-of-pocket maximums. This is a hidden gem many enrollees miss.
 

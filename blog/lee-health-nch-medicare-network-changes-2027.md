@@ -36,6 +36,8 @@ Lee Health says its hospital and physician contracts with UnitedHealthcare end D
 
 **Medicare Supplement (Medigap) is different.** Lee Health says members with traditional Medicare and a UnitedHealthcare or AARP Medicare Supplement are not affected by its UHC network change. NCH says it accepts all Medicare Supplement plans because Medigap is not based on provider networks.
 
+**Family members under 65** aren't part of these Medicare changes. If someone in your household is losing job coverage or paying for COBRA, see our [private health insurance](/private-health-insurance-miami/) page, which also covers Marketplace options, and check any plan's network for your doctors before you enroll.
+
 ## Lee Health vs NCH in 2027: Medicare Advantage at a glance
 
 This table shows only what each health system's official insurance page says, as of October 19, 2026. Sources: [Lee Health Health Insurance Coverage](https://www.leehealth.org/billing/insurance-help/health-insurance-coverage) and [NCH Contracted Insurance Plans](https://nchmd.org/patients-and-visitors/contracted-insurance-plans/).

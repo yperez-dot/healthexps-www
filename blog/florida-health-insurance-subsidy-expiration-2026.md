@@ -50,7 +50,7 @@ Log into **HealthCare.gov** and run a fresh quote with your current income. If y
 
 Not every health plan is sold on the ACA marketplace. There are private plans — sometimes called "off-exchange" plans — that don't run through HealthCare.gov. These can sometimes offer lower premiums, though they work differently from ACA plans.
 
-**Important:** Off-exchange private plans have tradeoffs. They may not cover pre-existing conditions the same way, and you won't get ACA tax credits on them. But for a healthy 30-year-old in Miami who earns too much for subsidies, a private plan might be worth exploring as part of an **affordable health insurance Miami** search.
+**Important:** Off-exchange private plans have tradeoffs. They may not cover pre-existing conditions the same way, and you won't get ACA tax credits on them. But for a healthy 30-year-old in Miami who earns too much for subsidies, a private plan might be worth exploring as part of an **affordable health insurance Miami** search. The private plans we offer are short-term plans that ask health questions and don't cover pre-existing conditions. See how they compare on our [private health insurance in Miami](/private-health-insurance-miami/) page.
 
 This is the kind of comparison where having a licensed agent in your corner — someone who can actually run the numbers side by side — saves you from making a costly mistake.
 

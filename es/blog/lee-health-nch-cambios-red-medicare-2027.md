@@ -36,6 +36,8 @@ Lee Health informa que sus contratos hospitalarios y médicos con UnitedHealthca
 
 **Medicare Supplement (Medigap) funciona de forma diferente.** Lee Health indica que las personas con Medicare Original y un suplemento de UnitedHealthcare o AARP no están afectadas por este cambio. NCH dice que acepta todos los planes Medicare Supplement porque Medigap no utiliza redes de proveedores.
 
+**Los familiares menores de 65 años** no forman parte de estos cambios de Medicare. Si alguien en el hogar va a perder el seguro del trabajo o está pagando COBRA, nuestra página de [seguro médico privado](/es/seguro-medico-privado-miami/) explica también las opciones del Mercado. Antes de inscribirse en cualquier plan, conviene revisar la red de médicos.
+
 ## Lee Health vs. NCH en 2027: Medicare Advantage de un vistazo
 
 Esta tabla muestra solo lo que dice la página oficial de seguros de cada sistema de salud, al 19 de octubre de 2026. Fuentes: [Lee Health: Health Insurance Coverage](https://www.leehealth.org/billing/insurance-help/health-insurance-coverage) y [NCH: Contracted Insurance Plans](https://nchmd.org/patients-and-visitors/contracted-insurance-plans/).

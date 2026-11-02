@@ -46,6 +46,8 @@ HealthCare.gov says you're **self-employed** if you have a business that takes i
 
 **Non-ACA plans**, such as short-term coverage, aren't subject to federal rules that ban pre-existing condition exclusions or require comprehensive coverage ([CMS](https://www.cms.gov/newsroom/fact-sheets/short-term-limited-duration-insurance-and-independent-noncoordinated-excepted-benefits-coverage-cms)). We explain the trade-offs before you buy anything. See our page on [private health insurance in Miami](/private-health-insurance-miami/) for more.
 
+**The private plans we offer** are short-term plans from Golden Rule (UnitedHealthcare Choice or Choice Plus networks) and Allstate Health Solutions (Aetna Open Choice PPO or Cigna PPO networks). They ask health questions and don't cover pre-existing conditions, so if you have ongoing care, start with the Marketplace. Prices depend on your age and health, so [ask for a private quote](/private-health-insurance-miami/#priv-quote-form) and we'll compare it with your Marketplace options.
+
 ## How to estimate your income for a subsidy
 
 The Marketplace asks for your **net self-employment income**, sometimes called profit: income minus business expenses. It's the amount you report on Schedule C, and you report a loss if expenses are higher ([HealthCare.gov](https://www.healthcare.gov/self-employed/income/)).

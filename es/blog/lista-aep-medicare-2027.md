@@ -68,6 +68,8 @@ CMS anunció que en 2027 el límite anual de gastos de bolsillo de la Parte D es
 
 Es posible que tenga más oportunidades de hacer cambios durante el año. Según Medicare, las personas con Medicaid o Ayuda Adicional pueden cambiar su cobertura de medicamentos una vez al mes, y quienes tienen Medicaid completo podrían inscribirse cada mes en un plan integrado de Necesidades Especiales para Doble Elegibilidad (D-SNP), si hay uno disponible. Pregúntenos qué opciones aplican en su caso.
 
+**¿Un cónyuge o familiar menor de 65 años?** El AEP de Medicare no aplica para esa persona. Si va a perder el seguro del trabajo o está pagando COBRA, conviene comparar los planes del Mercado y el [seguro médico privado en Miami](/es/seguro-medico-privado-miami/). La Inscripción Abierta del Mercado para 2027 va del 1 de noviembre de 2026 al 15 de enero de 2027 ([CuidadoDeSalud.gov](https://www.cuidadodesalud.gov/es/quick-guide/dates-and-deadlines/)).
+
 <div class="lead-magnet" id="plan-review">
   <div class="lead-magnet-copy">
     <span class="lead-kicker">REVISIÓN GRATIS DE SU PLAN 2027</span>
