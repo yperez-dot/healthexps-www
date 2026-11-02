@@ -309,3 +309,10 @@
 /es/book-online/                              /es/reservar/  301!
 /avmed-medicare-florida-espanol               /es/avmed-medicare-florida/  301!
 /avmed-medicare-florida-espanol/              /es/avmed-medicare-florida/  301!
+
+# Nov 2, 2026: GSC junk URLs parsed from price text in inline JS/HTML
+# ('/mo</span>' in the Medigap calculator; '/yr</span></div>' from old Medicare costs markup, now merged into IRMAA page)
+/mo</span>                                    /medigap-plan-calculator/  301!
+/mo%3C/span%3E                                /medigap-plan-calculator/  301!
+/yr</span></div>                              /medicare-irmaa-penalties/  301!
+/yr%3C/span%3E%3C/div%3E                      /medicare-irmaa-penalties/  301!
