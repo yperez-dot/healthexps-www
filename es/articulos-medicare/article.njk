@@ -1,0 +1,21 @@
+---
+pagination:
+  data: medicareArticlesEs
+  size: 1
+  alias: article
+permalink: "{{ article.slug }}/index.html"
+layout: layouts/medicare-articles.njk
+locale: es
+---
+<div class="container article-shell"><a class="back-link" href="/es/articulos-medicare/">← Artículos de Medicare</a>
+<article><header class="article-header"><p class="eyebrow">Guía de Medicare</p><h1>{{ article.title }}</h1><p class="article-meta">Actualizado el 2 de noviembre de 2026 <span aria-hidden="true">·</span> {{ article.readMinutes }} min de lectura{% if article.hasVideo %} <span aria-hidden="true">·</span> Video en inglés ~{{ article.videoDurationEstimate }}{% endif %} <span aria-hidden="true">·</span> <a href="{{ article.enSlug }}/" lang="en" hreflang="en">Read in English</a></p></header>
+{% if article.quickAnswer %}<div class="quick-answer" style="background:#f4eefa;border:1px solid #e3d8ef;border-radius:12px;padding:14px 18px;margin:0 0 24px;color:#3a2468;"><p style="margin:0 0 4px;font-size:14px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;color:#452068;">Respuesta rápida</p><p style="margin:0 0 12px;font-size:16px;line-height:1.5;color:#3a2468;">{{ article.quickAnswer }}</p>{% if article.quickAnswerCta %}<a href="{{ article.quickAnswerCta.href }}" style="display:inline-block;background:#452068;color:#ffffff;padding:8px 18px;border-radius:8px;font-weight:600;font-size:16px;text-decoration:none;">{{ article.quickAnswerCta.text }}</a>{% endif %}</div>{% endif %}
+{% set videoBlock %}{% if article.videoSrc %}<figure class="article-video"><video controls playsinline preload="metadata" aria-label="Video: {{ article.title }} (en inglés)"><source src="{{ article.videoSrc }}" type="video/mp4"><a href="{{ article.videoSrc }}">Descargar el video</a></video><figcaption>Mira esta guía corta (~{{ article.videoDurationEstimate }}). El video está en inglés; la transcripción en español está más abajo.</figcaption></figure>{% endif %}{% endset %}
+{% if article.videoFirst %}{{ videoBlock | safe }}{% endif %}
+{% if article.headings.length > 3 %}<nav class="toc" aria-label="En esta página"><strong>En esta página</strong><ol>{% for heading in article.headings %}<li><a href="#section-{{ loop.index }}">{{ heading }}</a></li>{% endfor %}</ol></nav>{% endif %}
+{% if not article.videoFirst %}{{ videoBlock | safe }}{% endif %}
+<div class="article-body">{{ article.bodyHtml | safe }}</div>
+{% if article.hasVideo %}<section class="transcript"><h2>Transcripción del video</h2>{{ article.transcriptHtml | safe }}<details><summary>English transcript</summary>{% for line in article.transcriptEn %}<p lang="en">{{ line }}</p>{% endfor %}</details></section>{% endif %}
+<section class="related"><h2>Artículos relacionados</h2><ul>{% for related in article.relatedArticles %}<li><a href="{{ related.slug }}/"{% if related.lang %} lang="{{ related.lang }}" hreflang="{{ related.lang }}"{% endif %}>{{ related.title }}</a></li>{% endfor %}</ul></section>
+<section class="cta"><h2>Siguiente paso</h2><p>{{ article.nextStepHtml | safe }}</p><a class="button" href="/es/contacto/">Pide tu revisión de planes gratis</a></section>
+<aside class="disclaimer">{{ medicareHub.disclaimerEs }}</aside></article></div>
