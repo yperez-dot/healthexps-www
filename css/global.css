@@ -112,3 +112,8 @@
 /* footer mobile fix — added 2026-08-04 */
 @media(max-width:900px){#site-footer{padding:40px 20px 24px;}#footer-grid{grid-template-columns:1fr 1fr;gap:20px;}}
 @media(max-width:480px){#footer-grid{grid-template-columns:1fr;}}
+
+/* Nov 2, 2026: blog inline CTA buttons are purple; keep text white (".article-body a" pink was overriding) — never pink on purple */
+.article-body a.inline-cta-btn,
+.article-body a.inline-cta-btn:hover,
+.article-body a.inline-cta-btn:visited{color:#fff;}
