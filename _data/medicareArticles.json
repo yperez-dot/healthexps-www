@@ -238,14 +238,14 @@
   {
     "title": "Making the most of your medications budget",
     "teaser": "Simple steps to check your drugs, pharmacy, and costs before you enroll.",
-    "titleEs": "Aproveche al máximo su presupuesto de medicamentos",
-    "teaserEs": "Pasos sencillos para revisar sus medicinas, su farmacia y sus costos antes de inscribirse.",
+    "titleEs": "Aprovecha al máximo tu presupuesto de medicamentos",
+    "teaserEs": "Pasos sencillos para revisar tus medicinas, tu farmacia y tus costos antes de inscribirte.",
     "slug": "/medicare-articles/medications-budget-drug-list",
     "metaTitle": "Medications Budget & Drug Lists | THEI",
     "metaDescription": "Understand formularies and drug tiers so prescription costs are easier to plan for.",
     "metaTitleEs": "Presupuesto de medicamentos y formulario | THEI",
     "metaDescriptionEs": "Entienda los formularios y los niveles de medicamentos para planificar mejor los costos de sus recetas.",
-    "summaryEs": "Su plan de la Parte D tiene una lista de medicamentos cubiertos, llamada formulario, y cada medicina está en un nivel que influye en lo que paga. Aprenda a leer esa lista, a revisar reglas como la autorización previa y a comparar farmacias. Así puede planificar mejor el costo de sus recetas antes de inscribirse.",
+    "summaryEs": "Tu plan de la Parte D tiene una lista de medicamentos cubiertos, llamada formulario, y cada medicina está en un nivel que influye en lo que pagas. Aprende a leer esa lista, a revisar reglas como la autorización previa y a comparar farmacias, para planificar mejor el costo de tus recetas antes de inscribirte.",
     "tags": [
       "part-d",
       "formulary",
@@ -356,19 +356,20 @@
       }
     ],
     "readMinutes": 4,
-    "videoSrc": "/videos/medicare/en-medications-budget-drug-list.mp4"
+    "videoSrc": "/videos/medicare/en-medications-budget-drug-list.mp4",
+    "esSlug": "/es/articulos-medicare/presupuesto-medicamentos-formulario"
   },
   {
     "title": "Save with Medicare Part D Extra Help (LIS)",
     "teaser": "A federal program that can lower Part D costs. Find out if you may qualify.",
-    "titleEs": "Ahorre con Ayuda Adicional de la Parte D (LIS)",
-    "teaserEs": "Un programa federal que puede reducir sus costos de la Parte D. Vea si podría calificar.",
+    "titleEs": "Ahorra con la Ayuda Adicional de la Parte D (LIS)",
+    "teaserEs": "Un programa federal que puede bajar tus costos de la Parte D. Mira si podrías calificar.",
     "slug": "/medicare-articles/part-d-extra-help-lis",
     "metaTitle": "Part D Extra Help (LIS) Savings | THEI",
     "metaDescription": "Extra Help (LIS) can lower Part D premiums and copays — who qualifies and how to apply.",
     "metaTitleEs": "Ayuda Adicional (LIS) de la Parte D: ahorros | THEI",
     "metaDescriptionEs": "La Ayuda Adicional (LIS) puede reducir las primas y copagos de la Parte D: quién califica y cómo solicitarla.",
-    "summaryEs": "La Ayuda Adicional, también llamada LIS, es un programa federal que puede reducir lo que paga por primas, deducibles y copagos de la Parte D. Depende de sus ingresos y recursos, y algunas personas la reciben de forma automática. Le explicamos quién podría calificar, cómo solicitarla y por qué igual conviene revisar su plan cada año.",
+    "summaryEs": "La Ayuda Adicional, también llamada LIS, es un programa federal que puede bajar lo que pagas por primas, deducibles y copagos de la Parte D. Depende de tus ingresos y recursos, y algunas personas la reciben de forma automática. Te explicamos quién podría calificar, cómo solicitarla y por qué igual conviene revisar tu plan cada año.",
     "tags": [
       "extra-help",
       "lis",
@@ -484,7 +485,8 @@
       "text": "Request your free plan review",
       "href": "/contact/"
     },
-    "videoFirst": true
+    "videoFirst": true,
+    "esSlug": "/es/articulos-medicare/ayuda-adicional-parte-d-lis"
   },
   {
     "title": "Get help paying for Medicare Part B with a D-SNP",
@@ -547,14 +549,14 @@
   {
     "title": "Common D-SNP billing questions answered",
     "teaser": "Why did I get a bill? Plain answers to the questions we hear most.",
-    "titleEs": "Preguntas frecuentes sobre facturas D-SNP",
+    "titleEs": "Preguntas frecuentes sobre facturas de un plan D-SNP",
     "teaserEs": "¿Por qué me llegó una factura? Respuestas claras a las preguntas que más escuchamos.",
     "slug": "/medicare-articles/dsnp-billing-questions",
     "metaTitle": "D-SNP Billing Questions Answered | THEI",
     "metaDescription": "Straight answers on D-SNP bills, Medicaid coordination, and what to ask your plan or broker.",
     "metaTitleEs": "Preguntas sobre facturas de D-SNP | THEI",
     "metaDescriptionEs": "Respuestas claras sobre facturas de D-SNP, coordinación con Medicaid y qué preguntar a su plan o agente.",
-    "summaryEs": "Si tiene un plan D-SNP y recibe una factura, no se apresure a pagarla. Le explicamos qué es una Explicación de Beneficios, por qué su nivel de Medicaid importa y a quién llamar según el problema. También le damos un consejo sencillo para no perder su cobertura de Medicaid por un trámite de renovación.",
+    "summaryEs": "Si tienes un plan D-SNP y recibes una factura, no te apresures a pagarla. Te explicamos qué es una Explicación de Beneficios, por qué tu nivel de Medicaid importa y a quién llamar según el problema. También te damos un consejo sencillo para no perder tu Medicaid por un trámite de renovación.",
     "tags": [
       "dsnp",
       "billing",
@@ -662,7 +664,8 @@
       }
     ],
     "readMinutes": 4,
-    "videoSrc": "/videos/medicare/en-dsnp-billing-questions.mp4"
+    "videoSrc": "/videos/medicare/en-dsnp-billing-questions.mp4",
+    "esSlug": "/es/articulos-medicare/dsnp-preguntas-facturas"
   },
   {
     "title": "D-SNP plans for Medicare + Medicaid (Miami-Dade & Broward)",
@@ -730,14 +733,14 @@
   {
     "title": "Part D & pharmacy: avoiding surprise drug costs at AEP",
     "teaser": "Check your formulary, tiers, and pharmacy network so the pharmacy counter holds no surprises.",
-    "titleEs": "Parte D y farmacia: evite sorpresas en el AEP",
-    "teaserEs": "Revise su formulario, niveles y red de farmacias para no llevarse sorpresas en el mostrador.",
+    "titleEs": "Parte D y farmacia: evita sorpresas en el AEP",
+    "teaserEs": "Revisa tu formulario, los niveles y la red de farmacias para no llevarte sorpresas en el mostrador.",
     "slug": "/medicare-articles/part-d-pharmacy-costs-aep",
     "metaTitle": "Avoid Part D Surprise Costs at AEP | THEI",
     "metaDescription": "Check formulary, tiers, and pharmacies at AEP so drug costs don’t surprise you in January.",
     "metaTitleEs": "Evite sorpresas de la Parte D en el AEP | THEI",
     "metaDescriptionEs": "Revise el formulario, los niveles y las farmacias durante el AEP para que los costos de sus medicinas no lo sorprendan en enero.",
-    "summaryEs": "Muchas sorpresas en la farmacia llegan en enero, cuando el plan de la Parte D cambia su lista de medicamentos, sus niveles o su red de farmacias. Durante el AEP puede revisar todo eso con calma antes de que empiece el año. Le damos una lista sencilla para comprobar sus medicinas, su farmacia y sus reglas de cobertura.",
+    "summaryEs": "Muchas sorpresas en la farmacia llegan en enero, cuando el plan de la Parte D cambia su lista de medicamentos, sus niveles o su red de farmacias. Durante el AEP puedes revisar todo eso con calma antes de que empiece el año. Te damos una lista sencilla para comprobar tus medicinas, tu farmacia y las reglas de cobertura.",
     "tags": [
       "part-d",
       "pharmacy",
@@ -845,6 +848,7 @@
       }
     ],
     "readMinutes": 4,
-    "videoSrc": "/videos/medicare/en-part-d-pharmacy-costs-aep.mp4"
+    "videoSrc": "/videos/medicare/en-part-d-pharmacy-costs-aep.mp4",
+    "esSlug": "/es/articulos-medicare/parte-d-farmacia-costos-aep"
   }
 ]
