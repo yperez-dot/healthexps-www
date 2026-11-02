@@ -501,14 +501,17 @@ a{color:var(--purple);text-decoration:none;}a:hover{color:var(--pink);}
     first=first.trim();last=last.trim();phone=phone.trim();email=email.trim();
     if(!first||!last||!phone||!email||!reason||!consent){err.style.display='block';return;}
     btn.disabled=true;btn.textContent='Enviando...';err.style.display='none';
+    // Atribución (cobra-private-nov2): qué página trajo al visitante a /es/contacto/
+    var _ref=document.referrer||'';var _fromPage='(direct)';
+    try{if(_ref){var _ru=new URL(_ref);_fromPage=(_ru.host===location.host)?_ru.pathname:_ru.host;}}catch(_e){}
     try {
-      var res=await fetch(WEBHOOK,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({first_name:first,last_name:last,phone:phone,email:email,contact_reason:reason,looking_for:reason,sms_informational:!!(document.getElementById('esInfoConsent')&&document.getElementById('esInfoConsent').checked),sms_marketing:!!(document.getElementById('esMarketingConsent')&&document.getElementById('esMarketingConsent').checked),source:'Contacto ES',page:window.location.href,submitted_at:new Date().toISOString()})});
+      var res=await fetch(WEBHOOK,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({first_name:first,last_name:last,phone:phone,email:email,contact_reason:reason,looking_for:reason,sms_informational:!!(document.getElementById('esInfoConsent')&&document.getElementById('esInfoConsent').checked),sms_marketing:!!(document.getElementById('esMarketingConsent')&&document.getElementById('esMarketingConsent').checked),source:'Contacto ES',page:window.location.href,referrer:_ref,from_page:_fromPage,submitted_at:new Date().toISOString()})});
       if(res.ok){
         document.getElementById('contactFormSuccess').style.display='block';
         form.style.display='none';
         if (typeof gtag === 'function') {
           gtag('event', 'contact_form_submit', { page: window.location.pathname });
-          gtag('event', 'generate_lead', { campaign: 'contacto', language: 'es', page: window.location.pathname });
+          gtag('event', 'generate_lead', { campaign: 'contacto', language: 'es', page: window.location.pathname, from_page: _fromPage });
         }
       } else {throw new Error('error');}
     } catch(ex){

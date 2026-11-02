@@ -106,7 +106,7 @@ Esta sección es para ti si tu ingreso está por encima del límite del subsidio
 
 Mira cómo [comparamos los seguros médicos privados en Miami](/es/seguro-medico-privado-miami/), o déjanos tus datos abajo. Te cotizamos opciones privadas y ACA lado a lado, junto con tu precio del COBRA, sin costo.
 
-<div class="inline-cta"><div class="inline-cta-text"><strong>¿Ganas más del límite del subsidio?</strong><span>Recibe cotizaciones privadas y ACA junto a tu precio del COBRA, el mismo día, en español o inglés.</span></div><a href="#cobra-quote" class="inline-cta-btn">Quiero mi cotización privada →</a></div>
+<div class="inline-cta private-route-cta"><div class="inline-cta-text"><strong>¿Estás sano y el COBRA te cuesta demasiado?</strong><span>Mira cómo se compara un plan privado con tu precio del COBRA. Pide una cotización gratis, en español o inglés.</span></div><a href="/es/seguro-medico-privado-miami/#lead-form" class="inline-cta-btn" onclick="if(typeof gtag==='function')gtag('event','contact_click',{page:location.pathname,position:'cobra_post_private',target:'private_page_form'})">Quiero mi cotización privada →</a></div>
 
 ## Cuándo el COBRA todavía tiene sentido
 

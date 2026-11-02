@@ -196,6 +196,30 @@
       },
       {
         "@type": "Question",
+        "name": "¿Puedo pasarme del COBRA a un plan privado?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Sí. Algunos planes privados aceptan solicitudes cualquier mes, así que no necesitas un Período Especial de Inscripción para aplicar. Los planes privados que ofrecemos son planes a corto plazo que hacen preguntas de salud y no cubren condiciones preexistentes, así que lo revisamos primero. Si cancelas el COBRA por tu cuenta fuera de la Inscripción Abierta, eso no te abre un Período Especial de Inscripción para un plan del Mercado, así que compara antes de cancelar."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "¿Un plan privado es más barato que el COBRA?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Puede serlo, sobre todo si estás sano. Con el COBRA normalmente pagas la prima completa, incluida la parte que pagaba tu empleador, más un 2%. Un plan privado se cotiza según tu edad y tu salud, así que pídenos una cotización y la ponemos junto a tu precio del COBRA."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Tengo una condición preexistente. ¿Debo dejar el COBRA?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Por lo general no para irte a un plan privado, porque los planes privados que ofrecemos no cubren condiciones preexistentes. Un plan del Mercado sí tiene que cubrirlas, y al perder el seguro del trabajo puedes inscribirte desde 60 días antes hasta 60 días después. El COBRA mantiene tu mismo plan y tus médicos. Te ayudamos a comparar los dos."
+        }
+      },
+      {
+        "@type": "Question",
         "name": "¿Cuesta algo usar una corredora de seguros?",
         "acceptedAnswer": {
           "@type": "Answer",
@@ -511,22 +535,19 @@ details[open] .faq-icon{transform:rotate(45deg);}
       </div>
     </section>
 
-        <!-- ALTERNATIVAS AL COBRA (private-deepen-oct12) -->
+        <!-- DEJAR EL COBRA (cobra-private-nov2; reemplaza el bloque COBRA de private-deepen-oct12) -->
     <section id="alternativas-cobra" class="section">
       <div class="container">
         <div class="callout" style="max-width:960px;margin:0 auto">
-          <h2 style="font-family:'Poppins',sans-serif;font-size:clamp(22px,3.2vw,28px);font-weight:700;color:#3F2566;margin-bottom:12px">¿Va a dejar su trabajo? Compare las alternativas al COBRA primero</h2>
-          <p style="color:#3a2f47;font-size:17px;line-height:1.7;margin-bottom:12px">Con el COBRA normalmente usted paga el 100% de la prima, incluida la parte que pagaba su empleador, más un pequeño cargo administrativo. Antes de firmar, compárelo con un plan del Mercado o un plan privado.</p>
+          <h2 style="font-family:'Poppins',sans-serif;font-size:clamp(22px,3.2vw,28px);font-weight:700;color:#3F2566;margin-bottom:12px">¿Pagas COBRA? Mira si un plan privado te sale más barato</h2>
+          <p style="color:#3a2f47;font-size:17px;line-height:1.7;margin-bottom:12px">Con el COBRA te quedas con tu plan del trabajo, pero normalmente pagas la prima completa, incluida la parte que pagaba tu empleador, más un 2%. Por eso muchas personas comparan otras opciones antes de inscribirse o de seguir pagándolo.</p>
           <ul style="margin:0 0 18px 20px;color:#3a2f47;font-size:17px;line-height:1.7">
-            <li>Al perder la cobertura del trabajo tiene <strong>60 días</strong> para elegir un plan del Mercado con un Período Especial de Inscripción.</li>
-            <li>Si empieza el COBRA y luego lo cancela por su cuenta fuera de la Inscripción Abierta, eso solo <strong>no</strong> le da un Período Especial de Inscripción. Compare antes de decidir.</li>
-            <li>Cuando el COBRA se termina, tiene otros 60 días para inscribirse.</li>
+            <li><strong>¿Estás sano y ganas más del límite del subsidio?</strong> Un plan privado puede costar menos que el COBRA. El precio depende de tu edad y tu salud, así que pídenos una cotización y la ponemos junto a tu precio del COBRA.</li>
+            <li><strong>Qué son los planes privados:</strong> planes a corto plazo que usan redes nacionales PPO o tipo EPO (UnitedHealthcare, Aetna o Cigna). Hacen preguntas de salud y no cubren condiciones preexistentes.</li>
+            <li><strong>¿Tienes una condición de salud o tratamiento continuo?</strong> Un plan del Mercado tiene que cubrir condiciones preexistentes, y al perder el seguro del trabajo tienes <strong>60 días</strong> para inscribirte. Si cancelas el COBRA por tu cuenta fuera de la Inscripción Abierta, ese plazo no se abre, así que compara primero.</li>
           </ul>
-          <div style="display:flex;gap:12px;flex-wrap:wrap">
-            <a href="/es/alternativas-cobra-miami/" style="display:inline-flex;align-items:center;justify-content:center;min-height:48px;background:#EA158C;color:#fff;padding:14px 26px;border-radius:12px;font-weight:700;font-size:19px;text-decoration:none">Ver alternativas al COBRA →</a>
-            <a href="/es/blog/cobra-vs-mercado-de-salud/" style="display:inline-flex;align-items:center;justify-content:center;min-height:48px;background:#fff;color:#3F2566;border:2px solid #3F2566;padding:12px 24px;border-radius:12px;font-weight:700;font-size:18px;text-decoration:none">COBRA vs. el Mercado</a>
-          </div>
-          <p style="font-size:15px;color:#5a5068;line-height:1.6;margin:16px 0 0">Fuente: <a href="https://www.cuidadodesalud.gov/es/unemployed/cobra-coverage/" target="_blank" rel="noopener" style="color:#3F2566">CuidadoDeSalud.gov, cobertura COBRA</a>.</p>
+          <a href="#lead-form" onclick="if(typeof gtag==='function')gtag('event','contact_click',{page:location.pathname,position:'cobra_section',target:'priv_lead_form'})" style="display:inline-flex;align-items:center;justify-content:center;min-height:48px;background:#452068;color:#fff;padding:14px 26px;border-radius:12px;font-weight:700;font-size:19px;text-decoration:none">Comparar mi precio del COBRA →</a>
+          <p style="font-size:15px;color:#5a5068;line-height:1.6;margin:16px 0 0">Fuentes: <a href="https://www.dol.gov/agencies/ebsa/about-ebsa/our-activities/resource-center/faqs/cobra-continuation-health-coverage-workers" target="_blank" rel="noopener" style="color:#3F2566">Departamento de Trabajo de EE. UU., preguntas sobre COBRA</a> (en inglés); CuidadoDeSalud.gov sobre <a href="https://www.cuidadodesalud.gov/es/unemployed/cobra-coverage/" target="_blank" rel="noopener" style="color:#3F2566">la cobertura COBRA</a>, <a href="https://www.cuidadodesalud.gov/es/coverage-outside-open-enrollment/special-enrollment-period/" target="_blank" rel="noopener" style="color:#3F2566">el Período Especial de Inscripción</a> y <a href="https://www.cuidadodesalud.gov/es/coverage/pre-existing-conditions/" target="_blank" rel="noopener" style="color:#3F2566">las condiciones preexistentes</a>. Más: <a href="/es/blog/alternativas-cobra-miami-ahorra-dinero/" style="color:#3F2566">Alternativas al COBRA en Miami</a>.</p>
         </div>
       </div>
     </section>
@@ -907,6 +928,9 @@ details[open] .faq-icon{transform:rotate(45deg);}
           <details><summary>¿Cuál es la diferencia entre un seguro privado y un plan del Mercado (Obamacare)? <span class="faq-icon">+</span></summary><p>El crédito fiscal para la prima solo está disponible en el Mercado y depende de los ingresos de su hogar. Todos los planes del Mercado cubren los mismos beneficios de salud esenciales y no pueden rechazarlo ni cobrarle más por una condición preexistente. Un plan privado que no es ACA no tiene crédito fiscal y puede revisar su historial de salud. Le comparamos ambos para su código postal, sus médicos y su presupuesto.</p></details>
           <details><summary>¿Los planes privados cubren condiciones preexistentes? <span class="faq-icon">+</span></summary><p>Los planes del Mercado deben cubrir el tratamiento de condiciones preexistentes desde el primer día de cobertura. Los planes que no son ACA pueden hacer revisión médica (underwriting): la aseguradora revisa su salud para decidir si le ofrece cobertura, a qué precio y con qué exclusiones. Le decimos qué reglas aplican antes de que aplique.</p></details>
           <details><summary>Voy a dejar mi trabajo. ¿Qué alternativas tengo al COBRA? <span class="faq-icon">+</span></summary><p>Con el COBRA normalmente usted paga el 100% de la prima, incluida la parte que pagaba su empleador, más un pequeño cargo administrativo. Perder la cobertura del trabajo abre un Período Especial de Inscripción de 60 días para un plan del Mercado, así que puede compararlo con el COBRA antes de decidir. Si empieza el COBRA y luego lo cancela por su cuenta fuera de la Inscripción Abierta, eso solo no le da un Período Especial de Inscripción.</p></details>
+          <details><summary>¿Puedo pasarme del COBRA a un plan privado? <span class="faq-icon">+</span></summary><p>Sí. Algunos planes privados aceptan solicitudes cualquier mes, así que no necesitas un Período Especial de Inscripción para aplicar. Los planes privados que ofrecemos son planes a corto plazo que hacen preguntas de salud y no cubren condiciones preexistentes, así que lo revisamos primero. Si cancelas el COBRA por tu cuenta fuera de la Inscripción Abierta, eso no te abre un Período Especial de Inscripción para un plan del Mercado, así que compara antes de cancelar.</p></details>
+          <details><summary>¿Un plan privado es más barato que el COBRA? <span class="faq-icon">+</span></summary><p>Puede serlo, sobre todo si estás sano. Con el COBRA normalmente pagas la prima completa, incluida la parte que pagaba tu empleador, más un 2%. Un plan privado se cotiza según tu edad y tu salud, así que pídenos una cotización y la ponemos junto a tu precio del COBRA.</p></details>
+          <details><summary>Tengo una condición preexistente. ¿Debo dejar el COBRA? <span class="faq-icon">+</span></summary><p>Por lo general no para irte a un plan privado, porque los planes privados que ofrecemos no cubren condiciones preexistentes. Un plan del Mercado sí tiene que cubrirlas, y al perder el seguro del trabajo puedes inscribirte desde 60 días antes hasta 60 días después. El COBRA mantiene tu mismo plan y tus médicos. Te ayudamos a comparar los dos.</p></details>
           <details><summary>¿Cuesta algo usar una corredora de seguros? <span class="faq-icon">+</span></summary><p>No. Usted no nos paga nada por comparar ni por inscribirse. A los agentes y corredores con licencia normalmente les paga una comisión la aseguradora. Somos bilingües, estamos en Doral y cotizamos las aseguradoras con las que tenemos contrato. Si otra opción le conviene más, se lo decimos.</p></details>
           <details><summary>¿Mi pequeño negocio puede contratar un seguro de grupo en cualquier momento del año? <span class="faq-icon">+</span></summary><p>Por lo general, sí. Los negocios con 1 a 50 empleados pueden empezar a ofrecer cobertura para pequeñas empresas cualquier mes del año. Si usted trabaja por su cuenta y no tiene empleados, compra en el mercado individual. Le comparamos ambas opciones para usted y su equipo.</p></details>
           <details><summary>Trabajo por cuenta propia. ¿Puedo usar una cuenta HSA? <span class="faq-icon">+</span></summary><p>Un plan con deducible alto que califica para HSA puede convenirle si quiere una prima mensual más baja y una cuenta con ventajas fiscales para gastos médicos. Si los depósitos a la HSA o las primas son deducibles depende de sus impuestos, así que consúltelo con su contador. Esto no es asesoría fiscal.</p></details>
