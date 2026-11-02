@@ -435,6 +435,8 @@ h1,h2,h3{font-family:Poppins,sans-serif;line-height:1.2;}
           </tbody>
         </table>
       </div>
+    <!-- Lead CTA (one button) -> contact form, which fires generate_lead on submit. -->
+    <div class="irmaa-lead-quick" style="background:#f4eefa;border:1px solid #e3d8ef;border-radius:12px;padding:14px 18px;margin:24px 0 0;color:#3a2468;"><p style="margin:0 0 12px;font-size:16px;line-height:1.5;color:#3a2468;">¿Pagas IRMAA? Un corredor licenciado en Florida puede revisar si podrías calificar para pedirle al Seguro Social un monto más bajo y revisar tus opciones de plan 2027, sin costo.</p><a href="/es/contacto/" style="display:inline-block;background:#452068;color:#ffffff;padding:8px 18px;border-radius:8px;font-weight:600;font-size:16px;text-decoration:none;" onclick="if(typeof gtag==='function')gtag('event','contact_click',{page:location.pathname,position:'irmaa_appeal'})">Pide tu revisión gratis del plan &rarr;</a></div>
     </div>
   </section>
 
@@ -547,7 +549,7 @@ h1,h2,h3{font-family:Poppins,sans-serif;line-height:1.2;}
           body:JSON.stringify({first_name:first,last_name:last,phone:phone,email:email,
             coverage_type:coverage,looking_for:coverage,
             source:'IRMAA ES',page:window.location.href,submitted_at:new Date().toISOString()})});
-        if(res.ok){form.style.display='none';var s=document.getElementById('v4Success');if(s)s.style.display='block';}
+        if(res.ok){form.style.display='none';var s=document.getElementById('v4Success');if(s)s.style.display='block';if(typeof gtag==='function')gtag('event','generate_lead',{form:'irmaa_penalties',language:'es'});}
         else{throw new Error();}
       }catch(ex){btn.disabled=false;btn.textContent='Reservar mi Consulta →';err.style.display='block';err.textContent='Algo salió mal. Por favor llame al 1-800-380-6821.';}
     });
