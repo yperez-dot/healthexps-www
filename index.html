@@ -1018,6 +1018,14 @@ src="https://www.facebook.com/tr?id=3257807051192879&ev=PageView&noscript=1"/></
 #path-strip .hs-aep a{align-self:flex-start;background:#fff;color:#452068;text-decoration:none;padding:7px 12px;border-radius:9px}
 #path-strip .hs-note{margin:14px 0 0;font-size:14.5px;color:#452068;text-align:center}
 #path-strip .hs-note a{color:#452068;text-decoration:underline}
+#path-strip .hs-cobra{margin:16px 0 0;background:#f7f2fb;border:1.5px solid #ece1f3;border-radius:14px;padding:18px 22px;display:flex;align-items:center;gap:20px;color:#241a30}
+#path-strip .hs-cobra-txt{flex:1;min-width:0}
+#path-strip .hs-cobra .hs-tag{display:inline-block;background:#fff}
+#path-strip .hs-cobra h3{font-family:'Poppins',sans-serif;font-size:18px;font-weight:700;color:#452068;margin:0 0 6px;line-height:1.3}
+#path-strip .hs-cobra p{font-size:15.5px;line-height:1.5;color:#3a2f47;margin:0}
+#path-strip .hs-cobra-btn{flex-shrink:0;display:inline-flex;align-items:center;justify-content:center;min-height:46px;background:#452068;color:#fff;padding:12px 20px;border-radius:10px;font-weight:700;font-size:16px;text-decoration:none;text-align:center;white-space:nowrap}
+#path-strip .hs-cobra-btn:hover{background:#3a2468}
+@media(max-width:720px){#path-strip .hs-cobra{flex-direction:column;align-items:stretch;gap:12px;padding:16px}#path-strip .hs-cobra-btn{width:100%;box-sizing:border-box;white-space:normal}}
 @media(max-width:1100px){#path-strip .hs-grid{grid-template-columns:repeat(3,minmax(0,1fr))}}
 @media(max-width:700px){#deadline-bar{padding:10px 16px}#deadline-bar .dl-wrap{font-size:14.5px;gap:6px 12px}
 #path-strip .hs-h{font-size:24px;margin-bottom:14px}#path-strip .hs-grid{grid-template-columns:1fr;gap:10px}#path-strip .hs-card{padding:14px 16px}#path-strip .hs-card p{margin-bottom:8px}#path-strip .hs-note{text-align:left}}
@@ -1040,6 +1048,11 @@ src="https://www.facebook.com/tr?id=3257807051192879&ev=PageView&noscript=1"/></
       <div class="hs-card "><span class="hs-tag">Under 65</span><h3>Lost job coverage</h3><p>Compare COBRA with your other options.</p><a href="/blog/cobra-vs-aca-marketplace-miami/">COBRA vs. Marketplace →</a></div>
     </div>
     <p class="hs-note">2027 subsidy cutoff: $63,840 for 1 person · $132,000 for a family of 4 · <a href="/private-health-insurance-miami/#subsidy-2027">See the table</a></p>
+    <!-- HOME COBRA / PRIVATE CARD (home-private-nov2) -->
+    <div id="home-cobra" class="hs-cobra">
+      <div class="hs-cobra-txt"><span class="hs-tag">Under 65 · COBRA</span><h3>Paying for COBRA? A private plan may cost less</h3><p>Healthy and over the subsidy limit? Ask for a quote and we'll put a private plan price next to your COBRA price. Private plans ask health questions, and prices depend on your age and health.</p></div>
+      <a class="hs-cobra-btn" href="/private-health-insurance-miami/#priv-quote-form" onclick="if(typeof gtag==='function')gtag('event','contact_click',{page:location.pathname,position:'home_cobra_card',target:'priv_quote_form'})">Compare my COBRA price&nbsp;→</a>
+    </div>
   </div>
 </div>
 
