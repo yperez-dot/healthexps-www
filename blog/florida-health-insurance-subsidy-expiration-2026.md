@@ -26,7 +26,9 @@ Those enhancements expired December 31, 2025. Congress did not renew them.
 
 The math changed at the formula level, not just at the edges. Your credit is the benchmark Silver premium in your area minus what the IRS expects you to contribute — and that expected contribution rose sharply.
 
-A household at 200% of the federal poverty level (about $64,300 for a family of four) was expected to put 2% of its income toward the benchmark plan in 2025. For 2026, that figure is 6.6% — roughly triple. Same income, same plan, three times the required contribution. At the top of the eligible range it now reaches 9.96%.
+A household at 200% of the federal poverty level (about $64,300 for a family of four for 2026 coverage) was expected to put 2% of its income toward the benchmark plan in 2025. For 2026, that figure is 6.6% — roughly triple. Same income, same plan, three times the required contribution. At the top of the eligible range it now reaches 9.96%.
+
+For 2027 coverage it rises again: 6.78% at 200% FPL (about $66,000 for a family of four, based on the [2026 HHS poverty guidelines](https://aspe.hhs.gov/topics/poverty-economic-mobility/poverty-guidelines)) and 10.22% at the top of the range ([IRS Rev. Proc. 2026-26](https://www.irs.gov/pub/irs-drop/rp-26-26.pdf)).
 
 Above 400% FPL, the credit is zero.
 

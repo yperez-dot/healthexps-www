@@ -575,12 +575,12 @@ a{color:var(--purple);text-decoration:none;}
 
     <!-- STEP 4: Income (FPL-based, recalculates from Q3) -->
     <div class="step" id="step-4" style="display:none;">
-      <div class="step-q">¿Cuál es el ingreso estimado del hogar para 2026?</div>
-      <div class="step-hint">Los subsidios se basan en el ingreso estimado de este año &mdash; no el del año pasado. Si bajó, eso le favorece.</div>
+      <div class="step-q">¿Cuál es el ingreso estimado de tu hogar para 2027?</div>
+      <div class="step-hint">Los ahorros para la cobertura de 2027 se basan en tu ingreso estimado de 2027 &mdash; no el del año pasado. Si tu ingreso va a bajar, eso te puede favorecer.</div>
       <div class="options-grid">
-        <button class="option-grid-btn" id="q4-btn-under" onclick="selectGrid(this,'income','under_100fpl')"><div class="ogb-main" id="q4-under-label">Under $15,650</div><div class="ogb-sub">Florida no expandió Medicaid. Niños, embarazo y algunas discapacidades sí pueden calificar</div></button>
-        <button class="option-grid-btn" id="q4-btn-range" onclick="selectGrid(this,'income','100_400fpl')"><div class="ogb-main" id="q4-range-label">$15,650 &ndash; $62,600</div><div class="ogb-sub">Este es el rango donde aplican créditos fiscales a la prima en 2026</div></button>
-        <button class="option-grid-btn" id="q4-btn-over" onclick="selectGrid(this,'income','over_400fpl')"><div class="ogb-main" id="q4-over-label">Over $62,600</div><div class="ogb-sub">Sobre el tope de subsidio 2026 &mdash; el Mercado suele no tener crédito</div></button>
+        <button class="option-grid-btn" id="q4-btn-under" onclick="selectGrid(this,'income','under_100fpl')"><div class="ogb-main" id="q4-under-label">Menos de $15,960</div><div class="ogb-sub">Florida no expandió Medicaid. Niños, embarazo y algunas discapacidades sí pueden calificar</div></button>
+        <button class="option-grid-btn" id="q4-btn-range" onclick="selectGrid(this,'income','100_400fpl')"><div class="ogb-main" id="q4-range-label">$15,960 &ndash; $63,840</div><div class="ogb-sub">Este es el rango donde aplican créditos fiscales a la prima para la cobertura de 2027</div></button>
+        <button class="option-grid-btn" id="q4-btn-over" onclick="selectGrid(this,'income','over_400fpl')"><div class="ogb-main" id="q4-over-label">Más de $63,840</div><div class="ogb-sub">Sobre el tope de subsidio de 2027 &mdash; el Mercado suele no tener crédito</div></button>
         <button class="option-grid-btn" onclick="selectGrid(this,'income','unsure')"><div class="ogb-main">No estoy seguro</div><div class="ogb-sub">Le ayudamos a estimarlo</div></button>
       </div>
     </div>
@@ -678,14 +678,16 @@ a{color:var(--purple);text-decoration:none;}
 </div>
 
 <script>
-// ── FPL 2025 (used for 2026 Marketplace coverage) ────────────────────────────
-// Source: HHS ASPE & Federal Register Vol.90 No.11, Jan 17 2025
-// REFRESH: November 2026 for 2027 coverage year
-const FPL_2025 = {
-  1: { fpl100: 15650,  fpl400: 62600  },
-  2: { fpl100: 21150,  fpl400: 84600  },
-  3: { fpl100: 26650,  fpl400: 106600 },
-  4: { fpl100: 32150,  fpl400: 128600 }
+// ── FPL 2026 (used for 2027 Marketplace coverage) ────────────────────────────
+// Source: HHS ASPE 2026 poverty guidelines (48 states + DC), Federal Register Jan 15 2026
+// https://aspe.hhs.gov/topics/poverty-economic-mobility/poverty-guidelines
+// HealthCare.gov: prior-year guidelines set next year's Marketplace savings.
+// REFRESH: November 2027 for 2028 coverage year (use 2027 guidelines)
+const FPL_2026 = {
+  1: { fpl100: 15960,  fpl400: 63840  },
+  2: { fpl100: 21640,  fpl400: 86560  },
+  3: { fpl100: 27320,  fpl400: 109280 },
+  4: { fpl100: 33000,  fpl400: 132000 }
 };
 
 // ── Result definitions ────────────────────────────────────────────────────────
@@ -719,7 +721,7 @@ const RESULTS = {
     body: "Las aseguradoras cambian primas, redes y formularios cada año. Su plan actual no está garantizado como el mejor.",
     bullets: [
       "Compare this year\u2019s Silver and Gold options before you auto-renew",
-      "Recheck the subsidy using this year\u2019s estimated income",
+      "Revisa el subsidio con tu ingreso estimado de 2027",
       "La inscripción abierta 2027 empieza el 1 de noviembre"
     ]
   },
@@ -738,11 +740,11 @@ const RESULTS = {
     headline: "A su edad, la prima sin subsidio es lo que duele",
     link: "/es/seguro-medico-privado-miami",
     linkLabel: "Planes privados en Miami",
-    body: "Sobre el 400% del nivel federal de pobreza, el Mercado 2026 suele no tener crédito fiscal. Comparamos el Mercado a precio completo contra opciones privadas.",
+    body: "Sobre el 400% del nivel federal de pobreza, el Mercado de 2027 suele no tener crédito fiscal. Comparamos el Mercado a precio completo contra opciones privadas.",
     bullets: [
       "Mercado sin subsidio vs. planes privados, lado a lado",
       "Redes y deducibles importan más que la prima mensual sola",
-      "If your 2026 income dropped, you may still qualify for a credit \u2014 tell us"
+      "Si tu ingreso de 2027 va a bajar, podrías calificar para un crédito \u2014 avísanos"
     ]
   },
   under30_subsidy: {
@@ -757,9 +759,9 @@ const RESULTS = {
     ]
   },
   under_100fpl: {
-    headline: "Florida didn\u2019t expand Medicaid \u2014 let\u2019s find what you can actually get",
+    headline: "Florida no expandió Medicaid \u2014 veamos qué puedes obtener",
     link: "/es/planes-aca-miami",
-    linkLabel: "What\u2019s available in Florida",
+    linkLabel: "Qué hay disponible en Florida",
     body: "La mayoría de los adultos menores de 65 en Florida no califican a Medicaid solo por ingreso. Niños, embarazo y algunas discapacidades sí podrían.",
     bullets: [
       "Cobertura del Mercado si está en o sobre el mínimo para un crédito",
@@ -768,35 +770,35 @@ const RESULTS = {
     ]
   },
   "100_400fpl": {
-    headline: "You\u2019re in the range where premium tax credits apply",
+    headline: "Estás en el rango donde aplican los créditos fiscales a la prima",
     link: "/es/planes-aca-miami",
     linkLabel: "Planes del Mercado ACA en Miami",
-    body: "En 2026, hogares entre 100% y 400% del nivel federal de pobreza pueden obtener un crédito a la prima. El monto exacto depende del ingreso, el tamaño del hogar y su ZIP.",
+    body: "Para la cobertura de 2027, hogares entre 100% y 400% del nivel federal de pobreza pueden obtener un crédito a la prima. El monto exacto depende del ingreso, el tamaño del hogar y tu ZIP.",
     bullets: [
       "Silver suele ser el plan que comparamos primero cuando hay crédito",
-      "Your credit is based on this year\u2019s estimated income, not last year\u2019s",
+      "Tu crédito de 2027 se basa en tu ingreso estimado de 2027, no el del año pasado",
       "A broker can run the real number \u2014 this quiz cannot"
     ]
   },
   over_400fpl: {
-    headline: "Sobre el tope de subsidio 2026, el Mercado suele no tener crédito fiscal",
+    headline: "Sobre el tope de subsidio de 2027, el Mercado suele no tener crédito fiscal",
     link: "/es/seguro-medico-privado-miami",
     linkLabel: "Planes privados en Miami",
-    body: "Enhanced subsidies expired after 2025. Earning even $1 over 400% FPL usually means the full premium. We still compare Marketplace vs. private \u2014 the cheaper lane is not always obvious.",
+    body: "Los subsidios adicionales terminaron después de 2025. Ganar aunque sea $1 sobre el 400% FPL suele significar pagar la prima completa. Igual comparamos el Mercado vs. privado \u2014 la opción más barata no siempre es obvia.",
     bullets: [
       "Mercado a precio completo vs. planes privados",
-      "If your income will drop this year, say so \u2014 the cliff is all-or-nothing",
+      "Si tu ingreso va a bajar en 2027, dínoslo \u2014 el tope es todo o nada",
       "Médicos y deducible suelen importar más que el precio mensual"
     ]
   },
   unsure: {
-    headline: "We\u2019ll run your subsidy check \u2014 it takes one conversation",
+    headline: "Revisamos tu subsidio \u2014 basta una conversación",
     link: "/es/planes-aca-miami",
     linkLabel: "Cómo funcionan los subsidios del Mercado",
-    body: "You do not need a perfect income number to start. We estimate from pay stubs or last year\u2019s return, then compare plans.",
+    body: "No necesitas un ingreso exacto para empezar. Lo estimamos con tus talones de pago o la declaración del año pasado y luego comparamos planes.",
     bullets: [
       "Tamaño del hogar + un rango aproximado de ingreso basta para empezar",
-      "Credits use this year\u2019s estimate, so a raise or a job loss changes the number",
+      "Los créditos usan tu estimado de 2027, así que un aumento o perder el empleo cambia el número",
       "También puede llamar al 1-800-380-6821 y saltarse el formulario"
     ]
   }
@@ -848,7 +850,7 @@ function fmtUSD(n) {
 
 function renderQ4Labels() {
   const sz  = Math.min(getHHSize(), 4);
-  const fpl = FPL_2025[sz];
+  const fpl = FPL_2026[sz];
   const lo  = fmtUSD(fpl.fpl100);
   const hi  = fmtUSD(fpl.fpl400);
   document.getElementById('q4-under-label').textContent = 'Menos de ' + lo;
@@ -1068,7 +1070,7 @@ async function submitContact() {
   btn.disabled = true; btn.textContent = 'Enviando\u2026';
 
   const sz  = Math.min(getHHSize(), 4);
-  const fpl = FPL_2025[sz];
+  const fpl = FPL_2026[sz];
 
   const otherText = (document.getElementById('other-input') || {}).value || '';
 
