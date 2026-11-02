@@ -106,7 +106,7 @@ This section is for you if your income is over the subsidy limit ($63,840 for on
 
 See how we [compare private health insurance plans in Miami](/private-health-insurance-miami/), or send us your details below. We'll quote private and ACA options side by side, with your COBRA price, at no cost.
 
-<div class="inline-cta"><div class="inline-cta-text"><strong>Over the subsidy limit?</strong><span>Get private and ACA quotes next to your COBRA price, the same day, in English or Spanish.</span></div><a href="#cobra-quote" class="inline-cta-btn">Get my private quote →</a></div>
+<div class="inline-cta private-route-cta"><div class="inline-cta-text"><strong>Healthy and paying too much for COBRA?</strong><span>See how a private plan compares with your COBRA price. Ask for a free quote, in English or Spanish.</span></div><a href="/private-health-insurance-miami/#priv-quote-form" class="inline-cta-btn" onclick="if(typeof gtag==='function')gtag('event','contact_click',{page:location.pathname,position:'cobra_post_private',target:'private_page_form'})">Get my private quote →</a></div>
 
 ## When COBRA still makes sense
 

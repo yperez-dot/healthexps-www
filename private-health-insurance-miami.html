@@ -131,6 +131,30 @@
     },
     {
       "@type": "Question",
+      "name": "Can I switch from COBRA to a private plan?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. Some private plans accept applications any month, so you don't need a Special Enrollment Period to apply. The private plans we offer are short-term plans that ask health questions and don't cover pre-existing conditions, so we check that first. If you drop COBRA on your own outside Open Enrollment, that doesn't open a Special Enrollment Period for a Marketplace plan, so compare before you cancel."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is a private plan cheaper than COBRA?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "It can be, especially if you're healthy. With COBRA you usually pay the full premium, including your employer's old share, plus 2%. A private plan is priced on your age and health, so ask for a quote and we'll put it next to your COBRA price."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "I have a pre-existing condition. Should I leave COBRA?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Usually not for a private plan, because the private plans we offer don't cover pre-existing conditions. A Marketplace plan must cover them, and losing job coverage lets you enroll from 60 days before to 60 days after. COBRA keeps your same plan and doctors. We'll help you compare both."
+      }
+    },
+    {
+      "@type": "Question",
       "name": "Does it cost anything to use a broker?",
       "acceptedAnswer": {
         "@type": "Answer",
@@ -454,22 +478,19 @@ img { max-width: 100%; height: auto; }
         </div>
       </div>
 
-            <!-- COBRA ALTERNATIVES (private-deepen-oct12) -->
+            <!-- LEAVING COBRA (cobra-private-nov2; replaces private-deepen-oct12 COBRA block) -->
       <section id="cobra-alternatives" style="background:#fff;padding:clamp(40px,7vw,64px) clamp(20px,5vw,56px)">
         <div style="max-width:960px;margin:0 auto">
           <div class="priv-callout" style="border-left-color:#3F2566;background:#f7f2fb">
-            <h2 style="font-family:Poppins,sans-serif;font-size:clamp(22px,3.2vw,28px);font-weight:700;color:#241a30;margin:0 0 12px">Leaving a job? Compare COBRA alternatives first</h2>
-            <p>With COBRA you usually pay 100% of the premium, including the part your employer used to pay, plus a small administrative fee. Before you sign up, compare it with a Marketplace or private plan.</p>
+            <h2 style="font-family:Poppins,sans-serif;font-size:clamp(22px,3.2vw,28px);font-weight:700;color:#241a30;margin:0 0 12px">Paying for COBRA? See if a private plan costs less</h2>
+            <p>COBRA keeps your job plan, but you usually pay the full premium, including the part your employer used to pay, plus 2%. That's why many people compare other options before they sign up or stay on it.</p>
             <ul style="margin:0 0 18px 20px;padding:0;color:#3a2f47;font-size:17px;line-height:1.7">
-              <li>Losing job-based coverage gives you <strong>60 days</strong> to pick a Marketplace plan with a Special Enrollment Period.</li>
-              <li>If you start COBRA and later drop it on your own outside Open Enrollment, that alone does <strong>not</strong> open a Special Enrollment Period, so compare before you choose.</li>
-              <li>When COBRA runs out, you get another 60 days to enroll.</li>
+              <li><strong>Healthy and over the subsidy limit?</strong> A private plan may cost less than COBRA. Prices depend on your age and health, so ask for a quote and we'll put it next to your COBRA price.</li>
+              <li><strong>What the private plans are:</strong> short-term plans that use national PPO or EPO-style networks (UnitedHealthcare, Aetna or Cigna). They ask health questions and don't cover pre-existing conditions.</li>
+              <li><strong>Have a health condition or ongoing care?</strong> A Marketplace plan must cover pre-existing conditions, and losing job coverage gives you <strong>60 days</strong> to enroll. Dropping COBRA on your own outside Open Enrollment doesn't open that window, so compare first.</li>
             </ul>
-            <div style="display:flex;gap:12px;flex-wrap:wrap">
-              <a href="/cobra-alternatives-miami/" style="display:inline-flex;align-items:center;justify-content:center;min-height:48px;background:#EA158C;color:#fff;padding:14px 26px;border-radius:12px;font-weight:700;font-size:19px;text-decoration:none">See COBRA alternatives in Miami →</a>
-              <a href="/blog/cobra-vs-aca-marketplace-miami/" style="display:inline-flex;align-items:center;justify-content:center;min-height:48px;background:#fff;color:#3F2566;border:2px solid #3F2566;padding:12px 24px;border-radius:12px;font-weight:700;font-size:18px;text-decoration:none">COBRA vs ACA Marketplace</a>
-            </div>
-            <p style="font-size:15px;color:#5a5068;line-height:1.6;margin:16px 0 0">Source: <a href="https://www.healthcare.gov/unemployed/cobra-coverage/" rel="noopener" target="_blank" style="color:#3F2566">HealthCare.gov, COBRA coverage</a>.</p>
+            <a href="#priv-quote-form" onclick="if(typeof gtag==='function')gtag('event','contact_click',{page:location.pathname,position:'cobra_section',target:'priv_quote_form'})" style="display:inline-flex;align-items:center;justify-content:center;min-height:48px;background:#452068;color:#fff;padding:14px 26px;border-radius:12px;font-weight:700;font-size:19px;text-decoration:none">Compare my COBRA price →</a>
+            <p style="font-size:15px;color:#5a5068;line-height:1.6;margin:16px 0 0">Sources: <a href="https://www.dol.gov/agencies/ebsa/about-ebsa/our-activities/resource-center/faqs/cobra-continuation-health-coverage-workers" rel="noopener" target="_blank" style="color:#3F2566">U.S. Department of Labor, COBRA FAQs</a>; HealthCare.gov on <a href="https://www.healthcare.gov/unemployed/cobra-coverage/" rel="noopener" target="_blank" style="color:#3F2566">COBRA coverage</a>, <a href="https://www.healthcare.gov/coverage-outside-open-enrollment/special-enrollment-period/" rel="noopener" target="_blank" style="color:#3F2566">Special Enrollment Periods</a> and <a href="https://www.healthcare.gov/coverage/pre-existing-conditions/" rel="noopener" target="_blank" style="color:#3F2566">pre-existing conditions</a>. More: <a href="/blog/cobra-vs-aca-marketplace-miami/" style="color:#3F2566">COBRA vs ACA Marketplace in Miami</a>.</p>
           </div>
         </div>
       </section>
@@ -981,6 +1002,21 @@ img { max-width: 100%; height: auto; }
           <details style="background:#fff;border:1px solid #ece5f0;border-radius:4px;overflow:hidden;">
             <summary style="padding:20px 24px;font-weight:700;font-size:18px;color:#241a30;cursor:pointer;list-style:none;display:flex;justify-content:space-between;align-items:center;">I am leaving my job. What are my COBRA alternatives?<span style="font-size:20px;color:#3F2566;flex-shrink:0;margin-left:12px;">+</span></summary>
             <div style="padding:0 24px 20px;font-size:18px;color:#3a2f47;line-height:1.7;">With COBRA you usually pay 100% of the premium, including the part your employer used to pay, plus a small administrative fee. Losing job-based coverage opens a 60-day Special Enrollment Period for a Marketplace plan, so you can compare it with COBRA first. If you start COBRA and later drop it on your own outside Open Enrollment, that alone does not qualify you for a Special Enrollment Period.</div>
+          </details>
+
+          <details style="background:#fff;border:1px solid #ece5f0;border-radius:4px;overflow:hidden;">
+            <summary style="padding:20px 24px;font-weight:700;font-size:18px;color:#241a30;cursor:pointer;list-style:none;display:flex;justify-content:space-between;align-items:center;">Can I switch from COBRA to a private plan?<span style="font-size:20px;color:#3F2566;flex-shrink:0;margin-left:12px;">+</span></summary>
+            <div style="padding:0 24px 20px;font-size:18px;color:#3a2f47;line-height:1.7;">Yes. Some private plans accept applications any month, so you don't need a Special Enrollment Period to apply. The private plans we offer are short-term plans that ask health questions and don't cover pre-existing conditions, so we check that first. If you drop COBRA on your own outside Open Enrollment, that doesn't open a Special Enrollment Period for a Marketplace plan, so compare before you cancel.</div>
+          </details>
+
+          <details style="background:#fff;border:1px solid #ece5f0;border-radius:4px;overflow:hidden;">
+            <summary style="padding:20px 24px;font-weight:700;font-size:18px;color:#241a30;cursor:pointer;list-style:none;display:flex;justify-content:space-between;align-items:center;">Is a private plan cheaper than COBRA?<span style="font-size:20px;color:#3F2566;flex-shrink:0;margin-left:12px;">+</span></summary>
+            <div style="padding:0 24px 20px;font-size:18px;color:#3a2f47;line-height:1.7;">It can be, especially if you're healthy. With COBRA you usually pay the full premium, including your employer's old share, plus 2%. A private plan is priced on your age and health, so ask for a quote and we'll put it next to your COBRA price.</div>
+          </details>
+
+          <details style="background:#fff;border:1px solid #ece5f0;border-radius:4px;overflow:hidden;">
+            <summary style="padding:20px 24px;font-weight:700;font-size:18px;color:#241a30;cursor:pointer;list-style:none;display:flex;justify-content:space-between;align-items:center;">I have a pre-existing condition. Should I leave COBRA?<span style="font-size:20px;color:#3F2566;flex-shrink:0;margin-left:12px;">+</span></summary>
+            <div style="padding:0 24px 20px;font-size:18px;color:#3a2f47;line-height:1.7;">Usually not for a private plan, because the private plans we offer don't cover pre-existing conditions. A Marketplace plan must cover them, and losing job coverage lets you enroll from 60 days before to 60 days after. COBRA keeps your same plan and doctors. We'll help you compare both.</div>
           </details>
 
           <details style="background:#fff;border:1px solid #ece5f0;border-radius:4px;overflow:hidden;">

@@ -796,7 +796,13 @@ img { max-width: 100%; height: auto; }
     btn.disabled = true;
     btn.textContent = 'Sending...';
 
+    // Attribution (cobra-private-nov2): which page sent the visitor to /contact/
+    var _ref = document.referrer || '';
+    var _fromPage = '(direct)';
+    try { if (_ref) { var _ru = new URL(_ref); _fromPage = (_ru.host === location.host) ? _ru.pathname : _ru.host; } } catch (_e) {}
     var payload = Object.assign({}, fields, guard.meta(), {
+      referrer: _ref,
+      from_page: _fromPage,
       source_key: 'en-contact',
       source: 'Contact Page Form',
       coverage_type: coverage,
@@ -816,7 +822,7 @@ img { max-width: 100%; height: auto; }
           document.getElementById('cSuccess').style.display = 'block';
           if (typeof gtag === 'function') {
             gtag('event', 'contact_form_submit', { page: window.location.pathname });
-            gtag('event', 'generate_lead', { campaign: 'contact', language: 'en', page: window.location.pathname });
+            gtag('event', 'generate_lead', { campaign: 'contact', language: 'en', page: window.location.pathname, from_page: _fromPage });
           }
           return;
         }
