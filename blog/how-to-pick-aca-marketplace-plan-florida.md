@@ -49,17 +49,18 @@ SEPs typically give you a **60-day window** to enroll after the qualifying event
 
 One of the most important things to know about the ACA Marketplace is that **most Floridians who enroll receive financial help**. Subsidies — formally called premium tax credits — are available based on your income.
 
-### Income Thresholds for 2026
+### Income Thresholds for 2027 Coverage
 
-ACA subsidies are available to individuals and families earning between **100% and 400% of the Federal Poverty Level (FPL)**. In 2026 the enhanced subsidies expired and the 400% FPL cliff returned. Above $62,600 for a single filer, the credit is zero.
+ACA subsidies are available to individuals and families earning between **100% and 400% of the Federal Poverty Level (FPL)**. The extra pandemic-era subsidies ended December 31, 2025, so the 400% FPL cutoff is back. For 2027 coverage, above $63,840 for a single filer, the credit is zero.
 
-General 2026 income guidelines (approximate):
+2027 coverage uses the [2026 HHS poverty guidelines](https://aspe.hhs.gov/topics/poverty-economic-mobility/poverty-guidelines) ([HealthCare.gov](https://www.healthcare.gov/glossary/federal-poverty-level-fpl/)):
 
 | Household Size | 100% FPL | 400% FPL |
 |---|---|---|
-| 1 person | ~$15,650 | ~$62,600 |
-| 2 people | ~$20,440 | ~$81,760 |
-| 4 people | ~$32,150 | ~$128,600 |
+| 1 person | $15,960 | $63,840 |
+| 2 people | $21,640 | $86,560 |
+| 3 people | $27,320 | $109,280 |
+| 4 people | $33,000 | $132,000 |
 
 **Important:** If you qualify for Medicaid, you're not eligible for Marketplace subsidies. If you have affordable employer coverage offered to you, your subsidy eligibility may be limited.
 
@@ -78,7 +79,7 @@ ACA plans are categorized by "metal tiers" that describe how costs are split bet
 - **Insurance pays:** ~60% of costs
 - **You pay:** ~40% of costs
 - **Premiums:** Lowest
-- **Deductibles:** Highest ($6,000–$8,000 is common)
+- **Deductibles:** Highest
 - **Best for:** Healthy people who rarely use medical care and want the cheapest monthly premium with a safety net for emergencies
 
 ### Silver
@@ -99,7 +100,7 @@ ACA plans are categorized by "metal tiers" that describe how costs are split bet
 - **Insurance pays:** ~90% of costs
 - **You pay:** ~10% of costs
 - **Premiums:** Highest
-- **Deductibles:** Lowest (often $0)
+- **Deductibles:** Lowest
 - **Best for:** People with high ongoing medical needs who want maximum cost predictability
 
 ---
@@ -113,7 +114,7 @@ Not all plans include the same providers. Check whether your primary care doctor
 Each plan has a **formulary** — a list of covered drugs. If you take regular medications, check that your prescriptions are on the plan's formulary and review the cost tier they fall under.
 
 ### 3. What Is the Out-of-Pocket Maximum?
-This is the most you'll ever pay in a single year for covered services. Once you hit this limit, insurance covers 100%. For 2026, federal law caps out-of-pocket maximums at around $10,600 for individuals. Look for plans with lower caps if you anticipate significant healthcare use.
+This is the most you'll ever pay in a single year for covered services. Once you hit this limit, insurance covers 100%. For 2027, federal rules cap Marketplace out-of-pocket maximums at $12,000 for an individual and $24,000 for a family ([HealthCare.gov](https://www.healthcare.gov/glossary/out-of-pocket-maximum-limit/)). Look for plans with lower caps if you anticipate significant healthcare use.
 
 ### 4. HMO vs. PPO vs. EPO
 - **HMO (Health Maintenance Organization):** Requires a primary care physician referral for specialists. Lower cost, more restricted network.

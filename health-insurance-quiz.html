@@ -575,12 +575,12 @@ a{color:var(--purple);text-decoration:none;}
 
     <!-- STEP 4: Income (FPL-based, recalculates from Q3) -->
     <div class="step" id="step-4" style="display:none;">
-      <div class="step-q">What is your estimated household income for 2026?</div>
-      <div class="step-hint">Subsidies are based on this year&rsquo;s estimated income &mdash; not last year&rsquo;s. If your income dropped, that works in your favor.</div>
+      <div class="step-q">What is your estimated household income for 2027?</div>
+      <div class="step-hint">Savings for 2027 coverage are based on your expected 2027 income &mdash; not last year&rsquo;s. If your income is dropping, that can work in your favor.</div>
       <div class="options-grid">
-        <button class="option-grid-btn" id="q4-btn-under" onclick="selectGrid(this,'income','under_100fpl')"><div class="ogb-main" id="q4-under-label">Under $15,650</div><div class="ogb-sub">Florida did not expand Medicaid. Kids, pregnancy, and some disabilities may still qualify</div></button>
-        <button class="option-grid-btn" id="q4-btn-range" onclick="selectGrid(this,'income','100_400fpl')"><div class="ogb-main" id="q4-range-label">$15,650 &ndash; $62,600</div><div class="ogb-sub">This is the range where premium tax credits apply in 2026</div></button>
-        <button class="option-grid-btn" id="q4-btn-over" onclick="selectGrid(this,'income','over_400fpl')"><div class="ogb-main" id="q4-over-label">Over $62,600</div><div class="ogb-sub">Above the 2026 subsidy cliff &mdash; Marketplace often has no tax credit</div></button>
+        <button class="option-grid-btn" id="q4-btn-under" onclick="selectGrid(this,'income','under_100fpl')"><div class="ogb-main" id="q4-under-label">Under $15,960</div><div class="ogb-sub">Florida did not expand Medicaid. Kids, pregnancy, and some disabilities may still qualify</div></button>
+        <button class="option-grid-btn" id="q4-btn-range" onclick="selectGrid(this,'income','100_400fpl')"><div class="ogb-main" id="q4-range-label">$15,960 &ndash; $63,840</div><div class="ogb-sub">This is the range where premium tax credits apply for 2027 coverage</div></button>
+        <button class="option-grid-btn" id="q4-btn-over" onclick="selectGrid(this,'income','over_400fpl')"><div class="ogb-main" id="q4-over-label">Over $63,840</div><div class="ogb-sub">Above the 2027 subsidy cutoff &mdash; Marketplace often has no tax credit</div></button>
         <button class="option-grid-btn" onclick="selectGrid(this,'income','unsure')"><div class="ogb-main">I&rsquo;m not sure</div><div class="ogb-sub">We&rsquo;ll help you estimate it</div></button>
       </div>
     </div>
@@ -678,14 +678,16 @@ a{color:var(--purple);text-decoration:none;}
 </div>
 
 <script>
-// ── FPL 2025 (used for 2026 Marketplace coverage) ────────────────────────────
-// Source: HHS ASPE & Federal Register Vol.90 No.11, Jan 17 2025
-// REFRESH: November 2026 for 2027 coverage year
-const FPL_2025 = {
-  1: { fpl100: 15650,  fpl400: 62600  },
-  2: { fpl100: 21150,  fpl400: 84600  },
-  3: { fpl100: 26650,  fpl400: 106600 },
-  4: { fpl100: 32150,  fpl400: 128600 }
+// ── FPL 2026 (used for 2027 Marketplace coverage) ────────────────────────────
+// Source: HHS ASPE 2026 poverty guidelines (48 states + DC), Federal Register Jan 15 2026
+// https://aspe.hhs.gov/topics/poverty-economic-mobility/poverty-guidelines
+// HealthCare.gov: prior-year guidelines set next year's Marketplace savings.
+// REFRESH: November 2027 for 2028 coverage year (use 2027 guidelines)
+const FPL_2026 = {
+  1: { fpl100: 15960,  fpl400: 63840  },
+  2: { fpl100: 21640,  fpl400: 86560  },
+  3: { fpl100: 27320,  fpl400: 109280 },
+  4: { fpl100: 33000,  fpl400: 132000 }
 };
 
 // ── Result definitions ────────────────────────────────────────────────────────
@@ -719,7 +721,7 @@ const RESULTS = {
     body: "Carriers change premiums, networks, and formularies every year. Your current plan is not guaranteed to stay the best fit.",
     bullets: [
       "Compare this year\u2019s Silver and Gold options before you auto-renew",
-      "Recheck the subsidy using this year\u2019s estimated income",
+      "Recheck the subsidy using your expected 2027 income",
       "2027 open enrollment starts November 1"
     ]
   },
@@ -738,11 +740,11 @@ const RESULTS = {
     headline: "At your age the unsubsidized premium is what hurts",
     link: "/private-health-insurance-miami",
     linkLabel: "Private plans in Miami",
-    body: "Above 400% of the federal poverty level, the 2026 Marketplace usually has no tax credit. We compare full-price Marketplace against private options.",
+    body: "Above 400% of the federal poverty level, 2027 Marketplace plans usually have no tax credit. We compare full-price Marketplace against private options.",
     bullets: [
       "Unsubsidized Marketplace vs. private plans, side by side",
       "Networks and deductibles matter more than the monthly premium alone",
-      "If your 2026 income dropped, you may still qualify for a credit \u2014 tell us"
+      "If your 2027 income will drop, you may still qualify for a credit \u2014 tell us"
     ]
   },
   under30_subsidy: {
@@ -771,21 +773,21 @@ const RESULTS = {
     headline: "You\u2019re in the range where premium tax credits apply",
     link: "/aca-plans-miami",
     linkLabel: "ACA Marketplace plans in Miami",
-    body: "For 2026, households between 100% and 400% of the federal poverty level can get a premium tax credit. Exact dollars depend on income, household size, and your ZIP.",
+    body: "For 2027 coverage, households between 100% and 400% of the federal poverty level can get a premium tax credit. Exact dollars depend on income, household size, and your ZIP.",
     bullets: [
       "Silver is usually the plan we compare first when a credit applies",
-      "Your credit is based on this year\u2019s estimated income, not last year\u2019s",
+      "Your 2027 credit is based on your expected 2027 income, not last year\u2019s",
       "A broker can run the real number \u2014 this quiz cannot"
     ]
   },
   over_400fpl: {
-    headline: "Above the 2026 subsidy cliff, Marketplace often has no tax credit",
+    headline: "Above the 2027 subsidy cutoff, Marketplace often has no tax credit",
     link: "/private-health-insurance-miami",
     linkLabel: "Private plans in Miami",
     body: "Enhanced subsidies expired after 2025. Earning even $1 over 400% FPL usually means the full premium. We still compare Marketplace vs. private \u2014 the cheaper lane is not always obvious.",
     bullets: [
       "Full-price Marketplace vs. private plans",
-      "If your income will drop this year, say so \u2014 the cliff is all-or-nothing",
+      "If your income will drop in 2027, say so \u2014 the cutoff is all-or-nothing",
       "Doctors and deductible often matter more than the monthly price"
     ]
   },
@@ -796,7 +798,7 @@ const RESULTS = {
     body: "You do not need a perfect income number to start. We estimate from pay stubs or last year\u2019s return, then compare plans.",
     bullets: [
       "Household size + a rough income range is enough to start",
-      "Credits use this year\u2019s estimate, so a raise or a job loss changes the number",
+      "Credits use your 2027 estimate, so a raise or a job loss changes the number",
       "You can also call 1-800-380-6821 and skip the form"
     ]
   }
@@ -848,7 +850,7 @@ function fmtUSD(n) {
 
 function renderQ4Labels() {
   const sz  = Math.min(getHHSize(), 4);
-  const fpl = FPL_2025[sz];
+  const fpl = FPL_2026[sz];
   const lo  = fmtUSD(fpl.fpl100);
   const hi  = fmtUSD(fpl.fpl400);
   document.getElementById('q4-under-label').textContent = 'Under ' + lo;
@@ -1068,7 +1070,7 @@ async function submitContact() {
   btn.disabled = true; btn.textContent = 'Sending\u2026';
 
   const sz  = Math.min(getHHSize(), 4);
-  const fpl = FPL_2025[sz];
+  const fpl = FPL_2026[sz];
 
   const otherText = (document.getElementById('other-input') || {}).value || '';
 

@@ -582,12 +582,12 @@ src="https://www.facebook.com/tr?id=3257807051192879&ev=PageView&noscript=1"/></
 
     <!-- STEP 4: Income (FPL-based, recalculates from Q3) -->
     <div class="step" id="step-4" style="display:none;">
-      <div class="step-q">What is your estimated household income for 2026?</div>
-      <div class="step-hint">Subsidies are based on this year&rsquo;s estimated income &mdash; not last year&rsquo;s. If your income dropped, that works in your favor.</div>
+      <div class="step-q">What is your estimated household income for 2027?</div>
+      <div class="step-hint">Savings for 2027 coverage are based on your expected 2027 income &mdash; not last year&rsquo;s. If your income is dropping, that can work in your favor.</div>
       <div class="options-grid">
-        <button class="option-grid-btn" id="q4-btn-under" onclick="selectGrid(this,'income','under_100fpl')"><div class="ogb-main" id="q4-under-label">Under $15,650</div><div class="ogb-sub">We&rsquo;ll check what&rsquo;s available to you in Florida</div></button>
-        <button class="option-grid-btn" id="q4-btn-range" onclick="selectGrid(this,'income','100_400fpl')"><div class="ogb-main" id="q4-range-label">$15,650 &ndash; $62,600</div><div class="ogb-sub">This is the range where premium tax credits apply</div></button>
-        <button class="option-grid-btn" id="q4-btn-over" onclick="selectGrid(this,'income','over_400fpl')"><div class="ogb-main" id="q4-over-label">Over $62,600</div><div class="ogb-sub">Above the subsidy cutoff &mdash; private plans usually compare better</div></button>
+        <button class="option-grid-btn" id="q4-btn-under" onclick="selectGrid(this,'income','under_100fpl')"><div class="ogb-main" id="q4-under-label">Under $15,960</div><div class="ogb-sub">We&rsquo;ll check what&rsquo;s available to you in Florida</div></button>
+        <button class="option-grid-btn" id="q4-btn-range" onclick="selectGrid(this,'income','100_400fpl')"><div class="ogb-main" id="q4-range-label">$15,960 &ndash; $63,840</div><div class="ogb-sub">This is the range where premium tax credits apply for 2027 coverage</div></button>
+        <button class="option-grid-btn" id="q4-btn-over" onclick="selectGrid(this,'income','over_400fpl')"><div class="ogb-main" id="q4-over-label">Over $63,840</div><div class="ogb-sub">Above the subsidy cutoff &mdash; private plans usually compare better</div></button>
         <button class="option-grid-btn" onclick="selectGrid(this,'income','unsure')"><div class="ogb-main">I&rsquo;m not sure</div><div class="ogb-sub">We&rsquo;ll help you estimate it</div></button>
       </div>
     </div>
@@ -678,14 +678,16 @@ src="https://www.facebook.com/tr?id=3257807051192879&ev=PageView&noscript=1"/></
 </div>
 
 <script>
-// ── FPL 2025 (used for 2026 Marketplace coverage) ────────────────────────────
-// Source: HHS ASPE & Federal Register Vol.90 No.11, Jan 17 2025
-// REFRESH: November 2026 for 2027 coverage year
-const FPL_2025 = {
-  1: { fpl100: 15650,  fpl400: 62600  },
-  2: { fpl100: 21150,  fpl400: 84600  },
-  3: { fpl100: 26650,  fpl400: 106600 },
-  4: { fpl100: 32150,  fpl400: 128600 }
+// ── FPL 2026 (used for 2027 Marketplace coverage) ────────────────────────────
+// Source: HHS ASPE 2026 poverty guidelines (48 states + DC), Federal Register Jan 15 2026
+// https://aspe.hhs.gov/topics/poverty-economic-mobility/poverty-guidelines
+// HealthCare.gov: prior-year guidelines set next year's Marketplace savings.
+// REFRESH: November 2027 for 2028 coverage year (use 2027 guidelines)
+const FPL_2026 = {
+  1: { fpl100: 15960,  fpl400: 63840  },
+  2: { fpl100: 21640,  fpl400: 86560  },
+  3: { fpl100: 27320,  fpl400: 109280 },
+  4: { fpl100: 33000,  fpl400: 132000 }
 };
 
 // ── Result definitions ────────────────────────────────────────────────────────
@@ -722,7 +724,7 @@ function fmtUSD(n) {
 
 function renderQ4Labels() {
   const sz  = Math.min(getHHSize(), 4);
-  const fpl = FPL_2025[sz];
+  const fpl = FPL_2026[sz];
   const lo  = fmtUSD(fpl.fpl100);
   const hi  = fmtUSD(fpl.fpl400);
   document.getElementById('q4-under-label').textContent = 'Under ' + lo;
@@ -911,7 +913,7 @@ async function submitContact() {
   btn.disabled = true; btn.textContent = 'Sending\u2026';
 
   const sz  = Math.min(getHHSize(), 4);
-  const fpl = FPL_2025[sz];
+  const fpl = FPL_2026[sz];
 
   const otherText = (document.getElementById('other-input') || {}).value || '';
 

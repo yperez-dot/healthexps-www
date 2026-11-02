@@ -1,15 +1,16 @@
 ---
 layout: layouts/blog-post.njk
 category: "ACA & Marketplace"
-title: "ACA Health Insurance in Miami: Your 2026 Guide to Plans, Costs & Subsidies"
+title: "ACA Health Insurance in Miami: Your 2027 Guide to Plans, Costs & Subsidies"
 description: "Confused about ACA Marketplace plans in Miami-Dade and Broward? Learn what plans are available, how subsidies work, and how to enroll. Bilingual brokers, no cost."
 date: 2026-07-18
+dateModified: "2026-11-02"
 lang: en
 permalink: /blog/aca-marketplace-health-insurance-miami-2026/
 hreflang_es: /es/blog/seguro-de-salud-aca-miami-2026/
 ---
 
-# ACA Health Insurance in Miami: Your 2026 Guide to Plans, Costs & Subsidies
+# ACA Health Insurance in Miami: Your 2027 Guide to Plans, Costs & Subsidies
 
 If you don't have health insurance through a job or Medicare, the ACA Marketplace — also called the Health Insurance Marketplace or Exchange — is where most Miami-Dade and Broward residents can find affordable coverage. Subsidies are still available for 2027 coverage, but the extra pandemic-era savings ended on December 31, 2025 ([HealthCare.gov](https://www.healthcare.gov/keep-or-change-plan/)), so check your own savings before you pick a plan.
 
