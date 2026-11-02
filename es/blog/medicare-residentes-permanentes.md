@@ -23,15 +23,15 @@ Aquí están, sin rodeos.
 
 ## La regla de los 5 años
 
-Para calificar para Medicare como residente permanente, usted necesita **5 años consecutivos de residencia legal continua** en Estados Unidos antes de poder inscribirse — además de cumplir 65 años (o calificar por discapacidad). Los cinco años no tienen que ser justo antes de cumplir 65; lo que importa es que sean cinco años seguidos de residencia legal en algún momento.
+Para calificar para Medicare como residente permanente, necesitas **5 años consecutivos de residencia legal continua** en Estados Unidos antes de poder inscribirse — además de cumplir 65 años (o calificar por discapacidad). Los cinco años no tienen que ser justo antes de cumplir 65; lo que importa es que sean cinco años seguidos de residencia legal en algún momento.
 
-## ¿Su Parte A es gratis o hay que comprarla?
+## ¿Tu Parte A es gratis o hay que comprarla?
 
-Aquí es donde se separan los caminos, y depende de sus **créditos de trabajo** (o los de su cónyuge):
+Aquí es donde se separan los caminos, y depende de tus **créditos de trabajo** (o los de tu cónyuge):
 
-**Si usted tiene 40 créditos de trabajo** (aproximadamente 10 años trabajando y pagando impuestos de Medicare, ya sea en EE. UU. o en un país con acuerdo de totalización con el Seguro Social), su Parte A es **gratis**, igual que para cualquier ciudadano.
+**Si tienes 40 créditos de trabajo** (aproximadamente 10 años trabajando y pagando impuestos de Medicare, ya sea en EE. UU. o en un país con acuerdo de totalización con el Seguro Social), tu Parte A es **gratis**, igual que para cualquier ciudadano.
 
-**Si usted tiene menos de 40 créditos**, puede **comprar** la Parte A:
+**Si tienes menos de 40 créditos**, puedes **comprar** la Parte A:
 
 - Con 30 a 39 créditos: prima reducida de la Parte A — $311 al mes en 2026
 - Con menos de 30 créditos: prima completa de la Parte A — $565 al mes en 2026
@@ -42,36 +42,36 @@ Comprar la Parte A no es automático — hay que inscribirse activamente, y la P
 
 ## Situaciones comunes que vemos en Doral
 
-**"Mi esposo trabajó toda su vida allá, pero yo nunca trabajé en Estados Unidos."** Sus créditos de trabajo pueden contar a través del historial de su cónyuge en ciertos casos — vale la pena revisarlo antes de asumir que tiene que pagar la prima completa.
+**"Mi esposo trabajó toda su vida allá, pero yo nunca trabajé en Estados Unidos."** Tus créditos de trabajo pueden contar a través del historial de tu cónyuge en ciertos casos — vale la pena revisarlo antes de asumir que tienes que pagar la prima completa.
 
-**"Llevo 6 años con green card pero solo trabajé 3 años aquí."** Ya cumple la regla de los 5 años de residencia. Sus créditos de trabajo determinan si su Parte A es gratis o si tiene que comprarla — son dos preguntas distintas.
+**"Llevo 6 años con green card pero solo trabajé 3 años aquí."** Ya cumples la regla de los 5 años de residencia. Tus créditos de trabajo determinan si tu Parte A es gratis o si tienes que comprarla — son dos preguntas distintas.
 
-**"Acabo de cumplir 65 pero llegué hace 2 años."** Todavía no cumple los 5 años de residencia — necesita esperar, o revisar cobertura del Mercado de Salud mientras tanto.
+**"Acabo de cumplir 65 pero llegué hace 2 años."** Todavía no cumples los 5 años de residencia — necesitas esperar, o revisar cobertura del Mercado de Salud mientras tanto.
 
 ## Por qué esto importa más de lo que parece
 
-Comprar la Parte A sin necesidad — o no comprarla cuando sí conviene — puede costar cientos de dólares al mes de diferencia. Y si usted no se inscribe cuando le corresponde por primera vez, puede enfrentar una **multa permanente** por inscripción tardía en la Parte B. Este es exactamente el tipo de caso donde vale la pena una conversación de 20 minutos antes de decidir solo.
+Comprar la Parte A sin necesidad — o no comprarla cuando sí conviene — puede costar cientos de dólares al mes de diferencia. Y si no te inscribes cuando te corresponde por primera vez, puedes enfrentar una **multa permanente** por inscripción tardía en la Parte B. Este es exactamente el tipo de caso donde vale la pena una conversación de 20 minutos antes de decidir solo.
 
 ## No lo resuelva solo — revíselo con nosotros
 
-Las reglas de créditos de trabajo, totalización y residencia se cruzan de formas distintas para cada familia. Nosotros las revisamos con usted, en español, sin costo. Llame al **1-800-380-6821** o [agende una cita gratuita](/es/reservar).
+Las reglas de créditos de trabajo, totalización y residencia se cruzan de formas distintas para cada familia. Nosotros las revisamos contigo, en español, sin costo. Llama al **1-800-380-6821** o [agenda una cita gratuita](/es/reservar).
 
 ## Preguntas frecuentes
 
 **¿Cuánto tiempo necesito tener green card para calificar para Medicare?**
-Necesita 5 años consecutivos de residencia legal en Estados Unidos, además de cumplir 65 años o calificar por discapacidad.
+Necesitas 5 años consecutivos de residencia legal en Estados Unidos, además de cumplir 65 años o calificar por discapacidad.
 
 **¿Mi Parte A de Medicare es gratis con green card?**
-Depende de sus créditos de trabajo. Con 40 créditos (aproximadamente 10 años trabajando), la Parte A es gratis. Con menos créditos, puede comprarla a una prima reducida o completa.
+Depende de tus créditos de trabajo. Con 40 créditos (aproximadamente 10 años trabajando), la Parte A es gratis. Con menos créditos, puedes comprarla a una prima reducida o completa.
 
 **¿Cuánto cuesta comprar la Parte A si no tengo suficientes créditos?**
 En 2026, la prima reducida es de $311 al mes para quienes tienen entre 30 y 39 créditos, y la prima completa es de $565 al mes para quienes tienen menos de 30 créditos.
 
 **¿Los créditos de trabajo de mi cónyuge cuentan para mí?**
-En ciertos casos, sí. Vale la pena revisar su situación específica con un corredor antes de asumir que no califica.
+En ciertos casos, sí. Vale la pena revisar tu situación específica con un corredor antes de asumir que no calificas.
 
 **¿Qué pasa si no me inscribo a tiempo?**
-Puede enfrentar una multa permanente por inscripción tardía en la Parte B, además de un posible período sin cobertura. Es importante confirmar sus fechas exactas antes de su cumpleaños número 65.
+Puedes enfrentar una multa permanente por inscripción tardía en la Parte B, además de un posible período sin cobertura. Es importante confirmar tus fechas exactas antes de tu cumpleaños número 65.
 
 <script type="application/ld+json">
 {
@@ -79,11 +79,11 @@ Puede enfrentar una multa permanente por inscripción tardía en la Parte B, ade
   "@type": "FAQPage",
   "inLanguage": "es",
   "mainEntity": [
-    {"@type": "Question", "name": "¿Cuánto tiempo necesito tener green card para calificar para Medicare?", "acceptedAnswer": {"@type": "Answer", "text": "Necesita 5 años consecutivos de residencia legal en Estados Unidos, además de cumplir 65 años o calificar por discapacidad."}},
-    {"@type": "Question", "name": "¿Mi Parte A de Medicare es gratis con green card?", "acceptedAnswer": {"@type": "Answer", "text": "Depende de sus créditos de trabajo. Con 40 créditos, aproximadamente 10 años trabajando, la Parte A es gratis. Con menos créditos, puede comprarla a una prima reducida o completa."}},
+    {"@type": "Question", "name": "¿Cuánto tiempo necesito tener green card para calificar para Medicare?", "acceptedAnswer": {"@type": "Answer", "text": "Necesitas 5 años consecutivos de residencia legal en Estados Unidos, además de cumplir 65 años o calificar por discapacidad."}},
+    {"@type": "Question", "name": "¿Mi Parte A de Medicare es gratis con green card?", "acceptedAnswer": {"@type": "Answer", "text": "Depende de tus créditos de trabajo. Con 40 créditos, aproximadamente 10 años trabajando, la Parte A es gratis. Con menos créditos, puedes comprarla a una prima reducida o completa."}},
     {"@type": "Question", "name": "¿Cuánto cuesta comprar la Parte A si no tengo suficientes créditos?", "acceptedAnswer": {"@type": "Answer", "text": "En 2026, la prima reducida es de $311 al mes para quienes tienen entre 30 y 39 créditos, y la prima completa es de $565 al mes para quienes tienen menos de 30 créditos."}},
-    {"@type": "Question", "name": "¿Los créditos de trabajo de mi cónyuge cuentan para mí?", "acceptedAnswer": {"@type": "Answer", "text": "En ciertos casos, sí. Vale la pena revisar su situación específica con un corredor antes de asumir que no califica."}},
-    {"@type": "Question", "name": "¿Qué pasa si no me inscribo a tiempo?", "acceptedAnswer": {"@type": "Answer", "text": "Puede enfrentar una multa permanente por inscripción tardía en la Parte B, además de un posible período sin cobertura."}}
+    {"@type": "Question", "name": "¿Los créditos de trabajo de mi cónyuge cuentan para mí?", "acceptedAnswer": {"@type": "Answer", "text": "En ciertos casos, sí. Vale la pena revisar tu situación específica con un corredor antes de asumir que no calificas."}},
+    {"@type": "Question", "name": "¿Qué pasa si no me inscribo a tiempo?", "acceptedAnswer": {"@type": "Answer", "text": "Puedes enfrentar una multa permanente por inscripción tardía en la Parte B, además de un posible período sin cobertura."}}
   ]
 }
 </script>

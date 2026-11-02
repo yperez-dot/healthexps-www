@@ -11,7 +11,7 @@ hreflang_es: /es/blog/seguro-de-salud-aca-miami-2026/
 
 # ACA Health Insurance in Miami: Your 2026 Guide to Plans, Costs & Subsidies
 
-If you don't have health insurance through a job or Medicare, the ACA Marketplace — also called the Health Insurance Marketplace or Exchange — is where most Miami-Dade and Broward residents can find affordable coverage. And in 2026, subsidies are significantly better than they were a few years ago, meaning many people qualify for lower premiums than they expect.
+If you don't have health insurance through a job or Medicare, the ACA Marketplace — also called the Health Insurance Marketplace or Exchange — is where most Miami-Dade and Broward residents can find affordable coverage. Subsidies are still available in 2026, but the extra pandemic-era savings ended on December 31, 2025 ([HealthCare.gov](https://www.healthcare.gov/keep-or-change-plan/)), so check your own savings before you pick a plan.
 
 Here's what you actually need to know.
 
@@ -36,7 +36,7 @@ The federal government offers two types of financial help:
 
 **2. Cost-Sharing Reductions (CSRs)** — lower your deductibles and out-of-pocket costs. These only apply if you choose a Silver plan and your income is below 250% FPL (roughly $39,000 for a single person).
 
-One important change since 2021: enhanced subsidies have made coverage more accessible, and many people who previously assumed they earned too much are now qualifying for meaningful premium reductions.
+One important change for 2026: the enhanced subsidies that started in 2021 expired at the end of 2025 and were not renewed by Congress ([KFF](https://www.kff.org/faqs/faqs-health-insurance-marketplace-and-the-aca/help-paying-marketplace-premiums-the-basics/what-kind-of-recent-changes-to-the-marketplace-premium-subsidies-have-happened-that-i-should-know-about/)). Many people now get less help, and some no longer qualify. The standard premium tax credit is still available, so update your income on your application to see your real savings ([HealthCare.gov](https://www.healthcare.gov/keep-or-change-plan/)).
 
 ## What Plans Are Available in Miami-Dade and Broward?
 
@@ -74,7 +74,7 @@ The only way to know your actual cost is to run your income through the calculat
 
 ## Common Mistakes to Avoid
 
-1. **Not enrolling because you assume it's too expensive.** With enhanced subsidies, many people qualify for plans under $100/month or even $0/month.
+1. **Not enrolling because you assume it's too expensive.** The enhanced subsidies ended in 2025, but the standard premium tax credit still lowers premiums for many households. Check your real price before you decide.
 2. **Picking the cheapest plan without checking the network.** Low-premium Bronze plans often have narrow networks — make sure your doctors and preferred hospitals are included.
 3. **Forgetting to report income changes mid-year.** If your income changes significantly, update your application. Underpaying subsidies now means a repayment at tax time.
 4. **Missing the SEP window.** You have 60 days from a qualifying event. Don't wait.
