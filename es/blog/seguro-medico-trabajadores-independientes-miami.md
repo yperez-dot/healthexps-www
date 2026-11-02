@@ -44,6 +44,8 @@ Según CuidadoDeSalud.gov, usted **trabaja por cuenta propia** si tiene un negoc
 
 **Los planes que no son ACA**, como los de corto plazo, no están sujetos a las reglas federales que prohíben excluir condiciones preexistentes ni a las que exigen cobertura completa ([CMS](https://www.cms.gov/newsroom/fact-sheets/short-term-limited-duration-insurance-and-independent-noncoordinated-excepted-benefits-coverage-cms), en inglés). Le explicamos las diferencias antes de que compre. Vea más en nuestra página de [seguro médico privado en Miami](/es/seguro-medico-privado-miami/).
 
+**Los planes privados que ofrecemos** son planes a corto plazo de Golden Rule (redes Choice o Choice Plus de UnitedHealthcare) y de Allstate Health Solutions (redes Aetna Open Choice PPO o Cigna PPO). Hacen preguntas de salud y no cubren condiciones preexistentes, así que con un tratamiento continuo lo mejor es empezar por el Mercado. El precio depende de la edad y la salud, y con una [cotización privada](/es/seguro-medico-privado-miami/#lead-form) se puede comparar con las opciones del Mercado.
+
 ## Cómo calcular su ingreso para el subsidio
 
 El Mercado le pide su **ingreso neto de trabajo independiente**, también llamado ganancia: lo que entra menos los gastos del negocio. Es la cifra que reporta en el Anexo C (Schedule C), y si los gastos son mayores, reporta una pérdida ([CuidadoDeSalud.gov](https://www.cuidadodesalud.gov/es/self-employed/income/)).
