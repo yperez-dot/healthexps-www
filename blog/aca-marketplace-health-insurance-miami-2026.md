@@ -80,7 +80,7 @@ Premiums vary by age, plan tier, tobacco use, and your subsidy amount, so we don
 
 Shopping the ACA Marketplace on your own is possible, but a licensed local broker can:
 - Run your subsidy estimate instantly
-- Compare every available plan in your zip code — not just the ones that appear first
+- Compare many of the available plans in your zip code — not just the ones that appear first
 - Make sure your current doctors are in-network before you enroll
 - Help you with SEP paperwork if you had a qualifying event
 
