@@ -337,6 +337,7 @@
 
     <div class="plan-rows" id="planRows"></div>
     <div class="includes-note">Total mensual estimado a los <span id="thisYearAge"></span> — incluye Parte B ($202.90/mes) y el gasto de bolsillo esperado. Los medicamentos van aparte: calcule unos $25–$60/mes de Parte D.</div>
+    <div class="includes-note">Usa el deducible HDG de 2026 ($2,870). El monto de 2027 aún no se ha anunciado.</div>
 
     <div class="plain-explain" id="plainExplain"></div>
 
@@ -369,7 +370,7 @@
       <div class="benefits-row"><span>Cargos del médico sobre la tarifa de Medicare</span><span class="yes">✓</span><span class="no">✗</span><span class="yes">✓*</span></div>
       <div class="benefits-row"><span>Emergencias en el extranjero</span><span class="yes">✓</span><span class="yes">✓</span><span class="yes">✓*</span></div>
       </div>
-      <div class="benefits-footnote">* Después de pagar usted el deducible anual de $3,050 (CMS, 2027). ** El Plan N cubre esto salvo un copago de hasta $20 por consulta y hasta $50 por urgencias que no terminen en ingreso.</div>
+      <div class="benefits-footnote">* Después de pagar usted el deducible anual de $2,870 (CMS, 2026). ** El Plan N cubre esto salvo un copago de hasta $20 por consulta y hasta $50 por urgencias que no terminen en ingreso.</div>
     </div>
 
     <button type="button" class="detail-toggle" onclick="toggleDetail('aboutDetails')" aria-expanded="false" id="aboutDetailsToggle">Sobre estos estimados <span id="aboutDetailsArrow">▾</span></button>
@@ -379,11 +380,12 @@
         <div class="about-h">Cómo lo calculamos</div>
         <ul>
           <li>Prima Parte B: $202.90/mes; deducible Parte B: $283/año (CMS, 2026)</li>
-          <li>Deducible Plan G HD: $3,050/año (CMS, 2027)</li>
+          <li>Deducible Plan G HD: $2,870/año (CMS, 2026)</li>
           <li>Primas por defecto: puntos medios de Florida a los 65, 70 y 75; las edades intermedias se interpolan</li>
           <li>Ingrese sus propias cotizaciones en el paso 2 si ya tiene precios</li>
           <li>Regla de cumpleaños de Florida: cerca de su cumpleaños suele poder cambiar a un Medigap igual o menor sin underwriting</li>
         </ul>
+        <div class="about-note">Usa el deducible HDG de 2026 ($2,870). El monto de 2027 aún no se ha anunciado.</div>
         <div class="about-note">El crecimiento anual es un estimado. No es el historial real de una póliza. Su ZIP, género, tabaco y aseguradora cambian el precio.</div>
       </div>
     </div>
@@ -413,7 +415,7 @@ var USAGE_COPAYS = { low:{visits:2,er:0}, med:{visits:5,er:0}, high:{visits:10,e
 var YEARS = 20;
 var PART_B_PREMIUM_ANNUAL = 202.90*12;
 var PART_B_DEDUCTIBLE_ANNUAL = 283;
-var HD_G_TOTAL_DEDUCTIBLE = 3050;
+var HD_G_TOTAL_DEDUCTIBLE = 2870;
 
 var state = { age:65, usage:null, useAdvanced:false };
 
@@ -510,7 +512,7 @@ function calculate(){
   document.getElementById('winnerSave').textContent = winner==='G'
     ? 'Los costos más predecibles en ' + YEARS + ' años — principalmente paga el deducible de Parte B'
     : (winner==='HD'
-      ? 'Ahorra unos $' + savingsVsG.toLocaleString() + ' en ' + YEARS + ' años vs. Plan G si se mantiene sano. Una hospitalización puede significar pagar hasta $3,050 primero.'
+      ? 'Ahorra unos $' + savingsVsG.toLocaleString() + ' en ' + YEARS + ' años vs. Plan G si se mantiene sano. Una hospitalización puede significar pagar hasta $2,870 primero.'
       : 'Ahorra unos $' + savingsVsG.toLocaleString() + ' en ' + YEARS + ' años vs. Plan G, si no le molestan los copagos de consulta y urgencias');
 
   var rows = document.getElementById('planRows');
@@ -565,17 +567,17 @@ function calculate(){
     low: {
       G: 'Aunque visite poco, el Plan G es el más predecible — principalmente paga el deducible anual de Parte B. Paga extra cada mes por esa certeza.',
       N: 'Con pocas visitas, el Plan N suele costar menos que el G porque los copagos son bajos. Por eso suele ganar si está más sano.',
-      HD: 'El Plan G con deducible alto tiene la prima más baja. Solo conviene si se mantiene sano. Una hospitalización puede significar pagar hasta $3,050 antes de que el plan ayude.'
+      HD: 'El Plan G con deducible alto tiene la prima más baja. Solo conviene si se mantiene sano. Una hospitalización puede significar pagar hasta $2,870 antes de que el plan ayude.'
     },
     med: {
       G: 'El Plan G cuesta más cada mes, pero casi nunca hay una factura sorpresa después del deducible de Parte B. Útil si no quiere copagos.',
       N: 'Unas pocas visitas al año casi nunca borran la prima más baja del Plan N. Ese es el intercambio típico G vs N.',
-      HD: 'El Plan G con deducible alto puede verse más barato en el papel. Recuerde que estima $1,500 de bolsillo este año — un mal año puede llegar al deducible completo de $3,050.'
+      HD: 'El Plan G con deducible alto puede verse más barato en el papel. Recuerde que estima $1,500 de bolsillo este año — un mal año puede llegar al deducible completo de $2,870.'
     },
     high: {
       G: 'Si usa atención con frecuencia, pagar más cada mes para evitar copagos y un deducible grande suele costar menos a largo plazo.',
       N: 'Las visitas frecuentes suman copagos del Plan N (hasta $20 consulta / $50 urgencias). Aun así suele ser más barato que el G si no va mucho a urgencias.',
-      HD: 'El uso frecuente convierte el deducible de $3,050 del Plan G HD en un costo real, no hipotético. El Plan G o N suele ser la opción más segura.'
+      HD: 'El uso frecuente convierte el deducible de $2,870 del Plan G HD en un costo real, no hipotético. El Plan G o N suele ser la opción más segura.'
     }
   };
   document.getElementById('plainExplain').textContent = explainMap[state.usage][winner];
