@@ -2,7 +2,7 @@
 layout: layouts/blog-post.njk
 category: "Private Insurance"
 title: "Self-Employed in Miami? Here's How to Get Health Insurance"
-description: "Self-employed in Miami? You have more options than you think — ACA subsidies, private plans, and group alternatives. Licensed bilingual brokers compare all options free."
+description: "Self-employed in Miami? You have more options than you think — ACA subsidies, private plans, and group alternatives. Licensed bilingual brokers compare many options free."
 keywords: "health insurance for self-employed Miami, self-employed health insurance Florida, freelancer health insurance Miami, 1099 health insurance Miami, self-employed health insurance deduction, Form 7206, Marketplace self-employed income"
 date: 2026-06-22T12:00:00.000Z
 lang: en
