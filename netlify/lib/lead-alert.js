@@ -13,8 +13,12 @@
  *     lead texts, keyed to their user phone numbers) — never to a lead's thread.
  *
  * Recipients are fixed server-side; nothing from the form can change them.
+ *
+ * SMS requires Netlify env GHL_API_TOKEN to be a Private Integration token with
+ * conversations/message.write (and conversations.write). Contacts/tasks scopes
+ * alone are not enough — 401/403 is logged as conversations_scope_or_token.
  */
-const { answerLines } = require('./ghl-enrich');
+const { answerLines, visitorNotes, extractLookingFor } = require('./ghl-enrich');
 
 const LOCATION_ID = process.env.GHL_LOCATION_ID || 'RINM4TCnM4hN06UA1aK0';
 const ALERT_CONTACT_ID = process.env.GHL_ALERT_CONTACT_ID || 'CVRw8qHNJec4GhdFWpqh'; // Yahoska's own contact
@@ -60,11 +64,15 @@ function buildAlert(data, payload, info) {
     ? `https://app.gohighlevel.com/v2/location/${LOCATION_ID}/contacts/detail/${info.contactId}`
     : '';
   const answers = answerLines(data);
+  const notes = visitorNotes(data);
+  const looking = extractLookingFor(data);
   const subject = `NEW WEBSITE LEAD: ${name} (${label})`.slice(0, 200);
   const text = [
     `🔔 NEW WEBSITE LEAD — ${name}`,
     `Phone: ${data.phone || data.phone_number || '—'}`,
     `Email: ${data.email || '—'}`,
+    looking ? `Looking for: ${looking}` : null,
+    notes ? `Notes: ${notes}` : null,
     `Form: ${label}`,
     `Page: ${pageUrl || page}`,
     `Time: ${when}`,
@@ -73,7 +81,7 @@ function buildAlert(data, payload, info) {
     ...answers.map((a) => '• ' + a),
     '',
     link ? `GHL contact: ${link}` : 'GHL contact: (search by phone/email)',
-  ].join('\n');
+  ].filter((l) => l !== null).join('\n');
   const html = `<div style="font-family:Arial,sans-serif;font-size:15px">
 <h2 style="color:#452068;margin:0 0 8px">🔔 New website lead: ${esc(name)}</h2>
 <p style="margin:0 0 12px"><b>Phone:</b> ${esc(data.phone || data.phone_number || '—')}<br>
@@ -82,12 +90,18 @@ function buildAlert(data, payload, info) {
 <p style="margin:0 0 4px"><b>Answers</b></p><ul style="margin-top:0">${answers.map((a) => `<li>${esc(a)}</li>`).join('')}</ul>
 ${link ? `<p><a href="${esc(link)}" style="background:#ff1090;color:#fff;padding:10px 16px;border-radius:20px;text-decoration:none;font-weight:bold">Open in GHL</a></p>` : ''}
 <p style="color:#888;font-size:12px">Automatic alert from the healthexps.com lead form. Nothing was sent to the lead. Yahoska and Katy also got a text.</p></div>`;
-  const short = shortPage(page);
-  const keyVals = answers
-    .filter((l) => !/^(First name|Last name|Name|Phone|Email):/.test(l))
-    .map((l) => l.replace(/^[^:]+:\s*/, ''));
-  const sms = `New website lead: ${name} ${data.phone || data.phone_number || ''} - ${short}${keyVals.length ? ' - ' + keyVals.join(', ') : ''}`
-    .replace(/\s+/g, ' ').trim().slice(0, 300);
+  const extra = answers
+    .filter((l) => !/^(First name|Last name|Name|Phone|Email|Looking for|Notes):/.test(l))
+    .map((l) => l.replace(/^[^:]+:\s*/, ''))
+    .filter((v) => v && v !== looking && v !== notes);
+  const recap = [looking, notes, extra.join(', ')].filter(Boolean);
+  const smsParts = [
+    `New website lead: ${name}`,
+    data.phone || data.phone_number || '',
+    data.email || '',
+    ...(recap.length ? recap : [shortPage(page)]),
+  ].map((p) => String(p || '').replace(/\s+/g, ' ').trim()).filter(Boolean);
+  const sms = smsParts.join(' | ').slice(0, 480);
   return { subject, text, html, name, sms };
 }
 
@@ -145,7 +159,13 @@ async function sendGhlSms(alert, ms, leadContactId, leadPhone) {
           signal,
         });
         const body = await res.text();
-        if (!res.ok) throw new Error(res.status + ' ' + body.slice(0, 120));
+        if (!res.ok) {
+          const hint =
+            res.status === 401 || res.status === 403
+              ? ' conversations_scope_or_token'
+              : '';
+          throw new Error(res.status + hint + ' ' + body.slice(0, 120));
+        }
         let id = '';
         try { id = JSON.parse(body).messageId || ''; } catch (e) { /* ignore */ }
         return 'ok' + (id ? ':' + id : '');

@@ -390,7 +390,30 @@ function buildForwardPayload(data) {
   if (looking) {
     out.coverage_type = looking;
     out.looking_for = looking;
+    if (!String(out.reason || '').trim()) out.reason = looking;
+    if (!String(out.contact_reason || '').trim()) out.contact_reason = looking;
   }
+
+  // Inbound-webhook Create/Update Contact maps either snake_case
+  // ({{inboundWebhook.first_name}}) or camelCase (firstName). Send both so
+  // the workflow SMS enrolls the same contact the API upserts.
+  const first = String(out.first_name || '').trim();
+  const last = String(out.last_name || '').trim();
+  if (first) out.firstName = first;
+  if (last) out.lastName = last;
+  const fullName = [first, last].filter(Boolean).join(' ');
+  if (fullName) {
+    if (!String(out.name || '').trim()) out.name = fullName;
+    if (!String(out.full_name || '').trim()) out.full_name = fullName;
+  }
+  const d10 = normalizePhone(out.phone || data.phone || data.phone_number || '');
+  if (d10.length === 10) {
+    out.phone = '+1' + d10;
+    if (!String(out.phone_number || '').trim()) out.phone_number = d10;
+  }
+
+  const visitor = String(data.additional_notes || data.notes || data.message || '').trim();
+  if (visitor && !String(out.message || '').trim()) out.message = visitor;
 
   // Always stamp which page the form was filled on
   const page = String(data.page || data.page_url || out.page || out.page_url || '').trim();
@@ -418,6 +441,15 @@ function buildForwardPayload(data) {
     for (const t of blogTags(blog)) if (!tagList.includes(t)) tagList.push(t);
     out.tags = tagList.join(',');
   }
+
+  // Always include website-lead on the webhook payload so a Tag condition in
+  // the GHL workflow sees it on the enrolled contact (not only via the API).
+  const webhookTags = String(out.tags || '')
+    .split(',')
+    .map((t) => t.trim())
+    .filter(Boolean);
+  if (!webhookTags.includes('website-lead')) webhookTags.unshift('website-lead');
+  out.tags = webhookTags.join(',');
 
   // Fix misleading "Homepage Form" source when the real path is not home
   const src = String(out.source || '').trim();
@@ -599,29 +631,34 @@ exports.handler = async (event) => {
   const payload = buildForwardPayload(data);
 
   let webhookOk = false;
-  try {
-    const res = await fetch(`${GHL_BASE}/${webhookId}`, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(payload),
-    });
-    webhookOk = res.ok;
-    if (!res.ok) {
-      const text = await res.text().catch(() => '');
-      console.error('[submit-lead] GHL error', res.status, text.slice(0, 300));
+  let webhookAttempted = false;
+  const fireWebhook = async () => {
+    if (webhookAttempted) return;
+    webhookAttempted = true;
+    try {
+      const res = await fetch(`${GHL_BASE}/${webhookId}`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload),
+      });
+      webhookOk = res.ok;
+      if (!res.ok) {
+        const text = await res.text().catch(() => '');
+        console.error('[submit-lead] GHL error', res.status, text.slice(0, 300));
+      }
+    } catch (err) {
+      console.error('[submit-lead] fetch failed', err);
     }
-  } catch (err) {
-    console.error('[submit-lead] fetch failed', err);
-  }
+  };
 
   // Save EVERY answer on the GHL contact (note, ZIP, real page, tags, owner,
   // opportunity, task for Yahoska). Never blocks or fails the lead.
-  // As soon as the contact id is known, fire the instant alert to Yahoska
-  // (SMS to Yahoska + Katy; email alert disabled) in parallel — never to the lead.
+  // Upsert/tag FIRST, then fire the Contact Page (or other) webhook so the
+  // workflow SMS enrolls the same contact, then SMS Yahoska + Katy — never the lead.
   let alertPromise = null;
   const startAlert = (info) => {
     if (alertPromise) return;
-    alertPromise = sendLeadAlert(data, payload, info, { timeoutMs: 2500 })
+    alertPromise = sendLeadAlert(data, payload, info, { timeoutMs: 3500 })
       .then((r) => console.log('[submit-lead] alert', JSON.stringify(r)))
       .catch((e) => console.error('[submit-lead] alert failed', e && e.message));
   };
@@ -629,11 +666,18 @@ exports.handler = async (event) => {
   try {
     // Stay well inside Netlify's 10s sync-function limit
     const budgetMs = Math.max(1500, Math.min(7800, 8800 - (Date.now() - handlerStart)));
-    enriched = await enrichLead(data, payload, { budgetMs, onContact: startAlert });
+    enriched = await enrichLead(data, payload, {
+      budgetMs,
+      onContact: async (info) => {
+        startAlert(info);
+        await fireWebhook();
+      },
+    });
     console.log('[submit-lead] enrich', JSON.stringify({ steps: enriched.steps, skipped: enriched.skipped, ms: enriched.ms }));
   } catch (err) {
     console.error('[submit-lead] enrich failed', err && err.message);
   }
+  if (!webhookAttempted) await fireWebhook();
   if (!alertPromise && !(enriched && enriched.repeat)) {
     const path = String(payload.page_path || payload.form_page || '');
     startAlert({ contactId: enriched && enriched.contactId, pageLabel: labelForPage(data, path) });

@@ -1,7 +1,11 @@
 #!/usr/bin/env node
 "use strict";
 const assert = require("assert");
-const { enrichLead, answerLines, pageTag, pageLabel, extractZip } = require("../netlify/lib/ghl-enrich");
+const { enrichLead, answerLines, pageTag, pageLabel, extractZip, visitorNotes } = require("../netlify/lib/ghl-enrich");
+
+assert.strictEqual(visitorNotes({ additional_notes: "Need a callback.\n\nForm page: /contact/" }), "Need a callback.");
+assert.strictEqual(visitorNotes({ notes: "Form page: /contact/" }), "");
+assert.strictEqual(visitorNotes({ message: "Keep my cardiologist" }), "Keep my cardiologist");
 
 const blog = {
   first_name: "Mary", last_name: "Tester", phone: "2395550100", email: "mary@example.com",
@@ -60,6 +64,39 @@ assert.strictEqual(pageLabel({ source: "Homepage Form" }, "/es/"), "Spanish Home
   calls.length = 0;
   const r2 = await enrichLead({ ...blog, source: "Homepage Form" }, { ...payload, page_path: "/" }, { pollMs: [0] });
   assert(!r2.steps.includes("untag-homepage"));
+
+  // Missed duplicate search → upsert, tags, THEN onContact (webhook fires after)
+  const order = [];
+  calls.length = 0;
+  global.fetch = async (url, init) => {
+    const u = String(url); const m = init.method; const body = init.body ? JSON.parse(init.body) : null;
+    calls.push({ m, u, body });
+    const ok = (o) => ({ ok: true, status: 200, text: async () => JSON.stringify(o) });
+    if (u.includes("/contacts/search/duplicate")) { order.push("search"); return ok({}); }
+    if (/\/contacts\/\?/.test(u)) { order.push("query"); return ok({ contacts: [] }); }
+    if (u.includes("/contacts/upsert")) {
+      order.push("upsert");
+      assert.strictEqual(body.createNewIfDuplicateAllowed, false);
+      assert.strictEqual(body.phone, "+12395550100");
+      return ok({ contact: { id: "C2", dateAdded: new Date().toISOString() } });
+    }
+    if (u.includes("/tags") && m === "POST") { order.push("tags"); return ok({}); }
+    if (u.includes("/opportunities/search")) return ok({ opportunities: [] });
+    if (u.includes("/opportunities/") && m === "POST") { order.push("opp-create"); return ok({ opportunity: { id: "O2" } }); }
+    return ok({});
+  };
+  const r3 = await enrichLead(blog, payload, {
+    pollMs: [0],
+    budgetMs: 2000,
+    onContact: (info) => { order.push("onContact:" + info.contactId); },
+  });
+  assert.strictEqual(r3.contactId, "C2");
+  assert(r3.steps.includes("upsert") && r3.steps.includes("tags"));
+  const tagsAt = order.indexOf("tags");
+  const upsertAt = order.indexOf("upsert");
+  const readyAt = order.indexOf("onContact:C2");
+  assert(upsertAt >= 0 && tagsAt > upsertAt && readyAt > tagsAt, "onContact after tags after upsert: " + order.join(">"));
+
   console.log("test-ghl-enrich: ok");
 })().catch((e) => { console.error(e); process.exit(1); });
 

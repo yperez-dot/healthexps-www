@@ -44,7 +44,10 @@ const fwd = buildForwardPayload({
 assert.strictEqual(fwd.source, "Blog: Su lista para el AEP de Medicare 2027");
 assert.strictEqual(fwd.form_name, "Blog lista AEP 2027");
 assert.strictEqual(fwd.page_path, "/es/blog/lista-aep-medicare-2027/");
-assert.deepStrictEqual(fwd.tags.split(","), ["aep-2027", "aep-checklist", "organic", "spanish", "blog", "blog-medicare"]);
+assert.deepStrictEqual(fwd.tags.split(","), ["website-lead", "aep-2027", "aep-checklist", "organic", "spanish", "blog", "blog-medicare"]);
+assert.strictEqual(fwd.phone, "+13055550100");
+assert.strictEqual(fwd.firstName, "Test");
+assert.strictEqual(fwd.lastName, "Lead");
 const home = buildForwardPayload({ first_name: "A", phone: "3055550100", source: "Homepage Form", page: "https://www.healthexps.com/" });
 assert.strictEqual(home.source, "Homepage Form");
 assert(!/blog/.test(String(home.tags || "")));
