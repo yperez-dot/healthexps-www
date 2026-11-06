@@ -3,8 +3,9 @@
  *
  * The GHL inbound-webhook workflows only map name / phone / email (+ Additional
  * Notes). Every other answer (health system, carrier, ZIP, looking-for, …) was
- * being dropped. After the webhook is forwarded, this module finds the contact
- * the workflow created (or creates it) and, via the GHL API:
+ * being dropped. This module upserts (or finds) the contact first, then
+ * submit-lead fires the webhook so the workflow enrolls that same record, and
+ * via the GHL API:
  *   - adds a note with EVERY submitted answer + page + time
  *   - sets ZIP, source (real page), owner (if unassigned), Additional Notes
  *   - adds tags: website-lead + real page tag (+ form-provided tags) and
@@ -12,6 +13,10 @@
  *   - makes sure an opportunity exists in the THEI Website pipeline (renames the
  *     workflow's "— Homepage" opp to the real page), owner = Yahoska
  *   - creates a "call this lead" task assigned to Yahoska (GHL notifies on assign)
+ *
+ * Contact identity: upsert (or find) the contact FIRST and tag it, then
+ * submit-lead fires the inbound webhook so the GHL workflow's Create/Update
+ * Contact + SMS enroll THAT same record — not a parallel empty contact.
  *
  * The API token lives only in the Netlify env (GHL_API_TOKEN); never in the browser.
  * All failures are logged and swallowed so a lead is never lost because of this.
@@ -32,6 +37,7 @@ const INTERNAL_KEYS = new Set([
   '_hp_name', 'honeypot', 'website', 'company_url', '_form_loaded_at', 'form_loaded_at',
   'source_key', 'webhook_id', 'page_url', 'page_path', 'form_page', 'consent', 'tags',
   'submitted_at', 'page', 'source', 'lang', 'looking_for', 'additional_notes', 'notes',
+  'message', 'reason', 'contact_reason',
   'pageUrl', 'submittedAt', 'formSource', 'channel', 'blog_title', 'blog_category', 'form_name',
 ]);
 
@@ -140,6 +146,43 @@ function extractZip(data) {
   return '';
 }
 
+const LOOKING_FOR_KEYS = [
+  'coverage_type', 'looking_for', 'contact_reason', 'interest', 'reason',
+  'private_reason', 'aca_reason', 'help_with', 'aep_plan_type', 'need',
+  'planInterest', 'plan_interest', 'planType', 'cobra_timing', 'current_coverage',
+  'current_situation',
+];
+
+function extractLookingFor(data) {
+  for (const key of LOOKING_FOR_KEYS) {
+    const value = String((data && data[key]) || '').trim();
+    if (value) return value;
+  }
+  return '';
+}
+
+function phoneDigits(value) {
+  let d = String(value || '').replace(/\D/g, '');
+  if (d.length === 11 && d.startsWith('1')) d = d.slice(1);
+  return d;
+}
+
+function toE164(value) {
+  const d = phoneDigits(value);
+  return d.length === 10 ? '+1' + d : '';
+}
+
+/** Visitor-typed notes only — strips the "Form page:" line submit-lead stamps. */
+function visitorNotes(data) {
+  const raw = String(
+    (data && (data.additional_notes || data.notes || data.message)) || ''
+  ).trim();
+  return raw
+    .replace(/(?:\r?\n)+Form page:\s*\S+\s*$/i, '')
+    .replace(/^Form page:\s*\S+\s*$/i, '')
+    .trim();
+}
+
 /** Human-readable list of every answer the visitor gave. */
 function answerLines(data) {
   const lines = [];
@@ -166,7 +209,7 @@ function answerLines(data) {
     seen.add(key);
     lines.push(`${l}: ${val}`);
   }
-  const notes = String(data.additional_notes || data.notes || '').trim();
+  const notes = visitorNotes(data);
   if (notes) lines.push(`Notes: ${notes}`);
   return lines;
 }
@@ -218,16 +261,40 @@ function makeClient(token, deadline) {
   };
 }
 
-async function findContact(ghl, email, phoneE164) {
+async function findContact(ghl, email, phoneE164, digits10) {
   const tries = [];
   if (email) tries.push(`email=${encodeURIComponent(email)}`);
   if (phoneE164) tries.push(`number=${encodeURIComponent(phoneE164)}`);
+  if (digits10) {
+    if (!phoneE164 || digits10 !== phoneE164.replace(/\D/g, '').slice(-10)) {
+      tries.push(`number=${encodeURIComponent(digits10)}`);
+    }
+    tries.push(`number=${encodeURIComponent('+1' + digits10)}`);
+    tries.push(`number=${encodeURIComponent('1' + digits10)}`);
+  }
+  const seen = new Set();
   for (const q of tries) {
+    if (seen.has(q)) continue;
+    seen.add(q);
     try {
       const r = await ghl('GET', `/contacts/search/duplicate?locationId=${LOCATION_ID}&${q}`);
       if (r && r.contact && r.contact.id) return r.contact;
     } catch (e) {
       console.warn('[ghl-enrich] duplicate search failed:', e.message);
+    }
+  }
+  // Duplicate-search misses when the location allows duplicates or the
+  // webhook stored a different phone format — try a plain query lookup.
+  for (const q of [email, phoneE164, digits10].filter(Boolean)) {
+    try {
+      const r = await ghl(
+        'GET',
+        `/contacts/?locationId=${LOCATION_ID}&query=${encodeURIComponent(q)}`
+      );
+      const hit = (r.contacts || []).find((c) => c && c.id);
+      if (hit) return hit;
+    } catch (e) {
+      console.warn('[ghl-enrich] contact query failed:', e.message);
     }
   }
   return null;
@@ -237,6 +304,8 @@ async function findContact(ghl, email, phoneE164) {
  * @param {object} data  original (spam-checked) form data
  * @param {object} payload  payload forwarded to the webhook (normalized)
  * @param {object} [opts]  { budgetMs, pollMs: [] }
+ *   Default poll is one immediate lookup (no wait). submit-lead upserts first,
+ *   then fires the webhook so we are not racing a second contact into existence.
  */
 async function enrichLead(data, payload, opts = {}) {
   const token = process.env.GHL_API_TOKEN;
@@ -247,8 +316,8 @@ async function enrichLead(data, payload, opts = {}) {
   const result = { steps: [] };
 
   const email = String(data.email || '').trim().toLowerCase();
-  const digits = String(payload.phone || data.phone || '').replace(/\D/g, '');
-  const phoneE164 = digits.length === 10 ? '+1' + digits : digits.length === 11 ? '+' + digits : '';
+  const digits = phoneDigits(payload.phone || data.phone || data.phone_number);
+  const phoneE164 = toE164(payload.phone || data.phone || data.phone_number);
   if (!email && !phoneE164) return { skipped: 'no_contact_method' };
 
   const path = String(payload.page_path || payload.form_page || '').trim();
@@ -265,11 +334,14 @@ async function enrichLead(data, payload, opts = {}) {
   const last = String(data.last_name || data.lastName || '').trim();
   const fullName = [first, last].filter(Boolean).join(' ') || String(data.name || data.full_name || '').trim() || email || phoneE164;
 
-  // 1) Wait for the webhook workflow to create the contact (avoid duplicates)
+  // 1) Find an existing contact (any phone format), else upsert. Do not wait
+  //    for the inbound webhook — that used to create a *second* contact the
+  //    workflow enrolled, while Yahoska opened the API-created one.
   let contact = null;
-  for (const wait of opts.pollMs || [500, 600, 700, 900, 1100]) {
-    await sleep(wait);
-    contact = await findContact(ghl, email, phoneE164);
+  const waits = Array.isArray(opts.pollMs) ? opts.pollMs : [0];
+  for (const wait of waits) {
+    if (wait) await sleep(wait);
+    contact = await findContact(ghl, email, phoneE164, digits);
     if (contact || Date.now() > deadline - 2500) break;
   }
 
@@ -295,10 +367,12 @@ async function enrichLead(data, payload, opts = {}) {
       locationId: LOCATION_ID,
       firstName: first || undefined,
       lastName: last || undefined,
+      name: fullName || undefined,
       email: email || undefined,
       phone: phoneE164 || undefined,
       assignedTo: OWNER_USER_ID,
       tags: ['website-lead'],
+      createNewIfDuplicateAllowed: false,
       ...updates,
     });
     contact = up.contact || up;
@@ -321,21 +395,22 @@ async function enrichLead(data, payload, opts = {}) {
     result.repeat = (recent.notes || []).some((n) =>
       /^🌐 WEBSITE LEAD/.test(String(n.body || '')) && new Date(n.dateAdded || 0).getTime() > cutoff);
   } catch (e) { /* ignore */ }
-  if (typeof opts.onContact === 'function' && !result.repeat) {
-    try { opts.onContact({ contactId, pageLabel: ctx.pageLabel }); } catch (e) { /* never block */ }
-  }
-
-  // 3–6 run in parallel to stay inside the 10s function limit
-  // 3) Tags: website-lead + real page + any form-provided tags
+  // 3) Tags BEFORE the inbound webhook (onContact) so a workflow Tag
+  //    condition sees website-lead / web:<page> on this contact, not a
+  //    throwaway enrollment that then gets removed.
   const formTags = String(data.tags || '').split(',').map((t) => t.trim().toLowerCase()).filter(Boolean);
-  // needs-review / review:<reason> go first so the 15-tag cap never drops them
   const reviewTags = formTags.filter((t) => t === 'needs-review' || t.startsWith('review:'));
   const tags = Array.from(new Set(['website-lead', ...reviewTags, pageTag(path), ...blogTags(blog), ...formTags])).slice(0, 15);
-  const stepTags = (async () => { try {
+  try {
     await ghl('POST', `/contacts/${contactId}/tags`, { tags });
     result.steps.push('tags');
-  } catch (e) { console.warn('[ghl-enrich] tags:', e.message); } })();
+  } catch (e) { console.warn('[ghl-enrich] tags:', e.message); }
 
+  if (typeof opts.onContact === 'function' && !result.repeat) {
+    try { await opts.onContact({ contactId, pageLabel: ctx.pageLabel }); } catch (e) { /* never block */ }
+  }
+
+  // 4–6 run in parallel to stay inside the 10s function limit
   // 4) Note with every answer
   const stepNote = (async () => { try {
     await ghl('POST', `/contacts/${contactId}/notes`, { body: buildNote(data, ctx), userId: OWNER_USER_ID });
@@ -357,23 +432,16 @@ async function enrichLead(data, payload, opts = {}) {
 
   // 6) Opportunity in THEI Website pipeline (owner Yahoska); rename "— Homepage"
   const stepOpp = (async () => { try {
-    const sinceCreate = Date.now() - new Date(contact.dateAdded || Date.now()).getTime();
-    if (sinceCreate < 1200) await sleep(Math.min(1200 - sinceCreate, Math.max(0, deadline - Date.now() - 1500)));
-    // Opportunity search is eventually consistent: retry once before deciding.
+    // Webhook (fired from onContact) may still be creating its opp.
     const searchOpps = async () => {
       const r = await ghl('GET', `/opportunities/search?location_id=${LOCATION_ID}&contact_id=${contactId}`);
       return (r.opportunities || []).filter((o) => o.status === 'open' || !o.status);
     };
     let list = await searchOpps();
-    // The GHL workflow can create its "— Homepage" opp a few seconds after the
-    // contact; keep checking while there is budget (the scheduled
-    // blog-lead-cleanup function catches anything that lands later).
-    while (!list.length && !createdByUs && deadline - Date.now() > 2500) {
-      await sleep(1200);
-      list = await searchOpps();
-    }
-    if (!list.length && createdByUs && deadline - Date.now() > 2500) {
-      await sleep(1200);
+    // One short retry: the webhook (already fired from onContact) may still be
+    // creating its opp. blog-lead-cleanup catches anything that lands later.
+    if (!list.length && deadline - Date.now() > 1800) {
+      await sleep(createdByUs ? 500 : 700);
       list = await searchOpps();
     }
     const web = list.find((o) => o.pipelineId === WEBSITE_PIPELINE_ID);
@@ -387,7 +455,7 @@ async function enrichLead(data, payload, opts = {}) {
         result.steps.push('opp-update');
       }
       result.opportunityId = web.id;
-    } else if (!list.length && createdByUs) {
+    } else if (!list.length) {
       const o = await ghl('POST', '/opportunities/', {
         locationId: LOCATION_ID,
         pipelineId: WEBSITE_PIPELINE_ID,
@@ -402,7 +470,7 @@ async function enrichLead(data, payload, opts = {}) {
       result.steps.push('opp-create');
     }
   } catch (e) { console.warn('[ghl-enrich] opportunity:', e.message); } })();
-  await Promise.all([stepTags, stepNote, stepTask, stepOpp]);
+  await Promise.all([stepNote, stepTask, stepOpp]);
 
   // 7) Drop the workflow's hardcoded "homepage" tag when the form wasn't on the homepage
   if (path && !isHomepagePath(path)) {
@@ -423,5 +491,6 @@ async function enrichLead(data, payload, opts = {}) {
 module.exports = {
   enrichLead, answerLines, buildNote, pageTag, pageLabel, extractZip,
   blogInfo, blogTags, normalizeBlogCategory, makeClient, isHomepagePath,
+  visitorNotes, extractLookingFor, phoneDigits, toE164,
   LOCATION_ID, WEBSITE_PIPELINE_ID,
 };
