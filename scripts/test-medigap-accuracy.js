@@ -108,9 +108,9 @@ assertIncludes(esService, "Parte B de 2027 aún no están anunciados");
 assertIncludes(esService, "$283 (2026)");
 assertNotIncludes(esService, "Límite de gastos de bolsillo (2026)");
 
-/* EN calculator preview: premium-only quote compare, no 2027 mixed total. */
+/* EN calculator: premium-only quote compare, no 2027 mixed total. */
 assertIncludes(enCalc, "Compare your Medigap quotes");
-assertIncludes(enCalc, "Review preview — not the live website.");
+assertIncludes(enCalc, "illustrative age-65 sample estimates");
 assertIncludes(enCalc, 'id="quoteG"');
 assertIncludes(enCalc, 'id="quoteN"');
 assertIncludes(enCalc, 'id="quoteHD"');
@@ -124,8 +124,11 @@ assertIncludes(enCalc, "2027 Part B deductible is not yet announced");
 assertIncludes(enCalc, "not treated as $0");
 assertIncludes(enCalc, "Florida has no Medigap birthday rule");
 assertIncludes(enCalc, "Medigap Cost Calculator Florida 2026");
-assertIncludes(enCalc, "noindex,nofollow");
+assertIncludes(enCalc, '<link rel="canonical" href="https://www.healthexps.com/medigap-plan-calculator/">');
 assertIncludes(enCalc, '<script src="/js/medigap-cost-model.js"></script>');
+assertNotIncludes(enCalc, 'name="robots"');
+assertNotIncludes(enCalc, "noindex,nofollow");
+assertNotIncludes(enCalc, "Review preview — not the live website.");
 assertNotIncludes(enCalc, "winnerBanner");
 assertNotIncludes(enCalc, "Lowest estimated cost");
 assertNotIncludes(enCalc, "over 20 years");
@@ -133,6 +136,15 @@ assertNotIncludes(enCalc, "id=\"advG\"");
 assertNotIncludes(enCalc, "One year of premiums. No 20-year forecast. No automatic winner.");
 assertIncludes(enCalc, 'id="qcMonth" class="on"');
 assertNotIncludes(enCalc, 'id="qcYear" class="on"');
+
+/* Shared helpers stay additive; ES 20-year calculator still uses the original API. */
+assert.strictEqual(typeof M.parseEnteredPremium, "function");
+assert.strictEqual(typeof M.resolvePremiums, "function");
+assert.strictEqual(typeof M.projectCosts, "function");
+assert.strictEqual(typeof M.premiumAtAge, "function");
+assertIncludes(esCalc, "MedigapCost.resolvePremiums");
+assertIncludes(esCalc, "MedigapCost.projectCosts");
+assertIncludes(esCalc, "MedigapCost.HD_G_DEDUCTIBLE_2026");
 
 assertIncludes(esCalc, "no produce un total de 2027");
 assertIncludes(esCalc, "deducible HDG $2,950");
