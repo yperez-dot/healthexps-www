@@ -137,22 +137,40 @@ assertNotIncludes(enCalc, "One year of premiums. No 20-year forecast. No automat
 assertIncludes(enCalc, 'id="qcMonth" class="on"');
 assertNotIncludes(enCalc, 'id="qcYear" class="on"');
 
-/* Shared helpers stay additive; ES 20-year calculator still uses the original API. */
+/* Shared helpers stay additive for other pages that still use the original API. */
 assert.strictEqual(typeof M.parseEnteredPremium, "function");
 assert.strictEqual(typeof M.resolvePremiums, "function");
 assert.strictEqual(typeof M.projectCosts, "function");
 assert.strictEqual(typeof M.premiumAtAge, "function");
-assertIncludes(esCalc, "MedigapCost.resolvePremiums");
-assertIncludes(esCalc, "MedigapCost.projectCosts");
-assertIncludes(esCalc, "MedigapCost.HD_G_DEDUCTIBLE_2026");
 
+assertIncludes(esCalc, "Compare sus cotizaciones Medigap");
+assertIncludes(esCalc, "estimados ilustrativos a los 65 años");
+assertIncludes(esCalc, 'id="quoteG"');
+assertIncludes(esCalc, 'id="quoteN"');
+assertIncludes(esCalc, 'id="quoteHD"');
+assertIncludes(esCalc, 'value="337"');
+assertIncludes(esCalc, 'value="260"');
+assertIncludes(esCalc, 'value="80"');
+assertIncludes(esCalc, "Restablecer estimados de muestra");
+assertIncludes(esCalc, "$3,050");
 assertIncludes(esCalc, "no produce un total de 2027");
-assertIncludes(esCalc, "deducible HDG $2,950");
-assertIncludes(esCalc, '<script src="/js/medigap-cost-model.js"></script>');
+assertIncludes(esCalc, "máximo de gastos de bolsillo");
 assertIncludes(esCalc, "Florida no tiene regla de cumpleaños");
 assertIncludes(esCalc, "Calculadora Medigap Florida 2026");
-assertIncludes(esCalc, "premiumSourceNote");
-assertIncludes(esCalc, "(su cotización)");
+assertIncludes(esCalc, '<link rel="canonical" href="https://www.healthexps.com/es/calculadora-medigap/">');
+assertIncludes(esCalc, '<script src="/js/medigap-cost-model.js"></script>');
+assertIncludes(esCalc, 'id="qcMonth" class="on"');
+assertNotIncludes(esCalc, 'id="qcYear" class="on"');
+assertNotIncludes(esCalc, 'name="robots"');
+assertNotIncludes(esCalc, "noindex,nofollow");
+assertNotIncludes(esCalc, "winnerBanner");
+assertNotIncludes(esCalc, "id=\"advG\"");
+assertNotIncludes(esCalc, "en 20 años");
+assertNotIncludes(esCalc, "One year of premiums. No 20-year forecast. No automatic winner.");
+assertNotIncludes(esCalc, "Un año de primas. Sin pronóstico a 20 años");
+assertNotIncludes(esCalc, "$2,950");
+assertNotIncludes(esCalc, "$202.90");
+assertNotIncludes(esCalc, "Chart.js");
 
 /* Titles / H1 preserved. */
 assertIncludes(enService, "<title>Medicare Supplement Miami | Any Doctor, Free Quotes</title>");
@@ -181,6 +199,11 @@ assertNotIncludes(enService, "HealthSpring");
 assertNotIncludes(esService, "HealthSpring");
 assertIncludes(enService, "Not every listed brand sells Medigap");
 assertIncludes(esService, "No todas las marcas listadas venden Medigap");
+assertIncludes(enService, 'class="ms-enroll-cta"');
+assertIncludes(enService, "Check My Enrollment Window");
+assertIncludes(enService, 'href="#ms-form"');
+assertIncludes(esService, "Verificar mi ventana de inscripción");
+assertIncludes(esService, 'class="btn-pink"');
 
 /* Florida has no birthday rule in shared enrollment copy and vs-supplement tools. */
 assertIncludes(enroll, "Florida does not have a birthday rule.");
@@ -226,8 +249,8 @@ walkHtml(root).forEach(function (file) {
 });
 
 assertIncludes(enCalc, 'id="qcReset"');
-assertIncludes(esCalc, 'id="premiumSourceNote"');
-assertIncludes(esCalc, 'id="advG"');
-assertIncludes(esCalc, 'id="ctaUrge"');
+assertIncludes(esCalc, 'id="qcReset"');
+assertIncludes(enCalc, "Compare your Medigap quotes");
+assertNotIncludes(enCalc, "Compare sus cotizaciones Medigap");
 
 console.log("test-medigap-accuracy: ok");
