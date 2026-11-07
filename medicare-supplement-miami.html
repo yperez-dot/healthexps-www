@@ -97,6 +97,31 @@ img{max-width:100%;height:auto;}
 /* ESTIMATOR */
 .estimator-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:16px;}
 
+/* Enrollment CTA: inline <a> splits padding/background when the arrow wraps */
+.ms-enroll-cta-wrap{margin-top:20px;text-align:center;max-width:100%;}
+.ms-enroll-cta{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  flex-wrap:wrap;
+  column-gap:.3em;
+  max-width:100%;
+  box-sizing:border-box;
+  text-align:center;
+  line-height:1.3;
+  background:#ff1090;
+  color:#fff;
+  padding:14px 20px;
+  border-radius:12px;
+  font-weight:700;
+  font-size:clamp(16px,4.4vw,18px);
+  text-decoration:none;
+}
+.ms-enroll-cta:hover{color:#fff;background:#c40074;}
+@media(max-width:480px){
+  .ms-enroll-cta{width:100%;padding:14px 16px;}
+}
+
 /* ============================================================
    MOBILE CSS — all grids collapse at <=640px
    Section padding 56px -> 20px
@@ -639,8 +664,8 @@ img{max-width:100%;height:auto;}
 
           </div>
 
-          <div style="margin-top:20px;text-align:center;">
-            <a href="#ms-form" style="background:#ff1090;color:#fff;padding:14px 28px;border-radius:12px;font-weight:700;font-size:18px;text-decoration:none;">Check My Enrollment Window &rarr;</a>
+          <div class="ms-enroll-cta-wrap">
+            <a href="#ms-form" class="ms-enroll-cta">Check My Enrollment Window&nbsp;&rarr;</a>
           </div>
         </div>
 
