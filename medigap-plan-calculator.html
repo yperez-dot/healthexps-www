@@ -79,6 +79,7 @@ a{color:var(--purple)}
 .qc-bar-track{height:12px;background:var(--purple-light);border-radius:999px;overflow:hidden;min-width:0}
 .qc-bar-fill{height:100%;background:var(--purple);border-radius:999px;max-width:100%}
 .qc-bar-meta{font-size:13px;color:var(--muted);margin-top:4px}
+.qc-decide{margin-top:18px}
 .qc-decide li{margin:0 0 10px;font-size:15px;color:var(--gray-text);line-height:1.5}
 .qc-decide strong{color:var(--black)}
 .qc-details{background:#fff;border:1px solid var(--gray-mid);border-radius:14px;padding:4px 16px 8px;margin-bottom:20px}
@@ -274,7 +275,7 @@ a{color:var(--purple)}
   <header class="qc-head">
     <span class="qc-eyebrow">COMPARE PREMIUMS</span>
     <h1>Compare your Medigap quotes</h1>
-    <p>See what you pay every month — and what you still pay when you use care. One year of premiums. No 20-year forecast. No automatic winner.</p>
+    <p>See what you pay every month — and what you still pay when you use care.</p>
     <div class="qc-learn"><a href="/medicare-supplement-miami/">New to these plans? Medicare Supplement guide →</a></div>
   </header>
 
@@ -330,8 +331,8 @@ a{color:var(--purple)}
   <div class="qc-diff-head">
     <h2>2. What would you keep in premiums?</h2>
     <div class="qc-seg" role="group" aria-label="Premium difference period">
-      <button type="button" id="qcMonth" data-months="1">Monthly</button>
-      <button type="button" id="qcYear" class="on" data-months="12">Yearly</button>
+      <button type="button" id="qcMonth" class="on" data-months="1">Monthly</button>
+      <button type="button" id="qcYear" data-months="12">Yearly</button>
     </div>
   </div>
   <div class="qc-diff-grid">
@@ -395,7 +396,7 @@ a{color:var(--purple)}
   var keys = ['G','N','HD'];
   var inputs = {G: document.getElementById('quoteG'), N: document.getElementById('quoteN'), HD: document.getElementById('quoteHD')};
   var edited = {G:false, N:false, HD:false};
-  var months = 12;
+  var months = 1;
 
   function money(n){
     return n.toLocaleString('en-US', {style:'currency', currency:'USD', maximumFractionDigits:2});
@@ -476,16 +477,17 @@ a{color:var(--purple)}
     });
   });
 
+  function setPeriod(n){
+    months = n;
+    document.getElementById('qcMonth').classList.toggle('on', n === 1);
+    document.getElementById('qcYear').classList.toggle('on', n === 12);
+  }
   document.getElementById('qcMonth').addEventListener('click', function(){
-    months = 1;
-    document.getElementById('qcMonth').classList.add('on');
-    document.getElementById('qcYear').classList.remove('on');
+    setPeriod(1);
     render();
   });
   document.getElementById('qcYear').addEventListener('click', function(){
-    months = 12;
-    document.getElementById('qcYear').classList.add('on');
-    document.getElementById('qcMonth').classList.remove('on');
+    setPeriod(12);
     render();
   });
   document.getElementById('qcReset').addEventListener('click', function(){
@@ -493,6 +495,7 @@ a{color:var(--purple)}
     inputs.N.value = String(SAMPLE.N);
     inputs.HD.value = String(SAMPLE.HD);
     edited = {G:false, N:false, HD:false};
+    setPeriod(1);
     render();
   });
 

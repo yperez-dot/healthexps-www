@@ -130,6 +130,9 @@ assertNotIncludes(enCalc, "winnerBanner");
 assertNotIncludes(enCalc, "Lowest estimated cost");
 assertNotIncludes(enCalc, "over 20 years");
 assertNotIncludes(enCalc, "id=\"advG\"");
+assertNotIncludes(enCalc, "One year of premiums. No 20-year forecast. No automatic winner.");
+assertIncludes(enCalc, 'id="qcMonth" class="on"');
+assertNotIncludes(enCalc, 'id="qcYear" class="on"');
 
 assertIncludes(esCalc, "no produce un total de 2027");
 assertIncludes(esCalc, "deducible HDG $2,950");
