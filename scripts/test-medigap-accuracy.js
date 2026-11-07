@@ -219,6 +219,10 @@ walkHtml(root).forEach(function (file) {
   const html = fs.readFileSync(file, "utf8");
   assert(!/38 Google reviews/.test(html), "stale 38 Google reviews in " + path.relative(root, file));
   assert(!/38 reseñas de Google/.test(html), "stale 38 reseñas in " + path.relative(root, file));
+  assert(!/48 Google reviews/.test(html), "stale 48 Google reviews in " + path.relative(root, file));
+  assert(!/48 reseñas de Google/.test(html), "stale 48 reseñas de Google in " + path.relative(root, file));
+  assert(!/\b48 verified reviews\b/.test(html), "stale 48 verified reviews in " + path.relative(root, file));
+  assert(!/\b48 reseñas verificadas\b/.test(html), "stale 48 reseñas verificadas in " + path.relative(root, file));
 });
 
 assertIncludes(enCalc, 'id="qcReset"');
