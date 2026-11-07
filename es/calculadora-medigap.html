@@ -272,7 +272,7 @@
 <header>
     <span class="eyebrow">HERRAMIENTA GRATIS</span>
     <h1>¿Qué plan Medigap le cuesta menos?</h1>
-    <p>Dos preguntas. Comparamos Plan G, Plan N y Plan G con deducible alto usando tarifas típicas de Florida — no es una cotización de una aseguradora.</p>
+    <p>Dos preguntas. Las primas mensuales por defecto son estimados ilustrativos &mdash; no cotizaciones de una aseguradora. En el paso 2 puede ingresar una prima cotizada para reemplazar el estimado de ese plan.</p>
     <div class="learn-link"><a href="/es/medicare-suplementario-miami">¿Nuevo en estos planes? Conozca Medicare Suplementario →</a></div>
     <p class="help" style="margin-top:12px">Medigap tiene ventanas de inscripción distintas a Medicare Advantage. Si también tiene Advantage o Parte D, revíselos durante <a href="/es/inscripcion-anual-medicare-2027">la Inscripción Anual 2027 en Miami (15 oct–7 dic)</a>.</p>
   </header>
@@ -283,7 +283,7 @@
   <div class="card" id="step1">
     <div class="step-label">Paso 1 de 2</div>
     <h2>¿Qué edad tiene?</h2>
-    <div class="help">La mayoría compra Medigap a los 65, en una inscripción abierta de 6 meses sin preguntas de salud. Después, la regla de cumpleaños de Florida suele permitir cambiar a un plan Medigap igual o menor sin underwriting. <span id="ageNote"></span></div>
+    <div class="help">La mayoría compra Medigap a los 65, en una inscripción abierta de 6 meses sin preguntas de salud. Después de esa ventana, Florida no tiene regla de cumpleaños. Cambiar de plan suele requerir suscripción médica, salvo un derecho de emisión garantizada. <span id="ageNote"></span></div>
     <div class="age-box">
       <button type="button" onclick="changeAge(-1)" aria-label="Bajar edad">−</button>
       <input class="num" id="ageNum" type="text" inputmode="numeric" pattern="[0-9]*" maxlength="2" value="65" autocomplete="off" onblur="setAge(this.value,true)" aria-label="Su edad">
@@ -313,14 +313,15 @@
       </button>
     </div>
     <div class="usage-error" id="usageError">Elija con qué frecuencia va al médico para estimar el costo de las visitas.</div>
-    <div class="advanced-toggle" onclick="toggleAdvanced()">Ya tengo primas exactas — quiero ingresarlas</div>
+    <div class="advanced-toggle" onclick="toggleAdvanced()">Opcional: ingrese una prima mensual cotizada (reemplaza el estimado de ese plan)</div>
+    <div class="help" style="margin:8px 0 12px">Deje un campo en blanco para conservar el estimado ilustrativo de ese plan. Los valores por defecto son estimados, no cotizaciones.</div>
     <div id="advancedPanel">
       <label>Prima mensual Plan G ($)</label>
-      <input type="number" id="advG" placeholder="e.g. 210">
+      <input type="number" id="advG" placeholder="en blanco = estimado">
       <label>Prima mensual Plan N ($)</label>
-      <input type="number" id="advN" placeholder="e.g. 165">
+      <input type="number" id="advN" placeholder="en blanco = estimado">
       <label>Prima mensual Plan G con deducible alto ($)</label>
-      <input type="number" id="advHD" placeholder="e.g. 65">
+      <input type="number" id="advHD" placeholder="en blanco = estimado">
     </div>
     <div class="nav-btns">
       <button class="btn btn-secondary" onclick="goStep(1)">Atrás</button>
@@ -336,13 +337,15 @@
     </div>
 
     <div class="plan-rows" id="planRows"></div>
+    <div class="includes-note" id="premiumSourceNote"></div>
     <div class="includes-note">Total mensual estimado a los <span id="thisYearAge"></span> — incluye Parte B ($202.90/mes) y el gasto de bolsillo esperado. Los medicamentos van aparte: calcule unos $25–$60/mes de Parte D.</div>
-    <div class="includes-note">Usa el deducible HDG de 2026 ($2,870). El monto de 2027 aún no se ha anunciado.</div>
+    <div class="includes-note">Los totales combinados usan solo cifras de 2026: prima Parte B $202.90/mes, deducible Parte B $283, deducible HDG $2,950. CMS anunció para 2027: HDG $3,050, Plan K $8,360 y Plan L $4,180. La Parte B de 2027 no está anunciada, así que esta herramienta no produce un total de 2027.</div>
+    <div class="includes-note">Supuestos: copagos Plan N $20 consulta / $50 urgencias; $0 cargos en exceso (el Plan N no los cubre); Plan G y Plan N incluyen el deducible de la Parte B de $283 (2026).</div>
 
     <div class="plain-explain" id="plainExplain"></div>
 
     <div class="cta-block cta-block-primary">
-      <p class="cta-urge">Estas son tarifas típicas de Florida. Su cotización real depende de la aseguradora, la edad y la salud — una llamada gratis de 10 minutos compara las opciones.</p>
+      <p class="cta-urge" id="ctaUrge">Una llamada gratis de 10 minutos compara opciones para su código postal, edad y salud.</p>
       <div class="contact-btns">
         <a class="btn-call" href="tel:18003806821">Llamar por mi cotización real</a>
         <a class="btn-wa" href="https://wa.me/13054646888">WhatsApp</a>
@@ -370,7 +373,7 @@
       <div class="benefits-row"><span>Cargos del médico sobre la tarifa de Medicare</span><span class="yes">✓</span><span class="no">✗</span><span class="yes">✓*</span></div>
       <div class="benefits-row"><span>Emergencias en el extranjero</span><span class="yes">✓</span><span class="yes">✓</span><span class="yes">✓*</span></div>
       </div>
-      <div class="benefits-footnote">* Después de pagar usted el deducible anual de $2,870 (CMS, 2026). ** El Plan N cubre esto salvo un copago de hasta $20 por consulta y hasta $50 por urgencias que no terminen en ingreso.</div>
+      <div class="benefits-footnote">* Después de pagar usted el deducible anual de $2,950 (CMS, 2026; $3,050 en 2027). ** El Plan N cubre esto salvo un copago de hasta $20 por consulta y hasta $50 por urgencias que no terminen en ingreso. El Plan N no cubre cargos en exceso.</div>
     </div>
 
     <button type="button" class="detail-toggle" onclick="toggleDetail('aboutDetails')" aria-expanded="false" id="aboutDetailsToggle">Sobre estos estimados <span id="aboutDetailsArrow">▾</span></button>
@@ -380,12 +383,12 @@
         <div class="about-h">Cómo lo calculamos</div>
         <ul>
           <li>Prima Parte B: $202.90/mes; deducible Parte B: $283/año (CMS, 2026)</li>
-          <li>Deducible Plan G HD: $2,870/año (CMS, 2026)</li>
-          <li>Primas por defecto: puntos medios de Florida a los 65, 70 y 75; las edades intermedias se interpolan</li>
+          <li>Deducible Plan G HD: $2,950/año (CMS, 2026); CMS anunció $3,050 para 2027</li>
+          <li>Primas por defecto: puntos medios ilustrativos de Florida a los 65, 70 y 75 si usted no ingresa cotizaciones; las edades intermedias se interpolan</li>
           <li>Ingrese sus propias cotizaciones en el paso 2 si ya tiene precios</li>
-          <li>Regla de cumpleaños de Florida: cerca de su cumpleaños suele poder cambiar a un Medigap igual o menor sin underwriting</li>
+          <li>Florida no tiene una ventana anual de cumpleaños para cambiar Medigap sin suscripción</li>
         </ul>
-        <div class="about-note">Usa el deducible HDG de 2026 ($2,870). El monto de 2027 aún no se ha anunciado.</div>
+        <div class="about-note">Usa el deducible HDG de 2026 ($2,950). CMS anunció $3,050 para 2027.</div>
         <div class="about-note">El crecimiento anual es un estimado. No es el historial real de una póliza. Su ZIP, género, tabaco y aseguradora cambian el precio.</div>
       </div>
     </div>
@@ -400,22 +403,16 @@
 </div>
 </div>
 
+<script src="/js/medigap-cost-model.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.js"></script>
 <script>
-/* Age-65 values are midpoints of the ranges shown on
-   /medicare-supplement-miami/ (Plan G $300-$375, Plan N $200-$320,
-   HDG $60-$100), 2027, not a carrier quote. */
-var DEFAULT_PREMIUMS_BY_AGE = {
-  65:{G:337,N:260,HD:80},
-  70:{G:365,N:286,HD:87},
-  75:{G:413,N:326,HD:101}
-};
-var INCREASE_RATE = {G:0.021,N:0.024,HD:0.024};
-var USAGE_COPAYS = { low:{visits:2,er:0}, med:{visits:5,er:0}, high:{visits:10,er:1} };
-var YEARS = 20;
-var PART_B_PREMIUM_ANNUAL = 202.90*12;
-var PART_B_DEDUCTIBLE_ANNUAL = 283;
-var HD_G_TOTAL_DEDUCTIBLE = 2870;
+var DEFAULT_PREMIUMS_BY_AGE = MedigapCost.DEFAULT_PREMIUMS_BY_AGE;
+var INCREASE_RATE = MedigapCost.INCREASE_RATE;
+var USAGE_COPAYS = MedigapCost.USAGE_COPAYS;
+var YEARS = MedigapCost.YEARS;
+var PART_B_PREMIUM_ANNUAL = MedigapCost.PART_B_PREMIUM_ANNUAL;
+var PART_B_DEDUCTIBLE_ANNUAL = MedigapCost.PART_B_DEDUCTIBLE_ANNUAL;
+var HD_G_TOTAL_DEDUCTIBLE = MedigapCost.HD_G_DEDUCTIBLE_2026;
 
 var state = { age:65, usage:null, useAdvanced:false };
 
@@ -426,7 +423,7 @@ function setAge(v, commit){
   state.age = Math.max(65, Math.min(85, age));
   var el = document.getElementById('ageNum');
   if (el && commit !== false) el.value = state.age;
-  document.getElementById('ageNote').textContent = [65,70,75].indexOf(state.age)>-1 ? '' : 'Las primas entre 65, 70 y 75 se interpolan con los puntos medios de Florida.';
+  document.getElementById('ageNote').textContent = [65,70,75].indexOf(state.age)>-1 ? '' : 'Los estimados ilustrativos entre 65, 70 y 75 se interpolan.';
 }
 function changeAge(d){
   setAge(state.age + d, true);
@@ -461,14 +458,22 @@ function toggleAdvanced(){
   state.useAdvanced = !state.useAdvanced;
   document.getElementById('advancedPanel').style.display = state.useAdvanced ? 'block' : 'none';
 }
-function lerp(a, b, t){ return a + (b - a) * t; }
 function premiumAtAge(age, plan){
-  var a = Math.max(65, Math.min(85, Math.round(age)));
-  var table = DEFAULT_PREMIUMS_BY_AGE;
-  if (table[a]) return table[a][plan];
-  if (a < 70) return Math.round(lerp(table[65][plan], table[70][plan], (a - 65) / 5));
-  if (a < 75) return Math.round(lerp(table[70][plan], table[75][plan], (a - 70) / 5));
-  return Math.round(table[75][plan] * Math.pow(1 + INCREASE_RATE[plan], a - 75));
+  return MedigapCost.premiumAtAge(age, plan);
+}
+function premiumSourceNote(sources){
+  var c = MedigapCost.sourceCounts(sources);
+  var names = {G:'Plan G',N:'Plan N',HD:'Plan G con deducible alto'};
+  if (c.entered === 3) return 'Usa las primas mensuales que usted ingresó. La Parte B, los copagos y los deducibles siguen siendo estimados.';
+  if (c.entered === 0) return 'Las primas mensuales son estimados ilustrativos, no cotizaciones de una aseguradora. Ingrese sus cotizaciones en el paso 2 para reemplazarlas plan por plan.';
+  var entered = [];
+  var est = [];
+  ['G','N','HD'].forEach(function(k){
+    if (sources[k]==='entered') entered.push(names[k]);
+    else est.push(names[k]);
+  });
+  function list(arr){ return arr.join(', '); }
+  return list(entered) + (entered.length===1?' usa':' usan') + ' la prima que usted ingresó. ' + list(est) + (est.length===1?' usa':' usan') + ' un estimado ilustrativo, no una cotización.';
 }
 function calculate(){
   if (!state.usage) {
@@ -476,28 +481,19 @@ function calculate(){
     if (err) err.style.display = 'block';
     return;
   }
-  var G = state.useAdvanced && document.getElementById('advG').value ? parseFloat(document.getElementById('advG').value) : premiumAtAge(state.age, 'G');
-  var N = state.useAdvanced && document.getElementById('advN').value ? parseFloat(document.getElementById('advN').value) : premiumAtAge(state.age, 'N');
-  var HD = state.useAdvanced && document.getElementById('advHD').value ? parseFloat(document.getElementById('advHD').value) : premiumAtAge(state.age, 'HD');
-
-  var usage = USAGE_COPAYS[state.usage];
-  var nCopayYearly = usage.visits*20 + usage.er*50;
-
-  var totals = {}; var yearlyChart = {G:[],N:[],HD:[]};
-  ['G','N','HD'].forEach(function(k){
-    var premium = {G:G,N:N,HD:HD}[k];
-    var rate = INCREASE_RATE[k];
-    var total = 0;
-    for (var y=0;y<YEARS;y++){
-      var yearPremium = premium * Math.pow(1+rate,y) * 12;
-      var hdOutOfPocket = {low:600,med:1500,high:HD_G_TOTAL_DEDUCTIBLE}[state.usage];
-      var yearExtra = k==='N' ? nCopayYearly : (k==='HD' ? hdOutOfPocket : 0);
-      var yearDeductible = k==='HD' ? 0 : PART_B_DEDUCTIBLE_ANNUAL;
-      total += yearPremium + yearExtra + yearDeductible + PART_B_PREMIUM_ANNUAL;
-      yearlyChart[k].push(Math.round(total));
-    }
-    totals[k]=Math.round(total);
+  var resolved = MedigapCost.resolvePremiums(state.age, {
+    G: document.getElementById('advG').value,
+    N: document.getElementById('advN').value,
+    HD: document.getElementById('advHD').value
   });
+  var G = resolved.premiums.G;
+  var N = resolved.premiums.N;
+  var HD = resolved.premiums.HD;
+  var sources = resolved.sources;
+  var projected = MedigapCost.projectCosts({ premiums: resolved.premiums, usage: state.usage, years: YEARS });
+  var nCopayYearly = projected.nCopayYearly;
+  var totals = projected.totals;
+  var yearlyChart = projected.yearlyChart;
 
   var order = ['G','N','HD'].sort(function(a,b){return totals[a]-totals[b]});
   var winner = order[0];
@@ -512,8 +508,20 @@ function calculate(){
   document.getElementById('winnerSave').textContent = winner==='G'
     ? 'Los costos más predecibles en ' + YEARS + ' años — principalmente paga el deducible de Parte B'
     : (winner==='HD'
-      ? 'Ahorra unos $' + savingsVsG.toLocaleString() + ' en ' + YEARS + ' años vs. Plan G si se mantiene sano. Una hospitalización puede significar pagar hasta $2,870 primero.'
+      ? 'Ahorra unos $' + savingsVsG.toLocaleString() + ' en ' + YEARS + ' años vs. Plan G si se mantiene sano. Una hospitalización puede significar pagar hasta $2,950 primero (deducible HDG 2026).'
       : 'Ahorra unos $' + savingsVsG.toLocaleString() + ' en ' + YEARS + ' años vs. Plan G, si no le molestan los copagos de consulta y urgencias');
+
+  var srcNote = document.getElementById('premiumSourceNote');
+  if (srcNote) srcNote.textContent = premiumSourceNote(sources);
+  var urge = document.getElementById('ctaUrge');
+  if (urge) {
+    var counts = MedigapCost.sourceCounts(sources);
+    urge.textContent = counts.entered === 3
+      ? 'Usa las primas mensuales que usted ingresó. Una llamada gratis de 10 minutos aún puede comparar otras aseguradoras para su código postal, edad y salud.'
+      : (counts.entered === 0
+        ? 'Estas primas mensuales son estimados ilustrativos, no cotizaciones de una aseguradora. Una llamada gratis de 10 minutos compara cotizaciones reales para su código postal, edad y salud.'
+        : premiumSourceNote(sources) + ' Una llamada gratis de 10 minutos compara cotizaciones reales para su código postal, edad y salud.');
+  }
 
   var rows = document.getElementById('planRows');
   rows.innerHTML='';
@@ -521,7 +529,8 @@ function calculate(){
     var row = document.createElement('div');
     row.className = 'plan-row' + (k===winner?' best':'');
     var allInMonthly = Math.round(yearlyChart[k][0]/12);
-    row.innerHTML = '<span class="name">'+names[k]+'</span><span class="cost">$'+allInMonthly.toLocaleString()+'\u002Fmo</span>';
+    var tag = sources[k]==='entered' ? ' (su cotización)' : ' (estimado)';
+    row.innerHTML = '<span class="name">'+names[k]+tag+'</span><span class="cost">$'+allInMonthly.toLocaleString()+'\u002Fmo</span>';
     rows.appendChild(row);
   });
 
@@ -535,10 +544,11 @@ function calculate(){
     var deductibleLine = k==='HD' ? '' : '<div class="line"><span>Deducible Parte B</span><span>$'+PART_B_DEDUCTIBLE_ANNUAL.toLocaleString()+'</span></div>';
     var extraLine = k==='N'
       ? '<div class="line"><span>Copagos</span><span>$'+nCopayYearly.toLocaleString()+'</span></div>'
-      : (k==='HD' ? '<div class="line"><span>Gasto de bolsillo est.</span><span>$'+{low:600,med:1500,high:HD_G_TOTAL_DEDUCTIBLE}[state.usage].toLocaleString()+'</span></div>' : '');
+      : (k==='HD' ? '<div class="line"><span>Gasto de bolsillo est.</span><span>$'+projected.hdOutOfPocket.toLocaleString()+'</span></div>' : '');
+    var premLabel = sources[k]==='entered' ? 'Prima anual (su cotización)' : 'Prima anual (estimado)';
     card.innerHTML =
-      '<div class="pname">'+names[k]+'</div>'+
-      '<div class="line"><span>Prima anual</span><span>$'+Math.round(premiums[k]*12).toLocaleString()+'</span></div>'+
+      '<div class="pname">'+names[k]+(sources[k]==='entered'?' (su cotización)':' (estimado)')+'</div>'+
+      '<div class="line"><span>'+premLabel+'</span><span>$'+Math.round(premiums[k]*12).toLocaleString()+'</span></div>'+
       deductibleLine+
       extraLine+
       '<div class="line"><span>Prima Parte B</span><span>$'+Math.round(PART_B_PREMIUM_ANNUAL).toLocaleString()+'</span></div>'+
@@ -567,17 +577,17 @@ function calculate(){
     low: {
       G: 'Aunque visite poco, el Plan G es el más predecible — principalmente paga el deducible anual de Parte B. Paga extra cada mes por esa certeza.',
       N: 'Con pocas visitas, el Plan N suele costar menos que el G porque los copagos son bajos. Por eso suele ganar si está más sano.',
-      HD: 'El Plan G con deducible alto tiene la prima más baja. Solo conviene si se mantiene sano. Una hospitalización puede significar pagar hasta $2,870 antes de que el plan ayude.'
+      HD: 'El Plan G con deducible alto tiene la prima más baja. Solo conviene si se mantiene sano. Una hospitalización puede significar pagar hasta $2,950 (deducible HDG 2026) antes de que el plan ayude.'
     },
     med: {
       G: 'El Plan G cuesta más cada mes, pero casi nunca hay una factura sorpresa después del deducible de Parte B. Útil si no quiere copagos.',
       N: 'Unas pocas visitas al año casi nunca borran la prima más baja del Plan N. Ese es el intercambio típico G vs N.',
-      HD: 'El Plan G con deducible alto puede verse más barato en el papel. Recuerde que estima $1,500 de bolsillo este año — un mal año puede llegar al deducible completo de $2,870.'
+      HD: 'El Plan G con deducible alto puede verse más barato en el papel. Recuerde que estima $1,500 de bolsillo este año — un mal año puede llegar al deducible completo de $2,950 (2026).'
     },
     high: {
       G: 'Si usa atención con frecuencia, pagar más cada mes para evitar copagos y un deducible grande suele costar menos a largo plazo.',
       N: 'Las visitas frecuentes suman copagos del Plan N (hasta $20 consulta / $50 urgencias). Aun así suele ser más barato que el G si no va mucho a urgencias.',
-      HD: 'El uso frecuente convierte el deducible de $2,870 del Plan G HD en un costo real, no hipotético. El Plan G o N suele ser la opción más segura.'
+      HD: 'El uso frecuente convierte el deducible de $2,950 (2026) del Plan G HD en un costo real, no hipotético. El Plan G o N suele ser la opción más segura.'
     }
   };
   document.getElementById('plainExplain').textContent = explainMap[state.usage][winner];
