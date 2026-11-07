@@ -39,11 +39,17 @@ for (const [label, html] of [["EN", en], ["ES", es]]) {
   assert.ok(html.includes("id=\"aep-countdown\""), `${label}: aep-countdown span`);
   assert.ok(html.includes("/css/homepage-aep.css"), `${label}: banner CSS`);
   assert.ok(html.includes("/js/aep-countdown.js"), `${label}: countdown script`);
-  assert.strictEqual(count(html, "Winnie Tseng"), 1, `${label}: Winnie appears once`);
-  assert.ok(html.includes(">Gerry<"), `${label}: Gerry review in grid`);
-  assert.ok(html.includes("Kiss Michelle"), `${label}: Kiss Michelle kept`);
-  assert.ok(html.includes("Leela C."), `${label}: Leela C. kept`);
-  assert.ok(!/weeks ago|hace \d+ semanas/i.test(html), `${label}: no relative review dates`);
+  assert.ok(html.includes("Rudy G"), `${label}: Rudy G Google review`);
+  assert.ok(html.includes("Elaine Pajaro"), `${label}: Elaine Pajaro Google review`);
+  assert.ok(html.includes("Maria Lopez"), `${label}: Maria Lopez Google review`);
+  assert.ok(!html.includes("Winnie Tseng"), `${label}: stale Winnie Google card removed`);
+  assert.ok(!html.includes("Kiss Michelle"), `${label}: stale Kiss Michelle Google card removed`);
+  assert.ok(!html.includes(">Gerry<"), `${label}: stale Gerry Google card removed`);
+  assert.ok(!html.includes("Leela C."), `${label}: Leela no longer in Google review slots`);
+  assert.ok(!/weeks ago|hace \d+ semanas|4 days ago/i.test(html), `${label}: no relative review dates`);
+  assert.ok(html.includes("share.google/UmSs9MnoSC9ydz4Fs"), `${label}: Rudy share URL`);
+  assert.ok(html.includes("share.google/WIggnXxHq8vBy43gw"), `${label}: Elaine share URL`);
+  assert.ok(html.includes("share.google/um9dfH93g6fQgjIHh"), `${label}: Maria share URL`);
   sectionOrder(html, ["hero-outer", "path-strip", "plans-grid", "stat-strip", "trust-quote"]);
   assert.strictEqual(count(html, "id=\"plans-grid\""), 1, `${label}: one plans grid`);
 }
@@ -95,7 +101,17 @@ assert.ok(es.includes("Inscripción Abierta de Medicare"), "ES banner uses brief
 assert.ok(es.includes("Revisión gratuita de su plan 2027"), "ES banner CTA");
 assert.ok(es.includes("class=\"aep-stat-num\">14<"), "ES stats use 14 carriers");
 
-assert.ok(en.includes('Ms. Perez and her team have been fantastic in providing excellent customer service during the open enrollment period. She provided quick responses to all our questions in order to make our decision much easier.'), "Gerry review text");
+assert.ok(en.includes("They are a great source for Medicare information. Always available and eager to help."), "Rudy original English quote");
+assert.ok(en.includes("Excellent service an attention to details to needs of customer."), "Elaine original spelling preserved");
+assert.ok(en.includes("Muy atenta,muy profesional y total dominio de lo que hace.Muchas gracias,feliz de conocerla"), "Maria original Spanish accessible on EN");
+assert.ok(en.includes("Very attentive, very professional, and completely in control of her work. Thank you so much, I'm so glad to have met her."), "Maria English translation");
+assert.ok(en.includes("Translation. Original:"), "EN Maria translation labeled");
+assert.ok(es.includes("Traducción. Original:"), "ES translations labeled");
+assert.ok(es.includes("Son una excelente fuente de información sobre Medicare. Siempre disponibles y con ganas de ayudar."), "ES Rudy translation");
+assert.ok(en.includes("49 verified reviews") || en.includes("49 Google reviews"), "EN review count 49");
+assert.ok(es.includes("49 reseñas"), "ES review count 49");
+assert.ok(!en.includes("48 Google reviews") && !en.includes("48 verified reviews"), "EN stale 48 count gone");
+assert.ok(!es.includes("48 reseñas de Google") && !es.includes("48 reseñas verificadas"), "ES stale 48 count gone");
 
 assert.ok(countdown.includes("2026-10-15T00:00:00-04:00"), "countdown start ET");
 assert.ok(countdown.includes("2026-12-07T23:59:59-05:00"), "countdown end ET");
