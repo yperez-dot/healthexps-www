@@ -284,6 +284,12 @@ img { max-width: 100%; height: auto; }
 .ntm-submit-btn:hover { background: #c40074; }
 .ntm-submit-btn:disabled { opacity: .5; cursor: not-allowed; }
 
+/* Late-enrollment calculator intro only — do not use a global p {} override.
+   Body/article muted text (#5a5068) is 1.68:1 on brand purple #452068. */
+.ntm-penalty-calc > .ntm-penalty-calc-intro {
+  color: #f0eaf7; /* 10.74:1 vs #452068 */
+}
+
 .faq-item{background:white;border-radius:12px;padding:24px;margin-bottom:14px;box-shadow:0 2px 12px rgba(69,32,104,.07);border:1px solid #f0ecf8;}
 .faq-q{font-size:17px;font-weight:700;color:#452068;margin-bottom:10px;}
 .faq-a{font-size:18px;color:#374151;line-height:1.75;}
@@ -633,10 +639,10 @@ img { max-width: 100%; height: auto; }
         <p style="color:#5a5068;font-size:15px;line-height:1.6;margin:0 0 40px">Cifras 2026: prima estándar Parte B $202.90/mes · deducible Parte B $283/año · deducible Parte A $1,736 por período de beneficio (la mayoría no paga prima de Parte A si trabajó 10+ años).</p>
 
         <!-- PENALTY CALCULATOR -->
-        <div style="background:#452068;border-radius:20px;padding:32px;margin-bottom:48px">
+        <div class="ntm-penalty-calc" style="background:#452068;border-radius:20px;padding:32px;margin-bottom:48px">
           <div style="color:#ff90c8;font-weight:700;font-size:15px;letter-spacing:.06em;margin-bottom:8px">CALCULE SU POSIBLE PENALIDAD</div>
           <div style="font-family:Poppins,sans-serif;font-weight:700;font-size:20px;color:#fff;margin-bottom:4px">Calculadora de Penalidad por Inscripción Tardía</div>
-          <div style="font-size:16px;color:#f0eaf7;margin-bottom:22px">¿Cuánto le podría costar esperar? Ingrese los meses de retraso para ver el impacto en su prima.</div>
+          <div class="ntm-penalty-calc-intro" style="font-size:16px;color:#f0eaf7;margin-bottom:22px">¿Cuánto le podría costar esperar? Ingrese los meses de retraso para ver el impacto en su prima.</div>
           <div style="background:#fff;border-radius:16px;padding:24px">
             <div class="ntm-calc-grid" style="display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:20px">
               <div>
