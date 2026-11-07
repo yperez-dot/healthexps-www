@@ -31,6 +31,16 @@ assert.strictEqual(M.HD_USAGE_OOP.high, 2950, "calculator HD high-usage OOP stay
 assert.strictEqual(M.DEFAULT_PREMIUMS_BY_AGE[65].G, 337);
 assert.strictEqual(M.DEFAULT_PREMIUMS_BY_AGE[65].N, 260);
 assert.strictEqual(M.DEFAULT_PREMIUMS_BY_AGE[65].HD, 80);
+assert.deepStrictEqual(M.SAMPLE_PREMIUMS_65, { G: 337, N: 260, HD: 80 });
+assert.strictEqual(M.parsePositivePremium(""), null);
+assert.strictEqual(M.parsePositivePremium("0"), null);
+assert.strictEqual(M.parsePositivePremium("-1"), null);
+assert.strictEqual(M.parsePositivePremium("abc"), null);
+assert.strictEqual(M.parsePositivePremium("337"), 337);
+assert.strictEqual(M.parsePositivePremium("80.50"), 80.5);
+assert.strictEqual(M.annualFromMonthly(337), 4044);
+assert.strictEqual(M.premiumDiffVsG(337, 260, 12), (337 - 260) * 12);
+assert.strictEqual(M.premiumDiffVsG(null, 260, 12), null);
 
 /* Fair G vs N slider: both pay Part B deductible; N adds copays; no $283 cap. */
 const zero = M.gnSliderCosts(0);
@@ -98,14 +108,44 @@ assertIncludes(esService, "Parte B de 2027 aún no están anunciados");
 assertIncludes(esService, "$283 (2026)");
 assertNotIncludes(esService, "Límite de gastos de bolsillo (2026)");
 
-/* Calculator complete math stays 2026; no mixed 2027 total. */
+/* EN calculator: premium-only quote compare, no 2027 mixed total. */
+assertIncludes(enCalc, "Compare your Medigap quotes");
+assertIncludes(enCalc, "illustrative age-65 sample estimates");
+assertIncludes(enCalc, 'id="quoteG"');
+assertIncludes(enCalc, 'id="quoteN"');
+assertIncludes(enCalc, 'id="quoteHD"');
+assertIncludes(enCalc, 'value="337"');
+assertIncludes(enCalc, 'value="260"');
+assertIncludes(enCalc, 'value="80"');
+assertIncludes(enCalc, "Reset sample estimates");
+assertIncludes(enCalc, "$3,050");
 assertIncludes(enCalc, "does not produce a 2027 total");
-assertIncludes(enCalc, "HDG deductible $2,950");
-assertIncludes(enCalc, "Part B $202.90/mo and $283 deductible");
-assertIncludes(enCalc, "2027 HDG $3,050, Plan K $8,360, and Plan L $4,180");
-assertIncludes(enCalc, '<script src="/js/medigap-cost-model.js"></script>');
-assertIncludes(enCalc, "Florida has no birthday rule");
+assertIncludes(enCalc, "2027 Part B deductible is not yet announced");
+assertIncludes(enCalc, "not treated as $0");
+assertIncludes(enCalc, "Florida has no Medigap birthday rule");
 assertIncludes(enCalc, "Medigap Cost Calculator Florida 2026");
+assertIncludes(enCalc, '<link rel="canonical" href="https://www.healthexps.com/medigap-plan-calculator/">');
+assertIncludes(enCalc, '<script src="/js/medigap-cost-model.js"></script>');
+assertNotIncludes(enCalc, 'name="robots"');
+assertNotIncludes(enCalc, "noindex,nofollow");
+assertNotIncludes(enCalc, "Review preview — not the live website.");
+assertNotIncludes(enCalc, "winnerBanner");
+assertNotIncludes(enCalc, "Lowest estimated cost");
+assertNotIncludes(enCalc, "over 20 years");
+assertNotIncludes(enCalc, "id=\"advG\"");
+assertNotIncludes(enCalc, "One year of premiums. No 20-year forecast. No automatic winner.");
+assertIncludes(enCalc, 'id="qcMonth" class="on"');
+assertNotIncludes(enCalc, 'id="qcYear" class="on"');
+
+/* Shared helpers stay additive; ES 20-year calculator still uses the original API. */
+assert.strictEqual(typeof M.parseEnteredPremium, "function");
+assert.strictEqual(typeof M.resolvePremiums, "function");
+assert.strictEqual(typeof M.projectCosts, "function");
+assert.strictEqual(typeof M.premiumAtAge, "function");
+assertIncludes(esCalc, "MedigapCost.resolvePremiums");
+assertIncludes(esCalc, "MedigapCost.projectCosts");
+assertIncludes(esCalc, "MedigapCost.HD_G_DEDUCTIBLE_2026");
+
 assertIncludes(esCalc, "no produce un total de 2027");
 assertIncludes(esCalc, "deducible HDG $2,950");
 assertIncludes(esCalc, '<script src="/js/medigap-cost-model.js"></script>');
@@ -181,11 +221,9 @@ walkHtml(root).forEach(function (file) {
   assert(!/38 reseñas de Google/.test(html), "stale 38 reseñas in " + path.relative(root, file));
 });
 
-/* Bilingual calculator quote-source DOM hooks exist. */
-[enCalc, esCalc].forEach(function (html) {
-  assertIncludes(html, 'id="premiumSourceNote"');
-  assertIncludes(html, 'id="advG"');
-  assertIncludes(html, 'id="ctaUrge"');
-});
+assertIncludes(enCalc, 'id="qcReset"');
+assertIncludes(esCalc, 'id="premiumSourceNote"');
+assertIncludes(esCalc, 'id="advG"');
+assertIncludes(esCalc, 'id="ctaUrge"');
 
 console.log("test-medigap-accuracy: ok");

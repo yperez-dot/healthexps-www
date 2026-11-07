@@ -53,6 +53,27 @@
     return n;
   };
 
+  /* Quote-compare: blank, zero, negative, and invalid are excluded — not $0. */
+  M.SAMPLE_PREMIUMS_65 = { G: 337, N: 260, HD: 80 };
+  M.parsePositivePremium = function (raw) {
+    if (raw == null) return null;
+    var s = String(raw).trim();
+    if (s === "") return null;
+    if (!/^\d+(\.\d{1,2})?$/.test(s)) return null;
+    var n = Number(s);
+    if (!isFinite(n) || n <= 0) return null;
+    return n;
+  };
+  M.annualFromMonthly = function (monthly) {
+    if (monthly == null) return null;
+    return monthly * 12;
+  };
+  M.premiumDiffVsG = function (gMonthly, otherMonthly, months) {
+    months = months == null ? 1 : months;
+    if (gMonthly == null || otherMonthly == null) return null;
+    return (gMonthly - otherMonthly) * months;
+  };
+
   M.premiumAtAge = function (age, plan) {
     var a = Math.max(65, Math.min(85, Math.round(age)));
     var table = M.DEFAULT_PREMIUMS_BY_AGE;

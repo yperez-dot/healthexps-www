@@ -12,111 +12,105 @@
 <link rel="alternate" hreflang="es" href="https://www.healthexps.com/es/calculadora-medigap/"/>
 <title>Medigap Cost Calculator Florida 2026 | Compare G vs N</title>
 <meta name="description" content="Free Florida Medigap calculator. Compare Plan G, Plan N, and High-Deductible Plan G by age and doctor visits — no email required.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
   :root{
-    --navy:#4b1e63; --coral:#e5148c; --coral-dark:#c40f78;
-    --sky:#f3edf9; --ink:#2a2333; --muted:#6b6376; --line:#e4dcec; --card:#ffffff; --radius:14px;
-    --green:#0f8a5f; --green-bg:#e7f6ef;
+    --purple:#452068; --purple-dark:#2f1550; --purple-light:#f7f2fb;
+    --pink:#ff1090; --pink-hover:#c40074;
+    --white:#fff; --off-white:#fdfaf7; --gray-mid:#ece5f0;
+    --gray-text:#3a2f47; --black:#241a30; --muted:#5a5068;
+    --font-body:'Inter',Arial,Helvetica,sans-serif;
+    --font-head:'Poppins',Arial,Helvetica,sans-serif;
+    --navy:#452068; --coral:#ff1090; --line:#ece5f0;
   }
   *{box-sizing:border-box;margin:0;padding:0}
   html,body{overflow-x:hidden;max-width:100%}
-  body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Helvetica Neue",Arial,sans-serif;background:#fff;color:var(--ink);min-height:100vh}
-  .calc-section{background:linear-gradient(160deg,#f4eefa 0%,#fff0f8 100%);padding:32px 16px 48px}
-  .wrap{max-width:600px;margin:0 auto}
-  header{text-align:center;margin-bottom:24px}
-  .eyebrow{display:inline-block;background:var(--navy);color:#fff;font-size:14px;font-weight:700;letter-spacing:.08em;border-radius:999px;padding:5px 14px;margin-bottom:10px}
-  h1{color:var(--navy);font-size:26px;margin-bottom:8px}
-  header p{color:var(--muted);font-size:18px;max-width:480px;margin:0 auto}
-  .learn-link{margin-top:12px;text-align:center}
-  .learn-link a{font-size:17px;color:var(--navy);font-weight:700;text-decoration:none;border-bottom:1.5px solid var(--coral)}
-  .progress{display:flex;gap:6px;margin:20px 0}
-  .progress div{height:5px;flex:1;background:var(--line);border-radius:3px}
-  .progress div.done{background:var(--coral)}
-  .card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:24px;box-shadow:0 1px 3px rgba(20,56,92,.06);margin-bottom:16px}
-  .step-label{font-size:16px;font-weight:700;color:var(--coral);text-transform:uppercase;letter-spacing:.06em;margin-bottom:6px}
-  h2{color:var(--navy);font-size:20px;margin-bottom:6px;line-height:1.3}
-  .help{color:var(--muted);font-size:16px;margin-bottom:18px;line-height:1.55}
-  .age-box{display:flex;align-items:center;gap:16px;justify-content:center;margin:16px 0}
-  .age-box button{width:44px;height:44px;border-radius:50%;border:2px solid var(--navy);background:#fff;color:var(--navy);font-size:22px;cursor:pointer;font-weight:700}
-  .age-box .num{font-size:40px;font-weight:700;color:var(--navy);min-width:70px;text-align:center;border:none;background:transparent;width:90px;font-family:inherit;-moz-appearance:textfield}
-  .age-box .num::-webkit-outer-spin-button,.age-box .num::-webkit-inner-spin-button{-webkit-appearance:none;margin:0}
-  .winner-banner.warn{background:#fff8e8;border-color:#e6c766}
-  .winner-banner.warn .label{color:#8a6d00}
-  .usage-error{display:none;color:#b32d2d;font-weight:700;font-size:16px;margin:8px 0 0}
-  .choices{display:flex;flex-direction:column;gap:10px}
-  .choice{border:2px solid var(--line);border-radius:12px;padding:16px;cursor:pointer;background:#fff;text-align:left;font-family:inherit;transition:border-color .15s,background .15s}
-  .choice:hover{border-color:var(--navy)}
-  .choice.selected{border-color:var(--coral);background:#fdf4ef}
-  .choice .t{font-weight:700;font-size:17px;color:var(--navy);display:block;margin-bottom:3px}
-  .choice .d{font-size:17px;color:var(--muted)}
-  .nav-btns{display:flex;gap:10px;margin-top:20px}
-  .btn{flex:1;border:none;border-radius:10px;padding:15px;font-size:16px;font-weight:700;cursor:pointer;font-family:inherit}
-  .btn-primary{background:var(--coral);color:#fff}
-  .btn-primary:hover{background:var(--coral-dark)}
-  .btn-secondary{background:#fff;border:2px solid var(--line);color:var(--muted)}
-  .advanced-toggle{font-size:17px;color:var(--navy);text-decoration:underline;cursor:pointer;text-align:center;margin-top:14px}
-  #advancedPanel{display:none;margin-top:16px;padding-top:16px;border-top:1px solid var(--line)}
-  #advancedPanel label{display:block;font-size:16px;font-weight:700;color:var(--navy);margin-bottom:5px;margin-top:12px}
-  #advancedPanel input{width:100%;padding:9px 10px;font-size:18px;border:1.5px solid var(--line);border-radius:8px;font-family:inherit}
-  #resultView{display:none}
-  .winner-banner{background:var(--green-bg);border:1.5px solid var(--green);border-radius:12px;padding:18px;text-align:center;margin-bottom:18px}
-  .winner-banner .label{font-size:17px;color:var(--green);font-weight:700;text-transform:uppercase;letter-spacing:.04em}
-  .winner-banner .plan{font-size:24px;font-weight:700;color:var(--navy);margin:4px 0}
-  .winner-banner .save{font-size:18px;color:var(--ink)}
-  .plan-rows{display:flex;flex-direction:column;gap:10px;margin-bottom:8px}
-  .includes-note{font-size:16px;color:var(--muted);text-align:center;margin-bottom:18px;line-height:1.5}
-  .plan-row{display:flex;align-items:center;justify-content:space-between;padding:14px 16px;border-radius:10px;border:1.5px solid var(--line);background:#fff}
-  .plan-row.best{border-color:var(--green);background:var(--green-bg)}
-  .plan-row .name{font-weight:700;color:var(--navy);font-size:16px}
-  .plan-row .cost{font-size:18px;font-weight:700;color:var(--ink)}
-  .plain-explain{font-size:18px;color:var(--ink);line-height:1.6;background:var(--sky);border-radius:10px;padding:14px;margin-bottom:18px}
-  .chart-wrap{position:relative;height:220px;margin-bottom:18px}
-  .cta-block{text-align:center;padding-top:6px;border-top:1px solid var(--line)}
-  .cta-block p{font-size:18px;color:var(--muted);margin-bottom:12px}
-  .contact-btns{display:grid;grid-template-columns:1fr 1fr;gap:10px}
-  .contact-btns a{display:block;text-align:center;text-decoration:none;padding:13px;border-radius:10px;font-size:18px;font-weight:700}
-  .btn-call{background:var(--navy);color:#fff}
-  .btn-wa{background:#25d366;color:#fff}
-  .startover{text-align:center;margin-top:14px;font-size:17px;color:var(--muted);text-decoration:underline;cursor:pointer}
-  .section-label{font-size:17px;font-weight:700;color:var(--navy);text-transform:uppercase;letter-spacing:.04em;margin:20px 0 10px}
-  .breakdown-grid{display:grid;grid-template-columns:1fr;gap:10px;margin-bottom:8px}
-  .breakdown-card{border:1.5px solid var(--line);border-radius:10px;padding:14px 16px;background:#fff}
-  .breakdown-card.best{border-color:var(--green);background:var(--green-bg)}
-  .breakdown-card .pname{font-size:16px;font-weight:700;color:var(--navy);margin-bottom:8px}
-  .midpoint-note{font-size:14.5px;color:var(--coral-dark);font-weight:700;margin:-4px 0 8px}
-  .cta-urge{font-size:18px;color:var(--ink);margin-bottom:12px;line-height:1.6}
-  .breakdown-card .line{display:flex;justify-content:space-between;font-size:18px;color:var(--muted);margin-bottom:6px}
-  .breakdown-card .line span:last-child{color:var(--ink);font-weight:500}
-  .breakdown-card .total{display:flex;justify-content:space-between;font-size:17px;font-weight:700;color:var(--navy);margin-top:8px;padding-top:8px;border-top:1px solid var(--line)}
-  .milestone-table{border:1px solid var(--line);border-radius:10px;overflow:hidden;margin-bottom:8px}
-  .milestone-row{display:grid;grid-template-columns:56px 1fr 1fr 1fr;gap:0;padding:12px 10px;font-size:17px;align-items:center}
-  .milestone-row:nth-child(even){background:var(--sky)}
-  .milestone-row.head{background:var(--navy);color:#fff;font-weight:700;font-size:16px;text-transform:uppercase}
-  .milestone-row .yr{font-weight:700;color:var(--navy)}
-  .milestone-row.head .yr{color:#fff}
-  .milestone-row .amt{color:var(--ink)}
-  .milestone-row .amt.win{color:var(--green);font-weight:700}
-  @media (max-width:480px){.milestone-row{grid-template-columns:44px 1fr 1fr 1fr;font-size:16px;padding:10px 6px}}
-  .benefits-table{border:1px solid var(--line);border-radius:10px;overflow:hidden;margin-bottom:8px}
-  .benefits-row{display:grid;grid-template-columns:1.8fr 1fr 1fr 1fr;gap:0;padding:12px 10px;font-size:17px;align-items:center;text-align:center}
-  .benefits-row span:first-child{text-align:left;color:var(--ink)}
-  .benefits-row:nth-child(even):not(.head){background:var(--sky)}
-  .benefits-row.head{background:var(--navy);color:#fff;font-weight:700;font-size:16px;text-transform:uppercase}
-  .benefits-row.head span:first-child{color:#fff}
-  .yes{color:var(--green);font-weight:700}
-  .partial{color:#b7791f;font-weight:700}
-  .no{color:#b32d2d;font-weight:700}
-  .benefits-footnote{font-size:16px;color:var(--muted);line-height:1.6;margin-bottom:16px}
-  .disclaimer-box{background:#fff3cd;border:1px solid #e6c766;border-radius:8px;padding:12px 14px;font-size:17px;color:#7a5d00;margin-bottom:16px;line-height:1.6}
-  @media (max-width:480px){.benefits-row{grid-template-columns:1.4fr 1fr 1fr 1fr;font-size:14.5px;padding:10px 6px}}
-  .about-toggle{font-size:17px;color:var(--navy);font-weight:700;text-align:center;cursor:pointer;padding:10px 0;margin-bottom:8px}
-  #aboutPanel{display:none;background:var(--sky);border-radius:10px;padding:16px;margin-bottom:16px}
-  .about-section{margin-bottom:14px}
-  .about-section:last-child{margin-bottom:0}
-  .about-h{font-size:16px;font-weight:700;color:var(--navy);text-transform:uppercase;letter-spacing:.03em;margin-bottom:6px}
-  .about-section ul{margin:0;padding-left:18px}
-  .about-section li{font-size:17px;color:var(--ink);line-height:1.7}
-  .about-note{font-size:15px;color:var(--muted);font-style:italic;margin-top:8px;line-height:1.55}
+  body{font-family:var(--font-body);background:#fff;color:var(--black);min-height:100vh;line-height:1.55;font-size:17px}
+h1,h2,h3{font-family:var(--font-head);color:var(--black);line-height:1.2}
+a{color:var(--purple)}
+.qc-section{background:linear-gradient(180deg,#f7f2fb 0%,#ffffff 240px);padding:24px 0 56px}
+.qc-wrap{max-width:1080px;margin:0 auto;padding:0 20px;min-width:0}
+.qc-banner{background:#fff;border:1px solid var(--gray-mid);border-left:4px solid var(--purple);border-radius:0 14px 14px 0;padding:14px 16px;font-size:16px;color:var(--gray-text);line-height:1.55;margin-bottom:22px}
+.qc-banner strong{color:var(--purple);font-weight:700}
+.qc-head{text-align:center;margin:0 auto 28px;max-width:640px}
+.qc-eyebrow{display:inline-block;background:var(--purple);color:#fff;font-size:13px;font-weight:700;letter-spacing:.08em;border-radius:999px;padding:5px 14px;margin-bottom:12px;font-family:var(--font-head)}
+.qc-head h1{font-size:clamp(26px,4vw,36px);margin:0 0 10px;color:var(--black)}
+.qc-head p{color:var(--gray-text);font-size:17px;line-height:1.6;margin:0 auto}
+.qc-learn{margin-top:12px}
+.qc-learn a{font-size:16px;font-weight:700;color:var(--purple);text-decoration:none;border-bottom:1.5px solid var(--pink)}
+.qc-toolbar{display:flex;flex-wrap:wrap;gap:10px;align-items:center;justify-content:space-between;margin:0 0 14px}
+.qc-kicker{font-family:var(--font-head);font-size:13px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--pink);margin:0}
+.qc-reset{background:#fff;border:1.5px solid var(--gray-mid);color:var(--purple);font-weight:700;font-size:15px;padding:10px 14px;border-radius:10px;cursor:pointer;font-family:var(--font-body);min-height:44px}
+.qc-reset:hover{border-color:var(--purple)}
+.qc-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;margin-bottom:20px}
+.qc-card{background:#fff;border:1px solid var(--gray-mid);border-radius:18px;padding:20px;min-width:0}
+.qc-card h2{font-size:20px;margin:0 0 4px}
+.qc-label{display:block;font-size:14px;font-weight:600;color:var(--muted);margin:12px 0 6px}
+.qc-input{width:100%;max-width:100%;font-size:18px;padding:12px 14px;border:1.5px solid var(--gray-mid);border-radius:10px;font-family:var(--font-body);color:var(--black);background:#fff;min-height:48px}
+.qc-input:focus{outline:2px solid var(--purple);outline-offset:1px;border-color:var(--purple)}
+.qc-input.is-invalid{border-color:#b32d2d}
+.qc-source{font-size:14px;color:var(--muted);margin:8px 0 0;line-height:1.45}
+.qc-source.is-yours{color:var(--purple);font-weight:600}
+.qc-error{display:none;font-size:14px;color:#9b1c1c;margin-top:8px;line-height:1.45}
+.qc-error.show{display:block}
+.qc-annual{margin-top:12px}
+.qc-annual .amt{font-family:var(--font-head);font-size:26px;font-weight:700;color:var(--black);line-height:1.1;word-break:break-word}
+.qc-annual .sub{font-size:14px;color:var(--muted);margin-top:4px}
+.qc-facts{margin-top:16px;padding-top:14px;border-top:1px solid var(--gray-mid);display:flex;flex-direction:column;gap:10px}
+.qc-fact dt{font-size:13px;font-weight:700;color:var(--purple);margin:0 0 2px}
+.qc-fact dd{font-size:15px;color:var(--gray-text);margin:0;line-height:1.5}
+.qc-diff-head{display:flex;flex-wrap:wrap;gap:10px;align-items:center;justify-content:space-between;margin:8px 0 14px}
+.qc-diff-head h2{font-size:22px;margin:0}
+.qc-seg{display:inline-flex;background:#fff;border:1.5px solid var(--gray-mid);border-radius:999px;padding:3px;gap:2px}
+.qc-seg button{border:0;background:transparent;font-family:var(--font-body);font-weight:700;font-size:14px;padding:8px 14px;border-radius:999px;cursor:pointer;color:var(--muted);min-height:40px}
+.qc-seg button.on{background:var(--purple);color:#fff}
+.qc-diff-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;margin-bottom:10px}
+.qc-diff .figure{font-family:var(--font-head);font-size:clamp(18px,2.4vw,24px);font-weight:700;color:var(--black);margin:6px 0 8px;line-height:1.25;word-break:break-word}
+.qc-note{font-size:15px;color:var(--muted);line-height:1.55;margin:0 0 22px}
+.qc-split{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,1fr);gap:16px;margin-bottom:20px}
+.qc-bars{display:flex;flex-direction:column;gap:14px}
+.qc-bar{min-width:0}
+.qc-bar-top{display:flex;justify-content:space-between;gap:8px;align-items:baseline;margin-bottom:6px}
+.qc-bar-name{font-weight:700;font-size:15px;color:var(--black);min-width:0}
+.qc-bar-amt{font-weight:700;font-size:15px;color:var(--purple);white-space:nowrap}
+.qc-bar-track{height:12px;background:var(--purple-light);border-radius:999px;overflow:hidden;min-width:0}
+.qc-bar-fill{height:100%;background:var(--purple);border-radius:999px;max-width:100%}
+.qc-bar-meta{font-size:13px;color:var(--muted);margin-top:4px}
+.qc-decide{margin-top:18px}
+.qc-decide li{margin:0 0 10px;font-size:15px;color:var(--gray-text);line-height:1.5}
+.qc-decide strong{color:var(--black)}
+.qc-details{background:#fff;border:1px solid var(--gray-mid);border-radius:14px;padding:4px 16px 8px;margin-bottom:20px}
+.qc-details summary{cursor:pointer;font-family:var(--font-head);font-weight:700;font-size:17px;color:var(--black);padding:14px 0;list-style:none}
+.qc-details summary::-webkit-details-marker{display:none}
+.qc-details summary:after{content:"▾";float:right;color:var(--purple)}
+.qc-details[open] summary:after{content:"▴"}
+.qc-details .row{padding:0 0 12px}
+.qc-details h3{font-size:15px;margin:0 0 4px;color:var(--purple)}
+.qc-details p{font-size:15px;color:var(--gray-text);margin:0;line-height:1.5}
+.qc-links{display:flex;flex-direction:column;gap:8px;margin:8px 0 12px}
+.qc-links a{font-size:15px;font-weight:700;color:var(--purple);text-decoration:none;word-break:break-word}
+.qc-contact{text-align:center;padding:8px 0 0}
+.qc-contact p{font-size:15px;color:var(--muted);margin:0 0 12px}
+.qc-btns{display:grid;grid-template-columns:1fr 1fr;gap:10px;max-width:480px;margin:0 auto}
+.qc-btns a{display:block;text-align:center;text-decoration:none;padding:13px;border-radius:10px;font-size:16px;font-weight:700;min-height:48px}
+.qc-call{background:var(--purple);color:#fff}
+.qc-wa{background:#25D366;color:#fff}
+@media(max-width:900px){
+  .qc-grid,.qc-diff-grid,.qc-split{grid-template-columns:1fr}
+  .qc-btns{grid-template-columns:1fr}
+  .qc-head h1{font-size:28px}
+  .qc-toolbar{flex-direction:column;align-items:stretch}
+  .qc-reset{width:100%}
+}
+@media(max-width:390px){
+  .qc-wrap{padding:0 16px}
+  .qc-card{padding:16px}
+  .qc-annual .amt{font-size:22px}
+  .qc-diff .figure{font-size:18px}
+}
+
   .v4-nav-dropdown{display:none}
   .v4-nav-item:hover .v4-nav-dropdown{display:block}
   .v4-nav-mobile-btn{display:none;background:none;border:none;cursor:pointer;padding:8px}
@@ -134,10 +128,11 @@
   .cta-block-primary{border-top:none;padding-top:0;margin-top:4px;margin-bottom:4px}
   .cta-block-primary .cta-urge{font-size:16px;margin-bottom:14px}
   .results-actions{margin-top:16px;text-align:center}
+  .v4-nav-desktop a[href^="tel"]{white-space:nowrap}
   @media(max-width:900px){.v4-nav-desktop{display:none!important}.v4-nav-mobile-btn{display:flex!important;align-items:center}}
   @media(max-width:768px){
     .breadcrumb{padding:12px 20px}
-    .calc-section{padding:24px 16px 40px}
+    .qc-section{padding:20px 0 40px}
     .v4-nav-outer{padding-left:20px!important;padding-right:20px!important}
     .top-bar-inner{padding-left:20px!important;padding-right:20px!important}
     #site-footer{padding:40px 20px 24px!important}
@@ -209,7 +204,9 @@
           </div>
 
     <a href="/faq" style="cursor:pointer">FAQ</a>
-    <a href="/resources" style="cursor:pointer">Resources</a> <a href="/blog" style="cursor:pointer">Blog</a> <a href="/medicare-agent-miami" style="padding:10px 14px;border-radius:8px;cursor:pointer;font-weight:600;white-space:nowrap">About Us</a>
+    <a href="/resources" style="cursor:pointer">Resources</a>
+    <a href="/blog" style="cursor:pointer">Blog</a>
+    <a href="/medicare-agent-miami" style="cursor:pointer">About Us</a>
     <a href="/contact" style="cursor:pointer">Contact</a>
   </div>
   <div style="display:flex;align-items:center;gap:12px">
@@ -267,389 +264,243 @@
     <a href="/">Home</a><span>›</span><a href="/resources">Resources</a><span>›</span>Medigap Plan Calculator
   </nav>
 </div>
-<div class="calc-section">
-<div class="wrap">
-<div id="calcIntro">
-<header>
-    <span class="eyebrow">FREE TOOL</span>
-    <h1>Which Medigap plan costs less for you?</h1>
-    <p>Two questions. Default monthly premiums are illustrative estimates &mdash; not carrier quotes. Enter a quoted premium on step 2 to replace the estimate for that plan.</p>
-    <div class="learn-link"><a href="/medicare-supplement-miami">New to these plans? Learn about Medicare Supplement coverage →</a></div>
-    <p class="help" style="margin-top:12px">Medigap follows different enrollment windows than Medicare Advantage. If you also have Advantage or Part D, review those during <a href="/medicare-annual-enrollment-2027">Medicare Annual Enrollment 2027 in Miami (Oct 15–Dec 7)</a>.</p>
+<div class="qc-section">
+<div class="qc-wrap">
+  <div class="qc-banner" role="status">
+    Starting amounts are illustrative age-65 sample estimates, not carrier quotes and not verified 2027 rates. Replace any field with a real monthly quote. Nothing is sent or saved.
+  </div>
+
+  <header class="qc-head">
+    <span class="qc-eyebrow">COMPARE PREMIUMS</span>
+    <h1>Compare your Medigap quotes</h1>
+    <p>See what you pay every month — and what you still pay when you use care.</p>
+    <div class="qc-learn"><a href="/medicare-supplement-miami/">New to these plans? Medicare Supplement guide →</a></div>
   </header>
 
-  <div class="progress"><div id="p1" class="done"></div><div id="p2"></div></div>
-</div>
-
-  <div class="card" id="step1">
-    <div class="step-label">Step 1 of 2</div>
-    <h2>How old are you?</h2>
-    <div class="help">Most people buy Medigap at 65, during a 6-month open enrollment with no health questions. After that window, Florida has no birthday rule. Switching usually means medical underwriting unless a guaranteed-issue right applies. <span id="ageNote"></span></div>
-    <div class="age-box">
-      <button type="button" onclick="changeAge(-1)" aria-label="Decrease age">−</button>
-      <input class="num" id="ageNum" type="text" inputmode="numeric" pattern="[0-9]*" maxlength="2" value="65" autocomplete="off" onblur="setAge(this.value,true)" aria-label="Your age">
-      <button type="button" onclick="changeAge(1)" aria-label="Increase age">+</button>
-    </div>
-    <div class="nav-btns">
-      <button class="btn btn-primary" onclick="goStep(2)">Next</button>
-    </div>
+  <div class="qc-toolbar">
+    <p class="qc-kicker">1. Add your monthly premiums</p>
+    <button type="button" class="qc-reset" id="qcReset">Reset sample estimates</button>
   </div>
 
-  <div class="card" id="step2" style="display:none">
-    <div class="step-label">Step 2 of 2</div>
-    <h2>How often do you go to the doctor?</h2>
-    <div class="help">This helps us guess your yearly costs. You can pick your best guess.</div>
-    <div class="choices" id="usageChoices">
-      <button class="choice" data-v="low" onclick="pickUsage('low',this)">
-        <span class="t">Not very often</span>
-        <span class="d">A checkup once or twice a year</span>
-      </button>
-      <button class="choice" data-v="med" onclick="pickUsage('med',this)">
-        <span class="t">A few times a year</span>
-        <span class="d">Regular checkups plus a specialist visit or two</span>
-      </button>
-      <button class="choice" data-v="high" onclick="pickUsage('high',this)">
-        <span class="t">Often</span>
-        <span class="d">Ongoing health needs, frequent visits</span>
-      </button>
-    </div>
-    <div class="usage-error" id="usageError">Pick how often you go to the doctor so we can estimate visit costs.</div>
-    <div class="advanced-toggle" onclick="toggleAdvanced()">Optional: enter a quoted monthly premium (replaces that plan&rsquo;s estimate)</div>
-    <div class="help" style="margin:8px 0 12px">Leave a field blank to keep the illustrative estimate for that plan. Defaults are estimates, not carrier quotes.</div>
-    <div id="advancedPanel">
-      <label>Plan G monthly premium ($)</label>
-      <input type="number" id="advG" placeholder="leave blank for estimate">
-      <label>Plan N monthly premium ($)</label>
-      <input type="number" id="advN" placeholder="leave blank for estimate">
-      <label>High-Deductible Plan G monthly premium ($)</label>
-      <input type="number" id="advHD" placeholder="leave blank for estimate">
-    </div>
-    <div class="nav-btns">
-      <button class="btn btn-secondary" onclick="goStep(1)">Back</button>
-      <button class="btn btn-primary" onclick="calculate()">See my results</button>
-    </div>
+  <div class="qc-grid" id="qcCards">
+    <article class="qc-card" data-plan="G">
+      <h2>Plan G</h2>
+      <label class="qc-label" for="quoteG">Monthly Medigap premium ($)</label>
+      <input class="qc-input" id="quoteG" name="quoteG" inputmode="decimal" autocomplete="off" value="337" aria-describedby="srcG errG">
+      <p class="qc-source" id="srcG">Sample estimate · age 65 · not an actual quote</p>
+      <p class="qc-error" id="errG">Enter a positive amount with up to two decimal places. Blank is excluded — not treated as $0.</p>
+      <div class="qc-annual" id="annG"></div>
+      <dl class="qc-facts">
+        <div class="qc-fact"><dt>What the extra premium buys</dt><dd>Fewer kinds of Medicare-covered costs to pay yourself than Plan N or high-deductible G.</dd></div>
+        <div class="qc-fact"><dt>You still pay</dt><dd>The yearly Part B deductible. The 2027 amount is not yet announced as of Nov. 7, 2026.</dd></div>
+        <div class="qc-fact"><dt>Part B excess charges</dt><dd>Covered by Plan G.</dd></div>
+      </dl>
+    </article>
+
+    <article class="qc-card" data-plan="N">
+      <h2>Plan N</h2>
+      <label class="qc-label" for="quoteN">Monthly Medigap premium ($)</label>
+      <input class="qc-input" id="quoteN" name="quoteN" inputmode="decimal" autocomplete="off" value="260" aria-describedby="srcN errN">
+      <p class="qc-source" id="srcN">Sample estimate · age 65 · not an actual quote</p>
+      <p class="qc-error" id="errN">Enter a positive amount with up to two decimal places. Blank is excluded — not treated as $0.</p>
+      <div class="qc-annual" id="annN"></div>
+      <dl class="qc-facts">
+        <div class="qc-fact"><dt>What changes from G</dt><dd>You keep more cost-sharing in exchange for any premium reduction.</dd></div>
+        <div class="qc-fact"><dt>You still pay</dt><dd>The yearly Part B deductible (2027 amount not yet announced), plus up to $20 for some office visits and up to $50 for ER visits that do not lead to inpatient admission.</dd></div>
+        <div class="qc-fact"><dt>Part B excess charges</dt><dd>Not covered. These can apply when a provider charges above the Medicare-approved amount.</dd></div>
+      </dl>
+    </article>
+
+    <article class="qc-card" data-plan="HD">
+      <h2>High-deductible G</h2>
+      <label class="qc-label" for="quoteHD">Monthly Medigap premium ($)</label>
+      <input class="qc-input" id="quoteHD" name="quoteHD" inputmode="decimal" autocomplete="off" value="80" aria-describedby="srcHD errHD">
+      <p class="qc-source" id="srcHD">Sample estimate · age 65 · not an actual quote</p>
+      <p class="qc-error" id="errHD">Enter a positive amount with up to two decimal places. Blank is excluded — not treated as $0.</p>
+      <div class="qc-annual" id="annHD"></div>
+      <dl class="qc-facts">
+        <div class="qc-fact"><dt>What changes from G</dt><dd>You pay eligible Medicare cost-sharing before the policy starts paying benefits. Medicare still pays its share.</dd></div>
+        <div class="qc-fact"><dt>2027 annual deductible</dt><dd>$3,050. This is not a cap on all health-care spending, and it is not an out-of-pocket maximum.</dd></div>
+        <div class="qc-fact"><dt>Part B deductible</dt><dd>Counts toward the high deductible; do not add it on top of $3,050. Plan G does not cover the Part B deductible. 2027 Part B is not announced — this tool does not produce a 2027 total.</dd></div>
+      </dl>
+    </article>
   </div>
 
-  <div class="card" id="resultView">
-    <div class="winner-banner" id="winnerBanner">
-      <div class="label" id="winnerLabel">Lowest estimated cost</div>
-      <div class="plan" id="winnerName">Plan N</div>
-      <div class="save" id="winnerSave">Saves about $4,200 over 20 years vs. Plan G</div>
-    </div>
-
-    <div class="plan-rows" id="planRows"></div>
-    <div class="includes-note" id="premiumSourceNote"></div>
-    <div class="includes-note">Estimated monthly total at age <span id="thisYearAge"></span> — includes Part B ($202.90/mo) and expected out-of-pocket. Drug coverage is separate: budget about $25–$60/mo for Part D.</div>
-    <div class="includes-note">All-in totals use 2026 figures only: Part B $202.90/mo and $283 deductible, HDG deductible $2,950. CMS has announced 2027 HDG $3,050, Plan K $8,360, and Plan L $4,180. 2027 Part B is not announced, so this tool does not produce a 2027 total.</div>
-    <div class="includes-note">Assumptions: Plan N copays $20 office / $50 ER; $0 excess charges (Plan N does not cover them); both Plan G and Plan N include the $283 Part B deductible (2026).</div>
-
-    <div class="plain-explain" id="plainExplain"></div>
-
-    <div class="cta-block cta-block-primary">
-      <p class="cta-urge" id="ctaUrge">A free 10-minute call compares options side by side for your ZIP, age, and health.</p>
-      <div class="contact-btns">
-        <a class="btn-call" href="tel:18003806821">Call for my real quote</a>
-        <a class="btn-wa" href="https://wa.me/13054646888">WhatsApp us</a>
-      </div>
-    </div>
-
-    <button type="button" class="detail-toggle" onclick="toggleDetail('costDetails')" aria-expanded="false" id="costDetailsToggle">Cost details over time <span id="costDetailsArrow">▾</span></button>
-    <div id="costDetails" class="detail-panel">
-      <div class="section-label" style="margin-top:8px">This year's breakdown</div>
-      <div class="breakdown-grid" id="yearBreakdown"></div>
-      <div class="section-label">Total cost at 5, 10, 15, and 20 years</div>
-      <div class="help" style="margin-bottom:12px">Green numbers show the lowest total at each milestone.</div>
-      <div class="milestone-table" id="milestoneTable"></div>
-      <div class="chart-wrap"><canvas id="costChart"></canvas></div>
-    </div>
-
-    <button type="button" class="detail-toggle" onclick="toggleDetail('coverageDetails')" aria-expanded="false" id="coverageDetailsToggle">What each plan covers <span id="coverageDetailsArrow">▾</span></button>
-    <div id="coverageDetails" class="detail-panel">
-      <div class="benefits-table" style="margin-top:8px">
-      <div class="benefits-row head"><span>Covered</span><span>Plan G</span><span>Plan N</span><span>HD Plan G</span></div>
-      <div class="benefits-row"><span>Hospital costs (Part A)</span><span class="yes">✓</span><span class="yes">✓</span><span class="yes">✓*</span></div>
-      <div class="benefits-row"><span>Doctor visits (Part B)</span><span class="yes">✓</span><span class="partial">✓**</span><span class="yes">✓*</span></div>
-      <div class="benefits-row"><span>Skilled nursing care</span><span class="yes">✓</span><span class="yes">✓</span><span class="yes">✓*</span></div>
-      <div class="benefits-row"><span>Part A deductible</span><span class="yes">✓</span><span class="yes">✓</span><span class="yes">✓*</span></div>
-      <div class="benefits-row"><span>Doctor bills over Medicare's rate</span><span class="yes">✓</span><span class="no">✗</span><span class="yes">✓*</span></div>
-      <div class="benefits-row"><span>Emergencies while traveling abroad</span><span class="yes">✓</span><span class="yes">✓</span><span class="yes">✓*</span></div>
-      </div>
-      <div class="benefits-footnote">* After you pay the $2,950 annual deductible yourself (CMS, 2026; $3,050 in 2027). ** Plan N covers this in full except a copay of up to $20 per office visit and up to $50 per ER visit that doesn't lead to admission. Plan N does not cover excess charges.</div>
-    </div>
-
-    <button type="button" class="detail-toggle" onclick="toggleDetail('aboutDetails')" aria-expanded="false" id="aboutDetailsToggle">About these estimates <span id="aboutDetailsArrow">▾</span></button>
-    <div id="aboutDetails" class="detail-panel">
-      <div class="disclaimer-box" style="background:#f7f2fb;border:1px solid #c9aee0;color:#2a2333;font-size:15px;line-height:1.55;border-radius:8px;padding:12px 14px;margin:8px 0 12px">Premiums are typical Florida midpoints for a non-tobacco applicant, blended across gender — not a quote for your ZIP. We represent 14 organizations offering 82 products in your area. Not affiliated with or endorsed by Medicare or the U.S. government.</div>
-      <div class="about-section">
-        <div class="about-h">How we calculated this</div>
-        <ul>
-          <li>Part B premium: $202.90/month; Part B deductible: $283/year (CMS, 2026)</li>
-          <li>HD Plan G deductible: $2,950/year (CMS, 2026); CMS has announced $3,050 for 2027</li>
-          <li>Default premiums: illustrative Florida midpoints at 65, 70, and 75 when you do not enter quotes; ages in between are interpolated</li>
-          <li>Enter your own quotes on step 2 if you already have carrier prices</li>
-          <li>Florida has no annual birthday window to switch Medigap without underwriting</li>
-        </ul>
-        <div class="about-note">Uses the 2026 HDG deductible ($2,950). CMS has announced $3,050 for 2027.</div>
-        <div class="about-note">Year-over-year growth is an estimate. It is not the same as one policy&rsquo;s actual rate history. Your ZIP, gender, tobacco use, and carrier will change the price.</div>
-      </div>
-    </div>
-
-    <div class="results-actions">
-      <div class="learn-link"><a href="/medicare-advantage-vs-supplement-calculator/">Still deciding Advantage vs Supplement? Compare those costs →</a></div>
-      <div class="learn-link"><a href="/medicare-supplement-miami">Read our Medicare Supplement guide →</a></div>
-      <div class="startover" onclick="startOver()">Start over</div>
+  <div class="qc-diff-head">
+    <h2>2. What would you keep in premiums?</h2>
+    <div class="qc-seg" role="group" aria-label="Premium difference period">
+      <button type="button" id="qcMonth" class="on" data-months="1">Monthly</button>
+      <button type="button" id="qcYear" data-months="12">Yearly</button>
     </div>
   </div>
+  <div class="qc-diff-grid">
+    <article class="qc-card qc-diff">
+      <h2>Plan N versus Plan G</h2>
+      <div class="figure" id="diffN">—</div>
+      <p class="qc-note">Compare this premium difference with Plan N’s visit copays and possible excess charges — not just the monthly price.</p>
+    </article>
+    <article class="qc-card qc-diff">
+      <h2>High-deductible G versus Plan G</h2>
+      <div class="figure" id="diffHD">—</div>
+      <p class="qc-note">Consider whether you could comfortably pay eligible cost-sharing toward the 2027 $3,050 deductible if you needed care.</p>
+    </article>
+  </div>
+  <p class="qc-note">Premium differences only. These are not total health-care savings and do not predict which plan will cost you less overall.</p>
 
+  <div class="qc-split">
+    <article class="qc-card">
+      <h2>Your 12-month premium commitment</h2>
+      <div class="qc-bars" id="qcBars"></div>
+      <p class="qc-note" style="margin:12px 0 0">Monthly input × 12, assuming the premium stays unchanged. Health-care bills are not included. Part B and Part D premiums are not included.</p>
+    </article>
+    <article class="qc-card">
+      <h2>3. Decide what matters to you</h2>
+      <ul class="qc-decide">
+        <li><strong>More predictable cost-sharing?</strong> Compare the added Plan G premium with the costs you would otherwise pay yourself.</li>
+        <li><strong>Comfortable with visit copays?</strong> Weigh Plan N’s premium difference, office and ER use, and potential excess charges.</li>
+        <li><strong>Comfortable with a larger deductible?</strong> Weigh high-deductible G’s premium difference against your ability to pay eligible cost-sharing toward $3,050.</li>
+        <li><strong>Before choosing:</strong> Use real quotes, confirm eligibility and underwriting, and review policy benefits. No plan is selected for you here.</li>
+      </ul>
+    </article>
+  </div>
+
+  <details class="qc-details">
+    <summary>Assumptions and what this does not include</summary>
+    <div class="row"><h3>Not included in this comparison</h3><p>Part B and Part D premiums, any Part A premium, prescription drug costs, and services Medicare or the policy does not cover.</p></div>
+    <div class="row"><h3>No all-in health-care total</h3><p>We do not forecast visits, hospital stays, rate increases, inflation, or future claims. This page does not produce a 2027 total. Premiums and benefits can change.</p></div>
+    <div class="row"><h3>2027 benefit reference</h3><p>High-deductible G: $3,050 annual deductible, effective January 1, 2027 (CMS). The 2027 Part B deductible is not yet announced as of November 7, 2026. No 2026 Part B amount is substituted into a 2027 total.</p></div>
+    <div class="row"><h3>Deductible is not a spending ceiling</h3><p>The high deductible applies to eligible Medicare cost-sharing. Premiums, uncovered services, and other costs can remain. Policy limits and terms apply.</p></div>
+    <div class="row"><h3>How inputs work</h3><p>Each new entry replaces that plan’s sample value. Unedited plans stay marked as samples. Blank, zero, negative, and invalid inputs are excluded — not treated as free. Changes last only while this page is open. Florida has no Medigap birthday rule.</p></div>
+    <div class="qc-links">
+      <a href="https://www.medicare.gov/health-drug-plans/medigap/basics/compare-plan-benefits" target="_blank" rel="noopener">Medicare.gov · Compare Medigap benefits</a>
+      <a href="https://www.cms.gov/medicare/health-drug-plans/medigap/f-g-j-deductible-announcements" target="_blank" rel="noopener">CMS · 2027 high-deductible Medigap announcement</a>
+    </div>
+  </details>
+
+  <div class="qc-contact">
+    <p>Want a licensed broker to pull real quotes for your ZIP? Call or WhatsApp — this comparison does not submit anything.</p>
+    <div class="qc-btns">
+      <a class="qc-call" href="tel:18003806821">Call 1-800-380-6821</a>
+      <a class="qc-wa" href="https://wa.me/13054646888" onclick="gtag('event','whatsapp_click',{'page':window.location.pathname})">WhatsApp us</a>
+    </div>
+  </div>
 </div>
 </div>
 
 <script src="/js/medigap-cost-model.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.js"></script>
 <script>
-var DEFAULT_PREMIUMS_BY_AGE = MedigapCost.DEFAULT_PREMIUMS_BY_AGE;
-var INCREASE_RATE = MedigapCost.INCREASE_RATE;
-var USAGE_COPAYS = MedigapCost.USAGE_COPAYS;
-var YEARS = MedigapCost.YEARS;
-var PART_B_PREMIUM_ANNUAL = MedigapCost.PART_B_PREMIUM_ANNUAL;
-var PART_B_DEDUCTIBLE_ANNUAL = MedigapCost.PART_B_DEDUCTIBLE_ANNUAL;
-var HD_G_TOTAL_DEDUCTIBLE = MedigapCost.HD_G_DEDUCTIBLE_2026;
-
-var state = { age:65, usage:null, useAdvanced:false };
-
-function setAge(v, commit){
-  var raw = String(v == null ? '' : v).trim();
-  var age = parseInt(raw, 10);
-  if (isNaN(age)) age = 65;
-  state.age = Math.max(65, Math.min(85, age));
-  var el = document.getElementById('ageNum');
-  if (el && commit !== false) el.value = state.age;
-  document.getElementById('ageNote').textContent = [65,70,75].indexOf(state.age)>-1 ? '' : 'Illustrative estimates between 65, 70, and 75 are interpolated.';
-}
-function changeAge(d){
-  setAge(state.age + d, true);
-}
-function goStep(n){
-  document.getElementById('step1').style.display = n===1?'block':'none';
-  document.getElementById('step2').style.display = n===2?'block':'none';
-  document.getElementById('p1').className = 'done';
-  document.getElementById('p2').className = n>=2?'done':'';
-}
-function pickUsage(v,el){
-  state.usage = v;
-  document.querySelectorAll('.choice').forEach(function(c){c.classList.remove('selected')});
-  el.classList.add('selected');
-  var err = document.getElementById('usageError');
-  if (err) err.style.display = 'none';
-}
-function toggleDetail(id){
-  var panel = document.getElementById(id);
-  if (!panel) return;
-  var open = panel.classList.contains('open');
-  panel.classList.toggle('open', !open);
-  var arrow = document.getElementById(id + 'Arrow');
-  var toggle = document.getElementById(id + 'Toggle');
-  if (arrow) arrow.textContent = open ? '▾' : '▴';
-  if (toggle) toggle.setAttribute('aria-expanded', open ? 'false' : 'true');
-  if (id === 'costDetails' && !open && window._medigapChart) {
-    setTimeout(function(){ window._medigapChart.resize(); }, 50);
-  }
-}
-function toggleAdvanced(){
-  state.useAdvanced = !state.useAdvanced;
-  document.getElementById('advancedPanel').style.display = state.useAdvanced ? 'block' : 'none';
-}
-function premiumAtAge(age, plan){
-  return MedigapCost.premiumAtAge(age, plan);
-}
-function premiumSourceNote(sources){
-  var c = MedigapCost.sourceCounts(sources);
-  var names = {G:'Plan G',N:'Plan N',HD:'High-Deductible Plan G'};
-  if (c.entered === 3) return 'Using the monthly premiums you entered. Part B, copays, and deductibles are still estimates.';
-  if (c.entered === 0) return 'Monthly premiums are illustrative estimates, not carrier quotes. Enter your quotes on step 2 to replace them plan by plan.';
-  var entered = [];
-  var est = [];
-  ['G','N','HD'].forEach(function(k){
-    if (sources[k]==='entered') entered.push(names[k]);
-    else est.push(names[k]);
-  });
-  function list(arr){ return arr.join(', '); }
-  return list(entered) + (entered.length===1?' uses':' use') + ' the premium you entered. ' + list(est) + (est.length===1?' uses':' use') + ' an illustrative estimate, not a quote.';
-}
-function calculate(){
-  if (!state.usage) {
-    var err = document.getElementById('usageError');
-    if (err) err.style.display = 'block';
-    return;
-  }
-  var resolved = MedigapCost.resolvePremiums(state.age, {
-    G: document.getElementById('advG').value,
-    N: document.getElementById('advN').value,
-    HD: document.getElementById('advHD').value
-  });
-  var G = resolved.premiums.G;
-  var N = resolved.premiums.N;
-  var HD = resolved.premiums.HD;
-  var sources = resolved.sources;
-  var projected = MedigapCost.projectCosts({ premiums: resolved.premiums, usage: state.usage, years: YEARS });
-  var nCopayYearly = projected.nCopayYearly;
-  var totals = projected.totals;
-  var yearlyChart = projected.yearlyChart;
-
-  var order = ['G','N','HD'].sort(function(a,b){return totals[a]-totals[b]});
-  var winner = order[0];
-  var names = {G:'Plan G',N:'Plan N',HD:'High-Deductible Plan G'};
-  var savingsVsG = totals.G - totals[winner];
-
-  document.getElementById('winnerName').textContent = names[winner];
-  var banner = document.getElementById('winnerBanner');
-  var label = document.getElementById('winnerLabel');
-  if (banner) banner.className = winner === 'HD' ? 'winner-banner warn' : 'winner-banner';
-  if (label) label.textContent = winner === 'HD' ? 'Lowest estimated cost — with a real deductible risk' : 'Best match for your answers';
-  document.getElementById('winnerSave').textContent = winner==='G'
-    ? 'The most predictable costs over ' + YEARS + ' years — you mainly pay the Part B deductible'
-    : (winner==='HD'
-      ? 'Saves about $' + savingsVsG.toLocaleString() + ' over ' + YEARS + ' years vs. Plan G if you stay healthy. One hospital stay can mean paying up to $2,950 first (2026 HDG deductible).'
-      : 'Saves about $' + savingsVsG.toLocaleString() + ' over ' + YEARS + ' years vs. Plan G, if you do not mind office and ER copays');
-
-  var srcNote = document.getElementById('premiumSourceNote');
-  if (srcNote) srcNote.textContent = premiumSourceNote(sources);
-  var urge = document.getElementById('ctaUrge');
-  if (urge) {
-    var counts = MedigapCost.sourceCounts(sources);
-    urge.textContent = counts.entered === 3
-      ? 'Using the monthly premiums you entered. A free 10-minute call can still compare other carriers for your ZIP, age, and health.'
-      : (counts.entered === 0
-        ? 'These monthly premiums are illustrative estimates, not carrier quotes. A free 10-minute call compares real quotes for your ZIP, age, and health.'
-        : premiumSourceNote(sources) + ' A free 10-minute call compares real quotes for your ZIP, age, and health.');
-  }
-
-  var rows = document.getElementById('planRows');
-  rows.innerHTML='';
-  order.forEach(function(k){
-    var row = document.createElement('div');
-    row.className = 'plan-row' + (k===winner?' best':'');
-    var allInMonthly = Math.round(yearlyChart[k][0]/12);
-    var tag = sources[k]==='entered' ? ' (your quote)' : ' (estimate)';
-    row.innerHTML = '<span class="name">'+names[k]+tag+'</span><span class="cost">$'+allInMonthly.toLocaleString()+'\u002Fmo</span>';
-    rows.appendChild(row);
-  });
-
-  document.getElementById('thisYearAge').textContent = state.age;
-  var bd = document.getElementById('yearBreakdown');
-  bd.innerHTML='';
-  var premiums = {G:G,N:N,HD:HD};
-  ['G','N','HD'].forEach(function(k){
-    var card = document.createElement('div');
-    card.className='breakdown-card'+(k===winner?' best':'');
-    var deductibleLine = k==='HD' ? '' : '<div class="line"><span>Part B deductible</span><span>$'+PART_B_DEDUCTIBLE_ANNUAL.toLocaleString()+'</span></div>';
-    var extraLine = k==='N'
-      ? '<div class="line"><span>Copays</span><span>$'+nCopayYearly.toLocaleString()+'</span></div>'
-      : (k==='HD' ? '<div class="line"><span>Est. out-of-pocket</span><span>$'+projected.hdOutOfPocket.toLocaleString()+'</span></div>' : '');
-    var premLabel = sources[k]==='entered' ? 'Annual premium (your quote)' : 'Annual premium (estimate)';
-    card.innerHTML =
-      '<div class="pname">'+names[k]+(sources[k]==='entered'?' (your quote)':' (estimate)')+'</div>'+
-      '<div class="line"><span>'+premLabel+'</span><span>$'+Math.round(premiums[k]*12).toLocaleString()+'</span></div>'+
-      deductibleLine+
-      extraLine+
-      '<div class="line"><span>Part B premium</span><span>$'+Math.round(PART_B_PREMIUM_ANNUAL).toLocaleString()+'</span></div>'+
-      '<div class="total"><span>Total</span><span>$'+yearlyChart[k][0].toLocaleString()+'</span></div>';
-    bd.appendChild(card);
-  });
-
-  var milestones = [5,10,15,20];
-  var mt = document.getElementById('milestoneTable');
-  mt.innerHTML = '<div class="milestone-row head"><span class="yr">Year</span><span>Plan G</span><span>Plan N</span><span>HD Plan G</span></div>';
-  milestones.forEach(function(m){
-    var idx = m-1;
-    var vals = {G:yearlyChart.G[idx],N:yearlyChart.N[idx],HD:yearlyChart.HD[idx]};
-    var best = Object.keys(vals).reduce(function(a,b){return vals[a]<vals[b]?a:b});
-    var row = document.createElement('div');
-    row.className='milestone-row';
-    row.innerHTML =
-      '<span class="yr">'+m+'yr</span>'+
-      '<span class="amt'+(best==='G'?' win':'')+'">$'+vals.G.toLocaleString()+'</span>'+
-      '<span class="amt'+(best==='N'?' win':'')+'">$'+vals.N.toLocaleString()+'</span>'+
-      '<span class="amt'+(best==='HD'?' win':'')+'">$'+vals.HD.toLocaleString()+'</span>';
-    mt.appendChild(row);
-  });
-
-  var explainMap = {
-    low: {
-      G: 'Even with few visits, Plan G is the most predictable — you mainly pay the yearly Part B deductible. You are paying extra each month for that certainty.',
-      N: 'With few visits, Plan N usually costs less than Plan G because office copays stay small. That is why it often wins for healthier shoppers.',
-      HD: 'High-Deductible Plan G has the lowest premium. That only pays off if you stay healthy. A single hospital stay can mean paying up to $2,950 (2026 HDG deductible) before the plan helps.'
-    },
-    med: {
-      G: 'Plan G costs more each month but you almost never get a surprise bill after the Part B deductible. Useful if you dislike copays.',
-      N: 'A few visits a year usually is not enough copays to erase Plan N’s lower premium. That is the typical G vs N trade-off.',
-      HD: 'High-Deductible Plan G can look cheapest on paper. Remember you are estimating $1,500 out-of-pocket this year — a bad year can hit the full $2,950 deductible (2026).'
-    },
-    high: {
-      G: 'Because you use care often, paying more each month to avoid copays and a large deductible usually costs less in the long run.',
-      N: 'Frequent visits add Plan N copays (up to $20 office / $50 ER). Still often cheaper than Plan G if you do not have many ER trips.',
-      HD: 'Frequent care makes the $2,950 (2026) High-Deductible Plan G deductible a real cost, not a hypothetical. Plan G or N is usually the safer pick.'
-    }
-  };
-  document.getElementById('plainExplain').textContent = explainMap[state.usage][winner];
-
-  document.getElementById('calcIntro').style.display='none';
-  document.getElementById('step2').style.display='none';
-  document.getElementById('resultView').style.display='block';
-  document.getElementById('p2').className='done';
-  document.getElementById('resultView').scrollIntoView({behavior:'smooth',block:'start'});
-
-  if (window._medigapChart) window._medigapChart.destroy();
-  var ctx = document.getElementById('costChart');
-  window._medigapChart = new Chart(ctx,{
-    type:'line',
-    data:{
-      labels: Array.from({length:YEARS},function(_,i){return 'Yr '+(i+1)}),
-      datasets:[
-        {label:'Plan G',data:yearlyChart.G,borderColor:'#4b1e63',backgroundColor:'rgba(75,30,99,0.08)',borderWidth:2,pointRadius:0,fill:true},
-        {label:'Plan N',data:yearlyChart.N,borderColor:'#e5148c',backgroundColor:'rgba(229,20,140,0.08)',borderWidth:2,pointRadius:0,fill:true},
-        {label:'HD Plan G',data:yearlyChart.HD,borderColor:'#0f8a5f',backgroundColor:'rgba(15,138,95,0.08)',borderWidth:2,pointRadius:0,fill:true}
-      ]
-    },
-    options:{
-      responsive:true,maintainAspectRatio:false,
-      plugins:{legend:{display:true,position:'bottom'}},
-      scales:{
-        y:{ticks:{callback:function(v){return '$'+(v/1000)+'k'}}},
-        x:{ticks:{maxTicksLimit:6}}
-      }
-    }
-  });
-}
-function startOver(){
-  document.getElementById('resultView').style.display='none';
-  document.getElementById('calcIntro').style.display='block';
-  document.getElementById('step1').style.display='block';
-  document.getElementById('step2').style.display='none';
-  document.getElementById('p2').className='';
-  ['costDetails','coverageDetails','aboutDetails'].forEach(function(id){
-    var panel = document.getElementById(id);
-    if (panel) panel.classList.remove('open');
-    var arrow = document.getElementById(id + 'Arrow');
-    if (arrow) arrow.textContent = '▾';
-    var toggle = document.getElementById(id + 'Toggle');
-    if (toggle) toggle.setAttribute('aria-expanded','false');
-  });
-  state = { age:65, usage:null, useAdvanced:false };
-  setAge(65);
-  document.getElementById('advancedPanel').style.display='none';
-  ['advG','advN','advHD'].forEach(function(id){ var i=document.getElementById(id); if(i) i.value=''; });
-  var err = document.getElementById('usageError');
-  if (err) err.style.display='none';
-  document.querySelectorAll('.choice').forEach(function(c){c.classList.remove('selected')});
-}
 (function(){
-  var ageEl = document.getElementById('ageNum');
-  if (!ageEl) return;
-  ageEl.addEventListener('focus', function(){ this.select(); });
-  ageEl.addEventListener('mouseup', function(e){ e.preventDefault(); this.select(); });
+  var SAMPLE = MedigapCost.SAMPLE_PREMIUMS_65;
+  var keys = ['G','N','HD'];
+  var inputs = {G: document.getElementById('quoteG'), N: document.getElementById('quoteN'), HD: document.getElementById('quoteHD')};
+  var edited = {G:false, N:false, HD:false};
+  var months = 1;
+
+  function money(n){
+    return n.toLocaleString('en-US', {style:'currency', currency:'USD', maximumFractionDigits:2});
+  }
+  function parse(el){ return MedigapCost.parsePositivePremium(el.value); }
+  function periodLabel(){ return months === 12 ? 'year' : 'month'; }
+
+  function sourceText(k){
+    return edited[k]
+      ? 'Your entry · not independently verified'
+      : 'Sample estimate · age 65 · not an actual quote';
+  }
+
+  function setAnnual(k, val){
+    var box = document.getElementById('ann' + k);
+    if (val == null) {
+      box.innerHTML = '';
+      return;
+    }
+    box.innerHTML = '<div class="amt">'+money(MedigapCost.annualFromMonthly(val))+'</div><div class="sub">in premiums for 12 months</div>';
+  }
+
+  function diffText(other){
+    var g = parse(inputs.G);
+    var o = parse(inputs[other]);
+    var d = MedigapCost.premiumDiffVsG(g, o, months);
+    if (d == null) return 'Enter valid premiums for this plan and Plan G.';
+    if (d >= 0) return money(d) + ' less in premiums than G / ' + periodLabel();
+    return money(Math.abs(d)) + ' more in premiums than G / ' + periodLabel();
+  }
+
+  function renderBars(){
+    var host = document.getElementById('qcBars');
+    var rows = keys.map(function(k){
+      var v = parse(inputs[k]);
+      return v == null ? null : {
+        k: k,
+        name: {G:'Plan G', N:'Plan N', HD:'High-deductible G'}[k],
+        annual: MedigapCost.annualFromMonthly(v),
+        meta: edited[k] ? 'Your entry · 12 months' : 'Sample estimate · 12 months'
+      };
+    }).filter(Boolean).sort(function(a,b){ return b.annual - a.annual; });
+    if (!rows.length) {
+      host.innerHTML = '<p class="qc-note" style="margin:0">Add a valid monthly premium above to calculate its 12-month commitment.</p>';
+      return;
+    }
+    var max = rows[0].annual;
+    host.innerHTML = rows.map(function(r){
+      var pct = max ? Math.max(6, Math.round((r.annual / max) * 100)) : 0;
+      return '<div class="qc-bar"><div class="qc-bar-top"><span class="qc-bar-name">'+r.name+'</span><span class="qc-bar-amt">'+money(r.annual)+'</span></div><div class="qc-bar-track"><div class="qc-bar-fill" style="width:'+pct+'%"></div></div><div class="qc-bar-meta">'+r.meta+'</div></div>';
+    }).join('');
+  }
+
+  function renderCard(k){
+    var el = inputs[k];
+    var val = parse(el);
+    var empty = String(el.value).trim() === '';
+    var invalid = !empty && val == null;
+    el.classList.toggle('is-invalid', invalid);
+    document.getElementById('err' + k).classList.toggle('show', invalid || (empty && edited[k]));
+    var src = document.getElementById('src' + k);
+    src.textContent = sourceText(k);
+    src.classList.toggle('is-yours', edited[k]);
+    setAnnual(k, val);
+  }
+
+  function render(){
+    keys.forEach(renderCard);
+    document.getElementById('diffN').textContent = diffText('N');
+    document.getElementById('diffHD').textContent = diffText('HD');
+    renderBars();
+  }
+
+  keys.forEach(function(k){
+    inputs[k].addEventListener('input', function(){
+      edited[k] = true;
+      render();
+    });
+  });
+
+  function setPeriod(n){
+    months = n;
+    document.getElementById('qcMonth').classList.toggle('on', n === 1);
+    document.getElementById('qcYear').classList.toggle('on', n === 12);
+  }
+  document.getElementById('qcMonth').addEventListener('click', function(){
+    setPeriod(1);
+    render();
+  });
+  document.getElementById('qcYear').addEventListener('click', function(){
+    setPeriod(12);
+    render();
+  });
+  document.getElementById('qcReset').addEventListener('click', function(){
+    inputs.G.value = String(SAMPLE.G);
+    inputs.N.value = String(SAMPLE.N);
+    inputs.HD.value = String(SAMPLE.HD);
+    edited = {G:false, N:false, HD:false};
+    setPeriod(1);
+    render();
+  });
+
+  render();
 })();
 </script>
+
 <!-- FOOTER -->
       <div id="site-footer" style="background:#fff;color:#241a30;padding:56px 56px 24px;border-top:1px solid #ece5f0">
         <div style="max-width:1160px;margin:0 auto">
