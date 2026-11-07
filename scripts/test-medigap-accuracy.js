@@ -209,7 +209,7 @@ function walkHtml(dir, files) {
     if (ent.name === "node_modules" || ent.name === "_site" || ent.name === ".git") return;
     const full = path.join(dir, ent.name);
     if (ent.isDirectory()) walkHtml(full, files);
-    else if (/\.html$/.test(ent.name) && !/-preview\.html$/.test(ent.name) && ent.name !== "es-homepage-preview.html") {
+    else if (/\.html$/.test(ent.name)) {
       files.push(full);
     }
   });
