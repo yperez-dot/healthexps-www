@@ -96,7 +96,7 @@
       cta_sep_title: 'Need help enrolling before your deadline?',
       cta_sep_desc: 'Our licensed brokers can walk you through your options and make sure you enroll in the right plan before the window closes.',
       aep_title: 'Already on Medicare? Other windows',
-      aep_body: '<strong>AEP (Annual Enrollment):</strong> October 15 – December 7 each year. Change Advantage, Part D, or go back to Original Medicare. New coverage starts January 1. <strong>OEP:</strong> January 1 – March 31 if you are already in Medicare Advantage — one switch to another Advantage plan or back to Original Medicare. Medigap after OEP usually needs underwriting, except Florida’s birthday rule.'
+      aep_body: '<strong>AEP (Annual Enrollment):</strong> October 15 – December 7 each year. Change Advantage, Part D, or go back to Original Medicare. New coverage starts January 1. <strong>OEP:</strong> January 1 – March 31 if you are already in Medicare Advantage — one switch to another Advantage plan or back to Original Medicare. Medigap after OEP usually needs underwriting. Florida does not have a birthday rule.'
     },
     es: {
       hero_tag: 'HERRAMIENTA GRATUITA · 2026',
@@ -178,7 +178,7 @@
       cta_sep_title: '¿Necesita ayuda antes de su fecha límite?',
       cta_sep_desc: 'Nuestros corredores con licencia pueden guiarle y asegurarse de que se inscriba en el plan correcto antes de que cierre la ventana.',
       aep_title: '¿Ya tiene Medicare? Otras ventanas',
-      aep_body: '<strong>AEP (Inscripción Anual):</strong> del 15 de octubre al 7 de diciembre de cada año. Cambie Advantage, Parte D, o vuelva a Medicare Original. La nueva cobertura empieza el 1 de enero. <strong>OEP:</strong> del 1 de enero al 31 de marzo si ya está en Medicare Advantage — un cambio a otro Advantage o de regreso a Original. Medigap después del OEP casi siempre requiere underwriting, salvo la regla de cumpleaños de Florida.'
+      aep_body: '<strong>AEP (Inscripción Anual):</strong> del 15 de octubre al 7 de diciembre de cada año. Cambie Advantage, Parte D, o vuelva a Medicare Original. La nueva cobertura empieza el 1 de enero. <strong>OEP:</strong> del 1 de enero al 31 de marzo si ya está en Medicare Advantage — un cambio a otro Advantage o de regreso a Original. Medigap después del OEP casi siempre requiere underwriting. Florida no tiene regla de cumpleaños.'
     }
   };
 

@@ -273,7 +273,7 @@
 <header>
     <span class="eyebrow">FREE TOOL</span>
     <h1>Which Medigap plan costs less for you?</h1>
-    <p>Two questions. We compare Plan G, Plan N, and High-Deductible Plan G using typical Florida midpoint rates — not a carrier quote.</p>
+    <p>Two questions. Default monthly premiums are illustrative estimates &mdash; not carrier quotes. Enter a quoted premium on step 2 to replace the estimate for that plan.</p>
     <div class="learn-link"><a href="/medicare-supplement-miami">New to these plans? Learn about Medicare Supplement coverage →</a></div>
     <p class="help" style="margin-top:12px">Medigap follows different enrollment windows than Medicare Advantage. If you also have Advantage or Part D, review those during <a href="/medicare-annual-enrollment-2027">Medicare Annual Enrollment 2027 in Miami (Oct 15–Dec 7)</a>.</p>
   </header>
@@ -284,7 +284,7 @@
   <div class="card" id="step1">
     <div class="step-label">Step 1 of 2</div>
     <h2>How old are you?</h2>
-    <div class="help">Most people buy Medigap at 65, during a 6-month open enrollment with no health questions. After that, Florida&rsquo;s birthday rule can still let you switch to an equal or lesser Medigap plan without underwriting. <span id="ageNote"></span></div>
+    <div class="help">Most people buy Medigap at 65, during a 6-month open enrollment with no health questions. After that window, Florida has no birthday rule. Switching usually means medical underwriting unless a guaranteed-issue right applies. <span id="ageNote"></span></div>
     <div class="age-box">
       <button type="button" onclick="changeAge(-1)" aria-label="Decrease age">−</button>
       <input class="num" id="ageNum" type="text" inputmode="numeric" pattern="[0-9]*" maxlength="2" value="65" autocomplete="off" onblur="setAge(this.value,true)" aria-label="Your age">
@@ -314,14 +314,15 @@
       </button>
     </div>
     <div class="usage-error" id="usageError">Pick how often you go to the doctor so we can estimate visit costs.</div>
-    <div class="advanced-toggle" onclick="toggleAdvanced()">I know my exact premium quotes — let me enter them</div>
+    <div class="advanced-toggle" onclick="toggleAdvanced()">Optional: enter a quoted monthly premium (replaces that plan&rsquo;s estimate)</div>
+    <div class="help" style="margin:8px 0 12px">Leave a field blank to keep the illustrative estimate for that plan. Defaults are estimates, not carrier quotes.</div>
     <div id="advancedPanel">
       <label>Plan G monthly premium ($)</label>
-      <input type="number" id="advG" placeholder="e.g. 210">
+      <input type="number" id="advG" placeholder="leave blank for estimate">
       <label>Plan N monthly premium ($)</label>
-      <input type="number" id="advN" placeholder="e.g. 165">
+      <input type="number" id="advN" placeholder="leave blank for estimate">
       <label>High-Deductible Plan G monthly premium ($)</label>
-      <input type="number" id="advHD" placeholder="e.g. 65">
+      <input type="number" id="advHD" placeholder="leave blank for estimate">
     </div>
     <div class="nav-btns">
       <button class="btn btn-secondary" onclick="goStep(1)">Back</button>
@@ -337,13 +338,15 @@
     </div>
 
     <div class="plan-rows" id="planRows"></div>
+    <div class="includes-note" id="premiumSourceNote"></div>
     <div class="includes-note">Estimated monthly total at age <span id="thisYearAge"></span> — includes Part B ($202.90/mo) and expected out-of-pocket. Drug coverage is separate: budget about $25–$60/mo for Part D.</div>
-    <div class="includes-note">Uses the 2026 HDG deductible ($2,870). The 2027 amount hasn't been announced yet.</div>
+    <div class="includes-note">All-in totals use 2026 figures only: Part B $202.90/mo and $283 deductible, HDG deductible $2,950. CMS has announced 2027 HDG $3,050, Plan K $8,360, and Plan L $4,180. 2027 Part B is not announced, so this tool does not produce a 2027 total.</div>
+    <div class="includes-note">Assumptions: Plan N copays $20 office / $50 ER; $0 excess charges (Plan N does not cover them); both Plan G and Plan N include the $283 Part B deductible (2026).</div>
 
     <div class="plain-explain" id="plainExplain"></div>
 
     <div class="cta-block cta-block-primary">
-      <p class="cta-urge">These are Florida median rates. Your real quote depends on carrier, age, and health — a free 10-minute call compares many options side by side.</p>
+      <p class="cta-urge" id="ctaUrge">A free 10-minute call compares options side by side for your ZIP, age, and health.</p>
       <div class="contact-btns">
         <a class="btn-call" href="tel:18003806821">Call for my real quote</a>
         <a class="btn-wa" href="https://wa.me/13054646888">WhatsApp us</a>
@@ -371,7 +374,7 @@
       <div class="benefits-row"><span>Doctor bills over Medicare's rate</span><span class="yes">✓</span><span class="no">✗</span><span class="yes">✓*</span></div>
       <div class="benefits-row"><span>Emergencies while traveling abroad</span><span class="yes">✓</span><span class="yes">✓</span><span class="yes">✓*</span></div>
       </div>
-      <div class="benefits-footnote">* After you pay the $2,870 annual deductible yourself (CMS, 2026). ** Plan N covers this in full except a copay of up to $20 per office visit and up to $50 per ER visit that doesn't lead to admission.</div>
+      <div class="benefits-footnote">* After you pay the $2,950 annual deductible yourself (CMS, 2026; $3,050 in 2027). ** Plan N covers this in full except a copay of up to $20 per office visit and up to $50 per ER visit that doesn't lead to admission. Plan N does not cover excess charges.</div>
     </div>
 
     <button type="button" class="detail-toggle" onclick="toggleDetail('aboutDetails')" aria-expanded="false" id="aboutDetailsToggle">About these estimates <span id="aboutDetailsArrow">▾</span></button>
@@ -381,12 +384,12 @@
         <div class="about-h">How we calculated this</div>
         <ul>
           <li>Part B premium: $202.90/month; Part B deductible: $283/year (CMS, 2026)</li>
-          <li>HD Plan G deductible: $2,870/year (CMS, 2026)</li>
-          <li>Default premiums: typical Florida midpoints at 65, 70, and 75; ages in between are interpolated</li>
+          <li>HD Plan G deductible: $2,950/year (CMS, 2026); CMS has announced $3,050 for 2027</li>
+          <li>Default premiums: illustrative Florida midpoints at 65, 70, and 75 when you do not enter quotes; ages in between are interpolated</li>
           <li>Enter your own quotes on step 2 if you already have carrier prices</li>
-          <li>Florida birthday rule: around your birthday you can usually switch to an equal or lesser Medigap plan without underwriting</li>
+          <li>Florida has no annual birthday window to switch Medigap without underwriting</li>
         </ul>
-        <div class="about-note">Uses the 2026 HDG deductible ($2,870). The 2027 amount hasn't been announced yet.</div>
+        <div class="about-note">Uses the 2026 HDG deductible ($2,950). CMS has announced $3,050 for 2027.</div>
         <div class="about-note">Year-over-year growth is an estimate. It is not the same as one policy&rsquo;s actual rate history. Your ZIP, gender, tobacco use, and carrier will change the price.</div>
       </div>
     </div>
@@ -401,22 +404,16 @@
 </div>
 </div>
 
+<script src="/js/medigap-cost-model.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.js"></script>
 <script>
-/* Age-65 values are midpoints of the ranges shown on
-   /medicare-supplement-miami/ (Plan G $300-$375, Plan N $200-$320,
-   HDG $60-$100), 2027, not a carrier quote. */
-var DEFAULT_PREMIUMS_BY_AGE = {
-  65:{G:337,N:260,HD:80},
-  70:{G:365,N:286,HD:87},
-  75:{G:413,N:326,HD:101}
-};
-var INCREASE_RATE = {G:0.021,N:0.024,HD:0.024};
-var USAGE_COPAYS = { low:{visits:2,er:0}, med:{visits:5,er:0}, high:{visits:10,er:1} };
-var YEARS = 20;
-var PART_B_PREMIUM_ANNUAL = 202.90*12;
-var PART_B_DEDUCTIBLE_ANNUAL = 283;
-var HD_G_TOTAL_DEDUCTIBLE = 2870;
+var DEFAULT_PREMIUMS_BY_AGE = MedigapCost.DEFAULT_PREMIUMS_BY_AGE;
+var INCREASE_RATE = MedigapCost.INCREASE_RATE;
+var USAGE_COPAYS = MedigapCost.USAGE_COPAYS;
+var YEARS = MedigapCost.YEARS;
+var PART_B_PREMIUM_ANNUAL = MedigapCost.PART_B_PREMIUM_ANNUAL;
+var PART_B_DEDUCTIBLE_ANNUAL = MedigapCost.PART_B_DEDUCTIBLE_ANNUAL;
+var HD_G_TOTAL_DEDUCTIBLE = MedigapCost.HD_G_DEDUCTIBLE_2026;
 
 var state = { age:65, usage:null, useAdvanced:false };
 
@@ -427,7 +424,7 @@ function setAge(v, commit){
   state.age = Math.max(65, Math.min(85, age));
   var el = document.getElementById('ageNum');
   if (el && commit !== false) el.value = state.age;
-  document.getElementById('ageNote').textContent = [65,70,75].indexOf(state.age)>-1 ? '' : 'Premiums between 65, 70, and 75 are interpolated from Florida midpoints.';
+  document.getElementById('ageNote').textContent = [65,70,75].indexOf(state.age)>-1 ? '' : 'Illustrative estimates between 65, 70, and 75 are interpolated.';
 }
 function changeAge(d){
   setAge(state.age + d, true);
@@ -462,14 +459,22 @@ function toggleAdvanced(){
   state.useAdvanced = !state.useAdvanced;
   document.getElementById('advancedPanel').style.display = state.useAdvanced ? 'block' : 'none';
 }
-function lerp(a, b, t){ return a + (b - a) * t; }
 function premiumAtAge(age, plan){
-  var a = Math.max(65, Math.min(85, Math.round(age)));
-  var table = DEFAULT_PREMIUMS_BY_AGE;
-  if (table[a]) return table[a][plan];
-  if (a < 70) return Math.round(lerp(table[65][plan], table[70][plan], (a - 65) / 5));
-  if (a < 75) return Math.round(lerp(table[70][plan], table[75][plan], (a - 70) / 5));
-  return Math.round(table[75][plan] * Math.pow(1 + INCREASE_RATE[plan], a - 75));
+  return MedigapCost.premiumAtAge(age, plan);
+}
+function premiumSourceNote(sources){
+  var c = MedigapCost.sourceCounts(sources);
+  var names = {G:'Plan G',N:'Plan N',HD:'High-Deductible Plan G'};
+  if (c.entered === 3) return 'Using the monthly premiums you entered. Part B, copays, and deductibles are still estimates.';
+  if (c.entered === 0) return 'Monthly premiums are illustrative estimates, not carrier quotes. Enter your quotes on step 2 to replace them plan by plan.';
+  var entered = [];
+  var est = [];
+  ['G','N','HD'].forEach(function(k){
+    if (sources[k]==='entered') entered.push(names[k]);
+    else est.push(names[k]);
+  });
+  function list(arr){ return arr.join(', '); }
+  return list(entered) + (entered.length===1?' uses':' use') + ' the premium you entered. ' + list(est) + (est.length===1?' uses':' use') + ' an illustrative estimate, not a quote.';
 }
 function calculate(){
   if (!state.usage) {
@@ -477,28 +482,19 @@ function calculate(){
     if (err) err.style.display = 'block';
     return;
   }
-  var G = state.useAdvanced && document.getElementById('advG').value ? parseFloat(document.getElementById('advG').value) : premiumAtAge(state.age, 'G');
-  var N = state.useAdvanced && document.getElementById('advN').value ? parseFloat(document.getElementById('advN').value) : premiumAtAge(state.age, 'N');
-  var HD = state.useAdvanced && document.getElementById('advHD').value ? parseFloat(document.getElementById('advHD').value) : premiumAtAge(state.age, 'HD');
-
-  var usage = USAGE_COPAYS[state.usage];
-  var nCopayYearly = usage.visits*20 + usage.er*50;
-
-  var totals = {}; var yearlyChart = {G:[],N:[],HD:[]};
-  ['G','N','HD'].forEach(function(k){
-    var premium = {G:G,N:N,HD:HD}[k];
-    var rate = INCREASE_RATE[k];
-    var total = 0;
-    for (var y=0;y<YEARS;y++){
-      var yearPremium = premium * Math.pow(1+rate,y) * 12;
-      var hdOutOfPocket = {low:600,med:1500,high:HD_G_TOTAL_DEDUCTIBLE}[state.usage];
-      var yearExtra = k==='N' ? nCopayYearly : (k==='HD' ? hdOutOfPocket : 0);
-      var yearDeductible = k==='HD' ? 0 : PART_B_DEDUCTIBLE_ANNUAL;
-      total += yearPremium + yearExtra + yearDeductible + PART_B_PREMIUM_ANNUAL;
-      yearlyChart[k].push(Math.round(total));
-    }
-    totals[k]=Math.round(total);
+  var resolved = MedigapCost.resolvePremiums(state.age, {
+    G: document.getElementById('advG').value,
+    N: document.getElementById('advN').value,
+    HD: document.getElementById('advHD').value
   });
+  var G = resolved.premiums.G;
+  var N = resolved.premiums.N;
+  var HD = resolved.premiums.HD;
+  var sources = resolved.sources;
+  var projected = MedigapCost.projectCosts({ premiums: resolved.premiums, usage: state.usage, years: YEARS });
+  var nCopayYearly = projected.nCopayYearly;
+  var totals = projected.totals;
+  var yearlyChart = projected.yearlyChart;
 
   var order = ['G','N','HD'].sort(function(a,b){return totals[a]-totals[b]});
   var winner = order[0];
@@ -513,8 +509,20 @@ function calculate(){
   document.getElementById('winnerSave').textContent = winner==='G'
     ? 'The most predictable costs over ' + YEARS + ' years — you mainly pay the Part B deductible'
     : (winner==='HD'
-      ? 'Saves about $' + savingsVsG.toLocaleString() + ' over ' + YEARS + ' years vs. Plan G if you stay healthy. One hospital stay can mean paying up to $2,870 first.'
+      ? 'Saves about $' + savingsVsG.toLocaleString() + ' over ' + YEARS + ' years vs. Plan G if you stay healthy. One hospital stay can mean paying up to $2,950 first (2026 HDG deductible).'
       : 'Saves about $' + savingsVsG.toLocaleString() + ' over ' + YEARS + ' years vs. Plan G, if you do not mind office and ER copays');
+
+  var srcNote = document.getElementById('premiumSourceNote');
+  if (srcNote) srcNote.textContent = premiumSourceNote(sources);
+  var urge = document.getElementById('ctaUrge');
+  if (urge) {
+    var counts = MedigapCost.sourceCounts(sources);
+    urge.textContent = counts.entered === 3
+      ? 'Using the monthly premiums you entered. A free 10-minute call can still compare other carriers for your ZIP, age, and health.'
+      : (counts.entered === 0
+        ? 'These monthly premiums are illustrative estimates, not carrier quotes. A free 10-minute call compares real quotes for your ZIP, age, and health.'
+        : premiumSourceNote(sources) + ' A free 10-minute call compares real quotes for your ZIP, age, and health.');
+  }
 
   var rows = document.getElementById('planRows');
   rows.innerHTML='';
@@ -522,7 +530,8 @@ function calculate(){
     var row = document.createElement('div');
     row.className = 'plan-row' + (k===winner?' best':'');
     var allInMonthly = Math.round(yearlyChart[k][0]/12);
-    row.innerHTML = '<span class="name">'+names[k]+'</span><span class="cost">$'+allInMonthly.toLocaleString()+'\u002Fmo</span>';
+    var tag = sources[k]==='entered' ? ' (your quote)' : ' (estimate)';
+    row.innerHTML = '<span class="name">'+names[k]+tag+'</span><span class="cost">$'+allInMonthly.toLocaleString()+'\u002Fmo</span>';
     rows.appendChild(row);
   });
 
@@ -536,10 +545,11 @@ function calculate(){
     var deductibleLine = k==='HD' ? '' : '<div class="line"><span>Part B deductible</span><span>$'+PART_B_DEDUCTIBLE_ANNUAL.toLocaleString()+'</span></div>';
     var extraLine = k==='N'
       ? '<div class="line"><span>Copays</span><span>$'+nCopayYearly.toLocaleString()+'</span></div>'
-      : (k==='HD' ? '<div class="line"><span>Est. out-of-pocket</span><span>$'+{low:600,med:1500,high:HD_G_TOTAL_DEDUCTIBLE}[state.usage].toLocaleString()+'</span></div>' : '');
+      : (k==='HD' ? '<div class="line"><span>Est. out-of-pocket</span><span>$'+projected.hdOutOfPocket.toLocaleString()+'</span></div>' : '');
+    var premLabel = sources[k]==='entered' ? 'Annual premium (your quote)' : 'Annual premium (estimate)';
     card.innerHTML =
-      '<div class="pname">'+names[k]+'</div>'+
-      '<div class="line"><span>Annual premium</span><span>$'+Math.round(premiums[k]*12).toLocaleString()+'</span></div>'+
+      '<div class="pname">'+names[k]+(sources[k]==='entered'?' (your quote)':' (estimate)')+'</div>'+
+      '<div class="line"><span>'+premLabel+'</span><span>$'+Math.round(premiums[k]*12).toLocaleString()+'</span></div>'+
       deductibleLine+
       extraLine+
       '<div class="line"><span>Part B premium</span><span>$'+Math.round(PART_B_PREMIUM_ANNUAL).toLocaleString()+'</span></div>'+
@@ -568,17 +578,17 @@ function calculate(){
     low: {
       G: 'Even with few visits, Plan G is the most predictable — you mainly pay the yearly Part B deductible. You are paying extra each month for that certainty.',
       N: 'With few visits, Plan N usually costs less than Plan G because office copays stay small. That is why it often wins for healthier shoppers.',
-      HD: 'High-Deductible Plan G has the lowest premium. That only pays off if you stay healthy. A single hospital stay can mean paying up to $2,870 before the plan helps.'
+      HD: 'High-Deductible Plan G has the lowest premium. That only pays off if you stay healthy. A single hospital stay can mean paying up to $2,950 (2026 HDG deductible) before the plan helps.'
     },
     med: {
       G: 'Plan G costs more each month but you almost never get a surprise bill after the Part B deductible. Useful if you dislike copays.',
       N: 'A few visits a year usually is not enough copays to erase Plan N’s lower premium. That is the typical G vs N trade-off.',
-      HD: 'High-Deductible Plan G can look cheapest on paper. Remember you are estimating $1,500 out-of-pocket this year — a bad year can hit the full $2,870 deductible.'
+      HD: 'High-Deductible Plan G can look cheapest on paper. Remember you are estimating $1,500 out-of-pocket this year — a bad year can hit the full $2,950 deductible (2026).'
     },
     high: {
       G: 'Because you use care often, paying more each month to avoid copays and a large deductible usually costs less in the long run.',
       N: 'Frequent visits add Plan N copays (up to $20 office / $50 ER). Still often cheaper than Plan G if you do not have many ER trips.',
-      HD: 'Frequent care makes the $2,870 High-Deductible Plan G deductible a real cost, not a hypothetical. Plan G or N is usually the safer pick.'
+      HD: 'Frequent care makes the $2,950 (2026) High-Deductible Plan G deductible a real cost, not a hypothetical. Plan G or N is usually the safer pick.'
     }
   };
   document.getElementById('plainExplain').textContent = explainMap[state.usage][winner];
