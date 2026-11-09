@@ -16,9 +16,9 @@
 :root{--purple:#452068;--pink:#ff1090;--white:#ffffff;--text-primary:#1a1325;--text-secondary:#3a2f47;--bg-secondary:#f7f7f7;--border:#e5e5e5;}
 *{box-sizing:border-box;margin:0;padding:0}
 body{font-family:Arial,Helvetica,sans-serif;background:var(--white);line-height:1.7;color:var(--text-primary);font-size:18px;}
-.hero{overflow-x:hidden;background:var(--purple);color:var(--white);padding:60px 24px;text-align:center;}
+.hero{overflow-x:hidden;background:linear-gradient(135deg,#fdfaf7 0%,#f7f2fb 100%);color:#241a30;padding:60px 24px;text-align:center;}
 .hero h1{font-size:clamp(28px,5vw,44px);font-weight:700;margin-bottom:16px;}
-.hero-subtext{font-size:17px;max-width:680px;margin:0 auto;opacity:0.95;}
+.hero-subtext{color:#3a2f47;font-size:17px;max-width:680px;margin:0 auto;opacity:1;}
 .filters{background:var(--bg-secondary);padding:24px;display:flex;justify-content:center;flex-wrap:wrap;gap:12px;}
 .filter-btn{padding:8px 20px;border:0.5px solid var(--purple);background:var(--white);color:var(--purple);border-radius:50px;font-size:17px;font-weight:600;cursor:pointer;transition:all 0.2s;font-family:Arial,sans-serif;}
 .filter-btn:hover,.filter-btn.active{background:var(--purple);color:var(--white);}
@@ -64,7 +64,7 @@ body{font-family:Arial,Helvetica,sans-serif;background:var(--white);line-height:
 /* Blog listing: compact hero, one-row filters, featured strip (Oct 2026) */
 .hero{padding:32px 24px 28px;}
 .hero h1{font-size:clamp(26px,4vw,40px);margin-bottom:8px;line-height:1.25;}
-.hero-subtext{font-size:17px;line-height:1.5;}
+.hero-subtext{color:#3a2f47;font-size:17px;line-height:1.5;}
 .featured{max-width:1200px;margin:0 auto;padding:20px 24px 4px;}
 .featured-head{display:flex;justify-content:space-between;align-items:baseline;gap:12px;flex-wrap:wrap;margin-bottom:10px;}
 .featured-label{font-size:14px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:#452068;}
@@ -84,7 +84,7 @@ body{font-family:Arial,Helvetica,sans-serif;background:var(--white);line-height:
 .cta-btn:hover{background:#f4eefa;color:#452068;}
 @media (max-width:768px){
   .hero{padding:20px 20px 18px;}
-  .hero-subtext{font-size:16px;}
+  .hero-subtext{color:#3a2f47;font-size:16px;}
   .featured{padding:14px 0 0;}
   .featured-head{padding:0 20px;margin-bottom:8px;}
   .featured-row{display:flex;overflow-x:auto;gap:10px;padding:0 20px 4px;scroll-snap-type:x mandatory;scroll-padding-left:20px;scrollbar-width:none;}
