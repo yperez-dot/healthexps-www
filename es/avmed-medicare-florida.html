@@ -76,9 +76,9 @@ h1,h2,h3{font-family:Poppins,sans-serif;line-height:1.2;}
 
 
 .alert-bar{background:#fff8e6;border-bottom:1px solid #f0d78c;padding:12px 56px;font-size:16px;color:#5a4800;text-align:center;}
-.page-hero{background:linear-gradient(135deg,#311549 0%,#452068 55%,#6b2fa0 100%);padding:56px 56px 64px;color:#fff;}
-.page-hero h1{font-size:clamp(28px,4.5vw,44px);font-weight:700;margin:0 0 16px;color:#fff;}
-.page-hero .hero-sub{font-size:18px;color:rgba(255,255,255,.85);max-width:720px;line-height:1.65;margin:0 0 28px;}
+.page-hero{background:linear-gradient(135deg,#fdfaf7 0%,#f7f2fb 100%);padding:56px 56px 64px;color:#241a30;}
+.page-hero h1{font-size:clamp(28px,4.5vw,44px);font-weight:700;margin:0 0 16px;color:#241a30;}
+.page-hero .hero-sub{font-size:18px;color:#3a2f47;max-width:720px;line-height:1.65;margin:0 0 28px;}
 .hero-btns{display:flex;gap:12px;flex-wrap:wrap;}
 .btn-primary{background:#ff1090;color:#fff;padding:14px 22px;border-radius:12px;font-weight:700;font-size:17px;display:inline-block;}
 .btn-outline-white{border:2px solid rgba(255,255,255,.65);color:#fff;padding:12px 20px;border-radius:12px;font-weight:700;font-size:17px;display:inline-block;}
@@ -112,6 +112,11 @@ h1,h2,h3{font-family:Poppins,sans-serif;line-height:1.2;}
 .cta-strip h2{font-size:26px;font-weight:700;margin:0 0 10px;color:#fff;}
 .cta-strip p{font-size:18px;color:#f0eaf7;margin:0 0 24px;max-width:640px;margin-left:auto;margin-right:auto;}
 .cta-btns{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;}
+
+
+/* Cream hero: outline buttons must stay readable (not white-on-cream) */
+.page-hero .btn-outline-white,.hero .btn-outline-white{background:#fff;color:#452068;border:2px solid #452068;}
+.page-hero .btn-outline-white:hover,.hero .btn-outline-white:hover{background:#f7f2fb;color:#452068;}
 
 </style>
 </head>

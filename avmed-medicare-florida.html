@@ -54,16 +54,20 @@ a{color:var(--purple);text-decoration:none;}a:hover{color:var(--pink);}
 .breadcrumb span{margin:0 6px;color:#c9bed4;}
 
 /* HERO */
-.page-hero{background:linear-gradient(135deg,var(--purple-dark) 0%,var(--purple) 100%);padding:56px 0 64px;text-align:center;color:var(--white);position:relative;overflow:hidden;}
+.page-hero{background:linear-gradient(135deg,#fdfaf7 0%,#f7f2fb 100%);padding:56px 0 64px;text-align:center;color:#241a30;position:relative;overflow:hidden;}
 .page-hero::after{content:'';position:absolute;bottom:-1px;left:0;right:0;height:40px;background:white;clip-path:ellipse(55% 100% at 50% 100%);}
 .hero-inner{position:relative;z-index:2;}
-.page-hero h1{font-family:var(--font-head);font-weight:700;font-size:clamp(26px,4vw,38px);line-height:1.2;margin:0 auto 16px;max-width:740px;color:var(--white);}
-.hero-sub{font-size:16px;line-height:1.7;opacity:.87;margin:0 auto 28px;max-width:680px;}
+.page-hero h1{font-family:var(--font-head);font-weight:700;font-size:clamp(26px,4vw,38px);line-height:1.2;margin:0 auto 16px;max-width:740px;color:#241a30;}
+.hero-sub{color:#3a2f47;font-size:16px;line-height:1.7;opacity:1;margin:0 auto 28px;max-width:680px;}
 .hero-btns{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;}
 .btn-primary{background:var(--pink);color:var(--white);padding:15px 28px;border-radius:999px;font-weight:700;font-size:18px;display:inline-block;text-decoration:none;transition:all 0.2s;}
 .btn-primary:hover{background:var(--pink-hover);color:var(--white);transform:translateY(-1px);}
 .btn-outline-white{background:transparent;color:var(--white);border:2px solid rgba(255,255,255,0.6);padding:13px 26px;border-radius:999px;font-weight:700;font-size:18px;display:inline-block;text-decoration:none;transition:all 0.2s;}
 .btn-outline-white:hover{background:rgba(255,255,255,0.15);color:var(--white);}
+/* Cream hero: outline buttons must stay readable (not white-on-cream) */
+.page-hero .btn-outline-white,.hero .btn-outline-white{background:#fff;color:#452068;border:2px solid #452068;}
+.page-hero .btn-outline-white:hover,.hero .btn-outline-white:hover{background:#f7f2fb;color:#452068;}
+
 .btn-wa{background:var(--wa);color:var(--white);padding:13px 24px;border-radius:999px;font-weight:700;font-size:18px;display:inline-flex;align-items:center;gap:8px;text-decoration:none;transition:all 0.2s;}
 .btn-wa:hover{background:var(--wa-hover);color:var(--white);}
 .btn-wa svg{width:18px;height:18px;flex-shrink:0;}

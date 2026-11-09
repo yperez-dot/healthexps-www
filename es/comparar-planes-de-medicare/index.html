@@ -32,13 +32,13 @@ a{color:var(--purple);text-decoration:none;}a:hover{color:var(--pink);}
 .breadcrumb span{margin:0 6px;color:#5a5068;}
 
 /* HERO */
-.page-hero{background:linear-gradient(135deg,var(--purple-dark) 0%,var(--purple) 60%,#6b3a9e 100%);color:white;padding:56px 0 72px;position:relative;overflow:hidden;}
-.page-hero::before{content:'';position:absolute;inset:0;background-image:radial-gradient(rgba(255,255,255,0.08) 1.5px,transparent 1.5px);background-size:24px 24px;pointer-events:none;}
+.page-hero{background:linear-gradient(135deg,#fdfaf7 0%,#f7f2fb 100%);color:#241a30;padding:56px 0 72px;position:relative;overflow:hidden;}
+.page-hero::before{content:none;}
 .page-hero::after{content:'';position:absolute;bottom:-1px;left:0;right:0;height:48px;background:white;clip-path:ellipse(55% 100% at 50% 100%);}
 .hero-inner{position:relative;z-index:2;text-align:center;max-width:680px;margin:0 auto;}
-.page-hero h1{font-size:clamp(26px,4vw,42px);font-weight:700;color:white;line-height:1.15;margin-bottom:14px;}
+.page-hero h1{font-size:clamp(26px,4vw,42px);font-weight:700;color:#241a30;line-height:1.15;margin-bottom:14px;}
 .page-hero h1 span{color:var(--pink);}
-.page-hero-sub{color:rgba(255,255,255,0.88);font-size:17px;line-height:1.7;}
+.page-hero-sub{color:#3a2f47;font-size:17px;line-height:1.7;}
 
 /* SECTIONS */
 .section{padding:60px 0;}
@@ -133,6 +133,10 @@ tr:last-child td{border-bottom:none;}
 .btn-primary:hover{background:var(--pink-hover);color:white;transform:translateY(-1px);}
 .btn-outline-white{background:transparent;color:white;border:2px solid rgba(255,255,255,0.6);padding:13px 26px;border-radius:50px;font-weight:700;font-size:18px;transition:all 0.2s;text-decoration:none;display:inline-block;}
 .btn-outline-white:hover{background:rgba(255,255,255,0.15);color:white;}
+/* Cream hero: outline buttons must stay readable (not white-on-cream) */
+.page-hero .btn-outline-white,.hero .btn-outline-white{background:#fff;color:#452068;border:2px solid #452068;}
+.page-hero .btn-outline-white:hover,.hero .btn-outline-white:hover{background:#f7f2fb;color:#452068;}
+
 .btn-cta-wa{background:var(--wa);color:white;padding:13px 22px;border-radius:50px;font-weight:700;font-size:18px;display:inline-flex;align-items:center;gap:8px;transition:all 0.2s;text-decoration:none;}
 .btn-cta-wa:hover{background:var(--wa-hover);}
 .btn-cta-wa svg{width:18px;height:18px;}
