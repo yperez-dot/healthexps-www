@@ -41,7 +41,7 @@ Esta es la ventana grande. Cada año durante el AEP, cualquier persona con Medic
 - Cambiar de un plan Medicare Advantage a otro
 - Añadir, cancelar o cambiar un plan de medicamentos Parte D
 
-Los cambios entran en vigor el 1 de enero. A finales de septiembre, tu plan te envía por correo el **Aviso Anual de Cambios (ANOC)** con lo que tu plan costará y cubrirá el próximo año — léelo, porque los planes cambian primas, medicamentos cubiertos y redes de médicos todos los años. Nosotros revisamos cartas ANOC para nuestros clientes sin costo. Para la ventana de este año, mira [Inscripción Abierta de Medicare 2027: fechas y cómo comparar planes](/es/inscripcion-anual-medicare-2027/).
+Los cambios entran en vigor el 1 de enero. A finales de septiembre, tu plan te envía por correo el **Aviso Anual de Cambios (ANOC)** con lo que tu plan costará y cubrirá el próximo año — léelo, porque los planes cambian primas, medicamentos cubiertos y redes de médicos todos los años. Nosotros revisamos cartas ANOC para nuestros clientes sin costo. Para la ventana de este año — la inscripción abierta termina el 7 de diciembre de 2026 — mira [Inscripción Abierta de Medicare 2027: fechas y cómo comparar planes](/es/inscripcion-anual-medicare-2027/).
 
 ## Inscripción Abierta de Medicare Advantage (MA OEP): del 1 de enero al 31 de marzo
 
