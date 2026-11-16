@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 "use strict";
 const assert = require("assert");
-const { enrichLead, answerLines, pageTag, pageLabel, extractZip, visitorNotes } = require("../netlify/lib/ghl-enrich");
+const { enrichLead, answerLines, pageTag, pageLabel, extractZip, visitorNotes, resetCustomFieldCache, LOCATION_ID } = require("../netlify/lib/ghl-enrich");
 
 assert.strictEqual(visitorNotes({ additional_notes: "Need a callback.\n\nForm page: /contact/" }), "Need a callback.");
 assert.strictEqual(visitorNotes({ notes: "Form page: /contact/" }), "");
@@ -96,6 +96,63 @@ assert.strictEqual(pageLabel({ source: "Homepage Form" }, "/es/"), "Spanish Home
   const upsertAt = order.indexOf("upsert");
   const readyAt = order.indexOf("onContact:C2");
   assert(upsertAt >= 0 && tagsAt > upsertAt && readyAt > tagsAt, "onContact after tags after upsert: " + order.join(">"));
+
+  // Landing Page custom field: resolve ID by key once, cache it, overwrite on every submit
+  resetCustomFieldCache();
+  const lpCalls = [];
+  global.fetch = async (url, init) => {
+    const u = String(url); const m = init.method; const body = init.body ? JSON.parse(init.body) : null;
+    lpCalls.push({ m, u, body });
+    const ok = (o) => ({ ok: true, status: 200, text: async () => JSON.stringify(o) });
+    if (u.includes("/locations/") && u.includes("/customFields")) {
+      return ok({ customFields: [{ id: "LPID1", name: "Landing Page", fieldKey: "contact.landing_page" }] });
+    }
+    if (u.includes("/contacts/search/duplicate")) return ok({ contact: { id: "C9", dateAdded: "2020-01-01T00:00:00Z", assignedTo: "x" } });
+    if (u.includes("/opportunities/search")) return ok({ opportunities: [] });
+    if (m === "GET" && u.endsWith("/contacts/C9")) return ok({ contact: { id: "C9", tags: ["website-lead"] } });
+    return ok({});
+  };
+  const lpPayload = { phone: "2395550100", page: blog.page, page_path: "/blog/lee-health-nch-medicare-network-changes-2027/", landing_page: "/blog/lee-health-nch-medicare-network-changes-2027/", submitted_at: new Date().toISOString() };
+  const lp1 = await enrichLead(blog, lpPayload, { pollMs: [0] });
+  assert.strictEqual(lp1.contactId, "C9");
+  const cfGets = lpCalls.filter((c) => c.u.includes("/customFields"));
+  assert.strictEqual(cfGets.length, 1, "custom field ID is looked up once");
+  assert(cfGets[0].u.endsWith("/locations/" + LOCATION_ID + "/customFields"), cfGets[0].u);
+  const put1 = lpCalls.find((c) => c.m === "PUT" && c.u.endsWith("/contacts/C9"));
+  const lpField1 = (put1.body.customFields || []).find((f) => f.id === "LPID1" || f.key === "landing_page");
+  assert(lpField1, "PUT includes landing_page custom field " + JSON.stringify(put1.body.customFields));
+  assert.strictEqual(lpField1.id, "LPID1");
+  assert.strictEqual(lpField1.field_value, "/blog/lee-health-nch-medicare-network-changes-2027/");
+  assert(!("key" in lpField1), "uses id after a successful key lookup");
+
+  const afterFirst = lpCalls.length;
+  const lp2 = await enrichLead(blog, { ...lpPayload, landing_page: "/contact/", page_path: "/contact/" }, { pollMs: [0] });
+  assert.strictEqual(lp2.contactId, "C9");
+  assert.strictEqual(lpCalls.filter((c) => c.u.includes("/customFields")).length, 1, "cached: no second customFields GET");
+  const put2 = lpCalls.slice(afterFirst).find((c) => c.m === "PUT" && c.u.endsWith("/contacts/C9"));
+  const lpField2 = (put2.body.customFields || []).find((f) => f.id === "LPID1");
+  assert.strictEqual(lpField2.field_value, "/contact/", "overwrites with the most recent form page");
+
+  // Lookup failure must not drop the lead — fall back to { key: 'landing_page' }
+  resetCustomFieldCache();
+  const fbCalls = [];
+  global.fetch = async (url, init) => {
+    const u = String(url); const m = init.method; const body = init.body ? JSON.parse(init.body) : null;
+    fbCalls.push({ m, u, body });
+    const ok = (o, status) => ({ ok: status ? status < 400 : true, status: status || 200, text: async () => JSON.stringify(o) });
+    if (u.includes("/customFields")) return ok({ message: "Unauthorized" }, 401);
+    if (u.includes("/contacts/search/duplicate")) return ok({});
+    if (/\/contacts\/\?/.test(u)) return ok({ contacts: [] });
+    if (u.includes("/contacts/upsert")) return ok({ contact: { id: "C10", dateAdded: new Date().toISOString() } });
+    if (u.includes("/opportunities/search")) return ok({ opportunities: [] });
+    return ok({});
+  };
+  const lp3 = await enrichLead(blog, lpPayload, { pollMs: [0], budgetMs: 2000 });
+  assert.strictEqual(lp3.contactId, "C10", "lead still upserts when customFields lookup fails");
+  const upsert = fbCalls.find((c) => c.u.includes("/contacts/upsert"));
+  const lpField3 = (upsert.body.customFields || []).find((f) => f.key === "landing_page" || f.id === "LPID1");
+  assert(lpField3 && lpField3.key === "landing_page", "fallback uses key landing_page: " + JSON.stringify(upsert.body.customFields));
+  assert.strictEqual(lpField3.field_value, "/blog/lee-health-nch-medicare-network-changes-2027/");
 
   console.log("test-ghl-enrich: ok");
 })().catch((e) => { console.error(e); process.exit(1); });
