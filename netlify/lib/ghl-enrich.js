@@ -12,8 +12,9 @@
  *   - adds tags: website-lead + real page tag (+ form-provided tags) and
  *     removes the hardcoded "homepage" tag when the form was not on the homepage
  *   - makes sure an opportunity exists in the THEI Website pipeline (renames the
- *     workflow's "— Homepage" opp to the real page), owner = Yahoska
- *   - creates a "call this lead" task assigned to Yahoska (GHL notifies on assign)
+ *     workflow's "— Homepage" opp to the real page), owner = Yahoska — except
+ *     blog-lee-nch (EN Lee Health + EN NCH Cigna/Wellcare), where the GHL
+ *     NCH/Lee Blog workflow creates its own opportunity for Gina
  *
  * Contact identity: upsert (or find) the contact FIRST and tag it, then
  * submit-lead fires the inbound webhook so the GHL workflow's Create/Update
@@ -29,6 +30,16 @@ const OWNER_USER_ID = process.env.GHL_OWNER_USER_ID || 'UlTM7S5uLDmQhXQ5zzfN'; /
 const WEBSITE_PIPELINE_ID = process.env.GHL_WEBSITE_PIPELINE_ID || 'iziaGFnVZle64waSZJff'; // THEI Website
 const WEBSITE_NEW_LEAD_STAGE_ID =
   process.env.GHL_WEBSITE_STAGE_ID || '4ae9b05c-c74d-41ed-827b-db4f4b3be8b0'; // New Lead
+const BLOG_LEE_NCH_SOURCE_KEY = 'blog-lee-nch';
+const BLOG_LEE_NCH_WEBHOOK_ID = '07bc8094-2c26-4c03-81bb-ea25841b00c6';
+
+/** EN Lee Health + EN NCH Cigna/Wellcare posts only — Gina's workflow owns the opp. */
+function isBlogLeeNchLead(data, payload) {
+  const src = String((data && data.source_key) || (payload && payload.source_key) || '').trim();
+  if (src === BLOG_LEE_NCH_SOURCE_KEY) return true;
+  const hook = String((data && data.webhook_id) || (payload && payload.webhook_id) || '').trim();
+  return hook === BLOG_LEE_NCH_WEBHOOK_ID;
+}
 
 const CF_ZIP_CODE = 'bgB8OLNIpvO8lXVkhMyY'; // contact.zip_code
 const CF_ADDITIONAL_NOTES = 'vlaqZtJCGr1zqtOvHSX0'; // contact.additional_notes
@@ -462,28 +473,17 @@ async function enrichLead(data, payload, opts = {}) {
     try { await opts.onContact({ contactId, pageLabel: ctx.pageLabel }); } catch (e) { /* never block */ }
   }
 
-  // 4–6 run in parallel to stay inside the 10s function limit
+  // 4–5 run in parallel to stay inside the 10s function limit
   // 4) Note with every answer
   const stepNote = (async () => { try {
     await ghl('POST', `/contacts/${contactId}/notes`, { body: buildNote(data, ctx), userId: OWNER_USER_ID });
     result.steps.push('note');
   } catch (e) { console.warn('[ghl-enrich] note:', e.message); } })();
 
-  // 5) Task for Yahoska (assignment triggers her GHL notification)
-  const stepTask = (async () => { try {
-    const due = new Date(Date.now() + 15 * 60 * 1000).toISOString();
-    await ghl('POST', `/contacts/${contactId}/tasks`, {
-      title: `Call new website lead: ${fullName} (${ctx.pageLabel})`.slice(0, 200),
-      body: buildNote(data, ctx).slice(0, 2000),
-      dueDate: due,
-      completed: false,
-      assignedTo: OWNER_USER_ID,
-    });
-    result.steps.push('task');
-  } catch (e) { console.warn('[ghl-enrich] task:', e.message); } })();
-
-  // 6) Opportunity in THEI Website pipeline (owner Yahoska); rename "— Homepage"
-  const stepOpp = (async () => { try {
+  // 5) Opportunity in THEI Website pipeline (owner Yahoska); rename "— Homepage".
+  //    Skipped for blog-lee-nch: the GHL NCH/Lee Blog workflow creates Gina's opp.
+  const skipWebsiteOpp = isBlogLeeNchLead(data, payload);
+  const stepOpp = skipWebsiteOpp ? Promise.resolve(result.steps.push('opp-skip')) : (async () => { try {
     // Webhook (fired from onContact) may still be creating its opp.
     const searchOpps = async () => {
       const r = await ghl('GET', `/opportunities/search?location_id=${LOCATION_ID}&contact_id=${contactId}`);
@@ -522,9 +522,9 @@ async function enrichLead(data, payload, opts = {}) {
       result.steps.push('opp-create');
     }
   } catch (e) { console.warn('[ghl-enrich] opportunity:', e.message); } })();
-  await Promise.all([stepNote, stepTask, stepOpp]);
+  await Promise.all([stepNote, stepOpp]);
 
-  // 7) Drop the workflow's hardcoded "homepage" tag when the form wasn't on the homepage
+  // 6) Drop the workflow's hardcoded "homepage" tag when the form wasn't on the homepage
   if (path && !isHomepagePath(path)) {
     try {
       const c = await ghl('GET', `/contacts/${contactId}`);
@@ -544,6 +544,7 @@ module.exports = {
   enrichLead, answerLines, buildNote, pageTag, pageLabel, extractZip,
   blogInfo, blogTags, normalizeBlogCategory, makeClient, isHomepagePath,
   visitorNotes, extractLookingFor, phoneDigits, toE164,
-  resolveLandingPageField, resetCustomFieldCache, customFieldKey,
+  resolveLandingPageField, resetCustomFieldCache, customFieldKey, isBlogLeeNchLead,
   LOCATION_ID, WEBSITE_PIPELINE_ID, CF_LANDING_PAGE_KEY,
+  BLOG_LEE_NCH_SOURCE_KEY, BLOG_LEE_NCH_WEBHOOK_ID,
 };

@@ -705,7 +705,7 @@ exports.handler = async (event) => {
   };
 
   // Save EVERY answer on the GHL contact (note, ZIP, real page, tags, owner,
-  // opportunity, task for Yahoska). Never blocks or fails the lead.
+  // landing_page, opportunity except blog-lee-nch). Never blocks or fails the lead.
   // Upsert/tag FIRST, then fire the Contact Page (or other) webhook so the
   // workflow SMS enrolls the same contact, then SMS Yahoska + Katy — never the lead.
   let alertPromise = null;
