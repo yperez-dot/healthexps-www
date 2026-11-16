@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 "use strict";
 const assert = require("assert");
-const { enrichLead, answerLines, pageTag, pageLabel, extractZip, visitorNotes, resetCustomFieldCache, LOCATION_ID } = require("../netlify/lib/ghl-enrich");
+const { enrichLead, answerLines, pageTag, pageLabel, extractZip, visitorNotes, resetCustomFieldCache, isBlogLeeNchLead, LOCATION_ID, BLOG_LEE_NCH_WEBHOOK_ID } = require("../netlify/lib/ghl-enrich");
 
 assert.strictEqual(visitorNotes({ additional_notes: "Need a callback.\n\nForm page: /contact/" }), "Need a callback.");
 assert.strictEqual(visitorNotes({ notes: "Form page: /contact/" }), "");
@@ -26,6 +26,10 @@ assert.strictEqual(pageTag("/es/"), "web:es-homepage");
 assert.strictEqual(pageTag("/blog/lee-health-nch-medicare-network-changes-2027/"), "web:blog-lee-health-nch-medicare-network-changes-2027");
 assert.strictEqual(pageLabel({ source: "Homepage Form" }, "/"), "Homepage Form");
 assert.strictEqual(pageLabel({ source: "Homepage Form" }, "/es/"), "Spanish Homepage Form");
+assert.strictEqual(isBlogLeeNchLead({ source_key: "blog-lee-nch" }, {}), true);
+assert.strictEqual(isBlogLeeNchLead({ webhook_id: BLOG_LEE_NCH_WEBHOOK_ID }, {}), true);
+assert.strictEqual(isBlogLeeNchLead({ source_key: "aep-2027" }, {}), false);
+assert.strictEqual(isBlogLeeNchLead({}, {}), false);
 
 (async () => {
   // No token → skipped, no network
@@ -47,7 +51,9 @@ assert.strictEqual(pageLabel({ source: "Homepage Form" }, "/es/"), "Spanish Home
   const payload = { phone: "2395550100", page: blog.page, page_path: "/blog/lee-health-nch-medicare-network-changes-2027/", submitted_at: new Date().toISOString(), additional_notes: "Form page: /blog/x/" };
   const res = await enrichLead(blog, payload, { pollMs: [0] });
   assert.strictEqual(res.contactId, "C1");
-  for (const s of ["update", "tags", "note", "task", "opp-update", "untag-homepage"]) assert(res.steps.includes(s), "missing step " + s + " " + res.steps);
+  for (const s of ["update", "tags", "note", "opp-update", "untag-homepage"]) assert(res.steps.includes(s), "missing step " + s + " " + res.steps);
+  assert(!res.steps.includes("task"), "must not create a call-this-lead task: " + res.steps);
+  assert(!calls.some((c) => /\/tasks/.test(c.u)), "no GHL task API calls");
   const put = calls.find((c) => c.m === "PUT" && c.u.endsWith("/contacts/C1"));
   assert.strictEqual(put.body.postalCode, "33901");
   assert.strictEqual(put.body.assignedTo, "UlTM7S5uLDmQhXQ5zzfN");
@@ -96,6 +102,8 @@ assert.strictEqual(pageLabel({ source: "Homepage Form" }, "/es/"), "Spanish Home
   const upsertAt = order.indexOf("upsert");
   const readyAt = order.indexOf("onContact:C2");
   assert(upsertAt >= 0 && tagsAt > upsertAt && readyAt > tagsAt, "onContact after tags after upsert: " + order.join(">"));
+  assert(r3.steps.includes("opp-create"), "other leads still get a THEI Website opportunity");
+  assert(!r3.steps.includes("task") && !calls.some((c) => /\/tasks/.test(c.u)), "no call-this-lead task on upsert path");
 
   // Landing Page custom field: resolve ID by key once, cache it, overwrite on every submit
   resetCustomFieldCache();
@@ -153,6 +161,32 @@ assert.strictEqual(pageLabel({ source: "Homepage Form" }, "/es/"), "Spanish Home
   const lpField3 = (upsert.body.customFields || []).find((f) => f.key === "landing_page" || f.id === "LPID1");
   assert(lpField3 && lpField3.key === "landing_page", "fallback uses key landing_page: " + JSON.stringify(upsert.body.customFields));
   assert.strictEqual(lpField3.field_value, "/blog/lee-health-nch-medicare-network-changes-2027/");
+
+  // blog-lee-nch: skip THEI Website opportunity (Gina's NCH/Lee Blog workflow owns it)
+  const leeCalls = [];
+  global.fetch = async (url, init) => {
+    const u = String(url); const m = init.method; const body = init.body ? JSON.parse(init.body) : null;
+    leeCalls.push({ m, u, body });
+    const ok = (o) => ({ ok: true, status: 200, text: async () => JSON.stringify(o) });
+    if (u.includes("/contacts/search/duplicate")) return ok({ contact: { id: "C11", dateAdded: "2020-01-01T00:00:00Z", assignedTo: "x" } });
+    if (u.includes("/opportunities")) throw new Error("website opportunity must not be touched for blog-lee-nch");
+    if (u.includes("/tasks")) throw new Error("call-this-lead task must not be created");
+    if (m === "GET" && u.endsWith("/contacts/C11")) return ok({ contact: { id: "C11", tags: ["homepage", "website-lead"] } });
+    return ok({});
+  };
+  const leePayload = { phone: "2395550100", page: blog.page, page_path: "/blog/lee-health-nch-medicare-network-changes-2027/", submitted_at: new Date().toISOString() };
+  const lee = await enrichLead({ ...blog, source_key: "blog-lee-nch" }, leePayload, { pollMs: [0] });
+  assert.strictEqual(lee.contactId, "C11");
+  for (const s of ["update", "tags", "note", "opp-skip", "untag-homepage"]) assert(lee.steps.includes(s), "missing step " + s + " " + lee.steps);
+  assert(!lee.steps.includes("opp-create") && !lee.steps.includes("opp-update") && !lee.steps.includes("task"), lee.steps);
+  assert(!lee.opportunityId, "no THEI Website opportunity id");
+  assert(!leeCalls.some((c) => /opportunities|\/tasks/.test(c.u)), "no opportunity or task API calls for blog-lee-nch");
+
+  leeCalls.length = 0;
+  const leeHook = await enrichLead({ ...blog, source_key: "", webhook_id: BLOG_LEE_NCH_WEBHOOK_ID }, leePayload, { pollMs: [0] });
+  assert.strictEqual(leeHook.contactId, "C11");
+  assert(leeHook.steps.includes("opp-skip"), leeHook.steps);
+  assert(!leeCalls.some((c) => /opportunities|\/tasks/.test(c.u)), "webhook_id path also skips the website opportunity");
 
   console.log("test-ghl-enrich: ok");
 })().catch((e) => { console.error(e); process.exit(1); });
