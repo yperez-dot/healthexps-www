@@ -13,7 +13,9 @@ permalink: /blog/nch-drops-cigna-wellcare-medicare-advantage-2027/
 
 <div class="alert-box"><strong>Quick answer</strong><span><b>Who:</b> Wellcare Medicare Advantage and Cigna/HealthSpring Medicare Advantage members who use NCH hospitals or NCH Medical Group doctors. <b>When:</b> January 1, 2027. <b>Right now:</b> NCH says your NCH care is unaffected until then, so you can keep seeing your NCH providers through December 31, 2026.</span></div>
 
-*Updated October 19, 2026: Medicare Annual Enrollment is now open. We added which plans NCH Medical Group still lists, what you can do during AEP and a free network check.*
+<div class="quick-answer" style="background:#f4eefa;border:1px solid #e3d8ef;border-radius:12px;padding:14px 18px;margin:16px 0 24px;color:#3a2468;"><p style="margin:0 0 4px;font-size:14px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;color:#452068;">Updated 2027 guide</p><p style="margin:0 0 12px;font-size:16px;line-height:1.5;color:#3a2468;">For the full Southwest Florida picture — including Lee Health’s UnitedHealthcare change and whether NCH accepts UnitedHealthcare — see our updated guide.</p><a href="/blog/lee-health-nch-medicare-network-changes-2027/" style="display:inline-block;background:#452068;color:#ffffff;padding:8px 18px;border-radius:8px;font-weight:600;font-size:16px;text-decoration:none;">Will Lee Health or NCH accept your plan in 2027? →</a></div>
+
+*Updated November 16, 2026: we added a link at the top to our full Lee Health and NCH 2027 guide. (October 19, 2026: we added which plans NCH Medical Group still lists, what you can do during AEP and a free network check.)*
 
 Naples Comprehensive Health (NCH) says that **beginning January 1, 2027, it will no longer accept Cigna/HealthSpring Medicare Advantage plans and Wellcare Medicare Advantage plans** ([NCH 2027 Medicare Advantage update](https://nchmd.org/maupdate/)).
 

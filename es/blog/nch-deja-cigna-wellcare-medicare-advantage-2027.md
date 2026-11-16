@@ -13,7 +13,9 @@ hreflang_en: nch-drops-cigna-wellcare-medicare-advantage-2027
 
 <div class="alert-box"><strong>Respuesta rápida</strong><span><b>Quiénes:</b> miembros de Wellcare Medicare Advantage y Cigna/HealthSpring Medicare Advantage que usan los hospitales de NCH o los médicos de NCH Medical Group. <b>Cuándo:</b> 1 de enero de 2027. <b>Por ahora:</b> NCH informa que tu atención en NCH no cambia hasta esa fecha, así que puedes seguir viendo a tus proveedores de NCH hasta el 31 de diciembre de 2026.</span></div>
 
-*Actualizado el 19 de octubre de 2026: la Inscripción Anual de Medicare ya está abierta. Agregamos qué planes sigue incluyendo NCH Medical Group, qué puedes hacer durante el AEP y una revisión gratis de tu red.*
+<div class="quick-answer" style="background:#f4eefa;border:1px solid #e3d8ef;border-radius:12px;padding:14px 18px;margin:16px 0 24px;color:#3a2468;"><p style="margin:0 0 4px;font-size:14px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;color:#452068;">Guía actualizada 2027</p><p style="margin:0 0 12px;font-size:16px;line-height:1.5;color:#3a2468;">Para el panorama completo del suroeste de Florida — incluido el cambio de UnitedHealthcare en Lee Health y si NCH acepta UnitedHealthcare — ve nuestra guía actualizada.</p><a href="/es/blog/lee-health-nch-cambios-red-medicare-2027/" style="display:inline-block;background:#452068;color:#ffffff;padding:8px 18px;border-radius:8px;font-weight:600;font-size:16px;text-decoration:none;">¿Lee Health o NCH aceptarán tu plan en 2027? →</a></div>
+
+*Actualizado el 16 de noviembre de 2026: agregamos un enlace al inicio a nuestra guía completa de Lee Health y NCH para 2027. (19 de octubre de 2026: agregamos qué planes sigue incluyendo NCH Medical Group, qué puedes hacer durante el AEP y una revisión gratis de tu red.)*
 
 Naples Comprehensive Health (NCH) informa que, **a partir del 1 de enero de 2027, dejará de aceptar planes Cigna/HealthSpring Medicare Advantage y Wellcare Medicare Advantage** ([actualización de NCH sobre Medicare Advantage 2027](https://nchmd.org/maupdate/)).
 
