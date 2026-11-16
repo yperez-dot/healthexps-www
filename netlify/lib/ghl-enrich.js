@@ -7,7 +7,8 @@
  * submit-lead fires the webhook so the workflow enrolls that same record, and
  * via the GHL API:
  *   - adds a note with EVERY submitted answer + page + time
- *   - sets ZIP, source (real page), owner (if unassigned), Additional Notes
+ *   - sets ZIP, source (real page), owner (if unassigned), Additional Notes,
+ *     and the Landing Page custom field (most recent form path)
  *   - adds tags: website-lead + real page tag (+ form-provided tags) and
  *     removes the hardcoded "homepage" tag when the form was not on the homepage
  *   - makes sure an opportunity exists in the THEI Website pipeline (renames the
@@ -31,6 +32,47 @@ const WEBSITE_NEW_LEAD_STAGE_ID =
 
 const CF_ZIP_CODE = 'bgB8OLNIpvO8lXVkhMyY'; // contact.zip_code
 const CF_ADDITIONAL_NOTES = 'vlaqZtJCGr1zqtOvHSX0'; // contact.additional_notes
+const CF_LANDING_PAGE_KEY = 'landing_page';
+
+/** Module-scope cache: string id, or null if the location has no such field. */
+let cachedLandingPageFieldId;
+
+function customFieldKey(cf) {
+  const raw = String((cf && (cf.fieldKey || cf.field_key || cf.key)) || '');
+  return raw.replace(/^contact\./, '');
+}
+
+function resetCustomFieldCache() {
+  cachedLandingPageFieldId = undefined;
+}
+
+/**
+ * Resolve the Landing Page custom field to the { id | key, field_value } shape
+ * this file already uses. Looks up the ID by key once per process, then caches
+ * it. On a failed lookup, falls back to { key: 'landing_page' } and does not
+ * fail the lead.
+ */
+async function resolveLandingPageField(ghl, value) {
+  const field_value = String(value || '').slice(0, 2000);
+  const byKey = { key: CF_LANDING_PAGE_KEY, field_value };
+  if (!field_value) return null;
+  if (cachedLandingPageFieldId) return { id: cachedLandingPageFieldId, field_value };
+  if (cachedLandingPageFieldId === null) return byKey;
+  try {
+    const r = await ghl('GET', `/locations/${LOCATION_ID}/customFields`);
+    const list = r.customFields || r.customField || r.fields || (Array.isArray(r) ? r : []);
+    const hit = (Array.isArray(list) ? list : []).find((cf) => {
+      const k = customFieldKey(cf);
+      return k === CF_LANDING_PAGE_KEY || k === 'contact.landing_page';
+    });
+    const id = hit && (hit.id || hit.fieldId || hit.field_id);
+    cachedLandingPageFieldId = id ? String(id) : null;
+    if (cachedLandingPageFieldId) return { id: cachedLandingPageFieldId, field_value };
+  } catch (e) {
+    console.warn('[ghl-enrich] landing_page custom field lookup:', e && e.message);
+  }
+  return byKey;
+}
 
 /** Keys that are plumbing, not answers. */
 const INTERNAL_KEYS = new Set([
@@ -359,6 +401,16 @@ async function enrichLead(data, payload, opts = {}) {
     updates.postalCode = zip;
     updates.customFields.push({ id: CF_ZIP_CODE, field_value: zip });
   }
+  const landingPage = String(payload.landing_page || path || '').trim();
+  if (landingPage) {
+    try {
+      const lp = await resolveLandingPageField(ghl, landingPage);
+      if (lp) updates.customFields.push(lp);
+    } catch (e) {
+      updates.customFields.push({ key: CF_LANDING_PAGE_KEY, field_value: landingPage.slice(0, 2000) });
+      console.warn('[ghl-enrich] landing_page field:', e && e.message);
+    }
+  }
 
   // 2) Create (upsert) if the workflow never created it, else update
   let createdByUs = false;
@@ -492,5 +544,6 @@ module.exports = {
   enrichLead, answerLines, buildNote, pageTag, pageLabel, extractZip,
   blogInfo, blogTags, normalizeBlogCategory, makeClient, isHomepagePath,
   visitorNotes, extractLookingFor, phoneDigits, toE164,
-  LOCATION_ID, WEBSITE_PIPELINE_ID,
+  resolveLandingPageField, resetCustomFieldCache, customFieldKey,
+  LOCATION_ID, WEBSITE_PIPELINE_ID, CF_LANDING_PAGE_KEY,
 };
