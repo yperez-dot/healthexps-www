@@ -20,9 +20,11 @@ Si usas **Lee Health** y tienes un plan **UnitedHealthcare Medicare Advantage**,
 
 <div class="alert-box"><strong>Alerta de red para 2027</strong><span>Tu atención en 2026 no cambia hoy. Estos cambios de red están programados para comenzar el 1 de enero de 2027.</span></div>
 
-*Actualizado el 19 de octubre de 2026: la Inscripción Anual de Medicare ya está abierta. Agregamos respuestas sobre NCH y UnitedHealthcare y dónde encontrar el directorio de proveedores 2027 de Wellcare.*
+*Actualizado el 16 de noviembre de 2026: agregamos un botón gratis para comprobar si tu médico está en la red. (19 de octubre de 2026: agregamos respuestas sobre NCH y UnitedHealthcare y dónde encontrar el directorio de proveedores 2027 de Wellcare.)*
 
 **¿Vas a comparar planes para 2027?** Empieza con nuestra [guía de Inscripción Anual de Medicare 2027](/es/inscripcion-anual-medicare-2027/) para ver las fechas de este año y cómo comparar planes.
+
+<div class="quick-answer" style="background:#f4eefa;border:1px solid #e3d8ef;border-radius:12px;padding:14px 18px;margin:16px 0 24px;color:#3a2468;"><p style="margin:0 0 4px;font-size:14px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;color:#452068;">Revisa tus médicos</p><p style="margin:0 0 12px;font-size:16px;line-height:1.5;color:#3a2468;">Un agente bilingüe licenciado en Florida puede verificar si tus médicos estarán en la red de tu plan 2027, sin costo.</p><a href="#network-check" style="display:inline-block;background:#452068;color:#ffffff;padding:8px 18px;border-radius:8px;font-weight:600;font-size:16px;text-decoration:none;" onclick="if(typeof gtag==='function')gtag('event','contact_click',{page:location.pathname,position:'doctor_network_check',target:'network_check'})">Comprueba si tu médico está en la red →</a></div>
 
 ## ¿Quiénes podrían verse afectados?
 

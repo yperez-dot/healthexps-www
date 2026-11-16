@@ -20,9 +20,11 @@ If you use **Lee Health** and have a **UnitedHealthcare Medicare Advantage plan*
 
 <div class="alert-box"><strong>2027 network alert</strong><span>Your 2026 care is not changing today. These network changes are scheduled to begin January 1, 2027.</span></div>
 
-*Updated October 19, 2026: Medicare Annual Enrollment is now open. We added answers about NCH and UnitedHealthcare and where to find Wellcare's 2027 provider directory.*
+*Updated November 16, 2026: we added a free button to check whether your doctor is in network. (October 19, 2026: we added answers about NCH and UnitedHealthcare and where to find Wellcare's 2027 provider directory.)*
 
 **Comparing plans for 2027?** Start with our [Medicare Annual Enrollment 2027 guide](/medicare-annual-enrollment-2027/) for this year's dates and how to compare plans.
+
+<div class="quick-answer" style="background:#f4eefa;border:1px solid #e3d8ef;border-radius:12px;padding:14px 18px;margin:16px 0 24px;color:#3a2468;"><p style="margin:0 0 4px;font-size:14px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;color:#452068;">Check your doctors</p><p style="margin:0 0 12px;font-size:16px;line-height:1.5;color:#3a2468;">A licensed bilingual Florida agent can check whether your doctors will be in network on your 2027 plan, at no cost.</p><a href="#network-check" style="display:inline-block;background:#452068;color:#ffffff;padding:8px 18px;border-radius:8px;font-weight:600;font-size:16px;text-decoration:none;" onclick="if(typeof gtag==='function')gtag('event','contact_click',{page:location.pathname,position:'doctor_network_check',target:'network_check'})">Check if your doctor is in network →</a></div>
 
 ## Who is affected?
 

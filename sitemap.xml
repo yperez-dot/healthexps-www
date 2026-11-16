@@ -1010,7 +1010,15 @@
  <xhtml:link rel="alternate" hreflang="es" href="https://www.healthexps.com/es/articulos-medicare/presupuesto-medicamentos-formulario/"/>
  <xhtml:link rel="alternate" hreflang="x-default" href="https://www.healthexps.com/medicare-articles/medications-budget-drug-list/"/>
 </url>
-<url><loc>https://www.healthexps.com/medicare-articles/medicare-aep-dates/</loc><lastmod>2026-10-26</lastmod><changefreq>monthly</changefreq><priority>0.6</priority>
+<url><loc>https://www.healthexps.com/medicare-articles/medicare-aep-dates/</loc><lastmod>2026-11-16</lastmod><changefreq>monthly</changefreq><priority>0.6</priority>
+ <xhtml:link rel="alternate" hreflang="en" href="https://www.healthexps.com/medicare-articles/medicare-aep-dates/"/>
+ <xhtml:link rel="alternate" hreflang="es" href="https://www.healthexps.com/es/articulos-medicare/fechas-aep-medicare/"/>
+ <xhtml:link rel="alternate" hreflang="x-default" href="https://www.healthexps.com/medicare-articles/medicare-aep-dates/"/>
+</url>
+<url><loc>https://www.healthexps.com/es/articulos-medicare/fechas-aep-medicare/</loc><lastmod>2026-11-16</lastmod><changefreq>monthly</changefreq><priority>0.6</priority>
+ <xhtml:link rel="alternate" hreflang="en" href="https://www.healthexps.com/medicare-articles/medicare-aep-dates/"/>
+ <xhtml:link rel="alternate" hreflang="es" href="https://www.healthexps.com/es/articulos-medicare/fechas-aep-medicare/"/>
+ <xhtml:link rel="alternate" hreflang="x-default" href="https://www.healthexps.com/medicare-articles/medicare-aep-dates/"/>
 </url>
 <url><loc>https://www.healthexps.com/medicare-articles/dsnp-help-pay-part-b/</loc><lastmod>2026-10-26</lastmod><changefreq>monthly</changefreq><priority>0.6</priority>
 </url>
