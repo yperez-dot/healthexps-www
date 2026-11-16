@@ -1026,4 +1026,14 @@
 </url>
 <url><loc>https://www.healthexps.com/medicare-articles/bilingual-medicare-broker-south-florida/</loc><lastmod>2026-10-26</lastmod><changefreq>monthly</changefreq><priority>0.6</priority>
 </url>
+
+<!-- blog 2026-11-16 -->
+<url><loc>https://www.healthexps.com/blog/baptist-health-primary-care-leaving-pcn-2027/</loc><lastmod>2026-11-16</lastmod><changefreq>monthly</changefreq><priority>0.7</priority>
+  <xhtml:link rel="alternate" hreflang="en" href="https://www.healthexps.com/blog/baptist-health-primary-care-leaving-pcn-2027/"/>
+  <xhtml:link rel="alternate" hreflang="es" href="https://www.healthexps.com/es/blog/cambio-red-baptist-health-pcn-medicare-2027/"/>
+</url>
+<url><loc>https://www.healthexps.com/es/blog/cambio-red-baptist-health-pcn-medicare-2027/</loc><lastmod>2026-11-16</lastmod><changefreq>monthly</changefreq><priority>0.7</priority>
+  <xhtml:link rel="alternate" hreflang="es" href="https://www.healthexps.com/es/blog/cambio-red-baptist-health-pcn-medicare-2027/"/>
+  <xhtml:link rel="alternate" hreflang="en" href="https://www.healthexps.com/blog/baptist-health-primary-care-leaving-pcn-2027/"/>
+</url>
 </urlset>
