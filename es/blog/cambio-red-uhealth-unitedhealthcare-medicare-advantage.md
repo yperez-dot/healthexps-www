@@ -20,6 +20,8 @@ Si tienes un **plan Medicare Advantage de UnitedHealthcare** y te atiendes con m
 
 <div class="timeline-note"><strong>¿Tienes un plan de Solis Health Plans?</strong> Solis también dará por terminada su relación con UHealth, con fecha efectiva del 31 de diciembre de 2026. Lee <a href="/es/blog/solis-uhealth-cambio-red-universidad-de-miami-2027/">¿Solis Health Plans deja a UHealth en 2027? Lo que debe saber en Miami</a>.</div>
 
+<div class="timeline-note"><strong>¿Tienes Preferred Care Network y un médico de cabecera de Baptist Health?</strong> La lista de médicos de cabecera de Baptist Health indica que Preferred Care Network excluirá a Baptist Health Medical Group Physicians, LLC a partir del 1 de enero de 2027. Lee <a href="/es/blog/cambio-red-baptist-health-pcn-medicare-2027/">¿Médicos de cabecera de Baptist salen de PCN en 2027?</a>.</div>
+
 <div class="quick-answer" style="background:#f4eefa;border:1px solid #e3d8ef;border-radius:12px;padding:14px 18px;margin:16px 0 24px;color:#3a2468;"><p style="margin:0 0 4px;font-size:14px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;color:#452068;">Revisa tus médicos</p><p style="margin:0 0 12px;font-size:16px;line-height:1.5;color:#3a2468;">Un agente bilingüe licenciado en Florida puede verificar si tus médicos estarán en la red de tu plan 2027, sin costo.</p><a href="#network-check" style="display:inline-block;background:#452068;color:#ffffff;padding:8px 18px;border-radius:8px;font-weight:600;font-size:16px;text-decoration:none;" onclick="if(typeof gtag==='function')gtag('event','contact_click',{page:location.pathname,position:'doctor_network_check',target:'network_check'})">Comprueba si tu médico está en la red →</a></div>
 
 ## ¿Quiénes podrían verse afectados?

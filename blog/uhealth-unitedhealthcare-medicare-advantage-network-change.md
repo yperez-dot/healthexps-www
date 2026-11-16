@@ -20,6 +20,8 @@ If you have a **UnitedHealthcare Medicare Advantage plan** and see doctors throu
 
 <div class="timeline-note"><strong>Also on a Solis Health Plans plan?</strong> Solis is ending UHealth too, effective December 31, 2026. Read <a href="/blog/solis-uhealth-university-of-miami-network-change-2027/">Solis Health Plans Ending UHealth in 2027? What Miami Members Should Know</a>.</div>
 
+<div class="timeline-note"><strong>On Preferred Care Network with a Baptist Health primary care doctor?</strong> Baptist Health's primary care list says Preferred Care Network will exclude Baptist Health Medical Group Physicians, LLC as of January 1, 2027. Read <a href="/blog/baptist-health-primary-care-leaving-pcn-2027/">Baptist Health Primary Care Leaving PCN Medicare in 2027?</a>.</div>
+
 <div class="quick-answer" style="background:#f4eefa;border:1px solid #e3d8ef;border-radius:12px;padding:14px 18px;margin:16px 0 24px;color:#3a2468;"><p style="margin:0 0 4px;font-size:14px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;color:#452068;">Check your doctors</p><p style="margin:0 0 12px;font-size:16px;line-height:1.5;color:#3a2468;">A licensed bilingual Florida agent can check whether your doctors will be in network on your 2027 plan, at no cost.</p><a href="#network-check" style="display:inline-block;background:#452068;color:#ffffff;padding:8px 18px;border-radius:8px;font-weight:600;font-size:16px;text-decoration:none;" onclick="if(typeof gtag==='function')gtag('event','contact_click',{page:location.pathname,position:'doctor_network_check',target:'network_check'})">Check if your doctor is in network →</a></div>
 
 ## Who is affected?
