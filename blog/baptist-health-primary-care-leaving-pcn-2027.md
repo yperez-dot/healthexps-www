@@ -1,8 +1,8 @@
 ---
 layout: layouts/blog-post.njk
 category: "Medicare"
-title: "Baptist Health Primary Care Leaving PCN Medicare in 2027?"
-description: "Baptist's Oct 1, 2026 primary care list says Preferred Care Network will exclude its Medical Group physicians as of Jan 1, 2027. Free check before Dec 7."
+title: "Baptist Primary Care Doctors Leave UHC PCN Medicare 2027"
+description: "Baptist's Oct 1, 2026 primary care list says Preferred Care Network (UHC) will exclude Medical Group physicians as of Jan 1, 2027. Free check before Dec 7."
 keywords: "Baptist Health Preferred Care Network 2027, Baptist Health Medical Group primary care PCN, United MedicareMax Baptist Health, Medicare Advantage Miami-Dade, Medicare Advantage Broward, Medicare open enrollment 2027, AEP Miami"
 date: 2026-11-16T12:00:00.000Z
 lang: en
@@ -10,7 +10,7 @@ hreflang_es: /es/blog/cambio-red-baptist-health-pcn-medicare-2027/
 permalink: /blog/baptist-health-primary-care-leaving-pcn-2027/
 ---
 
-# Baptist Health Primary Care Leaving PCN Medicare in 2027?
+# Baptist Primary Care Doctors Leave UHC PCN Medicare 2027
 
 <div class="quick-answer" style="background:#f4eefa;border:1px solid #e3d8ef;border-radius:12px;padding:14px 18px;margin:16px 0 24px;color:#3a2468;"><p style="margin:0 0 4px;font-size:14px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;color:#452068;">Quick answer</p><p style="margin:0 0 12px;font-size:16px;line-height:1.5;color:#3a2468;">Baptist Health's accepted insurance list for its primary care physicians (as of October 1, 2026) says Preferred Care Network (a UnitedHealthcare company – United MedicareMax) will exclude Baptist Health Medical Group Physicians, LLC as of January 1, 2027. Traditional Medicare is still listed as accepted. This change is on Baptist's primary care physician list — confirm specialists, hospitals, and your exact 2027 plan in the plan's provider directory.</p><a href="#network-check" style="display:inline-block;background:#452068;color:#ffffff;padding:8px 18px;border-radius:8px;font-weight:600;font-size:16px;text-decoration:none;" onclick="if(typeof gtag==='function')gtag('event','contact_click',{page:location.pathname,position:'doctor_network_check',target:'network_check'})">Check if your doctor is in network →</a></div>
 

@@ -1,8 +1,8 @@
 ---
 layout: layouts/blog-post-es.njk
 category: "Medicare"
-title: "¿Médicos de cabecera de Baptist salen de PCN en 2027?"
-description: "Lista de médicos de cabecera de Baptist (1 oct. 2026): PCN excluirá a BHMG Physicians el 1 ene. 2027. Pide tu revisión gratis antes del 7 dic."
+title: "Médicos de cabecera de Baptist salen de UHC PCN en 2027"
+description: "Lista de médicos de cabecera de Baptist (1 oct. 2026): PCN (UHC) excluirá a BHMG Physicians el 1 ene. 2027. Pide tu revisión gratis antes del 7 dic."
 keywords: "Baptist Health Preferred Care Network 2027, médicos de cabecera Baptist Health PCN, United MedicareMax Baptist Health, Medicare Advantage Miami-Dade, Medicare Advantage Broward, inscripción Medicare 2027, AEP Miami"
 date: 2026-11-16T12:00:00.000Z
 lang: es
@@ -10,7 +10,7 @@ permalink: /es/blog/cambio-red-baptist-health-pcn-medicare-2027/
 hreflang_en: baptist-health-primary-care-leaving-pcn-2027
 ---
 
-# ¿Médicos de cabecera de Baptist salen de PCN en 2027?
+# Médicos de cabecera de Baptist salen de UHC PCN en 2027
 
 <div class="quick-answer" style="background:#f4eefa;border:1px solid #e3d8ef;border-radius:12px;padding:14px 18px;margin:16px 0 24px;color:#3a2468;"><p style="margin:0 0 4px;font-size:14px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;color:#452068;">Respuesta rápida</p><p style="margin:0 0 12px;font-size:16px;line-height:1.5;color:#3a2468;">La lista de seguros aceptados de Baptist Health para sus médicos de cabecera (con fecha del 1 de octubre de 2026) indica que Preferred Care Network (una compañía de UnitedHealthcare – United MedicareMax) excluirá a Baptist Health Medical Group Physicians, LLC a partir del 1 de enero de 2027. Medicare tradicional sigue apareciendo como aceptado. Este cambio está en la lista de médicos de cabecera de Baptist: confirma especialistas, hospitales y tu plan exacto de 2027 en el directorio de proveedores del plan.</p><a href="#network-check" style="display:inline-block;background:#452068;color:#ffffff;padding:8px 18px;border-radius:8px;font-weight:600;font-size:16px;text-decoration:none;" onclick="if(typeof gtag==='function')gtag('event','contact_click',{page:location.pathname,position:'doctor_network_check',target:'network_check'})">Comprueba si tu médico está en la red →</a></div>
 
