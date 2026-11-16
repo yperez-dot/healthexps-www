@@ -181,7 +181,8 @@ async function loadPage(site, file, urlPath, mode) {
       win.alert = (m) => alerts.push(String(m));
       win.confirm = () => true;
       win.scrollTo = () => {};
-      win.gtag = () => {};
+      win.__gtagEvents = [];
+      win.gtag = function () { win.__gtagEvents.push(Array.from(arguments)); };
       win.fbq = () => {};
       win.matchMedia = win.matchMedia || (() => ({ matches: false, addListener() {}, removeListener() {}, addEventListener() {}, removeEventListener() {} }));
       win.IntersectionObserver = class { observe() {} unobserve() {} disconnect() {} };
@@ -259,6 +260,82 @@ async function runServer(payload) {
   }
 }
 
+function asEventArgs(entry) {
+  if (!entry) return [];
+  try { return Array.from(entry); } catch (e) { return entry; }
+}
+
+function generateLeadEventsSince(win, dlBefore, gtagBefore) {
+  const fromDl = (Array.isArray(win.dataLayer) ? win.dataLayer : [])
+    .slice(dlBefore)
+    .map(asEventArgs)
+    .filter((a) => a[0] === "event" && a[1] === "generate_lead");
+  if (fromDl.length) return fromDl;
+  return (win.__gtagEvents || [])
+    .slice(gtagBefore)
+    .filter((a) => a[0] === "event" && a[1] === "generate_lead");
+}
+
+async function assertTestLeadBehavior(problems) {
+  const push = (m) => problems.push("TEST-lead: " + m);
+  const { buildForwardPayload, handler, assessSpam, isTestLead } = require("../netlify/functions/submit-lead");
+  const { sendLeadAlert } = require("../netlify/lib/lead-alert");
+  const base = {
+    first_name: "TEST",
+    last_name: "Samantha",
+    phone: "3054646888",
+    email: "maria.garcia@gmail.com",
+    coverage_type: "Medicare — Advantage or Supplement",
+    looking_for: "Medicare — Advantage or Supplement",
+    source_key: "aep-2027",
+    page: "https://www.healthexps.com/medicare-annual-enrollment-2027/",
+    page_path: "/medicare-annual-enrollment-2027/",
+    _form_loaded_at: Date.now() - 8000,
+  };
+  if (!isTestLead(base)) push("isTestLead() should be true when first_name starts with TEST");
+  if (isTestLead({ first_name: "Maria", last_name: "Garcia" })) push("isTestLead() should be false for ordinary names");
+  if (assessSpam(base)) push("TEST leads must not be filtered as spam (" + assessSpam(base) + ")");
+  if (assessSpam({ ...base, first_name: "TEST", last_name: "TEST" })) {
+    push("TEST/TEST must not be dropped as bot_name (" + assessSpam({ ...base, first_name: "TEST", last_name: "TEST" }) + ")");
+  }
+  const fwd = buildForwardPayload(base);
+  if (!String(fwd.tags || "").includes("test-lead")) push("forwarded tags missing test-lead: " + fwd.tags);
+  if (!String(fwd.tags || "").includes("website-lead")) push("forwarded tags missing website-lead: " + fwd.tags);
+  if (fwd.landing_page !== "/medicare-annual-enrollment-2027/") push("TEST lead missing landing_page, got " + fwd.landing_page);
+  if (fwd.language !== "en") push("TEST lead language should be en, got " + fwd.language);
+
+  const prevFetch = global.fetch;
+  const calls = [];
+  global.fetch = async (url, init) => {
+    calls.push({ url: String(url), body: init && init.body ? JSON.parse(init.body) : null });
+    return { ok: true, status: 200, text: async () => "{}", json: async () => ({}) };
+  };
+  try {
+    const res = await handler({
+      httpMethod: "POST",
+      headers: { origin: ORIGIN, "content-type": "application/json" },
+      body: JSON.stringify(base),
+    });
+    const body = JSON.parse(res.body || "{}");
+    if (res.statusCode !== 200 || !body.ok || body.filtered) {
+      push("handler dropped or rejected the TEST lead: " + res.statusCode + " " + JSON.stringify(body));
+    }
+    const hook = calls.find((c) => /webhook-trigger\//.test(c.url));
+    if (!hook) push("TEST lead was not forwarded to GHL");
+    else if (!String((hook.body && hook.body.tags) || "").includes("test-lead")) {
+      push("GHL webhook payload missing test-lead tag: " + (hook.body && hook.body.tags));
+    }
+    const sms = calls.filter((c) => c.body && c.body.type === "SMS");
+    if (sms.length) push("TEST lead sent SMS alerts: " + sms.length);
+    const alert = await sendLeadAlert(base, fwd, { contactId: "T1" });
+    if (!(alert.sms && alert.sms.all === "skip:test-lead")) {
+      push("sendLeadAlert should skip SMS for TEST leads, got " + JSON.stringify(alert));
+    }
+  } finally {
+    global.fetch = prevFetch;
+  }
+}
+
 async function main() {
   delete process.env.GHL_API_TOKEN; // enrichment + alerts become no-ops; nothing reaches GHL
   for (const k of Object.keys(process.env)) if (/^(GHL_|ALERT_SMTP)/.test(k)) delete process.env[k];
@@ -291,9 +368,11 @@ async function main() {
       if (!t) continue;
       fillFields(p.win, p.win.document);
       const before = p.calls.length;
+      const dlBefore = Array.isArray(p.win.dataLayer) ? p.win.dataLayer.length : 0;
+      const gtagBefore = (p.win.__gtagEvents || []).length;
       pageErrors = []; collecting = true;
       try { fire(p.win, t); } catch (e) { pageErrors.push(String(e.message || e)); }
-      await tick(150);
+      await tick(200);
       collecting = false;
       for (const err of new Set(pageErrors)) problems.push(`${urlPath} [${t.why}] script error while submitting: ${err.slice(0, 120)}`);
       const calls = leadCalls(p.calls.slice(before));
@@ -318,7 +397,34 @@ async function main() {
         } else if (/needs-review/.test(tags)) {
           problems.push(`${urlPath} [${t.why}] only forwarded as needs-review (${(tags.match(/review:[a-z_]+/) || [""])[0]})`);
         }
-        const fwdPath = (out.forwards[0] && out.forwards[0].page_path) || payload.page_path || urlPath;
+        const fwd = out.forwards[0] || {};
+        const fwdPath = fwd.page_path || payload.page_path || urlPath;
+        if (!fwd.landing_page) {
+          problems.push(`${urlPath} [${t.why}] forwarded payload is missing landing_page`);
+        }
+        if (fwd.language !== "en" && fwd.language !== "es") {
+          problems.push(`${urlPath} [${t.why}] forwarded payload is missing language (en/es), got ${JSON.stringify(fwd.language)}`);
+        } else {
+          const expectLang = isEs(urlPath) || /irmaa-form-es/.test(t.why) ? "es" : "en";
+          if (fwd.language !== expectLang) {
+            problems.push(`${urlPath} [${t.why}] language is "${fwd.language}", expected ${expectLang}`);
+          }
+        }
+        const leadEvents = generateLeadEventsSince(p.win, dlBefore, gtagBefore);
+        if (leadEvents.length === 0) {
+          problems.push(`${urlPath} [${t.why}] did not fire GA4 generate_lead on a successful submit`);
+        } else if (leadEvents.length > 1) {
+          problems.push(`${urlPath} [${t.why}] fired generate_lead ${leadEvents.length} times (should be once)`);
+        } else {
+          const gp = leadEvents[0][2] || {};
+          if (!gp.page) problems.push(`${urlPath} [${t.why}] generate_lead is missing page`);
+          if (gp.language !== "en" && gp.language !== "es") {
+            problems.push(`${urlPath} [${t.why}] generate_lead is missing language, got ${JSON.stringify(gp.language)}`);
+          }
+          if (!gp.campaign && !gp.form) {
+            problems.push(`${urlPath} [${t.why}] generate_lead is missing campaign/form`);
+          }
+        }
         const label = pageLabel(payload, fwdPath);
         const webhook = resolveWebhookId(payload) || "?";
         if (!label || /^(Website form|Form: )$/.test(label)) problems.push(`${urlPath} [${t.why}] has no GHL label`);
@@ -371,6 +477,8 @@ async function main() {
       problems.push(`${e.urlPath} [${e.why}] sends the English page label "${e.label}" (same as ${en})`);
     }
   }
+
+  await assertTestLeadBehavior(problems);
 
   const onlyRun = process.argv.includes("--only");
   if (!onlyRun && pagesWithForms < 20) problems.push(`only ${pagesWithForms} pages with forms found in ${site} — wrong build directory?`);

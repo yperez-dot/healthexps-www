@@ -175,8 +175,18 @@ async function sendGhlSms(alert, ms, leadContactId, leadPhone) {
   return out;
 }
 
+/** True when first or last name starts with "TEST" (case-insensitive). */
+function isTestLead(data) {
+  const first = String((data && (data.first_name || data.firstName)) || '').trim();
+  const last = String((data && (data.last_name || data.lastName)) || '').trim();
+  return /^test/i.test(first) || /^test/i.test(last);
+}
+
 /** Send all alerts in parallel; resolves with per-channel status, never throws. */
 async function sendLeadAlert(data, payload, info = {}, opts = {}) {
+  if (isTestLead(data) || isTestLead(payload)) {
+    return { email: 'disabled', sms: { all: 'skip:test-lead' } };
+  }
   const ms = Math.max(800, Math.min(opts.timeoutMs || 2500, 3500));
   const alert = buildAlert(data, payload, info);
   const out = {};
@@ -193,4 +203,4 @@ async function sendLeadAlert(data, payload, info = {}, opts = {}) {
   return out;
 }
 
-module.exports = { sendLeadAlert, buildAlert, ALERT_CONTACT_ID, SMS_RECIPIENTS };
+module.exports = { sendLeadAlert, buildAlert, isTestLead, ALERT_CONTACT_ID, SMS_RECIPIENTS };
