@@ -36,7 +36,7 @@ assert.strictEqual(pageLabel({ source: "Homepage Form" }, "/"), "Homepage Form")
 // ── forwarded webhook payload ──
 const now = Date.now();
 const fwd = buildForwardPayload({
-  first_name: "Test", last_name: "Lead", phone: "3055550100", email: "t@example.com",
+  first_name: "Tina", last_name: "Lead", phone: "3055550100", email: "t@example.com",
   source_key: "aep-2027", source: "Blog lista AEP 2027", tags: "aep-2027,aep-checklist,organic,spanish",
   blog_title: "Su lista para el AEP de Medicare 2027", blog_category: "Medicare",
   page: "https://www.healthexps.com/es/blog/lista-aep-medicare-2027/", _form_loaded_at: now - 10000,
@@ -44,13 +44,34 @@ const fwd = buildForwardPayload({
 assert.strictEqual(fwd.source, "Blog: Su lista para el AEP de Medicare 2027");
 assert.strictEqual(fwd.form_name, "Blog lista AEP 2027");
 assert.strictEqual(fwd.page_path, "/es/blog/lista-aep-medicare-2027/");
+assert.strictEqual(fwd.landing_page, "/es/blog/lista-aep-medicare-2027/");
+assert.strictEqual(fwd.language, "es");
 assert.deepStrictEqual(fwd.tags.split(","), ["website-lead", "aep-2027", "aep-checklist", "organic", "spanish", "blog", "blog-medicare"]);
 assert.strictEqual(fwd.phone, "+13055550100");
-assert.strictEqual(fwd.firstName, "Test");
+assert.strictEqual(fwd.firstName, "Tina");
 assert.strictEqual(fwd.lastName, "Lead");
 const home = buildForwardPayload({ first_name: "A", phone: "3055550100", source: "Homepage Form", page: "https://www.healthexps.com/" });
 assert.strictEqual(home.source, "Homepage Form");
+assert.strictEqual(home.landing_page, "/");
+assert.strictEqual(home.language, "en");
 assert(!/blog/.test(String(home.tags || "")));
+const withUtm = buildForwardPayload({
+  first_name: "Ana", last_name: "Diaz", phone: "3055550100",
+  source: "Homepage Form",
+  page: "https://www.healthexps.com/aca-plans-miami/?utm_source=facebook&utm_medium=cpc&utm_campaign=aep",
+});
+assert.strictEqual(withUtm.landing_page, "/aca-plans-miami/");
+assert.strictEqual(withUtm.utm_source, "facebook");
+assert.strictEqual(withUtm.utm_medium, "cpc");
+assert.strictEqual(withUtm.utm_campaign, "aep");
+assert.strictEqual(withUtm.utm_content, "");
+assert.strictEqual(withUtm.utm_term, "");
+const kept = buildForwardPayload({
+  first_name: "Ana", last_name: "Diaz", phone: "3055550100",
+  page: "https://www.healthexps.com/?utm_source=newsletter",
+  utm_source: "facebook",
+});
+assert.strictEqual(kept.utm_source, "facebook");
 
 // ── layout fetch wrapper adds blog fields to submit-lead posts ──
 for (const layout of ["blog-post.njk", "blog-post-es.njk"]) {

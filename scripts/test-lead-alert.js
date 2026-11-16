@@ -2,15 +2,15 @@
 "use strict";
 const assert = require("assert");
 const { sendLeadAlert, buildAlert, SMS_RECIPIENTS } = require("../netlify/lib/lead-alert");
-const data = { first_name: "Mary", last_name: "Tester", phone: "2395550100", email: "lead@example.com", health_system: "Lee Health", current_carrier: "Wellcare", zip_code: "33901" };
+const data = { first_name: "Mary", last_name: "Rivera", phone: "2395550100", email: "lead@example.com", health_system: "Lee Health", current_carrier: "Wellcare", zip_code: "33901" };
 const payload = { page_path: "/blog/x/", page: "https://www.healthexps.com/blog/x/", submitted_at: "2026-10-08T01:00:00Z" };
 const a = buildAlert(data, payload, { contactId: "LEAD1", pageLabel: "Blog X" });
-assert.strictEqual(a.subject, "NEW WEBSITE LEAD: Mary Tester (Blog X)");
+assert.strictEqual(a.subject, "NEW WEBSITE LEAD: Mary Rivera (Blog X)");
 assert(/Health system: Lee Health/.test(a.text) && /ZIP: 33901/.test(a.text) && /contacts\/detail\/LEAD1/.test(a.text) && /ET/.test(a.text));
 (async () => {
   assert.strictEqual(
     a.sms,
-    "New website lead: Mary Tester | 2395550100 | lead@example.com | Lee Health, Wellcare, 33901"
+    "New website lead: Mary Rivera | 2395550100 | lead@example.com | Lee Health, Wellcare, 33901"
   );
   const contactSms = buildAlert(
     {
@@ -52,5 +52,14 @@ assert(/Health system: Lee Health/.test(a.text) && /ZIP: 33901/.test(a.text) && 
   global.fetch = async () => ({ ok: false, status: 401, text: async () => '{"message":"Unauthorized"}' });
   const r401 = await sendLeadAlert(data, payload, { contactId: "LEAD1" });
   assert(/401 conversations_scope_or_token/.test(r401.sms["Yahoska Perez"]), r401.sms["Yahoska Perez"]);
+  const { isTestLead } = require("../netlify/lib/lead-alert");
+  assert.strictEqual(isTestLead({ first_name: "TEST", last_name: "Samantha" }), true);
+  assert.strictEqual(isTestLead({ first_name: "test-lead", last_name: "Perez" }), true);
+  assert.strictEqual(isTestLead({ first_name: "Maria", last_name: "TEST" }), true);
+  assert.strictEqual(isTestLead({ first_name: "Mary", last_name: "Rivera" }), false);
+  const smsBefore = calls.length;
+  const rTest = await sendLeadAlert({ first_name: "TEST", last_name: "Samantha", phone: "3054646888", email: "test@healthexps.com" }, payload, { contactId: "LEADTEST" });
+  assert.deepStrictEqual(rTest, { email: "disabled", sms: { all: "skip:test-lead" } });
+  assert.strictEqual(calls.length, smsBefore, "TEST leads must not SMS Yahoska or Katy");
   console.log("test-lead-alert: ok");
 })().catch((e) => { console.error(e); process.exit(1); });

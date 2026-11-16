@@ -206,6 +206,66 @@
     return path === '/' || path === '/index.html' || path === '/es' || path === '/es/' || path === '/es/index.html';
   }
 
+  var UTM_KEYS = ['utm_source', 'utm_medium', 'utm_campaign', 'utm_content', 'utm_term'];
+  var UTM_STORE = 'thei_ft_utm';
+  var lastFormId = '';
+  var leadEventAt = 0;
+
+  function getSessionStore() {
+    try {
+      return global.sessionStorage || (global.window && global.window.sessionStorage) || null;
+    } catch (e) {
+      return null;
+    }
+  }
+
+  function captureFirstTouchUtms() {
+    try {
+      var q = new URLSearchParams((window.location && window.location.search) || '');
+      var found = {};
+      var has = false;
+      UTM_KEYS.forEach(function (k) {
+        var v = q.get(k);
+        if (v) {
+          found[k] = v;
+          has = true;
+        }
+      });
+      if (!has) return;
+      var store = getSessionStore();
+      if (store && !store.getItem(UTM_STORE)) store.setItem(UTM_STORE, JSON.stringify(found));
+    } catch (e) { /* ignore */ }
+  }
+
+  function firstTouchUtms() {
+    var fromStore = {};
+    try {
+      var store = getSessionStore();
+      var raw = store && store.getItem(UTM_STORE);
+      if (raw) fromStore = JSON.parse(raw) || {};
+    } catch (e) {
+      fromStore = {};
+    }
+    var fromUrl = {};
+    try {
+      var q = new URLSearchParams((window.location && window.location.search) || '');
+      UTM_KEYS.forEach(function (k) {
+        var v = q.get(k);
+        if (v) fromUrl[k] = v;
+      });
+    } catch (e) { /* ignore */ }
+    var out = {};
+    UTM_KEYS.forEach(function (k) {
+      out[k] = fromUrl[k] || fromStore[k] || '';
+    });
+    return out;
+  }
+
+  function pageLanguage(path) {
+    var p = String(path || (typeof location !== 'undefined' && location.pathname) || '');
+    return /^\/es(\/|$)/i.test(p) ? 'es' : 'en';
+  }
+
   function withMeta(data) {
     var out = Object.assign({}, data);
     var attr = pageAttribution();
@@ -215,6 +275,17 @@
     if (!out.page_url) out.page_url = attr.page_url || out.page;
     out.page_path = out.page_path || attr.page_path;
     out.form_page = out.form_page || attr.form_page;
+    if (!out.landing_page) out.landing_page = out.page_path || attr.page_path;
+    if (!out.language || !/^(en|es)$/i.test(String(out.language).trim())) {
+      var rawLang = String(out.language || out.lang || '').trim().toLowerCase();
+      if (rawLang === 'spanish' || rawLang.indexOf('es') === 0) out.language = 'es';
+      else if (rawLang === 'english' || rawLang.indexOf('en') === 0) out.language = 'en';
+      else out.language = pageLanguage(out.page_path || attr.page_path);
+    }
+    var utms = firstTouchUtms();
+    UTM_KEYS.forEach(function (k) {
+      if (!String(out[k] || '').trim()) out[k] = utms[k] || '';
+    });
     // Many copied scripts hardcode "Homepage Form" on non-home pages — fix the label
     var src = String(out.source || '').trim();
     if (/^Homepage Form$/i.test(src) && !isHomepagePath(out.page_path || attr.page_path)) {
@@ -222,6 +293,118 @@
     }
     if (!out.submitted_at) out.submitted_at = new Date().toISOString();
     return out;
+  }
+
+  function markLeadEvent() {
+    leadEventAt = Date.now();
+  }
+
+  function hookGtag() {
+    var target = global.window || global;
+    if (target.__theiGtagHooked) {
+      // Keep wrapping whatever gtag was assigned after our first hook (the
+      // Google tag snippet redeclares function gtag() after this file loads).
+      return;
+    }
+    var inner = typeof target.gtag === 'function' ? target.gtag : function () {};
+    function wrapped() {
+      try {
+        if (arguments[0] === 'event' && arguments[1] === 'generate_lead') {
+          markLeadEvent();
+          var params = arguments[2];
+          if (!params || typeof params !== 'object') {
+            params = {};
+            arguments[2] = params;
+          }
+          if (!params.page) params.page = (typeof location !== 'undefined' && location.pathname) || '/';
+          if (!params.language || !/^(en|es)$/i.test(String(params.language))) {
+            params.language = pageLanguage(params.page);
+          }
+          if (!params.campaign && !params.form) {
+            params.campaign = inferCampaign({});
+            params.form = params.campaign;
+          }
+        }
+      } catch (e) { /* ignore */ }
+      if (typeof inner === 'function') return inner.apply(this, arguments);
+    }
+    wrapped.__theiLeadHook = true;
+    try {
+      Object.defineProperty(target, 'gtag', {
+        configurable: true,
+        enumerable: true,
+        get: function () { return wrapped; },
+        set: function (fn) {
+          if (typeof fn === 'function' && !fn.__theiLeadHook) inner = fn;
+        },
+      });
+      target.__theiGtagHooked = true;
+    } catch (e) {
+      try { target.gtag = wrapped; } catch (e2) { /* ignore */ }
+    }
+  }
+
+  function inferCampaign(payload) {
+    if (lastFormId) return lastFormId;
+    var sk = payload && String(payload.source_key || '').trim();
+    if (sk) return sk;
+    var src = payload && String(payload.source || '').trim();
+    if (src && !/^Homepage Form$/i.test(src) && !/^(organic|facebook|paid)$/i.test(src)) return src;
+    var path = (payload && (payload.page_path || payload.form_page)) || (typeof location !== 'undefined' && location.pathname) || '';
+    var slug = String(path).replace(/\/+$/, '').split('/').filter(Boolean).pop();
+    return slug || 'website_form';
+  }
+
+  function fireGenerateLead(payload) {
+    hookGtag();
+    if (Date.now() - leadEventAt < 2500) return;
+    if (typeof global.gtag !== 'function') return;
+    var path =
+      (payload && (payload.page_path || payload.form_page || payload.landing_page)) ||
+      (typeof location !== 'undefined' && location.pathname) ||
+      '/';
+    var lang = pageLanguage(path);
+    if (payload && /^(en|es)$/i.test(String(payload.language || '').trim())) {
+      lang = String(payload.language).trim().toLowerCase();
+    } else if (payload && payload.lang) {
+      lang = pageLanguage(/^spanish/i.test(String(payload.lang)) || String(payload.lang).toLowerCase() === 'es' ? '/es/' : path);
+      if (/^spanish/i.test(String(payload.lang)) || String(payload.lang).toLowerCase() === 'es') lang = 'es';
+      else if (/^english/i.test(String(payload.lang)) || String(payload.lang).toLowerCase() === 'en') lang = 'en';
+    }
+    var campaign = inferCampaign(payload);
+    markLeadEvent();
+    global.gtag('event', 'generate_lead', {
+      page: path,
+      language: lang,
+      campaign: campaign,
+      form: campaign,
+    });
+  }
+
+  function scheduleGenerateLead(res, payload) {
+    if (!res || res.ok === false) return;
+    hookGtag();
+    var go = function () {
+      var t = setTimeout(function () {
+        fireGenerateLead(payload);
+      }, 50);
+      if (t && typeof t.unref === 'function') t.unref();
+    };
+    var clone = res.clone ? res.clone() : null;
+    if (!clone || typeof clone.json !== 'function') {
+      go();
+      return;
+    }
+    clone
+      .json()
+      .then(function (body) {
+        if (body && body.ok === false) return;
+        if (body && body.filtered) return;
+        go();
+      })
+      .catch(function () {
+        go();
+      });
   }
 
   // ── Lossless capture: remember the form being submitted so every field it
@@ -235,6 +418,7 @@
       if (e.target && e.target.tagName === 'FORM') {
         lastForm = e.target;
         lastFormAt = Date.now();
+        lastFormId = e.target.id || lastFormId || '';
       }
     },
     true
@@ -258,6 +442,9 @@
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(payload),
+    }).then(function (res) {
+      scheduleGenerateLead(res, payload);
+      return res;
     });
   }
 
@@ -325,9 +512,19 @@
             ? input.url
             : String(input || '');
 
-      // Already going to our proxy — leave alone
+      // Already going to our proxy — leave the request alone, but fire generate_lead once on success
       if (url.indexOf('/.netlify/functions/submit-lead') !== -1) {
-        return originalFetch(input, init);
+        return bodyToObject(init.body).then(function (data) {
+          var payload = withMeta(mergeFormFields(data));
+          return originalFetch(PROXY, {
+            method: (init.method || 'POST'),
+            headers: init.headers || { 'Content-Type': 'application/json' },
+            body: JSON.stringify(payload),
+          }).then(function (res) {
+            scheduleGenerateLead(res, payload);
+            return res;
+          });
+        });
       }
 
       var match = url.match(GHL_RE);
@@ -455,6 +652,9 @@
   } else {
     markProxyForms();
   }
+
+  captureFirstTouchUtms();
+  hookGtag();
 
   global.FormSpamGuard = {
     attach: attach,

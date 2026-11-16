@@ -12,7 +12,7 @@
  */
 
 const { enrichLead, pageLabel: labelForPage, blogInfo, blogTags } = require('../lib/ghl-enrich');
-const { sendLeadAlert } = require('../lib/lead-alert');
+const { sendLeadAlert, isTestLead } = require('../lib/lead-alert');
 
 const GHL_BASE =
   'https://services.leadconnectorhq.com/hooks/RINM4TCnM4hN06UA1aK0/webhook-trigger';
@@ -321,8 +321,9 @@ function assessSpam(data) {
 
   if (phone && !isValidUsPhone(phone)) return 'bad_phone';
 
-  // When both name parts exist, reject bot-like duplicates
-  if (first && last && looksLikeBotName(first, last)) return 'bot_name';
+  // When both name parts exist, reject bot-like duplicates.
+  // TEST-mode names must still reach GHL (tagged test-lead), not be dropped as bots.
+  if (first && last && looksLikeBotName(first, last) && !isTestLead(data)) return 'bot_name';
 
   if (email) {
     if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) return 'bad_email';
@@ -337,6 +338,47 @@ function assessSpam(data) {
   }
 
   return null;
+}
+
+const UTM_KEYS = ['utm_source', 'utm_medium', 'utm_campaign', 'utm_content', 'utm_term'];
+
+function normalizeLanguage(data, path, out) {
+  const raw = String(
+    (out && out.language) || (data && (data.language || data.lang || data.preferred_language)) || ''
+  )
+    .trim()
+    .toLowerCase();
+  if (
+    raw === 'es' ||
+    raw === 'spanish' ||
+    raw === 'espanol' ||
+    raw === 'español' ||
+    raw.startsWith('es-') ||
+    raw.startsWith('es_')
+  ) {
+    return 'es';
+  }
+  if (raw === 'en' || raw === 'english' || raw.startsWith('en-') || raw.startsWith('en_')) {
+    return 'en';
+  }
+  const p =
+    String(path || (data && (data.page_path || data.form_page)) || '').trim() ||
+    pathFromPage((data && (data.page || data.page_url || data.pageUrl)) || '');
+  return /^\/es(\/|$)/i.test(p) ? 'es' : 'en';
+}
+
+function utmsFromPageUrl(url) {
+  const out = {};
+  try {
+    const raw = String(url || '').trim();
+    if (!/^https?:\/\//i.test(raw) || !raw.includes('?')) return out;
+    const q = new URL(raw).searchParams;
+    for (const k of UTM_KEYS) {
+      const v = String(q.get(k) || '').trim();
+      if (v) out[k] = v;
+    }
+  } catch (e) { /* ignore */ }
+  return out;
 }
 
 function pathFromPage(page) {
@@ -428,6 +470,14 @@ function buildForwardPayload(data) {
     out.page_path = path;
     out.form_page = path;
   }
+  out.landing_page = path || out.landing_page || pathFromPage(page) || '';
+  out.language = normalizeLanguage(data, path, out);
+
+  const pageUtms = utmsFromPageUrl(page || out.page || out.page_url);
+  for (const k of UTM_KEYS) {
+    const existing = String(out[k] || data[k] || '').trim();
+    out[k] = existing || pageUtms[k] || '';
+  }
 
   // Blog posts: label the lead "Blog: <post title>" and add blog + topic tags
   // (blog-medicare / blog-aca / blog-private) so GHL can route by topic.
@@ -449,6 +499,9 @@ function buildForwardPayload(data) {
     .map((t) => t.trim())
     .filter(Boolean);
   if (!webhookTags.includes('website-lead')) webhookTags.unshift('website-lead');
+  if ((isTestLead(data) || isTestLead(out)) && !webhookTags.includes('test-lead')) {
+    webhookTags.push('test-lead');
+  }
   out.tags = webhookTags.join(',');
 
   // Fix misleading "Homepage Form" source when the real path is not home
@@ -701,3 +754,5 @@ exports.resolveWebhookId = resolveWebhookId;
 exports.flattenContactData = flattenContactData;
 exports.triageRejection = triageRejection;
 exports.logSummary = logSummary;
+exports.isTestLead = isTestLead;
+exports.normalizeLanguage = normalizeLanguage;
