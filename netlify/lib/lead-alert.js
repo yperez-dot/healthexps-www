@@ -18,7 +18,7 @@
  * conversations/message.write (and conversations.write). Contacts/tasks scopes
  * alone are not enough — 401/403 is logged as conversations_scope_or_token.
  */
-const { answerLines, visitorNotes, extractLookingFor } = require('./ghl-enrich');
+const { answerLines, visitorNotes, extractLookingFor, isTestLead } = require('./ghl-enrich');
 
 const LOCATION_ID = process.env.GHL_LOCATION_ID || 'RINM4TCnM4hN06UA1aK0';
 const ALERT_CONTACT_ID = process.env.GHL_ALERT_CONTACT_ID || 'CVRw8qHNJec4GhdFWpqh'; // Yahoska's own contact
@@ -173,13 +173,6 @@ async function sendGhlSms(alert, ms, leadContactId, leadPhone) {
     } catch (e) { out[r.who] = 'error:' + e.message; }
   }));
   return out;
-}
-
-/** True when first or last name starts with "TEST" (case-insensitive). */
-function isTestLead(data) {
-  const first = String((data && (data.first_name || data.firstName)) || '').trim();
-  const last = String((data && (data.last_name || data.lastName)) || '').trim();
-  return /^test/i.test(first) || /^test/i.test(last);
 }
 
 /** Send all alerts in parallel; resolves with per-channel status, never throws. */

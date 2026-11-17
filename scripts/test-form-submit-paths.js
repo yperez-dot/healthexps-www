@@ -303,6 +303,13 @@ async function assertTestLeadBehavior(problems) {
   if (!String(fwd.tags || "").includes("website-lead")) push("forwarded tags missing website-lead: " + fwd.tags);
   if (fwd.landing_page !== "/medicare-annual-enrollment-2027/") push("TEST lead missing landing_page, got " + fwd.landing_page);
   if (fwd.language !== "en") push("TEST lead language should be en, got " + fwd.language);
+  if (!String(fwd.tags || "").includes("english")) push("TEST lead forwarded tags missing english: " + fwd.tags);
+  const { contactTags } = require("../netlify/lib/ghl-enrich");
+  const apiTags = contactTags(base, fwd, "/medicare-annual-enrollment-2027/", null);
+  if (!apiTags.includes("test-lead")) push("enrich contactTags missing test-lead (this is why live TEST Samantha had no tag): " + apiTags);
+  if (!apiTags.includes("english")) push("enrich contactTags missing english: " + apiTags);
+  const esTags = contactTags({ first_name: "TEST", last_name: "Samantha" }, { language: "es", tags: "" }, "/es/contacto/", null);
+  if (!(esTags.includes("test-lead") && esTags.includes("spanish"))) push("ES TEST contactTags should include test-lead and spanish: " + esTags);
 
   const prevFetch = global.fetch;
   const calls = [];
@@ -427,6 +434,20 @@ async function main() {
         }
         const label = pageLabel(payload, fwdPath);
         const webhook = resolveWebhookId(payload) || "?";
+        const BAPTIST_HOOK = "vcqtoCvS1wbwb1eeYIsK";
+        const isBaptist = /baptist-health-primary-care-leaving-pcn-2027|cambio-red-baptist-health-pcn-medicare-2027/.test(urlPath);
+        if (isBaptist) {
+          if (payload.source_key !== "blog-baptist") problems.push(`${urlPath} [${t.why}] source_key is ${JSON.stringify(payload.source_key)}, expected blog-baptist`);
+          if (webhook !== BAPTIST_HOOK) problems.push(`${urlPath} [${t.why}] webhook is ${webhook}, expected blog-baptist hook`);
+        }
+        const expectLangTag = (isEs(urlPath) || /irmaa-form-es/.test(t.why)) ? "spanish" : "english";
+        const fwdTags = String(fwd.tags || "");
+        if (!new RegExp("(^|,)" + expectLangTag + "(,|$)").test(fwdTags)) {
+          problems.push(`${urlPath} [${t.why}] forwarded tags missing ${expectLangTag}: ${fwdTags}`);
+        }
+        if (expectLangTag === "spanish" && /(^|,)english(,|$)/.test(fwdTags)) {
+          problems.push(`${urlPath} [${t.why}] Spanish lead also has english tag: ${fwdTags}`);
+        }
         if (!label || /^(Website form|Form: )$/.test(label)) problems.push(`${urlPath} [${t.why}] has no GHL label`);
         if (/homepage/i.test(label.replace(/^Form: \S+$/, "")) && !isHome(urlPath)) problems.push(`${urlPath} [${t.why}] labeled "${label}" (homepage label off the homepage)`);
         if (/preview/i.test(label) && !isPreviewPath(urlPath)) problems.push(`${urlPath} [${t.why}] labeled "${label}" (preview label on a live page)`);

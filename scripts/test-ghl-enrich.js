@@ -1,14 +1,14 @@
 #!/usr/bin/env node
 "use strict";
 const assert = require("assert");
-const { enrichLead, answerLines, pageTag, pageLabel, extractZip, visitorNotes, resetCustomFieldCache, isBlogLeeNchLead, LOCATION_ID, BLOG_LEE_NCH_WEBHOOK_ID } = require("../netlify/lib/ghl-enrich");
+const { enrichLead, answerLines, pageTag, pageLabel, extractZip, visitorNotes, resetCustomFieldCache, isBlogLeeNchLead, isWorkflowOwnedOppLead, isSpanishLead, languageTag, contactTags, isTestLead, LOCATION_ID, BLOG_LEE_NCH_WEBHOOK_ID, BLOG_BAPTIST_WEBHOOK_ID } = require("../netlify/lib/ghl-enrich");
 
 assert.strictEqual(visitorNotes({ additional_notes: "Need a callback.\n\nForm page: /contact/" }), "Need a callback.");
 assert.strictEqual(visitorNotes({ notes: "Form page: /contact/" }), "");
 assert.strictEqual(visitorNotes({ message: "Keep my cardiologist" }), "Keep my cardiologist");
 
 const blog = {
-  first_name: "Mary", last_name: "Tester", phone: "2395550100", email: "mary@example.com",
+  first_name: "Mary", last_name: "Rivera", phone: "2395550100", email: "mary@example.com",
   health_system: "Lee Health", current_carrier: "UnitedHealthcare / AARP", zip_code: "33901",
   consent: "on", _hp_name: "", source_key: "aep-2027", tags: "aep-2027,network-alert",
   source: "2027 Southwest Florida Network Alert Blog", lang: "english",
@@ -30,6 +30,27 @@ assert.strictEqual(isBlogLeeNchLead({ source_key: "blog-lee-nch" }, {}), true);
 assert.strictEqual(isBlogLeeNchLead({ webhook_id: BLOG_LEE_NCH_WEBHOOK_ID }, {}), true);
 assert.strictEqual(isBlogLeeNchLead({ source_key: "aep-2027" }, {}), false);
 assert.strictEqual(isBlogLeeNchLead({}, {}), false);
+assert.strictEqual(isWorkflowOwnedOppLead({ source_key: "blog-baptist" }, {}), true);
+assert.strictEqual(isWorkflowOwnedOppLead({ webhook_id: BLOG_BAPTIST_WEBHOOK_ID }, {}), true);
+assert.strictEqual(isWorkflowOwnedOppLead({ source_key: "blog-lee-nch" }, {}), true);
+assert.strictEqual(isWorkflowOwnedOppLead({ source_key: "aep-2027" }, {}), false);
+assert.strictEqual(isSpanishLead({ lang: "spanish" }, {}, "/contact/"), true);
+assert.strictEqual(isSpanishLead({}, { language: "es" }, "/contact/"), true);
+assert.strictEqual(isSpanishLead({}, {}, "/es/contacto/"), true);
+assert.strictEqual(isSpanishLead({ lang: "english" }, { language: "en" }, "/contact/"), false);
+assert.strictEqual(languageTag({}, { language: "es" }, "/"), "spanish");
+assert.strictEqual(languageTag({}, { language: "en" }, "/es/contacto/"), "english");
+assert.strictEqual(isTestLead({ first_name: "TEST", last_name: "Samantha" }), true);
+
+const crowded = contactTags(
+  { first_name: "TEST", last_name: "Samantha", tags: Array.from({ length: 20 }, (_, i) => "tag-" + i).join(",") },
+  { language: "es" },
+  "/es/contacto/",
+  null
+);
+assert(crowded.includes("test-lead") && crowded.includes("website-lead") && crowded.includes("spanish"), "reserved tags survive the 15-tag cap: " + crowded);
+assert.strictEqual(crowded.length, 15);
+assert(!isSpanishLead ? false : crowded.indexOf("test-lead") < crowded.indexOf("tag-0") || !crowded.includes("tag-0"), "test-lead is reserved ahead of form tags");
 
 (async () => {
   // No token → skipped, no network
@@ -44,7 +65,7 @@ assert.strictEqual(isBlogLeeNchLead({}, {}), false);
     calls.push({ m, u, body });
     const r = (o) => ({ ok: true, status: 200, text: async () => JSON.stringify(o) });
     if (u.includes("/contacts/search/duplicate")) return r({ contact: { id: "C1", dateAdded: "2020-01-01T00:00:00Z", assignedTo: null } });
-    if (u.includes("/opportunities/search")) return r({ opportunities: [{ id: "O1", name: "Mary Tester — Homepage", pipelineId: "iziaGFnVZle64waSZJff", status: "open", assignedTo: null }] });
+    if (u.includes("/opportunities/search")) return r({ opportunities: [{ id: "O1", name: "Mary Rivera — Homepage", pipelineId: "iziaGFnVZle64waSZJff", status: "open", assignedTo: null }] });
     if (m === "GET" && u.endsWith("/contacts/C1")) return r({ contact: { id: "C1", tags: ["homepage", "website-lead"] } });
     return r({});
   };
@@ -61,11 +82,13 @@ assert.strictEqual(isBlogLeeNchLead({}, {}), false);
   const note = calls.find((c) => c.m === "POST" && c.u.endsWith("/contacts/C1/notes"));
   assert(/Health system: Lee Health/.test(note.body.body) && /ZIP: 33901/.test(note.body.body));
   const opp = calls.find((c) => c.m === "PUT" && c.u.includes("/opportunities/O1"));
-  assert.strictEqual(opp.body.name, "Mary Tester — Blog: Will Lee Health or NCH Accept Your Medicare Plan in 2027?");
+  assert.strictEqual(opp.body.name, "Mary Rivera — Blog: Will Lee Health or NCH Accept Your Medicare Plan in 2027?");
   assert(/Form: 2027 Southwest Florida Network Alert Blog/.test(note.body.body), "note keeps the original form name");
   const tags = calls.find((c) => c.u.endsWith("/contacts/C1/tags") && c.m === "POST");
   assert(tags.body.tags.includes("website-lead") && tags.body.tags.includes("web:blog-lee-health-nch-medicare-network-changes-2027"));
   assert(tags.body.tags.includes("blog") && tags.body.tags.includes("blog-medicare"), "blog topic tags");
+  assert(tags.body.tags.includes("english"), "EN leads get the english tag");
+  assert(!tags.body.tags.includes("test-lead"), "ordinary names are not test-lead");
   // Homepage lead must keep "homepage" tag
   calls.length = 0;
   const r2 = await enrichLead({ ...blog, source: "Homepage Form" }, { ...payload, page_path: "/" }, { pollMs: [0] });
@@ -187,6 +210,56 @@ assert.strictEqual(isBlogLeeNchLead({}, {}), false);
   assert.strictEqual(leeHook.contactId, "C11");
   assert(leeHook.steps.includes("opp-skip"), leeHook.steps);
   assert(!leeCalls.some((c) => /opportunities|\/tasks/.test(c.u)), "webhook_id path also skips the website opportunity");
+
+  // blog-baptist: same opportunity skip (workflow owns the opp)
+  const bapCalls = [];
+  global.fetch = async (url, init) => {
+    const u = String(url); const m = init.method; const body = init.body ? JSON.parse(init.body) : null;
+    bapCalls.push({ m, u, body });
+    const ok = (o) => ({ ok: true, status: 200, text: async () => JSON.stringify(o) });
+    if (u.includes("/contacts/search/duplicate")) return ok({ contact: { id: "C12", dateAdded: "2020-01-01T00:00:00Z", assignedTo: "x" } });
+    if (u.includes("/opportunities")) throw new Error("website opportunity must not be touched for blog-baptist");
+    if (m === "GET" && u.endsWith("/contacts/C12")) return ok({ contact: { id: "C12", tags: ["website-lead"] } });
+    return ok({});
+  };
+  const bapPayload = { phone: "2395550100", page: "https://www.healthexps.com/blog/baptist-health-primary-care-leaving-pcn-2027/", page_path: "/blog/baptist-health-primary-care-leaving-pcn-2027/", language: "en", submitted_at: new Date().toISOString() };
+  const bap = await enrichLead({ first_name: "Maria", last_name: "Garcia", phone: "2395550100", email: "maria@example.com", source_key: "blog-baptist", tags: "aep-2027,network-alert,baptist-health,organic,english", lang: "english" }, bapPayload, { pollMs: [0] });
+  assert.strictEqual(bap.contactId, "C12");
+  assert(bap.steps.includes("opp-skip"), bap.steps);
+  assert(!bapCalls.some((c) => /opportunities/.test(c.u)), "no website opportunity API calls for blog-baptist");
+  const bapTags = bapCalls.find((c) => c.m === "POST" && c.u.endsWith("/contacts/C12/tags"));
+  assert(bapTags.body.tags.includes("english") && bapTags.body.tags.includes("website-lead"), bapTags.body.tags);
+
+  bapCalls.length = 0;
+  const bapHook = await enrichLead({ first_name: "Maria", last_name: "Garcia", phone: "2395550100", source_key: "", webhook_id: BLOG_BAPTIST_WEBHOOK_ID }, { ...bapPayload, page_path: "/es/blog/cambio-red-baptist-health-pcn-medicare-2027/", language: "es" }, { pollMs: [0] });
+  assert(bapHook.steps.includes("opp-skip"), bapHook.steps);
+  assert(!bapCalls.some((c) => /opportunities/.test(c.u)));
+  const esTags = bapCalls.find((c) => c.m === "POST" && /\/tags$/.test(c.u));
+  assert(esTags.body.tags.includes("spanish") && !esTags.body.tags.includes("english"), "ES path gets spanish: " + esTags.body.tags);
+
+  // test-lead must be posted via the API (not only on the webhook payload),
+  // even when data.tags is empty (contact forms) and when form tags exceed the cap.
+  const tlCalls = [];
+  global.fetch = async (url, init) => {
+    const u = String(url); const m = init.method; const body = init.body ? JSON.parse(init.body) : null;
+    tlCalls.push({ m, u, body });
+    const ok = (o) => ({ ok: true, status: 200, text: async () => JSON.stringify(o) });
+    if (u.includes("/contacts/search/duplicate")) return ok({ contact: { id: "C13", dateAdded: "2020-01-01T00:00:00Z", assignedTo: "x" } });
+    if (u.includes("/opportunities/search")) return ok({ opportunities: [] });
+    if (m === "GET" && u.endsWith("/contacts/C13")) return ok({ contact: { id: "C13", tags: ["website-lead"] } });
+    return ok({});
+  };
+  const tl = await enrichLead({ first_name: "TEST", last_name: "Samantha", phone: "3054646888", email: "test@healthexps.com", source_key: "en-contact" }, { phone: "3054646888", page_path: "/contact/", language: "en", submitted_at: new Date().toISOString() }, { pollMs: [0] });
+  const tlTags = tlCalls.find((c) => c.m === "POST" && c.u.endsWith("/contacts/C13/tags"));
+  assert(tlTags.body.tags.includes("test-lead"), "enrich must add test-lead from the name even if data.tags is empty: " + JSON.stringify(tlTags.body.tags));
+  assert(tlTags.body.tags.includes("english") && tlTags.body.tags.includes("website-lead"));
+
+  tlCalls.length = 0;
+  const many = Array.from({ length: 20 }, (_, i) => "extra-" + i).join(",");
+  const tl2 = await enrichLead({ first_name: "TEST", last_name: "Samantha", phone: "3054646888", tags: many, lang: "spanish" }, { phone: "3054646888", page_path: "/es/contacto/", language: "es", submitted_at: new Date().toISOString() }, { pollMs: [0] });
+  const tl2Tags = tlCalls.find((c) => c.m === "POST" && /\/tags$/.test(c.u)).body.tags;
+  assert(tl2Tags.includes("test-lead") && tl2Tags.includes("spanish") && tl2Tags.includes("website-lead"), "reserved tags are not sliced off: " + tl2Tags);
+  assert.ok(tl2Tags.length <= 15);
 
   console.log("test-ghl-enrich: ok");
 })().catch((e) => { console.error(e); process.exit(1); });

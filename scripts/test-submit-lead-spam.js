@@ -35,6 +35,7 @@ function baseLead(overrides) {
 }
 
 assert.strictEqual(WEBHOOKS["en-private"], "9eebf549-c131-4d43-8432-0f6628211899");
+assert.strictEqual(WEBHOOKS["blog-baptist"], "vcqtoCvS1wbwb1eeYIsK");
 
 assert.strictEqual(isValidUsPhone("3054646888"), true);
 assert.strictEqual(isValidUsPhone("+1 305-464-6888"), true);
