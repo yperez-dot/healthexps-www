@@ -28,6 +28,7 @@ const WEBHOOKS = {
   'en-private': '9eebf549-c131-4d43-8432-0f6628211899',
   'aep-2027': 'dc6c8b35-9480-412e-b56d-4a4c8c7bd438',
   'blog-lee-nch': '07bc8094-2c26-4c03-81bb-ea25841b00c6', // Gina workflow
+  'blog-baptist': 'vcqtoCvS1wbwb1eeYIsK', // Baptist PCN blog workflow
   'es-home': 'bERRQvXC6yEnplM1Q0nZ',
   'plan-finder': 'e656a512-d15b-409c-924d-bb3d4627ed9f',
   'es-quiz': 'd36da03c-e92a-424a-9767-babcc77e884f',
@@ -502,6 +503,8 @@ function buildForwardPayload(data) {
   if ((isTestLead(data) || isTestLead(out)) && !webhookTags.includes('test-lead')) {
     webhookTags.push('test-lead');
   }
+  const langTag = out.language === 'es' ? 'spanish' : (out.language === 'en' ? 'english' : '');
+  if (langTag && !webhookTags.includes(langTag)) webhookTags.push(langTag);
   out.tags = webhookTags.join(',');
 
   // Fix misleading "Homepage Form" source when the real path is not home
@@ -705,7 +708,7 @@ exports.handler = async (event) => {
   };
 
   // Save EVERY answer on the GHL contact (note, ZIP, real page, tags, owner,
-  // landing_page, opportunity except blog-lee-nch). Never blocks or fails the lead.
+  // landing_page, opportunity except blog-lee-nch / blog-baptist). Never blocks or fails the lead.
   // Upsert/tag FIRST, then fire the Contact Page (or other) webhook so the
   // workflow SMS enrolls the same contact, then SMS Yahoska + Katy — never the lead.
   let alertPromise = null;

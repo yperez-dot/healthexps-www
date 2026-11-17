@@ -13,8 +13,11 @@
  *     removes the hardcoded "homepage" tag when the form was not on the homepage
  *   - makes sure an opportunity exists in the THEI Website pipeline (renames the
  *     workflow's "— Homepage" opp to the real page), owner = Yahoska — except
- *     blog-lee-nch (EN Lee Health + EN NCH Cigna/Wellcare), where the GHL
- *     NCH/Lee Blog workflow creates its own opportunity for Gina
+ *     blog-lee-nch (EN Lee Health + EN NCH Cigna/Wellcare) and blog-baptist
+ *     (EN+ES Baptist Health/PCN posts), where the GHL workflow creates its
+ *     own opportunity. Tags include spanish (or english) and test-lead
+ *     when the name starts with TEST; those reserved tags are kept even
+ *     if the contact already has many other tags
  *
  * Contact identity: upsert (or find) the contact FIRST and tag it, then
  * submit-lead fires the inbound webhook so the GHL workflow's Create/Update
@@ -32,13 +35,28 @@ const WEBSITE_NEW_LEAD_STAGE_ID =
   process.env.GHL_WEBSITE_STAGE_ID || '4ae9b05c-c74d-41ed-827b-db4f4b3be8b0'; // New Lead
 const BLOG_LEE_NCH_SOURCE_KEY = 'blog-lee-nch';
 const BLOG_LEE_NCH_WEBHOOK_ID = '07bc8094-2c26-4c03-81bb-ea25841b00c6';
+const BLOG_BAPTIST_SOURCE_KEY = 'blog-baptist';
+const BLOG_BAPTIST_WEBHOOK_ID = 'vcqtoCvS1wbwb1eeYIsK';
+
+const WORKFLOW_OWNED_OPP_SOURCE_KEYS = new Set([BLOG_LEE_NCH_SOURCE_KEY, BLOG_BAPTIST_SOURCE_KEY]);
+const WORKFLOW_OWNED_OPP_WEBHOOK_IDS = new Set([BLOG_LEE_NCH_WEBHOOK_ID, BLOG_BAPTIST_WEBHOOK_ID]);
+
+function sourceOrWebhook(data, payload) {
+  const src = String((data && data.source_key) || (payload && payload.source_key) || '').trim();
+  const hook = String((data && data.webhook_id) || (payload && payload.webhook_id) || '').trim();
+  return { src, hook };
+}
 
 /** EN Lee Health + EN NCH Cigna/Wellcare posts only — Gina's workflow owns the opp. */
 function isBlogLeeNchLead(data, payload) {
-  const src = String((data && data.source_key) || (payload && payload.source_key) || '').trim();
-  if (src === BLOG_LEE_NCH_SOURCE_KEY) return true;
-  const hook = String((data && data.webhook_id) || (payload && payload.webhook_id) || '').trim();
-  return hook === BLOG_LEE_NCH_WEBHOOK_ID;
+  const { src, hook } = sourceOrWebhook(data, payload);
+  return src === BLOG_LEE_NCH_SOURCE_KEY || hook === BLOG_LEE_NCH_WEBHOOK_ID;
+}
+
+/** Leads whose GHL inbound workflow creates the opportunity (do not also create a THEI Website opp). */
+function isWorkflowOwnedOppLead(data, payload) {
+  const { src, hook } = sourceOrWebhook(data, payload);
+  return WORKFLOW_OWNED_OPP_SOURCE_KEYS.has(src) || WORKFLOW_OWNED_OPP_WEBHOOK_IDS.has(hook);
 }
 
 const CF_ZIP_CODE = 'bgB8OLNIpvO8lXVkhMyY'; // contact.zip_code
@@ -146,7 +164,7 @@ function normalizeBlogCategory(value) {
 }
 
 const CATEGORY_BY_SOURCE_KEY = {
-  'aep-2027': 'medicare', 'blog-lee-nch': 'medicare',
+  'aep-2027': 'medicare', 'blog-lee-nch': 'medicare', 'blog-baptist': 'medicare',
   'en-private': 'private', 'es-private': 'private', 'en-cobra': 'private', 'es-cobra': 'private',
   'en-aca': 'aca', 'es-aca': 'aca',
 };
@@ -180,6 +198,54 @@ function blogInfo(data, path) {
 function blogTags(info) {
   if (!info) return [];
   return ['blog', info.category ? 'blog-' + info.category : null].filter(Boolean);
+}
+
+/** True when first or last name starts with "TEST" (case-insensitive). */
+function isTestLead(data) {
+  const first = String((data && (data.first_name || data.firstName)) || '').trim();
+  const last = String((data && (data.last_name || data.lastName)) || '').trim();
+  return /^test/i.test(first) || /^test/i.test(last);
+}
+
+const MAX_CONTACT_TAGS = 15;
+
+function isSpanishPath(path) {
+  const p = String(path || '').trim();
+  return p === '/es' || p === '/es/' || p.startsWith('/es/');
+}
+
+/** Spanish if language is es, or the form page path is under /es/. */
+function isSpanishLead(data, payload, path) {
+  const lang = String((payload && payload.language) || (data && (data.language || data.lang)) || '').trim().toLowerCase();
+  if (lang === 'es' || lang === 'spanish' || lang.startsWith('es-') || lang.startsWith('es_')) return true;
+  if (lang === 'en' || lang === 'english' || lang.startsWith('en-') || lang.startsWith('en_')) return false;
+  return isSpanishPath(path || (payload && (payload.page_path || payload.form_page)) || '');
+}
+
+function languageTag(data, payload, path) {
+  return isSpanishLead(data, payload, path) ? 'spanish' : 'english';
+}
+
+/**
+ * Contact tags posted via the GHL API. Reserved tags (website-lead, test-lead,
+ * language, review, page, blog) go first so the 15-tag cap cannot drop them.
+ */
+function contactTags(data, payload, path, blog) {
+  const formTags = String((payload && payload.tags) || (data && data.tags) || '')
+    .split(',')
+    .map((t) => t.trim().toLowerCase())
+    .filter(Boolean);
+  const reviewTags = formTags.filter((t) => t === 'needs-review' || t.startsWith('review:'));
+  const reserved = [
+    'website-lead',
+    (isTestLead(data) || isTestLead(payload) || formTags.includes('test-lead')) ? 'test-lead' : null,
+    languageTag(data, payload, path),
+    ...reviewTags,
+    pageTag(path),
+    ...blogTags(blog),
+  ].filter(Boolean);
+  const rest = formTags.filter((t) => !reserved.includes(t));
+  return Array.from(new Set([...reserved, ...rest])).slice(0, MAX_CONTACT_TAGS);
 }
 
 function pageLabel(data, path) {
@@ -461,9 +527,7 @@ async function enrichLead(data, payload, opts = {}) {
   // 3) Tags BEFORE the inbound webhook (onContact) so a workflow Tag
   //    condition sees website-lead / web:<page> on this contact, not a
   //    throwaway enrollment that then gets removed.
-  const formTags = String(data.tags || '').split(',').map((t) => t.trim().toLowerCase()).filter(Boolean);
-  const reviewTags = formTags.filter((t) => t === 'needs-review' || t.startsWith('review:'));
-  const tags = Array.from(new Set(['website-lead', ...reviewTags, pageTag(path), ...blogTags(blog), ...formTags])).slice(0, 15);
+  const tags = contactTags(data, payload, path, blog);
   try {
     await ghl('POST', `/contacts/${contactId}/tags`, { tags });
     result.steps.push('tags');
@@ -481,8 +545,8 @@ async function enrichLead(data, payload, opts = {}) {
   } catch (e) { console.warn('[ghl-enrich] note:', e.message); } })();
 
   // 5) Opportunity in THEI Website pipeline (owner Yahoska); rename "— Homepage".
-  //    Skipped for blog-lee-nch: the GHL NCH/Lee Blog workflow creates Gina's opp.
-  const skipWebsiteOpp = isBlogLeeNchLead(data, payload);
+  //    Skipped for blog-lee-nch / blog-baptist: those GHL workflows create the opp.
+  const skipWebsiteOpp = isWorkflowOwnedOppLead(data, payload);
   const stepOpp = skipWebsiteOpp ? Promise.resolve(result.steps.push('opp-skip')) : (async () => { try {
     // Webhook (fired from onContact) may still be creating its opp.
     const searchOpps = async () => {
@@ -544,7 +608,9 @@ module.exports = {
   enrichLead, answerLines, buildNote, pageTag, pageLabel, extractZip,
   blogInfo, blogTags, normalizeBlogCategory, makeClient, isHomepagePath,
   visitorNotes, extractLookingFor, phoneDigits, toE164,
-  resolveLandingPageField, resetCustomFieldCache, customFieldKey, isBlogLeeNchLead,
+  resolveLandingPageField, resetCustomFieldCache, customFieldKey,
+  isBlogLeeNchLead, isWorkflowOwnedOppLead, isSpanishLead, languageTag, contactTags, isTestLead,
   LOCATION_ID, WEBSITE_PIPELINE_ID, CF_LANDING_PAGE_KEY,
   BLOG_LEE_NCH_SOURCE_KEY, BLOG_LEE_NCH_WEBHOOK_ID,
+  BLOG_BAPTIST_SOURCE_KEY, BLOG_BAPTIST_WEBHOOK_ID,
 };
