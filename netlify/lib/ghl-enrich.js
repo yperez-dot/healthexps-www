@@ -12,12 +12,11 @@
  *   - adds tags: website-lead + real page tag (+ form-provided tags) and
  *     removes the hardcoded "homepage" tag when the form was not on the homepage
  *   - makes sure an opportunity exists in the THEI Website pipeline (renames the
- *     workflow's "— Homepage" opp to the real page), owner = Yahoska — except
- *     blog-lee-nch (EN Lee Health + EN NCH Cigna/Wellcare) and blog-baptist
- *     (EN+ES Baptist Health/PCN posts), where the GHL workflow creates its
- *     own opportunity. Tags include spanish (or english) and test-lead
- *     when the name starts with TEST; those reserved tags are kept even
- *     if the contact already has many other tags
+ *     workflow's "— Homepage" opp to the real page), owner = Yahoska. This
+ *     includes blog-lee-nch and blog-baptist: those GHL workflows only Update
+ *     Opportunity and do not create one. Tags include spanish (or english) and
+ *     test-lead when the name starts with TEST; those reserved tags are kept
+ *     even if the contact already has many other tags
  *
  * Contact identity: upsert (or find) the contact FIRST and tag it, then
  * submit-lead fires the inbound webhook so the GHL workflow's Create/Update
@@ -33,32 +32,6 @@ const OWNER_USER_ID = process.env.GHL_OWNER_USER_ID || 'UlTM7S5uLDmQhXQ5zzfN'; /
 const WEBSITE_PIPELINE_ID = process.env.GHL_WEBSITE_PIPELINE_ID || 'iziaGFnVZle64waSZJff'; // THEI Website
 const WEBSITE_NEW_LEAD_STAGE_ID =
   process.env.GHL_WEBSITE_STAGE_ID || '4ae9b05c-c74d-41ed-827b-db4f4b3be8b0'; // New Lead
-const BLOG_LEE_NCH_SOURCE_KEY = 'blog-lee-nch';
-const BLOG_LEE_NCH_WEBHOOK_ID = '07bc8094-2c26-4c03-81bb-ea25841b00c6';
-const BLOG_BAPTIST_SOURCE_KEY = 'blog-baptist';
-const BLOG_BAPTIST_WEBHOOK_ID = 'vcqtoCvS1wbwb1eeYIsK';
-
-const WORKFLOW_OWNED_OPP_SOURCE_KEYS = new Set([BLOG_LEE_NCH_SOURCE_KEY, BLOG_BAPTIST_SOURCE_KEY]);
-const WORKFLOW_OWNED_OPP_WEBHOOK_IDS = new Set([BLOG_LEE_NCH_WEBHOOK_ID, BLOG_BAPTIST_WEBHOOK_ID]);
-
-function sourceOrWebhook(data, payload) {
-  const src = String((data && data.source_key) || (payload && payload.source_key) || '').trim();
-  const hook = String((data && data.webhook_id) || (payload && payload.webhook_id) || '').trim();
-  return { src, hook };
-}
-
-/** EN Lee Health + EN NCH Cigna/Wellcare posts only — Gina's workflow owns the opp. */
-function isBlogLeeNchLead(data, payload) {
-  const { src, hook } = sourceOrWebhook(data, payload);
-  return src === BLOG_LEE_NCH_SOURCE_KEY || hook === BLOG_LEE_NCH_WEBHOOK_ID;
-}
-
-/** Leads whose GHL inbound workflow creates the opportunity (do not also create a THEI Website opp). */
-function isWorkflowOwnedOppLead(data, payload) {
-  const { src, hook } = sourceOrWebhook(data, payload);
-  return WORKFLOW_OWNED_OPP_SOURCE_KEYS.has(src) || WORKFLOW_OWNED_OPP_WEBHOOK_IDS.has(hook);
-}
-
 const CF_ZIP_CODE = 'bgB8OLNIpvO8lXVkhMyY'; // contact.zip_code
 const CF_ADDITIONAL_NOTES = 'vlaqZtJCGr1zqtOvHSX0'; // contact.additional_notes
 const CF_LANDING_PAGE_KEY = 'landing_page';
@@ -545,9 +518,8 @@ async function enrichLead(data, payload, opts = {}) {
   } catch (e) { console.warn('[ghl-enrich] note:', e.message); } })();
 
   // 5) Opportunity in THEI Website pipeline (owner Yahoska); rename "— Homepage".
-  //    Skipped for blog-lee-nch / blog-baptist: those GHL workflows create the opp.
-  const skipWebsiteOpp = isWorkflowOwnedOppLead(data, payload);
-  const stepOpp = skipWebsiteOpp ? Promise.resolve(result.steps.push('opp-skip')) : (async () => { try {
+  //    Also for blog-lee-nch / blog-baptist: their workflows only Update Opportunity.
+  const stepOpp = (async () => { try {
     // Webhook (fired from onContact) may still be creating its opp.
     const searchOpps = async () => {
       const r = await ghl('GET', `/opportunities/search?location_id=${LOCATION_ID}&contact_id=${contactId}`);
@@ -609,8 +581,6 @@ module.exports = {
   blogInfo, blogTags, normalizeBlogCategory, makeClient, isHomepagePath,
   visitorNotes, extractLookingFor, phoneDigits, toE164,
   resolveLandingPageField, resetCustomFieldCache, customFieldKey,
-  isBlogLeeNchLead, isWorkflowOwnedOppLead, isSpanishLead, languageTag, contactTags, isTestLead,
+  isSpanishLead, languageTag, contactTags, isTestLead,
   LOCATION_ID, WEBSITE_PIPELINE_ID, CF_LANDING_PAGE_KEY,
-  BLOG_LEE_NCH_SOURCE_KEY, BLOG_LEE_NCH_WEBHOOK_ID,
-  BLOG_BAPTIST_SOURCE_KEY, BLOG_BAPTIST_WEBHOOK_ID,
 };

@@ -276,6 +276,66 @@ function generateLeadEventsSince(win, dlBefore, gtagBefore) {
     .filter((a) => a[0] === "event" && a[1] === "generate_lead");
 }
 
+async function assertBlogHookWebsiteOpp(problems) {
+  const push = (m) => problems.push("blog-hook opportunity: " + m);
+  const { enrichLead, WEBSITE_PIPELINE_ID } = require("../netlify/lib/ghl-enrich");
+  const STAGE_NEW_LEAD = "4ae9b05c-c74d-41ed-827b-db4f4b3be8b0";
+  const prevToken = process.env.GHL_API_TOKEN;
+  const prevFetch = global.fetch;
+  process.env.GHL_API_TOKEN = "test";
+  try {
+    for (const c of [
+      {
+        why: "blog-lee-nch",
+        data: { first_name: "Maria", last_name: "Garcia", phone: "2395550100", email: "maria@example.com", source_key: "blog-lee-nch", source: "2027 Southwest Florida Network Alert Blog", blog_title: "Will Lee Health or NCH Accept Your Medicare Plan in 2027?", lang: "english" },
+        payload: { phone: "2395550100", page: "https://www.healthexps.com/blog/lee-health-nch-medicare-network-changes-2027/", page_path: "/blog/lee-health-nch-medicare-network-changes-2027/", language: "en", submitted_at: new Date().toISOString() },
+        nameRe: /Maria Garcia — Blog: Will Lee Health or NCH Accept Your Medicare Plan in 2027\?/,
+      },
+      {
+        why: "blog-baptist",
+        data: { first_name: "Maria", last_name: "Garcia", phone: "2395550100", email: "maria@example.com", source_key: "blog-baptist", source: "2027 Baptist Health/PCN Network Alert Blog", blog_title: "Baptist Health primary care leaving PCN 2027", lang: "english" },
+        payload: { phone: "2395550100", page: "https://www.healthexps.com/blog/baptist-health-primary-care-leaving-pcn-2027/", page_path: "/blog/baptist-health-primary-care-leaving-pcn-2027/", language: "en", submitted_at: new Date().toISOString() },
+        nameRe: /Maria Garcia — Blog:/,
+      },
+    ]) {
+      const calls = [];
+      global.fetch = async (url, init) => {
+        const u = String(url);
+        const body = init && init.body ? JSON.parse(init.body) : null;
+        calls.push({ method: init && init.method, url: u, body });
+        const ok = (o) => ({ ok: true, status: 200, text: async () => JSON.stringify(o) });
+        if (u.includes("/contacts/search/duplicate")) return ok({});
+        if (/\/contacts\/\?/.test(u)) return ok({ contacts: [] });
+        if (u.includes("/contacts/upsert")) return ok({ contact: { id: "C80", dateAdded: new Date().toISOString() } });
+        if (u.includes("/opportunities/search")) return ok({ opportunities: [] });
+        if (u.includes("/opportunities/") && init && init.method === "POST") return ok({ opportunity: { id: "O80" } });
+        if (u.includes("/tasks")) return { ok: false, status: 500, text: async () => "task should not be created" };
+        return ok({});
+      };
+      const res = await enrichLead(c.data, c.payload, { pollMs: [0], budgetMs: 1000 });
+      if (!res.steps || !res.steps.includes("opp-create") || res.steps.includes("opp-skip")) {
+        push(c.why + " should create a THEI Website opportunity, got steps " + JSON.stringify(res && res.steps));
+      }
+      if (res.steps && res.steps.includes("task")) push(c.why + " must not create a call-this-lead task");
+      const post = calls.find((x) => x.method === "POST" && /\/opportunities/.test(x.url));
+      if (!post) push(c.why + " did not POST /opportunities");
+      else {
+        if (post.body.pipelineId !== WEBSITE_PIPELINE_ID) push(c.why + " pipeline is " + post.body.pipelineId);
+        if (post.body.pipelineStageId !== STAGE_NEW_LEAD) push(c.why + " stage is " + post.body.pipelineStageId);
+        if (post.body.status !== "open") push(c.why + " status is " + post.body.status);
+        if (!c.nameRe.test(post.body.name || "")) push(c.why + " opp name is " + JSON.stringify(post.body.name));
+      }
+      if (calls.some((x) => /\/tasks/.test(x.url))) push(c.why + " made a task API call");
+    }
+  } catch (e) {
+    push(String(e && e.message || e));
+  } finally {
+    if (prevToken === undefined) delete process.env.GHL_API_TOKEN;
+    else process.env.GHL_API_TOKEN = prevToken;
+    global.fetch = prevFetch;
+  }
+}
+
 async function assertTestLeadBehavior(problems) {
   const push = (m) => problems.push("TEST-lead: " + m);
   const { buildForwardPayload, handler, assessSpam, isTestLead } = require("../netlify/functions/submit-lead");
@@ -500,6 +560,7 @@ async function main() {
   }
 
   await assertTestLeadBehavior(problems);
+  await assertBlogHookWebsiteOpp(problems);
 
   const onlyRun = process.argv.includes("--only");
   if (!onlyRun && pagesWithForms < 20) problems.push(`only ${pagesWithForms} pages with forms found in ${site} — wrong build directory?`);

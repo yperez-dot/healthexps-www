@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 "use strict";
 const assert = require("assert");
-const { enrichLead, answerLines, pageTag, pageLabel, extractZip, visitorNotes, resetCustomFieldCache, isBlogLeeNchLead, isWorkflowOwnedOppLead, isSpanishLead, languageTag, contactTags, isTestLead, LOCATION_ID, BLOG_LEE_NCH_WEBHOOK_ID, BLOG_BAPTIST_WEBHOOK_ID } = require("../netlify/lib/ghl-enrich");
+const { enrichLead, answerLines, pageTag, pageLabel, extractZip, visitorNotes, resetCustomFieldCache, isSpanishLead, languageTag, contactTags, isTestLead, LOCATION_ID, WEBSITE_PIPELINE_ID } = require("../netlify/lib/ghl-enrich");
 
 assert.strictEqual(visitorNotes({ additional_notes: "Need a callback.\n\nForm page: /contact/" }), "Need a callback.");
 assert.strictEqual(visitorNotes({ notes: "Form page: /contact/" }), "");
@@ -26,14 +26,6 @@ assert.strictEqual(pageTag("/es/"), "web:es-homepage");
 assert.strictEqual(pageTag("/blog/lee-health-nch-medicare-network-changes-2027/"), "web:blog-lee-health-nch-medicare-network-changes-2027");
 assert.strictEqual(pageLabel({ source: "Homepage Form" }, "/"), "Homepage Form");
 assert.strictEqual(pageLabel({ source: "Homepage Form" }, "/es/"), "Spanish Homepage Form");
-assert.strictEqual(isBlogLeeNchLead({ source_key: "blog-lee-nch" }, {}), true);
-assert.strictEqual(isBlogLeeNchLead({ webhook_id: BLOG_LEE_NCH_WEBHOOK_ID }, {}), true);
-assert.strictEqual(isBlogLeeNchLead({ source_key: "aep-2027" }, {}), false);
-assert.strictEqual(isBlogLeeNchLead({}, {}), false);
-assert.strictEqual(isWorkflowOwnedOppLead({ source_key: "blog-baptist" }, {}), true);
-assert.strictEqual(isWorkflowOwnedOppLead({ webhook_id: BLOG_BAPTIST_WEBHOOK_ID }, {}), true);
-assert.strictEqual(isWorkflowOwnedOppLead({ source_key: "blog-lee-nch" }, {}), true);
-assert.strictEqual(isWorkflowOwnedOppLead({ source_key: "aep-2027" }, {}), false);
 assert.strictEqual(isSpanishLead({ lang: "spanish" }, {}, "/contact/"), true);
 assert.strictEqual(isSpanishLead({}, { language: "es" }, "/contact/"), true);
 assert.strictEqual(isSpanishLead({}, {}, "/es/contacto/"), true);
@@ -185,55 +177,58 @@ assert(!isSpanishLead ? false : crowded.indexOf("test-lead") < crowded.indexOf("
   assert(lpField3 && lpField3.key === "landing_page", "fallback uses key landing_page: " + JSON.stringify(upsert.body.customFields));
   assert.strictEqual(lpField3.field_value, "/blog/lee-health-nch-medicare-network-changes-2027/");
 
-  // blog-lee-nch: skip THEI Website opportunity (Gina's NCH/Lee Blog workflow owns it)
-  const leeCalls = [];
-  global.fetch = async (url, init) => {
+  // blog-lee-nch / blog-baptist: GHL workflows only Update Opportunity, so enrich
+  // still creates a THEI Website / New Lead opp named after the page. No call task.
+  const STAGE_NEW_LEAD = "4ae9b05c-c74d-41ed-827b-db4f4b3be8b0";
+  const mockContact = (contactId, calls) => async (url, init) => {
     const u = String(url); const m = init.method; const body = init.body ? JSON.parse(init.body) : null;
-    leeCalls.push({ m, u, body });
+    calls.push({ m, u, body });
     const ok = (o) => ({ ok: true, status: 200, text: async () => JSON.stringify(o) });
-    if (u.includes("/contacts/search/duplicate")) return ok({ contact: { id: "C11", dateAdded: "2020-01-01T00:00:00Z", assignedTo: "x" } });
-    if (u.includes("/opportunities")) throw new Error("website opportunity must not be touched for blog-lee-nch");
+    if (u.includes("/contacts/search/duplicate")) return ok({ contact: { id: contactId, dateAdded: "2020-01-01T00:00:00Z", assignedTo: "x" } });
+    if (u.includes("/opportunities/search")) return ok({ opportunities: [] });
+    if (u.includes("/opportunities/") && m === "POST") return ok({ opportunity: { id: "O" + contactId } });
     if (u.includes("/tasks")) throw new Error("call-this-lead task must not be created");
-    if (m === "GET" && u.endsWith("/contacts/C11")) return ok({ contact: { id: "C11", tags: ["homepage", "website-lead"] } });
+    if (m === "GET" && u.endsWith("/contacts/" + contactId)) return ok({ contact: { id: contactId, tags: ["homepage", "website-lead"] } });
     return ok({});
   };
+  const assertWebsiteOpp = (res, calls, contactId, nameRe, why) => {
+    assert.strictEqual(res.contactId, contactId, why);
+    assert(res.steps.includes("opp-create"), why + " steps " + res.steps);
+    assert(!res.steps.includes("opp-skip") && !res.steps.includes("task"), why + " " + res.steps);
+    assert.strictEqual(res.opportunityId, "O" + contactId, why);
+    const post = calls.find((c) => c.m === "POST" && c.u.includes("/opportunities"));
+    assert(post, why + ": missing opportunity POST");
+    assert.strictEqual(post.body.pipelineId, WEBSITE_PIPELINE_ID, why);
+    assert.strictEqual(post.body.pipelineStageId, STAGE_NEW_LEAD, why);
+    assert.strictEqual(post.body.status, "open", why);
+    assert(nameRe.test(post.body.name), why + " name " + post.body.name);
+    assert(!calls.some((c) => /\/tasks/.test(c.u)), why + ": no call-this-lead task");
+  };
+
+  const leeCalls = [];
+  global.fetch = mockContact("C11", leeCalls);
   const leePayload = { phone: "2395550100", page: blog.page, page_path: "/blog/lee-health-nch-medicare-network-changes-2027/", submitted_at: new Date().toISOString() };
-  const lee = await enrichLead({ ...blog, source_key: "blog-lee-nch" }, leePayload, { pollMs: [0] });
-  assert.strictEqual(lee.contactId, "C11");
-  for (const s of ["update", "tags", "note", "opp-skip", "untag-homepage"]) assert(lee.steps.includes(s), "missing step " + s + " " + lee.steps);
-  assert(!lee.steps.includes("opp-create") && !lee.steps.includes("opp-update") && !lee.steps.includes("task"), lee.steps);
-  assert(!lee.opportunityId, "no THEI Website opportunity id");
-  assert(!leeCalls.some((c) => /opportunities|\/tasks/.test(c.u)), "no opportunity or task API calls for blog-lee-nch");
+  const lee = await enrichLead({ ...blog, source_key: "blog-lee-nch" }, leePayload, { pollMs: [0], budgetMs: 1000 });
+  assertWebsiteOpp(lee, leeCalls, "C11", /Mary Rivera — Blog: Will Lee Health or NCH Accept Your Medicare Plan in 2027\?/, "blog-lee-nch source_key");
+  assert(lee.steps.includes("untag-homepage"), lee.steps);
 
   leeCalls.length = 0;
-  const leeHook = await enrichLead({ ...blog, source_key: "", webhook_id: BLOG_LEE_NCH_WEBHOOK_ID }, leePayload, { pollMs: [0] });
-  assert.strictEqual(leeHook.contactId, "C11");
-  assert(leeHook.steps.includes("opp-skip"), leeHook.steps);
-  assert(!leeCalls.some((c) => /opportunities|\/tasks/.test(c.u)), "webhook_id path also skips the website opportunity");
+  global.fetch = mockContact("C11", leeCalls);
+  const leeHook = await enrichLead({ ...blog, source_key: "", webhook_id: "07bc8094-2c26-4c03-81bb-ea25841b00c6" }, leePayload, { pollMs: [0], budgetMs: 1000 });
+  assertWebsiteOpp(leeHook, leeCalls, "C11", /Mary Rivera — Blog: Will Lee Health/, "blog-lee-nch webhook_id");
 
-  // blog-baptist: same opportunity skip (workflow owns the opp)
   const bapCalls = [];
-  global.fetch = async (url, init) => {
-    const u = String(url); const m = init.method; const body = init.body ? JSON.parse(init.body) : null;
-    bapCalls.push({ m, u, body });
-    const ok = (o) => ({ ok: true, status: 200, text: async () => JSON.stringify(o) });
-    if (u.includes("/contacts/search/duplicate")) return ok({ contact: { id: "C12", dateAdded: "2020-01-01T00:00:00Z", assignedTo: "x" } });
-    if (u.includes("/opportunities")) throw new Error("website opportunity must not be touched for blog-baptist");
-    if (m === "GET" && u.endsWith("/contacts/C12")) return ok({ contact: { id: "C12", tags: ["website-lead"] } });
-    return ok({});
-  };
+  global.fetch = mockContact("C12", bapCalls);
   const bapPayload = { phone: "2395550100", page: "https://www.healthexps.com/blog/baptist-health-primary-care-leaving-pcn-2027/", page_path: "/blog/baptist-health-primary-care-leaving-pcn-2027/", language: "en", submitted_at: new Date().toISOString() };
-  const bap = await enrichLead({ first_name: "Maria", last_name: "Garcia", phone: "2395550100", email: "maria@example.com", source_key: "blog-baptist", tags: "aep-2027,network-alert,baptist-health,organic,english", lang: "english" }, bapPayload, { pollMs: [0] });
-  assert.strictEqual(bap.contactId, "C12");
-  assert(bap.steps.includes("opp-skip"), bap.steps);
-  assert(!bapCalls.some((c) => /opportunities/.test(c.u)), "no website opportunity API calls for blog-baptist");
+  const bap = await enrichLead({ first_name: "Maria", last_name: "Garcia", phone: "2395550100", email: "maria@example.com", source_key: "blog-baptist", tags: "aep-2027,network-alert,baptist-health,organic,english", lang: "english" }, bapPayload, { pollMs: [0], budgetMs: 1000 });
+  assertWebsiteOpp(bap, bapCalls, "C12", /Maria Garcia — Blog:/, "blog-baptist source_key");
   const bapTags = bapCalls.find((c) => c.m === "POST" && c.u.endsWith("/contacts/C12/tags"));
   assert(bapTags.body.tags.includes("english") && bapTags.body.tags.includes("website-lead"), bapTags.body.tags);
 
   bapCalls.length = 0;
-  const bapHook = await enrichLead({ first_name: "Maria", last_name: "Garcia", phone: "2395550100", source_key: "", webhook_id: BLOG_BAPTIST_WEBHOOK_ID }, { ...bapPayload, page_path: "/es/blog/cambio-red-baptist-health-pcn-medicare-2027/", language: "es" }, { pollMs: [0] });
-  assert(bapHook.steps.includes("opp-skip"), bapHook.steps);
-  assert(!bapCalls.some((c) => /opportunities/.test(c.u)));
+  global.fetch = mockContact("C12", bapCalls);
+  const bapHook = await enrichLead({ first_name: "Maria", last_name: "Garcia", phone: "2395550100", source_key: "", webhook_id: "vcqtoCvS1wbwb1eeYIsK" }, { ...bapPayload, page_path: "/es/blog/cambio-red-baptist-health-pcn-medicare-2027/", language: "es" }, { pollMs: [0], budgetMs: 1000 });
+  assertWebsiteOpp(bapHook, bapCalls, "C12", /Maria Garcia — Blog:/, "blog-baptist webhook_id");
   const esTags = bapCalls.find((c) => c.m === "POST" && /\/tags$/.test(c.u));
   assert(esTags.body.tags.includes("spanish") && !esTags.body.tags.includes("english"), "ES path gets spanish: " + esTags.body.tags);
 
