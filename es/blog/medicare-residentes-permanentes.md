@@ -33,8 +33,8 @@ Aquí es donde se separan los caminos, y depende de tus **créditos de trabajo**
 
 **Si tienes menos de 40 créditos**, puedes **comprar** la Parte A:
 
-- Con 30 a 39 créditos: prima reducida de la Parte A — $311 al mes en 2026
-- Con menos de 30 créditos: prima completa de la Parte A — $565 al mes en 2026
+- Con 30 a 39 créditos: prima reducida de la Parte A — $328 al mes en 2027
+- Con menos de 30 créditos: prima completa de la Parte A — $597 al mes en 2027
 
 Comprar la Parte A no es automático — hay que inscribirse activamente, y la Parte B (que casi todo el mundo necesita) siempre tiene su propia prima aparte, sin importar los créditos de trabajo.
 
@@ -65,7 +65,7 @@ Necesitas 5 años consecutivos de residencia legal en Estados Unidos, además de
 Depende de tus créditos de trabajo. Con 40 créditos (aproximadamente 10 años trabajando), la Parte A es gratis. Con menos créditos, puedes comprarla a una prima reducida o completa.
 
 **¿Cuánto cuesta comprar la Parte A si no tengo suficientes créditos?**
-En 2026, la prima reducida es de $311 al mes para quienes tienen entre 30 y 39 créditos, y la prima completa es de $565 al mes para quienes tienen menos de 30 créditos.
+En 2027, la prima reducida es de $328 al mes para quienes tienen entre 30 y 39 créditos, y la prima completa es de $597 al mes para quienes tienen menos de 30 créditos.
 
 **¿Los créditos de trabajo de mi cónyuge cuentan para mí?**
 En ciertos casos, sí. Vale la pena revisar tu situación específica con un corredor antes de asumir que no calificas.
@@ -81,7 +81,7 @@ Puedes enfrentar una multa permanente por inscripción tardía en la Parte B, ad
   "mainEntity": [
     {"@type": "Question", "name": "¿Cuánto tiempo necesito tener green card para calificar para Medicare?", "acceptedAnswer": {"@type": "Answer", "text": "Necesitas 5 años consecutivos de residencia legal en Estados Unidos, además de cumplir 65 años o calificar por discapacidad."}},
     {"@type": "Question", "name": "¿Mi Parte A de Medicare es gratis con green card?", "acceptedAnswer": {"@type": "Answer", "text": "Depende de tus créditos de trabajo. Con 40 créditos, aproximadamente 10 años trabajando, la Parte A es gratis. Con menos créditos, puedes comprarla a una prima reducida o completa."}},
-    {"@type": "Question", "name": "¿Cuánto cuesta comprar la Parte A si no tengo suficientes créditos?", "acceptedAnswer": {"@type": "Answer", "text": "En 2026, la prima reducida es de $311 al mes para quienes tienen entre 30 y 39 créditos, y la prima completa es de $565 al mes para quienes tienen menos de 30 créditos."}},
+    {"@type": "Question", "name": "¿Cuánto cuesta comprar la Parte A si no tengo suficientes créditos?", "acceptedAnswer": {"@type": "Answer", "text": "En 2027, la prima reducida es de $328 al mes para quienes tienen entre 30 y 39 créditos, y la prima completa es de $597 al mes para quienes tienen menos de 30 créditos."}},
     {"@type": "Question", "name": "¿Los créditos de trabajo de mi cónyuge cuentan para mí?", "acceptedAnswer": {"@type": "Answer", "text": "En ciertos casos, sí. Vale la pena revisar tu situación específica con un corredor antes de asumir que no calificas."}},
     {"@type": "Question", "name": "¿Qué pasa si no me inscribo a tiempo?", "acceptedAnswer": {"@type": "Answer", "text": "Puedes enfrentar una multa permanente por inscripción tardía en la Parte B, además de un posible período sin cobertura."}}
   ]

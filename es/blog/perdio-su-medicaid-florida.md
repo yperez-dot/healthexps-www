@@ -29,7 +29,7 @@ Si el motivo fue de verdad un cambio de ingresos, siga leyendo.
 Si ya tienes Medicare y perdiste Medicaid, es posible que todavía califiques para un **Programa de Ahorros de Medicare** — un beneficio distinto, con límites de ingresos más altos de lo que la mayoría cree. Según tu nivel:
 
 - **QMB** paga tu prima de la Parte B *y* tus deducibles y copagos de Medicare
-- **SLMB y QI** pagan solo tu prima mensual de la Parte B ($202.90 en 2026)
+- **SLMB y QI** pagan solo tu prima mensual de la Parte B ($209.40 en 2027)
 
 Muchas personas asumen que, si perdieron el Medicaid completo, tampoco califican para esto — y se equivocan. El ingreso del Seguro Social se cuenta de forma distinta a la que la gente espera. [Mira nuestra guía del Programa de Ahorros de Medicare](/es/medicare-savings-program) o llámanos y lo evaluamos en cinco minutos.
 

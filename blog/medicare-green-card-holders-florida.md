@@ -39,7 +39,7 @@ Medicare Part A — hospital insurance — is **free** for most people because t
 
 If you or your spouse worked in the US for at least 10 years and paid Medicare taxes, you may qualify for **premium-free Part A**, just like a US citizen would.
 
-If you haven't worked long enough to earn those 40 quarters, you can still get Medicare — but you'll pay a monthly premium for Part A, which can be over $500/month in 2026.
+If you haven't worked long enough to earn those 40 quarters, you can still get Medicare — but you'll pay a monthly premium for Part A, which can be over $500/month in 2027.
 
 ---
 
@@ -68,7 +68,7 @@ Some countries have bilateral agreements with the US that allow foreign work cre
 Once you confirm you're eligible, here's what you're enrolling in:
 
 - **Part A** — Hospital insurance. Covers inpatient hospital stays, skilled nursing facility care, hospice. Free if you have 40 work quarters; otherwise you pay a premium.
-- **Part B** — Medical insurance. Covers doctor visits, outpatient care, preventive services. Standard premium applies ($202.90/month in 2026).
+- **Part B** — Medical insurance. Covers doctor visits, outpatient care, preventive services. Standard premium applies ($209.40/month in 2027).
 - **Part C (Medicare Advantage)** — A private plan alternative that bundles A + B (and usually D) with potential extra benefits.
 - **Part D** — Prescription drug coverage. Comes with Medicare Advantage or as a standalone plan.
 - **Medigap** — Supplemental insurance to cover Part A and B cost-sharing gaps.

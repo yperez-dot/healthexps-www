@@ -35,7 +35,7 @@ There are two levels of dual eligibility:
 The MSPs are the hidden gem here. Depending on your income level:
 
 - **QMB (Qualified Medicare Beneficiary):** pays your Part B premium *and* your Medicare deductibles and copays. Providers are not allowed to bill QMB members for Medicare cost-sharing — that protection is federal law.
-- **SLMB and QI:** pay your monthly Part B premium ($202.90 in 2026 — that's over $2,400 a year back in your pocket).
+- **SLMB and QI:** pay your monthly Part B premium ($209.40 in 2027 — that's over $2,400 a year back in your pocket).
 
 Income limits adjust every year and many people assume they earn too much when they don't — Social Security income is counted differently than most people expect. Our [Medicare Savings Program guide](/medicare-savings-program) covers the details, or call us and we'll screen you in five minutes.
 
@@ -79,7 +79,7 @@ It means you qualify for both Medicare and Medicaid at the same time. Medicare p
 A Dual Eligible Special Needs Plan is a type of Medicare Advantage plan designed for people with both Medicare and Medicaid. Many D-SNPs in Miami-Dade include extra benefits such as OTC allowances, dental, vision, and transportation.
 
 **Can Florida pay my Medicare Part B premium?**
-Yes — if you qualify for a Medicare Savings Program such as QMB, SLMB, or QI, the state pays your Part B premium ($202.90/month in 2026). QMB also covers Medicare deductibles and copays.
+Yes — if you qualify for a Medicare Savings Program such as QMB, SLMB, or QI, the state pays your Part B premium ($209.40/month in 2027). QMB also covers Medicare deductibles and copays.
 
 **Do dual-eligible beneficiaries get help with prescriptions?**
 Yes. Dual-eligible individuals automatically qualify for Extra Help (the Low-Income Subsidy), which lowers or eliminates Part D premiums and deductibles and caps copays on covered drugs.
@@ -94,7 +94,7 @@ In most cases, yes. Dual-eligible and Extra Help beneficiaries have monthly oppo
   "mainEntity": [
     {"@type": "Question", "name": "What does dual eligible mean?", "acceptedAnswer": {"@type": "Answer", "text": "It means you qualify for both Medicare and Medicaid at the same time. Medicare pays for your care first, and Medicaid helps cover remaining costs like premiums, deductibles, and copays, depending on your eligibility level."}},
     {"@type": "Question", "name": "What is a D-SNP plan?", "acceptedAnswer": {"@type": "Answer", "text": "A Dual Eligible Special Needs Plan is a type of Medicare Advantage plan designed for people with both Medicare and Medicaid. Many D-SNPs in Miami-Dade include extra benefits such as OTC allowances, dental, vision, and transportation."}},
-    {"@type": "Question", "name": "Can Florida pay my Medicare Part B premium?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. If you qualify for a Medicare Savings Program such as QMB, SLMB, or QI, the state pays your Part B premium, which is $202.90 per month in 2026. QMB also covers Medicare deductibles and copays."}},
+    {"@type": "Question", "name": "Can Florida pay my Medicare Part B premium?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. If you qualify for a Medicare Savings Program such as QMB, SLMB, or QI, the state pays your Part B premium, which is $209.40 per month in 2027. QMB also covers Medicare deductibles and copays."}},
     {"@type": "Question", "name": "Do dual-eligible beneficiaries get help with prescriptions?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. Dual-eligible individuals automatically qualify for Extra Help, the Low-Income Subsidy, which lowers or eliminates Part D premiums and deductibles and caps copays on covered drugs."}},
     {"@type": "Question", "name": "Can I change my plan outside the fall enrollment period if I am dual eligible?", "acceptedAnswer": {"@type": "Answer", "text": "In most cases, yes. Dual-eligible and Extra Help beneficiaries have monthly opportunities to make certain plan changes, rather than waiting for the October 15 to December 7 Annual Enrollment Period."}}
   ]

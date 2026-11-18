@@ -634,8 +634,8 @@ img { max-width: 100%; height: auto; }
           </div>
           <div class="calc-field">
             <label for="i-pb">Prima mensual de Parte B ($)</label>
-            <input type="number" id="i-pb" value="202.90" step="0.01" min="0" max="800" placeholder="202.90" onfocus="this.select()">
-            <div class="calc-field-hint">$202.90 es la prima estándar de 2026. Más alta si aplica IRMAA.</div>
+            <input type="number" id="i-pb" value="209.40" step="0.01" min="0" max="800" placeholder="209.40" onfocus="this.select()">
+            <div class="calc-field-hint">$209.40 es la prima estándar de 2027. Más alta si aplica IRMAA.</div>
           </div>
           <div class="calc-error" id="calc-error"></div>
           <div class="calc-btn-row">
@@ -788,7 +788,7 @@ img { max-width: 100%; height: auto; }
 
           <!-- Disclaimer -->
           <div style="margin-top:24px;font-size:15px;color:#5a5068;line-height:1.6;padding:14px;background:#fdfaf7;border-radius:10px;">
-            La prima de Parte B se cuenta en ambos lados. Asumimos que las primas Advantage suben 5%/año y las del Suplementario 4%/año. El gasto de bolsillo de Advantage se estima como 15% / 40% / 85% de su máximo anual (poco / moderado / frecuente). El del Suplementario es el deducible de Parte B 2026 ($283). Es un estimado educativo, no una cotización, y no revisa redes ni formularios.
+            La prima de Parte B se cuenta en ambos lados. Asumimos que las primas Advantage suben 5%/año y las del Suplementario 4%/año. El gasto de bolsillo de Advantage se estima como 15% / 40% / 85% de su máximo anual (poco / moderado / frecuente). El del Suplementario es el deducible de Parte B 2027 ($292). Es un estimado educativo, no una cotización, y no revisa redes ni formularios.
           </div>
         </div>
 
@@ -982,7 +982,7 @@ img { max-width: 100%; height: auto; }
 
   // ── Run calculation ───────────────────────────────────────────────────────
   window.runCalc = function() {
-    var pb  = parseFloat(g('i-pb').value)  || 202.90;
+    var pb  = parseFloat(g('i-pb').value)  || 209.40;
     var mp  = parseFloat(g('i-map').value) || 0;
     var mo  = parseFloat(g('i-mao').value) || 5000;
     var gp  = parseFloat(g('i-mgp').value) || 165;

@@ -35,7 +35,7 @@ Hay dos niveles de doble elegibilidad:
 Los MSP son la joya escondida. Según tu nivel de ingresos:
 
 - **QMB (Beneficiario Calificado de Medicare):** paga tu prima de la Parte B *y además* tus deducibles y copagos de Medicare. Por ley federal, los proveedores no pueden cobrarle a un miembro QMB los costos compartidos de Medicare.
-- **SLMB y QI:** pagan tu prima mensual de la Parte B ($202.90 en 2026 — más de $2,400 al año de regreso a tu bolsillo).
+- **SLMB y QI:** pagan tu prima mensual de la Parte B ($209.40 en 2027 — más de $2,400 al año de regreso a tu bolsillo).
 
 Los límites de ingresos se ajustan cada año, y muchas personas asumen que ganan demasiado cuando no es así — el ingreso del Seguro Social se cuenta de una forma diferente a la que la mayoría espera. Llámanos y lo evaluamos en cinco minutos, sin compromiso.
 
@@ -79,7 +79,7 @@ Significa que calificas para Medicare y Medicaid al mismo tiempo. Medicare paga 
 Es un tipo de plan Medicare Advantage diseñado para personas con Medicare y Medicaid. Muchos D-SNP en Miami-Dade incluyen beneficios adicionales como asignaciones OTC, dental, visión y transporte.
 
 **¿Florida puede pagar mi prima de la Parte B de Medicare?**
-Sí — si calificas para un Programa de Ahorros de Medicare como QMB, SLMB o QI, el estado paga tu prima de la Parte B ($202.90 al mes en 2026). QMB también cubre los deducibles y copagos de Medicare.
+Sí — si calificas para un Programa de Ahorros de Medicare como QMB, SLMB o QI, el estado paga tu prima de la Parte B ($209.40 al mes en 2027). QMB también cubre los deducibles y copagos de Medicare.
 
 **¿Los beneficiarios con doble elegibilidad reciben ayuda con los medicamentos?**
 Sí. Las personas con doble elegibilidad califican automáticamente para la Ayuda Adicional (Subsidio por Bajos Ingresos), que reduce o elimina las primas y deducibles de la Parte D y limita los copagos de los medicamentos cubiertos.
@@ -95,7 +95,7 @@ En la mayoría de los casos, sí. Los beneficiarios con doble elegibilidad o Ayu
   "mainEntity": [
     {"@type": "Question", "name": "¿Qué significa doble elegibilidad?", "acceptedAnswer": {"@type": "Answer", "text": "Significa que calificas para Medicare y Medicaid al mismo tiempo. Medicare paga tu atención primero, y Medicaid ayuda a cubrir los costos restantes como primas, deducibles y copagos, según tu nivel de elegibilidad."}},
     {"@type": "Question", "name": "¿Qué es un plan D-SNP?", "acceptedAnswer": {"@type": "Answer", "text": "Es un tipo de plan Medicare Advantage diseñado para personas con Medicare y Medicaid. Muchos D-SNP en Miami-Dade incluyen beneficios adicionales como asignaciones OTC, dental, visión y transporte."}},
-    {"@type": "Question", "name": "¿Florida puede pagar mi prima de la Parte B de Medicare?", "acceptedAnswer": {"@type": "Answer", "text": "Sí. Si calificas para un Programa de Ahorros de Medicare como QMB, SLMB o QI, el estado paga tu prima de la Parte B, que es $202.90 al mes en 2026. QMB también cubre los deducibles y copagos de Medicare."}},
+    {"@type": "Question", "name": "¿Florida puede pagar mi prima de la Parte B de Medicare?", "acceptedAnswer": {"@type": "Answer", "text": "Sí. Si calificas para un Programa de Ahorros de Medicare como QMB, SLMB o QI, el estado paga tu prima de la Parte B, que es $209.40 al mes en 2027. QMB también cubre los deducibles y copagos de Medicare."}},
     {"@type": "Question", "name": "¿Los beneficiarios con doble elegibilidad reciben ayuda con los medicamentos?", "acceptedAnswer": {"@type": "Answer", "text": "Sí. Las personas con doble elegibilidad califican automáticamente para la Ayuda Adicional, que reduce o elimina las primas y deducibles de la Parte D y limita los copagos de los medicamentos cubiertos."}},
     {"@type": "Question", "name": "¿Puedo cambiar mi plan fuera de la inscripción de otoño si tengo doble elegibilidad?", "acceptedAnswer": {"@type": "Answer", "text": "En la mayoría de los casos, sí. Los beneficiarios con doble elegibilidad o Ayuda Adicional tienen oportunidades mensuales de hacer ciertos cambios de plan, sin esperar la Inscripción Anual del 15 de octubre al 7 de diciembre."}}
   ]

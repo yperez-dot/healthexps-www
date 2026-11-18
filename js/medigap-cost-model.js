@@ -2,20 +2,20 @@
  * Shared Medigap cost facts and calculator math (EN/ES calculators + tests).
  * Default monthly premiums are illustrative estimates, not carrier quotes.
  *
- * All-in calculator math uses 2026 Part B ($202.90/mo, $283 deductible) and
- * 2026 HDG ($2,950). CMS announced 2027 HDG $3,050, Plan K $8,360, Plan L $4,180
- * (Oct 2026). CMS had not announced 2027 Part B as of 2026-11-07, so this model
- * does not produce a 2027 all-in total.
+ * All-in calculator math uses 2027 Part B ($209.40/mo, $292 deductible) and
+ * 2027 HDG ($3,050). CMS announced 2027 HDG $3,050, Plan K $8,360, Plan L $4,180
+ * (Oct 2026) and 2027 Part B on 11.17.2026. Labeled 2027 all-in totals use those
+ * CMS figures plus the Medigap premium.
  */
 (function (root) {
   "use strict";
 
   var M = {};
 
-  M.PART_B_YEAR = 2026;
-  M.PART_B_PREMIUM_MONTHLY = 202.9;
-  M.PART_B_PREMIUM_ANNUAL = 202.9 * 12;
-  M.PART_B_DEDUCTIBLE_ANNUAL = 283;
+  M.PART_B_YEAR = 2027;
+  M.PART_B_PREMIUM_MONTHLY = 209.4;
+  M.PART_B_PREMIUM_ANNUAL = 209.4 * 12;
+  M.PART_B_DEDUCTIBLE_ANNUAL = 292;
   M.HD_G_DEDUCTIBLE_2026 = 2950;
   M.HD_G_DEDUCTIBLE_2027 = 3050;
   M.PLAN_K_OOP_2026 = 8000;
@@ -38,7 +38,7 @@
     med: { visits: 5, er: 0 },
     high: { visits: 10, er: 1 }
   };
-  M.HD_USAGE_OOP = { low: 600, med: 1500, high: M.HD_G_DEDUCTIBLE_2026 };
+  M.HD_USAGE_OOP = { low: 600, med: 1500, high: M.HD_G_DEDUCTIBLE_2027 };
 
   function lerp(a, b, t) {
     return a + (b - a) * t;
