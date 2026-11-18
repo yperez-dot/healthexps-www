@@ -2,7 +2,7 @@
 layout: layouts/blog-post.njk
 category: "Medicare"
 title: "What Is IRMAA — and How to Avoid the Medicare Surcharge"
-description: "IRMAA can add hundreds a month to your Medicare premiums based on income from two years ago. Learn the 2026 brackets, the SSA-44 appeal, and planning moves that help."
+description: "IRMAA can add hundreds a month to your Medicare premiums based on income from two years ago. Learn the 2027 brackets, the SSA-44 appeal, and planning moves that help."
 date: 2026-07-29
 lang: en
 hreflang_es: /es/blog/que-es-irmaa-medicare/
@@ -10,19 +10,19 @@ permalink: /blog/what-is-irmaa-avoid-medicare-surcharge/
 ---
 
 <!-- META TITLE (55): What Is IRMAA? 2026 Brackets & How to Avoid the Surcharge -->
-<!-- META DESCRIPTION (155): IRMAA adds up to hundreds per month to Medicare premiums — based on income from 2 years ago. See 2026 brackets, the SSA-44 appeal & how to plan around it. -->
+<!-- META DESCRIPTION (155): IRMAA adds up to hundreds per month to Medicare premiums — based on income from 2 years ago. See 2027 brackets, the SSA-44 appeal & how to plan around it. -->
 
 # What Is IRMAA — and How to Avoid the Medicare Surcharge
 
-You retire, you enroll in Medicare, and then a letter from Social Security arrives saying your Part B premium won't be the standard $202.90 a month — it'll be hundreds more. Welcome to **IRMAA**: the Income-Related Monthly Adjustment Amount, Medicare's surcharge for higher earners.
+You retire, you enroll in Medicare, and then a letter from Social Security arrives saying your Part B premium won't be the standard $209.40 a month — it'll be hundreds more. Welcome to **IRMAA**: the Income-Related Monthly Adjustment Amount, Medicare's surcharge for higher earners.
 
-The part that catches almost everyone off guard: **IRMAA is based on your income from two years ago.** Your 2026 premiums are set by your 2024 tax return — often your last full year of working income. Retiring is precisely when people get hit hardest, and it's also when they have the strongest case to fight it.
+The part that catches almost everyone off guard: **IRMAA is based on your income from two years ago.** Your 2027 premiums are set by your 2025 tax return — often your last full year of working income. Retiring is precisely when people get hit hardest, and it's also when they have the strongest case to fight it.
 
 ## How IRMAA works
 
 Each fall, Social Security looks at the modified adjusted gross income (MAGI) from your tax return two years back. MAGI here means your adjusted gross income **plus tax-exempt interest** — yes, municipal bond interest counts. If it's above the threshold, you pay a surcharge on top of your Part B premium *and* a separate surcharge on your Part D drug coverage. Both members of a married couple pay it individually.
 
-For 2026, the first IRMAA threshold is $109,000 for a single filer and $218,000 for a joint return, based on 2024 income.
+For 2027, the first IRMAA threshold is $112,000 for a single filer and $224,000 for a joint return, based on 2025 income.
 
 <style>
 .irmaa-table { table-layout: fixed; }
@@ -30,32 +30,32 @@ For 2026, the first IRMAA threshold is $109,000 for a single filer and $218,000 
 </style>
 <table class="irmaa-table">
 <thead><tr>
-<th>2024 MAGI (single)</th>
-<th>2024 MAGI (joint)</th>
-<th>2026 Part B premium (total)</th>
+<th>2025 MAGI (single)</th>
+<th>2025 MAGI (joint)</th>
+<th>2027 Part B premium (total)</th>
 <th>Part D IRMAA (added to your plan premium)</th>
 </tr></thead>
 <tbody>
-<tr><td>$109,000 or less</td><td>$218,000 or less</td><td>$202.90</td><td>$0</td></tr>
-<tr><td>$109,001 – $137,000</td><td>$218,001 – $274,000</td><td>$284.10</td><td>+$14.50</td></tr>
-<tr><td>$137,001 – $171,000</td><td>$274,001 – $342,000</td><td>$405.80</td><td>+$37.50</td></tr>
-<tr><td>$171,001 – $205,000</td><td>$342,001 – $410,000</td><td>$527.50</td><td>+$60.40</td></tr>
-<tr><td>$205,001 – $499,999</td><td>$410,001 – $749,999</td><td>$649.20</td><td>+$83.30</td></tr>
-<tr><td>$500,000 or more</td><td>$750,000 or more</td><td>$689.90</td><td>+$91.00</td></tr>
+<tr><td>$112,000 or less</td><td>$224,000 or less</td><td>$209.40</td><td>$0</td></tr>
+<tr><td>$112,001 – $141,000</td><td>$224,001 – $282,000</td><td>$293.10</td><td>+$15.40</td></tr>
+<tr><td>$141,001 – $177,000</td><td>$282,001 – $354,000</td><td>$418.80</td><td>+$39.70</td></tr>
+<tr><td>$177,001 – $212,000</td><td>$354,001 – $424,000</td><td>$544.40</td><td>+$64.00</td></tr>
+<tr><td>$212,001 – $499,999</td><td>$424,001 – $749,999</td><td>$670.00</td><td>+$88.30</td></tr>
+<tr><td>$500,000 or more</td><td>$750,000 or more</td><td>$711.80</td><td>+$96.40</td></tr>
 </tbody>
 </table>
 <div style="background:#fff7ec;border-left:4px solid #c40074;padding:16px 20px;margin:20px 0;border-radius:0 8px 8px 0;">
 <p style="font-weight:700;font-size:15px;color:#241a30;margin:0 0 8px;">⚠️ Married filing separately? Your IRMAA works differently.</p>
-<p style="font-size:15px;color:#5a4a2f;line-height:1.65;margin:0 0 10px;">If you lived with your spouse at any point during the year but filed separately, there's no gradual bracket — income above $109,000 puts you at <strong>$649.20/month</strong>, and above $391,000 you're at the top tier, <strong>$689.90/month</strong>. There's no room in between.</p>
+<p style="font-size:15px;color:#5a4a2f;line-height:1.65;margin:0 0 10px;">If you lived with your spouse at any point during the year but filed separately, there's no gradual bracket — income above $112,000 puts you at <strong>$670.00/month</strong>, and above $388,000 you're at the top tier, <strong>$711.80/month</strong>. There's no room in between.</p>
 <p style="font-size:13.5px;color:#7a6a4f;margin:0;">Source: <a href="https://secure.ssa.gov/poms.nsf/lnx/0601101020" target="_blank" rel="noopener" style="color:#452068;font-weight:600;">SSA POMS HI 01101.020</a></p>
 </div>
 
 
-Part D IRMAA adds a further income-based amount, $14.50 to $91.00 per month, paid to Medicare directly — even if your drug plan's premium is $0.
+Part D IRMAA adds a further income-based amount, $15.40 to $96.40 per month, paid to Medicare directly — even if your drug plan's premium is $0.
 
 ## The most important thing to know: IRMAA is a cliff, not a slope
 
-Cross a threshold by **one dollar** and you pay the entire tier's surcharge for the whole year. A $109,001 income and a $109,000 income can differ by well over a thousand dollars in annual Medicare premiums. This is why IRMAA planning is really *income-timing* planning.
+Cross a threshold by **one dollar** and you pay the entire tier's surcharge for the whole year. A $112,001 income and a $112,000 income can differ by well over a thousand dollars in annual Medicare premiums. This is why IRMAA planning is really *income-timing* planning.
 
 ## How to fight an IRMAA decision: Form SSA-44
 
@@ -67,7 +67,7 @@ If your income has **dropped since that two-year-old tax return because of a lif
 - Loss or reduction of a pension
 - An employer settlement payment
 
-Retired in 2025 or 2026 but being charged based on your 2024 salary? That's the textbook SSA-44 case. We walk clients through this filing routinely — bring your letter to [a free appointment](/book) and we'll look at it together.
+Retired in 2026 or 2027 but being charged based on your 2025 salary? That's the textbook SSA-44 case. We walk clients through this filing routinely — bring your letter to [a free appointment](/book) and we'll look at it together.
 
 One thing SSA-44 does *not* cover: a one-time income spike (a big capital gain, a large Roth conversion, a lump-sum withdrawal). Those aren't "life-changing events" — which is why the planning below matters.
 
@@ -92,10 +92,10 @@ IRMAA isn't a penalty for doing something wrong — it's a means-tested premium 
 ## Frequently Asked Questions
 
 **What income is IRMAA based on?**
-Your modified adjusted gross income (MAGI) — adjusted gross income plus tax-exempt interest — from your federal tax return two years prior. Your 2026 IRMAA is based on your 2024 return.
+Your modified adjusted gross income (MAGI) — adjusted gross income plus tax-exempt interest — from your federal tax return two years prior. Your 2027 IRMAA is based on your 2025 return.
 
-**What is the IRMAA income limit for 2026?**
-The surcharge begins above $109,000 in 2024 MAGI for single filers and $218,000 for married couples filing jointly. Higher tiers apply at higher incomes, up to a top tier at $500,000/$750,000.
+**What is the IRMAA income limit for 2027?**
+The surcharge begins above $112,000 in 2025 MAGI for single filers and $224,000 for married couples filing jointly. Higher tiers apply at higher incomes, up to a top tier at $500,000/$750,000.
 
 **Can I appeal IRMAA?**
 Yes. If your income dropped due to a life-changing event such as retirement, marriage, divorce, or the death of a spouse, file Form SSA-44 and Social Security can recalculate your surcharge using your current income.
@@ -111,8 +111,8 @@ No. It's recalculated every year based on the tax return from two years prior. I
   "@context": "https://schema.org",
   "@type": "FAQPage",
   "mainEntity": [
-    {"@type": "Question", "name": "What income is IRMAA based on?", "acceptedAnswer": {"@type": "Answer", "text": "Your modified adjusted gross income (MAGI) — adjusted gross income plus tax-exempt interest — from your federal tax return two years prior. Your 2026 IRMAA is based on your 2024 return."}},
-    {"@type": "Question", "name": "What is the IRMAA income limit for 2026?", "acceptedAnswer": {"@type": "Answer", "text": "The surcharge begins above $109,000 in 2024 MAGI for single filers and $218,000 for married couples filing jointly. Higher tiers apply at higher incomes, up to a top tier at $500,000 for single filers and $750,000 for joint filers."}},
+    {"@type": "Question", "name": "What income is IRMAA based on?", "acceptedAnswer": {"@type": "Answer", "text": "Your modified adjusted gross income (MAGI) — adjusted gross income plus tax-exempt interest — from your federal tax return two years prior. Your 2027 IRMAA is based on your 2025 return."}},
+    {"@type": "Question", "name": "What is the IRMAA income limit for 2027?", "acceptedAnswer": {"@type": "Answer", "text": "The surcharge begins above $112,000 in 2025 MAGI for single filers and $224,000 for married couples filing jointly. Higher tiers apply at higher incomes, up to a top tier at $500,000 for single filers and $750,000 for joint filers."}},
     {"@type": "Question", "name": "Can I appeal IRMAA?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. If your income dropped due to a life-changing event such as retirement, marriage, divorce, or the death of a spouse, file Form SSA-44 and Social Security can recalculate your surcharge using your current income."}},
     {"@type": "Question", "name": "Does IRMAA apply to Medicare Advantage plans?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. IRMAA is charged on your Part B premium and as a separate Part D amount regardless of whether you choose Original Medicare, a Medicare Supplement, or a Medicare Advantage plan."}},
     {"@type": "Question", "name": "Is IRMAA permanent?", "acceptedAnswer": {"@type": "Answer", "text": "No. It is recalculated every year based on the tax return from two years prior. If your income falls below the thresholds, the surcharge goes away in the corresponding year."}}

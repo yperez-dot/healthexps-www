@@ -615,10 +615,10 @@ function calcPenalty(){
   if(part==='B'){
     var years=Math.floor(months/12);
     var pct=years*10;
-    var base=202.90;
+    var base=209.40;
     var extra=(base*pct/100);
     title.textContent='Penalidad estimada Parte B: +'+pct+'% de por vida';
-    desc.innerHTML='Por '+months+' meses (~'+years+' año'+(years===1?'':'s')+') de retraso, su prima Parte B sube aproximadamente <strong>$'+extra.toFixed(2)+'/mes</strong> de por vida (sobre la prima base de $202.90). Ejemplo: 2 años = +20% ≈ $40.58/mes extra. <a href="#lead-form" style="color:#ff1090;font-weight:700;">Hable con una corredora →</a>';
+    desc.innerHTML='Por '+months+' meses (~'+years+' año'+(years===1?'':'s')+') de retraso, su prima Parte B sube aproximadamente <strong>$'+extra.toFixed(2)+'/mes</strong> de por vida (sobre la prima base de $209.40). Ejemplo: 2 años = +20% ≈ $41.88/mes extra ($502.56/año). <a href="#lead-form" style="color:#ff1090;font-weight:700;">Hable con una corredora →</a>';
   } else {
     var pctD=months*1;
     var baseD=36.78;

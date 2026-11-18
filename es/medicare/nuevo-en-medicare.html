@@ -633,10 +633,10 @@ img { max-width: 100%; height: auto; }
 
         <div style="background:#f7f2fb;border-radius:14px;padding:20px 24px;margin-bottom:16px">
           <div style="font-weight:700;font-size:17px;color:#241a30;margin-bottom:6px">Ejemplo real: penalidad tardía de la Parte B</div>
-          <div style="font-size:16px;color:#4a4051;line-height:1.6">Si esperó 3 años para inscribirse en la Parte B sin tener cobertura calificada, pagará un 30% más en su prima de la Parte B para siempre — en 2026, eso sería $202.90 × 1.30 = $263.77/mes. Multiplicado por 20 años de jubilación, eso equivale a más de $14,600 extra.</div>
+          <div style="font-size:16px;color:#4a4051;line-height:1.6">Si esperó 3 años para inscribirse en la Parte B sin tener cobertura calificada, pagará un 30% más en su prima de la Parte B para siempre — en 2027, eso sería $209.40 × 1.30 = $272.22/mes. Multiplicado por 20 años de jubilación, eso equivale a más de $15,077 extra.</div>
         </div>
 
-        <p style="color:#5a5068;font-size:15px;line-height:1.6;margin:0 0 40px">Cifras 2026: prima estándar Parte B $202.90/mes · deducible Parte B $283/año · deducible Parte A $1,736 por período de beneficio (la mayoría no paga prima de Parte A si trabajó 10+ años).</p>
+        <p style="color:#5a5068;font-size:15px;line-height:1.6;margin:0 0 40px">Cifras 2027: prima estándar Parte B $209.40/mes · deducible Parte B $292/año · deducible Parte A $1,776 por período de beneficio (la mayoría no paga prima de Parte A si trabajó 10+ años).</p>
 
         <!-- PENALTY CALCULATOR -->
         <div class="ntm-penalty-calc" style="background:#452068;border-radius:20px;padding:32px;margin-bottom:48px">
@@ -689,7 +689,7 @@ img { max-width: 100%; height: auto; }
           </a>
           <a href="/es/irmaa-penalidades-medicare/" style="display:block;border:1px solid #ece5f0;border-radius:14px;padding:20px;transition:box-shadow .2s,transform .2s" onmouseover="this.style.boxShadow='0 8px 24px rgba(69,32,104,.12)';this.style.transform='translateY(-2px)'" onmouseout="this.style.boxShadow='none';this.style.transform='none'">
             <div style="font-weight:700;font-size:18px;color:#241a30;margin-bottom:6px">Costos de Medicare e IRMAA</div>
-            <div style="font-size:15px;color:#3a2f47;line-height:1.5">Primas, deducibles y recargos por ingresos para 2026.</div>
+            <div style="font-size:15px;color:#3a2f47;line-height:1.5">Primas, deducibles y recargos por ingresos para 2027.</div>
           </a>
           <a href="/es/medicare-advantage-miami" style="display:block;border:1px solid #ece5f0;border-radius:14px;padding:20px;transition:box-shadow .2s,transform .2s" onmouseover="this.style.boxShadow='0 8px 24px rgba(69,32,104,.12)';this.style.transform='translateY(-2px)'" onmouseout="this.style.boxShadow='none';this.style.transform='none'">
             <div style="font-weight:700;font-size:18px;color:#241a30;margin-bottom:6px">Planes Medicare Advantage</div>
@@ -993,10 +993,10 @@ img { max-width: 100%; height: auto; }
       var periods = Math.floor(months / 12);
       if (periods < 1) periods = 1; // minimum 1 period if they missed any time
       var pctPenalty = periods * 0.10;
-      var baseB = 202.90;
+      var baseB = 209.40;
       extraMonthly = baseB * pctPenalty;
       extraYearly = extraMonthly * 12;
-      note = 'Basado en la prima estándar Parte B 2026 de $202.90/mes · ' + (pctPenalty * 100).toFixed(0) + '% de penalidad permanente';
+      note = 'Basado en la prima estándar Parte B 2027 de $209.40/mes · ' + (pctPenalty * 100).toFixed(0) + '% de penalidad permanente';
     } else {
       // Part D: 1% of national base premium per month
       var baseD = 34.70;

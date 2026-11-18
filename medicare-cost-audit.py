@@ -15,25 +15,26 @@ from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
 import os
 
-# ── 2026 Official CMS Figures (update when CMS announces 2027 in Nov) ──────
+# ── 2027 Official CMS Figures (CMS fact sheet 11.17.2026) ──────────────────
+# https://www.cms.gov/newsroom/fact-sheets/2027-medicare-parts-b-premiums-deductibles
 CORRECT_VALUES = {
-    "Part B premium":        "$202.90",
-    "Part B deductible":     "$283",
-    "Part A deductible":     "$1,736",
-    "Part A days 61-90":     "$434",
-    "Lifetime reserve":      "$868",
-    "SNF days 21-100":       "$217",
-    "IRMAA Tier 2 (Part B)": "$284.10",
-    "IRMAA Tier 3 (Part B)": "$405.80",
-    "IRMAA Tier 4 (Part B)": "$527.50",
-    "IRMAA Tier 5 (Part B)": "$649.20",
-    "IRMAA Tier 6 (Part B)": "$689.90",
-    "Part D IRMAA Tier 2":   "$14.50",
-    "Part D IRMAA Tier 3":   "$37.50",
-    "Part D IRMAA Tier 4":   "$60.40",
-    "Part D IRMAA Tier 5":   "$83.30",
-    "Part D IRMAA Tier 6":   "$91.00",
-    "IRMAA threshold indiv": "$109,000",
+    "Part B premium":        "$209.40",
+    "Part B deductible":     "$292",
+    "Part A deductible":     "$1,776",
+    "Part A days 61-90":     "$444",
+    "Lifetime reserve":      "$888",
+    "SNF days 21-100":       "$222",
+    "IRMAA Tier 2 (Part B)": "$293.10",
+    "IRMAA Tier 3 (Part B)": "$418.80",
+    "IRMAA Tier 4 (Part B)": "$544.40",
+    "IRMAA Tier 5 (Part B)": "$670.00",
+    "IRMAA Tier 6 (Part B)": "$711.80",
+    "Part D IRMAA Tier 2":   "$15.40",
+    "Part D IRMAA Tier 3":   "$39.70",
+    "Part D IRMAA Tier 4":   "$64.00",
+    "Part D IRMAA Tier 5":   "$88.30",
+    "Part D IRMAA Tier 6":   "$96.40",
+    "IRMAA threshold indiv": "$112,000",
 }
 
 # ── Pages to audit ───────────────────────────────────────────────────────────
@@ -51,19 +52,25 @@ PAGES = [
     "https://thei-agent-hub.netlify.app/home.html",
 ]
 
-# ── Old values to flag (previous year figures that shouldn't appear) ─────────
+# ── Old values to flag (previous year figures that shouldn't appear unlabeled)
 STALE_VALUES = [
+    "$202.90",  # 2026 Part B premium (now $209.40)
+    "$283",     # 2026 Part B deductible (now $292)
+    "$1,736",   # 2026 Part A deductible (now $1,776)
+    "$434",     # 2026 Part A days 61-90 (now $444)
+    "$868",     # 2026 lifetime reserve (now $888)
+    "$217",     # 2026 SNF days 21-100 (now $222)
     "$185",     # 2025 Part B premium
-    "$257",     # 2025 Part B deductible (now $283 in 2026)
-    "$1,676",   # 2025 Part A deductible (now $1,736 in 2026)
-    "$419",     # 2025 Part A days 61-90 (now $434)
-    "$838",     # 2025 lifetime reserve (now $868)
-    "$209.50",  # 2025 SNF (now $217)
-    "$13.70",   # 2025 Part D Tier 2 (now $14.50)
-    "$35.30",   # 2025 Part D Tier 3 (now $37.50)
-    "$57.00",   # 2025 Part D Tier 4 (now $60.40)
-    "$78.60",   # 2025 Part D Tier 5 (now $83.30)
-    "$85.80",   # 2025 Part D Tier 6 (now $91.00)
+    "$257",     # 2025 Part B deductible
+    "$1,676",   # 2025 Part A deductible
+    "$419",     # 2025 Part A days 61-90
+    "$838",     # 2025 lifetime reserve
+    "$209.50",  # 2025 SNF
+    "$13.70",   # 2025 Part D IRMAA Tier 2
+    "$35.30",   # 2025 Part D IRMAA Tier 3
+    "$57.00",   # 2025 Part D IRMAA Tier 4
+    "$78.60",   # 2025 Part D IRMAA Tier 5
+    "$85.80",   # 2025 Part D IRMAA Tier 6
 ]
 
 def fetch_page(url):
@@ -89,7 +96,7 @@ def audit():
                 # Find context around the match
                 idx = text.find(stale)
                 context = text[max(0,idx-50):idx+80].strip()
-                if '2025' not in context and '2024' not in context and '2023' not in context:
+                if '2026' not in context and '2025' not in context and '2024' not in context and '2023' not in context:
                     issues.append(f"⚠️  Stale value {stale} found on {url}\n   Context: ...{context}...")
     return issues
 
@@ -110,7 +117,7 @@ def send_alert(issues):
 
     body = "The automated Medicare cost audit found the following issues:\n\n"
     body += "\n\n".join(issues)
-    body += "\n\n---\nFix: Update the values in the healthexps-www repo to the correct 2026 (or current year) CMS figures.\n"
+    body += "\n\n---\nFix: Update the values in the healthexps-www repo to the correct 2027 (or current year) CMS figures.\n"
     body += "CMS announces new rates each November at: cms.gov/newsroom/fact-sheets\n"
     body += "\nReference: igor-resources-hub-task-brief.md"
 

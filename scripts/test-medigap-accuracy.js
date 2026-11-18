@@ -18,16 +18,16 @@ function assertNotIncludes(haystack, needle, msg) {
 }
 
 /* Official CMS amounts used in this PR. */
-assert.strictEqual(M.PART_B_YEAR, 2026);
-assert.strictEqual(M.PART_B_PREMIUM_MONTHLY, 202.9);
-assert.strictEqual(M.PART_B_DEDUCTIBLE_ANNUAL, 283);
+assert.strictEqual(M.PART_B_YEAR, 2027);
+assert.strictEqual(M.PART_B_PREMIUM_MONTHLY, 209.4);
+assert.strictEqual(M.PART_B_DEDUCTIBLE_ANNUAL, 292);
 assert.strictEqual(M.HD_G_DEDUCTIBLE_2026, 2950);
 assert.strictEqual(M.HD_G_DEDUCTIBLE_2027, 3050);
 assert.strictEqual(M.PLAN_K_OOP_2026, 8000);
 assert.strictEqual(M.PLAN_L_OOP_2026, 4000);
 assert.strictEqual(M.PLAN_K_OOP_2027, 8360);
 assert.strictEqual(M.PLAN_L_OOP_2027, 4180);
-assert.strictEqual(M.HD_USAGE_OOP.high, 2950, "calculator HD high-usage OOP stays on 2026 HDG");
+assert.strictEqual(M.HD_USAGE_OOP.high, 3050, "labeled 2027 all-in uses 2027 HDG");
 assert.strictEqual(M.DEFAULT_PREMIUMS_BY_AGE[65].G, 337);
 assert.strictEqual(M.DEFAULT_PREMIUMS_BY_AGE[65].N, 260);
 assert.strictEqual(M.DEFAULT_PREMIUMS_BY_AGE[65].HD, 80);
@@ -42,16 +42,16 @@ assert.strictEqual(M.annualFromMonthly(337), 4044);
 assert.strictEqual(M.premiumDiffVsG(337, 260, 12), (337 - 260) * 12);
 assert.strictEqual(M.premiumDiffVsG(null, 260, 12), null);
 
-/* Fair G vs N slider: both pay Part B deductible; N adds copays; no $283 cap. */
+/* Fair G vs N slider: both pay Part B deductible; N adds copays; no extra cap. */
 const zero = M.gnSliderCosts(0);
-assert.strictEqual(zero.g, 283);
-assert.strictEqual(zero.n, 283);
+assert.strictEqual(zero.g, 292);
+assert.strictEqual(zero.n, 292);
 const six = M.gnSliderCosts(6);
-assert.strictEqual(six.g, 283);
-assert.strictEqual(six.n, 403);
+assert.strictEqual(six.g, 292);
+assert.strictEqual(six.n, 412);
 const twelve = M.gnSliderCosts(12);
-assert.strictEqual(twelve.n, 283 + 240);
-assert.notStrictEqual(twelve.n, 283);
+assert.strictEqual(twelve.n, 292 + 240);
+assert.notStrictEqual(twelve.n, 292);
 
 /* Per-plan quote replacement throughout 20-year projection. */
 const estimates = M.resolvePremiums(65, {});
@@ -79,7 +79,7 @@ const allEntered = M.resolvePremiums(70, { G: "1", N: "2", HD: "3" });
 assert.deepStrictEqual(allEntered.premiums, { G: 1, N: 2, HD: 3 });
 assert.strictEqual(M.sourceCounts(allEntered.sources).entered, 3);
 
-/* Live pages: 2027 HDG/K/L informational display, 2026 Part B labeled. */
+/* Live pages: 2027 HDG/K/L informational display, 2027 Part B labeled. */
 const enService = read("medicare-supplement-miami.html");
 const esService = read("es/medicare-suplementario-miami.html");
 const enCalc = read("medigap-plan-calculator.html");
@@ -94,8 +94,8 @@ assertIncludes(enService, "Out-of-pocket limit (2027)");
 assertIncludes(enService, "$8,360");
 assertIncludes(enService, "$4,180");
 assertIncludes(enService, "$3,050 deductible before coverage kicks in (CMS, 2027)");
-assertIncludes(enService, "2027 Part B premium and deductible are not yet announced");
-assertIncludes(enService, "$283 Part B deductible (2026)");
+assertIncludes(enService, "Part B deductible ($292, 2027)");
+assertNotIncludes(enService, "not yet announced");
 assertNotIncludes(enService, "Out-of-pocket limit (2026)");
 assert.strictEqual((enService.match(/\$8,360/g) || []).length > 0, true);
 
@@ -104,8 +104,8 @@ assertIncludes(esService, "$8,360");
 assertIncludes(esService, "$4,180");
 assertIncludes(esService, "$3,050");
 assertIncludes(esService, "CMS, 2027");
-assertIncludes(esService, "Parte B de 2027 aún no están anunciados");
-assertIncludes(esService, "$283 (2026)");
+assertIncludes(esService, "$292 (2027)");
+assertNotIncludes(esService, "aún no están anunciados");
 assertNotIncludes(esService, "Límite de gastos de bolsillo (2026)");
 
 /* EN calculator: premium-only quote compare, no 2027 mixed total. */
@@ -119,11 +119,14 @@ assertIncludes(enCalc, 'value="260"');
 assertIncludes(enCalc, 'value="80"');
 assertIncludes(enCalc, "Reset sample estimates");
 assertIncludes(enCalc, "$3,050");
-assertIncludes(enCalc, "does not produce a 2027 total");
-assertIncludes(enCalc, "2027 Part B deductible is not yet announced");
+assertIncludes(enCalc, "Labeled 2027 all-in");
+assertIncludes(enCalc, "$209.40");
+assertIncludes(enCalc, "$292 in 2027");
+assertNotIncludes(enCalc, "does not produce a 2027 total");
+assertNotIncludes(enCalc, "not yet announced");
 assertIncludes(enCalc, "not treated as $0");
 assertIncludes(enCalc, "Florida has no Medigap birthday rule");
-assertIncludes(enCalc, "Medigap Cost Calculator Florida 2026");
+assertIncludes(enCalc, "Medigap Cost Calculator Florida 2027");
 assertIncludes(enCalc, '<link rel="canonical" href="https://www.healthexps.com/medigap-plan-calculator/">');
 assertIncludes(enCalc, '<script src="/js/medigap-cost-model.js"></script>');
 assertNotIncludes(enCalc, 'name="robots"');
@@ -153,10 +156,14 @@ assertIncludes(esCalc, 'value="260"');
 assertIncludes(esCalc, 'value="80"');
 assertIncludes(esCalc, "Restablecer estimados de muestra");
 assertIncludes(esCalc, "$3,050");
-assertIncludes(esCalc, "no produce un total de 2027");
+assertIncludes(esCalc, "Total combinado 2027");
+assertIncludes(esCalc, "$209.40");
+assertIncludes(esCalc, "$292 en 2027");
+assertNotIncludes(esCalc, "no produce un total de 2027");
+assertNotIncludes(esCalc, "aún no están anunciados");
 assertIncludes(esCalc, "máximo de gastos de bolsillo");
 assertIncludes(esCalc, "Florida no tiene regla de cumpleaños");
-assertIncludes(esCalc, "Calculadora Medigap Florida 2026");
+assertIncludes(esCalc, "Calculadora Medigap Florida 2027");
 assertIncludes(esCalc, '<link rel="canonical" href="https://www.healthexps.com/es/calculadora-medigap/">');
 assertIncludes(esCalc, '<script src="/js/medigap-cost-model.js"></script>');
 assertIncludes(esCalc, 'id="qcMonth" class="on"');

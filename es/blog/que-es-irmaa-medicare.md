@@ -2,27 +2,27 @@
 layout: layouts/blog-post-es.njk
 category: "Medicare"
 title: "Qué es IRMAA y cómo evitar el recargo de Medicare"
-description: "IRMAA puede añadir cientos de dólares al mes a sus primas de Medicare según sus ingresos de hace dos años. Conozca los niveles 2026 y la apelación SSA-44."
+description: "IRMAA puede añadir cientos de dólares al mes a sus primas de Medicare según sus ingresos de hace dos años. Conozca los niveles 2027 y la apelación SSA-44."
 date: 2026-07-29
 lang: es
 hreflang_en: what-is-irmaa-avoid-medicare-surcharge
 permalink: /es/blog/que-es-irmaa-medicare/
 ---
 
-<!-- META TITLE (57): Qué es IRMAA: Niveles 2026 y Cómo Evitar el Recargo -->
-<!-- META DESCRIPTION (157): IRMAA añade cientos de dólares al mes a las primas de Medicare — según sus ingresos de hace 2 años. Vea los niveles 2026 y la apelación SSA-44. Ayuda gratis. -->
+<!-- META TITLE (57): Qué es IRMAA: Niveles 2027 y Cómo Evitar el Recargo -->
+<!-- META DESCRIPTION (157): IRMAA añade cientos de dólares al mes a las primas de Medicare — según sus ingresos de hace 2 años. Vea los niveles 2027 y la apelación SSA-44. Ayuda gratis. -->
 
 # Qué es IRMAA y cómo evitar el recargo de Medicare
 
-Te jubilas, te inscribes en Medicare, y entonces llega una carta del Seguro Social diciendo que tu prima de la Parte B no será los $202.90 estándar al mes — serán cientos de dólares más. Bienvenido a **IRMAA**: el Monto de Ajuste Mensual Relacionado con los Ingresos, el recargo de Medicare para quienes ganan más.
+Usted se jubila, se inscribe en Medicare, y entonces llega una carta del Seguro Social diciendo que su prima de la Parte B no será los $209.40 estándar al mes — serán cientos de dólares más. Bienvenido a **IRMAA**: el Monto de Ajuste Mensual Relacionado con los Ingresos, el recargo de Medicare para quienes ganan más.
 
-Lo que sorprende a casi todo el mundo: **IRMAA se basa en tus ingresos de hace dos años.** Tus primas de 2026 se calculan con tu declaración de impuestos de 2024 — que muchas veces fue tu último año completo de sueldo. Jubilarse es exactamente cuando más duro golpea, y también cuando tienes el mejor caso para pelearlo.
+Lo que sorprende a casi todo el mundo: **IRMAA se basa en sus ingresos de hace dos años.** Sus primas de 2027 se calculan con su declaración de impuestos de 2025 — que muchas veces fue su último año completo de sueldo. Jubilarse es exactamente cuando más duro golpea, y también cuando tiene el mejor caso para pelearlo.
 
 ## Cómo funciona IRMAA
 
-Cada otoño, el Seguro Social revisa el ingreso bruto ajustado modificado (MAGI) de tu declaración de hace dos años. Aquí, el MAGI es tu ingreso bruto ajustado **más los intereses exentos de impuestos** — sí, los intereses de bonos municipales cuentan. Si superas el límite, pagas un recargo sobre tu prima de la Parte B *y* un recargo separado sobre tu cobertura de medicamentos Parte D. En un matrimonio, cada cónyuge lo paga por separado.
+Cada otoño, el Seguro Social revisa el ingreso bruto ajustado modificado (MAGI) de su declaración de hace dos años. Aquí, el MAGI es su ingreso bruto ajustado **más los intereses exentos de impuestos** — sí, los intereses de bonos municipales cuentan. Si supera el límite, paga un recargo sobre su prima de la Parte B *y* un recargo separado sobre su cobertura de medicamentos Parte D. En un matrimonio, cada cónyuge lo paga por separado.
 
-Para 2026, el primer nivel de IRMAA comienza en $109,000 para una persona que declara sola y $218,000 para una declaración conjunta, según los ingresos de 2024.
+Para 2027, el primer nivel de IRMAA comienza en $112,000 para una persona que declara sola y $224,000 para una declaración conjunta, según los ingresos de 2025.
 
 <style>
 .irmaa-table { table-layout: fixed; }
@@ -30,32 +30,32 @@ Para 2026, el primer nivel de IRMAA comienza en $109,000 para una persona que de
 </style>
 <table class="irmaa-table">
 <thead><tr>
-<th>MAGI 2024 (individual)</th>
-<th>MAGI 2024 (conjunta)</th>
-<th>Prima Parte B 2026 (total)</th>
-<th>IRMAA Parte D (se suma a la prima de tu plan)</th>
+<th>MAGI 2025 (individual)</th>
+<th>MAGI 2025 (conjunta)</th>
+<th>Prima Parte B 2027 (total)</th>
+<th>IRMAA Parte D (se suma a la prima de su plan)</th>
 </tr></thead>
 <tbody>
-<tr><td>$109,000 o menos</td><td>$218,000 o menos</td><td>$202.90</td><td>$0</td></tr>
-<tr><td>$109,001 – $137,000</td><td>$218,001 – $274,000</td><td>$284.10</td><td>+$14.50</td></tr>
-<tr><td>$137,001 – $171,000</td><td>$274,001 – $342,000</td><td>$405.80</td><td>+$37.50</td></tr>
-<tr><td>$171,001 – $205,000</td><td>$342,001 – $410,000</td><td>$527.50</td><td>+$60.40</td></tr>
-<tr><td>$205,001 – $499,999</td><td>$410,001 – $749,999</td><td>$649.20</td><td>+$83.30</td></tr>
-<tr><td>$500,000 o más</td><td>$750,000 o más</td><td>$689.90</td><td>+$91.00</td></tr>
+<tr><td>$112,000 o menos</td><td>$224,000 o menos</td><td>$209.40</td><td>$0</td></tr>
+<tr><td>$112,001 – $141,000</td><td>$224,001 – $282,000</td><td>$293.10</td><td>+$15.40</td></tr>
+<tr><td>$141,001 – $177,000</td><td>$282,001 – $354,000</td><td>$418.80</td><td>+$39.70</td></tr>
+<tr><td>$177,001 – $212,000</td><td>$354,001 – $424,000</td><td>$544.40</td><td>+$64.00</td></tr>
+<tr><td>$212,001 – $499,999</td><td>$424,001 – $749,999</td><td>$670.00</td><td>+$88.30</td></tr>
+<tr><td>$500,000 o más</td><td>$750,000 o más</td><td>$711.80</td><td>+$96.40</td></tr>
 </tbody>
 </table>
 <div style="background:#fff7ec;border-left:4px solid #c40074;padding:16px 20px;margin:20px 0;border-radius:0 8px 8px 0;">
-<p style="font-weight:700;font-size:15px;color:#241a30;margin:0 0 8px;">⚠️ ¿Casado pero declaraste por separado? Tu IRMAA funciona diferente.</p>
-<p style="font-size:15px;color:#5a4a2f;line-height:1.65;margin:0 0 10px;">Si viviste con tu cónyuge en algún momento del año pero presentaste tu declaración de impuestos por separado, no hay escalones graduales — con ingresos superiores a $109,000 pagarías <strong>$649.20 al mes</strong>, y por encima de $391,000 llega al nivel máximo: <strong>$689.90 al mes</strong>. No hay puntos intermedios.</p>
+<p style="font-weight:700;font-size:15px;color:#241a30;margin:0 0 8px;">⚠️ ¿Casado pero declaró por separado? Su IRMAA funciona diferente.</p>
+<p style="font-size:15px;color:#5a4a2f;line-height:1.65;margin:0 0 10px;">Si vivió con su cónyuge en algún momento del año pero presentó su declaración de impuestos por separado, no hay escalones graduales — con ingresos superiores a $112,000 pagaría <strong>$670.00 al mes</strong>, y por encima de $388,000 llega al nivel máximo: <strong>$711.80 al mes</strong>. No hay puntos intermedios.</p>
 <p style="font-size:13.5px;color:#7a6a4f;margin:0;">Fuente: <a href="https://secure.ssa.gov/poms.nsf/lnx/0601101020" target="_blank" rel="noopener" style="color:#452068;font-weight:600;">SSA POMS HI 01101.020</a></p>
 </div>
 
 
-El IRMAA de la Parte D añade un monto adicional según los ingresos, de $14.50 a $91.00 al mes, que se paga directamente a Medicare — aunque la prima de tu plan de medicamentos sea $0.
+El IRMAA de la Parte D añade un monto adicional según los ingresos, de $15.40 a $96.40 al mes, que se paga directamente a Medicare — aunque la prima de su plan de medicamentos sea $0.
 
 ## Lo más importante: IRMAA es un precipicio, no una cuesta
 
-Si te pasas del límite por **un solo dólar**, pagas el recargo completo de ese nivel durante todo el año. Un ingreso de $109,001 y uno de $109,000 pueden significar una diferencia de más de mil dólares al año en primas de Medicare. Por eso, planificar IRMAA es en realidad planificar *el momento de tus ingresos*.
+Si te pasas del límite por **un solo dólar**, pagas el recargo completo de ese nivel durante todo el año. Un ingreso de $112,001 y uno de $112,000 pueden significar una diferencia de más de mil dólares al año en primas de Medicare. Por eso, planificar IRMAA es en realidad planificar *el momento de tus ingresos*.
 
 ## Cómo apelar una decisión de IRMAA: el Formulario SSA-44
 
@@ -67,7 +67,7 @@ Si tus ingresos **bajaron desde aquella declaración de hace dos años por un ev
 - Pérdida o reducción de una pensión
 - Un pago de liquidación del empleador
 
-¿Te jubilaste en 2025 o 2026 pero te están cobrando según tu salario de 2024? Ese es el caso clásico del SSA-44. Nosotros acompañamos a nuestros clientes en este trámite con frecuencia — trae tu carta a [una cita gratuita](/es/reservar) y la revisamos juntos.
+¿Se jubiló en 2026 o 2027 pero le están cobrando según su salario de 2025? Ese es el caso clásico del SSA-44. Nosotros acompañamos a nuestros clientes en este trámite con frecuencia — trae tu carta a [una cita gratuita](/es/reservar) y la revisamos juntos.
 
 Algo que el SSA-44 *no* cubre: un pico de ingresos de una sola vez (una ganancia de capital grande, una conversión Roth grande, un retiro de suma global). Esos no son "eventos que cambian la vida" — y por eso importa la planificación de abajo.
 
@@ -92,10 +92,10 @@ IRMAA no es un castigo por hacer algo mal — es una prima según los ingresos, 
 ## Preguntas frecuentes
 
 **¿En qué ingresos se basa IRMAA?**
-En tu ingreso bruto ajustado modificado (MAGI) — el ingreso bruto ajustado más los intereses exentos de impuestos — de tu declaración federal de hace dos años. Tu IRMAA de 2026 se basa en tu declaración de 2024.
+En su ingreso bruto ajustado modificado (MAGI) — el ingreso bruto ajustado más los intereses exentos de impuestos — de su declaración federal de hace dos años. Su IRMAA de 2027 se basa en su declaración de 2025.
 
-**¿Cuál es el límite de ingresos de IRMAA para 2026?**
-El recargo comienza por encima de $109,000 de MAGI de 2024 para declarantes individuales y $218,000 para matrimonios que declaran juntos. Hay niveles más altos según el ingreso, hasta un nivel máximo en $500,000/$750,000.
+**¿Cuál es el límite de ingresos de IRMAA para 2027?**
+El recargo comienza por encima de $112,000 de MAGI de 2025 para declarantes individuales y $224,000 para matrimonios que declaran juntos. Hay niveles más altos según el ingreso, hasta un nivel máximo en $500,000/$750,000.
 
 **¿Puedo apelar IRMAA?**
 Sí. Si tus ingresos bajaron por un evento que cambió tu vida, como la jubilación, el matrimonio, el divorcio o el fallecimiento del cónyuge, presenta el Formulario SSA-44 y el Seguro Social puede recalcular tu recargo con tu ingreso actual.
@@ -112,8 +112,8 @@ No. Se recalcula cada año según la declaración de impuestos de hace dos años
   "@type": "FAQPage",
   "inLanguage": "es",
   "mainEntity": [
-    {"@type": "Question", "name": "¿En qué ingresos se basa IRMAA?", "acceptedAnswer": {"@type": "Answer", "text": "En tu ingreso bruto ajustado modificado (MAGI), es decir el ingreso bruto ajustado más los intereses exentos de impuestos, de tu declaración federal de hace dos años. Tu IRMAA de 2026 se basa en tu declaración de 2024."}},
-    {"@type": "Question", "name": "¿Cuál es el límite de ingresos de IRMAA para 2026?", "acceptedAnswer": {"@type": "Answer", "text": "El recargo comienza por encima de $109,000 de MAGI de 2024 para declarantes individuales y $218,000 para matrimonios que declaran juntos. Hay niveles más altos según el ingreso, hasta un nivel máximo en $500,000 para individuales y $750,000 para conjuntas."}},
+    {"@type": "Question", "name": "¿En qué ingresos se basa IRMAA?", "acceptedAnswer": {"@type": "Answer", "text": "En su ingreso bruto ajustado modificado (MAGI), es decir el ingreso bruto ajustado más los intereses exentos de impuestos, de su declaración federal de hace dos años. Su IRMAA de 2027 se basa en su declaración de 2025."}},
+    {"@type": "Question", "name": "¿Cuál es el límite de ingresos de IRMAA para 2027?", "acceptedAnswer": {"@type": "Answer", "text": "El recargo comienza por encima de $112,000 de MAGI de 2025 para declarantes individuales y $224,000 para matrimonios que declaran juntos. Hay niveles más altos según el ingreso, hasta un nivel máximo en $500,000 para individuales y $750,000 para conjuntas."}},
     {"@type": "Question", "name": "¿Puedo apelar IRMAA?", "acceptedAnswer": {"@type": "Answer", "text": "Sí. Si tus ingresos bajaron por un evento que cambió tu vida, como la jubilación, el matrimonio, el divorcio o el fallecimiento del cónyuge, presenta el Formulario SSA-44 y el Seguro Social puede recalcular tu recargo con tu ingreso actual."}},
     {"@type": "Question", "name": "¿IRMAA aplica a los planes Medicare Advantage?", "acceptedAnswer": {"@type": "Answer", "text": "Sí. IRMAA se cobra sobre tu prima de la Parte B y como un monto separado de la Parte D, sin importar si eliges Medicare Original, un Suplemento o un plan Medicare Advantage."}},
     {"@type": "Question", "name": "¿IRMAA es permanente?", "acceptedAnswer": {"@type": "Answer", "text": "No. Se recalcula cada año según la declaración de impuestos de hace dos años. Si tus ingresos bajan de los límites, el recargo desaparece en el año correspondiente."}}

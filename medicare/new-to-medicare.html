@@ -605,7 +605,7 @@ img { max-width: 100%; height: auto; }
 
         <div style="background:#f7f2fb;border-radius:14px;padding:20px 24px;margin-bottom:40px">
           <div style="font-weight:700;font-size:17px;color:#241a30;margin-bottom:6px">Real example — Part B late penalty</div>
-          <div style="font-size:16px;color:#4a4051;line-height:1.6">If you waited 2 years past your eligibility date without qualifying coverage, your Part B penalty would be 20% added to your premium permanently. At the 2026 standard premium of $202.90/month, that's an extra $40.58/month — $487/year — for life.</div>
+          <div style="font-size:16px;color:#4a4051;line-height:1.6">If you waited 2 years past your eligibility date without qualifying coverage, your Part B penalty would be 20% added to your premium permanently. At the 2027 standard premium of $209.40/month, that's an extra $41.88/month — $502.56/year — for life.</div>
         </div>
 
         <!-- PENALTY CALCULATOR -->
@@ -656,7 +656,7 @@ img { max-width: 100%; height: auto; }
           </a>
           <a href="/medicare-irmaa-penalties" style="display:block;border:1px solid #ece5f0;border-radius:14px;padding:20px;transition:box-shadow .2s,transform .2s" onmouseover="this.style.boxShadow='0 8px 24px rgba(69,32,104,.12)';this.style.transform='translateY(-2px)'" onmouseout="this.style.boxShadow='none';this.style.transform='none'">
             <div style="font-weight:700;font-size:18px;color:#241a30;margin-bottom:6px">Medicare Costs &amp; IRMAA</div>
-            <div style="font-size:15px;color:#3a2f47;line-height:1.5">Premiums, deductibles, and income-based surcharges for 2026.</div>
+            <div style="font-size:15px;color:#3a2f47;line-height:1.5">Premiums, deductibles, and income-based surcharges for 2027.</div>
           </a>
           <a href="/medicare-advantage-miami" style="display:block;border:1px solid #ece5f0;border-radius:14px;padding:20px;transition:box-shadow .2s,transform .2s" onmouseover="this.style.boxShadow='0 8px 24px rgba(69,32,104,.12)';this.style.transform='translateY(-2px)'" onmouseout="this.style.boxShadow='none';this.style.transform='none'">
             <div style="font-weight:700;font-size:18px;color:#241a30;margin-bottom:6px">Medicare Advantage Plans</div>
@@ -934,10 +934,10 @@ img { max-width: 100%; height: auto; }
       var periods = Math.floor(months / 12);
       if (periods < 1) periods = 1; // minimum 1 period if they missed any time
       var pctPenalty = periods * 0.10;
-      var baseB = 202.90;
+      var baseB = 209.40;
       extraMonthly = baseB * pctPenalty;
       extraYearly = extraMonthly * 12;
-      note = 'Based on 2026 Part B standard premium of $202.90/mo · ' + (pctPenalty * 100).toFixed(0) + '% permanent penalty';
+      note = 'Based on 2027 Part B standard premium of $209.40/mo · ' + (pctPenalty * 100).toFixed(0) + '% permanent penalty';
     } else {
       // Part D: 1% of national base premium per month
       var baseD = 34.70;
